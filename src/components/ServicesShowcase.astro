@@ -109,16 +109,15 @@ const caseLogos: Record<string, string> = {
   }
 
   .scroll-stack-inner {
-    padding: 0 0 16rem;
-    min-height: 100vh;
+    padding: 0 0 20rem;
     position: relative;
-    z-index: 1;
   }
 
   .scroll-stack-card {
     transform-origin: top center;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
   }
 
   .scroll-stack-end {
@@ -321,7 +320,7 @@ const caseLogos: Record<string, string> = {
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .scroll-stack-inner {
-      padding-bottom: 28rem;
+      padding-bottom: 0;
     }
 
     .ssc-body {
