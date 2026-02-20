@@ -41,11 +41,12 @@ const servicePromos = {
   },
 };
 
-export default function ServiceScrollCards({ services, casesByService, caseLogos = {}, lang }) {
+export default function ServiceScrollCards({ services, casesByService, caseLogos = {}, lang, ctaTitle, ctaSubtitle, ctaButton }) {
   const viewServiceLabel = lang === 'es' ? 'Ver servicio' : 'View service';
   const casesLabel = lang === 'es' ? 'Casos de éxito' : 'Success stories';
 
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768);
     check();
@@ -55,92 +56,106 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
 
   return (
     <ScrollStack
-      useWindowScroll
-      itemDistance={isMobile ? 10 : 80}
-      itemStackDistance={32}
-      stackPosition={isMobile ? '15%' : '20%'}
-    >
-      {services.map((service) => {
-        const cases = casesByService[service.id] || [];
-        const maxVisible = 4;
-        const visible = cases.slice(0, maxVisible);
-        const remaining = cases.length - maxVisible;
-        const hasCases = cases.length > 0;
-        const stats = serviceStats[lang]?.[service.id] || serviceStats.es?.[service.id];
-        const promo = servicePromos[lang]?.[service.id] || servicePromos.es?.[service.id];
+        stackOffset={isMobile ? 8 : 12}
+        scaleFactor={0.04}
+        stackPosition={isMobile ? '15%' : '20%'}
+        itemDistance={isMobile ? 40 : 80}
+      >
+        {services.map((service) => {
+          const cases = casesByService[service.id] || [];
+          const maxVisible = 4;
+          const visible = cases.slice(0, maxVisible);
+          const remaining = cases.length - maxVisible;
+          const hasCases = cases.length > 0;
+          const stats = serviceStats[lang]?.[service.id] || serviceStats.es?.[service.id];
+          const promo = servicePromos[lang]?.[service.id] || servicePromos.es?.[service.id];
 
-        return (
-          <ScrollStackItem key={service.id}>
-            <div className="ssc-card">
-              <div className="ssc-body">
-                {/* Left: service info */}
-                <div className="ssc-info">
-                  <div className="ssc-info-top">
-                    <h3 className="ssc-title">{service.title}</h3>
-                    <p className="ssc-tagline">{service.tagline}</p>
-                  </div>
-                  <p className="ssc-description">{service.description}</p>
-                  <a href={`/${lang}/servicios/${service.id}`} className="btn-primary btn-arrow" style={{ marginTop: '2rem', alignSelf: 'flex-start' }}>
-                    {viewServiceLabel}
-                    <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                </div>
-
-                {/* Right: proof panel */}
-                <div className="ssc-proof">
-                  {hasCases ? (
-                    <>
-                      <span className="ssc-proof-label">{casesLabel}</span>
-                      <div className="ssc-proof-list">
-                        {visible.map((c) => (
-                          <a key={c.id} href={`/${lang}/servicios/${c.services?.[0] || 'desarrollo-a-medida'}#cases`} className="ssc-proof-item">
-                            {caseLogos[c.id] && (
-                              <img src={caseLogos[c.id]} alt={c.client} className="ssc-proof-logo" />
-                            )}
-                            <span className="ssc-proof-headline">{c.headline}</span>
-                          </a>
-                        ))}
-                        {remaining > 0 && (
-                          <a href={`/${lang}/servicios/${service.id}`} className="ssc-proof-item ssc-proof-more">
-                            <span>+{remaining} {lang === 'es' ? 'más' : 'more'}</span>
-                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          </a>
-                        )}
-                      </div>
-                    </>
-                  ) : promo ? (
-                    <div className="ssc-proof-promo !gap-8 md:!gap-16">
-                      <p className="ssc-proof-promo-headline text-2xl">{promo.headline}</p>
-                      <a href={`/${lang}/servicios/${service.id}#convocatorias`} className="btn-secondary btn-arrow">
-                        {promo.cta}
-                        <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </a>
+          return (
+            <ScrollStackItem key={service.id}>
+              <div className="ssc-card">
+                <div className="ssc-body">
+                  {/* Left: service info */}
+                  <div className="ssc-info">
+                    <div className="ssc-info-top">
+                      <h3 className="ssc-title">{service.title}</h3>
+                      <p className="ssc-tagline">{service.tagline}</p>
                     </div>
-                  ) : stats ? (
-                    <>
-                      <span className="ssc-proof-label">{stats.label}</span>
-                      <div className="ssc-proof-stats">
-                        {stats.items.map((s, i) => (
-                          <div key={i} className="ssc-proof-stat">
-                            <span className="ssc-proof-stat-value">{s.value}</span>
-                            <span className="ssc-proof-stat-label">{s.label}</span>
-                          </div>
-                        ))}
+                    <p className="ssc-description">{service.description}</p>
+                    <a href={`/${lang}/servicios/${service.id}`} className="btn-primary btn-arrow" style={{ marginTop: '2rem', alignSelf: 'flex-start' }}>
+                      {viewServiceLabel}
+                      <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+
+                  {/* Right: proof panel */}
+                  <div className="ssc-proof">
+                    {hasCases ? (
+                      <>
+                        <span className="ssc-proof-label">{casesLabel}</span>
+                        <div className="ssc-proof-list">
+                          {visible.map((c) => (
+                            <a key={c.id} href={`/${lang}/servicios/${c.services?.[0] || 'desarrollo-a-medida'}#cases`} className="ssc-proof-item">
+                              {caseLogos[c.id] && (
+                                <img src={caseLogos[c.id]} alt={c.client} className="ssc-proof-logo" />
+                              )}
+                              <span className="ssc-proof-headline">{c.headline}</span>
+                            </a>
+                          ))}
+                          {remaining > 0 && (
+                            <a href={`/${lang}/servicios/${service.id}`} className="ssc-proof-item ssc-proof-more">
+                              <span>+{remaining} {lang === 'es' ? 'más' : 'more'}</span>
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </a>
+                          )}
+                        </div>
+                      </>
+                    ) : promo ? (
+                      <div className="ssc-proof-promo !gap-8 md:!gap-16">
+                        <p className="ssc-proof-promo-headline text-2xl">{promo.headline}</p>
+                        <a href={`/${lang}/servicios/${service.id}#convocatorias`} className="btn-secondary btn-arrow">
+                          {promo.cta}
+                          <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </a>
                       </div>
-                    </>
-                  ) : null}
+                    ) : stats ? (
+                      <>
+                        <span className="ssc-proof-label">{stats.label}</span>
+                        <div className="ssc-proof-stats">
+                          {stats.items.map((s, i) => (
+                            <div key={i} className="ssc-proof-stat">
+                              <span className="ssc-proof-stat-value">{s.value}</span>
+                              <span className="ssc-proof-stat-label">{s.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    ) : null}
+                  </div>
                 </div>
               </div>
-            </div>
-          </ScrollStackItem>
-        );
-      })}
-    </ScrollStack>
+            </ScrollStackItem>
+          );
+        })}
+
+        {/* CTA: last card — service cards fade out as it arrives */}
+        <ScrollStackItem>
+          <div className="ssc-card ssc-cta">
+            <h3 className="ssc-cta-title">{ctaTitle}</h3>
+            <p className="ssc-cta-subtitle">{ctaSubtitle}</p>
+            <a href="#contact" className="btn-secondary btn-arrow">
+              {ctaButton}
+              <svg className="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </ScrollStackItem>
+      </ScrollStack>
   );
 }

@@ -42,87 +42,31 @@ const caseLogos: Record<string, string> = {
     <h2 class="section-title" set:html={t('showcase.title')} />
   </div>
 
-  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12 pb-16">
     <ServiceScrollCards
       client:visible
       services={services}
       casesByService={casesByService}
       caseLogos={caseLogos}
       lang={lang}
+      ctaTitle={t('showcase.cta.title')}
+      ctaSubtitle={t('showcase.cta.subtitle')}
+      ctaButton={t('showcase.cta.button')}
     />
-  </div>
-
-  <div class="w-full max-w-7xl mx-auto px-6 md:px-12 pb-16 relative z-10">
-    <div class="showcase-bottom-cta" id="showcase-cta">
-      <h3 class="showcase-bottom-title">{t('showcase.cta.title')}</h3>
-      <p class="showcase-bottom-subtitle">{t('showcase.cta.subtitle')}</p>
-      <a href="#contact" class="btn-secondary btn-arrow">
-        {t('showcase.cta.button')}
-        <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
   </div>
 </section>
 
-<script>
-  const cta = document.getElementById('showcase-cta');
-  if (cta) {
-    const title = cta.querySelector('.showcase-bottom-title');
-    const subtitle = cta.querySelector('.showcase-bottom-subtitle');
-    const button = cta.querySelector('.showcase-bottom-button');
-    const els = [title, subtitle, button].filter((el): el is HTMLElement => el instanceof HTMLElement);
-
-    els.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          els.forEach((el, i) => {
-            setTimeout(() => {
-              el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-              el.style.opacity = '1';
-              el.style.transform = 'translateY(0)';
-            }, i * 120);
-          });
-        } else {
-          els.forEach(el => {
-            el.style.transition = 'none';
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-
-    observer.observe(cta);
-  }
-</script>
-
 <style is:global>
   /* ── ScrollStack base ── */
-  .scroll-stack-scroller {
+  .scroll-stack-container {
     position: relative;
     width: 100%;
-    z-index: 1; /* stacking context — keeps card z-indices contained below CTA */
-  }
-
-  .scroll-stack-inner {
-    padding: 0 0 20rem;
-    position: relative;
   }
 
   .scroll-stack-card {
     transform-origin: top center;
     width: 100%;
     box-sizing: border-box;
-  }
-
-  .scroll-stack-end {
-    width: 100%;
-    height: 1px;
   }
 
   /* ── Service Card ── */
@@ -171,7 +115,6 @@ const caseLogos: Record<string, string> = {
     line-height: 1.7;
     margin-bottom: auto;
   }
-
 
   /* ── Right: Proof panel ── */
   .ssc-proof {
@@ -277,7 +220,6 @@ const caseLogos: Record<string, string> = {
     letter-spacing: 0.02em;
   }
 
-
   /* Stats in proof panel */
   .ssc-proof-stats {
     display: grid;
@@ -317,12 +259,35 @@ const caseLogos: Record<string, string> = {
     align-items: flex-start;
   }
 
+  /* ── CTA Card ── */
+  .ssc-cta {
+    background: #000;
+    color: #fff;
+    padding: 6rem 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+  }
+
+  .ssc-cta-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .ssc-cta-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 768px) {
-    .scroll-stack-inner {
-      padding-bottom: 20rem;
-    }
-
     .ssc-body {
       flex-direction: column;
       min-height: auto;
@@ -344,40 +309,14 @@ const caseLogos: Record<string, string> = {
     .ssc-proof-stats {
       grid-template-columns: 1fr 1fr;
     }
-  }
-</style>
 
-<style>
-  /* ── Bottom CTA ── */
-  .showcase-bottom-cta {
-    background: #000;
-    color: #fff;
-    padding: 3rem;
-    text-align: center;
-  }
-
-  .showcase-bottom-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .showcase-bottom-subtitle {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 500px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-  }
-
-
-  @media (max-width: 768px) {
-    .showcase-bottom-cta {
-      padding: 2rem 1.5rem;
+    .ssc-cta {
+      padding: 3rem 1.5rem;
+      min-height: 260px;
     }
 
-    .showcase-bottom-title {
-      font-size: 1.3rem;
+    .ssc-cta-title {
+      font-size: 1.5rem;
     }
   }
 </style>

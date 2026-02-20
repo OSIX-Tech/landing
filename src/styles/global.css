@@ -23,12 +23,12 @@ html {
   font-size: 100%; /* facilita el uso de rem */
   box-sizing: border-box;
   background-color: #0a0a0a;
+  overflow-x: clip; /* clip, NOT hidden — hidden creates a scroll container that breaks position:sticky */
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
-  overflow-x: hidden;
   background-color: #0a0a0a;
   color: var(--color-primary);
   line-height: 1.6;
