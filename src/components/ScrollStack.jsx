@@ -27,8 +27,9 @@ export default function ScrollStack({
   const cardsRef = useRef([]);
   const cardTopsRef = useRef([]);
   const lastTransformsRef = useRef(new Map());
-  const isUpdatingRef = useRef(false);
   const nativeScrollCleanupRef = useRef(null);
+  const endTopRef = useRef(0);
+  const lastWidthRef = useRef(0);
 
   const calculateProgress = useCallback((scrollTop, start, end) => {
     if (scrollTop < start) return 0;
@@ -45,71 +46,95 @@ export default function ScrollStack({
 
   const getScrollData = useCallback(() => {
     if (useWindowScroll) {
-      return {
-        scrollTop: window.scrollY,
-        containerHeight: window.innerHeight,
-        scrollContainer: document.documentElement,
-      };
+      return { scrollTop: window.scrollY, containerHeight: window.innerHeight };
     }
     const scroller = scrollerRef.current;
-    return {
-      scrollTop: scroller.scrollTop,
-      containerHeight: scroller.clientHeight,
-      scrollContainer: scroller,
-    };
+    return { scrollTop: scroller.scrollTop, containerHeight: scroller.clientHeight };
   }, [useWindowScroll]);
 
-  const endTopRef = useRef(0);
-  const lastWidthRef = useRef(0);
-
+  // Read natural card positions (before sticky kicks in) and apply sticky
   const cachePositions = useCallback(() => {
     const cards = cardsRef.current;
     if (!cards.length) return;
+
+    const containerHeight = window.innerHeight;
+    const stackPositionPx = parsePercentage(stackPosition, containerHeight);
+
+    // Temporarily remove sticky to read natural flow positions
     cards.forEach((card) => {
-      card.style.transform = 'none';
+      card.style.position = 'relative';
+      card.style.top = 'auto';
+      card.style.transform = '';
     });
+
     cardTopsRef.current = cards.map((card) => {
       const rect = card.getBoundingClientRect();
       return rect.top + window.scrollY;
     });
+
     const endEl = useWindowScroll
       ? document.querySelector('.scroll-stack-end')
       : scrollerRef.current?.querySelector('.scroll-stack-end');
     endTopRef.current = endEl
       ? endEl.getBoundingClientRect().top + window.scrollY
       : 0;
-    lastTransformsRef.current.clear();
-  }, [useWindowScroll]);
 
+    // Apply sticky positioning — browser handles pinning natively
+    cards.forEach((card, i) => {
+      card.style.position = 'sticky';
+      card.style.top = `${Math.round(stackPositionPx + itemStackDistance * i)}px`;
+      card.style.zIndex = `${i + 1}`;
+      card.style.transform = 'scale(1)';
+    });
+
+    lastTransformsRef.current.clear();
+  }, [useWindowScroll, stackPosition, itemStackDistance, parsePercentage]);
+
+  // Sticky handles pinning; JS handles scale + coordinated push-out
   const updateCardTransforms = useCallback(() => {
-    if (!cardsRef.current.length || isUpdatingRef.current) return;
-    if (!cardTopsRef.current.length) return;
-    isUpdatingRef.current = true;
+    if (!cardsRef.current.length || !cardTopsRef.current.length) return;
 
     const { scrollTop, containerHeight } = getScrollData();
     const stackPositionPx = parsePercentage(stackPosition, containerHeight);
     const scaleEndPositionPx = parsePercentage(scaleEndPosition, containerHeight);
     const endElementTop = endTopRef.current;
+    const pinEnd = endElementTop - containerHeight / 2;
+
+    // After pinEnd, push the entire stack up together
+    const pushOffset = Math.max(0, Math.round(scrollTop - pinEnd));
+
+    const n = cardsRef.current.length;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
 
       const cardTop = cardTopsRef.current[i];
-      const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
-      const triggerEnd = cardTop - scaleEndPositionPx;
-      const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
-      const pinEnd = endElementTop - containerHeight / 2;
+      const stickyTop = stackPositionPx + itemStackDistance * i;
 
-      const scaleProgress = calculateProgress(scrollTop, triggerStart, triggerEnd);
-      const targetScale = baseScale + i * itemScale;
-      const scale = 1 - scaleProgress * (1 - targetScale);
-      const rotation = rotationAmount ? i * rotationAmount * scaleProgress : 0;
+      // Self-scale: card shrinks when it sticks ("going far away" effect)
+      const selfStart = cardTop - stickyTop;
+      const selfEnd = cardTop - scaleEndPositionPx;
+      const selfProgress = calculateProgress(scrollTop, selfStart, selfEnd);
+
+      // Push-scale: additional shrink from each subsequent card arriving
+      let pushReduction = 0;
+      for (let j = i + 1; j < n; j++) {
+        const jCardTop = cardTopsRef.current[j];
+        const jStickyTop = stackPositionPx + itemStackDistance * j;
+        const jStart = jCardTop - jStickyTop;
+        const jEnd = jCardTop - scaleEndPositionPx;
+        pushReduction += calculateProgress(scrollTop, jStart, jEnd) * itemScale;
+      }
+
+      const scale = Math.max(baseScale, 1 - selfProgress * itemScale - pushReduction);
+      const rotation = rotationAmount ? (selfProgress + pushReduction / itemScale) * rotationAmount : 0;
 
       let blur = 0;
       if (blurAmount) {
         let topCardIndex = 0;
         for (let j = 0; j < cardsRef.current.length; j++) {
-          const jTriggerStart = cardTopsRef.current[j] - stackPositionPx - itemStackDistance * j;
+          const jStickyTop = stackPositionPx + itemStackDistance * j;
+          const jTriggerStart = cardTopsRef.current[j] - jStickyTop;
           if (scrollTop >= jTriggerStart) topCardIndex = j;
         }
         if (i < topCardIndex) {
@@ -117,36 +142,31 @@ export default function ScrollStack({
         }
       }
 
-      let translateY = 0;
-      const isPinned = scrollTop >= pinStart && scrollTop <= pinEnd;
-      if (isPinned) {
-        translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i;
-      } else if (scrollTop > pinEnd) {
-        translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
-      }
-
-      const newTransform = {
-        translateY: Math.round(translateY),
-        scale: Math.round(scale * 1000) / 1000,
-        rotation: Math.round(rotation * 100) / 100,
-        blur: Math.round(blur * 100) / 100,
-      };
+      const newScale = Math.round(scale * 1000) / 1000;
+      const newRotation = Math.round(rotation * 100) / 100;
+      const newBlur = Math.round(blur * 100) / 100;
 
       const lastTransform = lastTransformsRef.current.get(i);
       const hasChanged =
         !lastTransform ||
-        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
-        Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
-        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
+        lastTransform.pushOffset !== pushOffset ||
+        Math.abs(lastTransform.scale - newScale) > 0.001 ||
+        Math.abs(lastTransform.rotation - newRotation) > 0.1 ||
+        Math.abs(lastTransform.blur - newBlur) > 0.1;
 
       if (hasChanged) {
-        card.style.transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
-        card.style.filter = newTransform.blur > 0 ? `blur(${newTransform.blur}px)` : '';
-        lastTransformsRef.current.set(i, newTransform);
+        let transform = '';
+        if (pushOffset > 0) transform += `translateY(${-pushOffset}px) `;
+        transform += `scale(${newScale})`;
+        if (newRotation !== 0) transform += ` rotate(${newRotation}deg)`;
+        card.style.transform = transform;
+        card.style.filter = newBlur > 0 ? `blur(${newBlur}px)` : '';
+        lastTransformsRef.current.set(i, { pushOffset, scale: newScale, rotation: newRotation, blur: newBlur });
       }
 
-      if (i === cardsRef.current.length - 1) {
+      // Stack complete detection
+      if (i === n - 1) {
+        const pinStart = cardTop - stickyTop;
         const isInView = scrollTop >= pinStart && scrollTop <= pinEnd;
         if (isInView && !stackCompletedRef.current) {
           stackCompletedRef.current = true;
@@ -156,8 +176,6 @@ export default function ScrollStack({
         }
       }
     });
-
-    isUpdatingRef.current = false;
   }, [
     itemScale, itemStackDistance, stackPosition, scaleEndPosition,
     baseScale, rotationAmount, blurAmount, useWindowScroll, onStackComplete,
@@ -172,7 +190,7 @@ export default function ScrollStack({
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (isTouchDevice) {
-      // Native scroll + rAF for touch devices — no Lenis conflicts
+      // Native scroll + rAF for touch devices
       let ticking = false;
       const onScroll = () => {
         if (!ticking) {
@@ -248,11 +266,9 @@ export default function ScrollStack({
         : scroller.querySelectorAll('.scroll-stack-card'),
     );
     cardsRef.current = cards;
-    const transformsCache = lastTransformsRef.current;
 
     cards.forEach((card, i) => {
       if (i < cards.length - 1) card.style.marginBottom = `${itemDistance}px`;
-      card.style.transform = 'none';
     });
 
     lastWidthRef.current = window.innerWidth;
@@ -277,8 +293,7 @@ export default function ScrollStack({
       stackCompletedRef.current = false;
       cardsRef.current = [];
       cardTopsRef.current = [];
-      transformsCache.clear();
-      isUpdatingRef.current = false;
+      lastTransformsRef.current.clear();
     };
   }, [
     itemDistance, itemScale, itemStackDistance, stackPosition, scaleEndPosition,

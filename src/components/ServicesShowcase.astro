@@ -117,11 +117,8 @@ const caseLogos: Record<string, string> = {
 
   .scroll-stack-card {
     transform-origin: top center;
-    will-change: transform;
-    backface-visibility: hidden;
     width: 100%;
     box-sizing: border-box;
-    position: relative;
   }
 
   .scroll-stack-end {
@@ -136,10 +133,6 @@ const caseLogos: Record<string, string> = {
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
     overflow: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
   }
 
   .ssc-body {
@@ -189,8 +182,6 @@ const caseLogos: Record<string, string> = {
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
   }
 
   .ssc-proof-label {
