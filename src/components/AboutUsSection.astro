@@ -223,8 +223,8 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
             <Image src={member.image} alt={member.name} class="w-full h-full object-cover" loading="lazy" decoding="async" format="webp" quality={90} />
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div class="card-content absolute bottom-0 left-0 p-6 text-white w-full">
-              <h3 class="text-2xl font-bold translate-y-5 opacity-0">{member.name}</h3>
-              <div class="details w-full mt-4 translate-y-5 opacity-0">
+              <h3 class="text-2xl font-bold opacity-0">{member.name}</h3>
+              <div class="details w-full mt-4 opacity-0">
                 <p class="text-md font-semibold text-white/90">{member.role}</p>
                 <p class="text-sm text-white/80 mt-2 max-w-md">{member.description}</p>
                 <div class="flex gap-4 mt-4">
@@ -914,6 +914,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
   import gsap from "gsap";
 
   let teamCleanup: (() => void) | null = null;
+  let teamEntrancePlayed = false;
 
   function setupExpandingCards() {
     // Clean up previous instance to prevent stacking listeners
@@ -932,8 +933,9 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       const title = card.querySelector('h3');
       const details = card.querySelector('.details');
       const overlay = card.querySelector('.card-overlay');
-      gsap.to(overlay, { opacity: direction === 'in' ? 1 : 0.8, duration: 0.4, ease: 'expo.out', overwrite: true });
-      gsap.to([title, details], { y: direction === 'in' ? 0 : 20, skewX: direction === 'in' ? 0 : -5, opacity: direction === 'in' ? 1 : 0, duration: 0.35, stagger: direction === 'in' ? 0.08 : 0, ease: 'expo.out', overwrite: true });
+      const isIn = direction === 'in';
+      gsap.to(overlay, { opacity: isIn ? 1 : 0.8, duration: 0.4, ease: 'expo.out', overwrite: true });
+      gsap.to([title, details], { opacity: isIn ? 1 : 0, duration: isIn ? 0.4 : 0.2, delay: isIn ? 0.3 : 0, stagger: isIn ? 0.1 : 0, ease: 'power2.out', overwrite: true });
     };
 
     const expandCard = (card: HTMLElement) => {
@@ -955,21 +957,27 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       activeCard = null;
     };
 
-    // Initial state: hidden for entrance animation
+    // Set initial card state — skip entrance animation if already played (e.g. resize re-trigger)
     cards.forEach(card => {
-      gsap.set(card, { flexGrow: 1, opacity: 0, y: 60, pointerEvents: 'none' });
       const overlay = card.querySelector('.card-overlay');
-      if (overlay) gsap.set(overlay, { opacity: 0.8 });
       const title = card.querySelector('h3');
       const details = card.querySelector('.details');
-      if (title && details) gsap.set([title, details], { y: 20, opacity: 0, skewX: -5 });
+      if (teamEntrancePlayed) {
+        gsap.set(card, { flexGrow: 1, opacity: 1, y: 0, pointerEvents: 'auto' });
+      } else {
+        gsap.set(card, { flexGrow: 1, opacity: 0, y: 60, pointerEvents: 'none' });
+      }
+      if (overlay) gsap.set(overlay, { opacity: 0.8 });
+      if (title && details) gsap.set([title, details], { opacity: 0 });
     });
 
-    // Staggered entrance animation on scroll (plays once)
+    // Staggered entrance animation on scroll (plays once ever)
     const teamObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           teamObserver.disconnect();
+          if (teamEntrancePlayed) return;
+          teamEntrancePlayed = true;
           gsap.to(cards, {
             opacity: 1,
             y: 0,
@@ -1041,7 +1049,6 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       window.addEventListener('loadingComplete', setupExpandingCards);
     }
   });
-  document.addEventListener('astro:page-load', setupExpandingCards);
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(setupExpandingCards, 200);
