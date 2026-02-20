@@ -53,8 +53,8 @@ const seoData = {
 
 const currentSeo = seoData[lang as 'es' | 'en'] || seoData.es;
 
-// noindex for non-canonical variants (b, c)
-const isCanonicalVariant = variant === 'a';
+// All variants point canonical to variant 'a'
+const canonicalUrl = `https://osix.tech/${lang}/kted/a`;
 
 // Structured Data
 const webPageSchema = {
@@ -95,7 +95,7 @@ const ContactComponent = contactComponents[variant as 'a' | 'b' | 'c'] || Contac
   description={currentSeo.description}
   keywords={currentSeo.keywords}
   pageType="website"
-  noindex={!isCanonicalVariant}
+  canonical={canonicalUrl}
   jsonLd={[webPageSchema, faqPageSchema]}
   hideHeader={true}>
 
