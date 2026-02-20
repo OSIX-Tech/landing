@@ -1,0 +1,1043 @@
+---
+import { getImage } from "astro:assets";
+import { Image } from 'astro:assets';
+import servicesImage from "../assets/services.png";
+import mateoImg from '../assets/team/mateo.jpeg';
+import juanImg from '../assets/team/juan.jpeg';
+import gutiImg from '../assets/team/guti.jpeg';
+import pazosImg from '../assets/team/pazos.jpeg';
+import nicoImg from '../assets/team/nico.jpeg';
+import nelImg from '../assets/team/nel.jpeg';
+import diegoImg from '../assets/team/diego.jpeg';
+
+const { lang } = Astro.params;
+const translations = await import(`../../public/locales/${lang}.json`);
+const t = (k: string) => translations.default[k] || k;
+
+const optimizedServiceImage = await getImage({
+  src: servicesImage,
+  format: "webp",
+  quality: 100,
+});
+
+// Array of quotes to cycle through
+const quotes = [
+  {
+    text: t("bento.quote.text"),
+    author: t("bento.quote.author")
+  },
+  {
+    text: t("bento.quote.text2"),
+    author: t("bento.quote.author2")
+  },
+  {
+    text: t("bento.quote.text3"),
+    author: t("bento.quote.author3")
+  },
+  {
+    text: t("bento.quote.text4"),
+    author: t("bento.quote.author4") 
+  },
+  {
+    text: t("bento.quote.text5"),
+    author: t("bento.quote.author5") 
+  },
+  {
+    text: t("bento.quote.text6"),
+    author: t("bento.quote.author6") 
+  },
+];
+
+// Randomize quotes array using Fisher-Yates shuffle
+const shuffleArray = (array: any[]) => {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
+const randomizedQuotes = shuffleArray(quotes);
+
+const teamMembers = [
+  { name: t("team.mateo.name"), role: t("team.role.cfo"), image: mateoImg, linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/", github: "https://github.com/mateobodenlle", description: t("team.mateo.description") },
+  { name: t("team.juan.name"), role: t("team.role.backend"), image: juanImg, linkedin: "https://www.linkedin.com/in/juan-freire-alvarez/", github: "https://github.com/SrFreiRe", description: t("team.juan.description") },
+  { name: t("team.guti.name"), role: t("team.role.security"), image: gutiImg, linkedin: "https://www.linkedin.com/in/david-gutierrez-cs/", github: "https://github.com/dav1dgf", description: t("team.guti.description") },
+  { name: t("team.pazos.name"), role: t("team.role.cto"), image: pazosImg, linkedin: "https://www.linkedin.com/in/pablo-pazos-parada/", github: "https://github.com/ppazosp", description: t("team.pazos.description") },
+  { name: t("team.nico.name"), role: t("team.role.frontend"), image: nicoImg, linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-corbal-912929318/", github: "https://github.com/nicoCorbal", description: t("team.nico.description") },
+  { name: t("team.nel.name"), role: t("team.role.devops"), image: nelImg, linkedin: "https://www.linkedin.com/in/david-manuel-raposeiras-canabal-a95028210/", github: "https://github.com/davrapcan", description: t("team.nel.description") },
+  { name: t("team.diego.name"), role: t("team.role.fullstack"), image: diegoImg, linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/", github: "https://github.com/2cristo7", description: t("team.diego.description") },
+];
+
+for (let i = teamMembers.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [teamMembers[i], teamMembers[j]] = [teamMembers[j], teamMembers[i]];
+}
+
+const manifestoItems: { type: string; gridArea: string; data: Record<string, any> }[] = [
+  {
+    type: 'narrative',
+    gridArea: 'narrative1',
+    data: {
+      title: t("bento.narrative.title"),
+      text: t("bento.narrative.text")
+    }
+  },
+  {
+    type: 'metrics-grid',
+    gridArea: 'metrics',
+    data: {
+      metrics: [
+        { value: t("bento.metrics.agile.value"), label: t("bento.metrics.agile.label") },
+        { value: t("bento.metrics.scalable.value"), label: t("bento.metrics.scalable.label") },
+        { value: t("bento.metrics.user_first.value"), label: t("bento.metrics.user_first.label") },
+        { value: t("bento.metrics.in_house.value"), label: t("bento.metrics.in_house.label") },
+      ]
+    }
+  },
+  {
+    type: 'stat',
+    gridArea: 'stat',
+    data: {
+      number: 42,
+      suffix: '%',
+      label: t("bento.stat.label")
+    }
+  },
+  {
+    type: 'quote',
+    gridArea: 'quote',
+    data: {
+      quotes: randomizedQuotes,
+      currentIndex: 0
+    }
+  },
+  {
+    type: 'image',
+    gridArea: 'main-image',
+    data: {
+      image: optimizedServiceImage.src,
+      title1: t("bento.image.title1"),
+      title2: t("bento.image.title2"),
+    }
+  },
+];
+---
+
+<section id="about-us" class="section bg-white text-black overflow-hidden">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center">
+      <h2 class="section-title" set:html={t('services.title')} />
+  </div>
+    
+    <div id="manifesto-container" class="relative">
+      
+      <div class="manifesto-grid">
+        {manifestoItems.map((item) => (
+          <div class:list={["grid-item", `item-type-${item.type}`, `item-area-${item.gridArea}`]} data-type={item.type}>
+            {item.type === 'narrative' && (
+              <div class="narrative-box">
+                <h3 class="narrative-title split-text">{item.data.title}</h3>
+                <p class="narrative-text split-text">{item.data.text}</p>
+              </div>
+            )}
+            {item.type === 'card' && (
+              <div class="bento-card-wrapper">
+                <div class="bento-card">
+                  <div class="card-front">
+                    <div class="flip-hint">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rotate-2">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M15 4.55a8 8 0 0 0 -6 14.9m0 -4.45v5h5"></path>
+                        <path d="M18.37 7.16l0 .01"></path>
+                        <path d="M19.94 11l0 .01"></path>
+                        <path d="M19.53 15.1l0 .01"></path>
+                        <path d="M17.67 18.34l0 .01"></path>
+                        <path d="M14.5 19.94l0 .01"></path>
+                      </svg>
+                    </div>
+                    <div class="value-icon-wrapper">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-9 h-9 text-gray-900" set:html={item.data.svgIcon}></svg>
+                    </div>
+                    <h4 class="value-title" set:html={item.data.title}></h4>
+                  </div>
+                  <div class="card-back">
+                    <div class="back-content">
+                      <h5 class="back-title" set:html={item.data.title}></h5>
+                      <p class="back-text">{item.data.back_text}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {item.type === 'image' && (
+              <div class="image-box">
+                <div class="relative w-full h-full">
+                  <img src={item.data.image} alt={item.data.title} class="grid-image absolute inset-0 w-full h-full object-cover" />
+                  <div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                  <div class="absolute inset-0 z-20 flex flex-col items-center justify-end py-8">
+                    <h3 class="image-title" set:html={item.data.title1}></h3>
+                    <h3 class="image-title" set:html={item.data.title2}></h3>
+                  </div>
+                </div>
+              </div>
+            )}
+            {item.type === 'metrics-grid' && item.data.metrics && (
+              <div class="metrics-grid-box">
+                <div class="metrics-container">
+                  {item.data.metrics.map((metric: { value: string; label: string }) => (
+                    <div class="metric-item">
+                      <p class="metric-value">{metric.value}</p>
+                      <p class="metric-label">{metric.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+             {item.type === 'stat' && (
+              <div class="stat-box">
+                <div>
+                  <span class="stat-number" data-end-value={item.data.number}>0</span>
+                  <span class="stat-suffix">{item.data.suffix}</span>
+                </div>
+                <p class="stat-label">{item.data.label}</p>
+              </div>
+            )}
+            {item.type === 'quote' && item.data.quotes && (
+              <div class="quote-box" data-quotes={JSON.stringify(item.data.quotes)}>
+                <p class="quote-text">"{item.data.quotes[0].text}"</p>
+                <p class="quote-author">— {item.data.quotes[0].author}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Team expanding cards -->
+    <div class="mt-8 overflow-hidden">
+      <div class="flex flex-col md:flex-row w-full h-[150vh] md:h-[55vh] md:max-h-[500px] gap-4 team-expanding-cards-container">
+        {teamMembers.map((member) => (
+          <div class="team-card flex-1 relative overflow-hidden cursor-pointer shadow-lg border border-gray-200/50">
+            <Image src={member.image} alt={member.name} class="w-full h-full object-cover" loading="lazy" decoding="async" format="webp" quality={90} />
+            <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="card-content absolute bottom-0 left-0 p-6 text-white w-full">
+              <h3 class="text-2xl font-bold translate-y-5 opacity-0">{member.name}</h3>
+              <div class="details w-full mt-4 translate-y-5 opacity-0">
+                <p class="text-md font-semibold text-white/90">{member.role}</p>
+                <p class="text-sm text-white/80 mt-2 max-w-md">{member.description}</p>
+                <div class="flex gap-4 mt-4">
+                  <a href={member.linkedin} target="_blank" class="text-white/70 hover:text-white transition">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-2.13-1.58-2.13-1.07 0-1.92.8-1.92 2.13V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.42c2.4 0 3.4 1.58 3.4 4.63z"/></svg>
+                  </a>
+                  <a href={member.github} target="_blank" class="text-white/70 hover:text-white transition">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --grid-gap: 2rem;
+  }
+  #manifesto-container {
+    position: relative;
+  }
+  @keyframes pan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 256px 256px; }
+  }
+
+  /* CSS Animation Definitions */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: max-content;
+    gap: var(--grid-gap);
+    position: relative;
+    z-index: 1;
+    perspective: 1000px; /* Add for 3D animations */
+    grid-template-areas:
+      "narrative1 narrative1 narrative1 narrative1  narrative1  narrative1  narrative1 narrative1 narrative1 narrative1 narrative1 narrative1"
+      "narrative1 narrative1 narrative1 narrative1  narrative1  narrative1  narrative1 narrative1 narrative1 narrative1 narrative1 narrative1"
+      "quote      quote      quote      quote quote quote quote quote main-image main-image main-image main-image"
+      "metrics    metrics    metrics    metrics metrics stat stat stat main-image main-image main-image main-image"
+      "metrics    metrics    metrics    metrics metrics stat stat stat main-image main-image main-image main-image";
+  }
+
+  .grid-item {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  /* Animation classes for grid items */
+  .grid-item.animate-in {
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  /* Specific animations based on grid area */
+  .item-area-narrative1.animate-in {
+    animation-name: fadeInDown;
+    animation-delay: 0.1s;
+  }
+
+  .item-area-quote.animate-in {
+    animation-name: fadeInLeft;
+    animation-delay: 0.2s;
+  }
+
+  .item-area-metrics.animate-in {
+    animation-name: fadeInLeft;
+    animation-delay: 0.3s;
+  }
+
+  .item-area-stat.animate-in {
+    animation-name: scaleIn;
+    animation-delay: 0.4s;
+  }
+
+  .item-area-main-image.animate-in {
+    animation-name: fadeInRight;
+    animation-delay: 0.3s;
+  }
+
+  .item-area-value2.animate-in {
+    animation-name: fadeInUp;
+    animation-delay: 0.5s;
+  }
+
+  .item-area-value3.animate-in {
+    animation-name: fadeInUp;
+    animation-delay: 0.6s;
+  }
+
+  .grid-item:not(.item-type-metrics-grid):not(.item-type-quote):not(.item-type-stat):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+  
+  /* Grid Areas */
+  .item-area-narrative1 { grid-area: narrative1; }
+  .item-area-value1 { grid-area: value1; }
+  .item-area-metrics { grid-area: metrics; }
+  .item-area-stat { grid-area: stat; }
+  .item-area-quote { grid-area: quote; }
+  .item-area-main-image { grid-area: main-image; }
+  .item-area-value2 { grid-area: value2; }
+  .item-area-value3 { grid-area: value3; }
+
+  /* Block Styles */
+  .narrative-box, .quote-box, .terminal-box, .stat-box, .metrics-grid-box, .image-box {
+    height: 100%;
+  }
+  .narrative-box { padding: 2.5rem; display: flex; flex-direction: column; justify-content: start; height: 100%;}
+  .narrative-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; margin-bottom: 0.5rem; }
+  .narrative-text { font-size: 1.125rem; color: #4b5563; line-height: 1.8; }
+  
+  /* Card Flip Logic -> Sliding Panel Logic */
+  .bento-card-wrapper {
+    width: 100%;
+    height: auto;
+    min-height: max-content;
+  }
+  
+  .bento-card {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-front, .card-back {
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .card-front{
+    justify-content: center;
+  }
+
+  .card-front {
+    align-items: center;
+    background: linear-gradient(135deg, white, #f9fafb);
+    box-shadow: inset 0 0 0 1px #e5e7eb;
+    z-index: 2;
+  }
+  /* Left side cards slide left */
+  .item-area-value1 .bento-card:hover .card-front,
+  .item-area-value2 .bento-card:hover .card-front {
+    transform: translateX(-100%);
+  }
+  
+  /* Right side card slides right */
+  .item-area-value3 .bento-card:hover .card-front {
+    transform: translateX(100%);
+  }
+
+  .flip-hint { display: none; } /* No longer needed for this design */
+
+  .card-back { 
+    position: relative;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #000000; /* Cambiado a negro puro */
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.04) 0%, transparent 40%);
+    color: white; 
+    text-align: left;
+    z-index: 1;
+  }
+  
+  /* Left side cards - back card comes from right *
+  
+  
+  /* Right side card - back card comes from left */
+
+  .back-content {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.2s;
+  }
+  .bento-card:hover .back-content {
+    opacity: 1;
+  }
+  .back-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #4b5563;
+    padding-bottom: 0.75rem;
+    width: 100%;
+  }
+  .back-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    word-wrap: break-word;
+  }
+  .value-icon-wrapper { 
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  .bento-card:hover .value-icon-wrapper {
+    transform: scale(1.1);
+  }
+  .value-icon-wrapper svg { width: 2.25rem; height: 2.25rem; color: #111827; }
+  .value-title { 
+    font-size: clamp(1rem, 2vw, 1.25rem); 
+    font-weight: 600; 
+    text-align: center; 
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Other blocks */
+  .image-box { position: relative; overflow: hidden; }
+  .grid-image { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* filter: grayscale(100%);  Removed grayscale effect */
+  }
+  .image-box:hover .grid-image {
+    transform: scale(1.2);
+  }
+.image-title { color: white; font-size: 1.5rem; font-weight: 600; }
+
+  .metrics-grid-box {
+    background-color: #000000;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .metrics-grid-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .metrics-grid-box:hover::before {
+    opacity: 1;
+  }
+  
+  .metrics-grid-box:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  
+  .metrics-grid-box:hover .metric-value {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  .metrics-grid-box:hover .metric-label {
+    color: #ffffff;
+  }
+
+  .metrics-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .metric-value {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffffff;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  .metric-label {
+    font-size: 14px;
+    color: #bebebe;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+  
+  .stat-box {
+    background-color: #ffffff;
+    background-image: 
+      linear-gradient(rgba(229, 231, 235, 0.5) 1px, transparent 1px), 
+      linear-gradient(to right, rgba(229, 231, 235, 0.5) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    pointer-events: none;
+  }
+  
+  .stat-box:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+  
+  .stat-box:hover {
+    background-size: 3rem 3rem;
+  }
+  
+  .stat-box:hover .stat-number {
+    transform: scale(1.1);
+    color: #000000;
+  }
+  
+  
+
+  .stat-number { 
+    font-size: clamp(3.5rem, 8vw, 5rem); 
+    font-weight: 800; 
+    line-height: 1; 
+    color: #111827; 
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .stat-suffix { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: #4b5563; 
+    margin-left: 0.25rem; 
+    transition: transform 0.3s ease;
+  }
+  .stat-label { 
+    font-size: 1rem; 
+    color: #6b7280; 
+    margin-top: 0.75rem; 
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .quote-box {
+    background-color: #000000;
+    color: white;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .quote-box:hover {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+  }
+  .quote-box::before {
+    content: '“';
+    position: absolute;
+    top: 0rem;
+    left: 1rem;
+    font-size: clamp(6rem, 20vw, 10rem);
+    font-family: serif;
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    z-index: 0;
+  }
+  .quote-text { 
+    font-size: clamp(1.25rem, 5vw, 1.75rem); 
+    font-weight: 600; 
+    line-height: 1.4; 
+    margin-bottom: 1.5rem; 
+    position: relative; 
+    z-index: 2; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-height: 3em;
+  }
+  .quote-author { 
+    font-size: 1rem; 
+    align-self: flex-end; 
+    opacity: 0.7; 
+    position: relative; 
+    z-index: 2; 
+    font-style: italic; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .quote-box.changing .quote-text,
+  .quote-box.changing .quote-author {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .terminal-box { 
+    background-color: #000000; 
+    padding: 1rem; 
+    display: flex; 
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+  }
+  .terminal-box:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  }
+  .terminal-header { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+  .terminal-dot { width: 12px; height: 12px; border-radius: 50%; background-color: #4b5563; }
+  .terminal-body { font-family: monospace; color: #e5e7eb; font-size: 0.9rem; flex-grow: 1; height: 100%;}
+  .terminal-line { margin-bottom: 0.25rem; white-space: pre-wrap; }
+
+  .is-command .terminal-prompt { color: white; }
+
+  /* Responsive */
+  @media(max-width: 1024px) {
+    .manifesto-grid {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+        "narrative1 narrative1 narrative1 narrative1 narrative1 narrative1 narrative1 narrative1"
+        "quote quote quote quote quote quote quote quote"
+        "main-image main-image main-image main-image main-image main-image main-image main-image"
+        "stat stat stat stat stat stat stat stat"
+        "metrics metrics metrics metrics metrics metrics metrics metrics";
+    }
+  }
+
+  @media(max-width: 768px) {
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "narrative1" "quote" "main-image" "stat" "metrics";
+    }
+    .grid-item { min-height: 250px; }
+    .quote-box {min-height: 300px;}
+    .main-image {min-height: 350px;}
+
+    .narrative-box { padding: 1.5rem; }
+    .narrative-title { font-size: 1.25rem; }
+    .narrative-text { font-size: 1rem; }
+    .metric-value { font-size: 1.75rem; }
+    .metric-label { font-size: 0.75rem; }
+    .stat-number { font-size: 4rem; }
+    .quote-text { font-size: 1.25rem; }
+    .quote-box { padding: 2rem; }
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const initializeAnimations = () => {
+      // Create Intersection Observer for animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      // Observer for all animated elements
+      const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add animation class when element comes into view
+            entry.target.classList.add('animate-in');
+            
+            // Handle stat counter animation
+            if (entry.target.getAttribute('data-type') === 'stat') {
+              animateStatCounter(entry.target as HTMLElement);
+            }
+          } else {
+            // Remove animation class when element goes out of view
+            entry.target.classList.remove('animate-in');
+            
+            // Reset stat counter
+            if (entry.target.getAttribute('data-type') === 'stat') {
+              const statNumber = entry.target.querySelector('.stat-number') as HTMLElement;
+              if (statNumber) {
+                statNumber.textContent = '0';
+              }
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe section title
+      const sectionTitle = document.querySelector('#about-us .section-title');
+      if (sectionTitle) {
+        animationObserver.observe(sectionTitle);
+      }
+
+      // Observe all grid items
+      const gridItems = document.querySelectorAll('.grid-item');
+      gridItems.forEach(item => {
+        animationObserver.observe(item);
+      });
+    };
+
+    // Wait for loading screen to complete
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+
+    // Stat counter animation function
+    const animateStatCounter = (statItem: HTMLElement) => {
+      const statNumber = statItem.querySelector('.stat-number') as HTMLElement;
+      if (!statNumber) return;
+
+      const endValue = parseInt(statNumber.getAttribute('data-end-value') || '0', 10);
+      const duration = 2000; // 2 seconds
+      const startTime = performance.now();
+      
+      const updateCounter = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out)
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        
+        const currentValue = Math.floor(endValue * easedProgress);
+        statNumber.textContent = currentValue.toString();
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      };
+      
+      requestAnimationFrame(updateCounter);
+    };
+  });
+  
+  // Add mouse tracking for gradient effect on metrics cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const metricsCards = document.querySelectorAll('.metrics-grid-box');
+    
+    metricsCards.forEach(card => {
+      card.addEventListener('mousemove', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = ((mouseEvent.clientX - rect.left) / rect.width) * 100;
+        const y = ((mouseEvent.clientY - rect.top) / rect.height) * 100;
+        
+        (card as HTMLElement).style.setProperty('--mouse-x', `${x}%`);
+        (card as HTMLElement).style.setProperty('--mouse-y', `${y}%`);
+      });
+    });
+    
+    // Quote cycling on hover
+    const quoteBox = document.querySelector('.quote-box') as HTMLElement;
+    if (quoteBox) {
+      const quotesData = JSON.parse(quoteBox.dataset.quotes || '[]');
+      const quoteText = quoteBox.querySelector('.quote-text') as HTMLElement;
+      const quoteAuthor = quoteBox.querySelector('.quote-author') as HTMLElement;
+      let currentIndex = 0;
+      let isChanging = false;
+      
+      quoteBox.addEventListener('mouseenter', () => {
+        if (isChanging || quotesData.length <= 1) return;
+        
+        isChanging = true;
+        quoteBox.classList.add('changing');
+        
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % quotesData.length;
+          const newQuote = quotesData[currentIndex];
+          
+          if (quoteText) quoteText.textContent = `"${newQuote.text}"`;
+          if (quoteAuthor) quoteAuthor.textContent = `— ${newQuote.author}`;
+          
+          quoteBox.classList.remove('changing');
+          
+          setTimeout(() => {
+            isChanging = false;
+          }, 300);
+        }, 300);
+      });
+    }
+  });
+
+  // Team expanding cards
+  import gsap from "gsap";
+  import { Flip } from "gsap/Flip";
+
+  let teamCleanup: (() => void) | null = null;
+
+  function setupExpandingCards() {
+    // Clean up previous instance to prevent stacking listeners
+    if (teamCleanup) {
+      teamCleanup();
+      teamCleanup = null;
+    }
+
+    gsap.registerPlugin(Flip);
+    const container = document.querySelector<HTMLElement>(".team-expanding-cards-container");
+    if (!container) return;
+    const cards = gsap.utils.toArray<HTMLElement>(".team-card");
+    let activeCard: HTMLElement | null = null;
+    const isMobile = window.innerWidth < 768;
+
+    const animateContent = (card: HTMLElement, direction: 'in' | 'out') => {
+      const title = card.querySelector('h3');
+      const details = card.querySelector('.details');
+      const overlay = card.querySelector('.card-overlay');
+      gsap.killTweensOf([title, details, overlay]);
+      gsap.to(overlay, { opacity: direction === 'in' ? 1 : 0.8, duration: 0.6, ease: 'expo.out' });
+      gsap.to([title, details], { y: direction === 'in' ? 0 : 20, skewX: direction === 'in' ? 0 : -5, opacity: direction === 'in' ? 1 : 0, duration: 0.5, stagger: direction === 'in' ? 0.08 : 0.05, ease: 'expo.out' });
+    };
+
+    const expandCard = (card: HTMLElement) => {
+      if (activeCard) animateContent(activeCard, 'out');
+      const state = Flip.getState(cards, { props: "flexGrow" });
+      cards.forEach(c => gsap.set(c, { flexGrow: c === card ? 10 : 1 }));
+      Flip.from(state, { duration: 0.8, ease: "expo.out", absolute: true });
+      animateContent(card, 'in');
+      activeCard = card;
+    };
+
+    const collapseAll = () => {
+      if (!activeCard) return;
+      animateContent(activeCard, 'out');
+      const state = Flip.getState(cards, { props: "flexGrow" });
+      cards.forEach(c => gsap.set(c, { flexGrow: 1 }));
+      Flip.from(state, { duration: 0.8, ease: 'expo.out', absolute: true });
+      activeCard = null;
+    };
+
+    // Initial state: hidden for entrance animation
+    cards.forEach(card => {
+      gsap.set(card, { flexGrow: 1, opacity: 0, y: 60, pointerEvents: 'none' });
+      const overlay = card.querySelector('.card-overlay');
+      if (overlay) gsap.set(overlay, { opacity: 0.8 });
+      const title = card.querySelector('h3');
+      const details = card.querySelector('.details');
+      if (title && details) gsap.set([title, details], { y: 20, opacity: 0, skewX: -5 });
+    });
+
+    // Staggered entrance animation on scroll, resets when out of view
+    const teamObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          gsap.to(cards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power3.out',
+            onComplete: () => {
+              cards.forEach(c => gsap.set(c, { pointerEvents: 'auto' }));
+            },
+          });
+        } else {
+          activeCard = null;
+          gsap.killTweensOf(cards);
+          gsap.set(cards, { opacity: 0, y: 60, flexGrow: 1, pointerEvents: 'none' });
+        }
+      });
+    }, { threshold: 0.1 });
+    teamObserver.observe(container);
+
+    const cardHandlers: Array<[HTMLElement, string, () => void]> = [];
+
+    if (isMobile) {
+      // Mobile: tap to expand, tap again to collapse
+      cards.forEach((card) => {
+        const handler = () => {
+          if (card === activeCard) {
+            collapseAll();
+          } else {
+            expandCard(card);
+          }
+        };
+        card.addEventListener("click", handler);
+        cardHandlers.push([card, "click", handler]);
+      });
+    } else {
+      // Desktop: hover to expand, mouseleave to collapse
+      cards.forEach((card) => {
+        const handler = () => {
+          if (card === activeCard) return;
+          expandCard(card);
+        };
+        card.addEventListener("mouseenter", handler);
+        cardHandlers.push([card, "mouseenter", handler]);
+      });
+      container.addEventListener('mouseleave', collapseAll);
+    }
+
+    // Store cleanup function
+    teamCleanup = () => {
+      teamObserver.disconnect();
+      gsap.killTweensOf(cards);
+      cardHandlers.forEach(([el, evt, fn]) => el.removeEventListener(evt, fn));
+      if (!isMobile) container.removeEventListener('mouseleave', collapseAll);
+    };
+  }
+
+  let resizeTimer: ReturnType<typeof setTimeout>;
+  document.addEventListener('DOMContentLoaded', () => {
+    if ((window as any).isLoadingComplete) {
+      setupExpandingCards();
+    } else {
+      window.addEventListener('loadingComplete', setupExpandingCards);
+    }
+  });
+  document.addEventListener('astro:page-load', setupExpandingCards);
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setupExpandingCards, 200);
+  });
+</script>

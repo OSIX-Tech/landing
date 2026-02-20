@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import LogoSlider from '../../components/LogoSlider.astro';
+import ServicesShowcase from '../../components/ServicesShowcase.astro';
+import AboutUsSection from '../../components/AboutUsSection.astro';
+import StaticContactSection from '../../components/StaticContactSection.astro';
+import LoadingScreen from '../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } }
+  ];
+}
+
+const { lang = 'en' } = Astro.params as { lang: 'en' | 'es' };
+
+// SEO Data
+const seoTitle = lang === 'es'
+  ? 'OSIX Tech - Consultoría Tecnológica & Desarrollo a Medida con IA'
+  : 'OSIX Tech - Technology Consulting & Custom AI Development';
+
+const seoDescription = lang === 'es'
+  ? 'OSIX Tech: Desarrollo de software a medida con IA, consultoría de transformación digital y gestión de subvenciones. Tecnología que genera resultados reales para tu empresa.'
+  : 'OSIX Tech: Custom AI software development, digital transformation consulting, and innovation grants. Technology that delivers real results for your business.';
+
+// Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "name": "OSIX Tech",
+  "url": "https://osix.tech",
+  "logo": "https://osix.tech/logo_w.png",
+  "description": seoDescription,
+  "telephone": "+34 648935068",
+  "email": "info@osix.tech",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Santiago del Estero, 2-4 1G",
+    "addressLocality": "Santiago de Compostela",
+    "addressRegion": "Galicia",
+    "postalCode": "15702",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.8782,
+    "longitude": -8.5448
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Spain" },
+    { "@type": "AdministrativeArea", "name": "Galicia" }
+  ],
+  "sameAs": [
+    "https://github.com/osixtech",
+    "https://linkedin.com/company/osixtech"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "info@osix.tech",
+    "telephone": "+34 648935068",
+    "availableLanguage": ["English", "Spanish"]
+  }
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": `https://osix.tech/${lang}/`,
+  "inLanguage": lang,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": `https://osix.tech/${lang}/`
+    }]
+  }
+};
+
+const jsonLd = [organizationSchema, webPageSchema];
+
+---
+
+<Layout 
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="website"
+  jsonLd={jsonLd}
+>
+  <LoadingScreen duration={1000} />
+  <section id="hero"><Hero lang={lang} /></section>
+  <section id="partners"><LogoSlider /></section>
+  <section id="services"><ServicesShowcase lang={lang} /></section>
+  <section id="about-us"><AboutUsSection lang={lang} /></section>
+  <section id="contact"><StaticContactSection lang={lang} /></section>
+</Layout>
+
+<style>
+  #hero {
+    margin-bottom: 7.5vh !important;
+  }
+
+  .contact-section {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .contact-section.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactSection = document.querySelector('.contact-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (contactSection) {
+      observer.observe(contactSection);
+    }
+  });
+</script>

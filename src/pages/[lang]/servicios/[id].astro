@@ -1,0 +1,1041 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getService, getServiceIds, getAllServices } from '../../../data/services-multilingual';
+import { getCasesByService } from '../../../data/cases-multilingual';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+import { LucideIcon } from '../../../components/LucideIcon';
+import BeamsBackground from '../../../components/BeamsBackground.jsx';
+import { CasesCarousel } from '../../../components/CasesCarousel';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const serviceIds = getServiceIds();
+  const languages = ['en', 'es'];
+
+  return languages.flatMap(lang =>
+    serviceIds.map(id => ({
+      params: { lang, id }
+    }))
+  );
+}
+
+const { id = '', lang = 'en' } = Astro.params as { id: string; lang: 'en' | 'es' };
+const service = getService(id, lang);
+
+if (!service) {
+  return Astro.redirect(`/${lang}/404`);
+}
+
+const relatedCases = getCasesByService(id, lang);
+const otherServices = getAllServices(lang).filter(s => s.id !== id);
+
+// Convocatorias data (only for consultoria-innovacion)
+const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: string; title: string; description: string; deadline?: string; ctaLabel: string; ctaHref: string }[] }> = {
+  es: {
+    sectionTitle: 'Convocatorias abiertas',
+    cards: [
+      {
+        tag: 'Kit Espacio de Datos',
+        title: 'Integra tu empresa en Espacios de Datos Europeos con hasta 30.000€',
+        description: 'Subvención de Red.es para incorporarte a espacios de datos sectoriales. 100% subvencionado, tú solo pagas el IVA.',
+        deadline: '31/03/2026',
+        ctaLabel: '¿Qué es el KTED?',
+        ctaHref: `/${lang}/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
+      },
+      {
+        tag: 'Igape IA360',
+        title: 'Desarrolla soluciones IA para tu empresa con hasta 500.000€ de ayuda',
+        description: 'Subvención del Igape para proyectos de inteligencia artificial en pymes gallegas. Te acompañamos de inicio a fin.',
+        deadline: '17/03/2026',
+        ctaLabel: 'Solicitar asesoramiento',
+        ctaHref: `/${lang}/#contact`,
+      },
+    ],
+  },
+  en: {
+    sectionTitle: 'Open calls',
+    cards: [
+      {
+        tag: 'Kit Espacio de Datos',
+        title: 'Integrate your company into European Data Spaces with up to €30,000',
+        description: 'Red.es grant to join sectoral data spaces. 100% subsidized, you only pay VAT.',
+        deadline: '31/03/2026',
+        ctaLabel: 'What is KTED?',
+        ctaHref: `/${lang}/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
+      },
+      {
+        tag: 'Igape IA360',
+        title: 'Develop AI solutions for your business with up to €500,000 in aid',
+        description: 'Igape grant for artificial intelligence projects in Galician SMEs. We guide you from start to finish.',
+        deadline: '17/03/2026',
+        ctaLabel: 'Request consultation',
+        ctaHref: `/${lang}/#contact`,
+      },
+    ],
+  },
+};
+const convocatorias = id === 'consultoria-innovacion' ? (convocatoriasData[lang] || convocatoriasData.es) : null;
+
+const translations = await import(`../../../../public/locales/${lang}.json`);
+const t = (key: string) => translations.default[key] || key;
+
+// SEO Data
+const seoTitle = `${service.title} - ${service.tagline} | OSIX Tech`;
+const seoDescription = service.description.substring(0, 160);
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://osix.tech/${lang}/` },
+    { "@type": "ListItem", "position": 2, "name": lang === 'es' ? 'Servicios' : 'Services', "item": `https://osix.tech/${lang}/#services` },
+    { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://osix.tech/${lang}/servicios/${id}` }
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.title,
+  "description": service.description,
+  "provider": { "@type": "Organization", "name": "OSIX Tech", "url": "https://osix.tech" },
+  "areaServed": { "@type": "Country", "name": "Spain" }
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": seoTitle,
+  "description": seoDescription,
+  "url": `https://osix.tech/${lang}/servicios/${id}`,
+  "inLanguage": lang,
+  "isPartOf": { "@type": "WebSite", "name": "OSIX Tech", "url": "https://osix.tech" },
+  "breadcrumb": breadcrumbSchema
+};
+
+const jsonLd = [serviceSchema, webPageSchema];
+
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="website"
+  jsonLd={jsonLd}>
+  <LoadingScreen duration={1000} />
+
+  <!-- HERO -->
+  <section class="hero-section relative min-h-[400px] bg-black lg:min-h-[450px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="absolute inset-0 z-0">
+      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
+    </div>
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-3xl">
+          <h1 class="hero-title text-center text-5xl md:text-7xl font-bold text-white mb-4 opacity-0">{service.title}</h1>
+          <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">{service.tagline}</p>
+          <a href={`/${lang}/#contact`} class="hero-cta btn-secondary btn-arrow opacity-0">
+            {t('services.tellUsYourCase')}
+            <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO GRID: Narrative + Stats + Image + CTA -->
+  <section class="py-16 md:py-20 bg-white mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="bento-grid">
+        <!-- Row 1: Narrative (8) + Stats (4) -->
+        <div class="bento-narrative bento-card fade-up" style="--delay: 0.1s">
+          <div class="bento-narrative-block">
+            <h3 class="bento-card-title">{service.problemTitle}</h3>
+            <p class="bento-card-text">{service.problem}</p>
+          </div>
+          <div class="bento-narrative-divider"></div>
+          <div class="bento-narrative-block">
+            <h3 class="bento-card-title">{service.solutionTitle}</h3>
+            <p class="bento-card-text">{service.solution}</p>
+          </div>
+        </div>
+
+        <div class="bento-stats fade-up" style="--delay: 0.2s">
+          <div class="bento-stats-grid">
+            {service.stats.map((stat) => (
+              <div class="bento-stat-item">
+                <p class="bento-stat-value">{stat.value}</p>
+                <p class="bento-stat-label">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Row 2: Testimonial (4) + CTA (8) -->
+        <div class="bento-testimonial fade-up" style="--delay: 0.3s">
+          <div class="testimonial-top">
+            <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            <p class="testimonial-text">{service.testimonial.quote}</p>
+          </div>
+          <div class="testimonial-author">
+            <span class="testimonial-author-name">{service.testimonial.author}</span>
+            <span class="testimonial-author-role">{service.testimonial.role}</span>
+          </div>
+        </div>
+
+        <div class="bento-cta fade-up" style="--delay: 0.4s">
+          <div class="bento-cta-content">
+            <h3 class="bento-cta-title">{service.highlightsTitle}</h3>
+            <div class="bento-cta-highlights">
+              {service.highlights.map((highlight) => (
+                <div class="bento-cta-highlight-item">
+                  <svg class="bento-cta-check" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{highlight}</span>
+                </div>
+              ))}
+            </div>
+            <a href={`/${lang}/#contact`} class="btn-secondary btn-arrow self-start">
+              {t('services.tellUsYourCase')}
+              <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVOCATORIAS -->
+  {convocatorias && (
+    <section id="convocatorias" class="py-16 md:py-20 bg-white mb-0">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="text-3xl font-bold text-black mb-10 fade-up" style="--delay: 0.1s">
+          {convocatorias.sectionTitle}
+        </h2>
+        <div class="conv-grid fade-up" style="--delay: 0.2s">
+          {convocatorias.cards.map((card) => (
+            <div class="conv-card">
+              <span class="conv-tag">{card.tag}</span>
+              <h3 class="conv-title">{card.title}</h3>
+              <p class="conv-desc">{card.description}</p>
+              {card.deadline && (
+                <div class="conv-deadline">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>{lang === 'es' ? 'Plazo:' : 'Deadline:'} {card.deadline}</span>
+                </div>
+              )}
+              <a href={card.ctaHref} class="btn-secondary btn-arrow self-start" style="margin-top: auto;">
+                {card.ctaLabel}
+                <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CASES -->
+  {relatedCases.length > 0 && (
+    <section id="cases" class="pt-16 pb-32 bg-white mb-0">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <h2 class="text-3xl font-bold text-black mb-8 fade-up" style="--delay: 0.1s">
+          {t('products.caseStudy')}
+        </h2>
+        <div class="fade-up" style="--delay: 0.2s">
+          <CasesCarousel
+            cases={relatedCases}
+            client:only="react"
+          />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CLOSING: Contact + Other Services -->
+  <section class="bg-black mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
+      <div class="closing-grid">
+        <div class="closing-contact">
+          <img src="/full_logo_w.png" alt="OSIX Tech" class="closing-logo" />
+          <div class="closing-contact-list">
+            <a href="mailto:info@osix.tech" class="closing-contact-item">
+              <LucideIcon name="Mail" className="text-white/40" size={16} client:load />
+              <span>info@osix.tech</span>
+            </a>
+            <a href="tel:+34648935068" class="closing-contact-item">
+              <LucideIcon name="Phone" className="text-white/40" size={16} client:load />
+              <span>+34 648 935 068</span>
+            </a>
+            <div class="closing-contact-item">
+              <LucideIcon name="MapPin" className="text-white/40" size={16} client:load />
+              <span>{t('contact.location.value')}</span>
+            </div>
+          </div>
+        </div>
+        {otherServices.length > 0 && (
+          <div class="closing-services">
+            <span class="closing-services-label">{t('services.otherServices')}</span>
+            <div class="closing-services-list">
+              {otherServices.map((s) => (
+                <a href={`/${lang}/servicios/${s.id}`} class="closing-service-link">
+                  <LucideIcon name={s.icon} className="text-white/40 closing-service-icon" size={18} client:load />
+                  <span class="closing-service-title">{s.title}</span>
+                  <svg class="closing-service-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const initializeAnimations = () => {
+      const hasHash = !!window.location.hash;
+
+      if (hasHash) {
+        // Skip delays: show hero instantly and observe fade-ups immediately
+        document.querySelector('.hero-badge')?.classList.add('animate');
+        document.querySelector('.hero-title')?.classList.add('animate');
+        document.querySelector('.hero-subtitle')?.classList.add('animate');
+        document.querySelector('.hero-cta')?.classList.add('animate');
+      } else {
+        setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+        setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+        setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+        setTimeout(() => { document.querySelector('.hero-cta')?.classList.add('animate'); }, 800);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      }, hasHash ? 0 : 1200);
+
+};
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style>
+  /* Hero animations */
+  .hero-badge { opacity: 0; transform: translateX(-30px); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateX(0); }
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-cta { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-cta.animate { opacity: 1; transform: translateY(0); }
+  .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--delay, 0s); }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  .bento-card {
+    padding: 2.5rem;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Row 1: Narrative (8) + Stats (4) */
+  .bento-narrative {
+    grid-column: 1 / 9;
+    grid-row: 1 / 2;
+  }
+
+  .bento-narrative-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bento-narrative-divider {
+    width: 60px;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 1.5rem 0;
+  }
+
+  .bento-card-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: #000;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .bento-card-text {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* Stats */
+  .bento-stats {
+    grid-column: 9 / 13;
+    grid-row: 1 / 2;
+    background: #0a0a0a;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .bento-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5rem 1rem;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+  }
+
+  .bento-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .bento-stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .bento-stat-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    min-height: 2.4em;
+    line-height: 1.2;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* Testimonial */
+  .bento-testimonial {
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .testimonial-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .testimonial-quote-icon {
+    width: 32px;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+  }
+
+  .testimonial-text {
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    color: #222;
+    line-height: 1.55;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .testimonial-author-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.02em;
+  }
+
+  .testimonial-author-role {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* CTA card */
+  .bento-cta {
+    grid-column: 5 / 13;
+    grid-row: 2 / 3;
+    background: #0a0a0a;
+    padding: 2.5rem;
+  }
+
+  .bento-cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bento-cta-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.03em;
+  }
+
+  .bento-cta-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  .bento-cta-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+  }
+
+  .bento-cta-check {
+    width: 1rem;
+    height: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+
+  /* Convocatorias */
+  .conv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .conv-card {
+    background: #0a0a0a;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .conv-tag {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .conv-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+  }
+
+  .conv-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+  }
+
+  .conv-deadline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ef4444;
+  }
+
+  .conv-deadline svg {
+    flex-shrink: 0;
+    stroke: #ef4444;
+  }
+
+
+  @media (max-width: 768px) {
+    .conv-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .conv-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Closing section */
+  .closing-logo {
+    height: 1.5rem;
+    width: auto;
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .closing-services-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .closing-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .closing-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a.closing-contact-item:hover {
+    color: #fff;
+  }
+
+  .closing-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .closing-service-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+  }
+
+  .closing-service-link:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .closing-service-link:hover .closing-service-title {
+    color: #fff;
+    transform: translateX(0.5rem);
+  }
+
+  .closing-service-link:hover :global(.closing-service-icon) {
+    transform: translateX(0.5rem);
+  }
+
+  .closing-service-link:hover .closing-service-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .closing-service-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease, transform 0.2s ease;
+    flex: 1;
+  }
+
+  .closing-service-arrow {
+    width: 14px;
+    height: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .bento-narrative,
+    .bento-stats,
+    .bento-testimonial,
+    .bento-cta {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .bento-testimonial {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .bento-stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-narrative,
+    .bento-stats,
+    .bento-logo,
+    .bento-cta {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .bento-card { padding: 1.5rem; }
+    .bento-stats { padding: 2rem; }
+    .bento-cta { padding: 1.5rem; }
+    .bento-testimonial { padding: 1.25rem; gap: 1.5rem; }
+
+    .bento-logo {
+      display: none;
+    }
+
+    .bento-cta-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-stats-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .closing-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .closing-services {
+      order: -1;
+    }
+  }
+</style>
+
+<style is:global>
+  .closing-service-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .cases-showcase { overflow: hidden; }
+
+  /* Progress bars */
+  .cases-showcase-bars {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cases-showcase-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .cases-showcase-bar-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  .cases-showcase-bar-group.active .cases-showcase-bar-name,
+  .cases-showcase-bar-group:hover .cases-showcase-bar-name {
+    color: black;
+  }
+
+  .cases-showcase-bar {
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cases-showcase-bar-fill {
+    position: absolute;
+    inset: 0;
+    background: black;
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  .cases-showcase-content { position: relative; }
+
+  /* Slide: two-column layout */
+  .cases-showcase-slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    min-height: 360px;
+  }
+
+  /* Left: images */
+  .cases-showcase-images {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  .cases-showcase-main-img {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+  }
+
+  .cases-showcase-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .cases-showcase-main-img video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #111;
+  }
+
+  .cases-showcase-main-img:hover img {
+    transform: scale(1.03);
+  }
+
+  .cases-showcase-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+  }
+
+  .cases-showcase-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .cases-showcase-thumb {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: #f3f4f6;
+    padding: 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .cases-showcase-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .cases-showcase-thumb.active {
+    border-color: black;
+  }
+
+  .cases-showcase-thumb.active img,
+  .cases-showcase-thumb:hover img {
+    opacity: 1;
+  }
+
+  /* Right: info */
+  .cases-showcase-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+    min-width: 0;
+  }
+
+  .cases-showcase-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+  }
+
+  .cases-showcase-client {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .cases-showcase-date {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.04em;
+  }
+
+  .cases-showcase-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: black;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.3rem;
+  }
+
+  .cases-showcase-headline {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+  }
+
+  .cases-showcase-divider {
+    width: 60px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.15);
+    margin: 1rem 0;
+  }
+
+  .cases-showcase-summary {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .cases-showcase-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.2rem;
+  }
+
+  .cases-showcase-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .cases-showcase-stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: black;
+  }
+
+  .cases-showcase-stat-label {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Dots – hidden on desktop, visible on mobile */
+  .cases-showcase-dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .cases-showcase-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+
+  .cases-showcase-dot.active {
+    background: black;
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 768px) {
+    .cases-showcase-bars { display: none; }
+    .cases-showcase-dots { display: flex; }
+    .cases-showcase-slide {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      gap: 1.5rem;
+    }
+    .cases-showcase-title { font-size: 1.3rem; }
+    .cases-showcase-headline { font-size: 0.85rem; }
+    .cases-showcase-summary { font-size: 0.8rem; }
+    .cases-showcase-stat { align-items: center; text-align: center; flex: 1; }
+    .cases-showcase-stat-value { font-size: 0.9rem; }
+  }
+</style>

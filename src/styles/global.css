@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #CD1C18;
+  --primary-dark: #A51713;
+  --primary-light: #E84844;
+  --black: #121212;
+  --dark-gray: #1E1E1E;
+  --light-gray: #F5F5F5;
+  --color-primary: #000000;
+  --color-background: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ---------- Base ---------- */
+html {
+  font-family: 'Plus Jakarta Sans', sans-serif;  
+  font-weight: 800;
+  font-size: 100%; /* facilita el uso de rem */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;  
+  font-weight: 600;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+
+.scrollable {
+  overflow: auto;           /* keep scroll behaviour */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge & IE */
+}
+
+.scrollable::-webkit-scrollbar {  /* Chrome, Safari, Opera */
+  display: none;
+}
+
+/* ---------- Section Titles ---------- */
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-light;
+  position: relative;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  text-align: left !important;
+  margin-left: 0 !important;
+  width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 5vh;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: calc(100% - 2rem);
+  height: 1px;
+  background-color: var(--black);
+  opacity: 1;
+}
+
+/* ---------- OSIX Utility Classes ---------- */
+.osix-primary {
+  color: var(--primary);
+}
+
+.osix-primary-bg {
+  background-color: var(--primary);
+}
+
+.osix-gradient {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+}
+
+.osix-gradient-dark {
+  background: linear-gradient(to right, var(--primary-dark), var(--black));
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.btn-arrow:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+button, input, textarea, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Form Controls ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  @apply w-full border transition-all duration-300 ease-in-out;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.67rem 1.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #000;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #000;
+  border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ---------- Typography & Layout ---------- */
+.accent-line {
+  @apply w-20 h-1.5 bg-[#CD1C18] mb-8 rounded-full mx-auto sm:mx-0;
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    text-align: center;
+    font-size: 1.875rem; /* 30px */
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero-gradient {
+  background: linear-gradient(to right, #CD1C18, #A51713);
+}
+
+/* ---------- Animations ---------- */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------- Accessibility ---------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #CD1C18;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---------- Project Cards ---------- */
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* ---------- Scroll Adjustment ---------- */
+[id] {
+  scroll-margin-top: 8rem;
+}
+
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+  }
+}
+
+/* ---------- Extras para móvil ---------- */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Deshabilitar comportamiento de scroll por defecto */
+html {
+  scroll-behavior: auto !important; /* Desactivamos smooth scroll nativo para controlar manualmente */
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE y Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Estilos para cada sección */
+section {
+  position: relative;/* Altura mínima */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Estilos para los puntos de navegación lateral */
+.section-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+.section-dots button {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-dots button.active {
+  background-color: black;
+  transform: scale(1.2);
+}
+
+.section-dots button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animación durante el scroll */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Clase para aplicar a elementos que quieras animar al entrar en la sección */
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.visible {
+  animation: fadeIn 0.6s forwards;
+}
+
+/* Mejoras de accesibilidad */
+.section-dots button:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
+}
+
+/* Mejoras para móvil */
+@media (max-width: 768px) {
+  section:first-child {
+    margin-bottom: 0vh !important;
+  }
+
+  section:last-child {
+    margin-bottom: 0vh !important;
+  }
+
+  .section-dots {
+    right: 0.5rem;
+  }
+  
+  .section-dots button {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  
+  /* Mejoras de espaciado para móviles */
+  .section-title {
+    font-size: 1.75rem;
+    padding-left: 1rem;
+    padding-top: 1.5rem;
+  }
+  
+  .section-title::before {
+    left: 1rem;
+    width: calc(100% - 1rem);
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Ajuste de padding para contenedores en móviles */
+  .container, .mx-auto {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Indicador de scroll inicial */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5rem;
+  height: 2.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.scroll-indicator::after {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  animation: scrollDown 1.5s infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+/* ---------- shadcn/ui CSS Variables ---------- */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Root redirect page -->
+  <url>
+    <loc>https://osix.tech/</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- English homepage -->
+  <url>
+    <loc>https://osix.tech/en/</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/"/>
+  </url>
+
+  <!-- Spanish homepage -->
+  <url>
+    <loc>https://osix.tech/es/</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/"/>
+  </url>
+
+  <!-- English Privacy Policy -->
+  <url>
+    <loc>https://osix.tech/en/privacy</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy"/>
+  </url>
+
+  <!-- Spanish Privacy Policy -->
+  <url>
+    <loc>https://osix.tech/es/privacy</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy"/>
+  </url>
+
+  <!-- Project: Nessie (English) -->
+  <url>
+    <loc>https://osix.tech/en/projects/nessie</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/projects/nessie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/projects/nessie"/>
+  </url>
+
+  <!-- Project: Nessie (Spanish) -->
+  <url>
+    <loc>https://osix.tech/es/projects/nessie</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/projects/nessie"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/projects/nessie"/>
+  </url>
+
+  <!-- Project: TAKE (English) -->
+  <url>
+    <loc>https://osix.tech/en/projects/take</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/projects/take"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/projects/take"/>
+    <image:image>
+      <image:loc>https://osix.tech/projects/take.png</image:loc>
+      <image:title>TAKE - AI Ticket Management System</image:title>
+    </image:image>
+  </url>
+
+  <!-- Project: TAKE (Spanish) -->
+  <url>
+    <loc>https://osix.tech/es/projects/take</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/projects/take"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/projects/take"/>
+    <image:image>
+      <image:loc>https://osix.tech/projects/take.png</image:loc>
+      <image:title>TAKE - Sistema IA de Gestión de Tickets</image:title>
+    </image:image>
+  </url>
+
+  <!-- KTED Landing: Variant A (English) -->
+  <url>
+    <loc>https://osix.tech/en/kted/a</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/a"/>
+  </url>
+
+  <!-- KTED Landing: Variant A (Spanish) -->
+  <url>
+    <loc>https://osix.tech/es/kted/a</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/a"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a"/>
+  </url>
+
+  <!-- KTED Landing: Variant B (English) -->
+  <url>
+    <loc>https://osix.tech/en/kted/b</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/b"/>
+  </url>
+
+  <!-- KTED Landing: Variant B (Spanish) -->
+  <url>
+    <loc>https://osix.tech/es/kted/b</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/b"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/b"/>
+  </url>
+
+  <!-- KTED Landing: Variant C (English) -->
+  <url>
+    <loc>https://osix.tech/en/kted/c</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/c"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/c"/>
+  </url>
+
+  <!-- KTED Landing: Variant C (Spanish) -->
+  <url>
+    <loc>https://osix.tech/es/kted/c</loc>
+    <lastmod>2026-02-16T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/c"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/c"/>
+  </url>
+</urlset>

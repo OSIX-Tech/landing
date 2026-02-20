@@ -1,0 +1,117 @@
+---
+import ContactSection from './StaticContactSection.astro';
+
+const { lang = 'es' } = Astro.props;
+const translations = await import(`../../public/locales/${lang}.json`);
+const t = (k: string) => translations.default[k] || k;
+
+const currentYear = new Date().getFullYear();
+
+// Navigation links
+const navLinks = [
+  { name: t('nav.products'), url: '#products', scrollAdjust: -30 },
+  { name: t('nav.services'), url: '#services', scrollAdjust: -30 },
+  { name: t('footer.nav.about'), url: '#about', scrollAdjust: -60 },
+];
+
+// Contact info
+const contactInfo = [
+  {
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>`,
+    text: t('contact.location.value')
+  },
+  {
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>`,
+    text: 'info@osix.tech'
+  }
+];
+---
+
+<footer class="relative bg-black text-white py-20 overflow-hidden">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-6xl mx-auto">
+      <!-- Columna 1: Logo y descripción -->
+      <div class="md:col-span-4 space-y-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center p-2">
+            <img src="/full_logo.png" alt="OSIX" class="w-full h-full" />
+          </div>
+          <h3 class="text-2xl text-white">OSIX</h3>
+        </div>
+        <p class="text-gray-400 font-light leading-relaxed">
+          {t('footer.description')}
+        </p>
+      </div>
+
+      <!-- Columna 2: Enlaces rápidos -->
+      <div class="md:col-span-4 space-y-6">
+        <h4 class="text-lg text-white relative inline-block pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-12 after:bg-white">{t('footer.links.title')}</h4>
+        <ul class="space-y-3">
+          {navLinks.map(link => (
+            <li>
+              <a 
+                href={link.url} 
+                class="text-gray-400 hover:text-white transition-colors duration-300 font-light flex items-center gap-2 group"
+              >
+                <span class="w-0 h-[1px] bg-white group-hover:w-4 transition-all duration-300"></span>
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: Contacto -->
+      <div class="md:col-span-4 space-y-6">
+        <h4 class="text-lg text-white relative inline-block pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-12 after:bg-white">{t('footer.contact.title')}</h4>
+        <ul class="space-y-5 text-gray-400 font-light">
+          {contactInfo.map(item => (
+            <li class="flex items-start gap-3 group">
+              <div class="mt-0.5 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                <Fragment set:html={item.icon} />
+              </div>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Línea divisoria y copyright -->
+    <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+      <div class="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
+        <p class="text-gray-500 font-light">
+          &copy; {currentYear} OSIX. {t('footer.copyright')}
+        </p>
+        <div class="flex gap-6 text-xs text-gray-500">
+          <a href="/privacy" class="hover:text-white transition-colors duration-300">{t('footer.privacy')}</a>
+          <a href="/terms" class="hover:text-white transition-colors duration-300">{t('footer.terms')}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ContactSection lang={lang} />
+</footer>
+
+<style>
+  /* Animaciones para elementos del footer */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  footer a, footer li {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  footer a:hover {
+    transform: translateX(5px);
+  }
+</style>
