@@ -1,0 +1,37 @@
+# OSIX Tech
+
+> Software consultancy based in Santiago de Compostela, Spain, specializing in custom AI-powered development, digital transformation consulting, and subsidized innovation grants management.
+
+## About
+
+OSIX Tech builds automation-driven software using AI and modern technologies. We deliver custom digital solutions for real-world business needs, serving companies across Spain and Galicia.
+
+- Founded in Santiago de Compostela, Galicia, Spain
+- Languages: English, Spanish
+- Industries: logistics, food, industrial, retail, and more
+
+## Services
+
+### Custom Software Development
+You define what your business needs — mobile apps, web platforms, intelligent agents, AI automations — and we build it. 100% custom software, no generic solutions. Working demo in 2 weeks, 24/7 ongoing support.
+
+### Digital Transformation Consulting
+We visit your company, understand how you actually work, and deliver a report with concrete opportunities, savings estimates, and a prioritized action plan in less than a week. No strings attached — if you don't need anything, we tell you.
+
+### Subsidized Innovation
+We identify public grants that fit your company (IGAPE, IA360, Ticket Innova, Kit Digital, data spaces) and design the project and technical report to maximize approval. You pay nothing if the grant is not approved.
+
+## Contact
+
+- Website: https://osix.tech
+- Email: info@osix.tech
+- Phone: +34 648 935 068
+- Address: Santiago del Estero, 2-4 1G, Santiago de Compostela, 15702, Spain
+
+## Links
+
+- Services: https://osix.tech/en/servicios/desarrollo-a-medida/
+- Digital Transformation: https://osix.tech/en/servicios/consultoria-transformacion/
+- Innovation Grants: https://osix.tech/en/servicios/consultoria-innovacion/
+- GitHub: https://github.com/osixtech
+- LinkedIn: https://linkedin.com/company/osixtech

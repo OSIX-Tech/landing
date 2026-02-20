@@ -6,6 +6,7 @@ import ServicesShowcase from '../../components/ServicesShowcase.astro';
 import AboutUsSection from '../../components/AboutUsSection.astro';
 import StaticContactSection from '../../components/StaticContactSection.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
+import { getAllServices } from '../../data/services-multilingual';
 
 export const prerender = true;
 
@@ -64,7 +65,16 @@ const organizationSchema = {
     "email": "info@osix.tech",
     "telephone": "+34 648935068",
     "availableLanguage": ["English", "Spanish"]
-  }
+  },
+  "makesOffer": getAllServices(lang).map(s => ({
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": s.title,
+      "description": s.description,
+      "url": `https://osix.tech/${lang}/servicios/${s.id}`
+    }
+  }))
 };
 
 const webPageSchema = {

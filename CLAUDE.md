@@ -11,7 +11,7 @@ This is a multilingual portfolio/landing page for OSIX built with Astro, React, 
 - **Astro 5.7** - Static site generator (static output mode)
 - **React 19** - Interactive components
 - **TypeScript** - Type safety
-- **Tailwind CSS** - Styling with Plus Jakarta Sans and Orbitron fonts
+- **Tailwind CSS** - Styling with Plus Jakarta Sans font
 - **Three.js/GSAP/Framer Motion** - Animations
 - **EmailJS** - Contact form functionality
 - **Rive** - Interactive animations
@@ -122,5 +122,5 @@ Markdown content in `src/content/[lang]/` for:
   - Scrollbar hiding across all browsers
   - Markdown content styling
   - Base typography and spacing
-- **Custom fonts**: Plus Jakarta Sans (primary), Orbitron (accent)
+- **Custom fonts**: Plus Jakarta Sans (primary)
 - **Responsive design** with mobile-first approach

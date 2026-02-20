@@ -35,7 +35,7 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       <!-- Main number -->
       <h1 class="hero-b-el mb-4">
         <span class="block text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black text-black leading-none tracking-tighter">
-          <span style="font-family: 'Orbitron', sans-serif;">30.000</span><span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-black ml-2">€</span>
+          <span>30.000</span><span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-black ml-2">€</span>
         </span>
       </h1>
 
@@ -55,25 +55,25 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         <div class="inline-flex items-center border border-gray-200">
           <!-- Days -->
           <div class="group px-5 sm:px-8 py-4 border-r border-gray-200 hover:bg-gray-50 transition-colors">
-            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;" id="countdown-days">{diffDays}</span>
+            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-days">{diffDays}</span>
             <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{lang === 'es' ? 'días' : 'days'}</span>
           </div>
 
           <!-- Hours -->
           <div class="group px-5 sm:px-8 py-4 border-r border-gray-200 hover:bg-gray-50 transition-colors">
-            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;" id="countdown-hours">00</span>
+            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-hours">00</span>
             <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{lang === 'es' ? 'hrs' : 'hrs'}</span>
           </div>
 
           <!-- Minutes -->
           <div class="group px-5 sm:px-8 py-4 border-r border-gray-200 sm:border-r-0 hover:bg-gray-50 transition-colors">
-            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;" id="countdown-mins">00</span>
+            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-mins">00</span>
             <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">min</span>
           </div>
 
           <!-- Seconds -->
           <div class="group px-5 sm:px-8 py-4 hover:bg-gray-50 transition-colors hidden sm:block border-l border-gray-200">
-            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;" id="countdown-secs">00</span>
+            <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-secs">00</span>
             <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">sec</span>
           </div>
         </div>
@@ -105,17 +105,17 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   <div class="hero-b-stats relative z-20 pb-8 border-t border-gray-100 pt-6 mx-6 md:mx-12">
     <div class="flex justify-center items-center gap-8 md:gap-16">
       <div class="group text-center">
-        <span class="block text-2xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;">+50</span>
+        <span class="block text-2xl font-bold text-black">+50</span>
         <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'proyectos' : 'projects'}</span>
       </div>
       <div class="w-px h-10 bg-gray-200"></div>
       <div class="group text-center">
-        <span class="block text-2xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;">100%</span>
+        <span class="block text-2xl font-bold text-black">100%</span>
         <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'éxito' : 'success'}</span>
       </div>
       <div class="w-px h-10 bg-gray-200"></div>
       <div class="group text-center">
-        <span class="block text-2xl font-bold text-black" style="font-family: 'Orbitron', sans-serif;">24h</span>
+        <span class="block text-2xl font-bold text-black">24h</span>
         <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'respuesta' : 'response'}</span>
       </div>
     </div>

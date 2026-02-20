@@ -53,6 +53,9 @@ const seoData = {
 
 const currentSeo = seoData[lang as 'es' | 'en'] || seoData.es;
 
+// noindex for non-canonical variants (b, c)
+const isCanonicalVariant = variant === 'a';
+
 // Structured Data
 const webPageSchema = {
   "@context": "https://schema.org",
@@ -61,6 +64,22 @@ const webPageSchema = {
   "description": currentSeo.description,
   "url": `https://osix.tech/${lang}/kted/${variant}`,
   "inLanguage": lang
+};
+
+// FAQ translations for structured data
+const faqTranslations = await import(`../../../../public/locales/${lang}.json`);
+const ft = (k: string) => faqTranslations.default[k] || k;
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": ft('kted.faq.q1'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a1') } },
+    { "@type": "Question", "name": ft('kted.faq.q2'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a2') } },
+    { "@type": "Question", "name": ft('kted.faq.q3'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a3') } },
+    { "@type": "Question", "name": ft('kted.faq.q4'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a4') } },
+    { "@type": "Question", "name": ft('kted.faq.q5'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a5') } }
+  ]
 };
 
 const heroComponents = { a: HeroA, b: HeroB, c: HeroC };
@@ -76,7 +95,8 @@ const ContactComponent = contactComponents[variant as 'a' | 'b' | 'c'] || Contac
   description={currentSeo.description}
   keywords={currentSeo.keywords}
   pageType="website"
-  jsonLd={[webPageSchema]}
+  noindex={!isCanonicalVariant}
+  jsonLd={[webPageSchema, faqPageSchema]}
   hideHeader={true}>
 
   <KTEDHeader lang={lang} />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
+/* Fonts loaded via <link> tags in Layout.astro for non-blocking rendering */
 
 @tailwind base;
 @tailwind components;

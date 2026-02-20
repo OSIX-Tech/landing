@@ -70,6 +70,11 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes" />
 
+    <!-- Font loading: preconnect + non-blocking stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
+
     <meta name="theme-color" content="#000000" />
     <meta name="mobile-web-app-capable" content="yes" />
 
@@ -94,7 +99,6 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
     <meta name="author" content="OSIX Tech" />
     <meta name="keywords" content={keywords} />
-    <meta name="generator" content="Astro" />
     <meta name="copyright" content="OSIX Tech" />
     <meta name="language" content={lang} />
     <meta name="rating" content="general" />
@@ -129,7 +133,6 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta name="apple-mobile-web-app-title" content="OSIX Tech" />
     <meta name="application-name" content="OSIX Tech" />
     <meta name="msapplication-TileColor" content="#000000" />
-    <meta name="msapplication-config" content="/browserconfig.xml" />
     
     <!-- Structured Data -->
     {jsonLd && (
@@ -175,7 +178,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
 
     <SpeedInsights />
     <footer class="mini-footer">
-      <p>Proxecto apoiado por: IGAPE TICKET INNOVA 2026</p>
+      <p>{lang === 'es' ? 'Proyecto apoyado por: IGAPE TICKET INNOVA 2026' : 'Project supported by: IGAPE TICKET INNOVA 2026'}</p>
     </footer>
   </body>
 </html>
