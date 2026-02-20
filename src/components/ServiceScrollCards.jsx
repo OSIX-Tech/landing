@@ -58,7 +58,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
     <ScrollStack
         stackOffset={isMobile ? 8 : 12}
         scaleFactor={0.04}
-        stackPosition={isMobile ? '15%' : '20%'}
+        stackPosition={isMobile ? '15%' : '25%'}
         itemDistance={isMobile ? 40 : 80}
       >
         {services.map((service) => {

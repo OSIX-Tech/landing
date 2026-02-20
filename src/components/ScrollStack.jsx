@@ -44,8 +44,6 @@ const ScrollStack = ({
       const inner = c.firstElementChild;
       if (inner) inner.style.transform = '';
     });
-    container.style.paddingBottom = '';
-    container.style.marginBottom = '';
     void cards[0].offsetHeight;
 
     // Natural positions — flex gap is properly reflected here
@@ -69,7 +67,7 @@ const ScrollStack = ({
     let maxH = 0;
     for (let i = 0; i < serviceCount; i++) maxH = Math.max(maxH, cards[i].offsetHeight);
     const stackSpread = serviceCount > 1 ? stickyTops[serviceCount - 1] - stickyTops[0] : 0;
-    cards[n - 1].style.minHeight = `${maxH + stackSpread - 24}px`;
+    cards[n - 1].style.minHeight = `${maxH + stackSpread - 12}px`;
 
     cards[n - 1].style.position = 'relative';
     cards[n - 1].style.zIndex = `${n + 1}`;
@@ -82,18 +80,6 @@ const ScrollStack = ({
     }
     triggerPoints.push(naturalTops[n - 1] - stickyTops[serviceCount - 1]);
 
-    // Padding: CTA must fully cover the stack before first card unsticks.
-    // CTA covers stack when: scrollY = naturalTops[CTA] - stickyTops[0]
-    // First card unsticks when: scrollY = containerBottom - stickyTops[0] - firstCardHeight
-    // Need: containerBottom >= naturalTops[CTA] + firstCardHeight + buffer
-    const firstCardHeight = cards[0].offsetHeight;
-    const neededBottom = naturalTops[n - 1] + firstCardHeight + 200;
-    const currentBottom = containerTop + container.offsetHeight;
-    const extra = Math.max(0, Math.ceil(neededBottom - currentBottom));
-    if (extra > 0) {
-      container.style.paddingBottom = `${extra}px`;
-      container.style.marginBottom = `-${extra}px`;
-    }
 
     layoutRef.current = { triggerPoints, serviceCount };
   }, [stackOffset, stackPosition, parsePct]);

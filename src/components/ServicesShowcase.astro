@@ -42,7 +42,7 @@ const caseLogos: Record<string, string> = {
     <h2 class="section-title" set:html={t('showcase.title')} />
   </div>
 
-  <div class="w-full max-w-7xl mx-auto px-6 md:px-12 pb-16">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
     <ServiceScrollCards
       client:visible
       services={services}
@@ -211,6 +211,7 @@ const caseLogos: Record<string, string> = {
     text-align: center;
     flex: 1;
     padding: 1rem 0;
+    min-height: 200px;
   }
 
   .ssc-proof-promo-headline {
@@ -269,7 +270,10 @@ const caseLogos: Record<string, string> = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 440px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
 
   .ssc-cta-title {
@@ -301,6 +305,10 @@ const caseLogos: Record<string, string> = {
       font-size: 1.35rem;
     }
 
+    .ssc-description {
+      display: none;
+    }
+
     .ssc-proof {
       width: 100%;
       padding: 1.5rem;
@@ -311,8 +319,11 @@ const caseLogos: Record<string, string> = {
     }
 
     .ssc-cta {
-      padding: 3rem 1.5rem;
-      min-height: 260px;
+      padding: 3rem 2.2rem;
+      min-height: 520px;
+      width: 100vw;
+      margin-left: 50%;
+      transform: translateX(-50%);
     }
 
     .ssc-cta-title {
