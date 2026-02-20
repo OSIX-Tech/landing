@@ -30,7 +30,7 @@ if (!service) {
 const relatedCases = getCasesByService(id, lang);
 const otherServices = getAllServices(lang).filter(s => s.id !== id);
 
-// Convocatorias data (only for consultoria-innovacion)
+// Convocatorias data (only for innovacion-subvencionada)
 const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: string; title: string; description: string; deadline?: string; ctaLabel: string; ctaHref: string }[] }> = {
   es: {
     sectionTitle: 'Convocatorias abiertas',
@@ -75,7 +75,7 @@ const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: st
     ],
   },
 };
-const convocatorias = id === 'consultoria-innovacion' ? (convocatoriasData[lang] || convocatoriasData.es) : null;
+const convocatorias = id === 'innovacion-subvencionada' ? (convocatoriasData[lang] || convocatoriasData.es) : null;
 
 const translations = await import(`../../../../public/locales/${lang}.json`);
 const t = (key: string) => translations.default[key] || key;
@@ -98,7 +98,7 @@ const breadcrumbSchema = {
 const serviceTypeMap: Record<string, string> = {
   'desarrollo-a-medida': 'Custom Software Development',
   'consultoria-transformacion': 'Digital Transformation Consulting',
-  'consultoria-innovacion': 'Innovation and Grants Consulting'
+  'innovacion-subvencionada': 'Innovation and Grants Consulting'
 };
 
 const serviceSchema = {

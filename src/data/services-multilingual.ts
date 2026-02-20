@@ -75,8 +75,8 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
         role: 'Distribuidora industrial',
       },
     },
-    'consultoria-innovacion': {
-      id: 'consultoria-innovacion',
+    'innovacion-subvencionada': {
+      id: 'innovacion-subvencionada',
       title: 'Innovación Subvencionada',
       tagline: 'Identificamos ayudas públicas y preparamos tu proyecto',
       description: 'Identificamos las ayudas públicas que encajan con tu empresa y nos encargamos de diseñar el proyecto para que cumpla todos los requisitos de la convocatoria. Preparamos la memoria técnica, el presupuesto y toda la documentación necesaria para maximizar tus posibilidades de aprobación. IGAPE, IA360, Ticket Innova, Kit Digital, espacios de datos... conocemos las convocatorias porque trabajamos con ellas a diario.',
@@ -164,8 +164,8 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
         role: 'Industrial distributor',
       },
     },
-    'consultoria-innovacion': {
-      id: 'consultoria-innovacion',
+    'innovacion-subvencionada': {
+      id: 'innovacion-subvencionada',
       title: 'Subsidized Innovation',
       tagline: 'We identify public grants and prepare your project',
       description: 'We identify the public grants that fit your company and design the project to meet all the requirements of the call. We prepare the technical report, budget, and all necessary documentation to maximize your chances of approval. IGAPE, IA360, Ticket Innova, Kit Digital, data spaces... we know the calls because we work with them daily.',

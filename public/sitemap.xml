@@ -73,24 +73,24 @@
 
   <!-- Service: Subsidized Innovation (English) -->
   <url>
-    <loc>https://osix.tech/en/servicios/consultoria-innovacion/</loc>
+    <loc>https://osix.tech/en/servicios/innovacion-subvencionada/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-innovacion/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/consultoria-innovacion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/consultoria-innovacion/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
   </url>
 
   <!-- Service: Subsidized Innovation (Spanish) -->
   <url>
-    <loc>https://osix.tech/es/servicios/consultoria-innovacion/</loc>
+    <loc>https://osix.tech/es/servicios/innovacion-subvencionada/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/consultoria-innovacion/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-innovacion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/consultoria-innovacion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
   </url>
 
   <!-- KTED Landing (canonical variant) -->

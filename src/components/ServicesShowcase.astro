@@ -18,7 +18,7 @@ const { lang = 'es' } = Astro.props;
 const translations = await import(`../../public/locales/${lang}.json`);
 const t = (k: string) => translations.default[k] || k;
 
-const serviceIds = ['desarrollo-a-medida', 'consultoria-transformacion', 'consultoria-innovacion'];
+const serviceIds = ['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'];
 const services = serviceIds.map(id => getService(id, lang)).filter(Boolean) as ServiceData[];
 const allCases = getAllCases(lang);
 

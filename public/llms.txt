@@ -32,6 +32,6 @@ We identify public grants that fit your company (IGAPE, IA360, Ticket Innova, Ki
 
 - Services: https://osix.tech/en/servicios/desarrollo-a-medida/
 - Digital Transformation: https://osix.tech/en/servicios/consultoria-transformacion/
-- Innovation Grants: https://osix.tech/en/servicios/consultoria-innovacion/
+- Innovation Grants: https://osix.tech/en/servicios/innovacion-subvencionada/
 - GitHub: https://github.com/osixtech
 - LinkedIn: https://linkedin.com/company/osixtech

@@ -28,13 +28,13 @@ const serviceStats = {
 
 const servicePromos = {
   es: {
-    'consultoria-innovacion': {
+    'innovacion-subvencionada': {
       headline: 'Convocatorias abiertas con financiación para tu empresa',
       cta: 'Ver convocatorias',
     },
   },
   en: {
-    'consultoria-innovacion': {
+    'innovacion-subvencionada': {
       headline: 'Open calls with funding for your business',
       cta: 'View open calls',
     },
