@@ -33,86 +33,76 @@ const ScrollStack = ({
     return parseFloat(value);
   }, []);
 
-  const measure = useCallback(() => {
+  // Reads natural positions then applies CSS sticky. Runs inside useLayoutEffect
+  // (before paint) so the reset→read→apply cycle is invisible to the user.
+  const setup = useCallback(() => {
     const cards = cardsRef.current;
     if (!cards.length) return;
-
-    // Temporarily strip transforms so we read natural flow positions
-    const saved = cards.map(c => c.style.transform);
-    cards.forEach(c => { c.style.transform = 'none'; });
-    void cards[0].offsetHeight; // force reflow
 
     const vh = window.innerHeight;
     const stackPx = parsePct(stackPosition, vh);
     const scaleEndPx = parsePct(scaleEndPosition, vh);
 
-    const endEl = useWindowScroll
-      ? document.querySelector('.scroll-stack-end')
-      : scrollerRef.current?.querySelector('.scroll-stack-end');
+    // Reset to natural flow so we can read true document positions
+    cards.forEach(c => {
+      c.style.position = 'relative';
+      c.style.top = 'auto';
+      c.style.transform = '';
+    });
+    void cards[0].offsetHeight; // force reflow
 
-    const endTop = endEl
-      ? endEl.getBoundingClientRect().top + window.scrollY
-      : 0;
+    const naturalTops = cards.map(c => c.getBoundingClientRect().top + window.scrollY);
+    const stickyTops = cards.map((_, i) => stackPx + itemStackDistance * i);
 
-    const cardLayouts = cards.map((card, i) => {
-      const rect = card.getBoundingClientRect();
-      const naturalTop = rect.top + window.scrollY;
-      return {
-        naturalTop,
-        triggerStart: naturalTop - stackPx - itemStackDistance * i,
-        triggerEnd: naturalTop - scaleEndPx,
-        pinStart: naturalTop - stackPx - itemStackDistance * i,
-        pinEnd: endTop - vh / 2,
-      };
+    // Apply native sticky — browser compositor handles pinning, zero lag
+    cards.forEach((card, i) => {
+      card.style.position = 'sticky';
+      card.style.top = `${Math.round(stickyTops[i])}px`;
+      card.style.zIndex = `${10 + i}`;
     });
 
-    // Restore transforms
-    cards.forEach((c, i) => { c.style.transform = saved[i]; });
+    layoutRef.current = { naturalTops, stickyTops, scaleEndPx };
+    lastTransformsRef.current.clear();
+  }, [stackPosition, scaleEndPosition, itemStackDistance, parsePct]);
 
-    layoutRef.current = { cardLayouts, stackPx, vh };
-  }, [stackPosition, scaleEndPosition, itemStackDistance, useWindowScroll, parsePct]);
-
+  // Only touches transform + filter. Never touches position/top — those are
+  // handled by CSS sticky and never change after setup().
   const update = useCallback(() => {
     const layout = layoutRef.current;
     const cards = cardsRef.current;
     if (!layout || !cards.length) return;
 
-    const scrollTop = window.scrollY;
-    const { cardLayouts, stackPx } = layout;
+    const scrollTop = useWindowScroll ? window.scrollY : (scrollerRef.current?.scrollTop ?? 0);
+    const { naturalTops, stickyTops, scaleEndPx } = layout;
+    const n = cards.length;
 
     cards.forEach((card, i) => {
       if (!card) return;
-      const cl = cardLayouts[i];
 
-      // Scale progress
-      const sProgress = clamp(
-        (scrollTop - cl.triggerStart) / (cl.triggerEnd - cl.triggerStart || 1),
-        0, 1
-      );
-      const targetScale = baseScale + i * itemScale;
-      const scale = 1 - sProgress * (1 - targetScale);
-      const rotation = rotationAmount ? i * rotationAmount * sProgress : 0;
+      // How much to shrink this card — driven by subsequent cards arriving
+      let totalReduction = 0;
+      for (let j = i + 1; j < n; j++) {
+        const jTrigger = naturalTops[j] - stickyTops[j];
+        const jEnd = naturalTops[j] - scaleEndPx;
+        const jProgress = clamp((scrollTop - jTrigger) / ((jEnd - jTrigger) || 1), 0, 1);
+        totalReduction += jProgress * itemScale;
+      }
 
-      // Blur
+      const scale = Math.max(baseScale, 1 - totalReduction);
+      const rotation = rotationAmount
+        ? (totalReduction / (itemScale || 1)) * rotationAmount
+        : 0;
+
       let blur = 0;
       if (blurAmount) {
         let topIdx = 0;
-        for (let j = 0; j < cards.length; j++) {
-          if (scrollTop >= cardLayouts[j].triggerStart) topIdx = j;
+        for (let j = 0; j < n; j++) {
+          if (scrollTop >= naturalTops[j] - stickyTops[j]) topIdx = j;
         }
         if (i < topIdx) blur = (topIdx - i) * blurAmount;
       }
 
-      // Pin translation
-      let translateY = 0;
-      if (scrollTop >= cl.pinStart && scrollTop <= cl.pinEnd) {
-        translateY = scrollTop - cl.naturalTop + stackPx + itemStackDistance * i;
-      } else if (scrollTop > cl.pinEnd) {
-        translateY = cl.pinEnd - cl.naturalTop + stackPx + itemStackDistance * i;
-      }
-
       const nt = {
-        translateY: Math.round(translateY * 100) / 100,
         scale: Math.round(scale * 1000) / 1000,
         rotation: Math.round(rotation * 100) / 100,
         blur: Math.round(blur * 100) / 100,
@@ -120,21 +110,21 @@ const ScrollStack = ({
 
       const lt = lastTransformsRef.current.get(i);
       const changed = !lt
-        || Math.abs(lt.translateY - nt.translateY) > 0.1
         || Math.abs(lt.scale - nt.scale) > 0.001
         || Math.abs(lt.rotation - nt.rotation) > 0.1
         || Math.abs(lt.blur - nt.blur) > 0.1;
 
       if (changed) {
-        card.style.transform = `translate3d(0,${nt.translateY}px,0) scale(${nt.scale}) rotate(${nt.rotation}deg)`;
+        let transform = `scale(${nt.scale})`;
+        if (nt.rotation) transform += ` rotate(${nt.rotation}deg)`;
+        card.style.transform = transform;
         card.style.filter = nt.blur > 0 ? `blur(${nt.blur}px)` : '';
-        card.style.zIndex = `${10 + i}`;
         lastTransformsRef.current.set(i, nt);
       }
 
-      // Stack complete callback
-      if (i === cards.length - 1) {
-        const inView = scrollTop >= cl.pinStart && scrollTop <= cl.pinEnd;
+      if (i === n - 1) {
+        const trigger = naturalTops[i] - stickyTops[i];
+        const inView = scrollTop >= trigger;
         if (inView && !stackCompletedRef.current) {
           stackCompletedRef.current = true;
           onStackComplete?.();
@@ -143,7 +133,7 @@ const ScrollStack = ({
         }
       }
     });
-  }, [baseScale, itemScale, itemStackDistance, rotationAmount, blurAmount, onStackComplete]);
+  }, [baseScale, itemScale, rotationAmount, blurAmount, useWindowScroll, onStackComplete]);
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
@@ -158,12 +148,11 @@ const ScrollStack = ({
 
     cards.forEach((card, i) => {
       if (i < cards.length - 1) card.style.marginBottom = `${itemDistance}px`;
-      card.style.willChange = 'transform, filter';
+      card.style.willChange = 'transform';
       card.style.transformOrigin = 'top center';
-      card.style.backfaceVisibility = 'hidden';
     });
 
-    measure();
+    setup();
     update();
 
     const onScroll = () => {
@@ -179,20 +168,21 @@ const ScrollStack = ({
     let resizeTimer;
     const onResize = () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        measure();
-        update();
-      }, 100);
+      resizeTimer = setTimeout(() => { setup(); update(); }, 100);
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const scrollTarget = useWindowScroll ? window : scroller;
+    scrollTarget.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      scrollTarget.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
       clearTimeout(resizeTimer);
       cards.forEach(c => {
+        c.style.position = '';
+        c.style.top = '';
+        c.style.zIndex = '';
         c.style.transform = '';
         c.style.filter = '';
         c.style.willChange = '';
@@ -206,7 +196,7 @@ const ScrollStack = ({
   }, [
     itemDistance, itemScale, itemStackDistance, stackPosition,
     scaleEndPosition, baseScale, rotationAmount, blurAmount,
-    useWindowScroll, onStackComplete, measure, update
+    useWindowScroll, onStackComplete, setup, update
   ]);
 
   return (
