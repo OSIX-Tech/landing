@@ -928,6 +928,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     if (!container) return;
     const cards = gsap.utils.toArray<HTMLElement>(".team-card");
     let activeCard: HTMLElement | null = null;
+    let flipTimeline: gsap.core.Timeline | null = null;
     const isMobile = window.innerWidth < 768;
 
     const animateContent = (card: HTMLElement, direction: 'in' | 'out') => {
@@ -943,7 +944,8 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       if (activeCard) animateContent(activeCard, 'out');
       const state = Flip.getState(cards, { props: "flexGrow" });
       cards.forEach(c => gsap.set(c, { flexGrow: c === card ? 10 : 1 }));
-      Flip.from(state, { duration: 0.8, ease: "expo.out", absolute: true });
+      if (flipTimeline) flipTimeline.kill();
+      flipTimeline = Flip.from(state, { duration: 0.8, ease: "expo.out", absolute: true });
       animateContent(card, 'in');
       activeCard = card;
     };
@@ -953,7 +955,8 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       animateContent(activeCard, 'out');
       const state = Flip.getState(cards, { props: "flexGrow" });
       cards.forEach(c => gsap.set(c, { flexGrow: 1 }));
-      Flip.from(state, { duration: 0.8, ease: 'expo.out', absolute: true });
+      if (flipTimeline) flipTimeline.kill();
+      flipTimeline = Flip.from(state, { duration: 0.8, ease: 'expo.out', absolute: true });
       activeCard = null;
     };
 
@@ -983,8 +986,21 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
           });
         } else {
           activeCard = null;
-          gsap.killTweensOf(cards);
-          gsap.set(cards, { opacity: 0, y: 60, flexGrow: 1, pointerEvents: 'none' });
+          if (flipTimeline) {
+            flipTimeline.kill();
+            flipTimeline = null;
+          }
+          cards.forEach(card => {
+            const title = card.querySelector('h3');
+            const details = card.querySelector('.details');
+            const overlay = card.querySelector('.card-overlay');
+            gsap.killTweensOf([card, title, details, overlay]);
+            // Clear Flip's absolute positioning artifacts
+            gsap.set(card, { clearProps: "position,top,left,width,height,zIndex" });
+            gsap.set(card, { opacity: 0, y: 60, flexGrow: 1, pointerEvents: 'none' });
+            if (overlay) gsap.set(overlay, { opacity: 0.8 });
+            if (title && details) gsap.set([title, details], { y: 20, opacity: 0, skewX: -5 });
+          });
         }
       });
     }, { threshold: 0.1 });
@@ -1021,6 +1037,10 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     // Store cleanup function
     teamCleanup = () => {
       teamObserver.disconnect();
+      if (flipTimeline) {
+        flipTimeline.kill();
+        flipTimeline = null;
+      }
       gsap.killTweensOf(cards);
       cardHandlers.forEach(([el, evt, fn]) => el.removeEventListener(evt, fn));
       if (!isMobile) container.removeEventListener('mouseleave', collapseAll);

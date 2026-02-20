@@ -59,7 +59,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
       itemDistance={isMobile ? 120 : 80}
       itemScale={0.04}
       itemStackDistance={32}
-      stackPosition={isMobile ? '15%' : '15%'}
+      stackPosition={isMobile ? '12%' : '15%'}
       scaleEndPosition={isMobile ? '3%' : '8%'}
       baseScale={0.88}
       blurAmount={0}
