@@ -220,7 +220,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       <div class="flex flex-col md:flex-row w-full h-[150vh] md:h-[55vh] md:max-h-[500px] gap-4 team-expanding-cards-container">
         {teamMembers.map((member) => (
           <div class="team-card flex-1 relative overflow-hidden cursor-pointer shadow-lg border border-gray-200/50">
-            <Image src={member.image} alt={member.name} class="w-full h-full object-cover" loading="lazy" decoding="async" format="webp" quality={90} />
+            <Image src={member.image} alt={member.name} class="w-full h-full object-cover object-[center_40%]" loading="lazy" decoding="async" format="webp" quality={90} />
             <div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div class="card-content absolute bottom-0 left-0 p-6 text-white w-full">
               <h3 class="text-2xl font-bold opacity-0">{member.name}</h3>
@@ -934,7 +934,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       const details = card.querySelector('.details');
       const overlay = card.querySelector('.card-overlay');
       const isIn = direction === 'in';
-      gsap.to(overlay, { opacity: isIn ? 1 : 0.8, duration: 0.4, ease: 'expo.out', overwrite: true });
+      gsap.to(overlay, { opacity: isIn ? 1 : 0, duration: 0.4, ease: 'expo.out', overwrite: true });
       gsap.to([title, details], { opacity: isIn ? 1 : 0, duration: isIn ? 0.4 : 0.2, delay: isIn ? 0.3 : 0, stagger: isIn ? 0.1 : 0, ease: 'power2.out', overwrite: true });
     };
 
@@ -967,7 +967,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       } else {
         gsap.set(card, { flexGrow: 1, opacity: 0, y: 60, pointerEvents: 'none' });
       }
-      if (overlay) gsap.set(overlay, { opacity: 0.8 });
+      if (overlay) gsap.set(overlay, { opacity: 0 });
       if (title && details) gsap.set([title, details], { opacity: 0 });
     });
 
@@ -994,7 +994,6 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     teamObserver.observe(container);
 
     const cardHandlers: Array<[HTMLElement, string, () => void]> = [];
-    let scrollHandler: (() => void) | null = null;
 
     if (isMobile) {
       // Mobile: tap to expand, tap again to collapse
@@ -1020,12 +1019,6 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
         cardHandlers.push([card, "mouseenter", handler]);
       });
       container.addEventListener('mouseleave', collapseAll);
-
-      // Collapse on scroll to prevent stale hover state
-      scrollHandler = () => {
-        if (activeCard) collapseAll();
-      };
-      window.addEventListener('scroll', scrollHandler, { passive: true });
     }
 
     // Store cleanup function
@@ -1036,12 +1029,12 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       cardHandlers.forEach(([el, evt, fn]) => el.removeEventListener(evt, fn));
       if (!isMobile) {
         container.removeEventListener('mouseleave', collapseAll);
-        if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
       }
     };
   }
 
   let resizeTimer: ReturnType<typeof setTimeout>;
+  let lastResizeWidth = window.innerWidth;
   document.addEventListener('DOMContentLoaded', () => {
     if ((window as any).isLoadingComplete) {
       setupExpandingCards();
@@ -1050,6 +1043,9 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     }
   });
   window.addEventListener('resize', () => {
+    const w = window.innerWidth;
+    if (w === lastResizeWidth) return;
+    lastResizeWidth = w;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(setupExpandingCards, 200);
   });
