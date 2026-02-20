@@ -943,7 +943,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
         flexGrow: (i: number, target: HTMLElement) => target === card ? 10 : 1,
         duration: 0.8,
         ease: "expo.out",
-        overwrite: true,
+        overwrite: "auto",
       });
       animateContent(card, 'in');
       activeCard = card;
@@ -952,7 +952,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     const collapseAll = () => {
       if (!activeCard) return;
       animateContent(activeCard, 'out');
-      gsap.to(cards, { flexGrow: 1, duration: 0.8, ease: 'expo.out', overwrite: true });
+      gsap.to(cards, { flexGrow: 1, duration: 0.8, ease: 'expo.out', overwrite: "auto" });
       activeCard = null;
     };
 
@@ -966,10 +966,11 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
       if (title && details) gsap.set([title, details], { y: 20, opacity: 0, skewX: -5 });
     });
 
-    // Staggered entrance animation on scroll, resets when out of view
+    // Staggered entrance animation on scroll (plays once)
     const teamObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          teamObserver.disconnect();
           gsap.to(cards, {
             opacity: 1,
             y: 0,
@@ -979,17 +980,6 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
             onComplete: () => {
               cards.forEach(c => gsap.set(c, { pointerEvents: 'auto' }));
             },
-          });
-        } else {
-          activeCard = null;
-          cards.forEach(card => {
-            const title = card.querySelector('h3');
-            const details = card.querySelector('.details');
-            const overlay = card.querySelector('.card-overlay');
-            gsap.killTweensOf([card, title, details, overlay]);
-            gsap.set(card, { flexGrow: 1, opacity: 0, y: 60, pointerEvents: 'none' });
-            if (overlay) gsap.set(overlay, { opacity: 0.8 });
-            if (title && details) gsap.set([title, details], { y: 20, opacity: 0, skewX: -5 });
           });
         }
       });
@@ -1028,6 +1018,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     teamCleanup = () => {
       teamObserver.disconnect();
       gsap.killTweensOf(cards);
+      cards.forEach(c => gsap.set(c, { clearProps: "all" }));
       cardHandlers.forEach(([el, evt, fn]) => el.removeEventListener(evt, fn));
       if (!isMobile) container.removeEventListener('mouseleave', collapseAll);
     };
