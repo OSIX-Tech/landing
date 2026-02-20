@@ -69,7 +69,7 @@ const ScrollStack = ({
     let maxH = 0;
     for (let i = 0; i < serviceCount; i++) maxH = Math.max(maxH, cards[i].offsetHeight);
     const stackSpread = serviceCount > 1 ? stickyTops[serviceCount - 1] - stickyTops[0] : 0;
-    cards[n - 1].style.minHeight = `${maxH + stackSpread}px`;
+    cards[n - 1].style.minHeight = `${maxH + stackSpread - 24}px`;
 
     cards[n - 1].style.position = 'relative';
     cards[n - 1].style.zIndex = `${n + 1}`;
