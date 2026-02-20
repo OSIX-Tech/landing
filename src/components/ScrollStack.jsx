@@ -59,6 +59,7 @@ export default function ScrollStack({
   }, [useWindowScroll]);
 
   const endTopRef = useRef(0);
+  const lastWidthRef = useRef(0);
 
   const cachePositions = useCallback(() => {
     const cards = cardsRef.current;
@@ -237,11 +238,15 @@ export default function ScrollStack({
       card.style.perspective = '1000px';
     });
 
+    lastWidthRef.current = window.innerWidth;
     cachePositions();
     setupLenis();
     updateCardTransforms();
 
     const onResize = () => {
+      const newWidth = window.innerWidth;
+      if (newWidth === lastWidthRef.current) return;
+      lastWidthRef.current = newWidth;
       cachePositions();
       updateCardTransforms();
     };
