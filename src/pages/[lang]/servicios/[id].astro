@@ -95,13 +95,34 @@ const breadcrumbSchema = {
   ]
 };
 
+const serviceTypeMap: Record<string, string> = {
+  'desarrollo-a-medida': 'Custom Software Development',
+  'consultoria-transformacion': 'Digital Transformation Consulting',
+  'consultoria-innovacion': 'Innovation and Grants Consulting'
+};
+
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": service.title,
   "description": service.description,
-  "provider": { "@type": "Organization", "name": "OSIX Tech", "url": "https://osix.tech" },
-  "areaServed": { "@type": "Country", "name": "Spain" }
+  "url": `https://osix.tech/${lang}/servicios/${id}`,
+  "serviceType": serviceTypeMap[id] || service.title,
+  "provider": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": "https://osix.tech/logo_w.png"
+  },
+  "areaServed": [
+    { "@type": "Country", "name": "Spain" },
+    { "@type": "AdministrativeArea", "name": "Galicia" }
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": `https://osix.tech/${lang}/servicios/${id}`,
+    "servicePhone": "+34 648935068"
+  }
 };
 
 const webPageSchema = {
@@ -151,12 +172,12 @@ const jsonLd = [serviceSchema, webPageSchema];
         <!-- Row 1: Narrative (8) + Stats (4) -->
         <div class="bento-narrative bento-card fade-up" style="--delay: 0.1s">
           <div class="bento-narrative-block">
-            <h3 class="bento-card-title">{service.problemTitle}</h3>
+            <h2 class="bento-card-title">{service.problemTitle}</h2>
             <p class="bento-card-text">{service.problem}</p>
           </div>
           <div class="bento-narrative-divider"></div>
           <div class="bento-narrative-block">
-            <h3 class="bento-card-title">{service.solutionTitle}</h3>
+            <h2 class="bento-card-title">{service.solutionTitle}</h2>
             <p class="bento-card-text">{service.solution}</p>
           </div>
         </div>
@@ -427,7 +448,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .bento-stat-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(2rem, 3vw, 2.75rem);
     font-weight: 800;
     color: #fff;
@@ -514,7 +535,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .bento-cta-title {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     font-weight: 700;
     color: #fff;
@@ -561,7 +582,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .conv-tag {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -799,7 +820,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .cases-showcase-bar-name {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -947,7 +968,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .cases-showcase-title {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: black;
@@ -987,7 +1008,7 @@ const jsonLd = [serviceSchema, webPageSchema];
   }
 
   .cases-showcase-stat-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: black;
@@ -1000,12 +1021,19 @@ const jsonLd = [serviceSchema, webPageSchema];
     letter-spacing: 0.05em;
   }
 
-  /* Dots – hidden on desktop, visible on mobile */
+  /* Dots – hidden on desktop, visible on mobile as absolute overlay */
   .cases-showcase-dots {
     display: none;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1.25rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    /* padding-top % is relative to width → matches aspect-ratio 16/10 */
+    padding-top: calc(62.5% + 1rem);
+    pointer-events: none;
   }
 
   .cases-showcase-dot {
@@ -1017,6 +1045,7 @@ const jsonLd = [serviceSchema, webPageSchema];
     background: rgba(0, 0, 0, 0.15);
     cursor: pointer;
     transition: background 0.25s ease, transform 0.25s ease;
+    pointer-events: auto;
   }
 
   .cases-showcase-dot.active {

@@ -177,17 +177,6 @@ export function CasesCarousel({ cases }: CasesCarouselProps) {
                       </div>
                     </div>
 
-                    {/* Mobile dots */}
-                    <div className="cases-showcase-dots">
-                      {cases.map((cs2, i) => (
-                        <button
-                          key={cs2.id}
-                          className={`cases-showcase-dot ${i === activeIndex ? 'active' : ''}`}
-                          onClick={() => handleBarClick(i)}
-                        />
-                      ))}
-                    </div>
-
                     {/* Right: Text */}
                     <div className="cases-showcase-info">
                       <div className="cases-showcase-meta">
@@ -217,6 +206,17 @@ export function CasesCarousel({ cases }: CasesCarouselProps) {
           <CarouselPrevious className="-left-8 hidden md:inline-flex" />
           <CarouselNext className="-right-8 hidden md:inline-flex" />
         </Carousel>
+
+        {/* Mobile dots – single static instance outside the carousel */}
+        <div className="cases-showcase-dots">
+          {cases.map((cs, i) => (
+            <button
+              key={cs.id}
+              className={`cases-showcase-dot ${i === activeIndex ? 'active' : ''}`}
+              onClick={() => handleBarClick(i)}
+            />
+          ))}
+        </div>
       </div>
 
     </div>
