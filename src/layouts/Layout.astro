@@ -1,4 +1,5 @@
 ---
+import { SpeedInsights } from '@vercel/speed-insights/astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 
@@ -172,6 +173,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
       </svg>
     </a>
 
+    <SpeedInsights />
     <footer class="mini-footer">
       <p>Proxecto apoiado por: IGAPE TICKET INNOVA 2026</p>
     </footer>
