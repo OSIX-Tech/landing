@@ -28,6 +28,7 @@ export default function ScrollStack({
   const cardTopsRef = useRef([]);
   const lastTransformsRef = useRef(new Map());
   const isUpdatingRef = useRef(false);
+  const nativeScrollCleanupRef = useRef(null);
 
   const calculateProgress = useCallback((scrollTop, start, end) => {
     if (scrollTop < start) return 0;
@@ -167,18 +168,41 @@ export default function ScrollStack({
     updateCardTransforms();
   }, [updateCardTransforms]);
 
-  const setupLenis = useCallback(() => {
+  const setupScrollHandling = useCallback(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      // Native scroll + rAF for touch devices — no Lenis conflicts
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateCardTransforms();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      const target = useWindowScroll ? window : scrollerRef.current;
+      if (target) {
+        target.addEventListener('scroll', onScroll, { passive: true });
+        nativeScrollCleanupRef.current = () => {
+          target.removeEventListener('scroll', onScroll);
+        };
+      }
+      return null;
+    }
+
+    // Desktop: use Lenis for smooth wheel scrolling
     if (useWindowScroll) {
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        touchMultiplier: 2,
         infinite: false,
         wheelMultiplier: 1,
         lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075,
       });
       lenis.on('scroll', handleScroll);
       const raf = (time) => {
@@ -199,13 +223,10 @@ export default function ScrollStack({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 2,
       infinite: false,
       normalizeWheel: true,
       wheelMultiplier: 1,
       lerp: 0.1,
-      syncTouch: true,
-      syncTouchLerp: 0.075,
     });
     lenis.on('scroll', handleScroll);
     const raf = (time) => {
@@ -215,7 +236,7 @@ export default function ScrollStack({
     animationFrameRef.current = requestAnimationFrame(raf);
     lenisRef.current = lenis;
     return lenis;
-  }, [handleScroll, useWindowScroll]);
+  }, [handleScroll, updateCardTransforms, useWindowScroll]);
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
@@ -235,12 +256,11 @@ export default function ScrollStack({
       card.style.transformOrigin = 'top center';
       card.style.backfaceVisibility = 'hidden';
       card.style.transform = 'none';
-      card.style.perspective = '1000px';
     });
 
     lastWidthRef.current = window.innerWidth;
     cachePositions();
-    setupLenis();
+    setupScrollHandling();
     updateCardTransforms();
 
     const onResize = () => {
@@ -256,6 +276,7 @@ export default function ScrollStack({
       window.removeEventListener('resize', onResize);
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
       if (lenisRef.current) lenisRef.current.destroy();
+      if (nativeScrollCleanupRef.current) nativeScrollCleanupRef.current();
       stackCompletedRef.current = false;
       cardsRef.current = [];
       cardTopsRef.current = [];
@@ -265,7 +286,7 @@ export default function ScrollStack({
   }, [
     itemDistance, itemScale, itemStackDistance, stackPosition, scaleEndPosition,
     baseScale, scaleDuration, rotationAmount, blurAmount, useWindowScroll,
-    onStackComplete, setupLenis, updateCardTransforms, cachePositions,
+    onStackComplete, setupScrollHandling, updateCardTransforms, cachePositions,
   ]);
 
   return (
