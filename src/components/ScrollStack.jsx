@@ -124,6 +124,11 @@ const ScrollStack = ({
     container.style.flexDirection = 'column';
     container.style.rowGap = `${itemDistance}px`;
 
+    // Double the gap before the last card (CTA)
+    if (cards.length > 1) {
+      cards[cards.length - 1].style.marginTop = `${itemDistance}px`;
+    }
+
     measure();
     update();
 
@@ -155,6 +160,7 @@ const ScrollStack = ({
         c.style.top = '';
         c.style.zIndex = '';
         c.style.minHeight = '';
+        c.style.marginTop = '';
         const inner = c.firstElementChild;
         if (inner) {
           inner.style.transform = '';
