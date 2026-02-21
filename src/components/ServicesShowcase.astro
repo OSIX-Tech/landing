@@ -9,6 +9,7 @@ import shearnLogo from '../assets/logos/shearn.png';
 import testsoposicionesLogo from '../assets/logos/testsoposiciones.svg';
 import irLogo from '../assets/logos/IR.png';
 import avteLogo from '../assets/logos/avte.png';
+import igapeLogo from '../assets/logos/igape.png';
 
 interface Props {
   lang?: string;
@@ -35,6 +36,16 @@ const caseLogos: Record<string, string> = {
   grille: avteLogo.src,
   consultoria: irLogo.src,
 };
+
+const partnerLogos = [
+  { src: avteLogo.src, alt: 'AVTE' },
+  { src: icigaLogo.src, alt: 'ICIGA' },
+  { src: igapeLogo.src, alt: 'IGAPE' },
+  { src: irLogo.src, alt: 'IR' },
+  { src: shearnLogo.src, alt: 'Shearn' },
+  { src: takeLogo.src, alt: 'TAKE' },
+  { src: testsoposicionesLogo.src, alt: 'TestOposiciones' },
+];
 ---
 
 <section class="bg-white text-black">
@@ -49,9 +60,14 @@ const caseLogos: Record<string, string> = {
       casesByService={casesByService}
       caseLogos={caseLogos}
       lang={lang}
+      ctaBadge={t('showcase.cta.badge')}
       ctaTitle={t('showcase.cta.title')}
       ctaSubtitle={t('showcase.cta.subtitle')}
+      ctaPills={[t('showcase.cta.pill1'), t('showcase.cta.pill2'), t('showcase.cta.pill3')]}
+      ctaTrust={t('showcase.cta.trust')}
       ctaButton={t('showcase.cta.button')}
+      ctaSecondary={t('showcase.cta.secondary')}
+      partnerLogos={partnerLogos}
     />
   </div>
 </section>
@@ -264,30 +280,209 @@ const caseLogos: Record<string, string> = {
   .ssc-cta {
     background: #000;
     color: #fff;
-    padding: 6rem 3rem;
+    padding: 5rem 3rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 450px;
+    gap: 0;
+    min-height: calc(100vh - 90px);
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
   }
 
-  .ssc-cta-title {
-    font-size: 2.25rem;
+  /* Badge — urgency at the very top */
+  .ssc-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #000;
+    background: #fff;
+    padding: 0.45rem 1.25rem;
+    border-radius: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .ssc-cta-title {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    max-width: 680px;
+    letter-spacing: -0.02em;
   }
 
   .ssc-cta-subtitle {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.55);
     max-width: 520px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto;
     line-height: 1.7;
+  }
+
+  /* Risk-removal pills */
+  .ssc-cta-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .ssc-cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .ssc-cta-pill svg {
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+  }
+
+  /* Primary CTA button — oversized, impossible to miss */
+  .ssc-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2.75rem;
+    padding: 1.1rem 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #000;
+    background: #fff;
+    border: none;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .ssc-cta-button svg {
+    transition: transform 0.25s ease;
+  }
+
+  .ssc-cta-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.15);
+  }
+
+  .ssc-cta-button:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* Secondary path */
+  .ssc-cta-alt {
+    margin-top: 1.25rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .ssc-cta-alt a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    transition: color 0.2s ease;
+  }
+
+  .ssc-cta-alt a:hover {
+    color: #fff;
+  }
+
+  /* ── CTA Trust / Logo Carousel ── */
+  @keyframes ssc-cta-slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .ssc-cta-trust {
+    padding-top: 3rem;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .ssc-cta-trust-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.25);
+    margin-bottom: 1rem;
+  }
+
+  .ssc-cta-logos {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 12px 0;
+  }
+
+  .ssc-cta-logos::before,
+  .ssc-cta-logos::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .ssc-cta-logos::before {
+    left: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0), #000);
+  }
+
+  .ssc-cta-logos::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0), #000);
+  }
+
+  .ssc-cta-logos-track {
+    display: inline-flex;
+    animation: ssc-cta-slide 40s linear infinite;
+  }
+
+  .ssc-cta-logo-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 140px;
+    margin: 0 28px;
+    padding: 10px;
+  }
+
+  .ssc-cta-logo-item img {
+    max-height: 38px;
+    max-width: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .ssc-cta-logo-item:hover img {
+    opacity: 0.7;
   }
 
   /* ── Responsive ── */
@@ -319,15 +514,91 @@ const caseLogos: Record<string, string> = {
     }
 
     .ssc-cta {
-      padding: 3rem 2.2rem;
-      min-height: 520px;
+      padding: 2.5rem 1.25rem 1.75rem;
+      min-height: calc(100vh - 60px);
+      min-height: calc(100dvh - 60px);
       width: 100vw;
       margin-left: 50%;
       transform: translateX(-50%);
     }
 
+    .ssc-cta-badge {
+      margin-bottom: 1.5rem;
+      font-size: 0.6rem;
+      padding: 0.4rem 1rem;
+    }
+
     .ssc-cta-title {
-      font-size: 1.5rem;
+      font-size: 2rem !important;
+      margin-bottom: 0.75rem;
+    }
+
+    .ssc-cta-subtitle {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      padding: 0 0.5rem;
+    }
+
+    .ssc-cta-pills {
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
+
+    .ssc-cta-pill {
+      font-size: 0.68rem;
+      padding: 0.4rem 0.75rem;
+      gap: 0.3rem;
+    }
+
+    .ssc-cta-pill svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .ssc-cta-button {
+      margin-top: 1.75rem;
+      padding: 1rem 2rem;
+      font-size: 0.85rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .ssc-cta-alt {
+      font-size: 0.72rem;
+      margin-top: 1rem;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+
+    .ssc-cta-trust {
+      padding-top: 3rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .ssc-cta-trust-label {
+      font-size: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .ssc-cta-logos {
+      padding: 8px 0;
+    }
+
+    .ssc-cta-logos::before,
+    .ssc-cta-logos::after {
+      width: 40px;
+    }
+
+    .ssc-cta-logo-item {
+      height: 36px;
+      width: 100px;
+      margin: 0 14px;
+      padding: 6px;
+    }
+
+    .ssc-cta-logo-item img {
+      max-height: 26px;
+      max-width: 80px;
     }
   }
 </style>

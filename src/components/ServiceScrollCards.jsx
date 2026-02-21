@@ -41,7 +41,7 @@ const servicePromos = {
   },
 };
 
-export default function ServiceScrollCards({ services, casesByService, caseLogos = {}, lang, ctaTitle, ctaSubtitle, ctaButton }) {
+export default function ServiceScrollCards({ services, casesByService, caseLogos = {}, lang, ctaBadge, ctaTitle, ctaSubtitle, ctaPills = [], ctaTrust, ctaButton, ctaSecondary, partnerLogos = [] }) {
   const viewServiceLabel = lang === 'es' ? 'Ver servicio' : 'View service';
   const casesLabel = lang === 'es' ? 'Casos de éxito' : 'Success stories';
 
@@ -58,7 +58,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
     <ScrollStack
         stackOffset={isMobile ? 8 : 12}
         scaleFactor={0.04}
-        stackPosition={isMobile ? '15%' : '20%'}
+        stackPosition={isMobile ? '12%' : '20%'}
         itemDistance={isMobile ? 40 : 80}
       >
         {services.map((service) => {
@@ -146,14 +146,62 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
         {/* CTA: last card — service cards fade out as it arrives */}
         <ScrollStackItem>
           <div className="ssc-card ssc-cta">
+            {/* Badge — urgency signal */}
+            <span className="ssc-cta-badge">{ctaBadge}</span>
+
+            {/* Headline */}
             <h3 className="ssc-cta-title">{ctaTitle}</h3>
             <p className="ssc-cta-subtitle">{ctaSubtitle}</p>
-            <a href="#contact" className="btn-secondary btn-arrow">
+
+            {/* Risk-removal pills */}
+            {ctaPills.length > 0 && (
+              <div className="ssc-cta-pills">
+                {ctaPills.map((pill, i) => (
+                  <span key={i} className="ssc-cta-pill">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path d="M3.5 8.5l3 3 6-6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    {pill}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Primary CTA — big, impossible to miss */}
+            <a href="#contact" className="ssc-cta-button">
               {ctaButton}
-              <svg className="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
+
+            {/* Secondary path — low friction alternative */}
+            <p className="ssc-cta-alt">
+              {ctaSecondary} <a href="mailto:info@osix.tech">info@osix.tech</a>
+            </p>
+
+            {/* Social proof — logo carousel */}
+            {partnerLogos.length > 0 && (
+              <div className="ssc-cta-trust">
+                <span className="ssc-cta-trust-label">{ctaTrust}</span>
+                <div className="ssc-cta-logos">
+                  <div className="ssc-cta-logos-track">
+                    {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, i) => (
+                      <div key={i} className="ssc-cta-logo-item">
+                        <img src={logo.src} alt={logo.alt} />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="ssc-cta-logos-track" aria-hidden="true">
+                    {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, i) => (
+                      <div key={i} className="ssc-cta-logo-item">
+                        <img src={logo.src} alt={logo.alt} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </ScrollStackItem>
       </ScrollStack>

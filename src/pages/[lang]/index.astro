@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
-import LogoSlider from '../../components/LogoSlider.astro';
 import ServicesShowcase from '../../components/ServicesShowcase.astro';
 import AboutUsSection from '../../components/AboutUsSection.astro';
 import StaticContactSection from '../../components/StaticContactSection.astro';
@@ -114,7 +113,6 @@ const jsonLd = [organizationSchema, webPageSchema];
   <LoadingScreen duration={1000} />
   <section id="hero"><Hero lang={lang} /></section>
   <section id="services"><ServicesShowcase lang={lang} /></section>
-  <section id="partners"><LogoSlider /></section>
   <section id="about-us"><AboutUsSection lang={lang} /></section>
   <section id="contact"><StaticContactSection lang={lang} /></section>
 </Layout>
