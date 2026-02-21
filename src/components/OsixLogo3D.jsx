@@ -208,7 +208,8 @@ export default function OsixLogo3D() {
     rimLight.position.set(0, 0, -5);
     scene.add(rimLight);
 
-    // Orbit controls
+    // Orbit controls - disabled on mobile to allow page scrolling
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -216,6 +217,10 @@ export default function OsixLogo3D() {
     controls.enablePan = false;
     controls.minPolarAngle = Math.PI / 4;
     controls.maxPolarAngle = Math.PI * 3 / 4;
+    if (isMobile) {
+      controls.enabled = false;
+      renderer.domElement.style.touchAction = 'auto';
+    }
 
     // Animation variables
     let floatTime = 0;
