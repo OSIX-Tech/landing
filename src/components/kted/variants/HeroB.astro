@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -28,7 +30,7 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
           <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
         </span>
         <span class="text-[11px] font-bold tracking-[0.2em] uppercase">
-          {lang === 'es' ? 'Plazas limitadas' : 'Limited spots'}
+          {({ es: 'Plazas limitadas', gl: 'Plazas limitadas', en: 'Limited spots' }[lang])}
         </span>
       </div>
 
@@ -41,28 +43,26 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
       <!-- Subtitle -->
       <p class="hero-b-el text-gray-500 text-lg md:text-xl max-w-lg mx-auto mb-10">
-        {lang === 'es'
-          ? 'Subvención a fondo perdido para Espacios de Datos'
-          : 'Non-refundable grant for Data Spaces'}
+        {({ es: 'Subvención a fondo perdido para Espacios de Datos', gl: 'Subvención a fondo perdido para Espacios de Datos', en: 'Non-refundable grant for Data Spaces' }[lang])}
       </p>
 
       <!-- Countdown -->
       <div class="hero-b-el mb-10">
         <p class="text-gray-400 text-xs tracking-[0.3em] uppercase mb-6 font-medium">
-          {lang === 'es' ? 'Plazo hasta' : 'Deadline'}
+          {({ es: 'Plazo hasta', gl: 'Plazo hasta', en: 'Deadline' }[lang])}
         </p>
 
         <div class="inline-flex items-center border border-gray-200">
           <!-- Days -->
           <div class="group px-5 sm:px-8 py-4 border-r border-gray-200 hover:bg-gray-50 transition-colors">
             <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-days">{diffDays}</span>
-            <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{lang === 'es' ? 'días' : 'days'}</span>
+            <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{({ es: 'días', gl: 'días', en: 'days' }[lang])}</span>
           </div>
 
           <!-- Hours -->
           <div class="group px-5 sm:px-8 py-4 border-r border-gray-200 hover:bg-gray-50 transition-colors">
             <span class="block text-3xl sm:text-4xl md:text-5xl font-bold text-black" id="countdown-hours">00</span>
-            <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{lang === 'es' ? 'hrs' : 'hrs'}</span>
+            <span class="text-gray-400 text-[10px] uppercase tracking-widest mt-1 block">{({ es: 'hrs', gl: 'hrs', en: 'hrs' }[lang])}</span>
           </div>
 
           <!-- Minutes -->
@@ -87,13 +87,13 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
           data-cta-location="hero"
           data-variant={variant}
         >
-          <span>{lang === 'es' ? 'Reservar plaza' : 'Reserve spot'}</span>
+          <span>{({ es: 'Reservar plaza', gl: 'Reservar plaza', en: 'Reserve spot' }[lang])}</span>
           <svg class="btn-arrow-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
         </a>
         <p class="mt-4 text-gray-400 text-sm">
-          {lang === 'es' ? 'Sin compromiso · Solo pagas el IVA' : 'No commitment · You only pay VAT'}
+          {({ es: 'Sin compromiso · Solo pagas el IVA', gl: 'Sin compromiso · Solo pagas el IVA', en: 'No commitment · You only pay VAT' }[lang])}
         </p>
       </div>
 
@@ -106,17 +106,17 @@ const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     <div class="flex justify-center items-center gap-8 md:gap-16">
       <div class="group text-center">
         <span class="block text-2xl font-bold text-black">+50</span>
-        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'proyectos' : 'projects'}</span>
+        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{({ es: 'proyectos', gl: 'proyectos', en: 'projects' }[lang])}</span>
       </div>
       <div class="w-px h-10 bg-gray-200"></div>
       <div class="group text-center">
         <span class="block text-2xl font-bold text-black">100%</span>
-        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'éxito' : 'success'}</span>
+        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{({ es: 'éxito', gl: 'éxito', en: 'success' }[lang])}</span>
       </div>
       <div class="w-px h-10 bg-gray-200"></div>
       <div class="group text-center">
         <span class="block text-2xl font-bold text-black">24h</span>
-        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{lang === 'es' ? 'respuesta' : 'response'}</span>
+        <span class="text-gray-400 text-[10px] uppercase tracking-widest">{({ es: 'respuesta', gl: 'respuesta', en: 'response' }[lang])}</span>
       </div>
     </div>
   </div>

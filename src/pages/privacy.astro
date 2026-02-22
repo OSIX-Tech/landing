@@ -6,7 +6,7 @@ export const prerender = true;
 <html>
 <head>
   <script>
-    const supported = ['en', 'es'];
+    const supported = ['en', 'es', 'gl'];
     const userLang = navigator.language.split('-')[0] || 'en';
     const lang = supported.includes(userLang) ? userLang : 'en';
     window.location.replace(`/${lang}/privacy`);

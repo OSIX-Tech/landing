@@ -3,13 +3,14 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
+import { LANGUAGES, LANG_META, type Lang } from '../utils/languages';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
   canonical?: string;
-  lang: 'en' | 'es';
+  lang: Lang;
   keywords?: string;
   pageType?: 'website' | 'article' | 'product';
   noindex?: boolean;
@@ -27,17 +28,11 @@ const {
   hideHeader = false
 } = Astro.props;
 
-const title = Astro.props.title ?? (lang === 'es'
-  ? 'OSIX Tech - Automatización Impulsada por IA | Desarrollo de Software'
-  : 'OSIX Tech - AI-Powered Automation | Software Development');
+const title = Astro.props.title ?? ({ es: 'OSIX Tech - Automatización Impulsada por IA | Desarrollo de Software', gl: 'OSIX Tech - Automatización Impulsada por IA | Desenvolvemento de Software', en: 'OSIX Tech - AI-Powered Automation | Software Development' }[lang]);
 
-const description = Astro.props.description ?? (lang === 'es'
-  ? 'Construimos software de automatización con IA y tecnologías modernas. OSIX Tech ofrece soluciones digitales personalizadas para necesidades empresariales reales.'
-  : 'We build automation-driven software using AI and modern technologies. OSIX Tech delivers custom digital solutions for real-world business needs.');
+const description = Astro.props.description ?? ({ es: 'Construimos software de automatización con IA y tecnologías modernas. OSIX Tech ofrece soluciones digitales personalizadas para necesidades empresariales reales.', gl: 'Construímos software de automatización con IA e tecnoloxías modernas. OSIX Tech ofrece solucións dixitais personalizadas para necesidades empresariais reais.', en: 'We build automation-driven software using AI and modern technologies. OSIX Tech delivers custom digital solutions for real-world business needs.' }[lang]);
 
-const keywords = Astro.props.keywords ?? (lang === 'es'
-  ? 'desarrollo software, desarrollo web, desarrollo móvil, inteligencia artificial, automatización, transformación digital, OSIX Tech, tecnología, innovación, inteligencia artificial Galicia, desarrollo software Santiago de Compostela, digitalización empresas Galicia, automatización empresas España, software a medida Galicia'
-  : 'software development, web development, mobile development, artificial intelligence, automation, digital transformation, OSIX Tech, technology, innovation, AI software Galicia Spain, custom software Santiago de Compostela, business digitalization Galicia, automation solutions Spain');
+const keywords = Astro.props.keywords ?? ({ es: 'desarrollo software, desarrollo web, desarrollo móvil, inteligencia artificial, automatización, transformación digital, OSIX Tech, tecnología, innovación, inteligencia artificial Galicia, desarrollo software Santiago de Compostela, digitalización empresas Galicia, automatización empresas España, software a medida Galicia', gl: 'desenvolvemento software, desenvolvemento web, desenvolvemento móbil, intelixencia artificial, automatización, transformación dixital, OSIX Tech, tecnoloxía, innovación, intelixencia artificial Galicia, desenvolvemento software Santiago de Compostela, dixitalización empresas Galicia, automatización empresas España, software a medida Galicia', en: 'software development, web development, mobile development, artificial intelligence, automation, digital transformation, OSIX Tech, technology, innovation, AI software Galicia Spain, custom software Santiago de Compostela, business digitalization Galicia, automation solutions Spain' }[lang]);
 
 // Generate proper canonical URL
 const baseUrl = 'https://osix.tech';
@@ -55,10 +50,11 @@ if (!currentPath.endsWith('/') && !currentPath.includes('.')) {
 
 const currentCanonical = canonical || `${baseUrl}${currentPath}`;
 
-// Generate alternate language URL
-const alternateLang = lang === 'en' ? 'es' : 'en';
-const alternatePath = currentPath.replace(`/${lang}/`, `/${alternateLang}/`);
-const alternateUrl = `${baseUrl}${alternatePath}`;
+// Generate alternate language URLs for all languages
+const alternates = LANGUAGES.filter(l => l !== lang).map(l => ({
+  lang: l,
+  url: `${baseUrl}${currentPath.replace(`/${lang}/`, `/${l}/`)}`,
+}));
 
 // Full image URL for Open Graph
 const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;	
@@ -82,7 +78,9 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta name="description" content={description} />
     
     <!-- Language and alternates -->
-    <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />
+    {alternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+    ))}
     <link rel="alternate" hreflang="x-default" href="https://osix.tech/en/" />
     <link rel="alternate" hreflang={lang} href={currentCanonical} />
 
@@ -117,8 +115,10 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="OSIX Tech Logo" />
     <meta property="og:site_name" content="OSIX Tech" />
-    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
-    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_ES'} />
+    <meta property="og:locale" content={LANG_META[lang].ogLocale} />
+    {alternates.map(alt => (
+      <meta property="og:locale:alternate" content={LANG_META[alt.lang].ogLocale} />
+    ))}
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -179,7 +179,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <Analytics />
     <SpeedInsights />
     <footer class="mini-footer">
-      <p>{lang === 'es' ? 'Proyecto apoyado por: IGAPE TICKET INNOVA 2026' : 'Project supported by: IGAPE TICKET INNOVA 2026'}</p>
+      <p>{{ es: 'Proyecto apoyado por: IGAPE TICKET INNOVA 2026', gl: 'Proxecto apoiado por: IGAPE TICKET INNOVA 2026', en: 'Project supported by: IGAPE TICKET INNOVA 2026' }[lang]}</p>
     </footer>
   </body>
 </html>

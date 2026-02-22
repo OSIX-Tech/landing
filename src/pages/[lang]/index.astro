@@ -6,26 +6,20 @@ import AboutUsSection from '../../components/AboutUsSection.astro';
 import StaticContactSection from '../../components/StaticContactSection.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
 import { getAllServices } from '../../data/services-multilingual';
+import { LANGUAGES, type Lang } from '../../utils/languages';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'es' } }
-  ];
+  return LANGUAGES.map(lang => ({ params: { lang } }));
 }
 
-const { lang = 'en' } = Astro.params as { lang: 'en' | 'es' };
+const { lang = 'en' } = Astro.params as { lang: Lang };
 
 // SEO Data
-const seoTitle = lang === 'es'
-  ? 'OSIX Tech - Consultoría Tecnológica & Desarrollo a Medida con IA'
-  : 'OSIX Tech - Technology Consulting & Custom AI Development';
+const seoTitle = ({ es: 'OSIX Tech - Consultoría Tecnológica & Desarrollo a Medida con IA', gl: 'OSIX Tech - Consultoría Tecnolóxica & Desenvolvemento a Medida con IA', en: 'OSIX Tech - Technology Consulting & Custom AI Development' }[lang]);
 
-const seoDescription = lang === 'es'
-  ? 'OSIX Tech: Desarrollo de software a medida con IA, consultoría de transformación digital y gestión de subvenciones. Tecnología que genera resultados reales para tu empresa.'
-  : 'OSIX Tech: Custom AI software development, digital transformation consulting, and innovation grants. Technology that delivers real results for your business.';
+const seoDescription = ({ es: 'OSIX Tech: Desarrollo de software a medida con IA, consultoría de transformación digital y gestión de subvenciones. Tecnología que genera resultados reales para tu empresa.', gl: 'OSIX Tech: Desenvolvemento de software a medida con IA, consultoría de transformación dixital e xestión de subvencións. Tecnoloxía que xera resultados reais para a túa empresa.', en: 'OSIX Tech: Custom AI software development, digital transformation consulting, and innovation grants. Technology that delivers real results for your business.' }[lang]);
 
 // Structured Data
 const organizationSchema = {

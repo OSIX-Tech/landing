@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -11,19 +13,19 @@ const t = (k: string) => translations.default[k] || k;
 // Variant-specific headers
 const variantHeaders = {
   a: {
-    label: lang === 'es' ? 'Sectores' : 'Sectors',
+    label: ({ es: 'Sectores', gl: 'Sectores', en: 'Sectors' }[lang]),
     title: t('kted.sectors.title'),
     subtitle: t('kted.sectors.subtitle')
   },
   b: {
-    label: lang === 'es' ? 'Sectores elegibles' : 'Eligible sectors',
-    title: lang === 'es' ? '¿Tu sector está incluido?' : 'Is your sector included?',
-    subtitle: lang === 'es' ? 'Verifica si tu empresa puede acceder a la subvención' : 'Check if your company can access the grant'
+    label: ({ es: 'Sectores elegibles', gl: 'Sectores elegibles', en: 'Eligible sectors' }[lang]),
+    title: ({ es: '¿Tu sector está incluido?', gl: '¿Tu sector está incluido?', en: 'Is your sector included?' }[lang]),
+    subtitle: ({ es: 'Verifica si tu empresa puede acceder a la subvención', gl: 'Verifica si tu empresa puede acceder a la subvención', en: 'Check if your company can access the grant' }[lang])
   },
   c: {
-    label: lang === 'es' ? 'Encuentra tu sector' : 'Find your sector',
-    title: lang === 'es' ? '¿Dónde encaja tu empresa?' : 'Where does your company fit?',
-    subtitle: lang === 'es' ? 'Cada sector tiene necesidades únicas de datos' : 'Each sector has unique data needs'
+    label: ({ es: 'Encuentra tu sector', gl: 'Encuentra tu sector', en: 'Find your sector' }[lang]),
+    title: ({ es: '¿Dónde encaja tu empresa?', gl: '¿Dónde encaja tu empresa?', en: 'Where does your company fit?' }[lang]),
+    subtitle: ({ es: 'Cada sector tiene necesidades únicas de datos', gl: 'Cada sector tiene necesidades únicas de datos', en: 'Each sector has unique data needs' }[lang])
   }
 };
 
@@ -112,7 +114,7 @@ const sectors = [
 
       <!-- More sectors placeholder -->
       <div class="bg-black p-8 text-center flex flex-col items-center justify-center">
-        <span class="text-white/60 text-base">{lang === 'es' ? '+ más sectores' : '+ more sectors'}</span>
+        <span class="text-white/60 text-base">{({ es: '+ más sectores', gl: '+ más sectores', en: '+ more sectors' }[lang])}</span>
       </div>
     </div>
 

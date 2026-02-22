@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -31,7 +33,7 @@ const sectors = [
         <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
         </svg>
-        <span class="text-gray-600 text-sm font-medium">{lang === 'es' ? 'Respuesta en 24h' : 'Response in 24h'}</span>
+        <span class="text-gray-600 text-sm font-medium">{({ es: 'Respuesta en 24h', gl: 'Respuesta en 24h', en: 'Response in 24h' }[lang])}</span>
       </div>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
         {t('kted.contact.title')}
@@ -51,8 +53,8 @@ const sectors = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
             </svg>
           </div>
-          <h3 class="text-black font-semibold text-lg mb-2">{lang === 'es' ? 'Sin compromiso' : 'No commitment'}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{lang === 'es' ? 'Evaluamos tu caso gratuitamente. Si no encajas, te lo decimos.' : 'We evaluate your case for free. If you don\'t fit, we\'ll tell you.'}</p>
+          <h3 class="text-black font-semibold text-lg mb-2">{({ es: 'Sin compromiso', gl: 'Sin compromiso', en: 'No commitment' }[lang])}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{({ es: 'Evaluamos tu caso gratuitamente. Si no encajas, te lo decimos.', gl: 'Evaluamos tu caso gratuitamente. Si no encajas, te lo decimos.', en: 'We evaluate your case for free. If you don\'t fit, we\'ll tell you.' }[lang])}</p>
         </div>
 
         <!-- Card 2 -->
@@ -62,8 +64,8 @@ const sectors = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-black font-semibold text-lg mb-2">{lang === 'es' ? 'Cero adelanto' : 'Zero upfront'}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{lang === 'es' ? 'Tú solo pagas el IVA. Red.es nos paga a nosotros directamente.' : 'You only pay VAT. Red.es pays us directly.'}</p>
+          <h3 class="text-black font-semibold text-lg mb-2">{({ es: 'Cero adelanto', gl: 'Cero adelanto', en: 'Zero upfront' }[lang])}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{({ es: 'Tú solo pagas el IVA. Red.es nos paga a nosotros directamente.', gl: 'Tú solo pagas el IVA. Red.es nos paga a nosotros directamente.', en: 'You only pay VAT. Red.es pays us directly.' }[lang])}</p>
         </div>
 
         <!-- Card 3 -->
@@ -73,13 +75,13 @@ const sectors = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
             </svg>
           </div>
-          <h3 class="text-black font-semibold text-lg mb-2">{lang === 'es' ? 'Respuesta rápida' : 'Fast response'}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{lang === 'es' ? 'Te contactamos en menos de 24 horas con una evaluación inicial.' : 'We contact you within 24 hours with an initial evaluation.'}</p>
+          <h3 class="text-black font-semibold text-lg mb-2">{({ es: 'Respuesta rápida', gl: 'Respuesta rápida', en: 'Fast response' }[lang])}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{({ es: 'Te contactamos en menos de 24 horas con una evaluación inicial.', gl: 'Te contactamos en menos de 24 horas con una evaluación inicial.', en: 'We contact you within 24 hours with an initial evaluation.' }[lang])}</p>
         </div>
 
         <!-- Email -->
         <div class="pt-6 border-t border-gray-200">
-          <p class="text-gray-400 text-xs uppercase tracking-wider mb-4">{lang === 'es' ? 'Contacto directo' : 'Direct contact'}</p>
+          <p class="text-gray-400 text-xs uppercase tracking-wider mb-4">{({ es: 'Contacto directo', gl: 'Contacto directo', en: 'Direct contact' }[lang])}</p>
           <a href="mailto:info@osix.tech" class="flex items-center gap-3 text-gray-600 hover:text-black transition-colors">
             <div class="w-10 h-10 border border-gray-200 flex items-center justify-center">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -108,7 +110,7 @@ const sectors = [
                   class="w-full px-4 py-3.5 bg-white border border-gray-200 text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
                   required
                   minlength="2"
-                  placeholder={lang === 'es' ? 'Tu nombre' : 'Your name'}
+                  placeholder={({ es: 'Tu nombre', gl: 'Tu nombre', en: 'Your name' }[lang])}
                 />
               </div>
               <div>
@@ -121,7 +123,7 @@ const sectors = [
                   name="user_email"
                   class="w-full px-4 py-3.5 bg-white border border-gray-200 text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
                   required
-                  placeholder={lang === 'es' ? 'tu@empresa.com' : 'your@company.com'}
+                  placeholder={({ es: 'tu@empresa.com', gl: 'tu@empresa.com', en: 'your@company.com' }[lang])}
                 />
               </div>
             </div>
@@ -139,7 +141,7 @@ const sectors = [
                   class="w-full px-4 py-3.5 bg-white border border-gray-200 text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
                   required
                   minlength="2"
-                  placeholder={lang === 'es' ? 'Nombre de empresa' : 'Company name'}
+                  placeholder={({ es: 'Nombre de empresa', gl: 'Nombre de empresa', en: 'Company name' }[lang])}
                 />
               </div>
               <div>
@@ -190,7 +192,7 @@ const sectors = [
                 name="message"
                 rows="4"
                 class="w-full px-4 py-3.5 bg-white border border-gray-200 text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors resize-none"
-                placeholder={lang === 'es' ? 'Cuéntanos brevemente sobre tu empresa y proyecto...' : 'Tell us briefly about your company and project...'}
+                placeholder={({ es: 'Cuéntanos brevemente sobre tu empresa y proyecto...', gl: 'Cuéntanos brevemente sobre tu empresa y proyecto...', en: 'Tell us briefly about your company and project...' }[lang])}
               ></textarea>
             </div>
 
@@ -207,9 +209,7 @@ const sectors = [
 
             <!-- Privacy -->
             <p class="text-gray-400 text-xs text-center">
-              {lang === 'es'
-                ? 'Al enviar, aceptas nuestra política de privacidad. No compartimos tus datos.'
-                : 'By submitting, you accept our privacy policy. We don\'t share your data.'}
+              {({ es: 'Al enviar, aceptas nuestra política de privacidad. No compartimos tus datos.', gl: 'Al enviar, aceptas nuestra política de privacidad. No compartimos tus datos.', en: 'By submitting, you accept our privacy policy. We don\'t share your data.' }[lang])}
             </p>
           </form>
 

@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -29,12 +31,10 @@ const sectors = [
         <div class="mb-8">
           <div class="w-12 h-px bg-white/30 mb-6"></div>
           <h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight mb-4">
-            {lang === 'es' ? '¿Listo para empezar?' : 'Ready to start?'}
+            {({ es: '¿Listo para empezar?', gl: '¿Listo para empezar?', en: 'Ready to start?' }[lang])}
           </h2>
           <p class="text-white/60 leading-relaxed">
-            {lang === 'es'
-              ? 'Solo necesitamos unos datos para evaluar si tu empresa puede beneficiarse del programa KTED.'
-              : 'We just need some information to evaluate if your company can benefit from the KTED program.'}
+            {({ es: 'Solo necesitamos unos datos para evaluar si tu empresa puede beneficiarse del programa KTED.', gl: 'Solo necesitamos unos datos para evaluar si tu empresa puede beneficiarse del programa KTED.', en: 'We just need some information to evaluate if your company can benefit from the KTED program.' }[lang])}
           </p>
         </div>
 
@@ -46,8 +46,8 @@ const sectors = [
               </svg>
             </div>
             <div>
-              <p class="text-white font-medium mb-1">{lang === 'es' ? 'Sin compromiso' : 'No commitment'}</p>
-              <p class="text-white/40 text-sm">{lang === 'es' ? 'Evaluación 100% gratuita' : '100% free evaluation'}</p>
+              <p class="text-white font-medium mb-1">{({ es: 'Sin compromiso', gl: 'Sin compromiso', en: 'No commitment' }[lang])}</p>
+              <p class="text-white/40 text-sm">{({ es: 'Evaluación 100% gratuita', gl: 'Evaluación 100% gratuita', en: '100% free evaluation' }[lang])}</p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -57,8 +57,8 @@ const sectors = [
               </svg>
             </div>
             <div>
-              <p class="text-white font-medium mb-1">{lang === 'es' ? 'Respuesta rápida' : 'Quick response'}</p>
-              <p class="text-white/40 text-sm">{lang === 'es' ? 'En menos de 24 horas' : 'Within 24 hours'}</p>
+              <p class="text-white font-medium mb-1">{({ es: 'Respuesta rápida', gl: 'Respuesta rápida', en: 'Quick response' }[lang])}</p>
+              <p class="text-white/40 text-sm">{({ es: 'En menos de 24 horas', gl: 'En menos de 24 horas', en: 'Within 24 hours' }[lang])}</p>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -68,8 +68,8 @@ const sectors = [
               </svg>
             </div>
             <div>
-              <p class="text-white font-medium mb-1">{lang === 'es' ? 'Hasta 30.000€' : 'Up to €30,000'}</p>
-              <p class="text-white/40 text-sm">{lang === 'es' ? 'Subvención a fondo perdido' : 'Non-refundable grant'}</p>
+              <p class="text-white font-medium mb-1">{({ es: 'Hasta 30.000€', gl: 'Hasta 30.000€', en: 'Up to €30,000' }[lang])}</p>
+              <p class="text-white/40 text-sm">{({ es: 'Subvención a fondo perdido', gl: 'Subvención a fondo perdido', en: 'Non-refundable grant' }[lang])}</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ const sectors = [
           <!-- Email - Most important -->
           <div>
             <label for="kted-email" class="block text-black text-lg font-medium mb-3">
-              {lang === 'es' ? '¿Cuál es tu email de trabajo?' : "What's your work email?"}
+              {({ es: '¿Cuál es tu email de trabajo?', gl: '¿Cuál es tu email de trabajo?', en: "What's your work email?" }[lang])}
             </label>
             <input
               type="email"
@@ -89,14 +89,14 @@ const sectors = [
               name="user_email"
               class="w-full px-5 py-4 bg-gray-50 border-2 border-transparent text-black text-lg focus:outline-none focus:border-black transition-colors placeholder:text-gray-400"
               required
-              placeholder={lang === 'es' ? 'tu@empresa.com' : 'your@company.com'}
+              placeholder={({ es: 'tu@empresa.com', gl: 'tu@empresa.com', en: 'your@company.com' }[lang])}
             />
           </div>
 
           <!-- Company -->
           <div>
             <label for="kted-company" class="block text-black text-lg font-medium mb-3">
-              {lang === 'es' ? '¿Cómo se llama tu empresa?' : "What's your company name?"}
+              {({ es: '¿Cómo se llama tu empresa?', gl: '¿Cómo se llama tu empresa?', en: "What's your company name?" }[lang])}
             </label>
             <input
               type="text"
@@ -105,14 +105,14 @@ const sectors = [
               class="w-full px-5 py-4 bg-gray-50 border-2 border-transparent text-black text-lg focus:outline-none focus:border-black transition-colors placeholder:text-gray-400"
               required
               minlength="2"
-              placeholder={lang === 'es' ? 'Nombre de la empresa' : 'Company name'}
+              placeholder={({ es: 'Nombre de la empresa', gl: 'Nombre de la empresa', en: 'Company name' }[lang])}
             />
           </div>
 
           <!-- Sector - Visual selection -->
           <div>
             <label class="block text-black text-lg font-medium mb-4">
-              {lang === 'es' ? '¿En qué sector trabajas?' : 'What sector do you work in?'}
+              {({ es: '¿En qué sector trabajas?', gl: '¿En qué sector trabajas?', en: 'What sector do you work in?' }[lang])}
             </label>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
               {sectors.map((sector) => (
@@ -164,7 +164,7 @@ const sectors = [
             <label class="sector-option group relative cursor-pointer mt-3 block">
               <input type="radio" name="user_sector" value="otro" class="sr-only peer" />
               <div class="p-4 bg-gray-50 border-2 border-transparent peer-checked:border-black peer-checked:bg-white hover:border-gray-300 transition-all text-center">
-                <span class="text-gray-500 text-sm">{lang === 'es' ? 'Otro sector' : 'Other sector'}</span>
+                <span class="text-gray-500 text-sm">{({ es: 'Otro sector', gl: 'Otro sector', en: 'Other sector' }[lang])}</span>
               </div>
             </label>
           </div>
@@ -179,7 +179,7 @@ const sectors = [
             type="submit"
             class="btn-primary w-full py-5 px-8 text-lg justify-center"
           >
-            <span>{lang === 'es' ? 'Comprobar elegibilidad' : 'Check eligibility'}</span>
+            <span>{({ es: 'Comprobar elegibilidad', gl: 'Comprobar elegibilidad', en: 'Check eligibility' }[lang])}</span>
             <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -189,9 +189,7 @@ const sectors = [
         <div id="kted-form-status" class="hidden mt-6 text-center text-black font-medium"></div>
 
         <p class="mt-6 text-center text-gray-400 text-sm">
-          {lang === 'es'
-            ? 'Te contactaremos para completar la información si es necesario.'
-            : "We'll contact you to complete the information if needed."}
+          {({ es: 'Te contactaremos para completar la información si es necesario.', gl: 'Te contactaremos para completar la información si es necesario.', en: "We'll contact you to complete the information if needed." }[lang])}
         </p>
       </div>
     </div>

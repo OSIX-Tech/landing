@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -16,14 +18,14 @@ const variantHeaders = {
     subtitle: t('kted.whyOsix.subtitle')
   },
   b: {
-    label: lang === 'es' ? 'Tu partner ideal' : 'Your ideal partner',
-    title: lang === 'es' ? '¿Por qué elegir OSIX?' : 'Why choose OSIX?',
-    subtitle: lang === 'es' ? 'Más de 10 años ayudando a empresas a transformarse digitalmente' : 'Over 10 years helping companies transform digitally'
+    label: ({ es: 'Tu partner ideal', gl: 'Tu partner ideal', en: 'Your ideal partner' }[lang]),
+    title: ({ es: '¿Por qué elegir OSIX?', gl: '¿Por qué elegir OSIX?', en: 'Why choose OSIX?' }[lang]),
+    subtitle: ({ es: 'Más de 10 años ayudando a empresas a transformarse digitalmente', gl: 'Más de 10 años ayudando a empresas a transformarse digitalmente', en: 'Over 10 years helping companies transform digitally' }[lang])
   },
   c: {
-    label: lang === 'es' ? 'La solución' : 'The solution',
-    title: lang === 'es' ? 'Expertos que entienden tu negocio' : 'Experts who understand your business',
-    subtitle: lang === 'es' ? 'No solo tecnología, estrategia adaptada a tu sector' : 'Not just technology, strategy adapted to your sector'
+    label: ({ es: 'La solución', gl: 'La solución', en: 'The solution' }[lang]),
+    title: ({ es: 'Expertos que entienden tu negocio', gl: 'Expertos que entienden tu negocio', en: 'Experts who understand your business' }[lang]),
+    subtitle: ({ es: 'No solo tecnología, estrategia adaptada a tu sector', gl: 'No solo tecnología, estrategia adaptada a tu sector', en: 'Not just technology, strategy adapted to your sector' }[lang])
   }
 };
 

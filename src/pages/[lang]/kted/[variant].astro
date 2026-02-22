@@ -22,27 +22,33 @@ import ContactA from '../../../components/kted/variants/ContactA.astro';
 import ContactB from '../../../components/kted/variants/ContactB.astro';
 import ContactC from '../../../components/kted/variants/ContactC.astro';
 
+import { LANGUAGES, type Lang } from '../../../utils/languages';
+
 export const prerender = true;
 
 export async function getStaticPaths() {
   const variants = ['a', 'b', 'c'];
-  const langs = ['en', 'es'];
 
-  return langs.flatMap(lang =>
+  return LANGUAGES.flatMap(lang =>
     variants.map(variant => ({
       params: { lang, variant }
     }))
   );
 }
 
-const { lang = 'es', variant = 'a' } = Astro.params as { lang: 'en' | 'es'; variant: string };
+const { lang = 'es', variant = 'a' } = Astro.params as { lang: Lang; variant: string };
 
 // SEO Data
-const seoData = {
+const seoData: Record<string, { title: string; description: string; keywords: string }> = {
   es: {
     title: 'Kit Espacios de Datos | Hasta 30.000€ de subvención - OSIX Tech',
     description: 'Accede a hasta 30.000€ para integrar tu empresa en Espacios de Datos europeos. Programa Red.es financiado por NextGenerationEU. Gestión integral sin riesgo.',
     keywords: 'kit espacios de datos, subvención espacios datos, red.es nextgenerationeu, ayudas digitalización empresas, KTED'
+  },
+  gl: {
+    title: 'Kit Espazos de Datos | Ata 30.000€ de subvención - OSIX Tech',
+    description: 'Accede a ata 30.000€ para integrar a túa empresa en Espazos de Datos europeos. Programa Red.es financiado por NextGenerationEU. Xestión integral sen risco.',
+    keywords: 'kit espazos de datos, subvención espazos datos, red.es nextgenerationeu, axudas dixitalización empresas, KTED'
   },
   en: {
     title: 'Data Spaces Kit | Up to €30,000 grant - OSIX Tech',
@@ -51,7 +57,7 @@ const seoData = {
   }
 };
 
-const currentSeo = seoData[lang as 'es' | 'en'] || seoData.es;
+const currentSeo = seoData[lang] || seoData.es;
 
 // All variants point canonical to variant 'a'
 const canonicalUrl = `https://osix.tech/${lang}/kted/a`;

@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -15,12 +17,12 @@ const variantHeaders = {
     title: t('kted.faq.title')
   },
   b: {
-    label: lang === 'es' ? 'Resuelve tus dudas' : 'Clear your doubts',
-    title: lang === 'es' ? '¿Tienes preguntas?' : 'Have questions?'
+    label: ({ es: 'Resuelve tus dudas', gl: 'Resuelve tus dudas', en: 'Clear your doubts' }[lang]),
+    title: ({ es: '¿Tienes preguntas?', gl: '¿Tienes preguntas?', en: 'Have questions?' }[lang])
   },
   c: {
-    label: lang === 'es' ? 'Lo que necesitas saber' : 'What you need to know',
-    title: lang === 'es' ? 'Antes de decidir' : 'Before deciding'
+    label: ({ es: 'Lo que necesitas saber', gl: 'Lo que necesitas saber', en: 'What you need to know' }[lang]),
+    title: ({ es: 'Antes de decidir', gl: 'Antes de decidir', en: 'Before deciding' }[lang])
   }
 };
 

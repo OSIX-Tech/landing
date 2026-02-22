@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
 }
 
 const { lang = 'es' } = Astro.props;
@@ -19,14 +21,14 @@ const { lang = 'es' } = Astro.props;
         href={`/${lang}`}
         class="text-sm font-medium text-gray-600 hover:text-black transition-colors"
       >
-        {lang === 'es' ? 'Inicio' : 'Home'}
+        {({ es: 'Inicio', gl: 'Inicio', en: 'Home' }[lang])}
       </a>
 
       <a
         href="#contact"
         class="bg-black text-white px-5 py-2.5 text-sm font-medium border-2 border-black hover:bg-white hover:text-black transition-colors"
       >
-        {lang === 'es' ? 'Contacto' : 'Contact'}
+        {({ es: 'Contacto', gl: 'Contacto', en: 'Contact' }[lang])}
       </a>
     </div>
   </nav>

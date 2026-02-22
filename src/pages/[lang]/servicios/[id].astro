@@ -6,21 +6,21 @@ import LoadingScreen from '../../../components/LoadingScreen.astro';
 import { LucideIcon } from '../../../components/LucideIcon';
 import BeamsBackground from '../../../components/BeamsBackground.jsx';
 import { CasesCarousel } from '../../../components/CasesCarousel';
+import { LANGUAGES, type Lang } from '../../../utils/languages';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
   const serviceIds = getServiceIds();
-  const languages = ['en', 'es'];
 
-  return languages.flatMap(lang =>
+  return LANGUAGES.flatMap(lang =>
     serviceIds.map(id => ({
       params: { lang, id }
     }))
   );
 }
 
-const { id = '', lang = 'en' } = Astro.params as { id: string; lang: 'en' | 'es' };
+const { id = '', lang = 'en' } = Astro.params as { id: string; lang: Lang };
 const service = getService(id, lang);
 
 if (!service) {
@@ -49,6 +49,27 @@ const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: st
         description: 'Subvención del Igape para proyectos de inteligencia artificial en pymes gallegas. Te acompañamos de inicio a fin.',
         deadline: '17/03/2026',
         ctaLabel: 'Solicitar asesoramiento',
+        ctaHref: `/${lang}/#contact`,
+      },
+    ],
+  },
+  gl: {
+    sectionTitle: 'Convocatorias abertas',
+    cards: [
+      {
+        tag: 'Kit Espazo de Datos',
+        title: 'Integra a túa empresa en Espazos de Datos Europeos con ata 30.000€',
+        description: 'Subvención de Red.es para incorporarte a espazos de datos sectoriais. 100% subvencionado, ti só pagas o IVE.',
+        deadline: '31/03/2026',
+        ctaLabel: 'Que é o KTED?',
+        ctaHref: `/${lang}/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
+      },
+      {
+        tag: 'Igape IA360',
+        title: 'Desenvolve solucións IA para a túa empresa con ata 500.000€ de axuda',
+        description: 'Subvención do Igape para proxectos de intelixencia artificial en pemes galegas. Acompañámoste de inicio a fin.',
+        deadline: '17/03/2026',
+        ctaLabel: 'Solicitar asesoramento',
         ctaHref: `/${lang}/#contact`,
       },
     ],
@@ -90,7 +111,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://osix.tech/${lang}/` },
-    { "@type": "ListItem", "position": 2, "name": lang === 'es' ? 'Servicios' : 'Services', "item": `https://osix.tech/${lang}/#services` },
+    { "@type": "ListItem", "position": 2, "name": { es: 'Servicios', gl: 'Servizos', en: 'Services' }[lang], "item": `https://osix.tech/${lang}/#services` },
     { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://osix.tech/${lang}/servicios/${id}` }
   ]
 };
@@ -244,7 +265,7 @@ const jsonLd = [serviceSchema, webPageSchema];
               {card.deadline && (
                 <div class="conv-deadline">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span>{lang === 'es' ? 'Plazo:' : 'Deadline:'} {card.deadline}</span>
+                  <span>{{ es: 'Plazo:', gl: 'Prazo:', en: 'Deadline:' }[lang]} {card.deadline}</span>
                 </div>
               )}
               <a href={card.ctaHref} class="btn-secondary btn-arrow self-start" style="margin-top: auto;">

@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -18,9 +20,9 @@ const steps = [
 
 // Variant-specific CTA text
 const ctaText = {
-  a: lang === 'es' ? 'Comenzar ahora' : 'Start now',
-  b: lang === 'es' ? 'Reservar mi plaza' : 'Reserve my spot',
-  c: lang === 'es' ? '¿Listo para empezar?' : 'Ready to start?'
+  a: ({ es: 'Comenzar ahora', gl: 'Comenzar ahora', en: 'Start now' }[lang]),
+  b: ({ es: 'Reservar mi plaza', gl: 'Reservar mi plaza', en: 'Reserve my spot' }[lang]),
+  c: ({ es: '¿Listo para empezar?', gl: '¿Listo para empezar?', en: 'Ready to start?' }[lang])
 };
 ---
 
@@ -29,7 +31,7 @@ const ctaText = {
     <!-- Header -->
     <div class="text-center mb-14">
       <p class="text-sm tracking-[0.2em] uppercase text-white/40 mb-5">
-        {lang === 'es' ? 'Proceso' : 'Process'}
+        {({ es: 'Proceso', gl: 'Proceso', en: 'Process' }[lang])}
       </p>
       <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
         {t('kted.process.title')}

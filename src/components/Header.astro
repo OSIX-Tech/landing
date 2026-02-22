@@ -1,21 +1,25 @@
 ---
+import { LANGUAGES, LANG_META, type Lang } from '../utils/languages';
+
 interface Props {
-  lang: 'en' | 'es';
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 
 import enLocales from '../../public/locales/en.json';
 import esLocales from '../../public/locales/es.json';
+import glLocales from '../../public/locales/gl.json';
 import { getService, type ServiceData } from '../data/services-multilingual';
 import MobileMenu from './MobileMenu.jsx';
 
-const t = lang === 'es' ? esLocales : enLocales;
+const localesMap: Record<string, typeof enLocales> = { en: enLocales, es: esLocales, gl: glLocales };
+const t = localesMap[lang] || enLocales;
 const serviceIds = ['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'];
 const services = serviceIds.map(id => getService(id, lang)).filter(Boolean) as ServiceData[];
 
 const mobileItems = [
-  { label: lang === 'es' ? 'Inicio' : 'Home', link: `/${lang}/#hero` },
+  { label: ({ es: 'Inicio', gl: 'Inicio', en: 'Home' } as Record<string, string>)[lang], link: `/${lang}/#hero` },
   {
     label: t['nav.services'],
     link: `/${lang}/#services`,
@@ -27,6 +31,9 @@ const mobileItems = [
 const mobileSocials = [
   { label: 'LinkedIn', link: 'https://www.linkedin.com/company/osix-tech' },
 ];
+
+// Language selector data
+const otherLangs = LANGUAGES.filter(l => l !== lang);
 ---
 
 <header id="main-header" class="fixed top-0 left-0 w-full bg-white transition-all duration-300 shadow-lg z-50 md:px-12 md:py-6 px-6 py-3">
@@ -41,7 +48,7 @@ const mobileSocials = [
       <div class="flex items-center gap-8">
         <!-- Desktop navigation -->
         <ul class="hidden md:flex items-center text-black text-[18px] font-semibold lg:gap-8 md:gap-6 relative tracking-wider">
-          <li><a href={`/${lang}/#hero`} class="nav-item transition-colors duration-200">{lang === 'es' ? 'Inicio' : 'Home'}</a></li>
+          <li><a href={`/${lang}/#hero`} class="nav-item transition-colors duration-200">{{ es: 'Inicio', gl: 'Inicio', en: 'Home' }[lang]}</a></li>
           <li class="nav-dropdown relative" data-dropdown="services">
             <button class="nav-item text-[18px] font-semibold transition-colors duration-200 cursor-pointer flex items-center gap-1" data-section="services">
               {t['nav.services']}
@@ -57,15 +64,35 @@ const mobileSocials = [
         <div id="nav-indicator" class="absolute bottom-0 h-[2px] bg-black opacity-0 transition-all duration-300 ease-out"></div>
       </div>
       
-      <!-- Right side: Language selector -->
+      <!-- Right side: Language selector + contact -->
       <div class="flex items-center gap-4 transition-opacity duration-300">
+        <!-- Language selector (desktop only) -->
+        <div class="lang-selector relative hidden md:block" id="lang-selector">
+          <button class="lang-toggle-btn" id="lang-toggle" aria-label="Change language">
+            <svg class="lang-globe" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" />
+            </svg>
+            {lang.toUpperCase()}
+            <svg class="lang-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown">
+            {otherLangs.map(l => (
+              <a href={Astro.url.pathname.replace(`/${lang}/`, `/${l}/`) || `/${l}/`} class="lang-option">
+                <span class="lang-option-code">{l.toUpperCase()}</span>
+                <span>{LANG_META[l].label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         <div class="hidden md:block">
             <a href={`/${lang}/#contact`} class="contact-btn btn-primary btn-arrow">
               {t['nav.contact']}
               <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
-        
+
         <!-- Mobile menu button -->
         <button id="mobile-toggle" class="md:hidden flex items-center justify-center w-10 h-10 relative" aria-label="Toggle menu">
           <div class="burger-icon">
@@ -94,7 +121,7 @@ const mobileSocials = [
     </div>
   </div>
 
-  <MobileMenu lang={lang} items={mobileItems} socialItems={mobileSocials} client:load />
+  <MobileMenu lang={lang} items={mobileItems} socialItems={mobileSocials} langOptions={otherLangs.map(l => ({ code: l.toUpperCase(), label: LANG_META[l].label, href: Astro.url.pathname.replace(`/${lang}/`, `/${l}/`) || `/${l}/` }))} client:load />
 </header>
 
 <script>
@@ -783,11 +810,44 @@ function setupScrollHandlers() {
   }
 }
 
+// Language selector toggle
+function setupLangSelector() {
+  const toggle = document.getElementById('lang-toggle');
+  const dropdown = document.getElementById('lang-dropdown');
+  if (!toggle || !dropdown) return;
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.contains('lang-open');
+    if (isOpen) {
+      dropdown.classList.remove('lang-open');
+      dropdown.style.opacity = '0';
+      dropdown.style.visibility = 'hidden';
+    } else {
+      dropdown.classList.add('lang-open');
+      dropdown.style.opacity = '1';
+      dropdown.style.visibility = 'visible';
+    }
+  });
+
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('lang-open');
+    dropdown.style.opacity = '0';
+    dropdown.style.visibility = 'hidden';
+  });
+}
+
 // Initialize on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', initializeHeader);
+document.addEventListener('DOMContentLoaded', () => {
+  initializeHeader();
+  setupLangSelector();
+});
 
 // Re-initialize on Astro page navigation
-document.addEventListener('astro:page-load', initializeHeader);
+document.addEventListener('astro:page-load', () => {
+  initializeHeader();
+  setupLangSelector();
+});
 </script>
 
 <style>
@@ -897,6 +957,76 @@ document.addEventListener('astro:page-load', initializeHeader);
     transform: rotate(-135deg);
   }
   
+  .lang-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.67rem 1.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: transparent;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .lang-toggle-btn:hover {
+    opacity: 1;
+  }
+  .lang-arrow {
+    transition: transform 0.2s ease;
+  }
+  .lang-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.25rem;
+    background: #fff;
+    border: 1px solid #000;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+  }
+  .lang-dropdown.lang-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .lang-option + .lang-option {
+    border-top: 1px solid #000;
+  }
+  .lang-option:hover {
+    background: #000;
+    color: #fff;
+  }
+  .lang-option:hover .lang-option-code {
+    color: #fff;
+  }
+  .lang-option-code {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #000;
+    letter-spacing: 0.05em;
+  }
+
   @media (max-width: 768px) {
     #main-header {
       padding: 1rem;

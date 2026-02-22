@@ -13,6 +13,17 @@ const serviceStats = {
       ],
     },
   },
+  gl: {
+    'consultoria-transformacion': {
+      label: 'En cifras',
+      items: [
+        { value: '< 24h', label: 'Informe entregado' },
+        { value: '0€', label: 'Compromiso de continuidad' },
+        { value: '< 7d', label: 'Plan de acción listo' },
+        { value: '+15', label: 'Procesos optimizados' },
+      ],
+    },
+  },
   en: {
     'consultoria-transformacion': {
       label: 'Key figures',
@@ -33,6 +44,12 @@ const servicePromos = {
       cta: 'Ver convocatorias',
     },
   },
+  gl: {
+    'innovacion-subvencionada': {
+      headline: 'Convocatorias abiertas con financiación para tu empresa',
+      cta: 'Ver convocatorias',
+    },
+  },
   en: {
     'innovacion-subvencionada': {
       headline: 'Open calls with funding for your business',
@@ -42,8 +59,8 @@ const servicePromos = {
 };
 
 export default function ServiceScrollCards({ services, casesByService, caseLogos = {}, lang, ctaBadge, ctaTitle, ctaSubtitle, ctaPills = [], ctaTrust, ctaButton, ctaSecondary, partnerLogos = [] }) {
-  const viewServiceLabel = lang === 'es' ? 'Ver servicio' : 'View service';
-  const casesLabel = lang === 'es' ? 'Casos de éxito' : 'Success stories';
+  const viewServiceLabel = ({ es: 'Ver servicio', gl: 'Ver servizo', en: 'View service' }[lang]);
+  const casesLabel = ({ es: 'Casos de éxito', gl: 'Casos de éxito', en: 'Success stories' }[lang]);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -105,7 +122,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
                           ))}
                           {remaining > 0 && (
                             <a href={`/${lang}/servicios/${service.id}`} className="ssc-proof-item ssc-proof-more">
-                              <span>+{remaining} {lang === 'es' ? 'más' : 'more'}</span>
+                              <span>+{remaining} {({ es: 'más', gl: 'máis', en: 'more' }[lang])}</span>
                               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                               </svg>

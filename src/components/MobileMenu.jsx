@@ -147,7 +147,7 @@ const css = `
 .mm-submenu {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0 0 0.5rem;
+  padding: 0;
   overflow: hidden;
 }
 .mm-submenu-wrap {
@@ -208,15 +208,21 @@ const css = `
 .mm-socials-link:hover {
   opacity: 0.5;
 }
+.mm-bottom-row {
+  display: flex;
+  gap: 3rem;
+}
 `;
 
-export default function MobileMenu({ lang, items = [], socialItems = [] }) {
+export default function MobileMenu({ lang, items = [], socialItems = [], langOptions = [] }) {
   const wrapperRef = useRef(null);
   const layer1Ref = useRef(null);
   const layer2Ref = useRef(null);
   const panelRef = useRef(null);
   const socialsTitleRef = useRef(null);
   const socialsListRef = useRef(null);
+  const langTitleRef = useRef(null);
+  const langListRef = useRef(null);
   const styleRef = useRef(null);
   const submenuRefs = useRef({});
 
@@ -269,9 +275,9 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
       if (!el) return;
       const isExpanded = openSubmenu === parseInt(idx);
       if (isExpanded) {
-        gsap.set(el, { height: 'auto' });
+        gsap.set(el, { height: 'auto', paddingTop: '0.5rem', paddingLeft: '0.5rem' });
         const h = el.offsetHeight;
-        gsap.fromTo(el, { height: 0 }, { height: h, duration: 0.35, ease: 'power3.out' });
+        gsap.fromTo(el, { height: 0, paddingTop: 0, paddingLeft: 0 }, { height: h, paddingTop: '0.5rem', paddingLeft: '0.5rem', duration: 0.35, ease: 'power3.out' });
         const subItems = el.querySelectorAll('.mm-submenu-wrap');
         if (subItems.length) {
           gsap.fromTo(
@@ -281,7 +287,7 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
           );
         }
       } else {
-        gsap.to(el, { height: 0, duration: 0.25, ease: 'power3.in' });
+        gsap.to(el, { height: 0, paddingTop: 0, paddingLeft: 0, duration: 0.25, ease: 'power3.in' });
       }
     });
   }, [openSubmenu]);
@@ -319,6 +325,14 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
         const socialLinks = socialsListRef.current?.querySelectorAll('.mm-socials-link');
         if (socialLinks) {
           gsap.set(socialLinks, { y: 25, opacity: 0 });
+        }
+        // Reset language elements
+        if (langTitleRef.current) {
+          gsap.set(langTitleRef.current, { opacity: 0 });
+        }
+        const langLinks = langListRef.current?.querySelectorAll('.mm-socials-link');
+        if (langLinks) {
+          gsap.set(langLinks, { y: 25, opacity: 0 });
         }
         // Reset submenus
         setOpenSubmenu(null);
@@ -404,10 +418,11 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
       }
     }
 
-    // 4. Social title fade in
-    if (socialsTitleRef.current) {
-      gsap.set(socialsTitleRef.current, { opacity: 0 });
-      tl.to(socialsTitleRef.current, { opacity: 1, duration: 0.5 }, '-=0.4');
+    // 4. Social & language titles fade in
+    const titles = [socialsTitleRef.current, langTitleRef.current].filter(Boolean);
+    if (titles.length) {
+      gsap.set(titles, { opacity: 0 });
+      tl.to(titles, { opacity: 1, duration: 0.5 }, '-=0.4');
     }
 
     // 5. Social links slide up & fade in
@@ -416,6 +431,23 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
       gsap.set(socialLinks, { y: 25, opacity: 0 });
       tl.to(
         socialLinks,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: 'power3.out',
+          stagger: { each: 0.08 },
+        },
+        '-=0.3'
+      );
+    }
+
+    // 6. Language links slide up & fade in
+    const langLinks = langListRef.current?.querySelectorAll('.mm-socials-link');
+    if (langLinks?.length) {
+      gsap.set(langLinks, { y: 25, opacity: 0 });
+      tl.to(
+        langLinks,
         {
           y: 0,
           opacity: 1,
@@ -568,28 +600,48 @@ export default function MobileMenu({ lang, items = [], socialItems = [] }) {
             ))}
           </ul>
 
-          {/* Socials */}
-          {socialItems.length > 0 && (
-            <div className="mm-socials">
-              <h3 className="mm-socials-title" ref={socialsTitleRef}>
-                {lang === 'es' ? 'Redes sociales' : 'Socials'}
-              </h3>
-              <ul className="mm-socials-list" ref={socialsListRef}>
-                {socialItems.map((social) => (
-                  <li key={social.link}>
-                    <a
-                      className="mm-socials-link"
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {social.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {/* Socials & Language */}
+          <div className="mm-socials">
+            <div className="mm-bottom-row">
+              {socialItems.length > 0 && (
+                <div>
+                  <h3 className="mm-socials-title" ref={socialsTitleRef}>
+                    {({ es: 'Redes', gl: 'Redes', en: 'Socials' }[lang])}
+                  </h3>
+                  <ul className="mm-socials-list" ref={socialsListRef}>
+                    {socialItems.map((social) => (
+                      <li key={social.link}>
+                        <a
+                          className="mm-socials-link"
+                          href={social.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {social.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {langOptions.length > 0 && (
+                <div>
+                  <h3 className="mm-socials-title" ref={langTitleRef}>
+                    {({ es: 'Idioma', gl: 'Idioma', en: 'Language' }[lang])}
+                  </h3>
+                  <ul className="mm-socials-list" ref={langListRef}>
+                    {langOptions.map((opt) => (
+                      <li key={opt.code}>
+                        <a className="mm-socials-link" href={opt.href}>
+                          {opt.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

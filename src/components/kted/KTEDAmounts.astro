@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -11,19 +13,19 @@ const t = (k: string) => translations.default[k] || k;
 // Variant-specific headers
 const variantHeaders = {
   a: {
-    label: lang === 'es' ? 'Subvenciones' : 'Grants',
+    label: ({ es: 'Subvenciones', gl: 'Subvenciones', en: 'Grants' }[lang]),
     title: t('kted.amounts.title'),
     subtitle: t('kted.amounts.subtitle')
   },
   b: {
-    label: lang === 'es' ? 'Financiación disponible' : 'Available funding',
-    title: lang === 'es' ? 'Aprovecha antes de que se agoten' : 'Take advantage before they run out',
-    subtitle: lang === 'es' ? 'Fondos europeos con plazas limitadas - actúa ahora' : 'European funds with limited spots - act now'
+    label: ({ es: 'Financiación disponible', gl: 'Financiación disponible', en: 'Available funding' }[lang]),
+    title: ({ es: 'Aprovecha antes de que se agoten', gl: 'Aprovecha antes de que se agoten', en: 'Take advantage before they run out' }[lang]),
+    subtitle: ({ es: 'Fondos europeos con plazas limitadas - actúa ahora', gl: 'Fondos europeos con plazas limitadas - actúa ahora', en: 'European funds with limited spots - act now' }[lang])
   },
   c: {
-    label: lang === 'es' ? 'Tu inversión' : 'Your investment',
-    title: lang === 'es' ? '¿Cuánto puedes conseguir?' : 'How much can you get?',
-    subtitle: lang === 'es' ? 'Calcula el retorno para tu empresa' : 'Calculate the return for your company'
+    label: ({ es: 'Tu inversión', gl: 'Tu inversión', en: 'Your investment' }[lang]),
+    title: ({ es: '¿Cuánto puedes conseguir?', gl: '¿Cuánto puedes conseguir?', en: 'How much can you get?' }[lang]),
+    subtitle: ({ es: 'Calcula el retorno para tu empresa', gl: 'Calcula el retorno para tu empresa', en: 'Calculate the return for your company' }[lang])
   }
 };
 
@@ -59,7 +61,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
           <div class="flex items-center justify-between">
             <div>
               <p class="font-semibold text-black text-lg">{t('kted.amounts.empresas.participante.label')}</p>
-              <p class="text-base text-gray-400">{lang === 'es' ? 'Comparte datos en el ecosistema' : 'Share data in the ecosystem'}</p>
+              <p class="text-base text-gray-400">{({ es: 'Comparte datos en el ecosistema', gl: 'Comparte datos en el ecosistema', en: 'Share data in the ecosystem' }[lang])}</p>
             </div>
             <p class="text-3xl font-bold text-black">
               €30.000
@@ -70,7 +72,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
           <div class="flex items-center justify-between">
             <div>
               <p class="font-semibold text-black text-lg">{t('kted.amounts.empresas.proveedor.label')}</p>
-              <p class="text-base text-gray-400">{lang === 'es' ? 'Aporta servicios técnicos' : 'Provides technical services'}</p>
+              <p class="text-base text-gray-400">{({ es: 'Aporta servicios técnicos', gl: 'Aporta servicios técnicos', en: 'Provides technical services' }[lang])}</p>
             </div>
             <p class="text-4xl font-bold text-black">
               €30.000
@@ -91,7 +93,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
           <div class="flex items-center justify-between">
             <div>
               <p class="font-semibold text-white text-lg">{t('kted.amounts.aapp.participante.label')}</p>
-              <p class="text-base text-white/40">{lang === 'es' ? 'Integración institucional' : 'Institutional integration'}</p>
+              <p class="text-base text-white/40">{({ es: 'Integración institucional', gl: 'Integración institucional', en: 'Institutional integration' }[lang])}</p>
             </div>
             <p class="text-3xl font-bold text-white">
               €25.000
@@ -102,7 +104,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
           <div class="flex items-center justify-between">
             <div>
               <p class="font-semibold text-white text-lg">{t('kted.amounts.aapp.proveedor.label')}</p>
-              <p class="text-base text-white/40">{lang === 'es' ? 'Infraestructura de datos' : 'Data infrastructure'}</p>
+              <p class="text-base text-white/40">{({ es: 'Infraestructura de datos', gl: 'Infraestructura de datos', en: 'Data infrastructure' }[lang])}</p>
             </div>
             <p class="text-4xl font-bold text-white">
               €50.000

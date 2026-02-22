@@ -1,14 +1,14 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
 const { lang = 'es', variant = 'c' } = Astro.props;
 
-const sectors = lang === 'es'
-  ? ['Salud', 'Agroalimentario', 'Logística', 'Turismo', 'Energía', 'Industria']
-  : ['Health', 'Agrifood', 'Logistics', 'Tourism', 'Energy', 'Industry'];
+const sectors = ({ es: ['Salud', 'Agroalimentario', 'Logística', 'Turismo', 'Energía', 'Industria'], gl: ['Salud', 'Agroalimentario', 'Logística', 'Turismo', 'Energía', 'Industria'], en: ['Health', 'Agrifood', 'Logistics', 'Tourism', 'Energy', 'Industry'] }[lang]);
 ---
 
 <section id="home" class="relative min-h-[calc(100vh-80px)] bg-white flex items-center overflow-hidden" data-variant={variant}>
@@ -24,7 +24,7 @@ const sectors = lang === 'es'
     <div class="hero-c-element mb-8 md:mb-12">
       <div class="flex items-center gap-6">
         <span class="text-[10px] font-black tracking-[0.4em] uppercase text-black">
-          {lang === 'es' ? 'PROGRAMA KTED' : 'KTED PROGRAM'}
+          {({ es: 'PROGRAMA KTED', gl: 'PROGRAMA KTED', en: 'KTED PROGRAM' }[lang])}
         </span>
         <div class="flex-1 h-px bg-gray-200"></div>
         <span class="text-[10px] tracking-[0.2em] text-gray-400 uppercase">Red.es × NextGenerationEU</span>
@@ -41,9 +41,7 @@ const sectors = lang === 'es'
           <span class="hero-quote absolute -top-8 -left-4 md:-left-8 text-[120px] md:text-[180px] font-serif text-gray-100 leading-none select-none pointer-events-none">"</span>
 
           <h1 class="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-black leading-[1.1] tracking-tight">
-            {lang === 'es'
-              ? '¿Cuánto valen los datos de tu empresa?'
-              : "What's your company's data worth?"}
+            {({ es: '¿Cuánto valen los datos de tu empresa?', gl: '¿Cuánto valen los datos de tu empresa?', en: "What's your company's data worth?" }[lang])}
           </h1>
         </div>
 
@@ -51,13 +49,9 @@ const sectors = lang === 'es'
         <div class="hero-c-element relative pl-6 md:pl-8 mb-10">
           <div class="hero-border-grow absolute left-0 top-0 w-1 bg-black h-0"></div>
           <p class="text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl">
-            {lang === 'es'
-              ? 'El programa KTED te da '
-              : 'The KTED program gives you '}
+            {({ es: 'El programa KTED te da ', gl: 'El programa KTED te da ', en: 'The KTED program gives you ' }[lang])}
             <span class="text-black font-bold"><span>30.000</span>€</span>
-            {lang === 'es'
-              ? ' para integrar tu empresa en los Espacios de Datos europeos. A fondo perdido. Solo pagas el IVA.'
-              : ' to integrate your company into European Data Spaces. Non-refundable. You only pay VAT.'}
+            {({ es: ' para integrar tu empresa en los Espacios de Datos europeos. A fondo perdido. Solo pagas el IVA.', gl: ' para integrar tu empresa en los Espacios de Datos europeos. A fondo perdido. Solo pagas el IVA.', en: ' to integrate your company into European Data Spaces. Non-refundable. You only pay VAT.' }[lang])}
           </p>
         </div>
 
@@ -68,7 +62,7 @@ const sectors = lang === 'es'
               0€
             </div>
             <div class="text-gray-500 text-xs md:text-sm uppercase tracking-wide">
-              {lang === 'es' ? 'Adelanto' : 'Upfront'}
+              {({ es: 'Adelanto', gl: 'Adelanto', en: 'Upfront' }[lang])}
             </div>
           </div>
           <div class="group">
@@ -76,7 +70,7 @@ const sectors = lang === 'es'
               100%
             </div>
             <div class="text-gray-500 text-xs md:text-sm uppercase tracking-wide">
-              {lang === 'es' ? 'Subvencionado' : 'Subsidized'}
+              {({ es: 'Subvencionado', gl: 'Subvencionado', en: 'Subsidized' }[lang])}
             </div>
           </div>
           <div class="group">
@@ -84,7 +78,7 @@ const sectors = lang === 'es'
               24h
             </div>
             <div class="text-gray-500 text-xs md:text-sm uppercase tracking-wide">
-              {lang === 'es' ? 'Respuesta' : 'Response'}
+              {({ es: 'Respuesta', gl: 'Respuesta', en: 'Response' }[lang])}
             </div>
           </div>
         </div>
@@ -97,7 +91,7 @@ const sectors = lang === 'es'
             data-cta-location="hero"
             data-variant={variant}
           >
-            <span>{lang === 'es' ? 'Descubre si aplicas' : 'Check if you qualify'}</span>
+            <span>{({ es: 'Descubre si aplicas', gl: 'Descubre si aplicas', en: 'Check if you qualify' }[lang])}</span>
             <svg class="btn-arrow-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -106,7 +100,7 @@ const sectors = lang === 'es'
             href="#how-it-works"
             class="btn-arrow inline-flex items-center justify-center gap-2 text-black font-semibold text-lg px-6 py-5"
           >
-            <span>{lang === 'es' ? 'Ver cómo funciona' : 'See how it works'}</span>
+            <span>{({ es: 'Ver cómo funciona', gl: 'Ver cómo funciona', en: 'See how it works' }[lang])}</span>
             <svg class="btn-arrow-icon w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -124,7 +118,7 @@ const sectors = lang === 'es'
           <!-- Header -->
           <div class="mb-8">
             <p class="text-white/40 text-[10px] uppercase tracking-[0.3em] mb-3">
-              {lang === 'es' ? 'Sectores elegibles' : 'Eligible sectors'}
+              {({ es: 'Sectores elegibles', gl: 'Sectores elegibles', en: 'Eligible sectors' }[lang])}
             </p>
             <div class="w-8 h-px bg-white/20"></div>
           </div>
@@ -142,10 +136,10 @@ const sectors = lang === 'es'
           <!-- CTA inside card -->
           <div class="pt-6 border-t border-white/10">
             <p class="text-white/40 text-xs mb-3">
-              {lang === 'es' ? '¿Tu sector no está en la lista?' : "Don't see your sector?"}
+              {({ es: '¿Tu sector no está en la lista?', gl: '¿Tu sector no está en la lista?', en: "Don't see your sector?" }[lang])}
             </p>
             <a href="#contact" class="inline-flex items-center gap-2 text-white text-sm font-medium group">
-              <span>{lang === 'es' ? 'Consúltanos' : 'Ask us'}</span>
+              <span>{({ es: 'Consúltanos', gl: 'Consúltanos', en: 'Ask us' }[lang])}</span>
               <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -156,7 +150,7 @@ const sectors = lang === 'es'
           <div class="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
             <img src="/logo_w.png" alt="OSIX Tech" class="h-8 w-auto" />
             <div>
-              <p class="text-white/40 text-xs">{lang === 'es' ? 'Partner certificado' : 'Certified partner'}</p>
+              <p class="text-white/40 text-xs">{({ es: 'Partner certificado', gl: 'Partner certificado', en: 'Certified partner' }[lang])}</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -11,19 +13,19 @@ const t = (k: string) => translations.default[k] || k;
 // Variant-specific headers
 const variantHeaders = {
   a: {
-    label: lang === 'es' ? 'El programa' : 'The program',
+    label: ({ es: 'El programa', gl: 'El programa', en: 'The program' }[lang]),
     title: t('kted.whatIs.title'),
     text: t('kted.whatIs.text')
   },
   b: {
-    label: lang === 'es' ? 'Oportunidad única' : 'Unique opportunity',
-    title: lang === 'es' ? 'Kit Digital para Espacios de Datos' : 'Digital Kit for Data Spaces',
-    text: lang === 'es' ? 'El programa KTED de Red.es financia tu integración en la economía del dato. Subvención directa sin devolución para empresas y sector público.' : 'The KTED program from Red.es finances your integration into the data economy. Direct non-repayable grant for companies and public sector.'
+    label: ({ es: 'Oportunidad única', gl: 'Oportunidad única', en: 'Unique opportunity' }[lang]),
+    title: ({ es: 'Kit Digital para Espacios de Datos', gl: 'Kit Digital para Espacios de Datos', en: 'Digital Kit for Data Spaces' }[lang]),
+    text: ({ es: 'El programa KTED de Red.es financia tu integración en la economía del dato. Subvención directa sin devolución para empresas y sector público.', gl: 'El programa KTED de Red.es financia tu integración en la economía del dato. Subvención directa sin devolución para empresas y sector público.', en: 'The KTED program from Red.es finances your integration into the data economy. Direct non-repayable grant for companies and public sector.' }[lang])
   },
   c: {
-    label: lang === 'es' ? 'La oportunidad' : 'The opportunity',
-    title: lang === 'es' ? 'Monetiza el valor de tus datos' : 'Monetize the value of your data',
-    text: lang === 'es' ? 'Los Espacios de Datos te permiten compartir y acceder a datos de forma segura, creando nuevas oportunidades de negocio. El KTED financia tu entrada a este ecosistema.' : 'Data Spaces allow you to share and access data securely, creating new business opportunities. KTED funds your entry into this ecosystem.'
+    label: ({ es: 'La oportunidad', gl: 'La oportunidad', en: 'The opportunity' }[lang]),
+    title: ({ es: 'Monetiza el valor de tus datos', gl: 'Monetiza el valor de tus datos', en: 'Monetize the value of your data' }[lang]),
+    text: ({ es: 'Los Espacios de Datos te permiten compartir y acceder a datos de forma segura, creando nuevas oportunidades de negocio. El KTED financia tu entrada a este ecosistema.', gl: 'Los Espacios de Datos te permiten compartir y acceder a datos de forma segura, creando nuevas oportunidades de negocio. El KTED financia tu entrada a este ecosistema.', en: 'Data Spaces allow you to share and access data securely, creating new business opportunities. KTED funds your entry into this ecosystem.' }[lang])
   }
 };
 
@@ -46,7 +48,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                     <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                   </svg>
                 </div>
-                <span class="text-base font-medium text-black">{lang === 'es' ? 'Empresas' : 'Companies'}</span>
+                <span class="text-base font-medium text-black">{({ es: 'Empresas', gl: 'Empresas', en: 'Companies' }[lang])}</span>
               </div>
               <div class="flex items-center gap-4">
                 <div class="w-20 h-20 bg-black flex items-center justify-center flex-shrink-0">
@@ -54,7 +56,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                     <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/>
                   </svg>
                 </div>
-                <span class="text-base font-medium text-black">{lang === 'es' ? 'Sector Público' : 'Public Sector'}</span>
+                <span class="text-base font-medium text-black">{({ es: 'Sector Público', gl: 'Sector Público', en: 'Public Sector' }[lang])}</span>
               </div>
             </div>
 
@@ -74,7 +76,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
                 </svg>
               </div>
-              <span class="text-sm font-semibold tracking-wide uppercase text-black text-center">{lang === 'es' ? 'Espacio de Datos' : 'Data Space'}</span>
+              <span class="text-sm font-semibold tracking-wide uppercase text-black text-center">{({ es: 'Espacio de Datos', gl: 'Espacio de Datos', en: 'Data Space' }[lang])}</span>
             </div>
           </div>
 
@@ -86,7 +88,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
               </div>
-              <span class="text-sm font-medium text-gray-600">{lang === 'es' ? 'Seguro' : 'Secure'}</span>
+              <span class="text-sm font-medium text-gray-600">{({ es: 'Seguro', gl: 'Seguro', en: 'Secure' }[lang])}</span>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 bg-black flex items-center justify-center">
@@ -94,7 +96,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                   <path d="M4 4h16v16H4zM4 12h16M12 4v16"/>
                 </svg>
               </div>
-              <span class="text-sm font-medium text-gray-600">{lang === 'es' ? 'Interoperable' : 'Interoperable'}</span>
+              <span class="text-sm font-medium text-gray-600">{({ es: 'Interoperable', gl: 'Interoperable', en: 'Interoperable' }[lang])}</span>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 bg-black flex items-center justify-center">
@@ -103,7 +105,7 @@ const header = variantHeaders[variant as 'a' | 'b' | 'c'] || variantHeaders.a;
                   <circle cx="12" cy="12" r="10"/>
                 </svg>
               </div>
-              <span class="text-sm font-medium text-gray-600">{lang === 'es' ? 'Certificado' : 'Certified'}</span>
+              <span class="text-sm font-medium text-gray-600">{({ es: 'Certificado', gl: 'Certificado', en: 'Certified' }[lang])}</span>
             </div>
           </div>
         </div>

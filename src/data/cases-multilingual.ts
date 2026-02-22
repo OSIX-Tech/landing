@@ -148,6 +148,73 @@ export const casesData: Record<string, CaseStudyData[]> = {
       ],
     },
   ],
+  gl: [
+    {
+      id: 'take',
+      title: 'TAKE App',
+      client: 'TAKE - Cafetaría',
+      headline: 'Aplicación móbil enfocada na fidelización dixital para hostalaría',
+      product: 'BOND',
+      date: 'Agosto 2025',
+      services: ['desarrollo-a-medida'],
+      stats: [
+        { label: 'Integración Wallet', value: 'Google e Apple' },
+        { label: 'Descargas', value: '+2500' },
+        { label: 'Selos Rexistrados', value: '+20.000' },
+      ],
+      images: ['/projects/take.png'],
+      summary: 'Plataforma de fidelización dixital todo en un que integra tarxetas de fidelización en Google e Apple Wallet, carta dixital interactiva, minixogo con premios para incentivar a recorrencia e sistema de anuncios da cafetaría. Inclúe un dashboard de xestión completo para administrar a carta, premios e anuncios do negocio.',
+      results: [
+        'Fidelización dixital integrada en Google e Apple Wallet',
+        'Minixogo gamificado con premios para impulsar a recorrencia',
+        'Carta dixital interactiva con xestión centralizada desde dashboard',
+        'Sistema de anuncios para comunicación directa con clientes',
+      ],
+    },
+    {
+      id: 'iciga',
+      title: 'IRIS',
+      client: 'ICIGA - Distribuidor de material de laboratorio',
+      headline: 'Xestión comercial semiautomatizada con integración CRM',
+      product: 'IRIS',
+      date: 'Novembro 2025',
+      services: ['desarrollo-a-medida'],
+      images: ['/projects/iciga.jpg'],
+      stats: [
+        { label: 'Tempo aforrado', value: '60%' },
+        { label: 'Produtos cruzados', value: '45.000+' },
+        { label: 'Bandexas monitorizadas', value: 'Múltiples' },
+      ],
+      summary: 'Info Retrieval & Intelligence System. Plataforma integral de xestión comercial con axentes de IA que monitoriza 6 bandexas de correo en tempo real, clasifica automaticamente 10 tipos de solicitudes (pedidos, orzamentos, facturas, incidencias, pagos...), cruza contra dous catálogos con máis de 45.000 produtos e xera propostas de resposta listas para enviar. Inclúe pipeline completo de seguimento de transaccións venda/compra, conexión directa co ERP e CRM do cliente, verificación de stock en tempo real e dashboard con analíticas de funil comercial.',
+      results: [
+        'Axentes de IA con razoamento e redacción automática de emails',
+        'Pipeline de seguimento de transaccións de venda e compra',
+        'Conexión directa con ERP e CRM',
+        'Dashboard en tempo real con analíticas de funil comercial',
+      ],
+    },
+    {
+      id: 'shearn',
+      title: 'Project Certainty',
+      client: 'Shearn',
+      headline: 'Resolución de debuxo técnico con IA',
+      date: 'Xullo 2025',
+      services: ['desarrollo-a-medida'],
+      video: '/projects/shearn.webm',
+      stats: [
+        { label: 'Motor', value: '2D + 3D' },
+        { label: 'Tecnoloxía', value: 'Three.js' },
+        { label: 'Desenvolvemento', value: '100% propio' },
+      ],
+      summary: 'Proba de concepto para validar se a IA de xullo de 2025 era capaz de resolver exercicios de debuxo técnico de nivel 2.º Bacharelato e Universidade. Motor 2D paso a paso para resolución guiada e módulo 3D en Three.js para reconstrución de sólidos a partir de vistas ortográficas.',
+      results: [
+        'PoC exitoso: resolución de exercicios de 2.º Bach e Universidade',
+        'Motor 2D de solucións paso a paso',
+        'Reconstrución 3D con Three.js',
+        'Desenvolvemento integramente interno',
+      ],
+    },
+  ],
 };
 
 export function getAllCases(lang: string = 'es'): CaseStudyData[] {

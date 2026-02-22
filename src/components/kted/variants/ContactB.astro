@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -30,18 +32,16 @@ const sectors = [
       <div class="inline-flex items-center gap-3 px-6 py-3 bg-black text-white mb-8">
         <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
         <span class="text-sm font-bold tracking-wider uppercase">
-          {lang === 'es' ? 'PLAZAS LIMITADAS' : 'LIMITED SPOTS'}
+          {({ es: 'PLAZAS LIMITADAS', gl: 'PLAZAS LIMITADAS', en: 'LIMITED SPOTS' }[lang])}
         </span>
         <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
       </div>
 
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">
-        {lang === 'es' ? 'ASEGURA TU PLAZA' : 'SECURE YOUR SPOT'}
+        {({ es: 'ASEGURA TU PLAZA', gl: 'ASEGURA TU PLAZA', en: 'SECURE YOUR SPOT' }[lang])}
       </h2>
       <p class="text-gray-500 text-lg max-w-xl mx-auto">
-        {lang === 'es'
-          ? 'Los fondos se agotan por orden de llegada. No esperes más.'
-          : "Funds are allocated on a first-come basis. Don't wait."}
+        {({ es: 'Los fondos se agotan por orden de llegada. No esperes más.', gl: 'Los fondos se agotan por orden de llegada. No esperes más.', en: "Funds are allocated on a first-come basis. Don't wait." }[lang])}
       </p>
     </div>
 
@@ -141,7 +141,7 @@ const sectors = [
           type="submit"
           class="submit-btn btn-primary w-full py-5 px-8 text-lg justify-center"
         >
-          <span class="btn-text">{lang === 'es' ? 'RESERVAR AHORA' : 'RESERVE NOW'}</span>
+          <span class="btn-text">{({ es: 'RESERVAR AHORA', gl: 'RESERVAR AHORA', en: 'RESERVE NOW' }[lang])}</span>
           <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
           </svg>
@@ -156,19 +156,19 @@ const sectors = [
           <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
           </svg>
-          <span class="text-xs uppercase tracking-wider">{lang === 'es' ? 'DATOS SEGUROS' : 'SECURE DATA'}</span>
+          <span class="text-xs uppercase tracking-wider">{({ es: 'DATOS SEGUROS', gl: 'DATOS SEGUROS', en: 'SECURE DATA' }[lang])}</span>
         </div>
         <div class="flex items-center gap-2 text-gray-400">
           <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <span class="text-xs uppercase tracking-wider">{lang === 'es' ? 'RESPUESTA 24H' : '24H RESPONSE'}</span>
+          <span class="text-xs uppercase tracking-wider">{({ es: 'RESPUESTA 24H', gl: 'RESPUESTA 24H', en: '24H RESPONSE' }[lang])}</span>
         </div>
         <div class="flex items-center gap-2 text-gray-400">
           <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
           </svg>
-          <span class="text-xs uppercase tracking-wider">{lang === 'es' ? 'SIN COMPROMISO' : 'NO COMMITMENT'}</span>
+          <span class="text-xs uppercase tracking-wider">{({ es: 'SIN COMPROMISO', gl: 'SIN COMPROMISO', en: 'NO COMMITMENT' }[lang])}</span>
         </div>
       </div>
     </div>

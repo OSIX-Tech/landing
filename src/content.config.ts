@@ -8,7 +8,12 @@ const esCollection = defineCollection({
   type: 'content',
 });
 
+const glCollection = defineCollection({
+  type: 'content',
+});
+
 export const collections = {
   en: enCollection,
   es: esCollection,
-}; 
+  gl: glCollection,
+};

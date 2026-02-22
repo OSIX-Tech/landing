@@ -193,6 +193,95 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
         role: 'Food industry SME',
       },
     }
+  },
+  gl: {
+    'desarrollo-a-medida': {
+      id: 'desarrollo-a-medida',
+      title: 'Desenvolvemento a Medida',
+      tagline: 'Ti sabes o que necesitas. Nós construímolo.',
+      description: 'Chegas cunha idea clara do que necesita o teu negocio e nós facémolo realidade. Aplicacións móbiles, plataformas web, axentes intelixentes, automatizacións con IA... o que sexa. Ti pos o que, nós pomos o como.',
+      icon: 'Code',
+      highlights: [
+        'Aplicacións móbiles, web e de escritorio',
+        'Axentes intelixentes e automatizacións con IA',
+        'Ti defines o que, nós o como',
+        'Sen solucións xenéricas: software 100% a medida'
+      ],
+      problemTitle: 'Sabes o que necesitas, pero non tes quen o constrúa',
+      problem: 'Tes claro que necesita o teu negocio — unha app, unha automatización, unha plataforma — pero non tes o equipo técnico para facelo realidade.',
+      solutionTitle: 'A túa idea, feita software',
+      solution: 'Cóntanos o que necesitas e construímolo. Sen rodeos, sen consultorías interminables. Software 100% a medida, listo para funcionar.',
+      highlightsTitle: 'Da idea ao produto',
+      stats: [
+        { value: '2 sem', label: 'demo funcional lista' },
+        { value: '100%', label: 'software a medida' },
+        { value: '24/7', label: 'soporte continuo' },
+        { value: '2x', label: 'máis rápidos ca a media' },
+      ],
+      testimonial: {
+        quote: 'En 3 semanas tiñamos a app funcionando. Aforráronnos meses de desenvolvemento interno.',
+        author: 'Director de Operacións',
+        role: 'Empresa loxística',
+      },
+    },
+    'consultoria-transformacion': {
+      id: 'consultoria-transformacion',
+      title: 'Consultoría de Transformación Dixital',
+      tagline: 'Dicímosche que se pode mellorar con tecnoloxía',
+      description: 'Visitamos a túa empresa, entendemos como traballades de verdade e dicímosvos con honestidade que se pode mellorar con tecnoloxía. En menos dunha semana recibes un informe con oportunidades concretas, estimación de aforro e un plan de acción priorizado. Se non necesitas nada, dicímoscho. Sen compromiso, sen fume.',
+      icon: 'RefreshCw',
+      highlights: [
+        'Visita presencial e análise da túa operativa real',
+        'Informe con oportunidades concretas en menos dunha semana',
+        'Estimación de aforro e plan de acción priorizado',
+        'Honestidade total: se non necesitas nada, dicímoscho'
+      ],
+      problemTitle: 'Non sabes por onde empezar',
+      problem: 'Sabes que a túa empresa podería funcionar mellor con tecnoloxía, pero non sabes por onde empezar nin en quen confiar.',
+      solutionTitle: 'Guiámoste paso a paso',
+      solution: 'Visitamos a túa empresa, entendemos como traballades de verdade e en menos dunha semana entregámosche un plan de acción concreto con estimación de aforro.',
+      highlightsTitle: 'Análise sen compromiso',
+      stats: [
+        { value: '< 24h', label: 'informe entregado' },
+        { value: '0€', label: 'compromiso de continuidade' },
+        { value: '< 7d', label: 'plan de acción listo' },
+        { value: '+15', label: 'procesos optimizados' },
+      ],
+      testimonial: {
+        quote: 'Atopáronnos un aforro de 40h/mes que non sabiamos que existía.',
+        author: 'CEO',
+        role: 'Distribuidora industrial',
+      },
+    },
+    'innovacion-subvencionada': {
+      id: 'innovacion-subvencionada',
+      title: 'Innovación Subvencionada',
+      tagline: 'Identificamos axudas públicas e preparamos o teu proxecto',
+      description: 'Identificamos as axudas públicas que encaixan coa túa empresa e encargámonos de deseñar o proxecto para que cumpra todos os requisitos da convocatoria. Preparamos a memoria técnica, o orzamento e toda a documentación necesaria para maximizar as túas posibilidades de aprobación. IGAPE, IA360, Ticket Innova, Kit Digital, espazos de datos... coñecemos as convocatorias porque traballamos con elas a diario.',
+      icon: 'Lightbulb',
+      highlights: [
+        'Identificación de axudas públicas compatibles coa túa empresa',
+        'Deseño de proxecto adaptado a cada convocatoria',
+        'Deseño do proxecto e memoria técnica incluídos',
+        'IGAPE, IA360, Ticket Innova, Kit Digital e máis'
+      ],
+      problemTitle: 'Hai axudas, pero non sabes cales encaixan',
+      problem: 'Existen convocatorias públicas que poderían financiar o teu próximo proxecto, pero atopar as que encaixan coa túa empresa e deseñar un proxecto que cumpra os requisitos é un traballo en si mesmo.',
+      solutionTitle: 'Atopamos a axuda e deseñamos o proxecto',
+      solution: 'Analizamos a túa empresa, identificamos as convocatorias que encaixan e deseñamos o proxecto e a memoria técnica para maximizar a aprobación e o valor achegado.',
+      highlightsTitle: 'Innova sen arriscar a túa caixa',
+      stats: [
+        { value: '0€', label: 'se non se aproba' },
+        { value: '< 7d', label: 'proposta lista para envío' },
+        { value: '60%', label: 'subvencionado de media' },
+        { value: '0€', label: 'consulta inicial' },
+      ],
+      testimonial: {
+        quote: 'Conseguíronnos 120.000€ en subvencións que nin sabiamos que existían.',
+        author: 'Xerente',
+        role: 'Peme alimentaria',
+      },
+    }
   }
 };
 

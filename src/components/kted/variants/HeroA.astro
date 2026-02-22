@@ -1,6 +1,8 @@
 ---
+import type { Lang } from '../../../utils/languages';
+
 interface Props {
-  lang?: string;
+  lang?: Lang;
   variant?: string;
 }
 
@@ -39,7 +41,7 @@ const t = (k: string) => translations.default[k] || k;
         <div class="hero-a-element flex items-center gap-6 mb-6">
           <div class="w-16 h-px bg-black hero-line-grow"></div>
           <p class="text-gray-500 text-sm tracking-wide">
-            {lang === 'es' ? 'Subvención a fondo perdido' : 'Non-refundable grant'}
+            {({ es: 'Subvención a fondo perdido', gl: 'Subvención a fondo perdido', en: 'Non-refundable grant' }[lang])}
           </p>
         </div>
 
@@ -54,11 +56,9 @@ const t = (k: string) => translations.default[k] || k;
 
         <!-- Subtitle -->
         <p class="hero-a-element text-gray-600 text-lg md:text-xl lg:text-2xl max-w-xl mb-10 leading-relaxed">
-          {lang === 'es'
-            ? 'Para integrar tu empresa en los Espacios de Datos europeos.'
-            : 'To integrate your company into European Data Spaces.'}
+          {({ es: 'Para integrar tu empresa en los Espacios de Datos europeos.', gl: 'Para integrar tu empresa en los Espacios de Datos europeos.', en: 'To integrate your company into European Data Spaces.' }[lang])}
           <span class="text-black font-semibold">
-            {lang === 'es' ? ' Tú solo pagas el IVA.' : ' You only pay VAT.'}
+            {({ es: ' Tú solo pagas el IVA.', gl: ' Tú solo pagas el IVA.', en: ' You only pay VAT.' }[lang])}
           </span>
         </p>
 
@@ -79,7 +79,7 @@ const t = (k: string) => translations.default[k] || k;
             href="#how-it-works"
             class="btn-secondary px-6 py-5 text-lg justify-center"
           >
-            <span>{lang === 'es' ? 'Cómo funciona' : 'How it works'}</span>
+            <span>{({ es: 'Cómo funciona', gl: 'Cómo funciona', en: 'How it works' }[lang])}</span>
           </a>
         </div>
 
@@ -87,17 +87,17 @@ const t = (k: string) => translations.default[k] || k;
         <div class="hero-a-element flex items-center gap-8 md:gap-12">
           <div class="group">
             <span class="block text-3xl md:text-4xl font-bold text-black transition-transform duration-300 group-hover:scale-110">+50</span>
-            <span class="text-gray-400 text-xs uppercase tracking-wider">{lang === 'es' ? 'Proyectos' : 'Projects'}</span>
+            <span class="text-gray-400 text-xs uppercase tracking-wider">{({ es: 'Proyectos', gl: 'Proyectos', en: 'Projects' }[lang])}</span>
           </div>
           <div class="w-px h-12 bg-gray-200"></div>
           <div class="group">
             <span class="block text-3xl md:text-4xl font-bold text-black transition-transform duration-300 group-hover:scale-110">100%</span>
-            <span class="text-gray-400 text-xs uppercase tracking-wider">{lang === 'es' ? 'Éxito' : 'Success'}</span>
+            <span class="text-gray-400 text-xs uppercase tracking-wider">{({ es: 'Éxito', gl: 'Éxito', en: 'Success' }[lang])}</span>
           </div>
           <div class="w-px h-12 bg-gray-200"></div>
           <div class="group">
             <span class="block text-3xl md:text-4xl font-bold text-black transition-transform duration-300 group-hover:scale-110">24h</span>
-            <span class="text-gray-400 text-xs uppercase tracking-wider">{lang === 'es' ? 'Respuesta' : 'Response'}</span>
+            <span class="text-gray-400 text-xs uppercase tracking-wider">{({ es: 'Respuesta', gl: 'Respuesta', en: 'Response' }[lang])}</span>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@ const t = (k: string) => translations.default[k] || k;
 
             <h3 class="text-lg font-bold tracking-wide uppercase mb-8 flex items-center gap-3">
               <span class="w-8 h-px bg-white/40"></span>
-              {lang === 'es' ? 'Sin riesgo' : 'Zero risk'}
+              {({ es: 'Sin riesgo', gl: 'Sin riesgo', en: 'Zero risk' }[lang])}
             </h3>
 
             <ul class="space-y-6">
@@ -126,8 +126,8 @@ const t = (k: string) => translations.default[k] || k;
                   </svg>
                 </div>
                 <div>
-                  <p class="text-white font-semibold text-lg">{lang === 'es' ? '100% subvencionado' : '100% subsidized'}</p>
-                  <p class="text-white/50 text-sm">{lang === 'es' ? 'Red.es nos paga directamente' : 'Red.es pays us directly'}</p>
+                  <p class="text-white font-semibold text-lg">{({ es: '100% subvencionado', gl: '100% subvencionado', en: '100% subsidized' }[lang])}</p>
+                  <p class="text-white/50 text-sm">{({ es: 'Red.es nos paga directamente', gl: 'Red.es nos paga directamente', en: 'Red.es pays us directly' }[lang])}</p>
                 </div>
               </li>
               <li class="flex items-start gap-4 group">
@@ -137,8 +137,8 @@ const t = (k: string) => translations.default[k] || k;
                   </svg>
                 </div>
                 <div>
-                  <p class="text-white font-semibold text-lg">{lang === 'es' ? '0€ de adelanto' : '€0 upfront'}</p>
-                  <p class="text-white/50 text-sm">{lang === 'es' ? 'Solo abonas el IVA' : 'You only pay VAT'}</p>
+                  <p class="text-white font-semibold text-lg">{({ es: '0€ de adelanto', gl: '0€ de adelanto', en: '€0 upfront' }[lang])}</p>
+                  <p class="text-white/50 text-sm">{({ es: 'Solo abonas el IVA', gl: 'Solo abonas el IVA', en: 'You only pay VAT' }[lang])}</p>
                 </div>
               </li>
               <li class="flex items-start gap-4 group">
@@ -148,8 +148,8 @@ const t = (k: string) => translations.default[k] || k;
                   </svg>
                 </div>
                 <div>
-                  <p class="text-white font-semibold text-lg">{lang === 'es' ? 'Gestión integral' : 'Full management'}</p>
-                  <p class="text-white/50 text-sm">{lang === 'es' ? 'Solicitud + ejecución + justificación' : 'Application + execution + justification'}</p>
+                  <p class="text-white font-semibold text-lg">{({ es: 'Gestión integral', gl: 'Gestión integral', en: 'Full management' }[lang])}</p>
+                  <p class="text-white/50 text-sm">{({ es: 'Solicitud + ejecución + justificación', gl: 'Solicitud + ejecución + justificación', en: 'Application + execution + justification' }[lang])}</p>
                 </div>
               </li>
             </ul>
@@ -159,7 +159,7 @@ const t = (k: string) => translations.default[k] || k;
               <div class="flex items-center gap-3">
                 <img src="/logo_w.png" alt="OSIX Tech" class="h-8 w-auto" />
                 <div>
-                  <p class="text-white/40 text-xs">{lang === 'es' ? 'Partner certificado Red.es' : 'Certified Red.es partner'}</p>
+                  <p class="text-white/40 text-xs">{({ es: 'Partner certificado Red.es', gl: 'Partner certificado Red.es', en: 'Certified Red.es partner' }[lang])}</p>
                 </div>
               </div>
             </div>

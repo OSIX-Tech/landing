@@ -1,17 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
+import { LANGUAGES, type Lang } from '../../utils/languages';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  return [
-    { params: { lang: 'en' } },
-    { params: { lang: 'es' } }
-  ];
+  return LANGUAGES.map(lang => ({ params: { lang } }));
 }
 
-const { lang = 'en' } = Astro.params;
+const { lang = 'en' } = Astro.params as { lang: Lang };
 
 let PP;
 try {
@@ -21,13 +19,9 @@ try {
 }
 
 // SEO Data
-const seoTitle = lang === 'es' 
-  ? 'Política de Privacidad - OSIX Tech'
-  : 'Privacy Policy - OSIX Tech';
+const seoTitle = ({ es: 'Política de Privacidad - OSIX Tech', gl: 'Política de Privacidade - OSIX Tech', en: 'Privacy Policy - OSIX Tech' }[lang]);
 
-const seoDescription = lang === 'es'
-  ? 'Política de privacidad de OSIX Tech. Información sobre cómo recopilamos, usamos y protegemos tus datos personales.'
-  : 'OSIX Tech Privacy Policy. Information about how we collect, use and protect your personal data.';
+const seoDescription = ({ es: 'Política de privacidad de OSIX Tech. Información sobre cómo recopilamos, usamos y protegemos tus datos personales.', gl: 'Política de privacidade de OSIX Tech. Información sobre como recompilamos, usamos e protexemos os teus datos persoais.', en: 'OSIX Tech Privacy Policy. Information about how we collect, use and protect your personal data.' }[lang]);
 
 // Structured Data
 const breadcrumbSchema = {
@@ -43,7 +37,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy',
+      "name": { es: 'Política de Privacidad', gl: 'Política de Privacidade', en: 'Privacy Policy' }[lang],
       "item": `https://osix.tech/${lang}/privacy`
     }
   ]
@@ -69,7 +63,7 @@ const jsonLd = [webPageSchema];
 ---
 
 <Layout 
-  lang={lang as 'en' | 'es'}
+  lang={lang}
   title={seoTitle}
   description={seoDescription}
   pageType="article"
@@ -81,13 +75,10 @@ const jsonLd = [webPageSchema];
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-3xl">
         <h1 class="hero-title text-center text-5xl md:text-7xl font-bold text-white mb-4 opacity-0">
-          {lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy'}
+          {{ es: 'Política de Privacidad', gl: 'Política de Privacidade', en: 'Privacy Policy' }[lang]}
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          {lang === 'es'
-            ? 'Información sobre cómo OSIX Tech recopila, usa y protege tus datos personales'
-            : 'Information about how OSIX Tech collects, uses and protects your personal data'
-          }
+          {{ es: 'Información sobre cómo OSIX Tech recopila, usa y protege tus datos personales', gl: 'Información sobre como OSIX Tech recompila, usa e protexe os teus datos persoais', en: 'Information about how OSIX Tech collects, uses and protects your personal data' }[lang]}
         </p>
       </div>
     </div>
@@ -105,7 +96,7 @@ const jsonLd = [webPageSchema];
       <!-- Back to home button -->
       <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
         <a href={`/${lang}/`} class="btn-primary btn-arrow">
-          {lang === 'es' ? 'Volver al inicio' : 'Back to home'}
+          {{ es: 'Volver al inicio', gl: 'Volver ao inicio', en: 'Back to home' }[lang]}
           <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>

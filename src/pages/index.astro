@@ -22,6 +22,7 @@ const canonicalUrl = 'https://osix.tech/en/';
   <!-- Language alternates -->
   <link rel="alternate" hreflang="en" href="https://osix.tech/en/" />
   <link rel="alternate" hreflang="es" href="https://osix.tech/es/" />
+  <link rel="alternate" hreflang="gl" href="https://osix.tech/gl/" />
   <link rel="alternate" hreflang="x-default" href="https://osix.tech/en/" />
   
   <!-- SEO Meta Tags -->
@@ -50,7 +51,7 @@ const canonicalUrl = 'https://osix.tech/en/';
   <script>
     // Language detection and redirect
     (function() {
-      const supported = ['en', 'es'];
+      const supported = ['en', 'es', 'gl'];
       const userLang = navigator.language.split('-')[0] || 'en';
       const lang = supported.includes(userLang) ? userLang : 'en';
       window.location.replace(`/${lang}/`);
@@ -64,7 +65,7 @@ const canonicalUrl = 'https://osix.tech/en/';
     "@type": "WebSite",
     "name": "OSIX Tech",
     "url": "https://osix.tech",
-    "inLanguage": ["en", "es"]
+    "inLanguage": ["en", "es", "gl"]
   }
   </script>
 </head>
