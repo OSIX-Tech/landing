@@ -48,8 +48,6 @@ const ScrollStack = ({
 
     // Natural positions — flex gap is properly reflected here
     const naturalTops = cards.map(c => c.getBoundingClientRect().top + window.scrollY);
-    const containerTop = container.getBoundingClientRect().top + window.scrollY;
-
     // Sticky positions for service cards
     const stickyTops = [];
     for (let i = 0; i < serviceCount; i++) {

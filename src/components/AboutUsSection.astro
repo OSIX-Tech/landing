@@ -941,7 +941,7 @@ const manifestoItems: { type: string; gridArea: string; data: Record<string, any
     const expandCard = (card: HTMLElement) => {
       if (activeCard) animateContent(activeCard, 'out');
       gsap.to(cards, {
-        flexGrow: (i: number, target: HTMLElement) => target === card ? 10 : 1,
+        flexGrow: (_i: number, target: HTMLElement) => target === card ? 10 : 1,
         duration: 0.7,
         ease: "expo.out",
         overwrite: true,
