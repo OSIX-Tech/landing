@@ -351,5 +351,20 @@
     "kted.contact.form.submit": "Solicitar información",
 
     "kted.footer.funded": "Programa financiado por",
-    "kted.footer.moreInfo": "Máis información en Red.es"
+    "kted.footer.moreInfo": "Máis información en Red.es",
+
+    "home.faq.label": "Preguntas frecuentes",
+    "home.faq.title": "O que necesitas saber",
+    "home.faq.q1": "Que fai OSIX Tech?",
+    "home.faq.a1": "OSIX Tech é unha consultoría de intelixencia artificial e desenvolvemento de software a medida con sede en Santiago de Compostela, Galicia. Construímos axentes intelixentes, automatizacións con IA e solucións dixitais personalizadas para empresas.",
+    "home.faq.q2": "Que servizos de IA ofrece OSIX Tech en Galicia?",
+    "home.faq.a2": "Ofrecemos consultoría de IA, desenvolvemento de axentes intelixentes, automatización de procesos con intelixencia artificial, consultoría de transformación dixital e xestión de subvencións para innovación a través de programas como IGAPE IA360, Kit Digital e Ticket Innova.",
+    "home.faq.q3": "Canto custa unha consultoría de IA?",
+    "home.faq.a3": "A consulta inicial é gratuíta. Visitamos a túa empresa, analizamos a túa operativa e entregámosche un informe con oportunidades concretas e estimación de aforro en menos dunha semana. Ademais, moitos proxectos de IA poden financiarse parcialmente con axudas públicas como IGAPE IA360 (ata 500.000€ para proxectos de IA en PEMEs galegas).",
+    "home.faq.q4": "Que subvencións hai para proxectos de IA en Galicia?",
+    "home.faq.a4": "As principais axudas inclúen IGAPE IA360 (ata 500.000€ para proxectos de IA en PEMEs galegas), KTED, Ticket Innova e Kit Digital. En OSIX encargámonos de todo o proceso: identificamos a convocatoria, deseñamos o proxecto e preparamos a memoria técnica.",
+    "home.faq.q5": "En canto tempo se entrega un proxecto de IA?",
+    "home.faq.a5": "Entregamos unha demo funcional en 2 semanas. Os prazos completos dependen do alcance, pero o noso proceso está deseñado para a velocidade: somos 2x máis rápidos ca a media do sector.",
+    "home.faq.q6": "Onde está OSIX Tech?",
+    "home.faq.a6": "A nosa sede está en Santiago de Compostela, Galicia. Traballamos con empresas de toda Galicia e España, combinando visitas presenciais con soporte remoto 24/7."
 }

@@ -1,25 +1,48 @@
 # OSIX Tech
 
-> Software consultancy based in Santiago de Compostela, Spain, specializing in custom AI-powered development, digital transformation consulting, and subsidized innovation grants management.
+> AI consulting firm and software development company based in Santiago de Compostela, Galicia, Spain. We specialize in custom AI-powered development, digital transformation consulting, and managing subsidized innovation grants (IGAPE, IA360, Kit Digital) for businesses across Galicia and Spain.
 
-## About
+OSIX Tech is the leading AI consultancy in Galicia (consultoría de IA en Galicia), delivering intelligent agents, AI automations, and custom software to businesses of all sizes. Founded in Santiago de Compostela, we combine deep AI expertise with hands-on digital transformation consulting and public grant management to help Galician and Spanish companies adopt artificial intelligence with real, measurable results.
 
-OSIX Tech builds automation-driven software using AI and modern technologies. We deliver custom digital solutions for real-world business needs, serving companies across Spain and Galicia.
-
-- Founded in Santiago de Compostela, Galicia, Spain
-- Languages: English, Spanish
-- Industries: logistics, food, industrial, retail, and more
+Key facts:
+- Location: Santiago de Compostela, Galicia, Spain
+- Languages: English, Spanish, Galician
+- Specialization: AI consulting, intelligent agents, process automation, custom software development
+- Industries served: logistics, food, industrial, retail, professional services
+- Working demo delivered in 2 weeks
+- 24/7 ongoing support
+- Manages IGAPE, IA360, Ticket Innova, Kit Digital grant applications
 
 ## Services
 
-### Custom Software Development
-You define what your business needs — mobile apps, web platforms, intelligent agents, AI automations — and we build it. 100% custom software, no generic solutions. Working demo in 2 weeks, 24/7 ongoing support.
+- [Custom AI Development](https://osix.tech/es/servicios/desarrollo-a-medida/): Mobile apps, web platforms, intelligent agents, and AI automations built 100% custom for your business. Working demo in 2 weeks.
+- [Digital Transformation Consulting](https://osix.tech/es/servicios/consultoria-transformacion/): On-site visit, operational analysis, and a prioritized action plan with savings estimates delivered in under a week. No commitment required.
+- [Subsidized Innovation & Grants](https://osix.tech/es/servicios/innovacion-subvencionada/): We identify public grants (IGAPE, IA360, Ticket Innova, Kit Digital) that fit your company and design the project and technical report to maximize approval. Average 60% grant coverage.
 
-### Digital Transformation Consulting
-We visit your company, understand how you actually work, and deliver a report with concrete opportunities, savings estimates, and a prioritized action plan in less than a week. No strings attached — if you don't need anything, we tell you.
+## Case Studies
 
-### Subsidized Innovation
-We identify public grants that fit your company (IGAPE, IA360, Ticket Innova, Kit Digital, data spaces) and design the project and technical report to maximize approval. You pay nothing if the grant is not approved.
+- [IRIS - AI Email Classification for ICIGA](https://osix.tech/es/#services): AI agents that monitor 6 inboxes in real time, classify 10 types of requests using NLP, and draft automatic responses. Result: 60% time saved in email management.
+- [Project Certainty - AI Technical Drawing Solver](https://osix.tech/es/#services): AI-powered proof of concept that solves technical drawing exercises automatically for an educational technology company.
+
+## FAQ
+
+### What does OSIX Tech do?
+OSIX Tech is an AI consulting and custom software development company based in Santiago de Compostela, Galicia. We build intelligent agents, AI automations, and custom digital solutions for businesses.
+
+### Where is OSIX Tech located?
+Santiago de Compostela, Galicia, Spain. We serve companies across Galicia and all of Spain.
+
+### What AI services does OSIX Tech offer in Galicia?
+We offer AI consulting, intelligent agent development, process automation with AI, digital transformation consulting, and subsidized innovation grant management through programs like IGAPE IA360.
+
+### How much does AI consulting cost in Galicia?
+Our initial consultation is free. Many AI projects can be partially funded through public grants like IGAPE IA360 (up to 500,000 euros for AI projects in Galician SMEs) or Kit Digital. We also offer a no-cost assessment where we visit your company and deliver a savings report in under a week.
+
+### What grants are available for AI projects in Galicia?
+The main grants include IGAPE IA360 (up to 500,000 euros for AI projects in Galician SMEs), KTED, Ticket Innova, and Kit Digital. OSIX Tech manages the full application process and project design.
+
+### How quickly can OSIX Tech deliver an AI solution?
+We deliver a working demo in 2 weeks. Full project timelines depend on scope, but our process is designed for speed: 2x faster than industry average.
 
 ## Contact
 
@@ -30,8 +53,12 @@ We identify public grants that fit your company (IGAPE, IA360, Ticket Innova, Ki
 
 ## Links
 
-- Services: https://osix.tech/en/servicios/desarrollo-a-medida/
-- Digital Transformation: https://osix.tech/en/servicios/consultoria-transformacion/
-- Innovation Grants: https://osix.tech/en/servicios/innovacion-subvencionada/
-- GitHub: https://github.com/osixtech
-- LinkedIn: https://linkedin.com/company/osixtech
+- [Homepage (Spanish)](https://osix.tech/es/)
+- [Homepage (Galician)](https://osix.tech/gl/)
+- [Homepage (English)](https://osix.tech/en/)
+- [Custom AI Development](https://osix.tech/es/servicios/desarrollo-a-medida/)
+- [Digital Transformation Consulting](https://osix.tech/es/servicios/consultoria-transformacion/)
+- [Subsidized Innovation & Grants](https://osix.tech/es/servicios/innovacion-subvencionada/)
+- [KTED Grant Landing](https://osix.tech/es/kted/a/)
+- [GitHub](https://github.com/osixtech)
+- [LinkedIn](https://linkedin.com/company/osixtech)

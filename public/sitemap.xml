@@ -8,123 +8,186 @@
   <!-- English homepage -->
   <url>
     <loc>https://osix.tech/en/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/"/>
   </url>
 
   <!-- Spanish homepage -->
   <url>
     <loc>https://osix.tech/es/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/"/>
   </url>
 
-  <!-- Service: Custom Development (English) -->
+  <!-- Galician homepage -->
+  <url>
+    <loc>https://osix.tech/gl/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/"/>
+  </url>
+
+  <!-- Service: Custom Development -->
   <url>
     <loc>https://osix.tech/en/servicios/desarrollo-a-medida/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/desarrollo-a-medida/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/desarrollo-a-medida/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
   </url>
 
-  <!-- Service: Custom Development (Spanish) -->
   <url>
     <loc>https://osix.tech/es/servicios/desarrollo-a-medida/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/desarrollo-a-medida/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
   </url>
 
-  <!-- Service: Digital Transformation Consulting (English) -->
+  <url>
+    <loc>https://osix.tech/gl/servicios/desarrollo-a-medida/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/desarrollo-a-medida/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/desarrollo-a-medida/"/>
+  </url>
+
+  <!-- Service: Digital Transformation Consulting -->
   <url>
     <loc>https://osix.tech/en/servicios/consultoria-transformacion/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-transformacion/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/consultoria-transformacion/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
   </url>
 
-  <!-- Service: Digital Transformation Consulting (Spanish) -->
   <url>
     <loc>https://osix.tech/es/servicios/consultoria-transformacion/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/consultoria-transformacion/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
   </url>
 
-  <!-- Service: Subsidized Innovation (English) -->
   <url>
-    <loc>https://osix.tech/en/servicios/innovacion-subvencionada/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <loc>https://osix.tech/gl/servicios/consultoria-transformacion/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/consultoria-transformacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/consultoria-transformacion/"/>
+  </url>
+
+  <!-- Service: Subsidized Innovation -->
+  <url>
+    <loc>https://osix.tech/en/servicios/innovacion-subvencionada/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
   </url>
 
-  <!-- Service: Subsidized Innovation (Spanish) -->
   <url>
     <loc>https://osix.tech/es/servicios/innovacion-subvencionada/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+  </url>
+
+  <url>
+    <loc>https://osix.tech/gl/servicios/innovacion-subvencionada/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
   </url>
 
   <!-- KTED Landing (canonical variant) -->
   <url>
     <loc>https://osix.tech/en/kted/a/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/kted/a/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/kted/a/"/>
   </url>
 
   <url>
     <loc>https://osix.tech/es/kted/a/</loc>
-    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/a/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/kted/a/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/kted/a/"/>
   </url>
 
-  <!-- English Privacy Policy -->
+  <url>
+    <loc>https://osix.tech/gl/kted/a/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/kted/a/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/kted/a/"/>
+  </url>
+
+  <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/privacy/"/>
   </url>
 
-  <!-- Spanish Privacy Policy -->
   <url>
     <loc>https://osix.tech/es/privacy/</loc>
     <lastmod>2026-02-20T00:00:00+00:00</lastmod>
@@ -132,5 +195,16 @@
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/privacy/"/>
+  </url>
+
+  <url>
+    <loc>https://osix.tech/gl/privacy/</loc>
+    <lastmod>2026-02-20T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/privacy/"/>
   </url>
 </urlset>

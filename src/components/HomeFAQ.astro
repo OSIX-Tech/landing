@@ -1,0 +1,156 @@
+---
+import type { Lang } from '../utils/languages';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'es' } = Astro.props;
+const translations = await import(`../../public/locales/${lang}.json`);
+const t = (k: string) => translations.default[k] || k;
+
+const faqs = [
+  { question: t('home.faq.q1'), answer: t('home.faq.a1') },
+  { question: t('home.faq.q2'), answer: t('home.faq.a2') },
+  { question: t('home.faq.q3'), answer: t('home.faq.a3') },
+  { question: t('home.faq.q4'), answer: t('home.faq.a4') },
+  { question: t('home.faq.q5'), answer: t('home.faq.a5') },
+  { question: t('home.faq.q6'), answer: t('home.faq.a6') }
+];
+---
+
+<section class="home-faq bg-white">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid lg:grid-cols-[1fr,2fr] gap-16">
+      <!-- Left: Header -->
+      <div class="lg:sticky lg:top-24 lg:self-start">
+        <p class="text-sm tracking-[0.2em] uppercase text-gray-400 mb-5">
+          {t('home.faq.label')}
+        </p>
+        <h2 class="text-4xl md:text-5xl font-bold text-black leading-tight">
+          {t('home.faq.title')}
+        </h2>
+      </div>
+
+      <!-- Right: Accordion -->
+      <div class="border-t border-gray-200">
+        {faqs.map((faq, index) => (
+          <div class="home-faq-item border-b border-gray-200" data-index={index}>
+            <button
+              class="home-faq-trigger w-full flex items-start justify-between py-6 text-left group"
+              type="button"
+            >
+              <span class="home-faq-question font-medium text-lg text-black pr-8 transition-all duration-300">
+                {faq.question}
+              </span>
+              <span class="home-faq-icon-wrapper flex-shrink-0 w-8 h-8 bg-black flex items-center justify-center mt-0.5">
+                <span class="home-faq-icon-line home-faq-icon-h"></span>
+                <span class="home-faq-icon-line home-faq-icon-v"></span>
+              </span>
+            </button>
+            <div class="home-faq-content">
+              <div class="home-faq-answer pb-6 pr-12 text-lg text-gray-500 leading-relaxed">
+                {faq.answer}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-faq-item {
+    --duration: 0.4s;
+    --easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .home-faq-trigger:hover .home-faq-question {
+    color: #666;
+  }
+
+  .home-faq-icon-wrapper {
+    position: relative;
+  }
+
+  .home-faq-icon-line {
+    position: absolute;
+    background: white;
+    transition: transform var(--duration) var(--easing), opacity var(--duration) var(--easing);
+  }
+
+  .home-faq-icon-h {
+    width: 12px;
+    height: 2px;
+  }
+
+  .home-faq-icon-v {
+    width: 2px;
+    height: 12px;
+  }
+
+  .home-faq-item.open .home-faq-icon-v {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .home-faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--duration) var(--easing);
+  }
+
+  .home-faq-content > div {
+    overflow: hidden;
+  }
+
+  .home-faq-item.open .home-faq-content {
+    grid-template-rows: 1fr;
+  }
+
+  .home-faq-answer {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+
+  .home-faq-item.open .home-faq-answer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initializeHomeFAQ() {
+    const faqItems = document.querySelectorAll('.home-faq .home-faq-item');
+
+    if (faqItems.length > 0) {
+      faqItems[0].classList.add('open');
+    }
+
+    faqItems.forEach(item => {
+      const trigger = item.querySelector('.home-faq-trigger');
+
+      if (trigger) {
+        trigger.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('open');
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+          }
+        });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeHomeFAQ);
+  } else {
+    initializeHomeFAQ();
+  }
+</script>

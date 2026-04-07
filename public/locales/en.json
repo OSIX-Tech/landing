@@ -349,5 +349,20 @@
     "kted.contact.form.submit": "Request information",
 
     "kted.footer.funded": "Program funded by",
-    "kted.footer.moreInfo": "More information at Red.es"
+    "kted.footer.moreInfo": "More information at Red.es",
+
+    "home.faq.label": "FAQ",
+    "home.faq.title": "What you need to know",
+    "home.faq.q1": "What does OSIX Tech do?",
+    "home.faq.a1": "OSIX Tech is an AI consulting and custom software development company based in Santiago de Compostela, Galicia, Spain. We build intelligent agents, AI automations, and custom digital solutions for businesses.",
+    "home.faq.q2": "What AI services does OSIX Tech offer in Galicia?",
+    "home.faq.a2": "We offer AI consulting, intelligent agent development, AI-powered process automation, digital transformation consulting, and subsidized innovation grant management through programs like IGAPE IA360, Kit Digital, and Ticket Innova.",
+    "home.faq.q3": "How much does AI consulting cost?",
+    "home.faq.a3": "Our initial consultation is free. We visit your company, analyze your operations, and deliver a report with concrete opportunities and savings estimates in under a week. Many AI projects can also be partially funded through public grants like IGAPE IA360 (up to 500,000 euros for AI projects in Galician SMEs).",
+    "home.faq.q4": "What grants are available for AI projects in Galicia?",
+    "home.faq.a4": "The main grants include IGAPE IA360 (up to 500,000 euros for AI projects in Galician SMEs), KTED, Ticket Innova, and Kit Digital. At OSIX we handle the full process: we identify the right call, design the project, and prepare the technical report.",
+    "home.faq.q5": "How quickly can you deliver an AI solution?",
+    "home.faq.a5": "We deliver a working demo in 2 weeks. Full project timelines depend on scope, but our process is designed for speed: we're 2x faster than the industry average.",
+    "home.faq.q6": "Where is OSIX Tech located?",
+    "home.faq.a6": "Our headquarters are in Santiago de Compostela, Galicia, Spain. We work with companies across Galicia and Spain, combining on-site visits with 24/7 remote support."
 }
