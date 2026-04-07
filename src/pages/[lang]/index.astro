@@ -22,109 +22,153 @@ const seoTitle = ({ es: 'OSIX Tech - Consultoría Tecnológica & Desarrollo a Me
 
 const seoDescription = ({ es: 'OSIX Tech: Desarrollo de software a medida con IA, consultoría de transformación digital y gestión de subvenciones. Tecnología que genera resultados reales para tu empresa.', gl: 'OSIX Tech: Desenvolvemento de software a medida con IA, consultoría de transformación dixital e xestión de subvencións. Tecnoloxía que xera resultados reais para a túa empresa.', en: 'OSIX Tech: Custom AI software development, digital transformation consulting, and innovation grants. Technology that delivers real results for your business.' }[lang]);
 
-// Structured Data
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
-  "name": "OSIX Tech",
-  "url": "https://osix.tech",
-  "logo": "https://osix.tech/logo_w.png",
-  "description": seoDescription,
-  "telephone": "+34 648935068",
-  "email": "info@osix.tech",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Santiago del Estero, 2-4 1G",
-    "addressLocality": "Santiago de Compostela",
-    "addressRegion": "Galicia",
-    "postalCode": "15702",
-    "addressCountry": "ES"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 42.8782,
-    "longitude": -8.5448
-  },
-  "areaServed": [
-    { "@type": "Country", "name": "Spain" },
-    { "@type": "AdministrativeArea", "name": "Galicia" }
-  ],
-  "sameAs": [
-    "https://github.com/osixtech",
-    "https://linkedin.com/company/osixtech"
-  ],
-  "knowsAbout": [
-    "Artificial Intelligence",
-    "Inteligencia Artificial",
-    "Intelixencia Artificial",
-    "AI Consulting",
-    "Consultoría de IA",
-    "Consultoría de IA en Galicia",
-    "Digital Transformation",
-    "Intelligent Agents",
-    "Process Automation",
-    "IGAPE IA360",
-    "Custom Software Development"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "email": "info@osix.tech",
-    "telephone": "+34 648935068",
-    "availableLanguage": ["English", "Spanish", "Galician"]
-  },
-  "makesOffer": getAllServices(lang).map(s => ({
-    "@type": "Offer",
-    "itemOffered": {
-      "@type": "Service",
-      "name": s.title,
-      "description": s.description,
-      "url": `https://osix.tech/${lang}/servicios/${s.id}`
-    }
-  }))
-};
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": seoTitle,
-  "description": seoDescription,
-  "url": `https://osix.tech/${lang}/`,
-  "inLanguage": lang,
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "OSIX Tech",
-    "url": "https://osix.tech"
-  },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": `https://osix.tech/${lang}/`
-    }]
-  }
-};
-
 // FAQ translations for structured data
 const faqTranslations = await import(`../../../public/locales/${lang}.json`);
 const ft = (k: string) => faqTranslations.default[k] || k;
 
-const faqPageSchema = {
+// Team members for Person schema (E-E-A-T signals)
+const teamPersons = [
+  { name: "Pablo Pazos", role: "CTO / Software Architect", linkedin: "https://www.linkedin.com/in/pablo-pazos-parada/" },
+  { name: "Mateo Bodenlle", role: "CFO", linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/" },
+  { name: "Juan Freire", role: "Backend Engineer", linkedin: "https://www.linkedin.com/in/juan-freire-alvarez/" },
+  { name: "David Gutiérrez", role: "Security & AI Backend Engineer", linkedin: "https://www.linkedin.com/in/david-gutierrez-cs/" },
+  { name: "Nicolás Corbal", role: "Frontend Engineer", linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-corbal-912929318/" },
+  { name: "David M. Raposeiras", role: "DevOps Engineer", linkedin: "https://www.linkedin.com/in/david-manuel-raposeiras-canabal-a95028210/" },
+  { name: "Diego Cristóbal", role: "Full Stack Mobile Engineer", linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/" },
+];
+
+// Collect testimonials from all services for AggregateRating
+const allServices = getAllServices(lang);
+const testimonials = allServices.map(s => s.testimonial);
+
+// Structured Data — unified @graph
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": ft('home.faq.q1'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a1') } },
-    { "@type": "Question", "name": ft('home.faq.q2'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a2') } },
-    { "@type": "Question", "name": ft('home.faq.q3'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a3') } },
-    { "@type": "Question", "name": ft('home.faq.q4'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a4') } },
-    { "@type": "Question", "name": ft('home.faq.q5'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a5') } },
-    { "@type": "Question", "name": ft('home.faq.q6'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a6') } }
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://osix.tech/#organization",
+      "name": "OSIX Tech",
+      "url": "https://osix.tech",
+      "logo": "https://osix.tech/logo_w.png",
+      "description": seoDescription,
+      "telephone": "+34 648935068",
+      "email": "info@osix.tech",
+      "foundingDate": "2024",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Santiago del Estero, 2-4 1G",
+        "addressLocality": "Santiago de Compostela",
+        "addressRegion": "Galicia",
+        "postalCode": "15702",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.8782,
+        "longitude": -8.5448
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Spain" },
+        { "@type": "AdministrativeArea", "name": "Galicia" }
+      ],
+      "sameAs": [
+        "https://github.com/osixtech",
+        "https://linkedin.com/company/osixtech"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Inteligencia Artificial",
+        "Intelixencia Artificial",
+        "AI Consulting",
+        "Consultoría de IA",
+        "Consultoría de IA en Galicia",
+        "Digital Transformation",
+        "Intelligent Agents",
+        "Process Automation",
+        "IGAPE IA360",
+        "Custom Software Development"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "info@osix.tech",
+        "telephone": "+34 648935068",
+        "availableLanguage": ["English", "Spanish", "Galician"]
+      },
+      "employee": teamPersons.map(p => ({
+        "@type": "Person",
+        "name": p.name,
+        "jobTitle": p.role,
+        "worksFor": { "@id": "https://osix.tech/#organization" },
+        "sameAs": [p.linkedin]
+      })),
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "ratingCount": String(testimonials.length),
+        "reviewCount": String(testimonials.length)
+      },
+      "review": testimonials.map(t => ({
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": t.author },
+        "reviewBody": t.quote
+      })),
+      "makesOffer": allServices.map(s => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": s.title,
+          "description": s.description,
+          "url": `https://osix.tech/${lang}/servicios/${s.id}`
+        }
+      }))
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://osix.tech/#website",
+      "name": "OSIX Tech",
+      "url": "https://osix.tech",
+      "publisher": { "@id": "https://osix.tech/#organization" },
+      "inLanguage": ["en", "es", "gl"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": `https://osix.tech/${lang}/#webpage`,
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": `https://osix.tech/${lang}/`,
+      "inLanguage": lang,
+      "dateModified": "2026-04-07",
+      "isPartOf": { "@id": "https://osix.tech/#website" },
+      "about": { "@id": "https://osix.tech/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `https://osix.tech/${lang}/`
+        }]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `https://osix.tech/${lang}/#faq`,
+      "isPartOf": { "@id": `https://osix.tech/${lang}/#webpage` },
+      "mainEntity": [
+        { "@type": "Question", "name": ft('home.faq.q1'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a1') } },
+        { "@type": "Question", "name": ft('home.faq.q2'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a2') } },
+        { "@type": "Question", "name": ft('home.faq.q3'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a3') } },
+        { "@type": "Question", "name": ft('home.faq.q4'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a4') } },
+        { "@type": "Question", "name": ft('home.faq.q5'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a5') } },
+        { "@type": "Question", "name": ft('home.faq.q6'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a6') } }
+      ]
+    }
   ]
 };
-
-const jsonLd = [organizationSchema, webPageSchema, faqPageSchema];
 
 ---
 

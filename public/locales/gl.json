@@ -353,6 +353,27 @@
     "kted.footer.funded": "Programa financiado por",
     "kted.footer.moreInfo": "Máis información en Red.es",
 
+    "service.faq.desarrollo.q1": "Que tipo de software desenvolvedes?",
+    "service.faq.desarrollo.a1": "Desenvolvemos aplicacións móbiles, plataformas web, axentes intelixentes con IA, automatizacións e calquera tipo de software a medida. Non usamos modelos nin solucións xenéricas.",
+    "service.faq.desarrollo.q2": "Canto tarda en estar lista unha primeira versión?",
+    "service.faq.desarrollo.a2": "Entregamos unha demo funcional en 2 semanas. Os prazos completos dependen do alcance do proxecto, pero traballamos 2x máis rápido ca a media do sector.",
+    "service.faq.desarrollo.q3": "Que pasa despois da entrega?",
+    "service.faq.desarrollo.a3": "Ofrecemos soporte continuo 24/7. Mantemos, actualizamos e escalamos o teu software segundo as necesidades do teu negocio.",
+
+    "service.faq.consultoria.q1": "En que consiste a consultoría de transformación dixital e IA?",
+    "service.faq.consultoria.a1": "Visitamos a túa empresa presencialmente, analizamos como traballades de verdade e entregámosche un informe con oportunidades concretas de mellora con tecnoloxía e intelixencia artificial, estimación de aforro e un plan de acción priorizado.",
+    "service.faq.consultoria.q2": "Ten algún custo a consulta inicial?",
+    "service.faq.consultoria.a2": "Non. A consulta inicial é gratuíta e sen compromiso. Se non necesitas nada, dicímoscho con total honestidade.",
+    "service.faq.consultoria.q3": "Canto tarda en recibirse o informe?",
+    "service.faq.consultoria.a3": "Entregamos o informe en menos de 24 horas tras a visita e o plan de acción completo en menos dunha semana.",
+
+    "service.faq.innovacion.q1": "Que subvencións xestionades?",
+    "service.faq.innovacion.a1": "Traballamos con IGAPE, IA360, Ticket Innova, Kit Digital, KTED e espazos de datos europeos. Coñecemos as convocatorias porque traballamos con elas a diario.",
+    "service.faq.innovacion.q2": "Que pasa se non me aproban a subvención?",
+    "service.faq.innovacion.a2": "Non pagas nada. Só cobramos se a subvención é aprobada. Ademais, verificamos a túa elixibilidade antes de empezar para maximizar as posibilidades.",
+    "service.faq.innovacion.q3": "Preparades vós toda a documentación?",
+    "service.faq.innovacion.a3": "Si. Encargámonos do deseño do proxecto, a memoria técnica, o orzamento e toda a documentación necesaria para a convocatoria.",
+
     "home.faq.label": "Preguntas frecuentes",
     "home.faq.title": "O que necesitas saber",
     "home.faq.q1": "Que fai OSIX Tech?",

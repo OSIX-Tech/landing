@@ -118,46 +118,70 @@ const breadcrumbSchema = {
 
 const serviceTypeMap: Record<string, string> = {
   'desarrollo-a-medida': 'Custom Software Development',
-  'consultoria-transformacion': 'Digital Transformation Consulting',
+  'consultoria-transformacion': 'Digital Transformation and AI Consulting',
   'innovacion-subvencionada': 'Innovation and Grants Consulting'
 };
 
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": service.title,
-  "description": service.description,
-  "url": `https://osix.tech/${lang}/servicios/${id}`,
-  "serviceType": serviceTypeMap[id] || service.title,
-  "provider": {
-    "@type": "Organization",
-    "name": "OSIX Tech",
-    "url": "https://osix.tech",
-    "logo": "https://osix.tech/logo_w.png"
-  },
-  "areaServed": [
-    { "@type": "Country", "name": "Spain" },
-    { "@type": "AdministrativeArea", "name": "Galicia" }
-  ],
-  "availableChannel": {
-    "@type": "ServiceChannel",
-    "serviceUrl": `https://osix.tech/${lang}/servicios/${id}`,
-    "servicePhone": "+34 648935068"
-  }
+// FAQ key mapping per service
+const faqKeyMap: Record<string, string> = {
+  'desarrollo-a-medida': 'desarrollo',
+  'consultoria-transformacion': 'consultoria',
+  'innovacion-subvencionada': 'innovacion'
 };
+const faqKey = faqKeyMap[id] || 'desarrollo';
 
-const webPageSchema = {
+const faqQuestions = [1, 2, 3].map(i => ({
+  "@type": "Question" as const,
+  "name": t(`service.faq.${faqKey}.q${i}`),
+  "acceptedAnswer": { "@type": "Answer" as const, "text": t(`service.faq.${faqKey}.a${i}`) }
+}));
+
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": seoTitle,
-  "description": seoDescription,
-  "url": `https://osix.tech/${lang}/servicios/${id}`,
-  "inLanguage": lang,
-  "isPartOf": { "@type": "WebSite", "name": "OSIX Tech", "url": "https://osix.tech" },
-  "breadcrumb": breadcrumbSchema
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `https://osix.tech/${lang}/servicios/${id}#service`,
+      "name": service.title,
+      "description": service.description,
+      "url": `https://osix.tech/${lang}/servicios/${id}`,
+      "serviceType": serviceTypeMap[id] || service.title,
+      "provider": { "@id": "https://osix.tech/#organization" },
+      "areaServed": [
+        { "@type": "Country", "name": "Spain" },
+        { "@type": "AdministrativeArea", "name": "Galicia" }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": `https://osix.tech/${lang}/servicios/${id}`,
+        "servicePhone": "+34 648935068"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": service.testimonial.author },
+        "reviewBody": service.testimonial.quote
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": `https://osix.tech/${lang}/servicios/${id}#webpage`,
+      "name": seoTitle,
+      "description": seoDescription,
+      "url": `https://osix.tech/${lang}/servicios/${id}`,
+      "inLanguage": lang,
+      "dateModified": "2026-04-07",
+      "isPartOf": { "@type": "WebSite", "@id": "https://osix.tech/#website", "name": "OSIX Tech", "url": "https://osix.tech" },
+      "breadcrumb": breadcrumbSchema
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `https://osix.tech/${lang}/servicios/${id}#faq`,
+      "isPartOf": { "@id": `https://osix.tech/${lang}/servicios/${id}#webpage` },
+      "mainEntity": faqQuestions
+    }
+  ]
 };
-
-const jsonLd = [serviceSchema, webPageSchema];
 
 ---
 

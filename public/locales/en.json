@@ -351,6 +351,27 @@
     "kted.footer.funded": "Program funded by",
     "kted.footer.moreInfo": "More information at Red.es",
 
+    "service.faq.desarrollo.q1": "What type of software do you build?",
+    "service.faq.desarrollo.a1": "We build mobile apps, web platforms, intelligent AI agents, automations, and any type of custom software. No templates or generic solutions.",
+    "service.faq.desarrollo.q2": "How long until a first version is ready?",
+    "service.faq.desarrollo.a2": "We deliver a working demo in 2 weeks. Full timelines depend on project scope, but we work 2x faster than the industry average.",
+    "service.faq.desarrollo.q3": "What happens after delivery?",
+    "service.faq.desarrollo.a3": "We provide 24/7 ongoing support. We maintain, update, and scale your software as your business needs evolve.",
+
+    "service.faq.consultoria.q1": "What does digital transformation and AI consulting involve?",
+    "service.faq.consultoria.a1": "We visit your company in person, analyze how you actually work, and deliver a report with concrete improvement opportunities using technology and artificial intelligence, savings estimates, and a prioritized action plan.",
+    "service.faq.consultoria.q2": "Is the initial consultation free?",
+    "service.faq.consultoria.a2": "Yes. The initial consultation is free with no commitment. If you don't need anything, we'll tell you honestly.",
+    "service.faq.consultoria.q3": "How long until the report is delivered?",
+    "service.faq.consultoria.a3": "We deliver the report within 24 hours of the visit and the complete action plan in less than a week.",
+
+    "service.faq.innovacion.q1": "What grants do you manage?",
+    "service.faq.innovacion.a1": "We work with IGAPE, IA360, Ticket Innova, Kit Digital, KTED, and European data spaces. We know the calls because we work with them daily.",
+    "service.faq.innovacion.q2": "What if the grant isn't approved?",
+    "service.faq.innovacion.a2": "You pay nothing. We only charge if the grant is approved. We also verify your eligibility before starting to maximize chances.",
+    "service.faq.innovacion.q3": "Do you prepare all the documentation?",
+    "service.faq.innovacion.a3": "Yes. We handle the project design, technical report, budget, and all documentation required for the call.",
+
     "home.faq.label": "FAQ",
     "home.faq.title": "What you need to know",
     "home.faq.q1": "What does OSIX Tech do?",
