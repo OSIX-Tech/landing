@@ -7,8 +7,8 @@ const logos = [
   { src: '/logos/shearn.png', alt: 'Shearn' },
   { src: '/logos/take.png', alt: 'TAKE' },
   { src: '/logos/testsoposiciones.svg', alt: 'TestOposiciones' },
-  { src: '/logos/proxectonos.png', alt: 'Proxectonos' },
-  { src: '/logos/roydisa.jpg', alt: 'Roydisa' },
+  { src: '/logos/proxectonos.png', alt: 'Proxectonos', preserveColor: true },
+  { src: '/logos/roydisa.jpg', alt: 'Roydisa', preserveColor: true },
   { src: '/logos/academianos.png', alt: 'Academianos' },
 ];
 
@@ -19,14 +19,14 @@ const repeatedLogos = [...logos, ...logos, ...logos, ...logos];
 <div class="logos">
   <div class="logo_items">
     {repeatedLogos.map((logo) => (
-      <div class="logo-wrapper">
+      <div class={`logo-wrapper${logo.preserveColor ? ' logo-wrapper--color' : ''}`}>
         <img src={logo.src} alt={logo.alt} />
       </div>
     ))}
   </div>
   <div class="logo_items" aria-hidden="true">
     {repeatedLogos.map((logo) => (
-      <div class="logo-wrapper">
+      <div class={`logo-wrapper${logo.preserveColor ? ' logo-wrapper--color' : ''}`}>
         <img src={logo.src} alt={logo.alt} />
       </div>
     ))}
@@ -104,6 +104,15 @@ const repeatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   .logo-wrapper:hover img {
     opacity: 1;
+  }
+
+  .logo-wrapper--color img {
+    filter: none;
+    opacity: 1;
+    background: #fff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    box-sizing: border-box;
   }
 
   @media (max-width: 768px) {
