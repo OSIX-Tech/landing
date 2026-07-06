@@ -44,33 +44,33 @@ PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 src/
 ├── pages/
-│   ├── index.astro                 # Root redirect + language detection
-│   └── [lang]/                     # Dynamic routes (en/es)
-│       ├── index.astro             # Main landing page
-│       ├── privacy.astro           # Privacy policy
-│       ├── projects/[id].astro     # Project detail pages
-│       └── kted/[variant].astro    # KTED landing variants
+│   ├── index.astro          # Root redirect + language detection
+│   └── [lang]/              # Dynamic routes (en/es)
+│       ├── index.astro      # Main landing page
+│       ├── privacy.astro    # Privacy policy
+│       ├── projects/[id].astro  # Project detail pages
+│       └── kted/[variant].astro  # KTED landing variants
 ├── components/
-│   ├── Hero.astro                  # Hero with 3D logo
-│   ├── OsixLogo3D.jsx             # Three.js interactive logo
-│   ├── BentoGridSection.astro      # Services bento grid
-│   ├── ProjectsSection.astro       # Projects showcase
-│   ├── AboutSection.astro          # Team section
+│   ├── Hero.astro           # Hero with 3D logo
+│   ├── OsixLogo3D.jsx       # Three.js interactive logo
+│   ├── BentoGridSection.astro  # Services bento grid
+│   ├── ProjectsSection.astro   # Projects showcase
+│   ├── AboutSection.astro   # Team section
 │   ├── StaticContactSection.astro  # Contact form (EmailJS)
-│   ├── kted/                       # KTED-specific components
-│   └── ui/                         # Radix UI primitives
+│   ├── kted/                # KTED-specific components
+│   └── ui/                  # Radix UI primitives
 ├── data/
-│   └── projects-multilingual.ts    # Project definitions (en/es)
+│   └── projects-multilingual.ts  # Project definitions (en/es)
 ├── content/
-│   ├── en/                         # English markdown content
-│   └── es/                         # Spanish markdown content
+│   ├── en/                  # English markdown content
+│   └── es/                  # Spanish markdown content
 └── utils/
-    ├── emailjs.js                  # EmailJS config
-    └── analytics.ts                # GA4 tracking
+    ├── emailjs.js           # EmailJS config
+    └── analytics.ts         # GA4 tracking
 public/
-├── locales/                        # i18next translation JSONs
-├── animations/                     # Rive .riv files
-└── projects/                       # Project images & videos
+├── locales/                 # i18next translation JSONs
+├── animations/              # Rive .riv files
+└── projects/                # Project images & videos
 ```
 
 ## Sections
