@@ -1,0 +1,397 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCaseById, getCaseIds, getAllCases } from '../../../data/cases-multilingual';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+import BeamsBackground from '../../../components/BeamsBackground.jsx';
+import { LANGUAGES, type Lang } from '../../../utils/languages';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const caseIds = getCaseIds();
+  return LANGUAGES.flatMap(lang =>
+    caseIds.map(id => ({
+      params: { lang, id }
+    }))
+  );
+}
+
+const { id = '', lang = 'en' } = Astro.params as { id: string; lang: Lang };
+const caseStudy = getCaseById(id, lang);
+
+if (!caseStudy) {
+  return Astro.redirect(`/${lang}/404`);
+}
+
+const otherCases = getAllCases(lang).filter(c => c.id !== id).slice(0, 2);
+
+// SEO metadata
+const seoTitle = `${caseStudy.headline} — Caso de Éxito | OSIX Tech`;
+const seoDescription = caseStudy.summary.substring(0, 155);
+
+// Structured Data: CaseStudy + Organization + Breadcrumb
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": `https://osix.tech/${lang}/casos/${id}#article`,
+      "headline": caseStudy.headline,
+      "description": caseStudy.summary,
+      "url": `https://osix.tech/${lang}/casos/${id}`,
+      "inLanguage": lang,
+      "datePublished": caseStudy.date ? `2026-${caseStudy.date.includes('Julio') || caseStudy.date.includes('July') || caseStudy.date.includes('Xullo') ? '07' : '01'}-01` : '2026-07-01',
+      "author": {
+        "@type": "Organization",
+        "name": "OSIX Tech",
+        "url": "https://osix.tech"
+      },
+      "publisher": { "@id": "https://osix.tech/#organization" },
+      "about": {
+        "@type": "Thing",
+        "name": caseStudy.title,
+        "description": caseStudy.headline
+      },
+      "isPartOf": { "@type": "WebSite", "@id": "https://osix.tech/#website", "name": "OSIX Tech", "url": "https://osix.tech" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://osix.tech/${lang}/` },
+          { "@type": "ListItem", "position": 2, "name": { es: 'Casos de Éxito', gl: 'Casos de Éxito', en: 'Case Studies' }[lang], "item": `https://osix.tech/${lang}/#cases` },
+          { "@type": "ListItem", "position": 3, "name": caseStudy.title, "item": `https://osix.tech/${lang}/casos/${id}` }
+        ]
+      },
+      "mainEntityOfPage": `https://osix.tech/${lang}/casos/${id}`
+    },
+    ...(caseStudy.testimonial ? [{
+      "@type": "Review",
+      "@id": `https://osix.tech/${lang}/casos/${id}#review`,
+      "reviewBody": caseStudy.testimonial.quote,
+      "author": { "@type": "Person", "name": caseStudy.testimonial.author },
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "itemReviewed": { "@type": "Organization", "name": "OSIX Tech", "@id": "https://osix.tech/#organization" }
+    }] : [])
+  ]
+};
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+  <LoadingScreen duration={1000} />
+
+  <!-- HERO -->
+  <section class="hero-section relative min-h-[350px] bg-black lg:min-h-[400px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="absolute inset-0 z-0">
+      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
+    </div>
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center max-w-3xl">
+        <span class="hero-badge opacity-0 text-sm font-semibold tracking-widest uppercase text-gray-400 mb-4">
+          {caseStudy.industry || ({ es: 'Caso de Éxito', gl: 'Caso de Éxito', en: 'Case Study' }[lang])}
+        </span>
+        <h1 class="hero-title text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 opacity-0 leading-tight">{caseStudy.headline}</h1>
+        <p class="hero-subtitle text-lg md:text-xl text-gray-300 mb-6 opacity-0">{caseStudy.summary}</p>
+        <div class="flex gap-4 flex-wrap hero-cta opacity-0">
+          <a href={`/${lang}/#contact`} class="btn-secondary btn-arrow">
+            {({ es: '¿Hablamos de tu proyecto?', gl: 'Falamos do teu proxecto?', en: 'Let\'s talk about your project?' })[lang]}
+            <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT OVERVIEW -->
+  <section class="py-12 md:py-16 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="fade-up" style="--delay: 0.1s">
+        <h2 class="text-2xl md:text-3xl font-bold text-black mb-6">
+          {({ es: 'El cliente', gl: 'O cliente', en: 'The client' })[lang]}
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">{caseStudy.clientSummary || caseStudy.summary}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM + SOLUTION -->
+  {caseStudy.problem && caseStudy.solution && (
+    <section class="py-12 md:py-16 bg-[#f8f8f8] mb-0">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="fade-up" style="--delay: 0.1s">
+            <span class="text-sm font-semibold tracking-widest uppercase text-gray-400 mb-3 block">
+              {({ es: 'El reto', gl: 'O reto', en: 'The challenge' })[lang]}
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">
+              {({ es: 'Procesos que pedían automatización', gl: 'Procesos que pedían automatización', en: 'Processes crying out for automation' })[lang]}
+            </h2>
+            <p class="text-gray-600 leading-relaxed">{caseStudy.problem}</p>
+          </div>
+          <div class="fade-up" style="--delay: 0.2s">
+            <span class="text-sm font-semibold tracking-widest uppercase text-gray-400 mb-3 block">
+              {({ es: 'La solución', gl: 'A solución', en: 'The solution' })[lang]}
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">
+              {({ es: 'Hecho a medida de cada problema', gl: 'Feito a medida de cada problema', en: 'Built to fit each problem' })[lang]}
+            </h2>
+            <p class="text-gray-600 leading-relaxed">{caseStudy.solution}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- PROJECTS DETAIL -->
+  {caseStudy.projects && caseStudy.projects.length > 0 && (
+    <section class="py-12 md:py-16 bg-white mb-0">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-2xl md:text-3xl font-bold text-black mb-10 fade-up" style="--delay: 0.1s">
+          {({ es: 'Los proyectos', gl: 'Os proxectos', en: 'The projects' })[lang]}
+        </h2>
+        <div class="space-y-12">
+          {caseStudy.projects.map((project, i) => (
+            <div class="fade-up" style={`--delay: ${0.1 + i * 0.1}s`}>
+              <div class="flex flex-col md:flex-row md:items-start gap-4 mb-4">
+                <h3 class="text-xl md:text-2xl font-bold text-black">{project.name}</h3>
+                {project.tech && (
+                  <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase bg-black text-white rounded-sm self-start">
+                    {project.tech}
+                  </span>
+                )}
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">{project.description}</p>
+              <div class="border-l-4 border-black pl-4">
+                <p class="text-sm font-semibold tracking-widest uppercase text-gray-400 mb-1">
+                  {({ es: 'Resultado', gl: 'Resultado', en: 'Result' })[lang]}
+                </p>
+                <p class="text-gray-800 font-medium">{project.result}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- STATS + RESULTS -->
+  <section class="py-12 md:py-16 bg-black mb-0">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Stats -->
+        <div class="fade-up" style="--delay: 0.1s">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">
+            {({ es: 'En cifras', gl: 'En cifras', en: 'By the numbers' })[lang]}
+          </h2>
+          <div class="grid grid-cols-2 gap-6">
+            {caseStudy.stats.map(stat => (
+              <div>
+                <p class="text-4xl md:text-5xl font-extrabold text-white mb-1">{stat.value}</p>
+                <p class="text-sm text-gray-400 uppercase tracking-wider">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="fade-up" style="--delay: 0.2s">
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-8">
+            {({ es: 'Lo que conseguimos', gl: 'O que conseguimos', en: 'What we achieved' })[lang]}
+          </h2>
+          <ul class="space-y-4">
+            {caseStudy.results.map(result => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span class="text-gray-300">{result}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Technologies */}
+      {caseStudy.technologies && caseStudy.technologies.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-gray-800 fade-up" style="--delay: 0.3s">
+          <span class="text-sm text-gray-500 uppercase tracking-wider mb-3 block">
+            {({ es: 'Tecnologías utilizadas', gl: 'Tecnoloxías utilizadas', en: 'Technologies used' })[lang]}
+          </span>
+          <div class="flex flex-wrap gap-2">
+            {caseStudy.technologies.map(tech => (
+              <span class="px-3 py-1.5 text-sm font-medium bg-gray-800 text-gray-300 rounded-sm">{tech}</span>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  {caseStudy.testimonial && (
+    <section class="py-12 md:py-16 bg-white mb-0">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="fade-up" style="--delay: 0.1s">
+          <svg class="w-10 h-10 text-gray-300 mb-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+          <blockquote class="text-xl md:text-2xl text-gray-800 leading-relaxed mb-6 font-medium">
+            "{caseStudy.testimonial.quote}"
+          </blockquote>
+          <div>
+            <p class="font-bold text-black">{caseStudy.testimonial.author}</p>
+            <p class="text-gray-500 text-sm">{caseStudy.testimonial.role}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- OTHER CASES + CTA -->
+  <section class="py-12 md:py-16 bg-[#f8f8f8] mb-0">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        {otherCases.length > 0 && (
+          <div class="fade-up" style="--delay: 0.1s">
+            <span class="text-sm font-semibold tracking-widest uppercase text-gray-400 mb-3 block">
+              {({ es: 'Más casos de éxito', gl: 'Máis casos de éxito', en: 'More case studies' })[lang]}
+            </span>
+            <div class="space-y-6">
+              {otherCases.map(c => (
+                <a href={`/${lang}/casos/${c.id}`} class="block group">
+                  <h3 class="text-lg font-bold text-black group-hover:underline mb-1">{c.headline}</h3>
+                  <p class="text-sm text-gray-500">{c.client}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        <div class="fade-up flex flex-col justify-center" style="--delay: 0.2s">
+          <h2 class="text-2xl md:text-3xl font-bold text-black mb-4">
+            {({ es: '¿Tienes un proyecto similar?', gl: 'Tes un proxecto similar?', en: 'Have a similar project?' })[lang]}
+          </h2>
+          <p class="text-gray-600 mb-6">
+            {({ es: 'Analizamos tu caso y te decimos con total honestidad lo que podemos hacer por ti.', gl: 'Analizamos o teu caso e dicímosche con total honestidade o que podemos facer por ti.', en: 'We analyze your case and tell you honestly what we can do for you.' })[lang]}
+          </p>
+          <a href={`/${lang}/#contact`} class="btn-secondary btn-arrow self-start">
+            {({ es: 'Cuéntanos tu proyecto', gl: 'Cóntanos o teu proxecto', en: 'Tell us about your project' })[lang]}
+            <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING: Contact -->
+  <section class="bg-black mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
+      <div class="closing-grid">
+        <div class="closing-contact">
+          <img src="/full_logo_w.png" alt="OSIX Tech" class="closing-logo" />
+          <div class="closing-contact-list">
+            <a href="mailto:info@osix.tech" class="closing-contact-item">
+              <span>info@osix.tech</span>
+            </a>
+            <a href="tel:+346****5068" class="closing-contact-item">
+              <span>+34 648 935 068</span>
+            </a>
+            <div class="closing-contact-item">
+              <span>{({ es: 'Santiago de Compostela, España', gl: 'Santiago de Compostela, España', en: 'Santiago de Compostela, Spain' })[lang]}</span>
+            </div>
+          </div>
+        </div>
+        <div class="closing-services">
+          <span class="closing-services-label">
+            {({ es: 'Servicios relacionados', gl: 'Servizos relacionados', en: 'Related services' })[lang]}
+          </span>
+          <div class="closing-services-list">
+            {caseStudy.services.map(sid => {
+              const labels: Record<string, Record<string, string>> = {
+                'desarrollo-a-medida': { es: 'Desarrollo a Medida', gl: 'Desenvolvemento a Medida', en: 'Custom Development' },
+                'consultoria-transformacion': { es: 'Consultoría de Transformación Digital e IA', gl: 'Consultoría de Transformación Dixital e IA', en: 'Digital Transformation & AI Consulting' },
+                'innovacion-subvencionada': { es: 'Innovación Subvencionada', gl: 'Innovación Subvencionada', en: 'Subsidized Innovation' },
+              };
+              return (
+                <a href={`/${lang}/servicios/${sid}`} class="closing-service-link">
+                  <span class="closing-service-title">{labels[sid]?.[lang] || sid}</span>
+                  <svg class="closing-service-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const initializeAnimations = () => {
+      const hasHash = !!window.location.hash;
+
+      if (hasHash) {
+        document.querySelector('.hero-badge')?.classList.add('animate');
+        document.querySelector('.hero-title')?.classList.add('animate');
+        document.querySelector('.hero-subtitle')?.classList.add('animate');
+        document.querySelector('.hero-cta')?.classList.add('animate');
+      } else {
+        setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+        setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+        setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+        setTimeout(() => { document.querySelector('.hero-cta')?.classList.add('animate'); }, 800);
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      }, hasHash ? 0 : 1200);
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style>
+  .hero-badge { opacity: 0; transform: translateX(-30px); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateX(0); }
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-cta { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-cta.animate { opacity: 1; transform: translateY(0); }
+  .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--delay, 0s); }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Closing section: match service page style */
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .closing-logo { width: 180px; height: auto; margin-bottom: 1.5rem; }
+  .closing-contact-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .closing-contact-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+  .closing-services-label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
+  .closing-services-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .closing-service-link { display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+  .closing-service-link:hover { color: #fff; }
+  .closing-service-title { font-weight: 500; }
+  .closing-service-arrow { flex-shrink: 0; color: rgba(255,255,255,0.3); }
+
+  @media (max-width: 768px) {
+    .closing-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
