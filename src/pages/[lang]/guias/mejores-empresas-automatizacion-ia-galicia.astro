@@ -134,6 +134,17 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
     const initializeAnimations = () => {
       setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
       setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
