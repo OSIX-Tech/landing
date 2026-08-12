@@ -193,6 +193,16 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     box-sizing: border-box;
   }
 
+  /* Never allow the page to scroll horizontally (clip where supported, hidden as fallback) */
+  html, body {
+    overflow-x: hidden;
+  }
+  @supports (overflow-x: clip) {
+    html, body {
+      overflow-x: clip;
+    }
+  }
+
   html {
     background-color: transparent;
     /* Hide scrollbar for IE, Edge and Firefox */
