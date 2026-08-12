@@ -177,6 +177,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/kted/a/"/>
   </url>
 
+  <!-- Guide: Mejores empresas de automatización con IA para pymes en Galicia -->
+  <url>
+    <loc>https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/</loc>
+    <lastmod>2026-08-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
