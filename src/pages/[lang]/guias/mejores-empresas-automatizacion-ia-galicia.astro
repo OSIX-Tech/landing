@@ -161,6 +161,25 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
 </script>
 
 <style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * comparison table is `white-space: nowrap` inside its scroll container, the intrinsic
+   * width of the whole article is the table's width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the table keep scrolling inside its own container.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
   /* Hero Animations */
   .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
   .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
