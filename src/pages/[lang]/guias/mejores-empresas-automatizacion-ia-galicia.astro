@@ -149,7 +149,7 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   });
 </script>
 
-<style>
+<style is:global>
   /* Hero Animations */
   .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
   .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
@@ -157,6 +157,19 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
   .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
   .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Readability: justify body text */
+  .markdown-body p { text-align: justify; }
+
+  /* Tables: horizontal scroll on small screens instead of collapsing */
+  .markdown-body table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
 
   /* Fade up animation */
   .fade-up {

@@ -126,10 +126,11 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 
 ## Fuentes
 
-- [OSIX Tech — servicios](https://osix.tech/es) y [consultoría de transformación](https://osix.tech/es/servicios/consultoria-transformacion)
-- [KAIRAS — automatización para empresas en Galicia](https://kairas.es/automatizacion-empresas-galicia)
-- [Imagina Ingenio — desarrollamos IA para empresas en Galicia](https://www.imaginaingenio.com/desarrolladores-ia-inteligencia-artificial-para-empresas)
-- [Openinnova — empresas de IA en Galicia](https://www.openinnova.es/empresas-de-inteligencia-artificial-en-galicia)
-- [Hiberus Booster — mejores consultoras de IA en España](https://www.hiberusbooster.com/guias/mejores-consultoras-ia-espana)
-- [javadex — ranking de consultoras de IA en España 2026](https://www.javadex.es/blog/mejores-consultoras-empresas-ia-espana-ranking-2026)
-- [Sortlist — agencias de IA generativa en Galicia](https://www.sortlist.es/s/ia-generativa/galicia-ga-es)
+- [Servicios de OSIX Tech](https://osix.tech/es)
+- [Consultoría de transformación de OSIX Tech](https://osix.tech/es/servicios/consultoria-transformacion)
+- [KAIRAS, automatización para empresas en Galicia](https://kairas.es/automatizacion-empresas-galicia)
+- [Imagina Ingenio, desarrollamos IA para empresas en Galicia](https://www.imaginaingenio.com/desarrolladores-ia-inteligencia-artificial-para-empresas)
+- [Openinnova, empresas de IA en Galicia](https://www.openinnova.es/empresas-de-inteligencia-artificial-en-galicia)
+- [Hiberus Booster, mejores consultoras de IA en España](https://www.hiberusbooster.com/guias/mejores-consultoras-ia-espana)
+- [Javadex, ranking de consultoras de IA en España 2026](https://www.javadex.es/blog/mejores-consultoras-empresas-ia-espana-ranking-2026)
+- [Sortlist, agencias de IA generativa en Galicia](https://www.sortlist.es/s/ia-generativa/galicia-ga-es)
