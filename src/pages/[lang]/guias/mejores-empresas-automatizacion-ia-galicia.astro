@@ -134,16 +134,6 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Wrap markdown tables so they scroll inside their own container on mobile
-    document.querySelectorAll('.markdown-body table').forEach((t) => {
-      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
-        const wrap = document.createElement('div');
-        wrap.className = 'table-scroll';
-        t.parentNode.insertBefore(wrap, t);
-        wrap.appendChild(t);
-      }
-    });
-
     const initializeAnimations = () => {
       setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
       setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
@@ -167,20 +157,6 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
   .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
   .hero-badge.animate { opacity: 1; transform: translateY(0); }
-
-  /* Readability: justify body text */
-  .markdown-body p { text-align: justify; }
-
-  /* Tables: scroll horizontally inside their own container, never the page */
-  .markdown-body .table-scroll {
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .markdown-body .table-scroll table {
-    width: 100%;
-    white-space: nowrap;
-  }
 
   /* Fade up animation */
   .fade-up {
