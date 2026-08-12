@@ -116,7 +116,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada///>
     <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
   </url>
@@ -127,9 +127,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada///>
     <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada///>
   </url>
 
   <url>
@@ -138,9 +138,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/servicios/innovacion-subvencionada///>
     <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/servicios/innovacion-subvencionada/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/servicios/innovacion-subvencionada///>
   </url>
 
   <!-- KTED Landing (canonical variant) -->
@@ -187,6 +187,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/"/>
   </url>
 
+  <!-- Guide: Mejores empresas de automatización con IA para pymes en España -->
+  <url>
+    <loc>https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/</loc>
+    <lastmod>2026-08-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
@@ -214,7 +224,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://osix.tech/en/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/privacy///>
     <xhtml:link rel="alternate" hreflang="gl" href="https://osix.tech/gl/privacy/"/>
   </url>
 </urlset>
