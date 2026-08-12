@@ -334,22 +334,14 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
   text-align: justify;
 }
 
-/* Tables: scroll inside their own container on small screens, never the page */
-.markdown-body .table-scroll {
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.markdown-body .table-scroll table {
-  white-space: nowrap;
-}
-
 .markdown-body th,
 .markdown-body td {
   border: 1px solid var(--md-border);
   padding: 0.5em 0.75em;
   text-align: left;
+  /* Long cell content wraps instead of widening the table */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .markdown-body th {
