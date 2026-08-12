@@ -198,6 +198,8 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    /* Never allow the page to scroll horizontally */
+    overflow-x: clip;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -210,6 +212,8 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     background-color: transparent;
     color: black;
     line-height: 1.6;
+    /* Never allow the page to scroll horizontally */
+    overflow-x: clip;
     /* Hide scrollbar for IE, Edge and Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
