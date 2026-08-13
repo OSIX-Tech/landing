@@ -11,14 +11,14 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 - **Tipo de entrega.** ¿Necesitas que te construyan una aplicación o un agente a medida (desarrollo), o que conecten tus herramientas actuales con automatizaciones ligeras (no-code)? No todos los proveedores hacen ambas cosas.
 - **Conocimiento de ayudas públicas.** Quien conoce Kit Digital, IGAPE IA360, KTED o las convocatorias autonómicas puede convertir un proyecto caro en uno financiado. Esto es determinante para una pyme.
 - **Velocidad de entrega.** Pregunta por el plazo del primer entregable real, no por el tiempo de la propuesta comercial.
-- **Transparencia de precios.** Una propuesta seria incluie coste de construcción, coste de mantenimiento y la métrica de ahorro. Si no explica estos puntos, no es una propuesta, es una promesa.
-- **Continiuidad y revisión humana.** ¿Quién mantiene el sistema cuando cambia tu CRM o tu ERP? ¿Qué pasa si el proveedor desaparece? ¿En qué casos la IA no decide y revisa una persona?
+- **Transparencia de precios.** Una propuesta seria incluye coste de construcción, coste de mantenimiento y la métrica de ahorro. Si no explica estos puntos, no es una propuesta, es una promesa.
+- **Continuidad y revisión humana.** ¿Quién mantiene el sistema cuando cambia tu CRM o tu ERP? ¿Qué pasa si el proveedor desaparece? ¿En qué casos la IA no decide y revisa una persona?
 
 ## Comparativa rápida
 
 | Proveedor | Perfil | Foco | Mejor para |
 | --- | --- | --- | --- |
-| **OSIX Tech**,(editor) | Consultoría + desarrollo a medida | Apps, agentes, automatizaciones y gestión de ayudas (Kit Digital, IGAPE IA360, KTED) | Pymes que quieren una solución construida a su medida y financiada con ayudas |
+| **OSIX Tech** (editor) | Consultoría + desarrollo a medida | Apps, agentes, automatizaciones y gestión de ayudas (Kit Digital, IGAPE IA360, KTED) | Pymes que quieren una solución construida a su medida y financiada con ayudas |
 | **Hiberus** | Consultora tecnológica nacional | IA aplicada mid-market y gran cuenta, agentes IA productivos | Proyectos de 50.000 a 400.000 € o requisitos de compliance estrictos |
 | **Plain Concepts** | Boutique cloud-native | IA sobre Microsoft Azure, casos productivos verificables | Empresas con stack Azure o necesidades técnicas específicas |
 | **Minsait** | Gran consultora (Indra) | Sector público, banca, energía, gran cuenta IBEX | Proyectos grandes con compliance intensivo |
@@ -54,7 +54,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 **Límite honesto:** para una pyme pequeña puede resultar sobredimensionada en coste y proceso. La tarifa de consultor senior se mueve entre 700 y 1.800 €/día.
 
-**Mejor para:** proyectos de transformación grandes o medianos, con compliance estricto o con cobertura multi-paíse.
+**Mejor para:** proyectos de transformación grandes o medianos, con compliance estricto o con cobertura multi-país.
 
 ### Plain Concepts: boutique cloud-native
 
@@ -100,7 +100,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 **Veredicto:** una agencia consolidada en Galicia que une IA, automatización, ecommerce, ERP y facturación electrónica bajo un mismo techo, con más de 20 años de trayectoria.
 
-**Fortalezas:** amplitud de servicios (no solo automatización) y presencia regional con clientes conocidos. Únil si quieres un único proveedor para digitalizar tu negocio, no solo para automatizar.
+**Fortalezas:** amplitud de servicios (no solo automatización) y presencia regional con clientes conocidos. Úsala si quieres un único proveedor para digitalizar tu negocio, no solo para automatizar.
 
 **Límite honesto:** la amplitud diluye su posicionamiento como especialista en automatización, y no publica precios ni métricas de casos verificables.
 
@@ -140,18 +140,18 @@ La regla práctica: si tienes un perfil técnico o quieres control total de tus 
 Una ventaja que se subestima de contratar un proveedor que conoce el ecosistema de ayudas es el acceso a financiación pública. En España, varios programas cubren parte importante de un proyecto de IA:
 
 - **Kit Digital**: bono de digitalización para pymes y autónomos, gestionado por Red.es.
-- **IGAPE IA360** (Galicia): hasta 500.000 ₫ para proyectos de IA en pymes gallegas.
+- **IGAPE IA360** (Galicia): hasta 500.000 € para proyectos de IA en pymes gallegas.
 - **KTED** (Galicia): espacio de datos para proyectos que quieren sacar valor de sus datos con garantías.
 - **Convocatorias autonómicas**: muchas comunidades publican líneas propias de digitalización e IA que cambian cada año.
 
-Un proveedor que conoce estas convocatorias puede diseñar el proyecto desde el inicio para que cumpla los requisitos de eligibilidad y auditoría, en vez de descubrir la ayuda cuando ya es tarde. Es un criterio de selección tan importante como la capacidad técnica. *(Verifica las cifras y convocatorias vigentes en las webs oficiales de Red.es, IGAPE y tu comunidad autónoma antes de decidir; cambian cada año.)*
+Un proveedor que conoce estas convocatorias puede diseñar el proyecto desde el inicio para que cumpla los requisitos de elegibilidad y auditoría, en vez de descubrir la ayuda cuando ya es tarde. Es un criterio de selección tan importante como la capacidad técnica. *(Verifica las cifras y convocatorias vigentes en las webs oficiales de Red.es, IGAPE y tu comunidad autónoma antes de decidir; cambian cada año.)*
 
 ## Preguntas que debes hacer antes de contratar
 
 Pide respuestas concretas, no promesas:
 
 - ¿Qué proceso se automatiza en la primera versión y qué herramientas actuales se mantienen?
-- ¿Qué datos se envían a los modelos de IA y dûnde se alojan?
+- ¿Qué datos se envían a los modelos de IA y dónde se alojan?
 - ¿En qué casos la IA no decide y revisa una persona?
 - ¿Cuál es el tiempo estimado de implantación y la métrica de ahorro?
 - ¿Cuánto cuesta la construcción y cuánto el mantenimiento?
@@ -160,7 +160,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme en España?**
-Depende del alcance. Una automatización a medida con IA erranca alrededor de 5.000 € de implantación más la infraestructura; los pilotos bien definidos suelen moverse entre 5.000 y 20.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, programas como Kit Digital o las ayudas autonómicas (IGAPE IA360 en Galicia) cubren parte del coste. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. Una automatización a medida con IA arranca alrededor de 5.000 € de implantación más la infraestructura; los pilotos bien definidos suelen moverse entre 5.000 y 20.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, programas como Kit Digital o las ayudas autonómicas (IGAPE IA360 en Galicia) cubren parte del coste. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.
@@ -172,7 +172,7 @@ No. Se pueden usar modelos preentrenados adaptados a tu contexto y estrategias d
 Si el proceso es estándar y tus herramientas actuales sirven, una automatización ligera con n8n o Make sobre ellas es lo más rápido y barato. Si necesitas una aplicación nueva, un agente complejo o integrar sistemas propios, el desarrollo a medida (estilo OSIX) es la vía correcta.
 
 **¿Qué diferencia hay entre una consultora grande y una boutique de IA en España?**
-Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico de 5.000 a 100.000 € suele encajar mejor con una boutique ox mid-market.
+Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico de 5.000 a 100.000 € suele encajar mejor con una boutique o mid-market.
 
 ## Cómo se elaboró esta comparativa
 
