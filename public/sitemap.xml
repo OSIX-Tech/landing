@@ -197,6 +197,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/"/>
   </url>
 
+  <!-- Guide: Cuánto cuesta automatizar procesos con IA en una pyme española -->
+  <url>
+    <loc>https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
