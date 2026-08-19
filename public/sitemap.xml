@@ -217,6 +217,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/como-elegir-empresa-desarrollo-software-ia-espana/"/>
   </url>
 
+  <!-- Guide: ¿Contratar una empresa de IA o usar herramientas ya hechas? -->
+  <url>
+    <loc>https://osix.tech/es/guias/contratar-empresa-ia-o-usar-herramientas/</loc>
+    <lastmod>2026-08-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/contratar-empresa-ia-o-usar-herramientas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/contratar-empresa-ia-o-usar-herramientas/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
