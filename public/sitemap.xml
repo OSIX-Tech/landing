@@ -227,6 +227,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/contratar-empresa-ia-o-usar-herramientas/"/>
   </url>
 
+  <!-- Guide: Consultoras de IA grandes vs especializadas en pymes -->
+  <url>
+    <loc>https://osix.tech/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/</loc>
+    <lastmod>2026-08-20T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>

@@ -1,0 +1,212 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía actualmente en español (apunta al prompt BOFU "¿En qué se diferencian las consultoras de IA grandes de las especializadas en pymes?"). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/consultoras-ia-grandes-vs-especializadas-pymes.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/consultoras-ia-grandes-vs-especializadas-pymes/`;
+
+// SEO Data
+const seoTitle = 'Consultoras de IA grandes vs especializadas en pymes: diferencias y cómo elegir (2026) - OSIX Tech';
+const seoDescription = '¿En qué se diferencian las consultoras de IA grandes de las especializadas en pymes y cuál te conviene? Comparativa honesta por alcance, coste, velocidad y cobertura, con cuándo elegir cada una para una pyme en España.';
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre una consultora de IA grande y una especializada en pymes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La diferencia de fondo es el alcance para el que están construidas. Las grandes (Accenture, Deloitte, Indra, NTT Data, Capgemini) optimizan para proyectos corporativos, grandes y de varias capas, con equipos amplios, marcos y cobertura global. Las especializadas en pymes (Hiberus Booster, consultores freelance, OSIX) adaptan el proyecto al tamaño real de la empresa: un proceso concreto, presupuesto acotado, velocidad y un interlocutor directo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto más cara es una consultora de IA grande que una especializada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "El orden de magnitud es comprobable: los especializados en pymes suelen cotizar los proyectos una fracción de lo que cobra una grande por un entregable equivalente, con diferencias de varias veces. Los consultores especializados lo declaran abiertamente, por ejemplo Javadex habla de entre cuatro y ocho veces más barato frente a las grandes consultoras. No es una cifra universal, pero indica que la diferencia de tarifas es estructural." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Una consultora grande da mejor resultado que una especializada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No automáticamente. El nombre no es un atajo de calidad. Una grande da mejor resultado cuando el proyecto es crítico, grande o regulado y necesita solvencia, certificaciones y cobertura. Para el alcance de la mayoría de las pymes, una especializada suele dar igual o mejor resultado por menos dinero, porque entiende tus limitaciones y responde más rápido. Elige por el tamaño y el riesgo del proyecto, no por la etiqueta." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo empezar con una consultora especializada y pasar a una grande si el proyecto crece?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, y es una ruta razonable: resuelves el proceso concreto con un coste ajustado y migras a un socio con mayor alcance cuando el proyecto se vuelva corporativo, regulado o necesite cobertura. El riesgo es quedarte en un proveedor que no escala cuando ya había señales de que tocaba cambiar." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué debo mirar antes de contratar a una consultora de IA, grande o especializada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lo mismo en ambos casos: casos reales, cómo se entrega y mantiene el trabajo, y si el proveedor te dice con franqueza si necesitas su nivel de servicio o te basta una opción más ligera. Una señal práctica: si el precio no se corresponde con el tamaño del problema, el proveedor no está ajustado a tu caso." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Comparativa · IA para pymes · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          ¿Consultora de IA grande o especializada en pymes?
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          En qué se diferencian, cuándo conviene cada una y cómo elegir sin dejarte llevar por el nombre.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * comparison tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>
