@@ -237,6 +237,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/"/>
   </url>
 
+  <!-- Guide: ¿Cuánto se tarda en ver resultados al implantar IA en una pyme? -->
+  <url>
+    <loc>https://osix.tech/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
