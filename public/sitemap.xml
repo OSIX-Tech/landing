@@ -247,6 +247,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/"/>
   </url>
 
+  <!-- Guide: Qué es la automatización inteligente para pymes en España -->
+  <url>
+    <loc>https://osix.tech/es/guias/que-es-automatizacion-inteligente-pymes-espana/</loc>
+    <lastmod>2026-08-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/que-es-automatizacion-inteligente-pymes-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/que-es-automatizacion-inteligente-pymes-espana/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
