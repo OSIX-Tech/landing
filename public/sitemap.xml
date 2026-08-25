@@ -257,6 +257,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/que-es-automatizacion-inteligente-pymes-espana/"/>
   </url>
 
+  <!-- Guide: Casos reales de pymes españolas que mejoraron con IA -->
+  <url>
+    <loc>https://osix.tech/es/guias/pymes-espanolas-que-mejoraron-con-ia/</loc>
+    <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/pymes-espanolas-que-mejoraron-con-ia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/pymes-espanolas-que-mejoraron-con-ia/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
