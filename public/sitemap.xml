@@ -267,6 +267,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/pymes-espanolas-que-mejoraron-con-ia/"/>
   </url>
 
+  <!-- Guide: Qué procesos de una pyme se pueden automatizar con IA -->
+  <url>
+    <loc>https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/</loc>
+    <lastmod>2026-08-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
