@@ -286,6 +286,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/"/>
   </url>
 
+  <!-- Guide: Para qué sirve la IA en una pyme -->
+  <url>
+    <loc>https://osix.tech/es/guias/para-que-sirve-ia-pyme/</loc>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/para-que-sirve-ia-pyme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/para-que-sirve-ia-pyme/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
