@@ -182,6 +182,27 @@ const jsonLd = {
   <LoadingScreen duration={1000} />
   <section id="hero"><Hero lang={lang} /></section>
   <section id="services"><ServicesShowcase lang={lang} /></section>
+  <section id="guias" class="home-guias">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="home-guias-title">{{ es: 'Guías prácticas para tu empresa', gl: 'Guías prácticas para a túa empresa', en: 'Practical guides for your business' }[lang]}</h2>
+      <p class="home-guias-subtitle">{{ es: 'Comparativas y análisis sin humo sobre IA para pymes, basadas en criterios objetivos.', gl: 'Comparativas e análises sen humo sobre IA para pemes, baseadas en criterios obxectivos.', en: 'No-hype comparisons and analysis on AI for SMEs, based on objective criteria.' }[lang]}</p>
+      <div class="home-guias-grid">
+        <a class="home-guias-card" href={`/es/guias/mejores-empresas-automatizacion-ia-galicia/`}>
+          <span class="home-guias-tag">{{ es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang]}</span>
+          <span class="home-guias-card-title">{{ es: 'Mejores empresas de automatización con IA en Galicia', gl: 'Mellores empresas de automatización con IA en Galicia', en: 'Best AI automation companies in Galicia' }[lang]}</span>
+        </a>
+        <a class="home-guias-card" href={`/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/`}>
+          <span class="home-guias-tag">{{ es: 'Precios reales', gl: 'Prezos reais', en: 'Real pricing' }[lang]}</span>
+          <span class="home-guias-card-title">{{ es: 'Cuánto cuesta automatizar procesos con IA en una pyme', gl: 'Canto custa automatizar procesos con IA nunha peme', en: 'How much it costs to automate with AI in an SME' }[lang]}</span>
+        </a>
+        <a class="home-guias-card" href={`/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/`}>
+          <span class="home-guias-tag">{{ es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang]}</span>
+          <span class="home-guias-card-title">{{ es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang]}</span>
+        </a>
+      </div>
+      <p class="home-guias-link"><a href={`/es/guias/`}>{{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}</a></p>
+    </div>
+  </section>
   <section id="about-us"><AboutUsSection lang={lang} /></section>
   <section id="faq"><HomeFAQ lang={lang} /></section>
   <section id="contact"><StaticContactSection lang={lang} /></section>
@@ -190,6 +211,84 @@ const jsonLd = {
 <style>
   #hero {
     margin-bottom: 7.5vh !important;
+  }
+
+  .home-guias {
+    padding: 64px 0;
+    background: #fafafa;
+  }
+
+  .home-guias-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0 0 8px;
+    text-align: center;
+  }
+
+  .home-guias-subtitle {
+    color: #555;
+    font-size: 1rem;
+    margin: 0 auto 32px;
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .home-guias-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .home-guias-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .home-guias-card {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .home-guias-card:hover {
+    border-color: #0a0a0a;
+    transform: translateY(-2px);
+  }
+
+  .home-guias-tag {
+    display: inline-block;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  .home-guias-card-title {
+    display: block;
+    color: #0a0a0a;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .home-guias-link {
+    text-align: center;
+    margin: 32px 0 0;
+  }
+
+  .home-guias-link a {
+    color: #0a0a0a;
+    font-weight: 600;
+    text-decoration: underline;
   }
 
   .contact-section {

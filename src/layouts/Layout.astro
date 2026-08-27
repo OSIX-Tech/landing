@@ -180,6 +180,27 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <Analytics />
     <SpeedInsights />
     <footer class="mini-footer">
+      <div class="mini-footer-guias">
+        <p class="mini-footer-guias-title">{{ es: 'Guías', gl: 'Guías', en: 'Guides' }[lang]}</p>
+        <ul class="mini-footer-guias-list">
+          {
+            [
+              ['mejores-empresas-automatizacion-ia-galicia', 'Mejores empresas de IA en Galicia'],
+              ['mejores-empresas-automatizacion-ia-espana', 'Mejores empresas de IA en España'],
+              ['cuanto-cuesta-automatizar-con-ia-pyme-espana', 'Cuánto cuesta automatizar con IA'],
+              ['cuanto-tarda-ia-primeros-resultados-pyme-espana', 'Cuánto se tarda en ver resultados'],
+              ['como-elegir-empresa-desarrollo-software-ia-espana', 'Cómo elegir empresa de software con IA'],
+              ['consultoras-ia-grandes-vs-especializadas-pymes', 'Grandes vs especializadas en IA'],
+              ['contratar-empresa-ia-o-usar-herramientas', 'Contratar empresa vs herramientas hechas'],
+              ['procesos-pyme-automatizar-con-ia', 'Qué procesos automatizar con IA'],
+              ['pymes-espanolas-que-mejoraron-con-ia', 'Pymes que mejoraron con IA'],
+              ['que-es-automatizacion-inteligente-pymes-espana', 'Qué es la automatización inteligente']
+            ].map(([slug, label]) => (
+              <li><a href={`/es/guias/${slug}/`}>{label}</a></li>
+            ))
+          }
+        </ul>
+      </div>
       <p>{{ es: 'Proyecto apoyado por: IGAPE TICKET INNOVA 2026', gl: 'Proxecto apoiado por: IGAPE TICKET INNOVA 2026', en: 'Project supported by: IGAPE TICKET INNOVA 2026' }[lang]}</p>
     </footer>
   </body>
@@ -416,8 +437,48 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
 
   .mini-footer {
     background: #0a0a0a;
-    padding: 16px 24px;
+    padding: 24px;
     text-align: center;
+  }
+
+  .mini-footer-guias {
+    max-width: 1080px;
+    margin: 0 auto 16px;
+    text-align: left;
+  }
+
+  .mini-footer-guias-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .mini-footer-guias-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 24px;
+  }
+
+  .mini-footer-guias-list a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+
+  .mini-footer-guias-list a:hover {
+    color: #ffffff;
+  }
+
+  @media (min-width: 768px) {
+    .mini-footer-guias-list {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 48px;
+    }
   }
 
   .mini-footer p {

@@ -177,6 +177,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/en/kted/a/"/>
   </url>
 
+  <!-- Hub: Guías -->
+  <url>
+    <loc>https://osix.tech/es/guias/</loc>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/"/>
+  </url>
   <!-- Guide: Mejores empresas de automatización con IA para pymes en Galicia -->
   <url>
     <loc>https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/</loc>

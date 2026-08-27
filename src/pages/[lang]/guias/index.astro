@@ -1,0 +1,130 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/`;
+
+// SEO Data
+const seoTitle = 'Guías de IA para pymes en España y Galicia - OSIX Tech';
+const seoDescription = 'Comparativas y análisis prácticos sobre inteligencia artificial para pymes: cuánto cuesta automatizar, mejores empresas de IA en España y Galicia, y qué procesos se pueden automatizar. Sin humo.';
+
+// Guide list
+const guides = [
+  { slug: 'mejores-empresas-automatizacion-ia-galicia', title: 'Mejores empresas de automatización con IA en Galicia', desc: 'Comparativa honesta de proveedores de IA para pymes gallegas' },
+  { slug: 'mejores-empresas-automatizacion-ia-espana', title: 'Mejores empresas de automatización con IA en España', desc: 'Comparativa honesta de proveedores de IA para pymes en toda España' },
+  { slug: 'cuanto-cuesta-automatizar-con-ia-pyme-espana', title: 'Cuánto cuesta automatizar procesos con IA en una pyme', desc: 'Precios reales por tipo de proyecto y cómo se financian con ayudas' },
+  { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', title: 'Cuánto se tarda en ver resultados al implantar IA', desc: 'Los cinco caminos, del más rápido al más lento, con expectativas realistas' },
+  { slug: 'como-elegir-empresa-desarrollo-software-ia-espana', title: 'Cómo elegir una empresa de desarrollo de software con IA', desc: 'Criterios que sí predicen el éxito de un proyecto' },
+  { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', title: 'Consultoras de IA grandes vs especializadas en pymes', desc: 'En qué se diferencian y cómo elegir según tu caso' },
+  { slug: 'contratar-empresa-ia-o-usar-herramientas', title: '¿Contratar empresa de IA o usar herramientas hechas?', desc: 'Guía comparativa para pymes en España' },
+  { slug: 'procesos-pyme-automatizar-con-ia', title: 'Qué procesos de una pyme se pueden automatizar con IA', desc: 'La lista honesta, con ejemplos por área' },
+  { slug: 'pymes-espanolas-que-mejoraron-con-ia', title: 'Casos reales de pymes españolas que mejoraron con IA', desc: 'Qué hicieron distinto y qué resultados obtuvieron' },
+  { slug: 'que-es-automatizacion-inteligente-pymes-espana', title: '¿Qué es la automatización inteligente?', desc: 'Guía práctica para empresas en España' },
+];
+
+// Structured Data
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "url": canonicalUrl,
+  "name": seoTitle,
+  "description": seoDescription,
+  "inLanguage": lang,
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": { "@type": "ImageObject", "url": "https://osix.tech/logo_w.png" }
+  },
+  "mainEntity": guides.map((g, i) => ({
+    "@type": "Article",
+    "name": g.title,
+    "url": `https://osix.tech/es/guias/${g.slug}/`,
+    "position": i + 1
+  }))
+};
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="website"
+  canonical={canonicalUrl}
+  jsonLd={collectionSchema}
+>
+  <LoadingScreen duration={1000} />
+  <section class="content-section relative bg-black py-20 flex items-center overflow-hidden" style="margin-top: var(--header-h, 0px)">
+    <div class="max-w-6xl mx-auto px-6 w-full">
+      <span class="hero-badge opacity-0">Guías OSIX</span>
+      <h1 class="hero-title text-4xl md:text-5xl font-bold text-white mb-4 opacity-0">{seoTitle}</h1>
+      <p class="hero-subtitle text-xl text-gray-300 opacity-0">{seoDescription}</p>
+    </div>
+  </section>
+  <section class="content-section py-16 md:py-20 bg-white mb-0">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {guides.map((g) => (
+          <a href={`/es/guias/${g.slug}/`} class="guide-card">
+            <h2 class="guide-card-title">{g.title}</h2>
+            <p class="guide-card-desc">{g.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .guide-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .guide-card:hover {
+    border-color: #0a0a0a;
+    transform: translateY(-2px);
+  }
+  .guide-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+  .guide-card-desc {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Mobile-overflow fix (shared with guide pages) */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-title, .hero-subtitle, .hero-badge { opacity: 0; transform: translateX(0); }
+  .hero-title.animate, .hero-subtitle.animate, .hero-badge.animate { opacity: 1; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-badge');
+    els.forEach((el, i) => {
+      setTimeout(() => el.classList.add('animate'), 100 + i * 120);
+    });
+  });
+</script>
