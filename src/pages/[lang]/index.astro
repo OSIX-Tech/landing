@@ -22,6 +22,8 @@ const latestGuides = [
   { slug: 'para-que-sirve-ia-pyme', date: '2026-08-27', tag: { es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang], title: { es: 'Para qué sirve la IA en una pyme: las 8 formas que dan resultados', gl: 'Para que serve a IA nunha peme: as 8 formas que dan resultados', en: 'What AI is for in an SME: the 8 ways that deliver results' }[lang] },
   { slug: 'procesos-pyme-automatizar-con-ia', date: '2026-08-26', tag: { es: 'Procesos', gl: 'Procesos', en: 'Processes' }[lang], title: { es: 'Qué procesos de una pyme se pueden automatizar con IA', gl: 'Que procesos dunha peme se poden automatizar con IA', en: 'Which SME processes can be automated with AI' }[lang] },
   { slug: 'pymes-espanolas-que-mejoraron-con-ia', date: '2026-08-25', tag: { es: 'Casos reales', gl: 'Casos reais', en: 'Real cases' }[lang], title: { es: 'Casos reales de pymes españolas que mejoraron con IA', gl: 'Casos reais de pemes españolas que melloraron con IA', en: 'Real cases of Spanish SMEs that improved with AI' }[lang] },
+  { slug: 'que-es-automatizacion-inteligente-pymes-espana', date: '2026-08-24', tag: { es: 'Conceptos', gl: 'Conceptos', en: 'Concepts' }[lang], title: { es: '¿Qué es la automatización inteligente? Guía para pymes', gl: 'Que é a automatización intelixente? Guía para pemes', en: 'What is intelligent automation? A guide for SMEs' }[lang] },
+  { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', date: '2026-08-21', tag: { es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang], title: { es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang] },
 ];
 
 const formatGuideDate = (iso: string) => {
@@ -334,7 +336,7 @@ const jsonLd = {
 
   @media (min-width: 1024px) {
     .home-guias-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -360,9 +362,11 @@ const jsonLd = {
   }
 
   .home-guias.in-view .guia-home-card:nth-child(1) { transition-delay: 0.05s, 0.05s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(2) { transition-delay: 0.15s, 0.15s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(3) { transition-delay: 0.25s, 0.25s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(4) { transition-delay: 0.35s, 0.35s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(2) { transition-delay: 0.13s, 0.13s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(3) { transition-delay: 0.21s, 0.21s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(4) { transition-delay: 0.29s, 0.29s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(5) { transition-delay: 0.37s, 0.37s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(6) { transition-delay: 0.45s, 0.45s, 0s, 0s; }
 
   .guia-home-card:hover {
     border-color: #0a0a0a;
@@ -410,11 +414,11 @@ const jsonLd = {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 1.25rem 1.25rem 1rem;
+    padding: 1.35rem 1.35rem 1.1rem;
   }
 
   .guia-home-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #0a0a0a;
     line-height: 1.4;
