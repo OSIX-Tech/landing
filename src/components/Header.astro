@@ -25,6 +25,7 @@ const mobileItems = [
     link: `/${lang}/#services`,
     children: services.map(s => ({ label: s.title, link: `/${lang}/servicios/${s.id}` })),
   },
+  { label: ({ es: 'Guías', gl: 'Guías', en: 'Guides' } as Record<string, string>)[lang], link: `/es/guias/` },
   { label: t['nav.aboutUs'], link: `/${lang}/#about-us` },
   { label: t['nav.contact'], link: `/${lang}/#contact` },
 ];
@@ -57,6 +58,7 @@ const otherLangs = LANGUAGES.filter(l => l !== lang);
               </svg>
             </button>
           </li>
+          <li><a href={`/${lang}/#guias`} class="nav-item nav-item-guias transition-colors duration-200">{{ es: 'Guías', gl: 'Guías', en: 'Guides' }[lang]}</a></li>
           <li><a href={`/${lang}/#about-us`} class="nav-item transition-colors duration-200">{t['nav.aboutUs']}</a></li>
        </ul>
         
@@ -221,6 +223,13 @@ function initializeHeader() {
         servicesBtn.classList.add('nav-active');
         state.activeNavItem = servicesBtn;
         setTimeout(() => moveIndicatorTo(servicesBtn), 100);
+      }
+    } else if (pathname.includes('/guias')) {
+      const guiasLink = document.querySelector('.nav-item-guias') as HTMLElement | null;
+      if (guiasLink) {
+        guiasLink.classList.add('nav-active');
+        state.activeNavItem = guiasLink;
+        setTimeout(() => moveIndicatorTo(guiasLink), 100);
       }
     }
   } else if (state.header) {
@@ -418,6 +427,9 @@ function setupNavigation() {
     if (window.location.pathname.includes('/servicios/')) {
       return document.querySelector('[data-dropdown="services"] .nav-item') as HTMLElement | null;
     }
+    if (window.location.pathname.includes('/guias')) {
+      return document.querySelector('.nav-item-guias') as HTMLElement | null;
+    }
     return state.activeNavItem;
   };
 
@@ -469,7 +481,7 @@ function setupNavigation() {
       if (!href || (!href.startsWith('#') && !href.includes('/#'))) return;
       
       // If we're on a subpage and clicking a hash link, we need to navigate to main page
-      if (window.location.pathname.includes('/servicios/') && href.includes('/#')) {
+      if ((window.location.pathname.includes('/servicios/') || window.location.pathname.includes('/guias')) && href.includes('/#')) {
         // Let the browser handle the navigation
         return;
       }
