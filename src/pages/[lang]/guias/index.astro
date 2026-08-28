@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import LoadingScreen from '../../../components/LoadingScreen.astro';
+import { genGuideArt } from '../../../utils/guideArt';
 
 export const prerender = true;
 
@@ -16,19 +17,23 @@ const canonicalUrl = `https://osix.tech/${lang}/guias/`;
 const seoTitle = 'Guías de IA para pymes en España y Galicia - OSIX Tech';
 const seoDescription = 'Comparativas y análisis prácticos sobre inteligencia artificial para pymes: cuánto cuesta automatizar, mejores empresas de IA en España y Galicia, y qué procesos se pueden automatizar. Sin humo.';
 
-// Guide list
+// Guide list, newest first
 const guides = [
-  { slug: 'mejores-empresas-automatizacion-ia-galicia', title: 'Mejores empresas de automatización con IA en Galicia', desc: 'Comparativa honesta de proveedores de IA para pymes gallegas' },
-  { slug: 'mejores-empresas-automatizacion-ia-espana', title: 'Mejores empresas de automatización con IA en España', desc: 'Comparativa honesta de proveedores de IA para pymes en toda España' },
-  { slug: 'cuanto-cuesta-automatizar-con-ia-pyme-espana', title: 'Cuánto cuesta automatizar procesos con IA en una pyme', desc: 'Precios reales por tipo de proyecto y cómo se financian con ayudas' },
-  { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', title: 'Cuánto se tarda en ver resultados al implantar IA', desc: 'Los cinco caminos, del más rápido al más lento, con expectativas realistas' },
-  { slug: 'como-elegir-empresa-desarrollo-software-ia-espana', title: 'Cómo elegir una empresa de desarrollo de software con IA', desc: 'Criterios que sí predicen el éxito de un proyecto' },
-  { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', title: 'Consultoras de IA grandes vs especializadas en pymes', desc: 'En qué se diferencian y cómo elegir según tu caso' },
-  { slug: 'contratar-empresa-ia-o-usar-herramientas', title: '¿Contratar empresa de IA o usar herramientas hechas?', desc: 'Guía comparativa para pymes en España' },
-  { slug: 'procesos-pyme-automatizar-con-ia', title: 'Qué procesos de una pyme se pueden automatizar con IA', desc: 'La lista honesta, con ejemplos por área' },
-  { slug: 'pymes-espanolas-que-mejoraron-con-ia', title: 'Casos reales de pymes españolas que mejoraron con IA', desc: 'Qué hicieron distinto y qué resultados obtuvieron' },
-  { slug: 'que-es-automatizacion-inteligente-pymes-espana', title: '¿Qué es la automatización inteligente?', desc: 'Guía práctica para empresas en España' },
+  { slug: 'para-que-sirve-ia-pyme', date: '2026-08-27', tag: 'IA para pymes', title: 'Para qué sirve la IA en una pyme: las 8 formas que dan resultados', desc: 'Las aplicaciones con retorno real, con el límite honesto de cada una' },
+  { slug: 'procesos-pyme-automatizar-con-ia', date: '2026-08-26', tag: 'Procesos', title: 'Qué procesos de una pyme se pueden automatizar con IA', desc: 'La lista honesta, con ejemplos por área' },
+  { slug: 'pymes-espanolas-que-mejoraron-con-ia', date: '2026-08-25', tag: 'Casos reales', title: 'Casos reales de pymes españolas que mejoraron con IA', desc: 'Qué hicieron distinto y qué resultados obtuvieron' },
+  { slug: 'que-es-automatizacion-inteligente-pymes-espana', date: '2026-08-24', tag: 'Conceptos', title: '¿Qué es la automatización inteligente?', desc: 'Guía práctica para empresas en España' },
+  { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', date: '2026-08-21', tag: 'Expectativas', title: 'Cuánto se tarda en ver resultados al implantar IA', desc: 'Los cinco caminos, del más rápido al más lento, con expectativas realistas' },
+  { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', date: '2026-08-20', tag: 'Comparativa', title: 'Consultoras de IA grandes vs especializadas en pymes', desc: 'En qué se diferencian y cómo elegir según tu caso' },
+  { slug: 'contratar-empresa-ia-o-usar-herramientas', date: '2026-08-19', tag: 'Comparativa', title: '¿Contratar empresa de IA o usar herramientas hechas?', desc: 'Guía comparativa para pymes en España' },
+  { slug: 'cuanto-cuesta-automatizar-con-ia-pyme-espana', date: '2026-08-18', tag: 'Precios reales', title: 'Cuánto cuesta automatizar procesos con IA en una pyme', desc: 'Precios reales por tipo de proyecto y cómo se financian con ayudas' },
+  { slug: 'como-elegir-empresa-desarrollo-software-ia-espana', date: '2026-08-18', tag: 'Criterios', title: 'Cómo elegir una empresa de desarrollo de software con IA', desc: 'Criterios que sí predicen el éxito de un proyecto' },
+  { slug: 'mejores-empresas-automatizacion-ia-espana', date: '2026-08-13', tag: 'Comparativa', title: 'Mejores empresas de automatización con IA en España', desc: 'Comparativa honesta de proveedores de IA para pymes en toda España' },
+  { slug: 'mejores-empresas-automatizacion-ia-galicia', date: '2026-08-12', tag: 'IA para pymes', title: 'Mejores empresas de automatización con IA en Galicia', desc: 'Comparativa honesta de proveedores de IA para pymes gallegas' },
 ];
+
+const formatGuideDate = (iso: string) =>
+  new Date(iso).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
 
 // Structured Data
 const collectionSchema = {
@@ -48,6 +53,7 @@ const collectionSchema = {
     "@type": "Article",
     "name": g.title,
     "url": `https://osix.tech/es/guias/${g.slug}/`,
+    "datePublished": g.date,
     "position": i + 1
   }))
 };
@@ -70,16 +76,24 @@ const collectionSchema = {
     </div>
   </section>
   <section class="content-section py-16 md:py-24 bg-white mb-0">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="guias-hub-grid">
         {guides.map((g, i) => (
-          <a href={`/es/guias/${g.slug}/`} class="guide-card" style={`transition-delay: ${Math.min(i, 5) * 0.08}s`}>
-            <span class="guide-card-num">{String(i + 1).padStart(2, '0')}</span>
-            <h2 class="guide-card-title">{g.title}</h2>
-            <p class="guide-card-desc">{g.desc}</p>
-            <span class="guide-card-arrow" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+          <a href={`/es/guias/${g.slug}/`} class="guia-hub-card" style={`transition-delay: ${Math.min(i % 3, 5) * 0.08}s`}>
+            <div class="guia-hub-media">
+              <Fragment set:html={genGuideArt(g.slug, i)} />
+              <span class="guia-hub-tag">{g.tag}</span>
+            </div>
+            <div class="guia-hub-body">
+              <h2 class="guia-hub-title">{g.title}</h2>
+              <p class="guia-hub-desc">{g.desc}</p>
+              <div class="guia-hub-meta">
+                <span class="guia-hub-arrow" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+                <time class="guia-hub-date" datetime={g.date}>{formatGuideDate(g.date)}</time>
+              </div>
+            </div>
           </a>
         ))}
       </div>
@@ -88,13 +102,29 @@ const collectionSchema = {
 </Layout>
 
 <style is:global>
-  .guide-card {
-    position: relative;
+  .guias-hub-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .guias-hub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .guias-hub-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .guia-hub-card {
     display: flex;
     flex-direction: column;
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 2rem;
     text-decoration: none;
     overflow: hidden;
     opacity: 0;
@@ -102,58 +132,108 @@ const collectionSchema = {
     transition:
       opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
       transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
-      background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  .guide-card.in-view {
+
+  .guia-hub-card.in-view {
     opacity: 1;
     transform: translateY(0);
   }
-  .guide-card:hover {
-    background: #0a0a0a;
+
+  .guia-hub-card:hover {
     border-color: #0a0a0a;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     transition-delay: 0s !important;
   }
-  .guide-card-num {
-    font-size: 0.8rem;
+
+  .guia-hub-media {
+    position: relative;
+    aspect-ratio: 16 / 8;
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+
+  .guia-hub-media svg,
+  .guia-hub-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .guia-hub-card:hover .guia-hub-media svg,
+  .guia-hub-card:hover .guia-hub-media img {
+    transform: scale(1.06);
+  }
+
+  .guia-hub-tag {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.25);
-    letter-spacing: 0.1em;
-    margin-bottom: 1.25rem;
-    transition: color 0.35s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #0a0a0a;
+    background: #fff;
+    padding: 0.3rem 0.7rem;
   }
-  .guide-card:hover .guide-card-num {
-    color: rgba(255, 255, 255, 0.35);
+
+  .guia-hub-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem 1.25rem 1rem;
   }
-  .guide-card-title {
+
+  .guia-hub-title {
     font-size: 1.2rem;
     font-weight: 700;
     color: #0a0a0a;
+    line-height: 1.4;
     margin: 0 0 0.5rem;
-    line-height: 1.3;
-    transition: color 0.35s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  .guide-card:hover .guide-card-title {
-    color: #fff;
+
+  .guia-hub-desc {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  .guide-card-desc {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0 0 1.5rem;
-    transition: color 0.35s ease;
-  }
-  .guide-card:hover .guide-card-desc {
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .guide-card-arrow {
+
+  .guia-hub-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: auto;
-    color: rgba(0, 0, 0, 0.3);
-    transition: color 0.35s ease, transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
   }
-  .guide-card:hover .guide-card-arrow {
-    color: #fff;
-    transform: translateX(6px);
+
+  .guia-hub-arrow {
+    color: rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .guia-hub-card:hover .guia-hub-arrow {
+    color: #0a0a0a;
+    transform: translateX(5px);
+  }
+
+  .guia-hub-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.04em;
   }
 
   /* Mobile-overflow fix (shared with guide pages) */
@@ -176,7 +256,7 @@ const collectionSchema = {
     setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
     setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
 
-    const cards = document.querySelectorAll('.guide-card');
+    const cards = document.querySelectorAll('.guia-hub-card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
