@@ -182,25 +182,43 @@ const jsonLd = {
   <LoadingScreen duration={1000} />
   <section id="hero"><Hero lang={lang} /></section>
   <section id="services"><ServicesShowcase lang={lang} /></section>
-  <section id="guias" class="home-guias">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="home-guias-title">{{ es: 'Guías prácticas para tu empresa', gl: 'Guías prácticas para a túa empresa', en: 'Practical guides for your business' }[lang]}</h2>
-      <p class="home-guias-subtitle">{{ es: 'Comparativas y análisis sin humo sobre IA para pymes, basadas en criterios objetivos.', gl: 'Comparativas e análises sen humo sobre IA para pemes, baseadas en criterios obxectivos.', en: 'No-hype comparisons and analysis on AI for SMEs, based on objective criteria.' }[lang]}</p>
+  <section id="guias" class="home-guias bg-white text-black">
+    <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+      <div class="home-guias-header">
+        <p class="text-sm tracking-[0.2em] uppercase text-gray-400 mb-5">
+          {{ es: 'Guías prácticas', gl: 'Guías prácticas', en: 'Practical guides' }[lang]}
+        </p>
+        <h2 class="text-4xl md:text-5xl font-bold text-black leading-tight mb-4">
+          {{ es: 'Análisis sin humo sobre IA para pymes', gl: 'Análises sen humo sobre IA para pemes', en: 'No-hype analysis on AI for SMEs' }[lang]}
+        </h2>
+        <p class="text-lg text-gray-500 max-w-xl leading-relaxed">
+          {{ es: 'Comparativas y guías basadas en criterios objetivos, no en marketing.', gl: 'Comparativas e guías baseadas en criterios obxectivos, non en marketing.', en: 'Comparisons and guides based on objective criteria, not marketing.' }[lang]}
+        </p>
+      </div>
       <div class="home-guias-grid">
-        <a class="home-guias-card" href={`/es/guias/mejores-empresas-automatizacion-ia-galicia/`}>
-          <span class="home-guias-tag">{{ es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang]}</span>
-          <span class="home-guias-card-title">{{ es: 'Mejores empresas de automatización con IA en Galicia', gl: 'Mellores empresas de automatización con IA en Galicia', en: 'Best AI automation companies in Galicia' }[lang]}</span>
-        </a>
-        <a class="home-guias-card" href={`/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/`}>
-          <span class="home-guias-tag">{{ es: 'Precios reales', gl: 'Prezos reais', en: 'Real pricing' }[lang]}</span>
-          <span class="home-guias-card-title">{{ es: 'Cuánto cuesta automatizar procesos con IA en una pyme', gl: 'Canto custa automatizar procesos con IA nunha peme', en: 'How much it costs to automate with AI in an SME' }[lang]}</span>
-        </a>
-        <a class="home-guias-card" href={`/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/`}>
-          <span class="home-guias-tag">{{ es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang]}</span>
-          <span class="home-guias-card-title">{{ es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang]}</span>
+        {[
+          { href: '/es/guias/mejores-empresas-automatizacion-ia-galicia/', num: '01', tag: { es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang], title: { es: 'Mejores empresas de automatización con IA en Galicia', gl: 'Mellores empresas de automatización con IA en Galicia', en: 'Best AI automation companies in Galicia' }[lang] },
+          { href: '/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/', num: '02', tag: { es: 'Precios reales', gl: 'Prezos reais', en: 'Real pricing' }[lang], title: { es: 'Cuánto cuesta automatizar procesos con IA en una pyme', gl: 'Canto custa automatizar procesos con IA nunha peme', en: 'How much it costs to automate with AI in an SME' }[lang] },
+          { href: '/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/', num: '03', tag: { es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang], title: { es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang] },
+        ].map((g) => (
+          <a class="home-guias-card" href={g.href}>
+            <div class="home-guias-card-top">
+              <span class="home-guias-num">{g.num}</span>
+              <span class="home-guias-tag">{g.tag}</span>
+            </div>
+            <span class="home-guias-card-title">{g.title}</span>
+            <span class="home-guias-card-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+      <div class="home-guias-link">
+        <a href={`/es/guias/`} class="home-guias-all">
+          {{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
-      <p class="home-guias-link"><a href={`/es/guias/`}>{{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}</a></p>
     </div>
   </section>
   <section id="about-us"><AboutUsSection lang={lang} /></section>
@@ -214,30 +232,25 @@ const jsonLd = {
   }
 
   .home-guias {
-    padding: 64px 0;
-    background: #fafafa;
+    padding: 96px 0;
   }
 
-  .home-guias-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0a0a0a;
-    margin: 0 0 8px;
-    text-align: center;
+  .home-guias-header {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  .home-guias-subtitle {
-    color: #555;
-    font-size: 1rem;
-    margin: 0 auto 32px;
-    max-width: 640px;
-    text-align: center;
+  .home-guias.in-view .home-guias-header {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .home-guias-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 1rem;
   }
 
   @media (min-width: 768px) {
@@ -247,48 +260,136 @@ const jsonLd = {
   }
 
   .home-guias-card {
-    display: block;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    min-height: 240px;
     text-decoration: none;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .home-guias.in-view .home-guias-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .home-guias.in-view .home-guias-card:nth-child(1) { transition-delay: 0.1s, 0.1s, 0s, 0s; }
+  .home-guias.in-view .home-guias-card:nth-child(2) { transition-delay: 0.2s, 0.2s, 0s, 0s; }
+  .home-guias.in-view .home-guias-card:nth-child(3) { transition-delay: 0.3s, 0.3s, 0s, 0s; }
+
   .home-guias-card:hover {
+    background: #0a0a0a;
     border-color: #0a0a0a;
-    transform: translateY(-2px);
+  }
+
+  .home-guias-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-guias-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.1em;
+    transition: color 0.35s ease;
+  }
+
+  .home-guias-card:hover .home-guias-num {
+    color: rgba(255, 255, 255, 0.35);
   }
 
   .home-guias-tag {
-    display: inline-block;
-    background: #0a0a0a;
-    color: #ffffff;
     font-size: 0.7rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 999px;
-    margin-bottom: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: #0a0a0a;
+    padding: 0.35rem 0.85rem;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  .home-guias-card:hover .home-guias-tag {
+    background: #fff;
+    color: #0a0a0a;
   }
 
   .home-guias-card-title {
     display: block;
     color: #0a0a0a;
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1.35;
+    margin-bottom: auto;
+    transition: color 0.35s ease;
+  }
+
+  .home-guias-card:hover .home-guias-card-title {
+    color: #fff;
+  }
+
+  .home-guias-card-arrow {
+    margin-top: 1.5rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: color 0.35s ease, transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .home-guias-card:hover .home-guias-card-arrow {
+    color: #fff;
+    transform: translateX(6px);
   }
 
   .home-guias-link {
-    text-align: center;
-    margin: 32px 0 0;
+    margin-top: 2.5rem;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.4s;
   }
 
-  .home-guias-link a {
-    color: #0a0a0a;
-    font-weight: 600;
-    text-decoration: underline;
+  .home-guias.in-view .home-guias-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .home-guias-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    background: #0a0a0a;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .home-guias-all svg {
+    transition: transform 0.25s ease;
+  }
+
+  .home-guias-all:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .home-guias-all:hover svg {
+    transform: translateX(4px);
   }
 
   .contact-section {
@@ -315,6 +416,19 @@ const jsonLd = {
 
     if (contactSection) {
       observer.observe(contactSection);
+    }
+
+    const guiasSection = document.querySelector('.home-guias');
+    if (guiasSection) {
+      const guiasObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            guiasObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      guiasObserver.observe(guiasSection);
     }
   });
 </script>

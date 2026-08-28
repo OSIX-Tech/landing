@@ -62,20 +62,24 @@ const collectionSchema = {
   jsonLd={collectionSchema}
 >
   <LoadingScreen duration={1000} />
-  <section class="content-section relative bg-black py-20 flex items-center overflow-hidden" style="margin-top: var(--header-h, 0px)">
-    <div class="max-w-6xl mx-auto px-6 w-full">
-      <span class="hero-badge opacity-0">Guías OSIX</span>
-      <h1 class="hero-title text-4xl md:text-5xl font-bold text-white mb-4 opacity-0">{seoTitle}</h1>
-      <p class="hero-subtitle text-xl text-gray-300 opacity-0">{seoDescription}</p>
+  <section class="content-section hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="max-w-6xl mx-auto px-6 w-full py-20 text-center">
+      <span class="hero-badge inline-block text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guías OSIX · IA para pymes</span>
+      <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 leading-tight">Guías de IA para pymes<br/>en España y Galicia</h1>
+      <p class="hero-subtitle text-lg md:text-xl text-gray-400 opacity-0 max-w-2xl mx-auto leading-relaxed">Comparativas y análisis prácticos: cuánto cuesta automatizar, qué empresas destacan y qué procesos merece la pena automatizar. Sin humo.</p>
     </div>
   </section>
-  <section class="content-section py-16 md:py-20 bg-white mb-0">
+  <section class="content-section py-16 md:py-24 bg-white mb-0">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {guides.map((g) => (
-          <a href={`/es/guias/${g.slug}/`} class="guide-card">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        {guides.map((g, i) => (
+          <a href={`/es/guias/${g.slug}/`} class="guide-card" style={`transition-delay: ${Math.min(i, 5) * 0.08}s`}>
+            <span class="guide-card-num">{String(i + 1).padStart(2, '0')}</span>
             <h2 class="guide-card-title">{g.title}</h2>
             <p class="guide-card-desc">{g.desc}</p>
+            <span class="guide-card-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
           </a>
         ))}
       </div>
@@ -85,29 +89,71 @@ const collectionSchema = {
 
 <style is:global>
   .guide-card {
-    display: block;
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 2rem;
     text-decoration: none;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .guide-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
   .guide-card:hover {
+    background: #0a0a0a;
     border-color: #0a0a0a;
-    transform: translateY(-2px);
+    transition-delay: 0s !important;
+  }
+  .guide-card-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    transition: color 0.35s ease;
+  }
+  .guide-card:hover .guide-card-num {
+    color: rgba(255, 255, 255, 0.35);
   }
   .guide-card-title {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #0a0a0a;
-    margin: 0 0 8px;
+    margin: 0 0 0.5rem;
     line-height: 1.3;
+    transition: color 0.35s ease;
+  }
+  .guide-card:hover .guide-card-title {
+    color: #fff;
   }
   .guide-card-desc {
     color: #555;
     font-size: 0.95rem;
-    margin: 0;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    transition: color 0.35s ease;
+  }
+  .guide-card:hover .guide-card-desc {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .guide-card-arrow {
+    margin-top: auto;
+    color: rgba(0, 0, 0, 0.3);
+    transition: color 0.35s ease, transform 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .guide-card:hover .guide-card-arrow {
+    color: #fff;
+    transform: translateX(6px);
   }
 
   /* Mobile-overflow fix (shared with guide pages) */
@@ -116,15 +162,29 @@ const collectionSchema = {
     width: 100%;
   }
 
-  .hero-title, .hero-subtitle, .hero-badge { opacity: 0; transform: translateX(0); }
-  .hero-title.animate, .hero-subtitle.animate, .hero-badge.animate { opacity: 1; }
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+  .hero-subtitle { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateY(0); }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const els = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-badge');
-    els.forEach((el, i) => {
-      setTimeout(() => el.classList.add('animate'), 100 + i * 120);
-    });
+    setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+    setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+    setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+
+    const cards = document.querySelectorAll('.guide-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
   });
 </script>
