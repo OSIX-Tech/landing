@@ -24,6 +24,7 @@ const latestGuides = [
   { slug: 'pymes-espanolas-que-mejoraron-con-ia', date: '2026-08-25', tag: { es: 'Casos reales', gl: 'Casos reais', en: 'Real cases' }[lang], title: { es: 'Casos reales de pymes españolas que mejoraron con IA', gl: 'Casos reais de pemes españolas que melloraron con IA', en: 'Real cases of Spanish SMEs that improved with AI' }[lang] },
   { slug: 'que-es-automatizacion-inteligente-pymes-espana', date: '2026-08-24', tag: { es: 'Conceptos', gl: 'Conceptos', en: 'Concepts' }[lang], title: { es: '¿Qué es la automatización inteligente? Guía para pymes', gl: 'Que é a automatización intelixente? Guía para pemes', en: 'What is intelligent automation? A guide for SMEs' }[lang] },
   { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', date: '2026-08-21', tag: { es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang], title: { es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang] },
+  { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', date: '2026-08-20', tag: { es: 'Comparativa', gl: 'Comparativa', en: 'Comparison' }[lang], title: { es: 'Consultoras de IA grandes vs especializadas en pymes', gl: 'Consultoras de IA grandes vs especializadas en pemes', en: 'Big AI consultancies vs SME specialists' }[lang] },
 ];
 
 const formatGuideDate = (iso: string) => {
@@ -326,8 +327,6 @@ const jsonLd = {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    max-width: 900px;
-    margin: 0 auto;
   }
 
   @media (min-width: 640px) {
@@ -338,7 +337,12 @@ const jsonLd = {
 
   @media (min-width: 1024px) {
     .home-guias-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .guia-home-card-all {
+      grid-column: 4;
+      grid-row: 1 / 3;
     }
   }
 
@@ -369,6 +373,7 @@ const jsonLd = {
   .home-guias.in-view .guia-home-card:nth-child(4) { transition-delay: 0.29s, 0.29s, 0s, 0s; }
   .home-guias.in-view .guia-home-card:nth-child(5) { transition-delay: 0.37s, 0.37s, 0s, 0s; }
   .home-guias.in-view .guia-home-card:nth-child(6) { transition-delay: 0.45s, 0.45s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(7) { transition-delay: 0.53s, 0.53s, 0s, 0s; }
 
   .guia-home-card:hover {
     border-color: #0a0a0a;
