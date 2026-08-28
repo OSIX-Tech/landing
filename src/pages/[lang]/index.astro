@@ -383,7 +383,7 @@ const jsonLd = {
   /* Upper part: image + category tag */
   .guia-home-media {
     position: relative;
-    aspect-ratio: 8 / 5;
+    aspect-ratio: 16 / 8;
     background: #0a0a0a;
     overflow: hidden;
   }
@@ -429,7 +429,11 @@ const jsonLd = {
     font-weight: 700;
     color: #0a0a0a;
     line-height: 1.4;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .guia-home-meta {
