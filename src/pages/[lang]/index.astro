@@ -6,7 +6,6 @@ import AboutUsSection from '../../components/AboutUsSection.astro';
 import HomeFAQ from '../../components/HomeFAQ.astro';
 import StaticContactSection from '../../components/StaticContactSection.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
-import GuiasCardSwap from '../../components/GuiasCardSwap.jsx';
 import { getAllServices } from '../../data/services-multilingual';
 import { LANGUAGES, type Lang } from '../../utils/languages';
 
@@ -17,6 +16,83 @@ export async function getStaticPaths() {
 }
 
 const { lang = 'en' } = Astro.params as { lang: Lang };
+
+// ── Guias section: latest guides + generative placeholder art ──
+const latestGuides = [
+  { slug: 'para-que-sirve-ia-pyme', date: '2026-08-27', tag: { es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang], title: { es: 'Para qué sirve la IA en una pyme: las 8 formas que dan resultados', gl: 'Para que serve a IA nunha peme: as 8 formas que dan resultados', en: 'What AI is for in an SME: the 8 ways that deliver results' }[lang] },
+  { slug: 'procesos-pyme-automatizar-con-ia', date: '2026-08-26', tag: { es: 'Procesos', gl: 'Procesos', en: 'Processes' }[lang], title: { es: 'Qué procesos de una pyme se pueden automatizar con IA', gl: 'Que procesos dunha peme se poden automatizar con IA', en: 'Which SME processes can be automated with AI' }[lang] },
+  { slug: 'pymes-espanolas-que-mejoraron-con-ia', date: '2026-08-25', tag: { es: 'Casos reales', gl: 'Casos reais', en: 'Real cases' }[lang], title: { es: 'Casos reales de pymes españolas que mejoraron con IA', gl: 'Casos reais de pemes españolas que melloraron con IA', en: 'Real cases of Spanish SMEs that improved with AI' }[lang] },
+];
+
+const formatGuideDate = (iso: string) => {
+  const localeMap: Record<string, string> = { es: 'es-ES', gl: 'gl-ES', en: 'en-GB' };
+  return new Date(iso).toLocaleDateString(localeMap[lang] || 'es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+};
+
+// Seeded PRNG so each card gets stable but unique placeholder art
+function seedFromString(str: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function mulberry32(seed: number) {
+  let a = seed;
+  return () => {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Random angular figures in the OSIX mark's language: chevrons, triangles, slashes
+function genGuideArt(slug: string): string {
+  const rnd = mulberry32(seedFromString(slug));
+  const W = 400, H = 250;
+  const shapes: string[] = [];
+
+  const chevron = (x: number, y: number, s: number, dir: number, o: number, w: number) =>
+    `<path d="M ${x} ${y} l ${s * dir} ${s} l ${-s * dir} ${s}" fill="none" stroke="#fff" stroke-width="${w}" opacity="${o}"/>`;
+  const triangle = (x: number, y: number, s: number, dir: number, o: number) =>
+    `<polygon points="${x},${y} ${x + s * dir},${y + s / 2} ${x},${y + s}" fill="#fff" opacity="${o}"/>`;
+  const slash = (x: number, y: number, len: number, o: number, w: number) =>
+    `<line x1="${x}" y1="${y + len}" x2="${x + len}" y2="${y}" stroke="#fff" stroke-width="${w}" opacity="${o}"/>`;
+  const square = (x: number, y: number, s: number, o: number) =>
+    `<rect x="${x}" y="${y}" width="${s}" height="${s}" fill="#fff" opacity="${o}"/>`;
+
+  // Background texture: several faint large figures
+  const bgCount = 3 + Math.floor(rnd() * 3);
+  for (let i = 0; i < bgCount; i++) {
+    const kind = Math.floor(rnd() * 3);
+    const x = rnd() * W, y = rnd() * H - 40;
+    const s = 60 + rnd() * 120;
+    const dir = rnd() > 0.5 ? 1 : -1;
+    const o = 0.05 + rnd() * 0.08;
+    if (kind === 0) shapes.push(chevron(x, y, s, dir, o, 10 + rnd() * 14));
+    else if (kind === 1) shapes.push(triangle(x, y, s, dir, o));
+    else shapes.push(slash(x, y, s, o, 8 + rnd() * 10));
+  }
+
+  // Foreground accents: a few crisp small figures
+  const fgCount = 3 + Math.floor(rnd() * 3);
+  for (let i = 0; i < fgCount; i++) {
+    const kind = Math.floor(rnd() * 4);
+    const x = 20 + rnd() * (W - 60), y = 20 + rnd() * (H - 60);
+    const s = 14 + rnd() * 36;
+    const dir = rnd() > 0.5 ? 1 : -1;
+    const o = 0.5 + rnd() * 0.5;
+    if (kind === 0) shapes.push(chevron(x, y, s, dir, o, 3 + rnd() * 3));
+    else if (kind === 1) shapes.push(triangle(x, y, s, dir, o));
+    else if (kind === 2) shapes.push(slash(x, y, s + 20, o, 2 + rnd() * 2));
+    else shapes.push(square(x, y, 6 + rnd() * 8, o));
+  }
+
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true"><rect width="${W}" height="${H}" fill="#0a0a0a"/>${shapes.join('')}</svg>`;
+}
 
 // SEO Data
 const seoTitle = ({ es: 'OSIX Tech - Consultoría Tecnológica & Desarrollo a Medida con IA', gl: 'OSIX Tech - Consultoría Tecnolóxica & Desenvolvemento a Medida con IA', en: 'OSIX Tech - Technology Consulting & Custom AI Development' }[lang]);
@@ -188,33 +264,33 @@ const jsonLd = {
       <h2 class="section-title" set:html={{ es: "Guías <span class='font-bold'>prácticas</span>", gl: "Guías <span class='font-bold'>prácticas</span>", en: "Practical <span class='font-bold'>guides</span>" }[lang]} />
     </div>
     <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <div class="home-guias-layout">
-        <div class="home-guias-copy">
-          <p class="text-sm tracking-[0.2em] uppercase text-gray-400 mb-5">
-            {{ es: 'Sin humo', gl: 'Sen humo', en: 'No hype' }[lang]}
-          </p>
-          <h3 class="text-3xl md:text-4xl font-bold text-black leading-tight mb-5">
-            {{ es: 'Análisis y comparativas de IA para pymes', gl: 'Análises e comparativas de IA para pemes', en: 'AI analysis and comparisons for SMEs' }[lang]}
-          </h3>
-          <p class="text-lg text-gray-500 max-w-md leading-relaxed mb-8">
-            {{ es: 'Cuánto cuesta, cuánto tarda y qué empresas destacan. Basado en criterios objetivos, no en marketing.', gl: 'Canto custa, canto tarda e que empresas destacan. Baseado en criterios obxectivos, non en marketing.', en: 'What it costs, how long it takes and which companies stand out. Based on objective criteria, not marketing.' }[lang]}
-          </p>
-          <a href={`/es/guias/`} class="home-guias-all">
-            {{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <div class="home-guias-grid">
+        {latestGuides.map((g) => (
+          <a class="guia-home-card" href={`/es/guias/${g.slug}/`}>
+            <div class="guia-home-media">
+              <Fragment set:html={genGuideArt(g.slug)} />
+              <span class="guia-home-tag">{g.tag}</span>
+            </div>
+            <div class="guia-home-body">
+              <h3 class="guia-home-title">{g.title}</h3>
+              <div class="guia-home-meta">
+                <span class="guia-home-arrow" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+                <time class="guia-home-date" datetime={g.date}>{formatGuideDate(g.date)}</time>
+              </div>
+            </div>
           </a>
-        </div>
-        <div class="home-guias-deck">
-          <GuiasCardSwap
-            client:visible
-            cards={[
-              { href: '/es/guias/mejores-empresas-automatizacion-ia-galicia/', num: '01', tag: { es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang], title: { es: 'Mejores empresas de automatización con IA en Galicia', gl: 'Mellores empresas de automatización con IA en Galicia', en: 'Best AI automation companies in Galicia' }[lang] },
-              { href: '/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/', num: '02', tag: { es: 'Precios reales', gl: 'Prezos reais', en: 'Real pricing' }[lang], title: { es: 'Cuánto cuesta automatizar procesos con IA en una pyme', gl: 'Canto custa automatizar procesos con IA nunha peme', en: 'How much it costs to automate with AI in an SME' }[lang] },
-              { href: '/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/', num: '03', tag: { es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang], title: { es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang] },
-              { href: '/es/guias/procesos-pyme-automatizar-con-ia/', num: '04', tag: { es: 'Procesos', gl: 'Procesos', en: 'Processes' }[lang], title: { es: 'Qué procesos de una pyme se pueden automatizar con IA', gl: 'Que procesos dunha peme se poden automatizar con IA', en: 'Which SME processes can be automated with AI' }[lang] },
-            ]}
-          />
-        </div>
+        ))}
+        <a class="guia-home-card guia-home-card-all" href={`/es/guias/`}>
+          <div class="guia-home-all-inner">
+            <span class="guia-home-all-count">10+</span>
+            <span class="guia-home-all-label">{{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}</span>
+            <span class="guia-home-all-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -244,131 +320,172 @@ const jsonLd = {
     padding: 32px 0 112px;
   }
 
-  .home-guias-layout {
+  .home-guias-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
-    align-items: center;
+    gap: 1.25rem;
   }
 
-  @media (min-width: 1024px) {
-    .home-guias-layout {
-      grid-template-columns: 1fr 1fr;
+  @media (min-width: 640px) {
+    .home-guias-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  .home-guias-copy {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  @media (min-width: 1024px) {
+    .home-guias-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
-  .home-guias.in-view .home-guias-copy {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .home-guias-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2.5rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #fff;
-    background: #0a0a0a;
-    text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .home-guias-all svg {
-    transition: transform 0.25s ease;
-  }
-
-  .home-guias-all:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-  }
-
-  .home-guias-all:hover svg {
-    transform: translateX(4px);
-  }
-
-  /* ── CardSwap deck ── */
-  .home-guias-deck {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.15s, transform 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0.15s;
-  }
-
-  .home-guias.in-view .home-guias-deck {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .guias-swap {
-    position: relative;
-    height: 460px;
-    perspective: 900px;
-    overflow: visible;
-  }
-
-  .guias-swap-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: min(400px, 82vw);
-    height: 280px;
+  .guia-home-card {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
-    background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     text-decoration: none;
-    will-change: transform;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
-  .guias-swap-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+  .home-guias.in-view .guia-home-card {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .guias-swap-num {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.35);
-    letter-spacing: 0.1em;
+  .home-guias.in-view .guia-home-card:nth-child(1) { transition-delay: 0.05s, 0.05s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(2) { transition-delay: 0.15s, 0.15s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(3) { transition-delay: 0.25s, 0.25s, 0s, 0s; }
+  .home-guias.in-view .guia-home-card:nth-child(4) { transition-delay: 0.35s, 0.35s, 0s, 0s; }
+
+  .guia-home-card:hover {
+    border-color: #0a0a0a;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   }
 
-  .guias-swap-tag {
-    font-size: 0.7rem;
+  /* Upper part: image + category tag */
+  .guia-home-media {
+    position: relative;
+    aspect-ratio: 8 / 5;
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+
+  .guia-home-media svg,
+  .guia-home-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .guia-home-card:hover .guia-home-media svg,
+  .guia-home-card:hover .guia-home-media img {
+    transform: scale(1.06);
+  }
+
+  .guia-home-tag {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #0a0a0a;
     background: #fff;
-    padding: 0.35rem 0.85rem;
+    padding: 0.3rem 0.7rem;
   }
 
-  .guias-swap-title {
-    color: #fff;
-    font-size: 1.35rem;
+  /* Lower part: title + date */
+  .guia-home-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .guia-home-title {
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.35;
-    margin-bottom: auto;
+    color: #0a0a0a;
+    line-height: 1.4;
+    margin: 0 0 1.5rem;
   }
 
-  .guias-swap-arrow {
-    color: rgba(255, 255, 255, 0.45);
+  .guia-home-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .guia-home-arrow {
+    color: rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  .guias-swap-card:hover .guias-swap-arrow {
+  .guia-home-card:hover .guia-home-arrow {
+    color: #0a0a0a;
+    transform: translateX(5px);
+  }
+
+  .guia-home-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.04em;
+  }
+
+  /* "See all" card */
+  .guia-home-card-all {
+    background: #0a0a0a;
+    border-color: #0a0a0a;
+  }
+
+  .guia-home-card-all:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .guia-home-all-inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+
+  .guia-home-all-count {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .guia-home-all-label {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.35;
+    margin-top: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .guia-home-all-arrow {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .guia-home-card-all:hover .guia-home-all-arrow {
     color: #fff;
     transform: translateX(6px);
   }
@@ -376,19 +493,6 @@ const jsonLd = {
   @media (max-width: 1023px) {
     .home-guias {
       padding-bottom: 80px;
-    }
-
-    .guias-swap {
-      height: 400px;
-    }
-
-    .guias-swap-card {
-      height: 250px;
-      padding: 1.5rem;
-    }
-
-    .guias-swap-title {
-      font-size: 1.15rem;
     }
   }
 </style>
