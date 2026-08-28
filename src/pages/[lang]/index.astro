@@ -268,7 +268,7 @@ const jsonLd = {
     </div>
     <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
       <div class="home-guias-grid">
-        {latestGuides.map((g) => (
+        {latestGuides.slice(0, 4).map((g) => (
           <a class="guia-home-card" href={`/es/guias/${g.slug}/`}>
             <div class="guia-home-media">
               <Fragment set:html={genGuideArt(g.slug)} />
@@ -337,11 +337,11 @@ const jsonLd = {
 
   @media (min-width: 1024px) {
     .home-guias-grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .guia-home-card-all {
-      grid-column: 4;
+      grid-column: 3;
       grid-row: 1 / 3;
     }
   }
