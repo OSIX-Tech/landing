@@ -306,6 +306,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/como-elegir-plataforma-ia-desarrollo-software-espana/"/>
   </url>
 
+  <!-- Guide: Las mejores herramientas de IA para pymes en España -->
+  <url>
+    <loc>https://osix.tech/es/guias/mejores-herramientas-ia-pymes/</loc>
+    <lastmod>2026-08-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/mejores-herramientas-ia-pymes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/mejores-herramientas-ia-pymes/"/>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://osix.tech/en/privacy/</loc>
