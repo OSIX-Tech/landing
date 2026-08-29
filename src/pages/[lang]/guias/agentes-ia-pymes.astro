@@ -4,20 +4,20 @@ import LoadingScreen from '../../../components/LoadingScreen.astro';
 
 export const prerender = true;
 
-// Guía actualmente en español (apunta al prompt TOFU de para qué sirve la IA en una pyme). Ampliar a en/gl cuando exista traducción.
+// Guía en español (prompt: qué es un agente de IA). Ampliar a en/gl cuando exista traducción.
 export async function getStaticPaths() {
   return [{ params: { lang: 'es' } }];
 }
 
 const { lang = 'es' } = Astro.params;
 
-const GuideContent = (await import('../../../content/es/guias/para-que-sirve-ia-pyme.md')).default;
+const GuideContent = (await import('../../../content/es/guias/agentes-ia-pymes.md')).default;
 
-const canonicalUrl = `https://osix.tech/${lang}/guias/para-que-sirve-ia-pyme/`;
+const canonicalUrl = `https://osix.tech/${lang}/guias/agentes-ia-pymes/`;
 
 // SEO Data
-const seoTitle = 'Para qué sirve la IA en una pyme: 8 usos con resultados reales (2026) - OSIX Tech';
-const seoDescription = 'Para qué sirve la inteligencia artificial en una pyme española en 2026: las 8 aplicaciones con retorno real (documentos, atención al cliente, ventas, datos), su límite honesto y por cuánto se empieza a arrancar.';
+const seoTitle = '¿Qué es un agente de IA y qué puede hacer por mi negocio? (2026) - OSIX Tech';
+const seoDescription = 'Qué es un agente de IA, en qué se diferencia de un chatbot y de la automatización clásica, qué puede hacer por una pyme, cuánto cuesta y cuál es su límite honesto.';
 
 // Structured Data
 const breadcrumbSchema = {
@@ -64,28 +64,28 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿La IA para pymes sustituye a los trabajadores?",
-      "acceptedAnswer": { "@type": "Answer", "text": "En la práctica de la mayoría de las pymes, no. Sustituye tareas repetitivas de bajo valor y libera horas para trabajo con criterio, atención al cliente y mejora continua. La encuesta de la OCDE lo refleja: el 83% de las pymes que usan IA generativa dice que no ha tenido efecto en su plantilla." }
+      "name": "¿Qué diferencia hay entre un chatbot y un agente de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un chatbot responde a preguntas con un árbol o con lenguaje libre. Un agente recibe una tarea, decide los pasos, usa tus herramientas (CRM, correo, documentos) y ejecuta hasta completarla o escalar. El chatbot informa; el agente actúa." }
     },
     {
       "@type": "Question",
-      "name": "¿Puedo empezar con herramientas gratuitas?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Para explorar y probar, sí. ChatGPT, Claude y otras permiten redactar, resumir y probar ideas con coste bajo. Para producción, con tus datos y sistemas conectados, necesitarás una integración más sólida, y ahí ya hablamos de un proyecto con estructura." }
+      "name": "¿Un agente de IA va a sustituir a mis empleados?",
+      "acceptedAnswer": { "@type": "Answer", "text": "En la práctica de la mayoría de las pymes, no. Sustituye tareas repetitivas de bajo valor y libera horas para trabajo con criterio, atención al cliente y mejora continua. El objetivo no es reducir plantilla, es que la que tienes trabaje en lo que importa." }
     },
     {
       "@type": "Question",
-      "name": "¿Qué pyme es buena candidata para la IA?",
-      "acceptedAnswer": { "@type": "Answer", "text": "La que tiene un proceso con volumen, un dolor medible (horas, costes, errores) y datos razonablemente ordenados. Si tienes eso, hay un proyecto que abordar. Si no, el primer paso no es IA, es ordenar el proceso." }
+      "name": "¿Cuánto cuesta un agente de IA para una pyme?",
+      "acceptedAnswer": { "@type": "Answer", "text": "De 3.000 a 8.000 € para un agente sencillo, de 8.000 a 20.000 € para uno a medida con varios sistemas, más 200 a 800 €/mes de operación. Hay plataformas por usuario desde 20 €/mes para probar." }
     },
     {
       "@type": "Question",
-      "name": "¿Por dónde empiezo si tengo poca experiencia?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Por la tarea que más horas te roba y que es estándar: procesar documentos, automatizar respuestas o arrancar un asistente de consultas. Son las de retorno rápido y riesgo bajo. Deja las predicciones complejas para cuando ya valides el camino." }
+      "name": "¿Qué necesito para empezar con agentes de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un proceso con volumen, un dolor medible (horas, costes, errores) y datos razonablemente ordenados. Si no tienes eso, el primer paso no es el agente, es ordenar el proceso." }
     },
     {
       "@type": "Question",
-      "name": "¿Cada cuánto hay que mantener el sistema?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un retainer mensual (de 300 a 800 €, según alcance) mantiene el sistema al día con los cambios de tus herramientas. Es la partida que las pymes más se saltan, y la que evita que la automatización muera en unos meses." }
+      "name": "¿Los agentes de IA se equivocan?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, y por eso un agente serio tiene límites, registra lo que hace y escala al humano en los casos dudosos. El diseño correcto asume el error y lo convierte en una consulta, no en una decisión silenciosa." }
     }
   ]
 };
@@ -106,12 +106,12 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-4xl">
-        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · IA para pymes · España</span>
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Agentes de IA · Pymes</span>
         <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
-          Para qué sirve la inteligencia artificial en una pyme
+          ¿Qué es un agente de IA y qué puede hacer por mi negocio?
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          Las 8 formas que dan resultados reales en 2026, su límite honesto y por cuánto se empieza.
+          Lo que de verdad hacen, lo que no hacen, y cuándo merece la pena montar uno.
         </p>
       </div>
     </div>
@@ -130,10 +130,9 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
       <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
         <h2 class="related-guides-title">Guías relacionadas</h2>
         <ul class="related-guides-list">
-          <li><a href="/es/guias/procesos-pyme-automatizar-con-ia/">Qué procesos de una pyme se pueden automatizar con IA</a></li>
-          <li><a href="/es/guias/agentes-ia-pymes/">¿Qué es un agente de IA y qué puede hacer por mi negocio?</a></li>
-          <li><a href="/es/guias/mejores-herramientas-ia-pymes/">Las mejores herramientas de IA para pymes en España</a></li>
-          <li><a href="/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/">Cuánto se tarda en ver resultados al implantar IA</a></li>
+          <li><a href="/es/guias/para-que-sirve-ia-pyme/">Para qué sirve la IA en una pyme: las 8 formas que dan resultados</a></li>
+          <li><a href="/es/guias/que-es-automatizacion-inteligente-pymes-espana/">¿Qué es la automatización inteligente? Guía para pymes</a></li>
+          <li><a href="/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
         </ul>
       </div>
 
@@ -181,11 +180,11 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
    * Mobile horizontal overflow fix.
    * The global `section { display: flex }` rule turns this section's wrapper into a
    * flex item that refuses to shrink below its content's intrinsic width. Because the
-   * price tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * comparison table is `white-space: nowrap` inside its scroll container, the intrinsic
    * width of the whole article is the table width (well over the phone viewport), so the
    * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
    * the right edge off every paragraph. Fix: make the section a normal block so its child
-   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   * caps at the viewport, and let the table keep scrolling inside its own container.
    */
   .content-section {
     display: block;
