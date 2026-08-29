@@ -367,6 +367,37 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
   width: 100%;
 }
 
+/* Related guides block (shared across guide pages) */
+.related-guides {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
+}
+.related-guides-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0 0 0.75rem;
+}
+.related-guides-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.related-guides-list a {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(0, 0, 0, 0.25);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.related-guides-list a:hover {
+  color: #000;
+  text-decoration-color: #0a0a0a;
+}
+
 .markdown-body th,
 .markdown-body td {
   border: 1px solid var(--md-border);
