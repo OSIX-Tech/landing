@@ -1,0 +1,227 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía en español (prompt: cómo automatizar la atención al cliente). Solo es; ampliar cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/automatizar-atencion-cliente-pyme-espana.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/automatizar-atencion-cliente-pyme-espana/`;
+
+// SEO Data
+const seoTitle = 'Cómo automatizar la atención al cliente de tu pyme (2026): opciones, precios y límites - OSIX Tech';
+const seoDescription = 'Cómo automatizar la atención al cliente de una pyme en 2026: qué consultas se pueden automatizar, comparativa de Zendesk, HubSpot, Intercom, Tidio y desarrollo a medida, con precios reales y límites honestos.';
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/log_o_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta automatizar la atención al cliente de mi pyme?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depende de la opción. Con un chatbot no-code, de 0 a 50 €/mes. Con una plataforma de help desk con IA (Zendesk, HubSpot), de 19 a 115 €/agente/mes. Con un agente de IA desarrollado a medida, la implantación va de 5.000 a 15.000 € y el mantenimiento de 200 a 600 €/mes según el alcance." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué porcentaje de consultas puede resolver una IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "En los casos bien montados, entre el 50% y el 70% de las consultas repetitivas se resuelven sin humano. El resto (reclamaciones, casos con criterio, decisiones con consecuencias) debe ir a una persona." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito saber programar para automatizar la atención?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Para las opciones 1 a 3, no: se configuran con editores visuales y bases de conocimientos. Para el desarrollo a medida (opción 4), sí hace falta un equipo técnico, ya sea interno o externo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es mejor, Zendesk o HubSpot?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Para soporte puro con tickets, Zendesk es la referencia histórica y su plan básico es más barato (19 €/agente/mes). HubSpot gana si ya usas su CRM y quieres todo en la misma plataforma. Ninguna es mejor en abstracto: depende de dónde viva ya tu equipo." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo automatizar WhatsApp?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Las plataformas de help desk y los chatbot no-code se integran con WhatsApp Business; Zendesk y HubSpot lo incluyen en sus planes (HubSpot hasta 1.000 mensajes/mes en Pro). Para volumen alto o flujos complejos, el desarrollo a medida da más control sobre el mensaje y las integraciones." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y si la IA se equivoca?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pasa. Por eso un sistema bien diseñado asume el error y lo convierte en una consulta: el bot no decide cosas con consecuencias sin que un humano lo supervise. Si te prometen una IA que resuelve el 100%, desconfía." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Atención al cliente · Pymes</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          Cómo automatizar la atención al cliente de tu pyme
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          Herramientas, precios reales y el límite honesto de cada opción.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <!-- Related guides (internal linking for indexation) -->
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/es/guias/chatbot-sin-programar/">¿Puedo montar un chatbot para mi empresa sin saber programar?</a></li>
+          <li><a href="/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
+          <li><a href="/es/guias/agentes-ia-pymes/">¿Qué es un agente de IA y qué puede hacer por mi negocio?</a></li>
+        </ul>
+      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * comparison table is `white-space: nowrap` inside its scroll container, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the table keep scrolling inside its own container.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>

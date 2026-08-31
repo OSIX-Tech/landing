@@ -372,4 +372,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/subvenciones-ia-pymes-galicia-2026/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/subvenciones-ia-pymes-galicia-2026/"/>
   </url>
+
+  <url>
+    <loc>https://osix.tech/es/guias/automatizar-atencion-cliente-pyme-espana/</loc>
+    <lastmod>2026-08-31T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/automatizar-atencion-cliente-pyme-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/automatizar-atencion-cliente-pyme-espana/"/>
+  </url>
 </urlset>
