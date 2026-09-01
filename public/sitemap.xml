@@ -180,7 +180,7 @@
   <!-- Hub: Guías -->
   <url>
     <loc>https://osix.tech/es/guias/</loc>
-    <lastmod>2026-09-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/"/>
@@ -363,6 +363,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/agentes-ia-pymes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/agentes-ia-pymes/"/>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/guias/medir-resultados-ia-pyme/</loc>
+    <lastmod>2026-09-01T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/medir-resultados-ia-pyme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/medir-resultados-ia-pyme/"/>
   </url>
   <url>
     <loc>https://osix.tech/es/guias/subvenciones-ia-pymes-galicia-2026/</loc>
