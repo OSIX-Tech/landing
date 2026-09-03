@@ -180,11 +180,20 @@
   <!-- Hub: Guías -->
   <url>
     <loc>https://osix.tech/es/guias/</loc>
-    <lastmod>2026-08-27T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/"/>
+  </url>
+  <!-- Guide: Cómo integrar la IA con el software que ya usa tu empresa -->
+  <url>
+    <loc>https://osix.tech/es/guias/integrar-ia-software-pyme-espana/</loc>
+    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/integrar-ia-software-pyme-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/integrar-ia-software-pyme-espana/"/>
   </url>
   <!-- Guide: Mejores empresas de automatización con IA para pymes en Galicia -->
   <url>
