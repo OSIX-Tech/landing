@@ -1,0 +1,227 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía actualmente en español (prompt BOFU: cómo integrar la IA con el software existente de una pyme). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/automatizar-facturas-documentos-pyme.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/automatizar-facturas-documentos-pyme/`;
+
+// SEO Data
+const seoTitle = 'Cómo automatizar las facturas y los documentos de tu pyme (2026): qué documentos por orden y las 3 vías - OSIX Tech';
+const seoDescription = 'Cómo automatizar las facturas y los documentos de una pyme en España: qué documentos merece la pena por orden, las 3 vías (programa de gestión, extractor OCR, desarrollo a medida), VERI*FACTU 2027 y límites honestos.';
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+{
+      "@type": "Question",
+      "name": "¿Puede una pyme automatizar de verdad sus facturas y documentos sin saber programar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Para la facturación estándar y la lectura de gastos basta un programa de gestión (Holded, Quipu, Anfix, Sage) o un extractor por OCR (Parseur, ABBYY), que se configuran sin código. El desarrollo a medida solo hace falta cuando la automatización debe integrarse con tu ERP o tu flujo es complejo." }
+    },
+{
+      "@type": "Question",
+      "name": "¿Qué documentos debo automatizar primero en mi pyme?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Las facturas recibidas y la conciliación bancaria, porque son donde más horas y más errores de copiar cifras se acumulan. La factura emitida recurrente es fácil y barata, pero de menor retorno." }
+    },
+{
+      "@type": "Question",
+      "name": "¿Cuál es la diferencia entre factura emitida y factura recibida para automatizar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La emitida es la que tú mandas: generarla y enviarla es sencillo. La recibida es la que te llega de proveedores: hay que leerla (proveedor, base, IVA, total) y pasarla a contabilidad. Automatizar la recibida es lo que más tiempo te devuelve." }
+    },
+{
+      "@type": "Question",
+      "name": "¿Qué es VERI*FACTU y cuándo es obligatorio?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Es el sistema de la AEAT sobre cómo debe ser tu software de facturación. Las empresas que tributan por el Impuesto sobre Sociedades deben tenerlo adaptado antes del 1 de enero de 2027; autónomos y el resto, antes del 1 de julio de 2027." }
+    },
+{
+      "@type": "Question",
+      "name": "¿Automatizar facturas es lo mismo que factura electrónica B2B?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Automatizar es que el sistema genere, lea y archive sin teclear. La factura electrónica B2B (obligatoria para empresas y autónomos por la ley Crea y Crece) es otro requisito, con otro calendario. Un buen proyecto de automatización de 2026 puede dejarte preparado para ambos." }
+    },
+{
+      "@type": "Question",
+      "name": "¿Me conviene un programa de gestión, un extractor o desarrollo a medida?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Depende de tu software y volumen. De cero o casi, un programa de gestión. Muchas facturas repetitivas con contabilidad ya montada, un extractor. Ya vives en un ERP y quieres que la factura entre y salga dentro de él, desarrollo a medida. Empieza por la vía más simple que cumpla." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Documentos y facturas · Pymes · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          Automatizar las facturas y los documentos de tu pyme
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          Qué documentos automatizar por orden de retorno y cuándo te basta un programa, un extractor o un desarrollo a medida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
+          <li><a href="/es/guias/integrar-ia-software-pyme-espana/">Cómo integrar la IA con el software que ya usa tu empresa</a></li>
+          <li><a href="/es/guias/donde-se-guardan-datos-ia-empresa/">Dónde se guardan los datos de tu empresa con un sistema de IA</a></li>
+          <li><a href="/es/guias/procesos-pyme-automatizar-con-ia/">Qué procesos de una pyme se pueden automatizar con IA</a></li>
+        </ul>
+      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>
