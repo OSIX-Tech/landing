@@ -81,16 +81,15 @@
     "about.bio.cyber": "Security and infrastructure.",
 
     "team.title": "Our <span class=\"font-bold\">Team</span>",
-    "team.role.cfo": "CFO",
+    "team.role.ceo": "CEO",
     "team.role.backend": "Backend Engineer",
     "team.role.security": "Security & AI Backend Engineer",
-    "team.role.cto": "CTO / Software Architect",
     "team.role.frontend": "Frontend Engineer",
     "team.role.devops": "DevOps Engineer",
     "team.role.fullstack": "Full Stack Mobile Engineer",
     
     "team.mateo.name": "Mateo Bodenlle",
-    "team.mateo.description": "Drives OSIX's financial vision and growth strategy. With a sharp eye for opportunity and risk, Mateo leads fundraising efforts, financial planning, and long-term sustainability to ensure each step the company takes is strategically sound.",
+    "team.mateo.description": "Leads OSIX's direction and client relationships. Mateo sits on the front line of sales and consulting: he gets to know each company's business, turns their needs into viable technology projects, and stays with every account from the first conversation to the results, setting the company's growth strategy along the way.",
     
     "team.juan.name": "Juan Freire",
     "team.juan.description": "Designs and implements the backbone of our systems. Juan is an expert in high-performance APIs, database optimization, and backend scalability, ensuring OSIX's platforms are as solid as they are flexible.",
@@ -98,8 +97,6 @@
     "team.guti.name": "David Gutiérrez",
     "team.guti.description": "Merges cybersecurity best practices with advanced AI integration. David thrives in high-pressure environments, building secure backend systems and deploying AI-powered solutions that handle real-world complexity with elegance.",
     
-    "team.pazos.name": "Pablo Pazos",
-    "team.pazos.description": "Defines the technical direction and system architecture behind OSIX. As CTO, Pazos leads the team toward clean, modular, and scalable solutions, balancing long-term strategy with day-to-day decision-making across all tech fronts.",
     
     "team.nico.name": "Nicolás Corbal",
     "team.nico.description": "Crafts intuitive, pixel-perfect user interfaces. Nico transforms complex functionality into sleek, interactive experiences, leveraging the latest frontend technologies to create smooth and engaging user journeys.",

@@ -81,16 +81,15 @@
     "about.bio.cyber": "Seguridad e infraestructura.",
 
     "team.title": "Nuestro <span class=\"font-bold\">Equipo</span>",
-    "team.role.cfo": "CFO",
+    "team.role.ceo": "CEO",
     "team.role.backend": "Ingeniero Backend",
     "team.role.security": "Ingeniero Backend de Seguridad e IA",
-    "team.role.cto": "CTO / Arquitecto de Software",
     "team.role.frontend": "Ingeniero Frontend",
     "team.role.devops": "Ingeniero DevOps",
     "team.role.fullstack": "Ingeniero Full Stack Móvil",
     
     "team.mateo.name": "Mateo Bodenlle",
-    "team.mateo.description": "Impulsa la visión financiera y la estrategia de crecimiento de OSIX. Con un ojo agudo para las oportunidades y riesgos, Mateo lidera los esfuerzos de recaudación de fondos, planificación financiera y sostenibilidad a largo plazo para garantizar que cada paso que da la empresa sea estratégicamente sólido.",
+    "team.mateo.description": "Lidera la dirección de OSIX y la relación con los clientes. Mateo está en la primera línea comercial y de consultoría: entiende el negocio de cada empresa, traduce sus necesidades en proyectos tecnológicos viables y acompaña cada cuenta desde la primera conversación hasta los resultados, marcando la estrategia de crecimiento de la compañía.",
     
     "team.juan.name": "Juan Freire",
     "team.juan.description": "Diseña e implementa la columna vertebral de nuestros sistemas. Juan es experto en APIs de alto rendimiento, optimización de bases de datos y escalabilidad backend, asegurando que las plataformas de OSIX sean tan sólidas como flexibles.",
@@ -98,8 +97,6 @@
     "team.guti.name": "David Gutiérrez",
     "team.guti.description": "Fusiona las mejores prácticas de ciberseguridad con integración avanzada de IA. David prospera en entornos de alta presión, construyendo sistemas backend seguros y desplegando soluciones impulsadas por IA que manejan la complejidad del mundo real con elegancia.",
     
-    "team.pazos.name": "Pablo Pazos",
-    "team.pazos.description": "Define la dirección técnica y la arquitectura del sistema detrás de OSIX. Como CTO, Pazos lidera al equipo hacia soluciones limpias, modulares y escalables, equilibrando la estrategia a largo plazo con la toma de decisiones diaria en todos los frentes tecnológicos.",
     
     "team.nico.name": "Nicolás Corbal",
     "team.nico.description": "Crea interfaces de usuario intuitivas y perfectas hasta el último píxel. Nico transforma funcionalidades complejas en experiencias elegantes e interactivas, aprovechando las últimas tecnologías frontend para crear viajes de usuario fluidos y atractivos.",
