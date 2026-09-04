@@ -5,7 +5,6 @@ import servicesImage from "../assets/services.png";
 import mateoImg from '../assets/team/mateo.jpeg';
 import juanImg from '../assets/team/juan.jpeg';
 import gutiImg from '../assets/team/guti.jpeg';
-import pazosImg from '../assets/team/pazos.jpeg';
 import nicoImg from '../assets/team/nico.jpeg';
 import nelImg from '../assets/team/nel.jpeg';
 import diegoImg from '../assets/team/diego.jpeg';
@@ -61,10 +60,9 @@ const shuffleArray = (array: any[]) => {
 const randomizedQuotes = shuffleArray(quotes);
 
 const teamMembers = [
-  { name: t("team.mateo.name"), role: t("team.role.cfo"), image: mateoImg, linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/", github: "https://github.com/mateobodenlle", description: t("team.mateo.description") },
+  { name: t("team.mateo.name"), role: t("team.role.ceo"), image: mateoImg, linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/", github: "https://github.com/mateobodenlle", description: t("team.mateo.description") },
   { name: t("team.juan.name"), role: t("team.role.backend"), image: juanImg, linkedin: "https://www.linkedin.com/in/juan-freire-alvarez/", github: "https://github.com/SrFreiRe", description: t("team.juan.description") },
   { name: t("team.guti.name"), role: t("team.role.security"), image: gutiImg, linkedin: "https://www.linkedin.com/in/david-gutierrez-cs/", github: "https://github.com/dav1dgf", description: t("team.guti.description") },
-  { name: t("team.pazos.name"), role: t("team.role.cto"), image: pazosImg, linkedin: "https://www.linkedin.com/in/pablo-pazos-parada/", github: "https://github.com/ppazosp", description: t("team.pazos.description") },
   { name: t("team.nico.name"), role: t("team.role.frontend"), image: nicoImg, linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-corbal-912929318/", github: "https://github.com/nicoCorbal", description: t("team.nico.description") },
   { name: t("team.nel.name"), role: t("team.role.devops"), image: nelImg, linkedin: "https://www.linkedin.com/in/david-manuel-raposeiras-canabal-a95028210/", github: "https://github.com/davrapcan", description: t("team.nel.description") },
   { name: t("team.diego.name"), role: t("team.role.fullstack"), image: diegoImg, linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/", github: "https://github.com/2cristo7", description: t("team.diego.description") },
