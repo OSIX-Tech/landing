@@ -1,0 +1,236 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía actualmente en español (prompt BOFU: cómo automatizar la generación de informes en mi empresa). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/automatizar-informes-pyme.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/automatizar-informes-pyme/`;
+
+// SEO Data
+const seoTitle = "Automatizar la generación de informes de tu empresa (2026): 6 informes por retorno - OSIX Tech";
+const seoDescription = "Cómo automatizar la generación de informes en una pyme: separamos los informes de datos y los documentales, ordenamos seis por retorno y cuándo basta plantilla, extractor o desarrollo a medida.";
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué informes puede automatizar una pyme sin saber programar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los que salen de datos ya estructurados, con un cuadro de mando de Power BI o Looker Studio o con una hoja programada, y los que salen de documentos con formato parecido, con un extractor no-code como Make o Zapier. Lo que no conviene montar sin ayuda técnica es un informe que cruza documentos muy variados con tu ERP, porque ahí la integración, la revisión y el registro necesitan un desarrollo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta automatizar la generación de informes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la vía. Con una plantilla o un BI, el coste es la suscripción, por ejemplo 12,10 € por usuario y mes de Power BI Pro en pago anual, y Looker Studio es gratis. Con un extractor no-code, el plan de pago ronda los 12 a 20 USD al mes. Cuando el informe cruza documentos y sistemas y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 200 a 500 € al mes de operación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Power BI o Looker Studio para automatizar informes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ambos resuelven lo mismo para datos estructurados: conectar fuentes, programar la actualización y compartir el cuadro de mando. Looker Studio es gratis y encaja bien con Google y con equipos sin licencias de Microsoft. Power BI se integra mejor con Microsoft 365, Excel y SharePoint, y su plan Pro cuesta 12,10 € por usuario y mes en pago anual. La elección depende de dónde viven ya tus datos. Ninguno de los dos lee documentos por sí solo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede la IA redactar el informe sin revisión humana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puede redactar borradores, resumir y proponer la interpretación de los datos, y eso acelera mucho el trabajo. Pero un informe que sale de la empresa, hacia la dirección, un cliente o el banco, lleva cifras que deben validarse contra su origen y una lectura que alguien responsable firma. La regla es la misma que para la automatización documental: la máquina prepara y la persona decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Automatizar informes con datos personales es legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsable sigue siendo tu empresa, y el tratamiento debe ser correcto, proporcionado y seguro. Si el sistema trata datos personales, conviene dejar documentado qué datos usa, dónde se almacenan y quién puede acceder, y elegir un proveedor que te diga con claridad en qué servidores trabaja. Automatizar no traslada tu responsabilidad a la herramienta."
+      }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Informes · Automatización · Pymes · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          Automatizar la generación de informes de tu empresa
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          Seis informes ordenados por retorno, la decisión entre dashboard y documento, y cuándo te basta una plantilla, un extractor o un desarrollo a medida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/es/guias/automatizar-facturas-documentos-pyme/">Cómo automatizar las facturas y los documentos de tu pyme</a></li>
+          <li><a href="/es/guias/automatizar-documentos-sin-perder-revision-humana/">Automatizar documentos sin perder la revisión humana</a></li>
+          <li><a href="/es/guias/medir-resultados-ia-pyme/">Cómo medir si la IA de tu pyme está dando resultados</a></li>
+          <li><a href="/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
+        </ul>      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>

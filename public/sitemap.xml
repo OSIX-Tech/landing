@@ -180,11 +180,20 @@
   <!-- Hub: Guías -->
   <url>
     <loc>https://osix.tech/es/guias/</loc>
-    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/"/>
+  </url>
+  <!-- Guide: Automatizar la generación de informes de tu empresa -->
+  <url>
+    <loc>https://osix.tech/es/guias/automatizar-informes-pyme/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/automatizar-informes-pyme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/automatizar-informes-pyme/"/>
   </url>
   <!-- Guide: Automatizar documentos sin perder la revisión humana -->
   <url>
