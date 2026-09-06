@@ -180,7 +180,7 @@
   <!-- Hub: Guías -->
   <url>
     <loc>https://osix.tech/es/guias/</loc>
-    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/"/>
@@ -433,5 +433,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/"/>
+  </url>
+
+  <url>
+    <loc>https://osix.tech/es/guias/automatizar-ofertas-presupuestos-correo-pyme/</loc>
+    <lastmod>2026-09-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/automatizar-ofertas-presupuestos-correo-pyme/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/automatizar-ofertas-presupuestos-correo-pyme/"/>
   </url>
 </urlset>
