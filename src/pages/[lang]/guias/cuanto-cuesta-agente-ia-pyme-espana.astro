@@ -1,0 +1,222 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía en español (prompt: cuánto cuesta un agente de IA para una pyme). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/cuanto-cuesta-agente-ia-pyme-espana.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/cuanto-cuesta-agente-ia-pyme-espana/`;
+
+// SEO Data
+const seoTitle = 'Cuánto cuesta un agente de IA para una pyme en España (2026): 7 opciones por coste y retorno - OSIX Tech';
+const seoDescription = 'Cuánto cuesta un agente de IA para una pyme española en 2026: siete tipos de agente, rangos de implantación y operación, criterios para comparar propuestas y límites honestos.';
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un agente de IA sencillo para una pyme?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Entre 3.000 y 8.000 € de implantación cuando trabaja sobre un canal o sistema, por ejemplo una bandeja de correo o un CRM básico. Añade normalmente entre 200 y 500 € al mes para operación, modelos y soporte, según el volumen." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un agente de IA conectado a varios sistemas?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un agente que consulta o actualiza CRM, ERP, correo y documentación suele estar entre 10.000 y 25.000 € de implantación. El rango sube si faltan APIs, hay permisos complejos o el flujo necesita muchas excepciones." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es más barato usar una herramienta ya hecha?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Para un caso estándar, sí puede serlo. Las herramientas SaaS y no-code reducen el coste inicial, pero no eliminan el tiempo de configuración, las licencias, la revisión ni el mantenimiento. Si el proceso es propio o cruza varios sistemas, una solución a medida puede costar más al principio y encajar mejor después." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta mantener un agente de IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Como orientación, entre 200 y 800 € al mes para agentes de pyme con un alcance acotado. El coste real depende del consumo de modelos, la infraestructura, el número de usuarios, las integraciones y las horas de soporte." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Debo empezar por un agente o por una automatización clásica?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Empieza por la solución más sencilla que resuelva el problema. Si la entrada y las decisiones son estables, una automatización con reglas suele ser más barata y fácil de mantener. El agente merece la pena cuando la información varía, hay lenguaje natural y el sistema necesita elegir entre varios pasos." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Precios de agentes de IA · Pymes · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          Cuánto cuesta un agente de IA para una pyme
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          Siete opciones por coste y retorno, con límites honestos para comparar propuestas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <!-- Related guides (internal linking for indexation) -->
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/es/guias/agentes-ia-pymes/">Qué es un agente de IA y qué puede hacer por tu negocio</a></li>
+          <li><a href="/es/guias/automatizar-documentos-sin-perder-revision-humana/">Cómo automatizar documentos sin perder la revisión humana</a></li>
+          <li><a href="/es/guias/integrar-ia-software-pyme-espana/">Cómo integrar la IA con el software que ya usa tu empresa</a></li>
+        </ul>
+      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * comparison table is `white-space: nowrap` inside its scroll container, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the table keep scrolling inside its own container.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>

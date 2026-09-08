@@ -443,6 +443,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/automatizar-ofertas-presupuestos-correo-pyme/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/automatizar-ofertas-presupuestos-correo-pyme/"/>
   </url>
+  <!-- Guide: Cuánto cuesta un agente de IA para una pyme en España -->
+  <url>
+    <loc>https://osix.tech/es/guias/cuanto-cuesta-agente-ia-pyme-espana/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/cuanto-cuesta-agente-ia-pyme-espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/cuanto-cuesta-agente-ia-pyme-espana/"/>
+  </url>
+
   <url>
     <loc>https://osix.tech/es/guias/analizar-pliegos-licitaciones-ia-pyme/</loc>
     <lastmod>2026-09-07T00:00:00+00:00</lastmod>
