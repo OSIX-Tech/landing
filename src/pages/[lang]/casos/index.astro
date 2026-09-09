@@ -1,100 +1,33 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import LoadingScreen from '../../../components/LoadingScreen.astro';
-
 export const prerender = true;
-export async function getStaticPaths() {
-  return [{ params: { lang: 'es' } }];
-}
-
+export async function getStaticPaths() { return [{ params: { lang: 'es' } }]; }
 const { lang = 'es' } = Astro.params;
 const canonicalUrl = `https://osix.tech/${lang}/casos/`;
 const seoTitle = 'Casos de estudio de automatización e IA | OSIX Tech';
 const seoDescription = 'Casos de estudio de OSIX Tech: software a medida, automatización documental, OCR e inteligencia artificial con métricas de producción.';
 const cases = [
-  {
-    href: '/es/casos/roydisa-ocr-documentos-proveedores/',
-    tag: 'Automatización documental y OCR',
-    title: 'Roydisa procesa documentos de proveedores sin teclearlos uno a uno',
-    desc: '31.377 documentos procesados en seis meses, con 27 segundos de mediana desde la foto hasta el Excel.',
-    stats: ['31.377 documentos', '27 s de mediana', '0,04 % de error técnico']
-  }
-];
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  url: canonicalUrl,
-  name: seoTitle,
-  description: seoDescription,
-  inLanguage: lang,
-  publisher: { '@type': 'Organization', name: 'OSIX Tech', url: 'https://osix.tech' },
-  mainEntity: cases.map((item, index) => ({ '@type': 'Article', name: item.title, url: `https://osix.tech${item.href}`, position: index + 1 }))
-};
+  ['roydisa-ocr-documentos-proveedores','Automatización documental y OCR','Roydisa procesa documentos de proveedores sin teclearlos uno a uno','31.377 documentos procesados en seis meses.','31.377'],
+  ['roydisa-ofertas','Automatización comercial','Roydisa prepara borradores de oferta en 16 segundos.','47.518 presupuestos históricos y 57.296 productos.','16 s'],
+  ['iciga-correo-crm','Automatización de correo y CRM','ICIGA convierte cuatro bandejas de entrada en un flujo comercial trazable.','1.463 correos procesados en 31 días.','29 s'],
+  ['take-fidelizacion','Aplicaciones móviles y fidelización','TAKE registra visitas y recompensas desde una app móvil.','37.627 visitas selladas con QR.','90,3 %'],
+  ['avalagro-evaluacion','Aplicación móvil y evaluación','Avalagro completa una ronda de evaluación en 9,9 minutos.','1.009 puntuaciones registradas.','9,9 min'],
+  ['nessie-documentos','Inteligencia documental','Nessie convierte un Google Drive de investigación en un asistente consultable.','732 documentos indexados.','1.447'],
+  ['xeracion21-moodle','Educación e integración con Moodle','Xeración21 integra IA dentro del Moodle de una academia.','533 tareas de IA ejecutadas.','97,2 %'],
+  ['alia-galego','IA lingüística y soberanía del dato','ALIA analiza galego falado con opción de ejecución local.','19 motores conmutables.','36 s']
+].map(([slug,tag,title,desc,stat]) => ({ href:`/es/casos/${slug}/`, tag, title, desc, stats:[stat] }));
+const jsonLd = {'@context':'https://schema.org','@type':'CollectionPage',url:canonicalUrl,name:seoTitle,description:seoDescription,inLanguage:lang,publisher:{'@type':'Organization',name:'OSIX Tech',url:'https://osix.tech'},mainEntity:cases.map((c,i)=>({'@type':'Article',name:c.title,url:`https://osix.tech${c.href}`,position:i+1}))};
 ---
-
 <Layout lang={lang} title={seoTitle} description={seoDescription} pageType="website" canonical={canonicalUrl} jsonLd={jsonLd}>
   <LoadingScreen duration={1000} />
-  <section class="cases-hub-hero relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
-    <div class="max-w-5xl mx-auto px-6 md:px-12 w-full py-20 text-center">
-      <span class="hero-badge inline-block text-xs uppercase tracking-widest text-gray-400 mb-5 opacity-0">Casos OSIX · software en producción</span>
-      <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 leading-tight">Software que ya está trabajando</h1>
-      <p class="hero-subtitle text-lg md:text-2xl text-gray-300 opacity-0 max-w-3xl mx-auto leading-relaxed">Productos que procesan documentos, ordenan correo, preparan ofertas y convierten documentación en respuestas.</p>
-    </div>
-  </section>
-  <section class="content-section py-16 md:py-24 bg-white mb-0">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="cases-hub-grid">
-        {cases.map((item, index) => (
-          <a href={item.href} class="case-hub-card fade-up" style={`--delay: ${index * 0.08}s`}>
-            <div class="case-hub-media"><img src="/logos/roydisa.png" alt="Roydisa" loading="lazy" /></div>
-            <div class="case-hub-body">
-              <span class="case-hub-tag">{item.tag}</span>
-              <h2>{item.title}</h2>
-              <p>{item.desc}</p>
-              <div class="case-hub-stats">{item.stats.map(stat => <span>{stat}</span>)}</div>
-              <span class="case-hub-link">Leer el caso completo <span aria-hidden="true">→</span></span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <section class="cases-hub-hero relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)"><div class="max-w-5xl mx-auto px-6 md:px-12 w-full py-20 text-center"><span class="hero-badge inline-block text-xs uppercase tracking-widest text-gray-400 mb-5">Casos OSIX · software en producción</span><h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Software que ya está trabajando</h1><p class="hero-subtitle text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">Productos que procesan documentos, ordenan correo, preparan ofertas y convierten documentación en respuestas.</p></div></section>
+  <section class="content-section py-16 md:py-24 bg-white mb-0"><div class="max-w-7xl mx-auto px-6 md:px-12"><div class="cases-hub-grid">{cases.map(item => <a href={item.href} class="case-hub-card"><div class="case-hub-media"><span>{item.stats[0]}</span></div><div class="case-hub-body"><span class="case-hub-tag">{item.tag}</span><h2>{item.title}</h2><p>{item.desc}</p><span class="case-hub-link">Leer el caso completo →</span></div></a>)}</div></div></section>
 </Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const init = () => {
-      document.querySelector('.hero-title')?.classList.add('animate');
-      setTimeout(() => document.querySelector('.hero-subtitle')?.classList.add('animate'), 200);
-      setTimeout(() => document.querySelector('.hero-badge')?.classList.add('animate'), 400);
-      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('in-view'));
-    };
-    if ((window as any).isLoadingComplete) init(); else window.addEventListener('loadingComplete', init);
-  });
-</script>
-
 <style is:global>
-  .content-section { display: block; width: 100%; }
-  .cases-hub-hero .hero-title, .cases-hub-hero .hero-subtitle, .cases-hub-hero .hero-badge { opacity: 0; }
-  .cases-hub-hero .hero-title.animate, .cases-hub-hero .hero-subtitle.animate, .cases-hub-hero .hero-badge.animate { opacity: 1; transform: translate(0); transition: opacity .7s ease, transform .7s ease; }
-  .cases-hub-hero .hero-title { transform: translateX(-40px); }
-  .cases-hub-hero .hero-subtitle { transform: translateX(40px); }
-  .cases-hub-hero .hero-badge { transform: translateY(20px); }
-  .cases-hub-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; max-width: 560px; }
-  .case-hub-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(0,0,0,.1); text-decoration: none; color: #0a0a0a; overflow: hidden; opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease, box-shadow .3s ease; }
-  .case-hub-card.in-view { opacity: 1; transform: translateY(0); }
-  .case-hub-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.12); }
-  .case-hub-media { height: 180px; background: #0a0a0a; display: flex; align-items: center; justify-content: center; padding: 3rem; }
-  .case-hub-media img { max-width: 75%; max-height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
-  .case-hub-body { padding: 1.5rem; }
-  .case-hub-tag { display: block; color: #666; font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; margin-bottom: .9rem; }
-  .case-hub-body h2 { font-size: 1.45rem; line-height: 1.25; margin-bottom: .8rem; }
-  .case-hub-body p { color: #555; line-height: 1.6; margin-bottom: 1.25rem; }
-  .case-hub-stats { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.35rem; }
-  .case-hub-stats span { background: #f1f1f1; padding: .45rem .6rem; font-size: .78rem; font-weight: 700; }
-  .case-hub-link { font-weight: 700; }
+.content-section{display:block;width:100%}.cases-hub-hero .hero-title,.cases-hub-hero .hero-subtitle,.cases-hub-hero .hero-badge{opacity:1}.cases-hub-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}.case-hub-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.1);text-decoration:none;color:#0a0a0a;overflow:hidden;transition:box-shadow .3s ease}.case-hub-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.12)}.case-hub-media{height:150px;background:#0a0a0a;display:flex;align-items:center;padding:2rem;color:#fff;font-size:3rem;font-weight:800;letter-spacing:-.06em}.case-hub-body{padding:1.5rem}.case-hub-tag{display:block;color:#666;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:.9rem}.case-hub-body h2{font-size:1.35rem;line-height:1.25;margin-bottom:.8rem}.case-hub-body p{color:#555;line-height:1.6;margin-bottom:1.25rem}.case-hub-link{font-weight:700}@media(min-width:640px){.cases-hub-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.cases-hub-grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 
 <style is:global>
-  .case-hub-card { transition-delay: var(--delay, 0s); }
+.content-section .max-w-7xl{width:100%;max-width:80rem;min-width:0}.case-hub-card{min-width:0}
 </style>

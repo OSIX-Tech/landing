@@ -1,0 +1,43 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+export const prerender = true;
+export async function getStaticPaths() { return [{ params: { lang: 'es' } }]; }
+const { lang = 'es' } = Astro.params;
+const slug = 'xeracion21-moodle';
+const canonicalUrl = `https://osix.tech/${lang}/casos/${slug}/`;
+const CaseContent = (await import(`../../../content/es/casos/${slug}.md`)).default;
+const seoTitle = 'Xeración21 integra IA dentro del Moodle de una academia | OSIX Tech';
+const seoDescription = 'La plataforma trabaja sobre temarios y rúbricas oficiales, genera materiales y devuelve calificaciones al entorno que ya usa la academia.';
+const jsonLd = { '@context':'https://schema.org', '@type':'Article', headline:seoTitle, description:seoDescription, url:canonicalUrl, inLanguage:lang, author:{'@type':'Organization',name:'OSIX Tech',url:'https://osix.tech'}, publisher:{'@type':'Organization',name:'OSIX Tech',url:'https://osix.tech'} };
+---
+<Layout lang={lang} title={seoTitle} description={seoDescription} pageType="article" canonical={canonicalUrl} jsonLd={jsonLd}>
+  <LoadingScreen duration={1000} />
+  <section class="case-hero relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="max-w-5xl mx-auto px-6 md:px-12 w-full py-20 text-center">
+      <span class="hero-badge inline-block text-xs uppercase tracking-widest text-gray-400 mb-5">Caso de estudio · Educación e integración con Moodle</span>
+      <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Xeración21 integra IA dentro del Moodle de una academia</h1>
+      <p class="hero-subtitle text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">La plataforma trabaja sobre temarios y rúbricas oficiales, genera materiales y devuelve calificaciones al entorno que ya usa la academia.</p>
+    </div>
+  </section>
+  <section class="content-section py-16 md:py-24 bg-white mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-0 md:p-4">
+        <div class="markdown-body"><CaseContent /></div>
+      </article>
+    </div>
+  </section>
+</Layout>
+<style is:global>
+  .content-section { display:block; width:100%; }
+  .markdown-body .table-scroll { max-width:80rem; overflow-x:auto; }
+  .markdown-body .case-metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; margin:2rem 0 2.5rem; }
+  .markdown-body .case-metric-card { display:flex; flex-direction:column; min-height:9rem; padding:1.1rem; border:1px solid #e1e4e8; background:#fafafa; }
+  .markdown-body .case-metric-card strong { font-size:clamp(1.7rem,3vw,2.4rem); line-height:1; color:#0a0a0a; }
+  .markdown-body .case-metric-card span { margin-top:.65rem; color:#333; font-size:.84rem; font-weight:700; }
+  .markdown-body .case-metric-card small { margin-top:auto; padding-top:.8rem; color:#777; font-size:.68rem; }
+  .markdown-body .case-metric-card-featured { grid-column:span 2; background:#0a0a0a; border-color:#0a0a0a; }
+  .markdown-body .case-metric-card-featured strong,.markdown-body .case-metric-card-featured span,.markdown-body .case-metric-card-featured small { color:#fff; }
+  @media(max-width:1023px) { .markdown-body .case-metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .markdown-body .case-metric-card-featured { grid-column:span 2; } .markdown-body .table-scroll { max-width:100%; } }
+  @media(max-width:520px) { .markdown-body .case-metric-card { padding:.85rem; min-height:8rem; } .markdown-body .case-metric-card strong { font-size:1.55rem; } }
+</style>
