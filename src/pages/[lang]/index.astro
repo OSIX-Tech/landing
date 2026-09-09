@@ -200,7 +200,7 @@ const jsonLd = {
   <LoadingScreen duration={1000} />
   <section id="hero"><Hero lang={lang} /></section>
   <section id="services"><ServicesShowcase lang={lang} /></section>
-  <section id="case-proof" class="home-case-proof bg-black text-white">
+  <section id="case-proof" class="home-case-proof bg-white text-black">
     <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
       <div class="home-case-proof-intro">
         <span class="home-case-proof-eyebrow">{{ es: 'Casos en producción', gl: 'Casos en produción', en: 'In production' }[lang]}</span>
@@ -278,13 +278,13 @@ const jsonLd = {
 <style is:global>
   .home-case-proof { padding: 96px 0; }
   .home-case-proof-intro { max-width: 660px; margin-bottom: 2rem; }
-  .home-case-proof-eyebrow { display: block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); font-weight: 700; margin-bottom: 1rem; }
+  .home-case-proof-eyebrow { display: block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: #777; font-weight: 700; margin-bottom: 1rem; }
   .home-case-proof-intro h2 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; margin-bottom: 1rem; }
-  .home-case-proof-intro p { color: rgba(255,255,255,.62); font-size: 1.05rem; line-height: 1.65; max-width: 580px; }
-  .home-case-proof-card { display: grid; grid-template-columns: 220px 1fr; background: #fff; color: #0a0a0a; text-decoration: none; min-height: 280px; transition: transform .35s ease, box-shadow .35s ease; }
-  .home-case-proof-card:hover { transform: translateY(-5px); box-shadow: 0 18px 60px rgba(0,0,0,.28); }
-  .home-case-proof-logo { background: #111; display: flex; align-items: center; justify-content: center; padding: 2rem; }
-  .home-case-proof-logo img { max-width: 100%; max-height: 90px; object-fit: contain; filter: brightness(0) invert(1); }
+  .home-case-proof-intro p { color: #555; font-size: 1.05rem; line-height: 1.65; max-width: 580px; }
+  .home-case-proof-card { display: grid; grid-template-columns: 220px 1fr; background: #fff; color: #0a0a0a; text-decoration: none; min-height: 280px; border: 1px solid #e1e4e8; transition: transform .35s ease, box-shadow .35s ease; }
+  .home-case-proof-card:hover { transform: translateY(-5px); box-shadow: 0 18px 60px rgba(0,0,0,.12); }
+  .home-case-proof-logo { background: #f5f5f5; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+  .home-case-proof-logo img { max-width: 100%; max-height: 90px; object-fit: contain; }
   .home-case-proof-content { padding: 2.2rem 2.5rem; display: flex; flex-direction: column; align-items: flex-start; }
   .home-case-proof-label { text-transform: uppercase; letter-spacing: .12em; font-size: .68rem; font-weight: 700; color: #666; margin-bottom: .8rem; }
   .home-case-proof-content strong { font-size: clamp(3rem, 7vw, 5.5rem); line-height: .95; letter-spacing: -.06em; }

@@ -1,47 +1,54 @@
-# Roydisa procesa documentos de proveedores sin teclearlos uno a uno
-
 **Caso de estudio · Automatización documental y OCR**
 
-Roydisa ha procesado **31.377 documentos de proveedores en seis meses** con un flujo que convierte fotos y PDF en Excels listos para trabajar. La mediana desde la foto del documento hasta el Excel es de **27 segundos**, y la tasa de error técnico fue del **0,04 % desde junio de 2026**.
+Roydisa recibe documentos de proveedores que deben convertirse en información utilizable para compras, administración y operaciones. El flujo de OSIX toma las fotos y PDF desde las carpetas del cliente, los procesa y devuelve Excels estructurados por línea de producto.
 
-## El problema estaba entre el documento y el sistema de gestión
+En la ventana medida, el sistema procesó **31.377 ficheros**. La mediana desde la foto hasta el Excel fue de **27 segundos** y el **88 %** de los documentos terminó en menos de un minuto.
 
-Los documentos de proveedores llegaban en formatos distintos. Para convertirlos en información útil había que leerlos, extraer sus datos y preparar un archivo estructurado para el trabajo posterior.
+<div class="case-metric-grid">
+  <div class="case-metric-card case-metric-card-featured"><strong>31.377</strong><span>ficheros tratados</span><small>12 mar · 8 sep 2026</small></div>
+  <div class="case-metric-card"><strong>27 s</strong><span>mediana foto a Excel</span><small>flujo completo</small></div>
+  <div class="case-metric-card"><strong>88 %</strong><span>en menos de un minuto</span><small>documentos procesados</small></div>
+  <div class="case-metric-card"><strong>0,04 %</strong><span>error técnico desde junio</span><small>7 de 17.500 documentos</small></div>
+</div>
 
-El reto no era añadir otra pantalla. Era conectar la entrada real del cliente con el formato que ya necesitaba su equipo.
+## El problema no era leer un documento, sino convertir miles en datos utilizables
 
-## OSIX conectó la entrada documental con el flujo de trabajo existente
+Los documentos llegaban en formatos distintos y con ritmos variables. Cada uno tenía que pasar de una imagen o un PDF a un formato que el equipo pudiera revisar, compartir y usar en sus procesos posteriores.
 
-OSIX creó un servicio que vigila las carpetas de Google Drive o del servidor propio donde se depositan los documentos. Un modelo multimodal lee cada foto o PDF y devuelve un Excel por línea de producto.
+Con este volumen, la transcripción manual introduce dos costes. El primero es el tiempo que el equipo dedica a leer y copiar. El segundo es la fricción que aparece cuando el volumen cambia, cuando llegan documentos duplicados o cuando un día concentra más entradas de lo habitual.
 
-El servicio también absorbe duplicados sin generar una salida repetida y puede ejecutarse en Docker, sin una base de datos propia ni servidores nuevos.
+Roydisa no necesitaba otra aplicación aislada. Necesitaba conectar la entrada documental con el formato que ya formaba parte de su trabajo.
 
-## Los resultados están medidos sobre producción real
+## OSIX construyó el flujo alrededor de las carpetas que Roydisa ya utilizaba
 
-La ventana observada va del **12 de marzo al 8 de septiembre de 2026**.
+El servicio vigila las carpetas de Google Drive o del servidor propio donde se depositan los documentos. Un modelo multimodal lee cada foto o PDF y devuelve un Excel por línea de producto.
 
-| Métrica | Resultado |
-| --- | ---: |
-| Ficheros de entrada tratados | **31.377** |
-| Excels generados | **16.021** |
-| Albaranes distintos digitalizados | **9.258** |
-| Páginas de albaranes | **13.394** |
-| Mediana desde la foto hasta el Excel | **27 s** |
-| Documentos terminados en menos de un minuto | **88 %** |
-| Error técnico desde junio | **0,04 %** |
-| Duplicados absorbidos sin salida repetida | **7.421** |
+El flujo distingue los tipos de documento, absorbe duplicados sin generar una salida repetida y puede ejecutarse en Docker. Eso permite mantener la arquitectura cerca de los datos del cliente y evitar una base de datos propia o servidores nuevos cuando no hacen falta.
 
-Los Excels generados incluyen **8.672 albaranes, 5.024 facturas y 2.325 confirmaciones**.
+La decisión técnica importante no fue añadir una capa de interfaz. Fue hacer que el resultado apareciera en el lugar y en el formato que el equipo ya podía utilizar.
 
-## La velocidad importa porque el volumen no es constante
+## La producción muestra volumen, velocidad y estabilidad
 
-El sistema procesó una media de **5.214 ficheros al mes** y llegó a absorber **1.026 ficheros en un solo día**. El flujo no necesita una intervención manual para cambiar de infraestructura cuando el volumen sube en días puntuales.
+La ventana observada va del **12 de marzo al 8 de septiembre de 2026**. En ese periodo se generaron **16.021 Excels**: 8.672 albaranes, 5.024 facturas y 2.325 confirmaciones.
 
-## El dato publicado es de procesamiento y error técnico
+<div class="case-metric-grid case-metric-grid-secondary">
+  <div class="case-metric-card"><strong>16.021</strong><span>Excels generados</span><small>8.672 albaranes · 5.024 facturas · 2.325 confirmaciones</small></div>
+  <div class="case-metric-card"><strong>9.258</strong><span>albaranes digitalizados</span><small>13.394 páginas · 4 delegaciones</small></div>
+  <div class="case-metric-card"><strong>7.421</strong><span>duplicados absorbidos</span><small>sin salida repetida</small></div>
+  <div class="case-metric-card"><strong>1.026</strong><span>ficheros en un día</span><small>pico observado</small></div>
+</div>
 
-Este caso demuestra volumen procesado, tiempo de respuesta y estabilidad técnica. No presentamos el 0,04 % como una tasa general de precisión por campo, porque esa validación no está medida de forma completa.
+La media fue de **5.214 ficheros al mes**, pero el sistema también absorbió un pico de **1.026 ficheros en un solo día**. Ese contraste importa: el caso no demuestra únicamente que el flujo funcione en un día normal, sino que puede absorber días de mayor carga sin cambiar manualmente de infraestructura.
 
-Tampoco presentamos como resultado observado el ahorro estimado de horas administrativas. Para convertirlo en una cifra pública haría falta medir cuánto tardaba el equipo en introducir cada tipo de documento antes del sistema.
+Los **13.394 folios de albaranes** se distribuyeron entre cuatro delegaciones. La salida no fue una cifra abstracta de documentos leídos, sino una colección de Excels que el equipo podía llevar a su siguiente paso operativo.
+
+## El resultado medido tiene un alcance concreto
+
+Este caso demuestra volumen procesado, tiempo de respuesta y error técnico observado. El **0,04 %** corresponde a 7 errores en 17.500 documentos desde junio. No lo presentamos como una tasa general de precisión por campo, porque esa validación requeriría una revisión completa contra un conjunto de referencia.
+
+Tampoco presentamos como resultado observado el ahorro estimado de horas administrativas. Para publicar esa cifra habría que comparar el tiempo real de introducción manual por tipo de documento antes y después del sistema.
+
+Esa distinción es importante para cualquier proyecto de automatización documental. Procesar un documento no significa que todos sus campos estén validados de la misma forma, y reducir el tiempo de una etapa no demuestra por sí solo un ahorro financiero completo.
 
 ## Ficha del proyecto
 
@@ -56,7 +63,9 @@ Tampoco presentamos como resultado observado el ahorro estimado de horas adminis
 
 ## ¿Qué documentos procesa hoy tu equipo?
 
-Si tu equipo convierte albaranes, facturas, confirmaciones u otros documentos en datos a mano, podemos analizar el flujo y decirte qué parte merece automatizarse primero.
+Si tu equipo convierte albaranes, facturas, confirmaciones u otros documentos en datos a mano, el primer paso no es elegir un modelo. Es medir el flujo: cuántos documentos entran, qué tipos se repiten, cuánto tarda cada etapa y qué errores obligan a volver atrás.
+
+OSIX puede ayudarte a localizar la parte que merece automatizarse primero y a decidir si necesitas OCR, reglas, integración con tu ERP o una combinación de las tres cosas.
 
 [Cuéntanos tu proceso](https://osix.tech/es/#contact)
 
@@ -72,7 +81,7 @@ No necesariamente. El servicio puede vigilar carpetas de Google Drive o ejecutar
 
 ### ¿El sistema elimina toda revisión humana?
 
-La cifra publicada no demuestra eso. Mide el procesamiento automático y el error técnico observado. La necesidad de revisión depende del tipo de documento, de los campos críticos y del nivel de control que necesite cada proceso.
+La cifra publicada mide el procesamiento automático y el error técnico observado. La necesidad de revisión depende del tipo de documento, de los campos críticos y del nivel de control que necesite cada proceso.
 
 ### ¿Qué diferencia hay entre error técnico y precisión del OCR?
 

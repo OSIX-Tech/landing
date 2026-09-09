@@ -279,11 +279,38 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
   max-width: 100%;
 }
 
-/* Keep long-form reading widths bounded on desktop while allowing phone layouts to shrink. */
-.content-section .max-w-4xl {
+/* Long-form pages use the same outer width as home sections. Prose stays readable inside it. */
+.content-section .max-w-7xl {
   width: 100%;
-  max-width: min(56rem, 100%) !important;
+  max-width: 80rem;
   min-width: 0;
+}
+
+.markdown-body > * {
+  max-width: 56rem;
+}
+
+.markdown-body > h1,
+.markdown-body > h2,
+.markdown-body > h3,
+.markdown-body > h4,
+.markdown-body > h5,
+.markdown-body > h6,
+.markdown-body > p,
+.markdown-body > ul,
+.markdown-body > ol,
+.markdown-body > blockquote,
+.markdown-body > pre,
+.markdown-body > hr {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markdown-body > .table-scroll {
+  max-width: 80rem;
+  width: calc(100% + 20rem);
+  margin-left: -10rem;
+  margin-right: -10rem;
 }
 
 .markdown-body {
@@ -375,6 +402,14 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
 .markdown-body .table-scroll table {
   white-space: nowrap;
   width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .markdown-body > .table-scroll {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Related guides block (shared across guide pages) */
