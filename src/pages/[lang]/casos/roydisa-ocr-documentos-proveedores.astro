@@ -1,0 +1,225 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+const canonicalUrl = `https://osix.tech/${lang}/casos/roydisa-ocr-documentos-proveedores/`;
+const pageDate = '2026-09-09';
+const CaseContent = (await import('../../../content/es/casos/roydisa-ocr-documentos-proveedores.md')).default;
+
+const seoTitle = 'Roydisa: OCR de documentos de proveedores en 27 segundos | OSIX Tech';
+const seoDescription = 'Caso de estudio de OSIX Tech: 31.377 documentos de proveedores procesados, 27 segundos de mediana desde la foto al Excel y 0,04 % de error técnico desde junio de 2026.';
+
+const faqQuestions = [
+  {
+    '@type': 'Question',
+    name: '¿El OCR funciona con documentos de proveedores diferentes?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'El flujo se midió sobre documentos reales de proveedores de Roydisa, con fotos y PDF de distintos tipos. Antes de extrapolar el resultado a otro negocio conviene probar una muestra propia.'
+    }
+  },
+  {
+    '@type': 'Question',
+    name: '¿Hay que contratar servidores nuevos?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'No necesariamente. El servicio puede vigilar carpetas de Google Drive o ejecutarse en un servidor propio con Docker. La arquitectura final depende de los requisitos del cliente.'
+    }
+  },
+  {
+    '@type': 'Question',
+    name: '¿El sistema elimina toda revisión humana?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'La cifra publicada mide el procesamiento automático y el error técnico observado. La necesidad de revisión depende del tipo de documento, de los campos críticos y del nivel de control que necesite cada proceso.'
+    }
+  },
+  {
+    '@type': 'Question',
+    name: '¿Qué diferencia hay entre error técnico y precisión del OCR?',
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: 'El error técnico indica fallos del flujo o de su ejecución en la ventana medida. No equivale a una validación completa de la exactitud de cada campo extraído.'
+    }
+  }
+];
+
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: `https://osix.tech/${lang}/` },
+    { '@type': 'ListItem', position: 2, name: 'Casos', item: `https://osix.tech/${lang}/casos/` },
+    { '@type': 'ListItem', position: 3, name: 'Roydisa OCR', item: canonicalUrl }
+  ]
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${canonicalUrl}#article`,
+      headline: seoTitle,
+      description: seoDescription,
+      url: canonicalUrl,
+      inLanguage: lang,
+      datePublished: pageDate,
+      dateModified: pageDate,
+      author: { '@type': 'Organization', name: 'OSIX Tech', url: 'https://osix.tech' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'OSIX Tech',
+        url: 'https://osix.tech',
+        logo: { '@type': 'ImageObject', url: 'https://osix.tech/logo_w.png' }
+      },
+      mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
+      about: ['automatización documental', 'OCR', 'documentos de proveedores']
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonicalUrl}#webpage`,
+      name: seoTitle,
+      description: seoDescription,
+      url: canonicalUrl,
+      inLanguage: lang,
+      isPartOf: { '@type': 'WebSite', '@id': 'https://osix.tech/#website', name: 'OSIX Tech', url: 'https://osix.tech' },
+      breadcrumb: breadcrumbSchema
+    },
+    breadcrumbSchema,
+    {
+      '@type': 'FAQPage',
+      '@id': `${canonicalUrl}#faq`,
+      isPartOf: { '@id': `${canonicalUrl}#webpage` },
+      mainEntity: faqQuestions
+    }
+  ]
+};
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  canonical={canonicalUrl}
+  jsonLd={jsonLd}
+>
+  <LoadingScreen duration={1000} />
+
+  <section class="case-hero relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="max-w-5xl mx-auto px-6 md:px-12 w-full py-20 text-center">
+      <span class="hero-badge inline-block text-xs uppercase tracking-widest text-gray-400 mb-5 opacity-0">Caso de estudio · Automatización documental y OCR</span>
+      <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 opacity-0 leading-tight">Roydisa procesa documentos de proveedores sin teclearlos uno a uno</h1>
+      <p class="hero-subtitle text-lg md:text-2xl text-gray-300 opacity-0 max-w-3xl mx-auto leading-relaxed">31.377 documentos procesados en seis meses. De la foto al Excel en 27 segundos de mediana.</p>
+    </div>
+  </section>
+
+  <section class="content-section py-16 md:py-24 bg-white mb-0">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-0 md:p-4 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <CaseContent />
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const initAnimations = () => {
+      document.querySelector('.hero-title')?.classList.add('animate');
+      setTimeout(() => document.querySelector('.hero-subtitle')?.classList.add('animate'), 200);
+      setTimeout(() => document.querySelector('.hero-badge')?.classList.add('animate'), 400);
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('in-view'));
+    };
+
+    if ((window as any).isLoadingComplete) initAnimations();
+    else window.addEventListener('loadingComplete', initAnimations);
+
+    document.querySelectorAll('.markdown-body table').forEach((table) => {
+      if (table.parentElement && !table.parentElement.classList.contains('table-scroll')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-scroll';
+        table.parentNode?.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .case-hero .hero-title,
+  .case-hero .hero-subtitle,
+  .case-hero .hero-badge {
+    opacity: 0;
+  }
+
+  .case-hero .hero-title.animate,
+  .case-hero .hero-subtitle.animate,
+  .case-hero .hero-badge.animate {
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .case-hero .hero-title { transform: translateX(-40px); }
+  .case-hero .hero-subtitle { transform: translateX(40px); }
+  .case-hero .hero-badge { transform: translateY(20px); }
+
+  .markdown-body .table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+  }
+
+  .markdown-body .table-scroll table {
+    white-space: nowrap;
+    width: 100%;
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  });
+</script>
+
+<style is:global>
+  .case-hero {
+    animation: caseHeroReveal 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes caseHeroReveal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>

@@ -461,4 +461,24 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/analizar-pliegos-licitaciones-ia-pyme/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/analizar-pliegos-licitaciones-ia-pyme/"/>
   </url>
+  <!-- Hub: Casos -->
+  <url>
+    <loc>https://osix.tech/es/casos/</loc>
+    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/casos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/casos/"/>
+  </url>
+
+  <!-- Case: Roydisa OCR -->
+  <url>
+    <loc>https://osix.tech/es/casos/roydisa-ocr-documentos-proveedores/</loc>
+    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/casos/roydisa-ocr-documentos-proveedores/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/casos/roydisa-ocr-documentos-proveedores/"/>
+  </url>
+
 </urlset>
