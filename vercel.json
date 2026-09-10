@@ -5,5 +5,15 @@
       "destination": "/:path/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/demo/malasa/",
+      "destination": "https://malasa-informes.vercel.app/index.html"
+    },
+    {
+      "source": "/demo/malasa/:path*",
+      "destination": "https://malasa-informes.vercel.app/:path*"
+    }
   ]
 }
