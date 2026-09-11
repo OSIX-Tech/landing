@@ -1,0 +1,237 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LoadingScreen from '../../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía en español (prompt: ¿Cómo implantar IA en una pyme sin experiencia técnica?). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{ params: { lang: 'es' } }];
+}
+
+const { lang = 'es' } = Astro.params;
+
+const GuideContent = (await import('../../../content/es/guias/implantar-ia-pyme-sin-equipo-tecnico.md')).default;
+
+const canonicalUrl = `https://osix.tech/${lang}/guias/implantar-ia-pyme-sin-equipo-tecnico/`;
+
+// SEO Data
+const seoTitle = "Cómo implantar IA en tu pyme sin experiencia técnica: la secuencia en 7 pasos (2026) - OSIX Tech";
+const seoDescription = "Los 7 pasos para implantar IA en una pyme sin equipo técnico: qué puede hacer tu equipo solo, cuánto cuesta cada vía y las cinco preguntas que separan una propuesta seria de una presentación comercial.";
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/${lang}/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Puede una pyme implantar IA sin ningún perfil técnico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, y la vía mayoritaria en España ya es esa: el 49,8% de las empresas accede a la IA comprando software o sistemas comerciales listos para usar. Lo que no se puede saltar es nombrar un responsable interno con tiempo y autoridad, aunque no sea técnico, y escribir el proceso antes de automatizarlo. Las tareas de redacción, resumen, clasificación y documentación puede asumirlas el equipo; las que tocan el ERP, el CRM o documentos con formatos muy distintos exigen experiencia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta empezar a usar IA en una pyme?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se puede empezar por 0 € si aprovechas asistentes incluidos en herramientas que ya pagas. Un asistente por usuario como Microsoft 365 Copilot se anuncia a 27,73 € por usuario y mes (anual y sin IVA, con el plan Empresa Premium), y una automatización no-code arranca en 12 $ al mes con Make Core o 19,99 $ al mes con Zapier Professional. Si el proceso toca tu ERP, tu CRM o tu documentación, los proyectos de pyme se mueven entre 3.000 y 15.000 € de implantación más 200 a 800 € al mes de operación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tarda en verse algo funcionando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un primer flujo puede estar funcionando en dos a cuatro semanas si el proceso está escrito y la métrica fijada de antemano. Los ahorros operativos suelen notarse entre el segundo y el cuarto mes, porque hay una caída inicial mientras el equipo aprende a usar la herramienta. Medir a los diez días suele llevar a decisiones equivocadas en las dos direcciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito contratar a una empresa o puedo hacerlo yo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la tarea, no del tamaño de tu empresa. Redactar, resumir, documentar procesos, fijar métricas y montar flujos sencillos entre dos herramientas puede hacerlo tu equipo. Automatizar procesos que tocan el ERP o el CRM, extraer datos de documentos con formatos distintos y montar un asistente sobre la documentación interna requieren experiencia: ahí el coste de hacerlo mal se mide en datos duplicados, errores contables y accesos indebidos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué obligaciones legales tengo si uso IA en mi empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dos referencias prácticas. El artículo 4 del Reglamento europeo de inteligencia artificial exige garantizar un nivel suficiente de alfabetización en materia de IA de tu personal y de las personas que usan los sistemas en tu nombre. Y en protección de datos, la AEPD aconseja no compartir con la IA datos personales ni información delicada o sensible, y pone a disposición de las pymes una orientación específica con la herramienta FACILITA_RGPD para el registro de tratamientos."
+      }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Implantación · IA para pymes · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          ¿Cómo implantar IA en una pyme sin experiencia técnica?</h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          La secuencia en 7 pasos, lo que puede hacer tu equipo sin ayuda externa y lo que conviene exigir cuando entra un proveedor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <!-- Related guides (internal linking for indexation) -->
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/es/guias/contratar-empresa-ia-o-usar-herramientas/">¿Contratar una empresa de IA o usar herramientas ya hechas?</a></li>
+          <li><a href="/es/guias/procesos-pyme-automatizar-con-ia/">Qué procesos de una pyme se pueden automatizar con IA</a></li>
+          <li><a href="/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
+          <li><a href="/es/guias/medir-resultados-ia-pyme/">Cómo medir si la IA de tu pyme está dando resultados</a></li>
+        </ul>
+      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/${lang}/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * comparison table is `white-space: nowrap` inside its scroll container, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the table keep scrolling inside its own container.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+
+  .content-section .max-w-4xl {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>
