@@ -491,4 +491,60 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/implantar-ia-pyme-sin-equipo-tecnico/"/>
   </url>
 
+
+  <!-- Case studies (Spanish only) -->
+  <url>
+    <loc>https://osix.tech/es/casos/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/roydisa-ocr-documentos-proveedores/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/roydisa-ofertas/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/iciga-correo-crm/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/take-fidelizacion/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/avalagro-evaluacion/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/nessie-documentos/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/xeracion21-moodle/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://osix.tech/es/casos/alia-galego/</loc>
+    <lastmod>2026-09-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
