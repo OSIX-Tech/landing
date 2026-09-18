@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { lang = 'es' } = Astro.props;
-const translations = await import(`../../../public/locales/${lang}.json`);
+const translations = await import('../../../public/locales/es.json');
 const t = (k: string) => translations.default[k] || k;
 ---
 

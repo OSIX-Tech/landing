@@ -111,7 +111,7 @@ Definición y beneficios contrastados con las referencias del sector que los bus
 
 ## Fuentes
 
-- [AWS: en qué consiste la automatización inteligente](https://aws.amazon.com/es/what-is/intelligent-automation/)
+- [AWS: en qué consiste la automatización inteligente](https://aws.amazon.com//what-is/intelligent-automation/)
 - [Mecalux: automatización inteligente, qué es y aplicaciones](https://www.mecalux.es/blog/automatizacion-inteligente)
-- [Blue Prism: casos de uso y ejemplos de la automatización inteligente](https://www.blueprism.com/es/resources/blog/intelligent-automation-use-cases-examples/)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Blue Prism: casos de uso y ejemplos de la automatización inteligente](https://www.blueprism.com//resources/blog/intelligent-automation-use-cases-examples/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

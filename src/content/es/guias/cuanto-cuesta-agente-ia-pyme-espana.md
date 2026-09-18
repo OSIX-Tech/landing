@@ -191,14 +191,14 @@ Los rangos se construyeron comparando referencias públicas españolas de 2026 s
 - [Ciberfobia: cuánto cuesta implementar una automatización con IA](https://ciberfobia.com/faq/coste-implementar-automatizacion-ia)
 - [Upliora: precios por tipo de proyecto de IA para pymes españolas](https://www.upliora.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-por-tipo-proyecto-2026)
 - [Javadex: cuánto cuesta implementar IA en una pyme española](https://www.javadex.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-2026)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
 
 ## Guías relacionadas
 
-- [Qué es un agente de IA y qué puede hacer por tu negocio](https://osix.tech/es/guias/agentes-ia-pymes/)
-- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/es/guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/es/guias/integrar-ia-software-pyme-espana/)
+- [Qué es un agente de IA y qué puede hacer por tu negocio](https://osix.tech/guias/agentes-ia-pymes/)
+- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
 
-[Volver al inicio](https://osix.tech/es/)
+[Volver al inicio](https://osix.tech/)
 
 [Contactar con OSIX Tech por WhatsApp](https://wa.me/34648935068?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20agentes%20de%20IA)

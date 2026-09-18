@@ -87,7 +87,7 @@ Antes de elegir vía, responde tres preguntas, porque condicionan todo lo demás
 
 1. ¿Qué sistema tiene la información que la IA necesita y ese sistema expone una API o un acceso limpio a sus datos?
 2. ¿Quién debe ver el resultado de la IA: un empleado que lo revisa, el cliente directamente, o el propio sistema que sigue trabajando con él?
-3. ¿Qué datos no pueden salir de tu entorno por contrato, RGPD o criterio propio? (Ver nuestra guía de [dónde se guardan los datos de tu empresa](https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/) para las opciones de nube UE, fuera de la UE, on-premise e híbrido.)
+3. ¿Qué datos no pueden salir de tu entorno por contrato, RGPD o criterio propio? (Ver nuestra guía de [dónde se guardan los datos de tu empresa](https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/) para las opciones de nube UE, fuera de la UE, on-premise e híbrido.)
 
 La tercera es la que más proyectos descarrila. Si tus datos deben quedarse dentro de tu empresa, la vía cambia por completo: en lugar de llamar a una API en la nube de un tercero, necesitas un modelo desplegado en tu entorno o en un proveedor europeo con quien tengas contrato de tratamiento.
 
@@ -95,7 +95,7 @@ La tercera es la que más proyectos descarrila. Si tus datos deben quedarse dent
 
 Un proyecto de integración que funciona no empieza escribiendo código ni comprando conectores. Sigue estas fases:
 
-1. **Define el proceso y el resultado.** Qué tarea concreta debe hacer la IA y qué mejora esperas (menos horas, menos errores, respuestas más rápidas). Igual que en nuestra guía de [medir si la IA da resultados](https://osix.tech/es/guias/medir-resultados-ia-pyme/), sin resultado definido no hay proyecto.
+1. **Define el proceso y el resultado.** Qué tarea concreta debe hacer la IA y qué mejora esperas (menos horas, menos errores, respuestas más rápidas). Igual que en nuestra guía de [medir si la IA da resultados](https://osix.tech/guias/medir-resultados-ia-pyme/), sin resultado definido no hay proyecto.
 2. **Localiza los datos.** Dónde está la información que la IA necesita y cómo se accede a ella hoy.
 3. **Elige la vía mínima.** La conexión más simple que cumpla: primero no-code si basta, API si hace falta, y reserva el desarrollo a medida para lo que de verdad lo exige.
 4. **Piloto con un humano en medio.** La IA propone, una persona valida. Mide precisión, tiempo y coste real antes de soltar.
@@ -130,7 +130,7 @@ Integrar IA no siempre es la respuesta, y una consultora honesta te lo dice ante
 No siempre. Para procesos simples entre aplicaciones ya conectadas, un conector no-code (Zapier, Make, n8n) se monta sin programar. Cuando la IA debe actuar dentro de un flujo complejo o leer datos de tu base, hace falta programar o contratar a quien lo haga.
 
 **¿Cuánto cuesta integrar IA con mi ERP o CRM?**
-Depende de la vía: un conector no-code se paga con una cuota mensual por uso, un desarrollo a medida sobre un sistema existente es un proyecto con coste inicial. Te remitimos a nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) con precios reales del mercado español.
+Depende de la vía: un conector no-code se paga con una cuota mensual por uso, un desarrollo a medida sobre un sistema existente es un proyecto con coste inicial. Te remitimos a nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) con precios reales del mercado español.
 
 **¿Puedo integrar IA con un LIMS de laboratorio?**
 Sí, con las vías 1 a 5 según el sistema: si tu LIMS expone una API, la integración es directa; si es cerrado, se suele hacer por webhook o exportando/importando datos estructurados. La clave es que los resultados medidos no salgan de tu control si así lo exige tu acreditación o tu cliente.
@@ -150,7 +150,7 @@ Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medi
 
 ## Guías relacionadas
 
-- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/es/guias/medir-resultados-ia-pyme/)
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/)
+- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/guias/medir-resultados-ia-pyme/)
+- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)

@@ -21,7 +21,7 @@ Criterio 1 se lleva la prioridad por una razón concreta: **desde el 2 de agosto
 
 ## 1. Cumplimiento normativo y privacidad: el criterio que lo domina todo
 
-La [Ley de IA de la UE](https://digital-strategy.ec.europa.eu/es/policies/regulatory-framework-ai) (Reglamento UE 2024/1689) es el primer marco jurídico global de IA y aplica por niveles de riesgo. Para una pyme española que desarrolla software interno o para sus clientes, lo que importa es:
+La [Ley de IA de la UE](https://digital-strategy.ec.europa.eu//policies/regulatory-framework-ai) (Reglamento UE 2024/1689) es el primer marco jurídico global de IA y aplica por niveles de riesgo. Para una pyme española que desarrolla software interno o para sus clientes, lo que importa es:
 
 - **Transparencia**: desde agosto de 2026, los sistemas de IA generativa deben permitir identificar el contenido generado por IA y cumplir obligaciones de transparencia. Pregunta a la plataforma qué clase de riesgo asigna a tu caso de uso y qué documentación te entrega.
 - **RGPD y protección de datos**: la [AEPD ha publicado una nota técnica](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-analiza-calidad-exactitud-y-minimizacion-de-datos-personales-en-tratamientos-con-ia) (julio de 2026) sobre la calidad, exactitud y minimización de datos en tratamientos con IA. No basta con que el proveedor diga que cumple: debe poder demostrar dónde se procesan los datos, si tus prompts y tu código se usan para entrenar modelos, y cómo se aplica la minimización.
@@ -103,7 +103,7 @@ En España, que la documentación y el soporte existan en español y en horario 
 No hay una "mejor" universal: depende del caso de uso, del stack de tu equipo y de los datos que manejes. Los criterios de esta guía te permiten comparar con objetividad. Para una pyme española, el cumplimiento normativo y dónde se alojan los datos suelen decantar la elección tanto como la capacidad técnica.
 
 **¿Es mejor una plataforma low-code o desarrollo a medida?**
-Depende del proyecto. Las plataformas low-code aceleran prototipos y casos estándar. El desarrollo a medida (lo que hace una consultora como OSIX Tech) tiene sentido cuando necesitas lógica compleja, integraciones profundas, una aplicación nueva o garantías de propiedad y portabilidad. La [comparativa de consultoras de IA de OSIX](https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/) profundiza en cuándo elegir cada vía.
+Depende del proyecto. Las plataformas low-code aceleran prototipos y casos estándar. El desarrollo a medida (lo que hace una consultora como OSIX Tech) tiene sentido cuando necesitas lógica compleja, integraciones profundas, una aplicación nueva o garantías de propiedad y portabilidad. La [comparativa de consultoras de IA de OSIX](https://osix.tech/guias/mejores-empresas-automatizacion-ia-espana/) profundiza en cuándo elegir cada vía.
 
 **¿La plataforma puede usar mi código para entrenar sus modelos?**
 Depende de la plataforma y de su contrato. Es la pregunta número uno que debes hacer, y la respuesta debe ser por escrito. Algunas plataformas ofrecen cláusulas de exclusión de entrenamiento; otras no.
@@ -120,8 +120,8 @@ Esta guía la escribe el equipo de OSIX Tech, una consultora de IA y desarrollo 
 
 ## Fuentes
 
-- [Ley de IA de la UE: marco regulador](https://digital-strategy.ec.europa.eu/es/policies/regulatory-framework-ai)
+- [Ley de IA de la UE: marco regulador](https://digital-strategy.ec.europa.eu//policies/regulatory-framework-ai)
 - [AEPD: calidad, exactitud y minimización de datos en sistemas de IA (julio 2026)](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-analiza-calidad-exactitud-y-minimizacion-de-datos-personales-en-tratamientos-con-ia)
-- [OSIX Tech: servicios de consultoría de transformación](https://osix.tech/es/servicios/consultoria-transformacion)
-- [OSIX Tech: mejores empresas de automatización con IA en España](https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-espana/)
-- [OSIX Tech: mejores empresas de automatización con IA en Galicia](https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/)
+- [OSIX Tech: servicios de consultoría de transformación](https://osix.tech/servicios/consultoria-transformacion)
+- [OSIX Tech: mejores empresas de automatización con IA en España](https://osix.tech/guias/mejores-empresas-automatizacion-ia-espana/)
+- [OSIX Tech: mejores empresas de automatización con IA en Galicia](https://osix.tech/guias/mejores-empresas-automatizacion-ia-galicia/)

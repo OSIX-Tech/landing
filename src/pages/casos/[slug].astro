@@ -1,0 +1,851 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LoadingScreen from '../../components/LoadingScreen.astro';
+import BeamsBackground from '../../components/BeamsBackground.jsx';
+import CaseMetrics from '../../components/case/CaseMetrics';
+import CaseFAQ from '../../components/case/CaseFAQ.astro';
+import CaseRail from '../../components/case/CaseRail.astro';
+import { getCaseStudy, getCaseStudySlugs, caseStudies } from '../../data/case-studies';
+import { genCaseArt } from '../../utils/caseArt';
+import type { Lang } from '../../utils/languages';
+
+// The numbers carry the argument on these pages, so they are set in the prose
+// rather than left to blend into it. Years stay plain — bolding every date
+// turns the paragraph into noise.
+const escapeHtml = (value: string) =>
+  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const withNumbers = (text: string) =>
+  escapeHtml(text).replace(/(\d[\d.,]*\d|\d)(\s?%)?/g, (match, _digits, percent) => {
+    if (!percent && /^(19|20)\d{2}$/.test(match)) return match;
+    return `<strong class="case-num">${match}</strong>`;
+  });
+
+export const prerender = true;
+
+// Spanish only: these are measured client figures, not copy we can translate.
+export async function getStaticPaths() {
+  return getCaseStudySlugs().map(slug => ({ params: { lang: 'es', slug } }));
+}
+
+const { lang = 'es', slug = '' } = Astro.params as { lang: Lang; slug: string };
+const study = getCaseStudy(slug);
+
+if (!study) {
+  return Astro.redirect(`/casos/`);
+}
+
+const related = caseStudies.filter(c => c.slug !== slug).slice(0, 3);
+const canonicalUrl = `https://osix.tech/casos/${slug}/`;
+const heroArt = genCaseArt(slug);
+
+const railSections = [
+  { id: 'metricas', label: 'Cifras' },
+  { id: 'caso', label: 'El caso' },
+  { id: 'limite', label: 'El límite' },
+  { id: 'ficha', label: 'Ficha' },
+  { id: 'faq', label: 'Preguntas' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      '@id': `${canonicalUrl}#article`,
+      headline: study.title,
+      description: study.seoDescription,
+      url: canonicalUrl,
+      inLanguage: lang,
+      datePublished: '2026-09-08',
+      dateModified: '2026-09-08',
+      author: { '@type': 'Organization', name: 'OSIX Tech', url: 'https://osix.tech' },
+      publisher: { '@id': 'https://osix.tech/#organization' },
+      about: { '@type': 'Thing', name: study.category },
+      isPartOf: { '@type': 'WebSite', '@id': 'https://osix.tech/#website', name: 'OSIX Tech', url: 'https://osix.tech' },
+      mainEntityOfPage: canonicalUrl,
+      breadcrumb: {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: `https://osix.tech/` },
+          { '@type': 'ListItem', position: 2, name: 'Casos de estudio', item: `https://osix.tech/casos/` },
+          { '@type': 'ListItem', position: 3, name: study.title, item: canonicalUrl },
+        ],
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${canonicalUrl}#faq`,
+      isPartOf: { '@id': `${canonicalUrl}#article` },
+      mainEntity: study.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  lang={lang}
+  title={study.seoTitle}
+  description={study.seoDescription}
+  canonical={canonicalUrl}
+  pageType="article"
+  jsonLd={jsonLd}
+>
+  <LoadingScreen duration={1000} />
+  <CaseRail sections={railSections} />
+
+  <!-- HERO -->
+  <section class="case-hero relative bg-black overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="absolute inset-0 z-0">
+      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
+    </div>
+
+    <div class="case-hero-inner">
+      <div class="case-hero-text">
+        <nav class="case-crumbs hero-el" style="--d: 0.05s" aria-label="Breadcrumb">
+          <a href={`/`}>Inicio</a>
+          <span aria-hidden="true">/</span>
+          <a href={`/casos/`}>Casos de estudio</a>
+        </nav>
+
+        <span class="case-eyebrow hero-el" style="--d: 0.15s">{study.category}</span>
+        <h1 class="case-h1 hero-el" style="--d: 0.25s">{study.title}</h1>
+        <p class="case-lead hero-el" style="--d: 0.35s">{study.lead}</p>
+
+        <div class="case-hero-meta hero-el" style="--d: 0.45s">
+          <div class="case-meta-item">
+            <span class="case-meta-key">Estado</span>
+            <span class="case-meta-val">{study.status}</span>
+          </div>
+        </div>
+
+        <a href={`/#contact`} class="btn-secondary btn-arrow hero-el case-hero-cta" style="--d: 0.55s">
+          Cuéntanos tu proceso
+          <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <figure class="case-hero-media hero-el" style="--d: 0.4s">
+        <div class="case-hero-frame">
+          <Fragment set:html={heroArt} />
+        </div>
+        <figcaption class="case-hero-caption">{study.category}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- HEADLINE METRICS -->
+  <section id="metricas" class="case-band-dark case-metrics-band mb-0">
+    <div class="case-shell">
+      <CaseMetrics client:visible stats={study.metrics} label="Cifras medidas" />
+      {study.metricsNote && <p class="case-metrics-note">{study.metricsNote}</p>}
+    </div>
+  </section>
+
+  <!-- NARRATIVE -->
+  <section id="caso" class="case-band-light mb-0">
+    <div class="case-shell">
+      <article class="case-prose">
+        {study.sections.map(section => (
+          <section class="case-prose-block fade-up" style="--delay: 0.05s">
+            <h2 class="case-prose-title">{section.title}</h2>
+            {section.body.map(paragraph => (
+              <p class="case-prose-text" set:html={withNumbers(paragraph)} />
+            ))}
+          </section>
+        ))}
+      </article>
+    </div>
+  </section>
+
+  <!-- SECONDARY METRICS -->
+  {study.secondaryMetrics && study.secondaryMetrics.length > 0 && (
+    <section class="case-band-muted mb-0">
+      <div class="case-shell">
+        <CaseMetrics client:visible stats={study.secondaryMetrics} label="Desglose de producción" variant="secondary" />
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="case-band-dark mb-0">
+    <div class="case-shell">
+      <div class="case-cta fade-up" style="--delay: 0.05s">
+        <h2 class="case-cta-title">{study.ctaTitle}</h2>
+        {study.ctaBody.map(paragraph => (
+          <p class="case-cta-text">{paragraph}</p>
+        ))}
+        <a href={`/#contact`} class="btn-secondary btn-arrow">
+          Cuéntanos tu proceso
+          <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LIMIT — deliberately prominent -->
+  <section id="limite" class="case-band-light mb-0">
+    <div class="case-shell">
+      <div class="case-limit fade-up" style="--delay: 0.05s">
+        <span class="case-limit-tag">Alcance</span>
+        <h2 class="case-limit-title">{study.limitSection.title}</h2>
+        {study.limitSection.body.map(paragraph => (
+          <p class="case-limit-text">{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT FACTS -->
+  <section id="ficha" class="case-band-dark mb-0">
+    <div class="case-shell">
+      <header class="case-section-head fade-up" style="--delay: 0.05s">
+        <span class="case-section-eyebrow is-inverse">Ficha del proyecto</span>
+        <h2 class="case-section-title is-inverse">Cómo se midió</h2>
+      </header>
+      <dl class="case-facts fade-up" style="--delay: 0.15s">
+        {study.facts.map(fact => (
+          <div class="case-fact">
+            <dt class="case-fact-key">{fact.key}</dt>
+            <dd class="case-fact-value">{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+      {study.sourceNote && (
+        <p class="case-source fade-up" style="--delay: 0.25s">{study.sourceNote}</p>
+      )}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <div id="faq">
+    <CaseFAQ faqs={study.faqs} label="Preguntas frecuentes" title="Lo que suelen preguntarnos sobre este caso" />
+  </div>
+
+  <!-- RELATED + CTA -->
+  <section class="case-band-muted mb-0">
+    <div class="case-shell">
+      <div class="case-outro">
+        <div class="case-outro-cases fade-up" style="--delay: 0.05s">
+          <span class="case-section-eyebrow">Otros casos</span>
+          <div class="case-related-grid">
+            {related.map((other, i) => (
+              <a href={`/casos/${other.slug}/`} class="case-related-card">
+                <span class="case-related-media">
+                  <Fragment set:html={genCaseArt(other.slug, i + 1)} />
+                  <span class="case-related-metric">{other.metrics[0].value}</span>
+                </span>
+                <span class="case-related-body">
+                  <span class="case-related-client">{other.category}</span>
+                  <span class="case-related-title">{other.title}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <aside class="case-outro-cta fade-up" style="--delay: 0.15s">
+          <h2 class="case-outro-title">¿Tienes un proceso parecido?</h2>
+          <p class="case-outro-text">
+            Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible.
+          </p>
+          <a href={`/casos/`} class="case-outro-link">Ver todos los casos →</a>
+          <a href={`/#contact`} class="btn-primary btn-arrow">
+            Hablar con OSIX
+            <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const revealHero = () => {
+    document.querySelectorAll('.hero-el').forEach(el => el.classList.add('is-in'));
+  };
+
+  const start = () => {
+    const skipDelay = !!window.location.hash;
+    if (skipDelay) revealHero();
+    else setTimeout(revealHero, 150);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    }, skipDelay ? 0 : 900);
+  };
+
+  if ((window as any).isLoadingComplete) start();
+  else window.addEventListener('loadingComplete', start);
+</script>
+
+<style is:global>
+  /* ── Shell + bands ───────────────────────────────────────────── */
+  .case-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .case-shell { padding-left: 3rem; padding-right: 3rem; }
+  }
+
+  .case-band-light { background: #fff; padding: 4.5rem 0; display: block; }
+  .case-band-muted { background: #f5f5f5; padding: 4.5rem 0; display: block; }
+  .case-band-dark { background: #0a0a0a; padding: 4.5rem 0; display: block; }
+
+  @media (min-width: 768px) {
+    .case-band-light,
+    .case-band-muted,
+    .case-band-dark { padding: 6rem 0; }
+  }
+
+  .case-section-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(0, 0, 0, 0.4);
+  }
+  .case-section-eyebrow.is-inverse { color: #fff; }
+
+  .case-section-head { margin-bottom: 3rem; }
+
+  .case-section-title {
+    margin-top: 0.75rem;
+    font-size: clamp(1.6rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #000;
+    max-width: 34ch;
+  }
+  .case-section-title.is-inverse { color: #fff; }
+
+  /* ── Hero ────────────────────────────────────────────────────── */
+  .case-hero { padding: 4rem 0 4.5rem; display: block; }
+
+  @media (min-width: 1024px) {
+    .case-hero { padding: 5.5rem 0 6rem; }
+  }
+
+  .case-hero-inner {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .case-hero-inner { padding: 0 3rem; }
+  }
+
+  @media (min-width: 1024px) {
+    .case-hero-inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 4rem;
+    }
+  }
+
+  .case-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 1.75rem;
+  }
+  .case-crumbs a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .case-crumbs a:hover { color: #fff; }
+
+  .case-eyebrow {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #0a0a0a;
+    background: #fff;
+    padding: 0.4rem 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-h1 {
+    font-size: clamp(2rem, 4.6vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    max-width: 20ch;
+  }
+
+  .case-lead {
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    line-height: 1.7;
+    color: #fff;
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+
+  .case-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 2rem;
+  }
+
+  .case-meta-item { display: flex; flex-direction: column; gap: 0.3rem; max-width: 46ch; }
+
+  .case-meta-key {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fff;
+  }
+
+  .case-meta-val { font-size: 0.95rem; font-weight: 600; color: #fff; line-height: 1.5; }
+
+  .case-hero-cta { align-self: flex-start; }
+
+  .case-hero-media { position: relative; margin: 0; }
+
+  .case-hero-frame {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #0a0a0a;
+    overflow: hidden;
+    aspect-ratio: 600 / 420;
+  }
+
+  /* Offset outline behind the frame */
+  .case-hero-media::before {
+    content: '';
+    position: absolute;
+    inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+  }
+
+  .case-hero-frame svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .case-hero-caption {
+    margin-top: 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #fff;
+  }
+
+  /* ── Metrics ─────────────────────────────────────────────────── */
+  .case-metrics-band {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .case-metrics-band { padding: 3.5rem 0; }
+  }
+
+  .case-metrics-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .case-metrics-secondary .case-metrics-label { color: rgba(0, 0, 0, 0.4); }
+
+  .case-metrics-note {
+    margin-top: 2.25rem;
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #fff;
+  }
+
+  .case-metrics-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .case-metrics-row { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+  }
+
+  .case-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i, 0) * 0.08s);
+  }
+
+  .case-metrics.is-revealed .case-metric { opacity: 1; transform: translateY(0); }
+
+  .case-metric-value {
+    order: -1; /* value reads first; DOM keeps the required dt → dd order */
+    margin: 0;
+    font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Hierarchy comes from size and weight, not from fading the label out.
+     No rules under the figures — this page does not use boxed-in elements. */
+  .case-metric-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #fff;
+  }
+
+  /* Secondary figures sit on a light band */
+  .case-metrics-secondary .case-metric-value { color: #0a0a0a; font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+  .case-metrics-secondary .case-metric-label { color: #0a0a0a; }
+  .case-metrics-secondary .case-metric-note { font-size: 0.78rem; font-weight: 500; line-height: 1.5; color: #555; }
+
+  /* Long-form prose, matching the guides: same measure, same ink. */
+  .case-prose {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .case-prose-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .case-prose-title {
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #0a0a0a;
+  }
+
+  .case-prose-text {
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #1a1a1a;
+  }
+
+  .case-num {
+    font-weight: 800;
+    color: #0a0a0a;
+  }
+
+  /* Closing CTA */
+  .case-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    max-width: 52rem;
+  }
+
+  .case-cta-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  .case-cta-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #fff;
+    max-width: 62ch;
+  }
+
+  /* ── The limit ───────────────────────────────────────────────── */
+  /* Reads as the closing section of the article, not as a boxed callout:
+     same measure and ink as the prose, set apart by space and by the label. */
+  .case-limit {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .case-limit-tag {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #0a0a0a;
+    margin-bottom: 0.9rem;
+  }
+
+  .case-limit-title {
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #0a0a0a;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-limit-text {
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #1a1a1a;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-limit-text:last-child { margin-bottom: 0; }
+
+  /* ── Project facts ───────────────────────────────────────────── */
+  .case-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  @media (min-width: 900px) {
+    .case-facts { grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+  }
+
+  .case-fact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .case-fact-key {
+    flex: 0 0 11rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    padding-top: 0.15rem;
+  }
+
+  .case-fact-value {
+    flex: 1 1 12rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .case-source {
+    margin-top: 2.5rem;
+    max-width: 60ch;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #fff;
+  }
+
+  /* ── Outro ───────────────────────────────────────────────────── */
+  .case-outro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .case-outro { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 4rem; }
+  }
+
+  .case-related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .case-related-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  }
+
+  .case-related-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  }
+
+  .case-related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .case-related-media {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+
+  .case-related-media svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .case-related-card:hover .case-related-media svg { transform: scale(1.05); }
+
+  .case-related-metric {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.75rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #fff;
+  }
+
+  .case-related-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem;
+  }
+
+  .case-related-client {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .case-related-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #000;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .case-outro-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .case-outro-title {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #000;
+  }
+
+  .case-outro-text { font-size: 1rem; line-height: 1.7; color: #555; }
+
+  .case-outro-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-outro-link:hover { border-color: #000; }
+
+  /* ── FAQ band spacing ────────────────────────────────────────── */
+  .case-faq { padding: 4.5rem 0; display: block; }
+
+  @media (min-width: 768px) {
+    .case-faq { padding: 6rem 0; }
+  }
+
+  /* ── Reveal ──────────────────────────────────────────────────── */
+  .hero-el {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1), transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: var(--d, 0s);
+  }
+  .hero-el.is-in { opacity: 1; transform: translateY(0); }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+  .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-el,
+    .fade-up,
+    .case-metric,
+    .case-related-card,
+    .case-related-media svg {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+</style>

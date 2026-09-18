@@ -191,10 +191,10 @@ La plataforma oficial del expediente y sus anexos prevalecen sobre cualquier res
 
 ## Guías relacionadas
 
-- [Automatizar documentos sin perder la revisión humana](/es/guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo automatizar la preparación de ofertas desde el correo del cliente](/es/guias/automatizar-ofertas-presupuestos-correo-pyme/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](/es/guias/integrar-ia-software-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](/es/guias/medir-resultados-ia-pyme/)
+- [Automatizar documentos sin perder la revisión humana](//guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Cómo automatizar la preparación de ofertas desde el correo del cliente](//guias/automatizar-ofertas-presupuestos-correo-pyme/)
+- [Cómo integrar la IA con el software que ya usa tu empresa](//guias/integrar-ia-software-pyme-espana/)
+- [Cómo medir si la IA de tu pyme está dando resultados](//guias/medir-resultados-ia-pyme/)
 
 ---
 

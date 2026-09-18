@@ -10,7 +10,7 @@ import nelImg from '../assets/team/nel.jpeg';
 import diegoImg from '../assets/team/diego.jpeg';
 
 const { lang } = Astro.params;
-const translations = await import(`../../public/locales/${lang}.json`);
+const translations = await import('../../public/locales/es.json');
 const t = (k: string) => translations.default[k] || k;
 
 const optimizedServiceImage = await getImage({

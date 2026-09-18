@@ -125,6 +125,6 @@ Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medi
 
 ## Guías relacionadas
 
-- [Cuánto se tarda en ver resultados al implantar IA](https://osix.tech/es/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Para qué sirve la IA en una pyme: las 8 formas que dan resultados](https://osix.tech/es/guias/para-que-sirve-ia-pyme/)
+- [Cuánto se tarda en ver resultados al implantar IA](https://osix.tech/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Para qué sirve la IA en una pyme: las 8 formas que dan resultados](https://osix.tech/guias/para-que-sirve-ia-pyme/)

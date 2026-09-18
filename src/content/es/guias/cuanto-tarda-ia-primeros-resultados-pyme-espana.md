@@ -111,4 +111,4 @@ Sí, como primer paso: dan resultados en días y enseñan al equipo qué es posi
 
 - Hiberus Booster, guía de plazos de implementación de IA: https://www.hiberusbooster.com/guias/cuanto-tarda-implementar-ia-empresa/
 - Aprender21, ROI de implementar IA en empresas: https://www.aprender21.com/blog/roi-implementacion-ia-empresa
-- OSIX Tech, guía de costes de automatización con IA para pymes: https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
+- OSIX Tech, guía de costes de automatización con IA para pymes: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/

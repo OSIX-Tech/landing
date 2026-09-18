@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { lang = 'es' } = Astro.props;
-const translations = await import(`../../public/locales/${lang}.json`);
+const translations = await import('../../public/locales/es.json');
 const t = (k: string) => translations.default[k] || k;
 ---
 
@@ -61,7 +61,7 @@ const t = (k: string) => translations.default[k] || k;
         <div class="hidden md:flex items-start gap-4 mt-auto">
           <!-- Clickable part -->
           <a
-            href={`/${lang}/privacy`}
+            href={`//privacy`}
             class="group flex items-center gap-4 py-8
                 focus:outline-none transition"
           >
@@ -305,7 +305,7 @@ const t = (k: string) => translations.default[k] || k;
     <div class="block md:hidden mb-8 px-6">
       <div class="flex items-start gap-4">
         <a
-          href={`/${lang}/privacy`}
+          href={`//privacy`}
           class="group flex items-center gap-4 py-8 focus:outline-none transition"
         >
           <div class="w-10 h-10 bg-white flex items-center justify-center flex-shrink-0 border-2 border-black

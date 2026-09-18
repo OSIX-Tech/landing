@@ -86,4 +86,4 @@ Comparación basada en las referencias que los buscadores con IA citan para esta
 - [Javadex: consultor freelance de IA para pymes en España (incluye su comparativa de costes frente a las grandes consultoras)](https://www.javadex.es/)
 - [Hiberus Booster: unidad especializada de hiberus para empresas](https://www.hiberusbooster.com/)
 - [Innowise: empresa de desarrollo de software para proyectos enterprise](https://www.innowise.com/)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

@@ -14,7 +14,7 @@ export const NAV_SCROLL_DURATION = 2000;
 /**
  * The element a nav href points at on the current page, or null when the click
  * belongs to the browser: the href carries no hash (a plain page link such as
- * /es/casos/), or its section lives on another page.
+ * /casos/), or its section lives on another page.
  */
 export function resolveNavTarget(href: string | null | undefined): HTMLElement | null {
   if (!href) return null;

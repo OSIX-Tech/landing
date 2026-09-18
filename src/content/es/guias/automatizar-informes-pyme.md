@@ -109,6 +109,6 @@ Esta guía la publica OSIX Tech, consultora de desarrollo de software e intelige
 
 - [Precios de Power BI (Microsoft, España)](https://www.microsoft.com/es-es/power-platform/products/power-bi/pricing)
 - [Planes y precios de Make](https://www.make.com/en/pricing)
-- [Planes y precios de Zapier](https://zapier.com/es/pricing)
+- [Planes y precios de Zapier](https://zapier.com//pricing)
 - [Looker Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

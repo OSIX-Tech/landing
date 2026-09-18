@@ -119,7 +119,7 @@ Las aplicaciones prácticas y los límites honestos se contrastaron con los crit
 
 ## Fuentes
 
-- [BBVA: IA para pymes, casos prácticos y consejos esenciales](https://www.bbva.com/es/empresas/ia-para-pymes-casos-practicos-y-consejos-esenciales)
-- [Shopify: IA para pymes, usos, beneficios y riesgos](https://www.shopify.com/es/blog/ia-pymes)
+- [BBVA: IA para pymes, casos prácticos y consejos esenciales](https://www.bbva.com//empresas/ia-para-pymes-casos-practicos-y-consejos-esenciales)
+- [Shopify: IA para pymes, usos, beneficios y riesgos](https://www.shopify.com//blog/ia-pymes)
 - [OECD: Generative AI and the SME Workforce](https://www.oecd.org/en/publications/generative-ai-and-the-sme-workforce_2d08b99d-en.html)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

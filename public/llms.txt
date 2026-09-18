@@ -15,14 +15,14 @@ Key facts:
 
 ## Services
 
-- [Custom AI Development](https://osix.tech/es/servicios/desarrollo-a-medida/): Mobile apps, web platforms, intelligent agents, and AI automations built 100% custom for your business. Working demo in 2 weeks.
-- [Digital Transformation Consulting](https://osix.tech/es/servicios/consultoria-transformacion/): On-site visit, operational analysis, and a prioritized action plan with savings estimates delivered in under a week. No commitment required.
-- [Subsidized Innovation & Grants](https://osix.tech/es/servicios/innovacion-subvencionada/): We identify public grants (IGAPE, IA360, Ticket Innova, Kit Digital) that fit your company and design the project and technical report to maximize approval. Average 60% grant coverage.
+- [Custom AI Development](https://osix.tech/servicios/desarrollo-a-medida/): Mobile apps, web platforms, intelligent agents, and AI automations built 100% custom for your business. Working demo in 2 weeks.
+- [Digital Transformation Consulting](https://osix.tech/servicios/consultoria-transformacion/): On-site visit, operational analysis, and a prioritized action plan with savings estimates delivered in under a week. No commitment required.
+- [Subsidized Innovation & Grants](https://osix.tech/servicios/innovacion-subvencionada/): We identify public grants (IGAPE, IA360, Ticket Innova, Kit Digital) that fit your company and design the project and technical report to maximize approval. Average 60% grant coverage.
 
 ## Case Studies
 
-- [IRIS - AI Email Classification for ICIGA](https://osix.tech/es/#services): AI agents that monitor 6 inboxes in real time, classify 10 types of requests using NLP, and draft automatic responses. Result: 60% time saved in email management.
-- [Project Certainty - AI Technical Drawing Solver](https://osix.tech/es/#services): AI-powered proof of concept that solves technical drawing exercises automatically for an educational technology company.
+- [IRIS - AI Email Classification for ICIGA](https://osix.tech/#services): AI agents that monitor 6 inboxes in real time, classify 10 types of requests using NLP, and draft automatic responses. Result: 60% time saved in email management.
+- [Project Certainty - AI Technical Drawing Solver](https://osix.tech/#services): AI-powered proof of concept that solves technical drawing exercises automatically for an educational technology company.
 
 ## FAQ
 
@@ -53,10 +53,10 @@ We deliver a working demo in 2 weeks. Full project timelines depend on scope, bu
 
 ## Links
 
-- [Homepage (Spanish)](https://osix.tech/es/)
-- [Custom AI Development](https://osix.tech/es/servicios/desarrollo-a-medida/)
-- [Digital Transformation Consulting](https://osix.tech/es/servicios/consultoria-transformacion/)
-- [Subsidized Innovation & Grants](https://osix.tech/es/servicios/innovacion-subvencionada/)
-- [KTED Grant Landing](https://osix.tech/es/kted/a/)
+- [Homepage (Spanish)](https://osix.tech/)
+- [Custom AI Development](https://osix.tech/servicios/desarrollo-a-medida/)
+- [Digital Transformation Consulting](https://osix.tech/servicios/consultoria-transformacion/)
+- [Subsidized Innovation & Grants](https://osix.tech/servicios/innovacion-subvencionada/)
+- [KTED Grant Landing](https://osix.tech/kted/a/)
 - [GitHub](https://github.com/osixtech)
 - [LinkedIn](https://linkedin.com/company/osixtech)

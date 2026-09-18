@@ -95,4 +95,4 @@ Comparación basada en las referencias del sector que los buscadores con IA cita
 
 - [Consultoria Informática: desarrollo de IA a medida vs. SaaS, cómo elegir](https://consultoriainformatica.net/transformacion-digital-desarrollo-de-ia-a-medida)
 - [Cyberclick: qué hace una agencia de inteligencia artificial y cuándo contratarla](https://www.cyberclick.es/numerical-blog/que-hace-una-agencia-de-inteligencia-artificial-y-cuando-contratarla)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

@@ -194,8 +194,8 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 
 ## Fuentes
 
-- [Servicios de OSIX Tech](https://osix.tech/es)
-- [Consultoría de transformación de OSIX Tech](https://osix.tech/es/servicios/consultoria-transformacion)
+- [Servicios de OSIX Tech](https://osix.tech)
+- [Consultoría de transformación de OSIX Tech](https://osix.tech/servicios/consultoria-transformacion)
 - [KAIRAS, automatización para empresas en Galicia](https://kairas.es/automatizacion-empresas-galicia)
 - [IA Galicia, automatización para empresas gallegas](https://iagalicia.com)
 - [SmartCommerce, automatización e IA en Galicia](https://www.smartcommerce.es)

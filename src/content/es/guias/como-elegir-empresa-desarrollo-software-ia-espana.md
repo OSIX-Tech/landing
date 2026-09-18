@@ -117,6 +117,6 @@ Criterios sintetizados de las referencias públicas de consultoras y guías de s
 
 ## Fuentes
 
-- [onext: cómo elegir un IA partner en 2026, cinco criterios que no aparecen en tu RFP](https://www.onext.es/es/insights/como-elegir-ia-partner-2026-cinco-criterios-rfp/)
+- [onext: cómo elegir un IA partner en 2026, cinco criterios que no aparecen en tu RFP](https://www.onext.es//insights/como-elegir-ia-partner-2026-cinco-criterios-rfp/)
 - [AEPD: calidad, exactitud y minimización de datos personales en tratamientos con IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-analiza-calidad-exactitud-y-minimizacion-de-datos-personales-en-tratamientos-con-ia)
-- [Servicios de OSIX Tech](https://osix.tech/es)
+- [Servicios de OSIX Tech](https://osix.tech)

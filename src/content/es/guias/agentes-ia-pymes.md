@@ -108,4 +108,4 @@ Los conceptos y límites se contrastaron con las referencias que los buscadores 
 - [OpenAI: agentes para empresas](https://openai.com/index/introducing-agent-kit/)
 - [IBM: guía de agentes de IA](https://www.ibm.com/think/topics/ai-agents)
 - [Microsoft: agentes en Copilot](https://www.microsoft.com/es-es/microsoft-copilot)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

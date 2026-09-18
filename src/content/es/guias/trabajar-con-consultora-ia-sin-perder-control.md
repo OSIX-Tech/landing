@@ -161,16 +161,16 @@ El marco legal se ha verificado contra fuentes oficiales: el artículo 28 del RG
 ## Fuentes
 
 - Marco de gestión de riesgos de IA del NIST, función Govern: https://airc.nist.gov/airmf-resources/playbook/govern/
-- Comisión Europea, obligaciones de transparencia del artículo 50 del Reglamento de IA: https://digital-strategy.ec.europa.eu/es/policies/guidelines-ai-transparency-obligations
+- Comisión Europea, obligaciones de transparencia del artículo 50 del Reglamento de IA: https://digital-strategy.ec.europa.eu//policies/guidelines-ai-transparency-obligations
 - AEPD, responsable y encargado del tratamiento (artículo 28 del RGPD): https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/8-responsable-y-encargado-del-tratamiento
 - AEPD, decálogo de recomendaciones para proteger la privacidad al usar herramientas de IA: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-publica-decalogo-recomendaciones-proteger-privacidad-al-usar-ia
 - Hiberus Booster, consultor de IA para empresas: precio y cómo elegir (tarifas por día): https://www.hiberusbooster.com/guias/consultor-ia-para-empresas/
-- Utilia, consultoría de IA: cuándo la necesitas (tramos de precio): https://www.utilia.ai/es/blog/consultoria-ia-cuando-necesitas
-- OSIX Tech, cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
+- Utilia, consultoría de IA: cuándo la necesitas (tramos de precio): https://www.utilia.ai//blog/consultoria-ia-cuando-necesitas
+- OSIX Tech, cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
 
 ## Guías relacionadas
 
-- Cómo elegir una empresa de desarrollo de software con IA en España: https://osix.tech/es/guias/como-elegir-empresa-desarrollo-software-ia-espana/
-- Consultoras de IA grandes vs especializadas en pymes: https://osix.tech/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/
-- Dónde se guardan los datos de tu empresa si contratas un sistema de IA: https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/
-- Cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
+- Cómo elegir una empresa de desarrollo de software con IA en España: https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/
+- Consultoras de IA grandes vs especializadas en pymes: https://osix.tech/guias/consultoras-ia-grandes-vs-especializadas-pymes/
+- Dónde se guardan los datos de tu empresa si contratas un sistema de IA: https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/
+- Cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/

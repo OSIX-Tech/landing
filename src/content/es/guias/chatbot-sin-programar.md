@@ -84,7 +84,7 @@ Las capacidades y limitaciones de las herramientas no-code se contrastaron con l
 
 ## Fuentes
 
-- [Landbot: crear un chatbot sin código](https://landbot.io/es/chatbot)
+- [Landbot: crear un chatbot sin código](https://landbot.io//chatbot)
 - [ManyChat: chatbots para WhatsApp e Instagram](https://manychat.com/)
 - [Botpress: plataformas de chatbot IA](https://botpress.com/)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

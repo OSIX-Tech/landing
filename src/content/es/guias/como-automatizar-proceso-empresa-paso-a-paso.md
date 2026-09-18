@@ -18,7 +18,7 @@ La automatización suele encajar cuando el proceso:
 
 No conviene empezar por una decisión excepcional, un flujo que cambia cada semana o un proceso que nadie sabe describir. En esos casos, primero hay que ordenar el trabajo.
 
-Si todavía estás intentando decidir **qué proceso** merece la pena automatizar, consulta nuestra [lista de procesos de una pyme que mejor encajan con la IA](https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/). Esta guía responde a la siguiente pregunta: qué hacer después, paso a paso.
+Si todavía estás intentando decidir **qué proceso** merece la pena automatizar, consulta nuestra [lista de procesos de una pyme que mejor encajan con la IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/). Esta guía responde a la siguiente pregunta: qué hacer después, paso a paso.
 
 ## Paso 1. Elige un proceso concreto y ponle un límite
 
@@ -112,7 +112,7 @@ No todos los procesos necesitan IA. El nivel adecuado depende de la complejidad 
 | RAG sobre documentos | El sistema debe responder usando manuales o documentación propia | Depende de que los documentos estén actualizados |
 | Desarrollo a medida | Hay varios sistemas, permisos, volumen o reglas propias | Requiere inversión inicial y mantenimiento |
 
-Para procesos sencillos, una plataforma como Make, Zapier o n8n puede servir para validar la idea. Cuando el flujo necesita permisos finos, trazabilidad, datos internos, muchos casos o una lógica difícil de mantener, conviene valorar una integración a medida. Nuestra guía sobre [cómo integrar IA con el software que ya usa tu empresa](https://osix.tech/es/guias/integrar-ia-software-pyme-espana/) explica estas vías y sus límites.
+Para procesos sencillos, una plataforma como Make, Zapier o n8n puede servir para validar la idea. Cuando el flujo necesita permisos finos, trazabilidad, datos internos, muchos casos o una lógica difícil de mantener, conviene valorar una integración a medida. Nuestra guía sobre [cómo integrar IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/) explica estas vías y sus límites.
 
 La decisión no es «IA o nada». A veces una regla fija resuelve mejor el problema que un modelo generativo. Añade IA solo cuando aporta algo que una regla no puede resolver, como leer lenguaje variable, clasificar documentos o extraer información de formatos distintos.
 
@@ -130,7 +130,7 @@ La bandeja de revisión debe mostrar el dato original, la propuesta del sistema,
 
 Define también quién puede aprobar, cuánto tiempo puede esperar un caso y qué ocurre si nadie responde. En una oferta comercial, por ejemplo, el sistema puede preparar el borrador, pero el envío debe quedar bloqueado hasta que una persona revise alcance, precio y condiciones.
 
-Para documentos, la regla práctica es sencilla: automatiza preparar, extraer y comprobar; conserva para una persona la decisión de pagar, firmar, enviar o presentar. Puedes ver el patrón completo en [cómo automatizar documentos sin perder la revisión humana](https://osix.tech/es/guias/automatizar-documentos-sin-perder-revision-humana/).
+Para documentos, la regla práctica es sencilla: automatiza preparar, extraer y comprobar; conserva para una persona la decisión de pagar, firmar, enviar o presentar. Puedes ver el patrón completo en [cómo automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/).
 
 ## Paso 7. Ejecuta un piloto con casos reales y criterios de salida
 
@@ -158,7 +158,7 @@ Compara los resultados del piloto con la línea base usando el mismo criterio. M
 3. **Adopción:** si el equipo usa el flujo y acepta el resultado.
 4. **Calidad y riesgo:** excepciones, incidentes, datos incorrectos y revisiones necesarias.
 
-No confundas horas liberadas con ahorro automático. El tiempo recuperado solo tiene valor si el equipo lo emplea en trabajo útil o si permite procesar más con el mismo coste. Para medirlo bien, consulta [cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/es/guias/medir-resultados-ia-pyme/).
+No confundas horas liberadas con ahorro automático. El tiempo recuperado solo tiene valor si el equipo lo emplea en trabajo útil o si permite procesar más con el mismo coste. Para medirlo bien, consulta [cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/guias/medir-resultados-ia-pyme/).
 
 Al final del piloto, solo hay tres decisiones honestas:
 
@@ -211,7 +211,7 @@ La publica OSIX Tech, consultora de desarrollo de software e IA para pymes en Ga
 
 ## Guías relacionadas
 
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/)
-- [Automatizar documentos sin perder la revisión humana](https://osix.tech/es/guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/es/guias/integrar-ia-software-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/es/guias/medir-resultados-ia-pyme/)
+- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)
+- [Automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
+- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/guias/medir-resultados-ia-pyme/)

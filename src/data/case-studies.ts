@@ -792,7 +792,7 @@ export function getCaseStudySlugs(): string[] {
 export function getCaseStudyCards() {
   return caseStudies.map(c => ({
     slug: c.slug,
-    href: `/es/casos/${c.slug}/`,
+    href: `/casos/${c.slug}/`,
     category: c.category,
     title: c.title,
     lead: c.lead,

@@ -109,7 +109,7 @@ Aquí conviene separar dos cosas que se mezclan mucho: licencias y proyecto. La 
 
 La columna de riesgo es la que casi nadie mira y la que decide el coste real. Un proyecto de 4.000 € sin mantenimiento acaba costando más que uno de 9.000 € que sigue funcionando a los dos años. Pide siempre dos números separados, implantación y operación, y calcula el total a 24 meses. Si un proveedor solo te da una cifra global, no tienes una propuesta: tienes una promesa.
 
-Para comparar proveedores con criterio, los criterios que de verdad predicen si el proyecto saldrá bien (proceso, integraciones, revisión humana, datos y continuidad) están desarrollados en la [guía para elegir una empresa de automatización con IA en Galicia](/es/guias/como-elegir-empresa-automatizacion-ia-galicia/), y la comparación entre una empresa grande y una especializada, en [consultoras de IA grandes vs especializadas en pymes](/es/guias/consultoras-ia-grandes-vs-especializadas-pymes/).
+Para comparar proveedores con criterio, los criterios que de verdad predicen si el proyecto saldrá bien (proceso, integraciones, revisión humana, datos y continuidad) están desarrollados en la [guía para elegir una empresa de automatización con IA en Galicia](//guias/como-elegir-empresa-automatizacion-ia-galicia/), y la comparación entre una empresa grande y una especializada, en [consultoras de IA grandes vs especializadas en pymes](//guias/consultoras-ia-grandes-vs-especializadas-pymes/).
 
 ## Los 6 errores que hunden una implantación sin equipo técnico
 
@@ -147,7 +147,7 @@ Si decides que el paso 5 lo haga alguien de fuera, estas cinco preguntas separan
 - ¿En qué casos la IA no decide y revisa una persona? Pide los tres ejemplos concretos.
 - ¿Qué pasa si el proveedor desaparece o el sistema falla? ¿Quién tiene acceso al código y a las cuentas?
 
-Si te cuesta obtener respuestas concretas a las cinco, ese es el dato más útil de la conversación. La guía [cómo trabajar con una consultora de IA sin perder el control](/es/guias/trabajar-con-consultora-ia-sin-perder-control/) desarrolla las decisiones que no conviene delegar, y en [dónde se guardan los datos de tu empresa al contratar IA](/es/guias/donde-se-guardan-datos-ia-empresa/) están las cuatro opciones reales de alojamiento con lo que dice el RGPD.
+Si te cuesta obtener respuestas concretas a las cinco, ese es el dato más útil de la conversación. La guía [cómo trabajar con una consultora de IA sin perder el control](//guias/trabajar-con-consultora-ia-sin-perder-control/) desarrolla las decisiones que no conviene delegar, y en [dónde se guardan los datos de tu empresa al contratar IA](//guias/donde-se-guardan-datos-ia-empresa/) están las cuatro opciones reales de alojamiento con lo que dice el RGPD.
 
 ## Preguntas frecuentes
 
@@ -179,7 +179,7 @@ Fecha de actualización: 11 de septiembre de 2026. Los precios de licencias y el
 ## Fuentes
 
 - [ONTSI: Indicadores de uso de inteligencia artificial en España, edición 2026 (datos de 2025)](https://www.ontsi.es/sites/ontsi/files/2026-07/indicadores-de-uso-de-inteligencia-articifial_1.pdf)
-- [AESIA: Reglamento europeo de inteligencia artificial, artículo 4](https://aesia.digital.gob.es/es/actualidad/recursos/ria-articulo-4)
+- [AESIA: Reglamento europeo de inteligencia artificial, artículo 4](https://aesia.digital.gob.es//actualidad/recursos/ria-articulo-4)
 - [AEPD: Orientación a Pequeñas y Medianas Empresas (PYMES)](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/directrices-de-aplicacion/pymes)
 - [AEPD: decálogo de recomendaciones para proteger la privacidad al usar herramientas de IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-publica-decalogo-recomendaciones-proteger-privacidad-al-usar-ia)
 - [Microsoft 365 Copilot: planes y precios](https://www.microsoft.com/es-es/microsoft-365-copilot/pricing)
@@ -188,7 +188,7 @@ Fecha de actualización: 11 de septiembre de 2026. Los precios de licencias y el
 
 ## Guías relacionadas
 
-- [¿Contratar una empresa de IA o usar herramientas ya hechas?](/es/guias/contratar-empresa-ia-o-usar-herramientas/)
-- [Qué procesos de una pyme se pueden automatizar con IA](/es/guias/procesos-pyme-automatizar-con-ia/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](/es/guias/medir-resultados-ia-pyme/)
+- [¿Contratar una empresa de IA o usar herramientas ya hechas?](//guias/contratar-empresa-ia-o-usar-herramientas/)
+- [Qué procesos de una pyme se pueden automatizar con IA](//guias/procesos-pyme-automatizar-con-ia/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cómo medir si la IA de tu pyme está dando resultados](//guias/medir-resultados-ia-pyme/)

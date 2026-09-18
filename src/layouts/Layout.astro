@@ -38,10 +38,7 @@ const keywords = Astro.props.keywords ?? 'consultoría de IA Galicia, automatiza
 const baseUrl = 'https://osix.tech';
 let currentPath = Astro.url.pathname;
 
-// For root page, point to the appropriate language version
-if (currentPath === '/') {
-  currentPath = `/${lang}/`;
-}
+// Spanish is the sole public locale, so the root is canonical.
 
 // Ensure trailing slash for consistency
 if (!currentPath.endsWith('/') && !currentPath.includes('.')) {
@@ -181,7 +178,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
               ['pymes-espanolas-que-mejoraron-con-ia', 'Pymes que mejoraron con IA'],
               ['que-es-automatizacion-inteligente-pymes-espana', 'Qué es la automatización inteligente']
             ].map(([slug, label]) => (
-              <li><a href={`/es/guias/${slug}/`}>{label}</a></li>
+              <li><a href={`//guias/${slug}/`}>{label}</a></li>
             ))
           }
         </ul>

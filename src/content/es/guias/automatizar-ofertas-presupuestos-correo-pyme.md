@@ -108,8 +108,8 @@ Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsa
 Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye generadores de ofertas y presupuestos a medida para pymes. Los seis pasos del flujo y las tres vías responden a un criterio editorial: el retorno, las horas que el proceso devuelve al equipo y el riesgo de un error como desempate. Los precios de Make, Zapier y Parseur se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: septiembre de 2026.
 
 - [Planes y precios de Make](https://www.make.com/en/pricing)
-- [Planes y precios de Zapier](https://zapier.com/es/pricing)
+- [Planes y precios de Zapier](https://zapier.com//pricing)
 - [Precios de Parseur](https://parseur.com/pricing)
-- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Automatizar documentos sin perder la revisión humana (OSIX Tech)](/es/guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Automatizar documentos sin perder la revisión humana (OSIX Tech)](//guias/automatizar-documentos-sin-perder-revision-humana/)
 

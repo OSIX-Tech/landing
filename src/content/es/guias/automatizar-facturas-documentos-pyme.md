@@ -175,12 +175,12 @@ Depende de tu software y volumen. De cero o casi, un programa de gestión. Mucha
 
 ## Cómo se elaboró esta guía
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España; aparece en ella como una de las opciones (la vía 3), y por eso se declara y se compara sin favoritismos. El orden de documentos por rentabilidad y las tres vías sintetizan la práctica habitual de la automatización documental en pymes españolas y nuestro trabajo con ellas; no citamos ningún proyecto cliente aquí. Los plazos de VERI\*FACTU se apoyan en la nota informativa de la Agencia Tributaria sobre la ampliación del plazo de adaptación de los sistemas informáticos de facturación (Real Decreto-ley 15/2025). Holded, Quipu, Anfix, Sage, Parseur y ABBYY se mencionan como opciones del mercado conocidas y verificables; no tenemos afiliación con ninguna. Los costes se indican como "cuota mensual" o "proyecto" a propósito: los precios concretos cambian, y los publicamos con más detalle en nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Ante cualquier duda fiscal o legal, consulta con tu asesor o con la AEAT.
+Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España; aparece en ella como una de las opciones (la vía 3), y por eso se declara y se compara sin favoritismos. El orden de documentos por rentabilidad y las tres vías sintetizan la práctica habitual de la automatización documental en pymes españolas y nuestro trabajo con ellas; no citamos ningún proyecto cliente aquí. Los plazos de VERI\*FACTU se apoyan en la nota informativa de la Agencia Tributaria sobre la ampliación del plazo de adaptación de los sistemas informáticos de facturación (Real Decreto-ley 15/2025). Holded, Quipu, Anfix, Sage, Parseur y ABBYY se mencionan como opciones del mercado conocidas y verificables; no tenemos afiliación con ninguna. Los costes se indican como "cuota mensual" o "proyecto" a propósito: los precios concretos cambian, y los publicamos con más detalle en nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Ante cualquier duda fiscal o legal, consulta con tu asesor o con la AEAT.
 
 ## Guías relacionadas
 
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/es/guias/integrar-ia-software-pyme-espana/)
-- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/es/guias/donde-se-guardan-datos-ia-empresa/)
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/es/guias/procesos-pyme-automatizar-con-ia/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
+- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/)
+- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)
 

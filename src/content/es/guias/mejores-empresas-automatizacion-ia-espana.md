@@ -180,10 +180,10 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 
 ## Fuentes
 
-- [Servicios de OSIX Tech](https://osix.tech/es)
-- [Consultoría de transformación de OSIX Tech](https://osix.tech/es/servicios/consultoria-transformacion)
+- [Servicios de OSIX Tech](https://osix.tech)
+- [Consultoría de transformación de OSIX Tech](https://osix.tech/servicios/consultoria-transformacion)
 - [Hiberus Booster, mejores consultoras de IA en España](https://www.hiberusbooster.com/guias/mejores-consultoras-ia-espana)
-- [Plain Concepts](https://www.plainconcepts.com/es/)
+- [Plain Concepts](https://www.plainconcepts.com//)
 - [Minsait, sobre nosotros](https://www.minsait.com/en/about-us)
 - [NTT Data España](https://es.nttdata.com/)
 - [Accenture España](https://www.accenture.com/es-es)
@@ -193,5 +193,5 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 - [n8n, precios](https://n8n.io/pricing/)
 - [Make](https://www.make.com)
 - [Upliora, agencias y consultoras de automatización con IA en España](https://www.upliora.es/comparativas/mejores-agencias-consultoras-automatizacion-ia-espana-ranking-2026)
-- [Kit Digital, Red.es](https://www.red.es/es/iniciativas/proyectos/kit-digital)
+- [Kit Digital, Red.es](https://www.red.es//iniciativas/proyectos/kit-digital)
 - [IGAPE, ayudas a la innovación](https://www.igape.gal)

@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { lang = 'es' } = Astro.props;
-const translations = await import(`../../../public/locales/${lang}.json`);
+const translations = await import('../../../public/locales/es.json');
 const t = (k: string) => translations.default[k] || k;
 ---
 
@@ -62,7 +62,7 @@ const t = (k: string) => translations.default[k] || k;
     <!-- Link to official docs -->
     <div class="text-center mt-10">
       <a
-        href="https://www.red.es/es/iniciativas/kit-digital"
+        href="https://www.red.es//iniciativas/kit-digital"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-black transition-colors"

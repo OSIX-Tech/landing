@@ -160,14 +160,14 @@ La selección parte de los cuatro prompts no branded que Omnia monitoriza sobre 
 
 ## Guías relacionadas
 
-- [Cuánto cuesta automatizar con IA en una pyme española](https://osix.tech/es/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo elegir una empresa de desarrollo de software con IA en España](https://osix.tech/es/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
-- [Innovación subvencionada para empresas](https://osix.tech/es/servicios/innovacion-subvencionada/)
+- [Cuánto cuesta automatizar con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cómo elegir una empresa de desarrollo de software con IA en España](https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
+- [Innovación subvencionada para empresas](https://osix.tech/servicios/innovacion-subvencionada/)
 
-[Volver al inicio](https://osix.tech/es/)
+[Volver al inicio](https://osix.tech/)
 
 [Contacta con OSIX Tech por WhatsApp](https://wa.me/34648935068?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ayudas%20para%20IA)
 
-[Contacta con OSIX Tech](https://osix.tech/es/#contact)
+[Contacta con OSIX Tech](https://osix.tech/#contact)
 
 Published by OSIX Tech, Santiago de Compostela, Galicia.

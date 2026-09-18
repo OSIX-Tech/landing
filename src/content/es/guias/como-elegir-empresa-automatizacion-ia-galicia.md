@@ -182,9 +182,9 @@ Pide el mapa del proceso, las integraciones, los datos tratados, los casos que r
 
 ## Guías relacionadas
 
-- [Mejores empresas de automatización con IA en Galicia](https://osix.tech/es/guias/mejores-empresas-automatizacion-ia-galicia/)
-- [Cómo elegir una empresa de desarrollo de software con IA](https://osix.tech/es/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/es/guias/integrar-ia-software-pyme-espana/)
-- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/es/guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Mejores empresas de automatización con IA en Galicia](https://osix.tech/guias/mejores-empresas-automatizacion-ia-galicia/)
+- [Cómo elegir una empresa de desarrollo de software con IA](https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
+- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
+- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
 
 Esta guía la publica OSIX Tech. Si quieres comparar una automatización concreta, empieza por describir el proceso, sus entradas y la métrica que quieres mejorar.
