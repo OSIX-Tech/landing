@@ -496,20 +496,27 @@ export default function MobileMenu({ lang, items = [], socialItems = [], langOpt
       e.preventDefault();
       playClose(() => {
         const hashMatch = href.match(/#(.+)$/);
-        if (hashMatch) {
-          const targetId = hashMatch[1];
-          const el = targetId === 'hero' ? null : document.getElementById(targetId);
-          if (targetId === 'hero' && document.getElementById('hero')) {
-            smoothScrollTo(0);
-          } else if (el) {
-            const header = document.getElementById('main-header');
-            const offset = header ? header.offsetHeight : 0;
-            const top = el.getBoundingClientRect().top + window.scrollY - offset;
-            smoothScrollTo(top);
-          } else {
-            window.location.href = href;
-          }
+        const targetId = hashMatch ? hashMatch[1] : null;
+        const el = targetId ? document.getElementById(targetId) : null;
+
+        // Scroll only when that section is on this page. Everything else — a
+        // hash belonging to the landing page, or a plain page link like
+        // /es/casos/ with no hash at all — is a navigation. Without the second
+        // case those entries did nothing at all, since the click was already
+        // prevented above so the close animation could play first.
+        if (!el) {
+          window.location.href = href;
+          return;
         }
+
+        if (targetId === 'hero') {
+          smoothScrollTo(0);
+          return;
+        }
+
+        const header = document.getElementById('main-header');
+        const offset = header ? header.offsetHeight : 0;
+        smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - offset);
       });
     },
     [playClose, smoothScrollTo]
