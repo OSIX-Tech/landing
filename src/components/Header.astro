@@ -24,6 +24,8 @@ const t = localesMap[lang] || enLocales;
 const serviceIds = ['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'];
 const services = serviceIds.map(id => getService(id, lang)).filter(Boolean) as ServiceData[];
 
+const casosLabel = ({ es: 'Casos', gl: 'Casos', en: 'Case studies' } as Record<string, string>)[lang];
+
 const mobileItems = [
   { label: ({ es: 'Inicio', gl: 'Inicio', en: 'Home' } as Record<string, string>)[lang], link: `/${lang}/#hero` },
   {
@@ -31,6 +33,7 @@ const mobileItems = [
     link: `/${lang}/#services`,
     children: services.map(s => ({ label: s.title, link: `/${lang}/servicios/${s.id}` })),
   },
+  { label: casosLabel, link: `/es/casos/` },
   { label: ({ es: 'Guías', gl: 'Guías', en: 'Guides' } as Record<string, string>)[lang], link: `/es/guias/` },
   { label: t['nav.aboutUs'], link: `/${lang}/#about-us` },
   { label: t['nav.contact'], link: `/${lang}/#contact` },
@@ -64,6 +67,7 @@ const otherLangs = LANGUAGES.filter(l => l !== lang);
               </svg>
             </button>
           </li>
+          <li><a href="/es/casos/" class="nav-item nav-item-casos transition-colors duration-200">{casosLabel}</a></li>
           <li><a href={`/${lang}/#guias`} class="nav-item nav-item-guias transition-colors duration-200">{{ es: 'Guías', gl: 'Guías', en: 'Guides' }[lang]}</a></li>
           <li><a href={`/${lang}/#about-us`} class="nav-item transition-colors duration-200">{t['nav.aboutUs']}</a></li>
        </ul>
@@ -237,6 +241,13 @@ function initializeHeader() {
         state.activeNavItem = guiasLink;
         setTimeout(() => moveIndicatorTo(guiasLink), 100);
       }
+    } else if (pathname.includes('/casos')) {
+      const casosLink = document.querySelector('.nav-item-casos') as HTMLElement | null;
+      if (casosLink) {
+        casosLink.classList.add('nav-active');
+        state.activeNavItem = casosLink;
+        setTimeout(() => moveIndicatorTo(casosLink), 100);
+      }
     }
   } else if (state.header) {
     // This is the main page with hero section
@@ -352,6 +363,10 @@ function updateIndicatorBySection(sectionId: string) {
   if (!targetNavItem && sectionId === 'services') {
     targetNavItem = document.querySelector('[data-dropdown="services"] .nav-item') as HTMLElement | null;
   }
+  // Casos links to its own page rather than a hash, so match it by class
+  if (!targetNavItem && sectionId === 'casos') {
+    targetNavItem = document.querySelector('.nav-item-casos') as HTMLElement | null;
+  }
   if (targetNavItem) {
     // Update .nav-active on scroll-based section change
     const allNavLinks = document.querySelectorAll('nav .nav-item');
@@ -368,6 +383,13 @@ function updateIndicatorBySection(sectionId: string) {
 // Set active nav item based on scroll
 function setActiveNavItem() {
   if (state.disableIndicatorUpdate || !state.header) return;
+
+  // Scroll tracking only makes sense on the landing page — it is the only page
+  // whose sections these nav items point at. On a subpage the first section was
+  // being treated as the hero, which highlighted "Inicio" over the item for the
+  // current page and hid the header near the top. There, the active item comes
+  // from the pathname instead and must not be overwritten.
+  if (!state.heroSection) return;
 
   const sections = document.querySelectorAll('section[id]');
   // Add 1px to avoid falling through exactly at section bottom
@@ -436,6 +458,9 @@ function setupNavigation() {
     if (window.location.pathname.includes('/guias')) {
       return document.querySelector('.nav-item-guias') as HTMLElement | null;
     }
+    if (window.location.pathname.includes('/casos')) {
+      return document.querySelector('.nav-item-casos') as HTMLElement | null;
+    }
     return state.activeNavItem;
   };
 
@@ -482,19 +507,18 @@ function setupNavigation() {
   allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
-      
+
       // Don't prevent default for navigation links that go to different pages
       if (!href || (!href.startsWith('#') && !href.includes('/#'))) return;
-      
-      // If we're on a subpage and clicking a hash link, we need to navigate to main page
-      if ((window.location.pathname.includes('/servicios/') || window.location.pathname.includes('/guias')) && href.includes('/#')) {
-        // Let the browser handle the navigation
-        return;
-      }
 
-      // Check if href contains a hash
       const hashMatch = href.match(/#(.+)$/);
       if (hashMatch) {
+        // Only hijack the click when that section is actually on this page.
+        // Everywhere else the hash points at the landing page, so let the
+        // browser navigate. Testing for the element rather than listing known
+        // subpaths is what keeps this working for pages added later.
+        if (!document.getElementById(hashMatch[1])) return;
+
         e.preventDefault();
         state.disableIndicatorUpdate = true;
 
@@ -551,15 +575,16 @@ function setupNavigation() {
       const hashMatch = href?.match(/#(.+)$/);
       
       if (hashMatch) {
-        e.preventDefault();
         const targetIdClean = hashMatch[1];
         const targetSection = document.getElementById(targetIdClean);
-        
-        if (targetSection && state.header) {
-          const headerHeight = state.header.offsetHeight;
-          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          smoothScrollTo(targetPosition, 2000);
-        }
+
+        // Not on this page — let the browser follow the link to the landing page.
+        if (!targetSection || !state.header) return;
+
+        e.preventDefault();
+        const headerHeight = state.header.offsetHeight;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        smoothScrollTo(targetPosition, 2000);
       }
     });
   }

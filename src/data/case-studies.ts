@@ -34,6 +34,11 @@ export interface CaseFaq {
 export interface CaseStudy {
   slug: string;
   category: string;
+  /**
+   * Which service pages surface this case. A classification for navigation, not
+   * a claim in the approved copy — review it when the service list changes.
+   */
+  services: string[];
   title: string;
   lead: string;
   seoTitle: string;
@@ -99,6 +104,7 @@ const STANDARD_FAQS: CaseFaq[] = [
 function standardCase(input: {
   slug: string;
   category: string;
+  services: string[];
   title: string;
   lead: string;
   seoTitle: string;
@@ -111,6 +117,7 @@ function standardCase(input: {
   return {
     slug: input.slug,
     category: input.category,
+    services: input.services,
     title: input.title,
     lead: input.lead,
     seoTitle: input.seoTitle,
@@ -150,6 +157,7 @@ function standardCase(input: {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'roydisa-ocr-documentos-proveedores',
+    services: ['desarrollo-a-medida', 'consultoria-transformacion'],
     category: 'Automatización documental y OCR',
     title: 'Roydisa procesa documentos de proveedores sin teclearlos uno a uno',
     lead: 'Roydisa recibe documentos de proveedores que deben convertirse en información utilizable para compras, administración y operaciones. El flujo de OSIX toma las fotos y PDF desde las carpetas del cliente, los procesa y devuelve Excels estructurados por línea de producto.',
@@ -248,6 +256,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'roydisa-ofertas',
+    services: ['desarrollo-a-medida', 'consultoria-transformacion'],
     category: 'Automatización comercial',
     title: 'Roydisa prepara borradores de oferta en 16 segundos',
     lead: '47.518 presupuestos históricos y 57.296 productos alimentan un asistente que generó borradores en una mediana de 16 segundos durante el piloto.',
@@ -267,6 +276,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'iciga-correo-crm',
+    services: ['desarrollo-a-medida', 'consultoria-transformacion'],
     category: 'Automatización de correo y CRM',
     title: 'ICIGA convierte cuatro bandejas de entrada en un flujo comercial trazable',
     lead: 'El sistema procesa correo, filtra ruido y prepara propuestas mientras construye un CRM de transacciones a partir de los hilos de Gmail.',
@@ -286,6 +296,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'take-fidelizacion',
+    services: ['desarrollo-a-medida'],
     category: 'Aplicaciones móviles y fidelización',
     title: 'TAKE registra visitas y recompensas desde una app móvil',
     lead: 'Una cafetería de Santiago usa una app con tarjeta en Wallet, sellos QR, recompensas y juegos para medir la repetición de sus clientes.',
@@ -305,6 +316,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'avalagro-evaluacion',
+    services: ['desarrollo-a-medida'],
     category: 'Aplicación móvil y evaluación de equipos',
     title: 'Avalagro completa una ronda de evaluación en 9,9 minutos',
     lead: 'Una cooperativa sustituyó la hoja de cálculo por una app bilingüe para evaluar semanalmente a sus equipos y generar históricos e informes.',
@@ -324,6 +336,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'nessie-documentos',
+    services: ['desarrollo-a-medida', 'consultoria-transformacion'],
     category: 'Inteligencia documental',
     title: 'Nessie convierte un Google Drive de investigación en un asistente consultable',
     lead: 'Nessie sincroniza unidades compartidas, describe documentos e imágenes con IA y responde preguntas citando la documentación de origen.',
@@ -344,6 +357,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'xeracion21-moodle',
+    services: ['desarrollo-a-medida'],
     category: 'Educación e integración con Moodle',
     title: 'Xeración21 integra IA dentro del Moodle de una academia',
     lead: 'La plataforma trabaja sobre temarios y rúbricas oficiales, genera materiales y devuelve calificaciones al entorno que ya usa la academia.',
@@ -363,6 +377,7 @@ export const caseStudies: CaseStudy[] = [
 
   standardCase({
     slug: 'alia-galego',
+    services: ['desarrollo-a-medida'],
     category: 'IA lingüística y soberanía del dato',
     title: 'ALIA analiza galego falado con opción de ejecución local',
     lead: 'ALIA transcribe audio, detecta fenómenos lingüísticos y genera feedback en galego sin registro y con borrado automático de los datos.',
@@ -383,6 +398,13 @@ export const caseStudies: CaseStudy[] = [
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find(c => c.slug === slug);
+}
+
+export function getCaseStudiesForService(serviceId: string): CaseStudy[] {
+  const matching = caseStudies.filter(c => c.services.includes(serviceId));
+  // Every service page shows something: top up with the rest, newest measurements first.
+  const rest = caseStudies.filter(c => !c.services.includes(serviceId));
+  return [...matching, ...rest].slice(0, 3);
 }
 
 export function getCaseStudySlugs(): string[] {
