@@ -1,0 +1,124 @@
+---
+import type { CaseFaq } from '../../data/case-studies';
+
+interface Props {
+  faqs: CaseFaq[];
+  label: string;
+  title: string;
+}
+
+const { faqs, label, title } = Astro.props;
+---
+
+<section class="case-faq bg-white">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid lg:grid-cols-[1fr,2fr] gap-12 lg:gap-16">
+      <div class="lg:sticky lg:top-24 lg:self-start">
+        <p class="text-sm tracking-[0.2em] uppercase text-gray-400 mb-5">{label}</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-black leading-tight">{title}</h2>
+      </div>
+
+      <div class="border-t border-gray-200">
+        {faqs.map((faq, index) => (
+          <div class="case-faq-item border-b border-gray-200" data-index={index}>
+            <button class="case-faq-trigger w-full flex items-start justify-between py-6 text-left" type="button" aria-expanded="false">
+              <span class="case-faq-question font-medium text-lg text-black pr-8 transition-all duration-300">
+                {faq.question}
+              </span>
+              <span class="case-faq-icon-wrapper flex-shrink-0 w-8 h-8 bg-black flex items-center justify-center mt-0.5">
+                <span class="case-faq-icon-line case-faq-icon-h"></span>
+                <span class="case-faq-icon-line case-faq-icon-v"></span>
+              </span>
+            </button>
+            <div class="case-faq-content">
+              <div class="case-faq-answer pb-6 pr-12 text-lg text-gray-500 leading-relaxed">
+                {faq.answer}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mirrors HomeFAQ so the interaction is identical site-wide */
+  .case-faq-item {
+    --duration: 0.4s;
+    --easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .case-faq-trigger:hover .case-faq-question { color: #666; }
+
+  .case-faq-icon-wrapper { position: relative; }
+
+  .case-faq-icon-line {
+    position: absolute;
+    background: white;
+    transition: transform var(--duration) var(--easing), opacity var(--duration) var(--easing);
+  }
+
+  .case-faq-icon-h { width: 12px; height: 2px; }
+  .case-faq-icon-v { width: 2px; height: 12px; }
+
+  .case-faq-item.open .case-faq-icon-v {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .case-faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--duration) var(--easing);
+  }
+
+  .case-faq-content > div { overflow: hidden; }
+
+  .case-faq-item.open .case-faq-content { grid-template-rows: 1fr; }
+
+  .case-faq-answer {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  }
+
+  .case-faq-item.open .case-faq-answer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-faq-content,
+    .case-faq-answer,
+    .case-faq-icon-line { transition: none; }
+  }
+</style>
+
+<script>
+  function initCaseFAQ() {
+    const items = Array.from(document.querySelectorAll('.case-faq .case-faq-item'));
+    if (!items.length) return;
+
+    const setOpen = (item: Element, open: boolean) => {
+      item.classList.toggle('open', open);
+      item.querySelector('.case-faq-trigger')?.setAttribute('aria-expanded', String(open));
+    };
+
+    setOpen(items[0], true);
+
+    items.forEach(item => {
+      item.querySelector('.case-faq-trigger')?.addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        items.forEach(other => setOpen(other, false));
+        if (!wasOpen) setOpen(item, true);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCaseFAQ);
+  } else {
+    initCaseFAQ();
+  }
+</script>

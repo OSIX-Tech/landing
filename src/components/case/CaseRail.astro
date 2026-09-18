@@ -1,0 +1,163 @@
+---
+interface Props {
+  sections: { id: string; label: string }[];
+}
+
+const { sections } = Astro.props;
+---
+
+<div class="case-progress" role="presentation">
+  <span class="case-progress-fill"></span>
+</div>
+
+<nav class="case-rail" aria-label={sections.length ? 'Case sections' : undefined}>
+  <ol class="case-rail-list">
+    {sections.map(section => (
+      <li>
+        <a href={`#${section.id}`} class="case-rail-link" data-rail-target={section.id}>
+          <span class="case-rail-tick" aria-hidden="true"></span>
+          <span class="case-rail-label">{section.label}</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<script>
+  const progressFill = document.querySelector<HTMLElement>('.case-progress-fill');
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.case-rail-link'));
+  const targets = links
+    .map(link => {
+      const id = link.dataset.railTarget;
+      const el = id ? document.getElementById(id) : null;
+      return el ? { link, el } : null;
+    })
+    .filter((entry): entry is { link: HTMLAnchorElement; el: HTMLElement } => entry !== null);
+
+  let ticking = false;
+
+  const render = () => {
+    if (progressFill) {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+      progressFill.style.transform = `scaleX(${Math.min(Math.max(ratio, 0), 1)})`;
+    }
+
+    // Active = the last section whose top has passed a third of the viewport.
+    const line = window.innerHeight * 0.35;
+    let activeIndex = -1;
+    targets.forEach(({ el }, i) => {
+      if (el.getBoundingClientRect().top <= line) activeIndex = i;
+    });
+    targets.forEach(({ link }, i) => link.classList.toggle('is-active', i === activeIndex));
+
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(render);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  render();
+</script>
+
+<style>
+  .case-progress {
+    position: fixed;
+    top: var(--header-h, 0px);
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 60;
+    background: rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+  }
+
+  .case-progress-fill {
+    display: block;
+    height: 100%;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    will-change: transform;
+  }
+
+  .case-rail {
+    display: none;
+  }
+
+  /* Only shows where there is genuine gutter to the left of the 1280px content column */
+  @media (min-width: 1560px) {
+    .case-rail {
+      display: block;
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 40;
+    }
+
+    .case-rail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .case-rail-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.35);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.25s ease;
+    }
+
+    .case-rail-tick {
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      flex-shrink: 0;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .case-rail-label {
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .case-rail:hover .case-rail-label,
+    .case-rail-link:focus-visible .case-rail-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .case-rail-link:hover,
+    .case-rail-link.is-active {
+      color: #000;
+    }
+
+    .case-rail-link.is-active .case-rail-tick {
+      width: 34px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .case-rail-tick,
+    .case-rail-label,
+    .case-progress-fill {
+      transition: none;
+    }
+  }
+</style>

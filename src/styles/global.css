@@ -208,6 +208,20 @@ textarea {
   top: 0;
 }
 
+/* ---------- ScrollStack engine ---------- */
+/* Structural primitives for the ScrollStack component (ScrollStack.jsx sets the
+   sticky/scale styles inline). Shared by the home showcase and case study pages. */
+.scroll-stack-container {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* ---------- Project Cards ---------- */
 .project-card:hover .project-overlay {
   opacity: 1;
