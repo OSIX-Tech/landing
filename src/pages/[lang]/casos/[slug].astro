@@ -3,12 +3,23 @@ import Layout from '../../../layouts/Layout.astro';
 import LoadingScreen from '../../../components/LoadingScreen.astro';
 import BeamsBackground from '../../../components/BeamsBackground.jsx';
 import CaseMetrics from '../../../components/case/CaseMetrics';
-import CaseNarrativeStack from '../../../components/case/CaseNarrativeStack.jsx';
 import CaseFAQ from '../../../components/case/CaseFAQ.astro';
 import CaseRail from '../../../components/case/CaseRail.astro';
 import { getCaseStudy, getCaseStudySlugs, caseStudies } from '../../../data/case-studies';
 import { genCaseArt } from '../../../utils/caseArt';
 import type { Lang } from '../../../utils/languages';
+
+// The numbers carry the argument on these pages, so they are set in the prose
+// rather than left to blend into it. Years stay plain — bolding every date
+// turns the paragraph into noise.
+const escapeHtml = (value: string) =>
+  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+const withNumbers = (text: string) =>
+  escapeHtml(text).replace(/(\d[\d.,]*\d|\d)(\s?%)?/g, (match, _digits, percent) => {
+    if (!percent && /^(19|20)\d{2}$/.test(match)) return match;
+    return `<strong class="case-num">${match}</strong>`;
+  });
 
 export const prerender = true;
 
@@ -136,16 +147,18 @@ const jsonLd = {
   </section>
 
   <!-- NARRATIVE -->
-  <section id="caso" class="case-band-light case-narrative mb-0">
+  <section id="caso" class="case-band-light mb-0">
     <div class="case-shell">
-      <CaseNarrativeStack
-        client:visible
-        sections={study.sections}
-        ctaTitle={study.ctaTitle}
-        ctaBody={study.ctaBody}
-        ctaLabel="Cuéntanos tu proceso"
-        ctaHref={`/${lang}/#contact`}
-      />
+      <article class="case-prose">
+        {study.sections.map(section => (
+          <section class="case-prose-block fade-up" style="--delay: 0.05s">
+            <h2 class="case-prose-title">{section.title}</h2>
+            {section.body.map(paragraph => (
+              <p class="case-prose-text" set:html={withNumbers(paragraph)} />
+            ))}
+          </section>
+        ))}
+      </article>
     </div>
   </section>
 
@@ -157,6 +170,22 @@ const jsonLd = {
       </div>
     </section>
   )}
+
+  <!-- CTA -->
+  <section class="case-band-dark mb-0">
+    <div class="case-shell">
+      <div class="case-cta fade-up" style="--delay: 0.05s">
+        <h2 class="case-cta-title">{study.ctaTitle}</h2>
+        {study.ctaBody.map(paragraph => (
+          <p class="case-cta-text">{paragraph}</p>
+        ))}
+        <a href={`/${lang}/#contact`} class="btn-secondary btn-arrow">
+          Cuéntanos tu proceso
+          <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- THE LIMIT — deliberately prominent -->
   <section id="limite" class="case-band-light mb-0">
@@ -295,7 +324,7 @@ const jsonLd = {
     letter-spacing: 0.12em;
     color: rgba(0, 0, 0, 0.4);
   }
-  .case-section-eyebrow.is-inverse { color: rgba(255, 255, 255, 0.4); }
+  .case-section-eyebrow.is-inverse { color: #fff; }
 
   .case-section-head { margin-bottom: 3rem; }
 
@@ -350,7 +379,7 @@ const jsonLd = {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.35);
+    color: #fff;
     margin-bottom: 1.75rem;
   }
   .case-crumbs a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
@@ -382,7 +411,7 @@ const jsonLd = {
   .case-lead {
     font-size: clamp(1rem, 1.5vw, 1.1rem);
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff;
     max-width: 60ch;
     margin-bottom: 2rem;
   }
@@ -403,7 +432,7 @@ const jsonLd = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.35);
+    color: #fff;
   }
 
   .case-meta-val { font-size: 0.95rem; font-weight: 600; color: #fff; line-height: 1.5; }
@@ -437,7 +466,7 @@ const jsonLd = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: rgba(255, 255, 255, 0.35);
+    color: #fff;
   }
 
   /* ── Metrics ─────────────────────────────────────────────────── */
@@ -456,18 +485,18 @@ const jsonLd = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.35);
+    color: #fff;
     margin-bottom: 2rem;
   }
 
   .case-metrics-secondary .case-metrics-label { color: rgba(0, 0, 0, 0.4); }
 
   .case-metrics-note {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
     max-width: 62ch;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.55);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #fff;
   }
 
   .case-metrics-row {
@@ -484,7 +513,7 @@ const jsonLd = {
   .case-metric {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
     position: relative;
     opacity: 0;
     transform: translateY(20px);
@@ -505,113 +534,78 @@ const jsonLd = {
     font-variant-numeric: tabular-nums;
   }
 
+  /* Hierarchy comes from size and weight, not from fading the label out.
+     No rules under the figures — this page does not use boxed-in elements. */
   .case-metric-label {
-    font-size: 0.78rem;
+    font-size: 0.9rem;
     font-weight: 600;
     line-height: 1.4;
-    color: rgba(255, 255, 255, 0.65);
+    color: #fff;
   }
-
-  .case-metric-note {
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.35);
-    line-height: 1.4;
-  }
-
-  .case-metric-rule {
-    display: block;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: calc(var(--i, 0) * 0.08s + 0.2s);
-    margin-top: 0.4rem;
-  }
-
-  .case-metrics.is-revealed .case-metric-rule { transform: scaleX(1); }
 
   /* Secondary figures sit on a light band */
   .case-metrics-secondary .case-metric-value { color: #0a0a0a; font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
-  .case-metrics-secondary .case-metric-label { color: rgba(0, 0, 0, 0.7); }
-  .case-metrics-secondary .case-metric-note { color: rgba(0, 0, 0, 0.4); }
-  .case-metrics-secondary .case-metric-rule { background: rgba(0, 0, 0, 0.15); }
+  .case-metrics-secondary .case-metric-label { color: #0a0a0a; }
+  .case-metrics-secondary .case-metric-note { font-size: 0.78rem; font-weight: 500; line-height: 1.5; color: #555; }
 
-  /* ── Narrative stack ─────────────────────────────────────────── */
-  .cns-card {
-    width: 100%;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
-    padding: 2.25rem;
+  /* Long-form prose, matching the guides: same measure, same ink. */
+  .case-prose {
+    max-width: 56rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 3.5rem;
   }
 
-  @media (min-width: 768px) {
-    .cns-card { padding: 3rem 3.5rem; }
-  }
-
-  .cns-head {
+  .case-prose-block {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .cns-index {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: rgba(0, 0, 0, 0.25);
-    padding-top: 0.4rem;
-  }
-
-  .cns-title {
-    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  .case-prose-title {
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    color: #000;
+    color: #0a0a0a;
   }
 
-  .cns-body { display: flex; flex-direction: column; gap: 1rem; }
-
-  .cns-text { font-size: 1rem; line-height: 1.75; color: #555; max-width: 70ch; }
-
-  .cns-cta {
-    width: 100%;
-    background: #0a0a0a;
-    padding: 3rem 2.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .case-prose-text {
+    font-size: 1.08rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: #1a1a1a;
   }
 
-  @media (min-width: 768px) {
-    .cns-cta { padding: 4rem 3.5rem; }
+  .case-num {
+    font-weight: 800;
+    color: #0a0a0a;
   }
 
-  .cns-cta-inner {
+  /* Closing CTA */
+  .case-cta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
-    max-width: 46rem;
+    max-width: 52rem;
   }
 
-  .cns-cta-title {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+  .case-cta-title {
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.02em;
     color: #fff;
   }
 
-  .cns-cta-text { font-size: 1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.6); }
+  .case-cta-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #fff;
+    max-width: 62ch;
+  }
 
   /* ── The limit callout ───────────────────────────────────────── */
   .case-limit {
@@ -677,7 +671,7 @@ const jsonLd = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.4);
+    color: #fff;
     padding-top: 0.15rem;
   }
 
@@ -686,7 +680,7 @@ const jsonLd = {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+    color: #fff;
   }
 
   .case-source {
@@ -694,7 +688,7 @@ const jsonLd = {
     max-width: 60ch;
     font-size: 0.85rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.45);
+    color: #fff;
   }
 
   /* ── Outro ───────────────────────────────────────────────────── */
@@ -847,7 +841,6 @@ const jsonLd = {
     .hero-el,
     .fade-up,
     .case-metric,
-    .case-metric-rule,
     .case-related-card,
     .case-related-media svg {
       transition: none !important;

@@ -162,8 +162,9 @@ export function CaseMetrics({ stats, label, variant = 'primary' }: CaseMetricsPr
           <div className="case-metric" key={`${stat.label}-${i}`} style={{ '--i': i } as React.CSSProperties}>
             <dt className="case-metric-label">{stat.label}</dt>
             <dd className="case-metric-value">{display[i]}</dd>
-            {stat.note && <span className="case-metric-note">{stat.note}</span>}
-            <span className="case-metric-rule" aria-hidden="true" />
+            {stat.note && variant === 'secondary' && (
+              <span className="case-metric-note">{stat.note}</span>
+            )}
           </div>
         ))}
       </dl>
