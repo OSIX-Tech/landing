@@ -54,8 +54,6 @@ We deliver a working demo in 2 weeks. Full project timelines depend on scope, bu
 ## Links
 
 - [Homepage (Spanish)](https://osix.tech/es/)
-- [Homepage (Galician)](https://osix.tech/gl/)
-- [Homepage (English)](https://osix.tech/en/)
 - [Custom AI Development](https://osix.tech/es/servicios/desarrollo-a-medida/)
 - [Digital Transformation Consulting](https://osix.tech/es/servicios/consultoria-transformacion/)
 - [Subsidized Innovation & Grants](https://osix.tech/es/servicios/innovacion-subvencionada/)

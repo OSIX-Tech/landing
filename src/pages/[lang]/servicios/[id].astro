@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   );
 }
 
-const { id = '', lang = 'en' } = Astro.params as { id: string; lang: Lang };
+const { id = '', lang = 'es' } = Astro.params as { id: string; lang: Lang };
 const service = getService(id, lang);
 
 if (!service) {

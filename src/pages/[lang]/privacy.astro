@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   return LANGUAGES.map(lang => ({ params: { lang } }));
 }
 
-const { lang = 'en' } = Astro.params as { lang: Lang };
+const { lang = 'es' } = Astro.params as { lang: Lang };
 
 let PP;
 try {

@@ -1,18 +1,14 @@
 ---
 export const prerender = true;
 ---
-
-<!DOCTYPE html>
-<html>
-<head>
-  <script>
-    const supported = ['en', 'es', 'gl'];
-    const userLang = navigator.language.split('-')[0] || 'en';
-    const lang = supported.includes(userLang) ? userLang : 'en';
-    window.location.replace(`/${lang}/privacy`);
-  </script>
-</head>
-<body>
-  Redirecting...
-</body>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/es/privacy/" />
+    <link rel="canonical" href="https://osix.tech/es/privacy/" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Política de Privacidad | OSIX Tech</title>
+  </head>
+  <body><p>Redirigiendo a <a href="/es/privacy/">la política de privacidad</a>…</p></body>
 </html>
