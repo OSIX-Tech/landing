@@ -90,12 +90,9 @@ const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 export function CaseMetrics({ stats, label, variant = 'primary' }: CaseMetricsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const parsed = useRef(stats.map(s => parseMetric(s.value)));
-  const [display, setDisplay] = useState<string[]>(() =>
-    stats.map((s, i) => {
-      const p = parsed.current[i];
-      return p ? `${p.prefix}${format(0, p)}${p.suffix}` : s.value;
-    })
-  );
+  // The real value must be present in server-rendered HTML. The count-up is only
+  // an enhancement after hydration, never the source of truth for the metric.
+  const [display, setDisplay] = useState<string[]>(() => stats.map(s => s.value));
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
