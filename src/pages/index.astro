@@ -151,7 +151,7 @@ const jsonLd = {
       "name": "OSIX Tech",
       "url": "https://osix.tech",
       "publisher": { "@id": "https://osix.tech/#organization" },
-      "inLanguage": ["en", "es", "gl"]
+      "inLanguage": "es"
     },
     {
       "@type": "WebPage",
@@ -226,7 +226,7 @@ const caseCards = getCaseStudyCards().slice(0, 3);
             </div>
           </a>
         ))}
-        <a class="home-caso-card home-caso-card-all" href={`//casos/`}>
+        <a class="home-caso-card home-caso-card-all" href={`/casos/`}>
           <div class="home-caso-all-inner">
             <span class="home-caso-all-count">8</span>
             <span class="home-caso-all-label">{{ es: 'Ver todos los casos', gl: 'Ver todos os casos', en: 'See all case studies' }[lang]}</span>
@@ -245,7 +245,7 @@ const caseCards = getCaseStudyCards().slice(0, 3);
     <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
       <div class="home-guias-grid">
         {latestGuides.slice(0, 5).map((g, i) => (
-          <a class="guia-home-card" href={`//guias/${g.slug}/`}>
+          <a class="guia-home-card" href={`/guias/${g.slug}/`}>
             <div class="guia-home-media">
               <Fragment set:html={genGuideArt(g.slug, i)} />
               <span class="guia-home-tag">{g.tag}</span>
@@ -261,7 +261,7 @@ const caseCards = getCaseStudyCards().slice(0, 3);
             </div>
           </a>
         ))}
-        <a class="guia-home-card guia-home-card-all" href={`//guias/`}>
+        <a class="guia-home-card guia-home-card-all" href={`/guias/`}>
           <div class="guia-home-all-inner">
             <span class="guia-home-all-count">10+</span>
             <span class="guia-home-all-label">{{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}</span>

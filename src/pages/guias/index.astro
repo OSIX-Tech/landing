@@ -98,7 +98,7 @@ const collectionSchema = {
     <div class="max-w-7xl mx-auto px-6 md:px-12">
       <div class="guias-hub-grid">
         {guides.map((g, i) => (
-          <a href={`//guias/${g.slug}/`} class="guia-hub-card" style={`transition-delay: ${Math.min(i % 3, 5) * 0.08}s`}>
+          <a href={`/guias/${g.slug}/`} class="guia-hub-card" style={`transition-delay: ${Math.min(i % 3, 5) * 0.08}s`}>
             <div class="guia-hub-media">
               <Fragment set:html={genGuideArt(g.slug, i)} />
               <span class="guia-hub-tag">{g.tag}</span>

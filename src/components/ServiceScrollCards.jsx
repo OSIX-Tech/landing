@@ -98,7 +98,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
                       <p className="ssc-tagline">{service.tagline}</p>
                     </div>
                     <p className="ssc-description">{service.description}</p>
-                    <a href={`//servicios/${service.id}`} className="btn-primary btn-arrow" style={{ marginTop: '2rem', alignSelf: 'flex-start' }}>
+                    <a href={`/servicios/${service.id}`} className="btn-primary btn-arrow" style={{ marginTop: '2rem', alignSelf: 'flex-start' }}>
                       {viewServiceLabel}
                       <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
                         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -113,7 +113,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
                         <span className="ssc-proof-label">{casesLabel}</span>
                         <div className="ssc-proof-list">
                           {visible.map((c) => (
-                            <a key={c.id} href={`//servicios/${c.services?.[0] || 'desarrollo-a-medida'}#cases`} className="ssc-proof-item">
+                            <a key={c.id} href={`/servicios/${c.services?.[0] || 'desarrollo-a-medida'}#cases`} className="ssc-proof-item">
                               {caseLogos[c.id] && (
                                 <img src={caseLogos[c.id]} alt={c.client} className="ssc-proof-logo" />
                               )}
@@ -121,7 +121,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
                             </a>
                           ))}
                           {remaining > 0 && (
-                            <a href={`//servicios/${service.id}`} className="ssc-proof-item ssc-proof-more">
+                            <a href={`/servicios/${service.id}`} className="ssc-proof-item ssc-proof-more">
                               <span>+{remaining} {({ es: 'más', gl: 'máis', en: 'more' }[lang])}</span>
                               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -133,7 +133,7 @@ export default function ServiceScrollCards({ services, casesByService, caseLogos
                     ) : promo ? (
                       <div className="ssc-proof-promo !gap-8 md:!gap-16">
                         <p className="ssc-proof-promo-headline text-2xl">{promo.headline}</p>
-                        <a href={`//servicios/${service.id}#convocatorias`} className="btn-secondary btn-arrow">
+                        <a href={`/servicios/${service.id}#convocatorias`} className="btn-secondary btn-arrow">
                           {promo.cta}
                           <svg className="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
                             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
