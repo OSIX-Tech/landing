@@ -143,47 +143,17 @@ const t = (k: string) => translations.default[k] || k;
 </style>
 
 <script>
+  import { scrollToNavTarget } from '../utils/navScroll';
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll<HTMLAnchorElement>('#hero-cta-container a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (!targetId) return;
-        const targetElement = document.querySelector(targetId) as HTMLElement;
-        if (targetElement) {
-          const header = document.getElementById('main-header');
-          const headerHeight = header ? header.offsetHeight : 0;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          smoothScrollTo(targetPosition, 2000);
+      link.addEventListener('click', function (e) {
+        // Only take the click when the section is on this page; otherwise the
+        // link navigates as written.
+        if (scrollToNavTarget(this.getAttribute('href'))) {
+          e.preventDefault();
         }
       });
     });
-
-    function smoothScrollTo(targetPosition: number, duration: number) {
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      let startTime: number | null = null;
-
-      function animation(currentTime: number) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const ease = easeInOutCubic(progress);
-
-        window.scrollTo(0, startPosition + distance * ease);
-
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
-      }
-
-      function easeInOutCubic(t: number) {
-        return t < 0.5
-          ? 4 * t * t * t
-          : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
-
-      requestAnimationFrame(animation);
-    }
   });
 </script>

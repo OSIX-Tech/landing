@@ -137,6 +137,8 @@ const otherLangs = LANGUAGES.filter(l => l !== lang);
 </header>
 
 <script>
+import { resolveNavTarget, navTargetTop, smoothScrollTo, scrollToNavTarget, NAV_SCROLL_DURATION } from '../utils/navScroll';
+
 // Type definitions
 
 // Global state
@@ -506,53 +508,34 @@ function setupNavigation() {
   // Nav link clicks
   allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
+      // Only hijack the click when that section is actually on this page.
+      // Everywhere else — a hash pointing at the landing page, or a plain page
+      // link such as /es/casos/ — the browser navigates as written.
+      const target = resolveNavTarget(link.getAttribute('href'));
+      if (!target) return;
 
-      // Don't prevent default for navigation links that go to different pages
-      if (!href || (!href.startsWith('#') && !href.includes('/#'))) return;
+      e.preventDefault();
+      state.disableIndicatorUpdate = true;
 
-      const hashMatch = href.match(/#(.+)$/);
-      if (hashMatch) {
-        // Only hijack the click when that section is actually on this page.
-        // Everywhere else the hash points at the landing page, so let the
-        // browser navigate. Testing for the element rather than listing known
-        // subpaths is what keeps this working for pages added later.
-        if (!document.getElementById(hashMatch[1])) return;
+      const targetHref = `#${target.id}`;
 
-        e.preventDefault();
-        state.disableIndicatorUpdate = true;
-
-        const targetIdClean = hashMatch[1];
-        const targetHref = `#${targetIdClean}`;
-
-        allNavLinks.forEach(item => {
-          const itemHref = item.getAttribute('href');
-          item.classList.remove('nav-active');
-          if (itemHref && itemHref.endsWith(targetHref)) {
-            item.classList.add('nav-active');
-            state.activeNavItem = item as HTMLElement;
-          }
-        });
-
-        if (state.activeNavItem) moveIndicatorTo(state.activeNavItem);
-
-        if (targetIdClean === 'hero') {
-          smoothScrollTo(0, 2000);
-        } else {
-          const targetSection = document.getElementById(targetIdClean);
-          if (targetSection && state.header) {
-            const adjustAttr = link.getAttribute('data-scroll-adjust');
-            const customAdjust = adjustAttr ? parseInt(adjustAttr) : 0;
-            const headerHeight = state.header.offsetHeight;
-            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - customAdjust;
-            smoothScrollTo(targetPosition, 2000);
-          }
+      allNavLinks.forEach(item => {
+        const itemHref = item.getAttribute('href');
+        item.classList.remove('nav-active');
+        if (itemHref && itemHref.endsWith(targetHref)) {
+          item.classList.add('nav-active');
+          state.activeNavItem = item as HTMLElement;
         }
+      });
 
-        setTimeout(() => {
-          state.disableIndicatorUpdate = false;
-        }, 2000);
-      }
+      if (state.activeNavItem) moveIndicatorTo(state.activeNavItem);
+
+      const adjustAttr = link.getAttribute('data-scroll-adjust');
+      smoothScrollTo(navTargetTop(target, adjustAttr ? parseInt(adjustAttr) : 0));
+
+      setTimeout(() => {
+        state.disableIndicatorUpdate = false;
+      }, NAV_SCROLL_DURATION);
     });
   });
 
@@ -562,7 +545,7 @@ function setupNavigation() {
       const logoHref = logoLink.getAttribute('href');
       if (window.location.pathname === logoHref || logoHref === '/') {
         e.preventDefault();
-        smoothScrollTo(0, 2000);
+        smoothScrollTo(0);
       }
     });
   }
@@ -571,20 +554,10 @@ function setupNavigation() {
   const contactBtn = document.querySelector('.contact-btn');
   if (contactBtn) {
     contactBtn.addEventListener('click', (e) => {
-      const href = contactBtn.getAttribute('href');
-      const hashMatch = href?.match(/#(.+)$/);
-      
-      if (hashMatch) {
-        const targetIdClean = hashMatch[1];
-        const targetSection = document.getElementById(targetIdClean);
-
-        // Not on this page — let the browser follow the link to the landing page.
-        if (!targetSection || !state.header) return;
-
+      // Returns false when #contact is not on this page, and then the link
+      // navigates to the landing page on its own.
+      if (scrollToNavTarget(contactBtn.getAttribute('href'))) {
         e.preventDefault();
-        const headerHeight = state.header.offsetHeight;
-        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        smoothScrollTo(targetPosition, 2000);
       }
     });
   }
@@ -596,11 +569,9 @@ function setupNavigation() {
       if (!sectionId) return;
       const targetSection = document.getElementById(sectionId);
 
-      if (targetSection && state.header) {
+      if (targetSection) {
         e.preventDefault();
-        const headerHeight = state.header.offsetHeight;
-        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        smoothScrollTo(targetPosition, 2000);
+        smoothScrollTo(navTargetTop(targetSection));
 
         // Close the dropdown
         state.dropdownTriggers.forEach(trigger => trigger.classList.remove('expanded'));
@@ -621,34 +592,6 @@ function setupNavigation() {
       }
     });
   }
-}
-
-// Smooth scroll helper
-function smoothScrollTo(targetPosition: number, duration: number) {
-  const startPosition = window.pageYOffset;
-  const distance = targetPosition - startPosition;
-  let startTime: number | null = null;
-  
-  function animation(currentTime: number) {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / duration, 1);
-    const ease = easeInOutCubic(progress);
-    
-    window.scrollTo(0, startPosition + distance * ease);
-    
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
-    }
-  }
-  
-  function easeInOutCubic(t: number) {
-    return t < 0.5 
-      ? 4 * t * t * t 
-      : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-  
-  requestAnimationFrame(animation);
 }
 
 // Setup mobile menu

@@ -1,5 +1,6 @@
 import { useRef, useEffect, useLayoutEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
+import { resolveNavTarget, navTargetTop, smoothScrollTo } from '../utils/navScroll';
 
 const css = `
 .mobile-menu-wrapper {
@@ -470,56 +471,22 @@ export default function MobileMenu({ lang, items = [], socialItems = [], langOpt
   }, [playOpen, playClose]);
 
   // ---- Smooth scroll helper with controlled duration ----
-  const smoothScrollTo = useCallback((targetPosition, duration = 2000) => {
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    let startTime = null;
-
-    function easeInOutCubic(t) {
-      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    function animation(currentTime) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
-
-    requestAnimationFrame(animation);
-  }, []);
-
   // ---- Nav link click handler (hash scroll) ----
   const handleNavClick = useCallback(
     (e, href) => {
+      // Prevented up front so the close animation plays before anything else.
+      // That makes navigating on a miss mandatory, not optional.
       e.preventDefault();
       playClose(() => {
-        const hashMatch = href.match(/#(.+)$/);
-        const targetId = hashMatch ? hashMatch[1] : null;
-        const el = targetId ? document.getElementById(targetId) : null;
-
-        // Scroll only when that section is on this page. Everything else — a
-        // hash belonging to the landing page, or a plain page link like
-        // /es/casos/ with no hash at all — is a navigation. Without the second
-        // case those entries did nothing at all, since the click was already
-        // prevented above so the close animation could play first.
-        if (!el) {
+        const target = resolveNavTarget(href);
+        if (!target) {
           window.location.href = href;
           return;
         }
-
-        if (targetId === 'hero') {
-          smoothScrollTo(0);
-          return;
-        }
-
-        const header = document.getElementById('main-header');
-        const offset = header ? header.offsetHeight : 0;
-        smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - offset);
+        smoothScrollTo(navTargetTop(target));
       });
     },
-    [playClose, smoothScrollTo]
+    [playClose]
   );
 
   // ---- Submenu item click handler (full page navigation) ----
