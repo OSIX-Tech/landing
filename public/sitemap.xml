@@ -491,4 +491,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/implantar-ia-pyme-sin-equipo-tecnico/"/>
   </url>
 
+  <!-- Guide: Cómo automatizar un proceso de tu empresa paso a paso -->
+  <url>
+    <loc>https://osix.tech/es/guias/como-automatizar-proceso-empresa-paso-a-paso/</loc>
+    <lastmod>2026-09-18T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/es/guias/como-automatizar-proceso-empresa-paso-a-paso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/es/guias/como-automatizar-proceso-empresa-paso-a-paso/"/>
+  </url>
+
 </urlset>
