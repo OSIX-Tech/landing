@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/es",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/gl",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/es/:path*",
       "destination": "/:path*",
       "permanent": true
