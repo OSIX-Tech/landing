@@ -4,7 +4,7 @@ import LoadingScreen from '../../components/LoadingScreen.astro';
 
 export const prerender = true;
 
-// Guía actualmente en español (prompt BOFU: cómo automatizar la preparación de ofertas desde un correo de cliente). Ampliar a en/gl cuando exista traducción.
+// Guía actualmente en español. Ampliar a en/gl cuando exista traducción.
 export async function getStaticPaths() {
   return [{}];
 }
@@ -16,8 +16,8 @@ const GuideContent = (await import('../../content/es/guias/analizar-pliegos-lici
 const canonicalUrl = `https://osix.tech/guias/analizar-pliegos-licitaciones-ia-pyme/`;
 
 // SEO Data
-const seoTitle = "Cómo analizar pliegos y licitaciones con IA: 6 opciones para pymes - OSIX Tech";
-const seoDescription = "Qué puede extraer la IA de un pliego, qué deben revisar las personas y cómo elegir entre una plataforma, un asistente propio o una revisión manual.";
+const seoTitle = "Cómo analizar pliegos y licitaciones con IA: qué extraer y qué decide una persona - OSIX Tech";
+const seoDescription = "Qué puede extraer la IA de un pliego, qué debe revisar una persona y cómo controlar requisitos, fechas, evidencias y contradicciones antes de presentar una oferta.";
 
 // Structured Data
 const breadcrumbSchema = {
@@ -64,42 +64,42 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Puede la IA leer un pliego completo?",
+      "name": "¿Puede la IA analizar un pliego completo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puede ayudar a extraer y ordenar el contenido de un pliego, siempre que el documento sea legible y la herramienta admita sus formatos. La salida debe conservar referencias al documento y a la página para que una persona compruebe las conclusiones."
+        "text": "Puede extraer y organizar gran parte del contenido, pero analizarlo completo también implica detectar anexos ausentes, interpretar contradicciones y decidir qué significa cada requisito para una empresa concreta. La IA debe indicar qué ha encontrado, qué no ha podido leer y qué necesita revisión humana."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Puede la IA redactar una memoria técnica?",
+      "name": "¿Puede generar la memoria técnica de una licitación?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puede preparar un borrador a partir del pliego, tus plantillas y la documentación autorizada. No debe inventar experiencia, compromisos ni datos de solvencia. La memoria final necesita revisión técnica y administrativa."
+        "text": "Puede preparar un índice, extraer los puntos que debe responder la memoria y redactar un primer borrador basado en información real. El equipo debe verificar cada afirmación, adaptar la propuesta al pliego y eliminar cualquier promesa que no pueda demostrar."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Qué herramienta es mejor para una pyme?",
+      "name": "¿Puede la IA decirme si mi empresa puede presentarse?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depende del volumen. Para pocas licitaciones, una matriz manual puede ser suficiente. Para un flujo frecuente, una plataforma especializada reduce la primera lectura. Un asistente propio compensa cuando el conocimiento interno y las integraciones son importantes."
+        "text": "Puede comparar los requisitos del expediente con los datos y documentos que le proporciones, y señalar posibles incumplimientos o evidencias faltantes. La decisión final debe revisarla una persona con responsabilidad comercial, técnica, económica o jurídica."
       }
     },
     {
       "@type": "Question",
-      "name": "¿La IA puede decidir si debo presentarme?",
+      "name": "¿Qué pasa si la IA no encuentra un dato?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Puede puntuar criterios que hayas definido y señalar riesgos, pero la decisión debe considerar capacidad, margen, plazo, estrategia y responsabilidad contractual. Es una decisión empresarial, no un resultado automático."
+        "text": "Debe marcarlo como no encontrado y conservar la referencia al documento y las páginas revisadas. Nunca debe completar el hueco con una estimación presentada como hecho. Si el dato es decisivo, se incorpora como bloqueo de revisión."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Dónde se guardan los documentos que subo?",
+      "name": "¿Conviene automatizar también la presentación de la oferta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La respuesta depende del proveedor. Antes de subir pliegos, certificados o datos de clientes, pregunta por servidores, subencargados, retención, entrenamiento de modelos, permisos y borrado. No des por hecho que una herramienta de IA ofrece el mismo nivel de control que tu gestor documental."
+        "text": "En general, es más prudente automatizar la preparación y las comprobaciones que el envío final. La presentación puede implicar firma, declaraciones, selección de archivos y aceptación de condiciones. Una persona debe revisar la versión final y conservar el justificante."
       }
     }
   ]
@@ -121,12 +121,12 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-4xl">
-        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Licitaciones · IA · Pymes · España</span>
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Licitaciones · IA · Pymes</span>
         <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
           Cómo analizar pliegos y licitaciones con IA
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          El flujo en seis pasos, las tres vías con su coste real y cuándo no conviene automatizar tus ofertas.
+          Qué extraer del pliego, qué debe decidir una persona y cómo controlar requisitos, fechas y evidencias.
         </p>
       </div>
     </div>
@@ -203,6 +203,11 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   .content-section {
     display: block;
     width: 100%;
+  }
+
+  .content-section .max-w-7xl {
+    max-width: 100%;
+    min-width: 0;
   }
 
   /* Hero Animations */

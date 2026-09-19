@@ -1,201 +1,185 @@
-# Cómo analizar pliegos y licitaciones con IA: 6 opciones y qué debe decidir una persona
-
-Guía · Licitaciones · IA · Pymes · España
-
 # Cómo analizar pliegos y licitaciones con IA: qué extraer y qué decide una persona
 
-Sí, una pyme puede usar inteligencia artificial para analizar un pliego, pero la IA no debe decidir por sí sola si una oferta es válida ni presentar una propuesta sin revisión. La combinación que mejor encaja en 2026 es un buscador o plataforma para localizar oportunidades, un extractor para ordenar requisitos y una persona responsable que compruebe solvencia, fechas, criterios de valoración y compromisos antes de licitar. Para empezar, estas son las seis opciones más útiles: PLACSP y TED como fuentes oficiales, plataformas especializadas como iaLicitaciones, LicitaBot y Pliggo, y un asistente propio conectado a los documentos de la empresa.
+**Guía · IA aplicada · Licitaciones · Documentos · Pymes**
 
-La diferencia importante no está en que una herramienta diga que usa IA. Está en si deja ver de dónde sale cada conclusión, qué requisito ha quedado sin comprobar y quién conserva la decisión final.
+La IA puede convertir un pliego y sus anexos en un resumen operativo de requisitos, fechas, criterios de adjudicación, documentación y riesgos. No debe decidir por sí sola si una empresa puede presentarse ni enviar una oferta: esas conclusiones necesitan una revisión responsable, porque un dato omitido, una contradicción entre documentos o un plazo mal interpretado puede dejar fuera una propuesta válida.
 
-Esta guía la publica OSIX Tech. OSIX trabaja en automatización y software a medida para pymes, por lo que aparece también como una posible vía de implementación. No es un ranking neutral ni una prueba de producto. Comparamos enfoques y límites para que una empresa pueda elegir con criterio, incluso cuando la mejor decisión sea no construir nada.
+La forma segura de automatizar el análisis de una licitación es dividirlo en tres capas: extracción de hechos, comprobaciones contra una lista de control y decisión humana. El resultado no es una oferta presentada automáticamente, sino un expediente de oportunidad revisado y trazable.
 
-## Comparativa rápida
+## La IA debe convertir el pliego en una lista de decisiones, no en un resumen genérico
 
-| Opción | Qué resuelve mejor | Mejor para | Límite que hay que aceptar |
-| --- | --- | --- | --- |
-| PLACSP y TED | Encontrar el expediente y consultar la fuente oficial | Cualquier empresa que necesite verificar la convocatoria | No sustituyen el análisis interno ni redactan una estrategia por ti |
-| iaLicitaciones | Buscar oportunidades, analizar pliegos y preparar memorias | Pymes que quieren un flujo especializado en licitaciones | La salida generada sigue necesitando revisión técnica y administrativa |
-| LicitaBot | Centralizar búsqueda, documentación y preparación de ofertas | Empresas que quieren guardar su contexto en una herramienta | Hay que validar cómo trata la documentación sensible y cómo exporta el resultado |
-| Pliggo | Filtrar oportunidades, analizar requisitos, estimar precio y redactar | Equipos que quieren cubrir el ciclo completo | Las recomendaciones de precio y encaje son apoyo, no una adjudicación probable |
-| Asistente propio con RAG | Consultar plantillas, experiencia y documentación interna | Empresas con procesos repetidos y requisitos propios | Requiere diseñar permisos, fuentes, excepciones y mantenimiento |
-| Revisión manual estructurada | Decidir cuando el volumen es bajo o el expediente es crítico | Pymes con pocas licitaciones o mucha especialización | Consume tiempo y es difícil reutilizar el aprendizaje |
+Un resumen de dos páginas rara vez basta para preparar una oferta. El análisis útil relaciona cada requisito con la página o el anexo donde aparece, indica si es obligatorio y deja visible qué debe comprobar una persona.
 
-## Qué debe extraer la IA de un pliego
-
-Un buen análisis no es un resumen de cinco páginas. Debe convertir el expediente en una lista comprobable. Como mínimo, la salida debería separar estos bloques:
-
-1. Objeto y alcance: qué se contrata, qué queda fuera y qué entregables se esperan.
-2. Fechas: presentación, preguntas, visitas, muestras, subsanaciones y ejecución.
-3. Solvencia: económica, técnica y profesional. Aquí la IA puede localizar evidencias, pero no puede afirmar que la empresa cumple sin contrastar certificados y cifras.
-4. Criterios de adjudicación: puntos automáticos, juicio de valor, precio, mejoras, experiencia y fórmulas.
-5. Documentación: DEUC, declaraciones, certificados, memoria, anexos y formatos obligatorios.
-6. Riesgos: requisitos excluyentes, penalizaciones, incompatibilidades, límites de páginas y contradicciones entre documentos.
-7. Preguntas abiertas: datos que el pliego no resuelve o que requieren consulta al órgano de contratación.
-
-La salida más útil es una tabla con cinco columnas: requisito, evidencia encontrada, documento y página, estado de cumplimiento y responsable de comprobarlo. Si la herramienta no conserva la referencia exacta al documento, su resumen sirve para orientarse, pero no para cerrar una oferta.
-
-## 1. PLACSP y TED: la fuente oficial antes de cualquier automatización
-
-La Plataforma de Contratación del Sector Público y TED son el punto de partida para localizar el expediente, descargar sus documentos y comprobar la información publicada. No son una herramienta de IA para interpretar el negocio, pero sí son la referencia que debe prevalecer cuando una plataforma de terceros muestra un dato desactualizado o incompleto.
-
-**Mejor para:** confirmar el anuncio, el órgano, el plazo, el expediente y la documentación oficial.
-
-**Ventaja:** la fuente primaria. Si existe una duda sobre una fecha o una versión del pliego, se vuelve al expediente oficial.
-
-**Límite:** la plataforma no sabe si la licitación encaja con la capacidad real de tu empresa. Tampoco sustituye una matriz de cumplimiento ni prepara por sí sola una memoria técnica.
-
-**Uso recomendado:** descarga siempre el pliego y sus anexos desde la fuente oficial, guarda la fecha de descarga y compara cualquier resumen automático con esa copia. Una herramienta que no permite abrir el documento de origen deja una trazabilidad insuficiente.
-
-## 2. iaLicitaciones: búsqueda, análisis y memoria en un flujo especializado
-
-[iaLicitaciones](https://ialicitaciones.com/) presenta un flujo que cubre búsqueda de oportunidades, análisis de pliegos, generación de memorias técnicas y gestión del expediente. Su página declara funciones concretas de búsqueda automática, análisis de pliegos, generación de memorias y alertas personalizadas, además de una prueba gratuita de 14 días.
-
-**Mejor para:** una pyme que recibe muchas oportunidades y quiere reducir el tiempo de búsqueda y primera lectura sin montar su propio sistema.
-
-**Ventaja:** concentra en una aplicación tareas que normalmente se reparten entre alertas, carpetas, hojas de cálculo y un asistente generalista.
-
-**Límite:** una memoria generada no demuestra que la empresa cumpla la solvencia, que las referencias sean válidas o que el texto responda exactamente al criterio de valoración. La persona responsable debe comprobar cada afirmación y volver al expediente.
-
-**Qué comprobar antes de contratar:** qué documentos se almacenan, durante cuánto tiempo, qué proveedores procesan los archivos, cómo se exporta la memoria, cómo se identifican las citas al pliego y qué ocurre cuando el sistema no encuentra una respuesta.
-
-## 3. LicitaBot: contexto de empresa y preparación de la oferta
-
-[Licitabot](https://licitabot.com/) plantea un asistente para licitaciones que usa la documentación económica, técnica y de experiencia de cada empresa para analizar oportunidades, preparar la memoria y organizar los sobres. La propuesta es más útil que un chat genérico cuando el trabajo se repite y existe un conjunto estable de certificados, currículos, plantillas y referencias.
-
-**Mejor para:** empresas que quieren reutilizar su documentación y tener un punto de trabajo único para la preparación.
-
-**Ventaja:** el análisis puede partir del perfil real de la empresa, no solo del texto del pliego. Eso permite preguntar si una oportunidad encaja con la capacidad técnica o con la experiencia disponible.
-
-**Límite:** guardar más contexto no elimina el riesgo de usar una referencia incorrecta. Cada memoria debe comprobar que la experiencia citada corresponde al servicio, que las fechas siguen siendo válidas y que los datos económicos no se han quedado antiguos.
-
-**Qué comprobar antes de contratar:** separación entre clientes, permisos por usuario, exportación de documentos, historial de cambios y forma de marcar contenido generado por IA. Si no puedes saber qué parte de una memoria viene del expediente y cuál de tu biblioteca interna, la revisión se vuelve más lenta, no más rápida.
-
-## 4. Pliggo: cubrir el ciclo completo con búsqueda, análisis y precio
-
-[Pliggo](https://pliggo.es/) reúne cuatro pasos: encontrar oportunidades, analizar el pliego, estimar un rango de precio y gestionar la memoria técnica. Su página describe filtros por sector, importe y territorio, análisis técnico, económico y jurídico, y un editor para reutilizar plantillas y perfiles de empresa. También publica planes Basic, Pro y Custom, con un precio mostrado de 84 euros al mes para el plan Basic con facturación anual en la página consultada.
-
-**Mejor para:** equipos que quieren pasar de la búsqueda a la preparación en una sola plataforma.
-
-**Ventaja:** obliga a pensar en el ciclo completo. La decisión no termina cuando se encuentra una licitación: también hay que valorar el plazo, el precio, el esfuerzo documental y la probabilidad de cumplir.
-
-**Límite:** un estimador de precio basado en adjudicaciones similares no conoce todos tus costes, riesgos de ejecución ni estrategia comercial. Es una referencia para discutir, no una orden para bajar el margen.
-
-**Qué comprobar antes de contratar:** qué fuentes cubre, cómo calcula la similitud, si muestra los expedientes que sustentan una recomendación, cómo trata los criterios de juicio de valor y si puedes editar o eliminar completamente los textos generados.
-
-## 5. Asistente propio con RAG: cuando tus documentos son la ventaja
-
-Un asistente propio puede consultar pliegos, plantillas, certificaciones, memorias anteriores y criterios internos mediante una arquitectura de recuperación documental, normalmente llamada RAG. La idea es sencilla: el modelo no responde solo con conocimiento general, sino que busca fragmentos en un conjunto de documentos autorizado y devuelve la respuesta con su fuente.
-
-**Mejor para:** empresas o equipos que preparan licitaciones de forma recurrente y tienen un método propio que merece la pena reutilizar.
-
-**Ventaja:** puedes definir qué fuentes entran, qué usuarios acceden, cómo se versionan los documentos y qué formato debe tener la salida. También puedes conectar el análisis con un CRM, un gestor documental o una herramienta de revisión.
-
-**Límite:** no es una caja mágica. Hay que limpiar documentos, controlar permisos, detectar versiones, diseñar respuestas cuando falta información y mantener el sistema cuando cambian los modelos o los procesos.
-
-Un asistente propio tiene sentido cuando se cumplen tres condiciones: hay suficiente volumen para amortizarlo, existe documentación interna de calidad y alguien puede ser responsable de mantener las fuentes. Si solo preparas dos licitaciones al año, una plataforma existente o una plantilla de revisión suele ser más sensata.
-
-## 6. Revisión manual estructurada: la opción correcta cuando no toca automatizar
-
-La revisión manual no es quedarse atrás. Es la opción adecuada cuando el número de expedientes es bajo, el contrato es excepcional o un error de interpretación tendría un coste alto. Puede organizarse con una matriz sencilla, sin IA:
-
-| Bloque | Pregunta de control | Evidencia que se guarda |
+| Bloque | Qué debe localizar la IA | Qué debe validar una persona |
 | --- | --- | --- |
-| Encaje | ¿El objeto coincide con lo que hacemos? | Cita del objeto y decisión de seguir o descartar |
-| Solvencia | ¿Podemos demostrar cada requisito? | Certificado, referencia o documento pendiente |
-| Plazo | ¿Llegamos con recursos reales? | Calendario con responsables |
-| Puntuación | ¿Dónde se ganan los puntos? | Tabla de criterios y puntuación estimada |
-| Riesgo | ¿Qué puede dejarnos fuera? | Lista de exclusiones y dudas |
-| Memoria | ¿Qué debe probar cada sección? | Índice vinculado a criterios del pliego |
+| Identificación | Órgano de contratación, expediente, objeto, procedimiento y lotes | Que el contrato encaja con la actividad y la capacidad real de la empresa |
+| Fechas | Publicación, consultas, visita, presentación, apertura y ejecución | Que el plazo sigue vigente y que hay tiempo real para preparar la oferta |
+| Solvencia | Volumen de negocio, experiencia, medios, certificados y habilitaciones | Que la empresa puede acreditarlo con documentación válida |
+| Prescripciones técnicas | Alcance, entregables, niveles de servicio, materiales y restricciones | Que el equipo puede cumplirlo sin prometer algo que no puede entregar |
+| Adjudicación | Criterios, ponderaciones, fórmulas y criterios sujetos a juicio de valor | Qué estrategia ofrece una posibilidad razonable de ganar |
+| Oferta | Sobres, formatos, declaraciones, firmas y anexos | Que no falta ningún documento ni se mezcla información entre sobres |
+| Riesgos | Penalizaciones, obligaciones esenciales, incompatibilidades y contradicciones | Si el riesgo económico y operativo es asumible |
 
-La automatización debe quitar trabajo repetitivo, no convertir una decisión importante en un botón. En muchos equipos el primer paso correcto es digitalizar esta matriz y medir cuánto tarda la primera lectura antes de comprar o construir una herramienta.
+La salida debe incluir el texto original o una referencia precisa a cada hallazgo. Si la IA no puede localizar el dato, debe marcarlo como no encontrado, no rellenarlo con una suposición.
 
-## Qué decisiones no debe tomar la IA
+## Paso 1: decidir si merece la pena leer el expediente completo
 
-Hay cuatro decisiones que deben seguir teniendo responsable humano:
+Antes de automatizar una lectura larga, conviene hacer un triaje de pocos minutos. La IA puede preparar esta primera ficha:
 
-- Confirmar que la empresa cumple la solvencia económica, técnica y profesional.
-- Interpretar una cláusula ambigua cuando puede cambiar la elegibilidad o el alcance.
-- Decidir el precio final y el margen, incluidos los costes de ejecución y riesgo.
-- Aprobar el contenido que se presenta, incluidos compromisos, referencias y declaraciones.
+- objeto del contrato y servicio solicitado;
+- órgano de contratación y ubicación;
+- presupuesto base, valor estimado e impuestos cuando aparezcan;
+- fecha y hora límite de presentación;
+- duración, prórrogas y posibles lotes;
+- procedimiento y forma de presentación;
+- requisitos de solvencia que podrían dejar fuera a la empresa;
+- porcentaje de criterios automáticos frente a criterios sujetos a juicio de valor.
 
-La IA puede marcar una cláusula, proponer una pregunta, comparar una plantilla con un criterio o señalar que falta una evidencia. No debe convertir una inferencia en una afirmación de cumplimiento. Tampoco debe rellenar un dato ausente inventando una cifra, una referencia o una experiencia.
+La persona responsable decide después si existe encaje comercial, si se cumplen los mínimos y si el plazo permite preparar una oferta competitiva. Si falla un requisito obligatorio, el expediente puede descartarse sin invertir horas en redactar.
 
-## El flujo de trabajo que sí recomiendo
+## Paso 2: extraer requisitos y separarlos por prioridad
 
-1. Localiza la oportunidad en una fuente oficial o en una herramienta que permita volver a ella.
-2. Descarga el pliego, anexos y correcciones en una carpeta con fecha y versión.
-3. Pide a la IA una extracción estructurada, con página o fragmento para cada requisito.
-4. Separa requisitos excluyentes, criterios puntuables y documentación pendiente.
-5. Haz una reunión breve de decisión: seguir, pedir aclaración o descartar.
-6. Redacta la memoria con una plantilla vinculada a los criterios de adjudicación.
-7. Revisa cada afirmación contra la documentación de la empresa y el pliego.
-8. Deja un registro de quién aprobó precio, contenido y documentación.
+No todos los párrafos del pliego tienen el mismo peso. La IA debe clasificar cada requisito en una de estas categorías:
 
-## Cuándo no conviene automatizar el análisis de pliegos
+1. **Excluyente:** si no se cumple, la oferta puede ser inadmitida o quedar fuera.
+2. **Obligación de ejecución:** se aplica si se gana y afecta al coste, al equipo o al calendario.
+3. **Criterio puntuable:** mejora la valoración, pero no siempre es obligatorio.
+4. **Documento acreditativo:** demuestra que se cumple otra condición.
+5. **Dato informativo:** ayuda a entender el contrato, pero no exige una respuesta concreta.
 
-No automatices todavía si:
+Para que la clasificación sea revisable, cada fila debería tener cinco campos: requisito, categoría, obligatorio o no, evidencia necesaria y ubicación en el expediente.
 
-- Solo participas en una o dos licitaciones al año.
-- No tienes archivados los certificados y referencias que la herramienta necesitaría consultar.
-- El pliego cambia cada semana y nadie mantiene las plantillas.
-- La mayor parte del trabajo consiste en interpretar una estrategia, no en extraer datos repetidos.
-- El equipo no puede revisar el resultado antes de enviarlo.
+```text
+Requisito | Categoría | Obligatorio | Evidencia | Fuente | Responsable | Estado
+```
 
-En estos casos, una matriz manual bien mantenida produce más control que una herramienta que genera mucho texto sin reducir la incertidumbre.
+La fuente puede ser una página del PDF, un anexo o una cláusula concreta. La trazabilidad es más importante que una redacción elegante: permite corregir una extracción y saber qué parte del documento la originó.
 
-## Cómo elegir entre plataforma, asistente propio y desarrollo a medida
+## Paso 3: comprobar la solvencia antes de escribir la propuesta
 
-Elige una plataforma especializada si necesitas empezar rápido, tienes un volumen medio y aceptas trabajar dentro de un flujo ya diseñado. Elige un asistente propio si tus documentos, permisos y método son una ventaja competitiva y se repiten suficientes veces. Considera un desarrollo a medida solo cuando haya que integrar fuentes, CRM, gestor documental, reglas propias y revisión con trazabilidad.
+La solvencia suele ser uno de los primeros filtros que merece la pena revisar. El sistema puede localizar umbrales, periodos de referencia, contratos similares, certificados, equipos y perfiles exigidos. No debe concluir que la empresa cumple solo porque encuentra palabras parecidas en su documentación.
 
-OSIX puede ayudar a diseñar esa automatización y a conectarla con el software que ya usa la empresa, pero no tendría sentido recomendar un desarrollo a medida para una pyme que aún no ha definido su matriz de cumplimiento. Primero hay que demostrar que el proceso se repite y que el ahorro compensa el mantenimiento.
+La comprobación humana debe responder a preguntas concretas:
 
-## Cómo se elaboró esta comparativa
+- ¿El volumen de negocio exigido se acredita con las cuentas o certificados disponibles?
+- ¿La experiencia requerida tiene el mismo objeto, alcance o periodo que la experiencia propia?
+- ¿Los medios personales y materiales están disponibles durante toda la ejecución?
+- ¿Se necesita una habilitación, clasificación, seguro o certificado específico?
+- ¿Se puede recurrir a medios externos o a una unión temporal, y bajo qué condiciones?
 
-Revisamos las páginas públicas de las herramientas citadas el 7 de septiembre de 2026 y separamos funciones declaradas de recomendaciones editoriales. No hemos realizado pruebas de producto ni hemos verificado las afirmaciones comerciales con expedientes de clientes. Los precios, planes y funcionalidades pueden cambiar, por lo que deben confirmarse antes de contratar. La fuente oficial del expediente siempre tiene prioridad sobre el resumen de una plataforma.
+La salida correcta es una matriz de **cumple**, **no cumple**, **falta evidencia** o **requiere interpretación**. “Parece que cumple” no es un estado suficiente para presentar una oferta.
+
+## Paso 4: traducir los criterios de adjudicación a trabajo de oferta
+
+Un pliego puede repartir puntos entre precio, memoria técnica, mejoras, equipo, metodología, experiencia u otros criterios. La IA puede convertir la tabla de valoración en un plan de trabajo:
+
+- criterio y subcriterio;
+- puntos máximos;
+- fórmula o método de valoración;
+- contenido que debe preparar la empresa;
+- límite de páginas, formato o extensión;
+- evidencia que respalda la afirmación;
+- riesgo de perder puntos por no responder exactamente.
+
+Cuando un criterio depende de juicio de valor, la IA puede señalar qué pide el pliego y ayudar a comparar la respuesta con los requisitos. La puntuación prevista sigue siendo una hipótesis de trabajo, no un resultado garantizado. La decide el órgano de contratación, no el modelo.
+
+## Paso 5: revisar fechas, anexos y contradicciones
+
+Los documentos de una licitación no siempre están escritos para leerse como una única pieza. El anuncio, el pliego administrativo, el pliego técnico, los anexos y las respuestas a consultas pueden repartir o matizar la información.
+
+La automatización debe buscar al menos:
+
+- fechas distintas para el mismo hito;
+- importes que no coinciden entre documentos;
+- referencias a anexos que no están disponibles;
+- requisitos mencionados en el resumen pero desarrollados en otra cláusula;
+- cambios publicados después del documento original;
+- límites de páginas o formatos que aparecen solo en un apartado;
+- términos definidos de forma distinta en dos documentos.
+
+Cada conflicto debe abrir una tarea de revisión con las dos fuentes enfrentadas. No conviene resolverlo escogiendo silenciosamente la frase más reciente o la que parezca más lógica. Si afecta a la admisión, al precio o al plazo, hay que confirmar la interpretación por el canal previsto en la licitación.
+
+## Qué puede hacer la IA y qué debe conservar una persona
+
+La frontera no está entre “documentos automáticos” y “documentos manuales”. Está entre localizar y transformar información, por un lado, y asumir una decisión con consecuencias, por otro.
+
+### Tareas que la IA puede acelerar
+
+- convertir PDFs y anexos en texto consultable;
+- localizar fechas, importes, nombres, umbrales y referencias;
+- comparar requisitos entre varios documentos;
+- extraer una tabla de criterios de adjudicación;
+- generar una lista inicial de documentos que faltan;
+- redactar un primer índice de memoria técnica;
+- detectar términos que aparecen en el pliego pero no en el borrador;
+- preparar preguntas para revisar con el equipo;
+- actualizar una ficha cuando se incorpora una aclaración.
+
+### Tareas que no debe cerrar sin revisión
+
+- declarar que la empresa cumple la solvencia;
+- interpretar una cláusula ambigua con efecto jurídico o económico;
+- decidir el precio o el margen de la oferta;
+- prometer plazos, medios o resultados que el equipo no ha validado;
+- inventar una referencia, certificado o experiencia;
+- enviar la oferta o firmar declaraciones;
+- sustituir la revisión jurídica, técnica o económica cuando sea necesaria.
+
+Una regla práctica: si un error puede provocar exclusión, penalización, pérdida económica o una promesa que el equipo no podrá cumplir, la IA puede preparar el material, pero una persona debe aprobar la conclusión.
+
+## El flujo mínimo que evita automatizar errores
+
+Un sistema sencillo puede organizar el trabajo en siete estados:
+
+1. **Recibido:** se guardan el anuncio, el pliego y todos los anexos con fecha y versión.
+2. **Procesado:** se extrae el texto y se registra qué páginas no se han podido leer.
+3. **Triage:** se resumen objeto, fechas, lotes, presupuesto y requisitos excluyentes.
+4. **Comprobado:** una persona valida los datos que pueden dejar fuera la oferta.
+5. **Preparando oferta:** se generan checklist, índice, preguntas y borradores de respuesta.
+6. **Revisión final:** se comprueban formato, firmas, sobres, anexos, límites y plazo.
+7. **Presentado y archivado:** se guarda el justificante y la versión exacta enviada.
+
+El control clave es que una extracción incompleta no avance como si estuviera completa. Si faltan páginas escaneadas, tablas ilegibles o anexos, el expediente debe quedar marcado para revisión.
+
+## Cuándo basta una hoja de cálculo y cuándo hace falta integrar sistemas
+
+No todas las empresas necesitan una plataforma a medida desde el primer día.
+
+Una carpeta ordenada, una plantilla y una hoja de cálculo pueden bastar cuando hay pocos expedientes, los documentos llegan por un canal estable y una persona puede revisar cada resultado.
+
+Tiene sentido plantear una integración cuando el equipo recibe muchos expedientes, necesita cruzar los requisitos con un CRM o un repositorio documental, reutiliza datos de proyectos anteriores, trabaja con varios responsables o necesita alertas de fechas y versiones. El objetivo no es añadir IA por añadirla: es evitar que el análisis vuelva a depender de copiar datos entre correo, carpetas y hojas.
+
+En ambos casos, conviene medir lo mismo antes y después: tiempo hasta el primer diagnóstico, horas de revisión, requisitos detectados, errores encontrados antes de presentar y oportunidades descartadas a tiempo.
 
 ## Preguntas frecuentes
 
-### ¿Puede la IA leer un pliego completo?
+### ¿Puede la IA analizar un pliego completo?
 
-Puede ayudar a extraer y ordenar su contenido, siempre que el documento sea legible y la herramienta admita sus formatos. La salida debe conservar referencias al documento y a la página para que una persona compruebe las conclusiones.
+Puede extraer y organizar gran parte del contenido, pero “analizarlo completo” también implica detectar anexos ausentes, interpretar contradicciones y decidir qué significa cada requisito para una empresa concreta. La IA debe indicar qué ha encontrado, qué no ha podido leer y qué necesita revisión humana.
 
-### ¿Puede la IA redactar una memoria técnica?
+### ¿Puede la IA decirme si mi empresa puede presentarse?
 
-Puede preparar un borrador a partir del pliego, tus plantillas y la documentación autorizada. No debe inventar experiencia, compromisos ni datos de solvencia. La memoria final necesita revisión técnica y administrativa.
+Puede comparar los requisitos del expediente con los datos y documentos que le proporciones, y señalar posibles incumplimientos o evidencias faltantes. La decisión final debe revisarla una persona con responsabilidad comercial, técnica, económica o jurídica.
 
-### ¿Qué herramienta es mejor para una pyme?
+### ¿Puede generar la memoria técnica de una licitación?
 
-Depende del volumen. Para pocas licitaciones, una matriz manual puede ser suficiente. Para un flujo frecuente, una plataforma especializada reduce la primera lectura. Un asistente propio compensa cuando el conocimiento interno y las integraciones son importantes.
+Puede preparar un índice, extraer los puntos que debe responder la memoria y redactar un primer borrador basado en información real. El equipo debe verificar cada afirmación, adaptar la propuesta al pliego y eliminar cualquier promesa que no pueda demostrar.
 
-### ¿La IA puede decidir si debo presentarme?
+### ¿Qué pasa si la IA no encuentra un dato?
 
-Puede puntuar criterios que hayas definido y señalar riesgos, pero la decisión debe considerar capacidad, margen, plazo, estrategia y responsabilidad contractual. Es una decisión empresarial, no un resultado automático.
+Debe marcarlo como no encontrado y conservar la referencia al documento y las páginas revisadas. Nunca debe completar el hueco con una estimación presentada como hecho. Si el dato es decisivo, se incorpora como bloqueo de revisión.
 
-### ¿Dónde se guardan los documentos que subo?
+### ¿Conviene automatizar también la presentación de la oferta?
 
-La respuesta depende del proveedor. Antes de subir pliegos, certificados o datos de clientes, pregunta por servidores, subencargados, retención, entrenamiento de modelos, permisos y borrado. No des por hecho que una herramienta de IA ofrece el mismo nivel de control que tu gestor documental.
+En general, es más prudente automatizar la preparación y las comprobaciones que el envío final. La presentación puede implicar firma, declaraciones, selección de archivos y aceptación de condiciones. Una persona debe revisar la versión final y conservar el justificante.
 
-### ¿Qué debe hacer el sistema cuando falta un dato?
+La automatización merece la pena cuando reduce trabajo repetitivo sin ocultar incertidumbres. El expediente final debe dejar claro qué se ha encontrado, qué falta por comprobar y quién ha aprobado cada conclusión.
 
-Debe marcarlo como pendiente, mostrar qué fuente ha consultado y derivarlo a una persona. Nunca debe completar el hueco con una suposición presentada como un hecho.
+[Volver a la guía de automatización de procesos](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)
 
-## Fuentes consultadas
+[Conocer el desarrollo de software y automatizaciones a medida de OSIX](https://osix.tech/servicios/desarrollo-a-medida/)
 
-- [iaLicitaciones](https://ialicitaciones.com/), funciones públicas, planes y descripción del producto.
-- [Licitabot](https://licitabot.com/), flujo público de búsqueda, documentación y preparación.
-- [Pliggo](https://pliggo.es/), funcionalidades, seguridad y planes públicos.
-- [Gobierto: IA para la redacción de pliegos](https://www.gobierto.es/blog/tallergobierto-inteligencia-artificial-para-la-redaccion-de-pliegos), contexto sobre asistentes para documentos de contratación.
+[Contactar con OSIX](https://osix.tech/#contact)
 
-La plataforma oficial del expediente y sus anexos prevalecen sobre cualquier resumen automático.
 
-## Guías relacionadas
-
-- [Automatizar documentos sin perder la revisión humana](//guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo automatizar la preparación de ofertas desde el correo del cliente](//guias/automatizar-ofertas-presupuestos-correo-pyme/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](//guias/integrar-ia-software-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](//guias/medir-resultados-ia-pyme/)
-
----
-
-Última revisión editorial: 7 de septiembre de 2026. Esta guía es informativa y no sustituye asesoramiento jurídico ni la revisión del expediente por el equipo responsable.
+Esta guía es informativa y no sustituye asesoramiento jurídico ni la revisión del expediente por el equipo responsable.
