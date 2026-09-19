@@ -20,8 +20,8 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
     'desarrollo-a-medida': {
       id: 'desarrollo-a-medida',
       title: 'Desarrollo a Medida',
-      tagline: 'Tú sabes lo que necesitas. Nosotros lo construimos.',
-      description: 'Llegas con una idea clara de lo que necesita tu negocio y nosotros lo hacemos realidad. Aplicaciones móviles, plataformas web, agentes inteligentes, automatizaciones con IA... lo que sea. Tú pones el qué, nosotros ponemos el cómo.',
+      tagline: 'Software a medida con IA para pymes de Galicia y España.',
+      description: 'Desarrollamos software a medida para pymes de Galicia y España: aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA. Integramos la solución con tus procesos y herramientas existentes, sin obligarte a cambiar cómo trabaja tu empresa.',
       icon: 'Code',
       highlights: [
         'Aplicaciones móviles, web y de escritorio',
@@ -49,8 +49,8 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
     'consultoria-transformacion': {
       id: 'consultoria-transformacion',
       title: 'Consultoría de Transformación Digital e IA',
-      tagline: 'Te decimos qué se puede mejorar con tecnología e inteligencia artificial',
-      description: 'Visitamos tu empresa, entendemos cómo trabajáis de verdad y os decimos con honestidad qué se puede mejorar con tecnología e inteligencia artificial. En menos de una semana recibes un informe con oportunidades concretas de automatización con IA, estimación de ahorro y un plan de acción priorizado. Si no necesitas nada, te lo decimos. Sin compromiso, sin humo.',
+      tagline: 'Consultoría de IA para pymes que quieren automatizar con criterio.',
+      description: 'Somos una consultora de IA para pymes de Galicia y España. Visitamos tu empresa, entendemos cómo trabajáis de verdad y señalamos qué procesos pueden mejorar con automatización e inteligencia artificial. En menos de una semana recibes oportunidades concretas, estimación de ahorro y un plan de acción priorizado. Si no necesitas nada, te lo decimos.',
       icon: 'RefreshCw',
       highlights: [
         'Visita presencial y análisis de tu operativa real',

@@ -21,6 +21,7 @@ const t = (k: string) => translations.default[k] || k;
           <span class="block">{t('hero.title.line1')}</span>
           <span class="block mt-1 md:mt-2">{t('hero.title.line2')}</span>
         </h1>
+        {lang === 'es' && <p class="mt-4 max-w-2xl text-base sm:text-lg text-gray-700">Ayudamos a empresas de Galicia y España a automatizar procesos, integrar inteligencia artificial y construir software que encaja en su forma real de trabajar.</p>}
       </div>
       
         <div id="hero-cta-container" class="transform z-10 flex flex-col sm:flex-row gap-4 items-center hero-cta">
