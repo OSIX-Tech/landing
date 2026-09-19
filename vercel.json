@@ -31,33 +31,18 @@
       "permanent": true
     },
     {
-      "source": "/es/:path*",
-      "destination": "/:path*",
+      "source": "/es/(.*)",
+      "destination": "/$1",
       "permanent": true
     },
     {
-      "source": "/es/:path*/",
-      "destination": "/:path*/",
+      "source": "/en/(.*)",
+      "destination": "/$1",
       "permanent": true
     },
     {
-      "source": "/en/:path*",
-      "destination": "/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/en/:path*/",
-      "destination": "/:path*/",
-      "permanent": true
-    },
-    {
-      "source": "/gl/:path*",
-      "destination": "/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/gl/:path*/",
-      "destination": "/:path*/",
+      "source": "/gl/(.*)",
+      "destination": "/$1",
       "permanent": true
     },
     {
