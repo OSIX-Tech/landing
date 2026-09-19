@@ -1,4 +1,4 @@
-Sí se puede automatizar documentos sin perder la revisión humana, pero solo si la regla es esta: la máquina prepara y la persona decide. La automatización documental no elimina la responsabilidad de quien firma: la traslada a un diseño donde los casos rutinarios avanzan solos y los ambiguos, incompletos o de alto impacto se detienen hasta que una persona los revisa. En esta guía ordenamos seis tipos de documento por retorno y riesgo para una pyme española, explicamos los controles que hacen segura esa revisión y señalamos los casos donde no conviene automatizar.
+Sí se puede automatizar documentos sin perder la revisión humana, si se separan preparación y decisión. La máquina recibe el PDF, correo o formulario, extrae los datos, comprueba reglas y prepara una propuesta. La persona decide cuando el documento implica pagar, firmar, enviar, presentar o asumir un riesgo difícil de revertir. Para una pyme, el mejor primer proceso suele ser el que combina volumen repetitivo, reglas visibles y errores corregibles, no el documento más llamativo.
 
 ## La regla: automatiza el preparar, conserva el decidir
 
@@ -17,7 +17,7 @@ Hay una paradoja que conviene nombrar: si dejas de revisar cada documento, neces
 
 ## Seis tipos de documento ordenados por retorno y riesgo
 
-La pregunta correcta no es qué puedo automatizar, sino qué tipo de documento devuelve más horas y dónde duele más un error. Ordenamos seis tipos por dos criterios: retorno, el volumen de trabajo que el proceso quita al equipo; y riesgo, el impacto de un error multiplicado por su reversibilidad. La tabla resume la posición de cada uno.
+Ordena los documentos con dos preguntas: ¿cuántas horas devuelve automatizarlos?, y ¿qué ocurre si el sistema se equivoca? El retorno favorece documentos repetitivos, con datos estructurados y una plantilla estable. El riesgo aumenta cuando el resultado sale de la empresa, genera un pago, crea una obligación o depende de contexto que no está escrito. Por eso la revisión humana cambia de forma según el documento: excepción y muestreo en facturas, aprobación previa en ofertas y contratos, y decisión de negocio en subvenciones y licitaciones. La tabla resume la posición de cada uno.
 
 | Puesto | Tipo de documento | Retorno | Riesgo de un error | Dónde entra la revisión humana |
 | --- | --- | --- | --- | --- |
@@ -28,9 +28,19 @@ La pregunta correcta no es qué puedo automatizar, sino qué tipo de documento d
 | 5 | Expedientes de subvenciones y ayudas | Medio | Medio | Completitud y justificación antes de presentar |
 | 6 | Pliegos y licitaciones | Depende del caso | Alto | Solvencia, fechas y decisión de concurrir |
 
+## La decisión de diseño es dónde detener el flujo
+
+La revisión humana no consiste en releerlo todo al final. Consiste en detener el proceso en el punto donde una persona todavía puede corregirlo:
+
+- **Antes de emitir:** ofertas, contratos, comunicaciones oficiales y cualquier documento que comprometa a la empresa.
+- **Antes de pagar o presentar:** facturas excepcionales, expedientes de ayuda y documentos con un plazo o requisito obligatorio.
+- **Después, por muestreo:** documentos de bajo riesgo, reversibles y con reglas que ya han demostrado estabilidad.
+
+La confianza del modelo no sustituye al análisis del impacto. Un documento puede estar bien extraído y aun así requerir aprobación porque la decisión no está en sus campos, sino en el contexto del negocio.
+
 ### 1. Facturas recibidas y conciliación: el retorno más rápido
 
-Qué automatizar: leer proveedor, base, IVA, retenciones y total; validar la factura contra la orden de compra o el contrato; contabilizarla y conciliarla con el banco. Qué revisa la persona: las excepciones, una factura que no coincide con el pedido, un importe que supera el límite aprobado, un proveedor nuevo, un soporte ilegible. Por qué es el primero: es donde más horas de copiar cifras y más errores de tecleo se acumulan, y el error se detecta en la conciliación, así que el riesgo es gestionable. Límite honesto: automatizar la lectura no evita que una factura sea incorrecta de origen; la revisión por excepciones debe incluir los cambios de cuenta bancaria del proveedor. El proceso completo, con las vías y el calendario de factura electrónica, está en nuestra guía [Cómo automatizar las facturas y los documentos de tu pyme](//guias/automatizar-facturas-documentos-pyme/).
+Qué automatizar: leer proveedor, base, IVA, retenciones y total; validar la factura contra la orden de compra o el contrato; contabilizarla y conciliarla con el banco. Qué revisa la persona: las excepciones, una factura que no coincide con el pedido, un importe que supera el límite aprobado, un proveedor nuevo, un soporte ilegible. Por qué es el primero: es donde más horas de copiar cifras y más errores de tecleo se acumulan, y el error se detecta en la conciliación, así que el riesgo es gestionable. Límite honesto: automatizar la lectura no evita que una factura sea incorrecta de origen; la revisión por excepciones debe incluir los cambios de cuenta bancaria del proveedor. El proceso completo, con las vías y el calendario de factura electrónica, está en nuestra guía [Cómo automatizar las facturas y los documentos de tu pyme](https://osix.tech/guias/automatizar-facturas-documentos-pyme/).
 
 ### 2. Ofertas y presupuestos desde el correo del cliente
 
@@ -47,7 +57,7 @@ Qué automatizar: los acuerdos de confidencialidad, contratos marco, albaranes, 
 
 ### 5. Expedientes de subvenciones y ayudas
 
-Qué automatizar: reunir la documentación de una convocatoria, certificados, facturas justificativas, memoria, comprobar que no falta ningún requisito y avisar de los plazos. Qué revisa la persona: la decisión de presentarse y la justificación final, porque un error en una ayuda puede terminar en devolución. Por qué está en la lista: las convocatorias premian la completitud y castigan los plazos, dos cosas que un sistema controla mejor que una bandeja de correo. Límite honesto: cada convocatoria cambia las bases, así que el sistema se configura por convocatoria y la persona valida contra las bases publicadas. Si tu empresa está en Galicia, en nuestra guía [Subvenciones de IA para pymes gallegas](//guias/subvenciones-ia-pymes-galicia-2026/) repasamos las ayudas vigentes y su documentación.
+Qué automatizar: reunir la documentación de una convocatoria, certificados, facturas justificativas, memoria, comprobar que no falta ningún requisito y avisar de los plazos. Qué revisa la persona: la decisión de presentarse y la justificación final, porque un error en una ayuda puede terminar en devolución. Por qué está en la lista: las convocatorias premian la completitud y castigan los plazos, dos cosas que un sistema controla mejor que una bandeja de correo. Límite honesto: cada convocatoria cambia las bases, así que el sistema se configura por convocatoria y la persona valida contra las bases publicadas. Si tu empresa está en Galicia, en nuestra guía [Subvenciones de IA para pymes gallegas](https://osix.tech/guias/subvenciones-ia-pymes-galicia-2026/) repasamos las ayudas vigentes y su documentación.
 
 ### 6. Pliegos y licitaciones: la IA extrae, la persona decide
 
@@ -86,13 +96,19 @@ La revisión humana no lo arregla todo. Hay procesos donde la automatización, i
 
 ## Plantilla, extractor o desarrollo a medida
 
-Para la mayoría de las pymes la decisión no es automatizar sí o no, sino por cuál de las tres vías. Cada una tiene un caso donde es la correcta y un límite donde deja de serlo.
+La elección práctica es plantilla, extractor o desarrollo a medida. Empieza por una plantilla conectada al ERP o CRM si el documento sale de datos que ya controlas. Usa un extractor SaaS o no-code si recibes documentos de terceros con formatos parecidos y necesitas convertirlos en campos. Pide desarrollo a medida cuando el flujo tenga que cruzar sistemas, aplicar reglas propias, registrar cada aprobación y tratar excepciones que las otras vías no pueden explicar. Cada vía tiene un caso donde es la correcta y un límite donde deja de serlo.
 
 | Vía | Para quién | Límite honesto |
 | --- | --- | --- |
 | Plantilla y ERP o CRM | Documentos que salen de tus propios datos: ofertas simples, informes, albaranes | No lee documentos que te llegan de fuera, como facturas de proveedores |
 | Extractor SaaS o no-code | Recibes documentos de terceros con volumen medio y formatos parecidos | La integración con tu ERP y la bandeja de revisión suelen ser básicas |
 | Desarrollo a medida | El documento entra y sale de tus sistemas con reglas propias, ERP, firma, expediente | Más caro y más lento de poner en marcha |
+
+| Si necesitas… | La vía razonable es… | El límite que debes comprobar |
+| --- | --- | --- |
+| Rellenar documentos con datos internos y una plantilla estable | Plantilla + ERP o CRM | No resolverá documentos externos o formatos cambiantes |
+| Leer PDF y correos repetitivos y pasar campos a otra herramienta | Extractor SaaS o no-code | La bandeja de revisión y las reglas suelen ser limitadas |
+| Coordinar correo, documentos, ERP, reglas y trazabilidad | Desarrollo a medida | No compensa si el proceso aún no está definido o medido |
 
 La tercera vía, el desarrollo a medida, es la que OSIX Tech construye para pymes: automatización documental conectada al software que ya usas, con los controles de revisión de esta guía. Y lo decimos sin rodeos: si tu caso es el de las dos primeras filas, un desarrollo a medida no hace falta. La vía correcta es la más simple que cumple.
 
@@ -109,6 +125,10 @@ Automatizar no cambia tu responsabilidad como responsable del tratamiento: sigue
 ### ¿Puedo dejar que la IA apruebe y revisar después?
 
 Solo en procesos de bajo riesgo y reversibles, con muestreo y revisión posterior por alerta. Si el documento genera un pago, un compromiso o una obligación, la aprobación humana va antes, no después. La regla del diseño es que la persona se sitúe donde el error duele.
+
+### ¿Cómo sé si un documento está listo para automatizarse?
+
+Está listo para un piloto cuando puedes describir la entrada, los campos que deben extraerse, las reglas que validan el resultado, la persona responsable de revisar las excepciones y la acción que bloquea el flujo. Si no puedes decir qué es un caso normal y qué es una excepción, primero define el proceso. La revisión humana no corrige un automatismo sin criterio; solo recibe sus errores más deprisa.
 
 ### ¿Cuánto cuesta mantener la revisión humana?
 

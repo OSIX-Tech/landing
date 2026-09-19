@@ -1,4 +1,4 @@
-Para automatizar la preparación de ofertas desde un correo de cliente, el primer paso no es elegir una herramienta, es decidir si tu proceso comercial se puede automatizar. Sí se puede, y el flujo que funciona convierte el correo en la entrada de un proceso: un sistema lee la solicitud, extrae los requisitos del mensaje y de los adjuntos, los cruza con tus tarifas y tu catálogo, prepara un borrador de oferta con tu plantilla y lo deja listo para que una persona lo revise y lo envíe. La condición para que merezca la pena no es recibir muchos correos, es que las solicitudes se parezcan entre sí y que exista algo contra lo que validar: una tarifa, un catálogo o un histórico de ofertas aprobadas. Si cada petición es un caso único y el precio se negocia desde cero en cada correo, automatizar el texto no te ahorra el trabajo que de verdad cuesta, que es decidir. Las respuestas que encuentras al buscar este tema suelen describir el flujo genérico y se detienen ahí; esta guía ordena los seis pasos por el tiempo que devuelven, compara las tres vías para montarlo con su coste real y dice con claridad cuándo no conviene automatizar.
+Para automatizar la preparación de una oferta desde un correo, la máquina debe hacer cuatro cosas: clasificar la solicitud, extraer requisitos y adjuntos, validar los datos contra tarifas o reglas comerciales y preparar un borrador. La persona conserva tres decisiones: resolver ambigüedades, aprobar el precio y enviar la oferta. El proceso merece la pena cuando las solicitudes se parecen y existe una fuente contra la que validar, como un catálogo, una tarifa o un histórico aprobado. Si cada petición se negocia desde cero, automatizar el texto no elimina el trabajo principal: decidir.
 
 ## El flujo en seis pasos, ordenados por el tiempo que devuelven
 
@@ -39,13 +39,19 @@ Qué hace: crea la oferta en tu CRM con su importe y su fecha, y programa un avi
 
 ## Tres vías para montarlo: flujo no-code, software de extracción con tu CRM o desarrollo a medida
 
-Para la mayoría de las pymes la decisión no es automatizar sí o no, sino por cuál de las tres vías. La regla que repetimos en otras guías vale también aquí: la vía correcta es la más simple que cumple. Comparamos las tres con su coste de entrada consultado en septiembre de 2026.
+La vía correcta depende de dónde vive la decisión comercial. Usa un flujo no-code si el correo sigue un patrón y solo necesitas extraer campos y crear un borrador. Usa un extractor conectado al CRM o ERP si ya tienes allí el catálogo, el histórico o la bandeja de revisión. Pide desarrollo a medida solo cuando la oferta cruza correo, ERP, reglas propias y un registro de aprobación que las dos primeras vías no pueden sostener. La regla es sencilla: empieza por la solución más simple que pueda validar el precio y detener los casos dudosos. Comparamos las tres con su coste de entrada consultado en septiembre de 2026.
 
 | Vía | Para quién | Ejemplos | Coste de entrada (sep 2026) | Límite honesto |
 | --- | --- | --- | --- | --- |
 | Flujo no-code | Pymes con volumen medio y solicitudes de formato parecido | Make, Zapier, n8n | Make: gratis con 1.000 créditos al mes, Core desde 12 USD al mes; Zapier: gratis con 100 tareas al mes, de pago desde 19,99 USD al mes | Reglas comerciales complejas, integración con el ERP y una bandeja de revisión sólida se quedan cortas |
 | Software de extracción con tu CRM | Empresas que ya trabajan con CRM o ERP y reciben los pedidos en correo o PDF | Parseur + HubSpot, Salesforce o el módulo de tu ERP | Parseur: gratis hasta 20 páginas al mes, planes de pago por volumen | Extrae y estructura, pero las reglas de márgenes y la oferta final dependen de lo que tu CRM sepa hacer |
 | Desarrollo a medida | La oferta cruza correo, ERP y reglas propias con revisión y registro | Consultoras especializadas en pymes | Automatización comercial con ofertas, referencia de mercado 2026: 5.000 a 12.000 € de implantación más 200 a 500 € al mes | La vía más cara y la más lenta de arrancar; solo hace falta cuando las otras dos se quedan cortas |
+
+| Si tu proceso se parece a esto | Empieza por | No la elijas si… |
+| --- | --- | --- |
+| Correos parecidos, tarifa estable y volumen medio | Flujo no-code | Cada solicitud necesita reglas distintas o una integración profunda con el ERP |
+| Ya trabajas dentro de un CRM o ERP y recibes PDF o correos repetitivos | Extractor conectado | La herramienta no puede aplicar tus reglas de margen ni ofrecer una bandeja de aprobación |
+| La oferta combina correo, adjuntos variados, ERP, reglas por cliente y trazabilidad | Desarrollo a medida | Todavía no tienes una plantilla, tarifas o un proceso medible |
 
 ### Vía 1. Flujo no-code: para empezar hoy con volumen medio
 
@@ -73,7 +79,7 @@ La automatización no es la respuesta para todos los procesos comerciales, y sab
 
 ## Por dónde empezar sin romper el proceso comercial
 
-La forma segura de arrancar es un piloto acotado, no la automatización de todo el correo de golpe. El plan en cinco pasos:
+La forma segura de arrancar es un piloto acotado, no la automatización de todo el correo de golpe. El piloto debe medir tiempo ahorrado y decisiones corregidas. Empieza con un solo tipo de oferta y mide durante una semana cuánto tarda hoy, cuántos campos faltan y cuántas correcciones hace una persona. Después automatiza solo la extracción y el borrador, con el envío bloqueado hasta la aprobación. Durante dos o cuatro semanas registra el tiempo por oferta, los errores detectados y el porcentaje de borradores que salen sin cambios. Si la bandeja se llena de excepciones, no cambies de herramienta todavía: corrige el formato de entrada, las reglas o la plantilla. El plan en cinco pasos:
 
 1. Elige un segmento. Un tipo de oferta repetitiva: una línea de producto, un perfil de cliente o un idioma. El piloto tiene que ser lo bastante parecido para que la extracción acierte y lo bastante real para que valga la pena.
 2. Mide el tiempo actual. Durante una semana, anota cuánto tarda cada oferta desde que llega el correo hasta que se envía, y cuántos errores se corrigen por el camino. Es tu antes.
@@ -99,6 +105,10 @@ El sistema no debe inventar el dato que falta: debe derivar la solicitud a revis
 
 Funciona mejor donde hay catálogo, tarifa o histórico de ofertas aprobadas contra lo que validar. Las empresas de servicios (consultoras, talleres, estudios) también lo aprovechan cuando el alcance se repite: misma clase de proyecto, misma estructura de coste, mismo tipo de cliente. Si no hay nada que se repita ni nada que validar, el retorno cae y la vía correcta es otra.
 
+### ¿Qué parte de una oferta puede automatizarse sin perder el control?
+
+La clasificación del correo, la extracción de requisitos, la consulta de tarifas y el montaje del borrador pueden automatizarse. La persona debe revisar siempre el alcance, el precio, las condiciones y cualquier dato que falte antes de enviar. Si el sistema no encuentra una referencia o una cantidad, detiene el flujo y pide una aclaración; nunca completa el hueco inventando.
+
 ### ¿Es legal que un sistema lea los correos de clientes y los use para preparar ofertas?
 
 Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsable sigue siendo tu empresa, y el tratamiento debe ser proporcionado, seguro y documentado. Un correo comercial contiene datos personales de contacto, así que conviene decidir qué datos usa el sistema, dónde se almacenan y quién puede acceder, y elegir un proveedor que diga con claridad en qué servidores trabaja. Automatizar no traslada tu responsabilidad a la herramienta.
@@ -110,6 +120,6 @@ Esta guía la publica OSIX Tech, consultora de desarrollo de software e intelige
 - [Planes y precios de Make](https://www.make.com/en/pricing)
 - [Planes y precios de Zapier](https://zapier.com//pricing)
 - [Precios de Parseur](https://parseur.com/pricing)
-- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Automatizar documentos sin perder la revisión humana (OSIX Tech)](//guias/automatizar-documentos-sin-perder-revision-humana/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Automatizar documentos sin perder la revisión humana (OSIX Tech)](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
 
