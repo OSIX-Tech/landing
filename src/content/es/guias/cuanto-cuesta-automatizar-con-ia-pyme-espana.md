@@ -1,5 +1,3 @@
-# Cuánto cuesta automatizar procesos con IA en una pyme española (2026): precios reales por tipo de proyecto
-
 Para una pyme española, una automatización con IA suele costar entre **3.000 y 15.000 € de implantación**, más **200 a 800 € al mes** de operación y mantenimiento. El tramo bajo cubre un proceso bien definido; el alto corresponde a varios sistemas conectados, agentes especializados o requisitos de seguridad y trazabilidad. Una plataforma privada con marca propia puede subir a **25.000 €**. Para comparar presupuestos, calcula siempre el **setup + 24 meses de coste recurrente**, no solo la cifra inicial.
 
 La cifra depende menos del modelo de IA que del trabajo de proceso e integración: cuántos sistemas se conectan, cómo están los datos, cuántas excepciones hay y qué nivel de revisión humana necesita el flujo. Estos son rangos de referencia publicados y contrastados para España en 2026, no una tarifa universal ni los precios fijos de OSIX Tech.

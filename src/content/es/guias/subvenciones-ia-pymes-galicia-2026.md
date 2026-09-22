@@ -1,5 +1,3 @@
-# 5 ayudas y subvenciones para implantar IA en una pyme gallega en 2026
-
 Si tienes una pyme en Galicia y quieres implantar inteligencia artificial, el primer dato que debes conocer a 1 de septiembre de 2026 es que ninguna de las grandes convocatorias está aceptando solicitudes nuevas hoy. Ticket Innova, procedimiento IG408K, fue la opción más directa para contratar un servicio externo de innovación en 2026, pero la Xunta publicó el agotamiento de su crédito el 15 de julio de 2026 (DOG 131). IA360, procedimiento IG408M, la línea específica para proyectos de IA, cerró su convocatoria 2026/2027 en marzo. Kit Digital y Kit Consulting, los programas estatales de Red.es, no tienen convocatoria abierta: la última ventanilla cerró el 31 de octubre de 2025. Esto no significa que no haya nada que hacer: significa que la ventaja está en preparar el proyecto, la memoria y los indicadores para presentarlo el día que se abra la próxima convocatoria.
 
 Esta es la guía corta: primero separa asesoramiento, implantación de una solución existente y desarrollo experimental. Después comprueba la convocatoria y sus gastos elegibles en la fuente oficial. Una ayuda no convierte en subvencionable un proyecto que empezó antes de tiempo ni sustituye una memoria técnica bien planteada.
@@ -157,12 +155,6 @@ La selección parte de los cuatro prompts no branded que Omnia monitoriza sobre 
 - [Acelera pyme](https://www.acelerapyme.gob.es/)
 - [Red.es](https://www.red.es/)
 - [España Digital](https://espanadigital.gob.es/))
-
-## Guías relacionadas
-
-- [Cuánto cuesta automatizar con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo elegir una empresa de desarrollo de software con IA en España](https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
-- [Innovación subvencionada para empresas](https://osix.tech/servicios/innovacion-subvencionada/)
 
 [Volver al inicio](https://osix.tech/)
 

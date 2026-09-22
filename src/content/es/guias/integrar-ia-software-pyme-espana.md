@@ -1,5 +1,3 @@
-# Cómo integrar la IA con el software que ya usa tu empresa (2026): 5 vías reales y cuándo conviene a medida
-
 Para una pyme en España, "integrar la IA con el software que ya usa" significa, en la práctica, que el sistema que ya tienes (tu ERP, tu CRM, tu programa de facturación, tu LIMS de laboratorio, tu correo) empiece a llamar a un modelo de IA o a recibir su resultado sin que un humano copie y pegue entre ventanas. Hay cinco vías técnicas para lograrlo (API, webhook, conector no-code, acceso directo a base de datos y recuperación sobre documentos con RAG), y la decisión más importante no es cuál elegir, sino cuándo te basta una herramienta de conexión sin programar y cuándo necesitas desarrollo a medida. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España; compara las vías con sus límites honestos y explica el criterio para decidir, sin humo.
 
 ## La respuesta en 30 segundos
@@ -147,10 +145,3 @@ Un piloto con conector puede estar en días; una integración a medida sobre un 
 ## Cómo se elaboró esta guía
 
 Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. Las cinco vías de integración (API, webhook, conectores no-code, acceso a base de datos y RAG) y la comparativa no-code frente a a medida sintetizan la práctica habitual de la ingeniería de integración y nuestro trabajo con pymes españolas; no citamos ningún proyecto cliente aquí. Las consideraciones de seguridad se apoyan en los requisitos del RGPD aplicables al tratamiento de datos por parte de terceros proveedores. Los plazos y rangos de coste son referencias orientativas del mercado español que publicamos en nuestras guías de precios y de tiempos; verificables y actualizables, no promesas de un caso concreto. No tenemos afiliación con Zapier, Make, n8n, OpenAI, Anthropic, Google ni Mistral.
-
-## Guías relacionadas
-
-- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/guias/medir-resultados-ia-pyme/)
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)

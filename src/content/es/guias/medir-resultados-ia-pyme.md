@@ -1,5 +1,3 @@
-# Cómo medir si la IA de tu pyme está dando resultados (2026): KPIs, método antes/después y límites honestos
-
 Para una pyme en España en 2026, medir si la IA da resultados no es mirar "cuánto se usa", sino responder una sola pregunta: ¿qué resultado de negocio debía mejorar y cuánto ha mejorado gracias a la IA? La forma práctica es un marco de 5 capas: impacto financiero, resultados de negocio, cambio operativo, adopción real y calidad de la IA. Se empieza definiendo el KPI de negocio antes de implantar nada, se mide el proceso antes y después, y se comparan los resultados contra el coste total (implantación, licencias, mantenimiento y horas del equipo). Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y adapta a la realidad de una pyme el enfoque de 5 capas que McKinsey propone para grandes empresas, con el límite honesto de qué puede y qué no puede demostrar la medición.
 
 ## La respuesta en 30 segundos
@@ -122,9 +120,3 @@ No. Hay usos donde el valor no es económico directo: mejorar la experiencia del
 ## Cómo se elaboró esta guía
 
 Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. El marco de 5 capas adapta el enfoque de medición de valor de IA que publica McKinsey para grandes empresas, simplificado para el tamaño de una pyme; la recomendación de evaluar los sistemas de IA antes del despliegue y periódicamente durante la operación proviene del marco de gestión de riesgos de IA de NIST. Los ejemplos de KPIs y el método antes/después son la síntesis de esos marcos y de nuestro trabajo con pymes españolas; no hay ningún proyecto cliente citado aquí. No tenemos afiliación con McKinsey ni con NIST. Los importes de coste son referencias del mercado español que publicamos en nuestra guía de precios; verificables y actualizables.
-
-## Guías relacionadas
-
-- [Cuánto se tarda en ver resultados al implantar IA](https://osix.tech/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Para qué sirve la IA en una pyme: las 8 formas que dan resultados](https://osix.tech/guias/para-que-sirve-ia-pyme/)

@@ -1,5 +1,3 @@
-# ¿Qué es un agente de IA y qué puede hacer por mi negocio? Guía para pymes (2026)
-
 Un agente de IA es un programa que no se limita a responder: recibe una tarea, decide los pasos, usa herramientas (buscar, consultar, escribir, avisar) y actúa hasta completarla o pedir ayuda. Un chatbot responde a lo que le preguntas; un agente hace algo por ti. En 2026 los agentes de IA ya trabajan en pymes de verdad: clasifican correos, atienden consultas, actualizan el CRM, preparan propuestas y avisan cuando hace falta una persona. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y está pensada para entender qué son, qué pueden hacer por un negocio pequeño y cuándo de verdad merece la pena montar uno.
 
 ## La respuesta en 30 segundos

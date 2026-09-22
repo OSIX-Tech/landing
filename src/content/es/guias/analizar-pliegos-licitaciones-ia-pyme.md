@@ -1,5 +1,3 @@
-# Cómo analizar pliegos y licitaciones con IA: qué extraer y qué decide una persona
-
 **Guía · IA aplicada · Licitaciones · Documentos · Pymes**
 
 La IA puede convertir un pliego y sus anexos en un resumen operativo de requisitos, fechas, criterios de adjudicación, documentación y riesgos. No debe decidir por sí sola si una empresa puede presentarse ni enviar una oferta: esas conclusiones necesitan una revisión responsable, porque un dato omitido, una contradicción entre documentos o un plazo mal interpretado puede dejar fuera una propuesta válida.

@@ -1,10 +1,6 @@
 Guía · Agentes de IA · Precios · Pymes · España
 
-# Cuánto cuesta un agente de IA para una pyme
-
 Siete tipos de agente ordenados por coste, retorno y riesgo, con rangos orientativos para comparar propuestas en 2026.
-
-# Cuánto cuesta un agente de IA para una pyme en España (2026): 7 opciones por coste y retorno
 
 Para una pyme española, un agente de IA puede costar desde 3.000 € para automatizar un flujo sencillo hasta 25.000 € para una solución integrada con varios sistemas, más el coste mensual de modelos, infraestructura y mantenimiento. La cifra depende menos del modelo que uses que del número de herramientas que el agente debe consultar, las decisiones que puede ejecutar, la calidad de los datos y el nivel de revisión humana.
 
@@ -192,12 +188,6 @@ Los rangos se construyeron comparando referencias públicas españolas de 2026 s
 - [Upliora: precios por tipo de proyecto de IA para pymes españolas](https://www.upliora.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-por-tipo-proyecto-2026)
 - [Javadex: cuánto cuesta implementar IA en una pyme española](https://www.javadex.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-2026)
 - [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-
-## Guías relacionadas
-
-- [Qué es un agente de IA y qué puede hacer por tu negocio](https://osix.tech/guias/agentes-ia-pymes/)
-- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
 
 [Volver al inicio](https://osix.tech/)
 

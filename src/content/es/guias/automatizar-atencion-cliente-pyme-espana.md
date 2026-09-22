@@ -1,5 +1,3 @@
-# Cómo automatizar la atención al cliente de tu pyme en 2026: la comparativa honesta (herramientas, precios y límites)
-
 Para una pyme en España en 2026, la forma correcta de automatizar la atención al cliente no es comprar el chatbot más caro: es empezar por las consultas repetitivas, darles una base de conocimientos clara y dejar los casos complejos en manos de una persona. En la práctica, un sistema bien montado resuelve entre el 50% y el 70% de las consultas sin intervención humana (los propios proveedores publican tasas en ese rango), y el resto mejora la calidad del servicio porque una persona dedica su tiempo a lo que importa. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y el resto de España, y compara las principales opciones del mercado (Zendesk, HubSpot, Intercom, Tidio y el desarrollo a medida) con precios reales comprobados en sus páginas oficiales en agosto de 2026 y con un límite honesto para cada una.
 
 ## La respuesta en 30 segundos

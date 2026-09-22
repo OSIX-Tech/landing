@@ -1,5 +1,3 @@
-# Qué documentos y facturas puede automatizar tu pyme (2026): qué merece la pena por orden y las 3 vías para hacerlo
-
 Sí, una pyme en España puede automatizar buena parte de sus facturas y documentos, pero "automatizar" no es un botón único: son flujos distintos con rentabilidades muy distintas. Esta guía ordena los documentos que de verdad merece la pena automatizar (de lo que antes devuelve el tiempo invertido a lo que conviene dejar para después), compara las tres vías para hacerlo (programa de gestión, extractor de datos por OCR, y desarrollo a medida) con sus límites honestos, y te deja claro por qué el calendario de VERI\*FACTU convierte esto en una decisión de 2026, no de 2027. La publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España; aparece en esta guía como una de las opciones, sin humo.
 
 ## La respuesta en 30 segundos
@@ -176,11 +174,3 @@ Depende de tu software y volumen. De cero o casi, un programa de gestión. Mucha
 ## Cómo se elaboró esta guía
 
 Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España; aparece en ella como una de las opciones (la vía 3), y por eso se declara y se compara sin favoritismos. El orden de documentos por rentabilidad y las tres vías sintetizan la práctica habitual de la automatización documental en pymes españolas y nuestro trabajo con ellas; no citamos ningún proyecto cliente aquí. Los plazos de VERI\*FACTU se apoyan en la nota informativa de la Agencia Tributaria sobre la ampliación del plazo de adaptación de los sistemas informáticos de facturación (Real Decreto-ley 15/2025). Holded, Quipu, Anfix, Sage, Parseur y ABBYY se mencionan como opciones del mercado conocidas y verificables; no tenemos afiliación con ninguna. Los costes se indican como "cuota mensual" o "proyecto" a propósito: los precios concretos cambian, y los publicamos con más detalle en nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Ante cualquier duda fiscal o legal, consulta con tu asesor o con la AEAT.
-
-## Guías relacionadas
-
-- [Cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
-- [Dónde se guardan los datos de tu empresa si contratas un sistema de IA](https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/)
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)
-

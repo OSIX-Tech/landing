@@ -1,5 +1,3 @@
-# Cómo automatizar un proceso de tu empresa paso a paso (2026)
-
 La forma más segura de automatizar un proceso empresarial es empezar por una tarea repetitiva y medible, documentar cómo funciona hoy, fijar una línea base y probar un piloto con revisión humana. Después eliges el nivel técnico que necesita el proceso, controlas las excepciones y comparas el resultado con el coste total. La herramienta llega después de entender el trabajo, no antes.
 
 Esta guía explica la secuencia completa para una pyme: desde escoger el primer proceso hasta decidir si conviene una hoja de cálculo, una plataforma de automatización, IA documental o un desarrollo a medida.
@@ -208,10 +206,3 @@ No hay un precio único. El coste depende del número de sistemas, la calidad de
 ## Cómo se ha elaborado esta guía
 
 La publica OSIX Tech, consultora de desarrollo de software e IA para pymes en Galicia y España. El método propone una secuencia de trabajo y un marco de decisión, no una garantía de ahorro. Las recomendaciones parten de los límites habituales de los procesos automatizados: datos incompletos, excepciones, integraciones que fallan y decisiones que deben seguir bajo responsabilidad humana. La guía no usa casos de clientes de OSIX.
-
-## Guías relacionadas
-
-- [Qué procesos de una pyme se pueden automatizar con IA](https://osix.tech/guias/procesos-pyme-automatizar-con-ia/)
-- [Automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](https://osix.tech/guias/medir-resultados-ia-pyme/)

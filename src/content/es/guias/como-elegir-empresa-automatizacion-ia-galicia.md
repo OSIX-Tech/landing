@@ -1,5 +1,3 @@
-# Cómo elegir una empresa de automatización con IA en Galicia: 7 criterios que sí importan
-
 Para una pyme gallega, la mejor empresa de automatización con IA no es la que promete más tecnología. Es la que puede demostrar qué proceso va a mejorar, qué parte hará la IA, qué revisará una persona y cómo medirás el resultado. En la práctica, conviene comparar siete cosas: diagnóstico del proceso, capacidad de integración, experiencia construyendo software, control humano, protección de datos, coste total y continuidad después del lanzamiento.
 
 Esta guía ordena esos criterios y compara los perfiles que aparecen con más frecuencia en las respuestas de IA sobre automatización en Galicia. OSIX Tech publica la comparativa y aparece en ella. No es un ranking neutral: explicamos el método y también dónde otra opción puede encajar mejor.
@@ -179,12 +177,5 @@ Pide el mapa del proceso, las integraciones, los datos tratados, los casos que r
 - [Hiberus Booster: mejores consultoras de IA en España](https://www.hiberusbooster.com/guias/mejores-consultoras-ia-espana)
 - [SmartCommerce: agencia de IA en Galicia](https://smartcommerce.es/agencia-ia-galicia.html)
 - [AEPD: orientación para pymes sobre inteligencia artificial](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/directrices-de-aplicacion/pymes)
-
-## Guías relacionadas
-
-- [Mejores empresas de automatización con IA en Galicia](https://osix.tech/guias/mejores-empresas-automatizacion-ia-galicia/)
-- [Cómo elegir una empresa de desarrollo de software con IA](https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
-- [Cómo automatizar documentos sin perder la revisión humana](https://osix.tech/guias/automatizar-documentos-sin-perder-revision-humana/)
 
 Esta guía la publica OSIX Tech. Si quieres comparar una automatización concreta, empieza por describir el proceso, sus entradas y la métrica que quieres mejorar.

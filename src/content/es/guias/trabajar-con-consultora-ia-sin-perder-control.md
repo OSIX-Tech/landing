@@ -1,8 +1,4 @@
-# Cómo trabajar con una consultora de IA sin perder el control
-
 Los cinco modelos de contratación ordenados por el control que conservas, y las seis decisiones que no puedes delegar.
-
-# Cómo trabajar con una consultora de IA sin perder el control del proyecto (2026): 5 modelos ordenados por control
 
 El control de un proyecto de IA no depende de la buena voluntad de la consultora: depende del modelo de contratación que firmas. Un proyecto dividido en fases, con una puerta de decisión en cada una, te deja el mando aunque el proveedor sea mediocre. Un contrato llave en mano de doce meses, sin puertas ni responsable interno, te lo quita aunque el proveedor sea excelente. La diferencia entre ambos no es la confianza, es la estructura. En España el mismo diagnóstico de IA se anuncia entre 900 y 45.000 euros según quién lo firme, y lo que separa esas cifras casi nunca es el trabajo: es el alcance y quién decide. Esta guía ordena los cinco modelos reales de contratación por el control que conservas, explica las seis decisiones que ningún modelo puede quitarte y señala cuándo la gobernanza formal no aporta nada. La publica OSIX Tech, una consultora que cobra por proyectos por fases, así que escribe una parte interesada.
 
@@ -167,10 +163,3 @@ El marco legal se ha verificado contra fuentes oficiales: el artículo 28 del RG
 - Hiberus Booster, consultor de IA para empresas: precio y cómo elegir (tarifas por día): https://www.hiberusbooster.com/guias/consultor-ia-para-empresas/
 - Utilia, consultoría de IA: cuándo la necesitas (tramos de precio): https://www.utilia.ai//blog/consultoria-ia-cuando-necesitas
 - OSIX Tech, cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
-
-## Guías relacionadas
-
-- Cómo elegir una empresa de desarrollo de software con IA en España: https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/
-- Consultoras de IA grandes vs especializadas en pymes: https://osix.tech/guias/consultoras-ia-grandes-vs-especializadas-pymes/
-- Dónde se guardan los datos de tu empresa si contratas un sistema de IA: https://osix.tech/guias/donde-se-guardan-datos-ia-empresa/
-- Cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/

@@ -1,5 +1,3 @@
-# ¿Qué es la automatización inteligente y cómo puede ayudar a tu pyme? Guía práctica para empresas en España (2026)
-
 La automatización inteligente es la combinación de la inteligencia artificial (IA) con el software de automatización para que los procesos capaces de aprender y adaptarse, no solo de repetir una tarea grabada, se encarguen solos del trabajo administrativo y operativo de tu empresa. Para una pyme española la respuesta corta es: automatiza de verdad lo repetitivo, y deja a tu equipo para lo que requiere criterio. No es un robot que sustituye a tus empleados; es una capa que se ocupa de los procesos que se repiten una y otra vez y que, cuando se hace bien, libera horas de trabajo sin subir la plantilla. Esta guía la publica OSIX Tech, una consultora de desarrollo a medida con IA para pymes en Galicia y el resto de España, y la estructuramos como una lista de las siete formas prácticas en las que una pyme la aprovecha, con el límite honesto de cada una.
 
 ## En qué consiste la automatización inteligente, sin humo

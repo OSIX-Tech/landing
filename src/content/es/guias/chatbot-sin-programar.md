@@ -1,5 +1,3 @@
-# ¿Puedo montar un chatbot para mi empresa sin saber programar? La respuesta y el límite honesto
-
 Sí, puedes montar un chatbot para tu empresa sin saber programar, siempre que sepas exactamente qué necesitas: un asistente de consultas y atención al cliente con herramientas no-code se monta hoy en horas o días, con plataformas como Landbot, ManyChat, Chatfuel o Botpress, y con ChatGPT o Claude como base puedes publicar un primer prototipo en una tarde. La respuesta se complica en cuanto el chatbot tiene que hablar con tus datos, tu CRM o tus procesos internos: ahí las herramientas no-code se quedan cortas y empieza a tener sentido un desarrollo a medida. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y está pensada para que decidas con criterio: primero cuándo una herramienta no-code te vale, después cuándo no, y por último qué opciones hay por cada caso, con precios reales y límites honestos.
 
 ## La respuesta en 30 segundos

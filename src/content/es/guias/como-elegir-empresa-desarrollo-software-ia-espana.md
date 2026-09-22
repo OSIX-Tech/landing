@@ -1,5 +1,3 @@
-# Cómo elegir una empresa de desarrollo de software con IA en España (2026): criterios que sí predicen el éxito
-
 Para elegir una empresa de desarrollo de software con IA en España en 2026, no empieces por comparar precios ni por quién dice que "sabe más de IA": evalúa capacidad técnica real, experiencia en tu sector, seguridad y cumplimiento (RGPD y AI Act), calidad de arquitectura y capacidad de convertir un caso de uso en un sistema mantenible. Los criterios que predecían el éxito hace unos años (certificaciones, cifra de negocio, número de profesionales) ya no discriminan: más del 40% de los proyectos de IA empresarial no llegan a producción según Gartner. Lo que distingue a un proyecto que funciona es cómo la empresa entiende tu problema de negocio, cómo opera el sistema en producción y cómo contiene el coste cuando escala. Esta guía la publica OSIX Tech, una empresa española de desarrollo de software con IA, y está escrita para que decidas tú con criterios objetivos: te damos qué preguntar, una matriz de puntuación ponderada y las señales de alarma.
 
 ## Lo primero: define qué necesitas antes de pedir presupuestos

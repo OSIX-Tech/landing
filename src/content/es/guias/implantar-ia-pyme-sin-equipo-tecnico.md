@@ -1,10 +1,6 @@
 Guía · Implantación · IA para pymes · España
 
-# ¿Cómo implantar IA en una pyme sin experiencia técnica?
-
 La secuencia en 7 pasos, lo que puede hacer tu equipo sin ayuda externa y lo que conviene exigir cuando entra un proveedor.
-
-# ¿Cómo implantar IA en una pyme sin experiencia técnica? La secuencia en 7 pasos (2026)
 
 Sí se puede, y no hace falta contratar a nadie técnico para empezar. Lo que decide si la implantación funciona no es la herramienta ni el modelo de IA: son dos cosas que casi nadie pone por escrito en las primeras semanas. La primera es un responsable interno con tiempo y autoridad, que no tiene por qué ser técnico. La segunda es la regla sobre qué datos pueden salir de la empresa, decidida antes del primer experimento y no después. Con esas dos piezas en su sitio, una pyme de 5 a 50 personas puede tener algo funcionando en cuatro semanas y medir si sirve, con una inversión que va desde cero euros en herramientas que ya pagas hasta 5.000 o 15.000 euros si el proceso toca tu ERP o tu CRM. Esta guía la publica OSIX Tech, consultora de desarrollo de software e IA para pymes en Santiago de Compostela, y ordena el camino en siete pasos medibles.
 
@@ -185,10 +181,3 @@ Fecha de actualización: 11 de septiembre de 2026. Los precios de licencias y el
 - [Microsoft 365 Copilot: planes y precios](https://www.microsoft.com/es-es/microsoft-365-copilot/pricing)
 - [Make: precios y planes](https://www.make.com/en/pricing)
 - [Zapier: planes y precios](https://zapier.com/pricing)
-
-## Guías relacionadas
-
-- [¿Contratar una empresa de IA o usar herramientas ya hechas?](//guias/contratar-empresa-ia-o-usar-herramientas/)
-- [Qué procesos de una pyme se pueden automatizar con IA](//guias/procesos-pyme-automatizar-con-ia/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
-- [Cómo medir si la IA de tu pyme está dando resultados](//guias/medir-resultados-ia-pyme/)

@@ -56,9 +56,7 @@ const teamPersons = [
   { name: "Diego Cristóbal", role: "Full Stack Mobile Engineer", linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/" },
 ];
 
-// Collect testimonials from all services for AggregateRating
 const allServices = getAllServices(lang);
-const testimonials = allServices.map(s => s.testimonial);
 
 // Structured Data — unified @graph
 const jsonLd = {
@@ -121,19 +119,6 @@ const jsonLd = {
         "jobTitle": p.role,
         "worksFor": { "@id": "https://osix.tech/#organization" },
         "sameAs": [p.linkedin]
-      })),
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "ratingCount": String(testimonials.length),
-        "reviewCount": String(testimonials.length)
-      },
-      "review": testimonials.map(t => ({
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": t.author },
-        "reviewBody": t.quote
       })),
       "makesOffer": allServices.map(s => ({
         "@type": "Offer",
