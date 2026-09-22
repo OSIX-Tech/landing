@@ -17,7 +17,7 @@ const canonicalUrl = `https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-p
 
 // SEO Data
 const seoTitle = 'Cuánto cuesta automatizar procesos con IA en una pyme española (2026): precios reales por tipo de proyecto - OSIX Tech';
-const seoDescription = 'Cuánto cuesta un proyecto de automatización con IA para una pyme en España en 2026: precios reales por tipo de proyecto, qué incluye cada presupuesto, cómo saber si es justo y qué ayudas públicas (Kit Consulting, Kit Digital, IGAPE IA360) pueden pagarlo.';
+const seoDescription = 'Cuánto cuesta un proyecto de automatización con IA para una pyme en España en 2026: rangos por tipo de proyecto, coste total a 24 meses, mantenimiento y criterios para comparar presupuestos.';
 
 // Structured Data
 const breadcrumbSchema = {
@@ -55,7 +55,8 @@ const articleSchema = {
       "url": "https://osix.tech/logo_w.png"
     }
   },
-  "mainEntityOfPage": canonicalUrl
+  "mainEntityOfPage": canonicalUrl,
+  "dateModified": "2026-09-22"
 };
 
 const faqSchema = {
@@ -65,27 +66,32 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "¿Cuánto cuesta automatizar un proceso con IA en una pyme en España?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Entre 3.000 y 5.000 € para un proceso sencillo automatizado de punta a punta, hasta 15.000 € para varios procesos o un copiloto interno, y 9.000 a 25.000 € para una plataforma IA con marca propia. A eso se suman 200 a 800 €/mes de operación. Programas como Kit Consulting o las ayudas autonómicas pueden cubrir parte del coste." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Para un proceso bien definido, calcula entre 3.000 y 5.000 € de implantación y entre 200 y 300 € al mes de operación y mantenimiento. Si hay varias integraciones, documentos, agentes o requisitos de trazabilidad, el proyecto suele subir a 5.000 a 15.000 €. Una plataforma privada con marca propia pertenece a otro tramo y puede llegar a 25.000 €." }
     },
     {
       "@type": "Question",
-      "name": "¿En cuánto tiempo se ven resultados?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un primer entregable funcional puede estar listo en 2 a 4 semanas desde el arranque; los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el retorno se consolida en 2 a 6 meses si el alcance estaba bien definido." }
+      "name": "¿Qué encarece un proyecto de automatización con IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lo encarecen sobre todo cinco cosas: conectar sistemas sin una API adecuada, ordenar datos que llegan en formatos distintos, cubrir muchas excepciones, exigir permisos y trazabilidad, y ampliar el alcance antes de validar el primer proceso. El modelo de IA es solo una parte del presupuesto. Pide que cada factor aparezca reflejado en el alcance y en el precio." }
     },
     {
       "@type": "Question",
-      "name": "¿Es mejor montarlo yo con n8n o Make?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Si tienes un perfil técnico y quieres control de tus datos, montarlo tú es viable para un flujo sencillo. Pero para un proceso que toca tu ERP o CRM, o que necesita una aplicación o agente complejo, el desarrollo a medida casi siempre da mejor resultado, porque incluye diseño, integración y mantenimiento." }
+      "name": "¿Es mejor montarlo yo con n8n, Make o Zapier?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Puede ser suficiente para un flujo corto, con pocas excepciones, datos no sensibles y una persona interna que pueda mantenerlo. Pide ayuda especializada si el proceso toca un ERP o CRM, depende de datos desordenados, necesita permisos por rol o debe dejar un registro auditable. El tiempo interno también forma parte del coste." }
     },
     {
       "@type": "Question",
-      "name": "¿Cada cuánto hay que pagar mantenimiento?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un retainer de 300 a 800 €/mes (4 a 12 horas) mantiene el sistema activo y lo adapta a cambios en tus herramientas. Es la partida que las pymes más tienden a saltarse, y la que evita que una automatización muera en unos meses." }
+      "name": "¿Cuánto cuesta mantener una automatización con IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La operación y el mantenimiento suelen presupuestarse mensualmente, con referencias de 200 a 800 € al mes para proyectos profesionales. Ese importe puede incluir monitorización, corrección de errores, adaptación de integraciones y pequeñas mejoras. El consumo de los modelos, las licencias y los cambios grandes de alcance deben aparecer separados. Pregunta qué horas, tiempos de respuesta y tareas incluye el mantenimiento." }
     },
     {
       "@type": "Question",
-      "name": "¿Las ayudas cubren el proyecto entero?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No siempre entero, pero sí una parte importante. Kit Consulting financia asesoramiento de IA (hasta 12.000 a 24.000 € según tamaño); Kit Digital y las líneas autonómicas como IGAPE IA360 cubren implantación. El proveedor debe saber diseñar el proyecto para que sea elegible." }
+      "name": "¿Cómo comparo dos presupuestos de automatización?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Compara el resultado entregable, los sistemas conectados, los casos excepcionales incluidos, las horas internas que necesitará tu equipo, el coste mensual y el coste total a 24 meses. Un presupuesto más barato puede dejar fuera mantenimiento, consumo de modelos, limpieza de datos o cambios necesarios para que el proceso funcione en producción." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Las ayudas cubren un proyecto de automatización con IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No se puede asumir que cubran el proyecto entero. Kit Consulting ofrece bonos de asesoramiento digital y contempla un servicio de Inteligencia Artificial, pero la elegibilidad y el alcance financiable dependen de la convocatoria y del tamaño de la empresa. Comprueba siempre la información oficial antes de restar la ayuda del presupuesto de implantación." }
     }
   ]
 };
@@ -111,7 +117,7 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
           Cuánto cuesta automatizar procesos con IA en una pyme española
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          Precios reales por tipo de proyecto en 2026, qué incluye cada presupuesto y cómo las ayudas públicas pueden pagarlo.
+          Precios por tipo de proyecto en 2026, coste total a 24 meses y criterios para comparar presupuestos.
         </p>
       </div>
     </div>
