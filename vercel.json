@@ -66,12 +66,8 @@
       "destination": "https://malasa-informes.vercel.app/:path*"
     },
     {
-      "source": "/demos/",
-      "destination": "https://portfolio-osix.vercel.app/demos/"
-    },
-    {
-      "source": "/demos/:path*",
-      "destination": "https://portfolio-osix.vercel.app/demos/:path*"
+      "source": "/demos/(.*)",
+      "destination": "https://portfolio-osix.vercel.app/demos/$1"
     }
   ]
 }
