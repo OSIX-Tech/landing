@@ -1,135 +1,125 @@
-Para elegir una empresa de desarrollo de software con IA en España en 2026, evalúa capacidad técnica, experiencia en tu sector, seguridad, arquitectura y cómo se gobernará el proyecto cuando empiece. Acuerda quién decide, qué se entrega en cada fase, qué puedes revisar y cómo se mide el resultado. Tu empresa debe conservar el acceso a sus datos, cuentas y código, además de una salida documentada. Esta guía de OSIX Tech reúne criterios para comparar proveedores, una matriz ponderada y señales de alarma antes de firmar.
+Elige una empresa que pueda demostrar cómo convertirá un proceso concreto en software mantenible, no una que solo enseñe demos de IA. Antes de firmar, pide una propuesta sobre el mismo problema a cada candidato, una prueba pequeña con datos representativos, criterios para revisar errores y el coste completo de construir y mantener la solución. Compara las pruebas y los entregables, no el número de modelos que aparecen en la presentación.
 
-## Lo primero: define qué necesitas antes de pedir presupuestos
+OSIX Tech publica esta guía y también desarrolla software con IA para pymes. No es un comparador independiente. El objetivo es darte preguntas y pruebas que puedas aplicar a cualquier proveedor, incluido nosotros.
 
-Una empresa seria debería ayudarte a cuestionar el caso de uso si la IA no es realmente la mejor solución. Antes de pedir propuestas, concreta:
+## Primero decide qué tipo de solución necesitas
 
-- **El problema de negocio:** qué quieres mejorar o automatizar, y qué métrica va a demostrar que funcionó.
-- **Los usuarios:** empleados, clientes, proveedores.
-- **Los datos:** documentos, CRM, ERP, datos personales o confidenciales, y dónde pueden alojarse.
-- **El tipo de IA:** chatbot o RAG, agentes, predicción, visión artificial, procesamiento documental, recomendación, automatización.
-- **Las integraciones:** SAP, Salesforce, Microsoft 365, APIs propias, bases de datos.
-- **El resultado esperado:** reducción de costes, más ingresos, tiempo ahorrado, precisión.
-- **El presupuesto y el plazo aproximados.**
+No todos los problemas necesitan desarrollo a medida. Si una herramienta existente resuelve el flujo sin cambiar tus reglas ni tus sistemas, configurar esa herramienta suele bastar. Si hay que conectar sistemas, tratar documentos variables o aplicar reglas propias, valora una integración o desarrollo. Si varios departamentos dependen del resultado o deben coordinarse varias plataformas, compara también integradores con equipos de implantación más amplios.
 
-## Los siete criterios que debes evaluar
+| Lo que necesitas resolver | Opción que conviene evaluar primero | Qué debes comprobar |
+| --- | --- | --- |
+| Tarea estándar con herramientas que ya utilizas | Producto existente o automatización configurada | Que cubra el flujo completo, excepciones y permisos sin trabajo manual oculto |
+| Proceso propio que depende de tus datos o sistemas | Integración o software a medida | APIs, calidad de datos, controles humanos, mantenimiento y propiedad del código |
+| Programa con varios sistemas, equipos o requisitos de gobierno | Integrador con capacidad de entrega y soporte | Quién ejecuta, cómo se coordinan los equipos y quién responde después del lanzamiento |
 
-### 1. Capacidad técnica y arquitectura, no solo "usamos IA"
+La etiqueta “empresa de IA” no te dice cuál de estas opciones necesitas. Describe primero el resultado: qué entra, qué debe salir, quién lo usa y qué decisión seguirá tomando una persona.
 
-No te quedes en que usan ChatGPT o IA generativa. Pregunta por los modelos que proponen y por qué, si se puede cambiar de proveedor o modelo en el futuro, si usarán RAG, fine-tuning o agentes y por qué, y cómo van a evaluar la calidad del modelo. Una buena empresa lo explica a un responsable de negocio sin esconderse detrás de jerga técnica. Especialmente valioso: que te muestren una demo o prueba de concepto con datos parecidos a los tuyos.
+## Llega a la primera reunión con un problema medible
 
-### 2. Experiencia demostrable en algo parecido a tu sector
+Prepara una hoja de una página con el proceso actual y una muestra de entradas y salidas anonimizadas. Indica cuántas veces ocurre, cuánto tarda, dónde se producen errores, qué sistemas intervienen, qué datos son sensibles y qué excepciones requieren revisión. Añade una medida de partida y una meta razonable, aunque sea un rango.
 
-Pide 2 a 3 proyectos similares al tuyo, qué hicieron exactamente ellos (no su empresa), la arquitectura y por qué, y qué ocurre cuando la IA se equivoca. Un portfolio lleno de demos de IA no prueba que sepan mantener un sistema en producción.
+Por ejemplo, “queremos usar IA en ventas” no permite comparar propuestas. “Cada semana llegan solicitudes por correo; hoy una persona extrae requisitos, consulta el catálogo y prepara un borrador que otra persona revisa” sí permite discutir alcance, riesgos y medición.
 
-### 3. Seguridad, RGPD y AI Act desde la primera fase
+Si aún no sabes cuál es la primera automatización, contrata una fase corta de diagnóstico con un entregable concreto: mapa del proceso, datos necesarios, opciones técnicas, riesgos, estimación y criterio para decidir si continuar. No pagues por una presentación genérica de tendencias.
 
-Si vas a tratar datos personales, esto es decisivo. La AEPD ha publicado criterios específicos sobre exactitud y minimización de datos en tratamientos con IA. Pregunta expresamente por RGPD y LOPDGDD, dónde se procesan y almacenan los datos, subencargados del tratamiento, cifrado, control de acceso, retención y eliminación, auditoría y logs, y gestión de incidentes. No aceptes un "sí, cumplimos RGPD": pide que expliquen cómo lo implementan técnicamente.
+## Pide evidencia de una entrega parecida, no una galería de demos
 
-Además, desde agosto de 2026 son aplicables obligaciones de transparencia del AI Act (artículo 50). Pregunta: "¿Habéis clasificado nuestro sistema según el AI Act? ¿Qué obligaciones nos corresponden como proveedor y como usuario?" Si la empresa no sabe responder, es una señal de alarma.
+Solicita uno o dos ejemplos cercanos a tu problema y pregunta qué hizo realmente el proveedor, qué quedó funcionando y cómo lo midió. Una demo muestra que algo se puede ejecutar; no demuestra que aguante datos incompletos, cambios de formato, permisos reales o uso diario.
 
-### 4. Neutralidad de plataforma y de modelo
+Pide una prueba con datos representativos, protegidos y autorizados para ese uso. Acordad antes qué se considera una salida correcta, qué errores son graves y qué debe hacer el sistema cuando no tiene confianza suficiente. Incluye casos habituales y excepciones, no solo el ejemplo que mejor funciona.
 
-En IA, quedar atado a un proveedor es patrimonio técnico, no un detalle. Pregunta si han entregado en más de un cloud (AWS, Azure, GCP) y con modelos de más de un proveedor (Anthropic, OpenAI, Mistral, Google, modelos abiertos). Quien ha entregado con varios tiene datos para argumentar; quien solo con uno, tiene una hipótesis. La neutralidad real no es "no tenemos preferencias", es "tenemos preferencias razonadas y capacidad de cambiarlas cuando el caso lo pide".
+Pregunta también qué no resolvió el proyecto y qué cambió después de ponerlo en producción. Distinguir el resultado medido de lo que aún no se ha medido te da una base mejor para decidir que una promesa de “automatización total”.
 
-### 5. Capacidad de integración con tu stack
+## Comprueba quién diseña, construye y mantiene el sistema
 
-Un proyecto de IA casi nunca es una isla: toca tu ERP, tu CRM, tu correo o tu base de datos. Pregunta por casos en los que hayan conectado sistemas propios o antiguos, y cómo evitan romper lo que ya funciona. La integración es donde la mayoría de los proyectos de IA fracasan en el paso de piloto a producción.
+Pide hablar con las personas que definirán la solución y la pondrán en marcha. La propuesta debe nombrar responsabilidades: quién analiza el proceso, quién decide la arquitectura, quién integra los sistemas, quién prueba y quién atiende incidencias. Si parte del trabajo se subcontrata, pregunta qué equipo lo hará y quién conserva la responsabilidad de extremo a extremo.
 
-### 6. Soporte, mantenimiento y coste operativo
+Para cada componente de IA, pide una explicación breve y comprensible: qué tarea realiza, qué información recibe, qué resultado genera, cómo se comprueba y qué ocurre si falla. Si la explicación se reduce a “lo hace el modelo”, aún no tienes un diseño operativo.
 
-Pregunta quién mantiene el sistema después del lanzamiento, qué ocurre si tu CRM o ERP cambia, y cuál es el coste de operación mensual (las llamadas a los modelos y la infraestructura). Exige que separen el coste de desarrollo del coste de uso de IA y cloud. Un sistema barato de construir que se queda sin mantenimiento es más caro que uno bien dimensionado con retainer.
+**Pregunta útil:** “¿Qué haría el sistema si falta un dato, una fuente no responde o la respuesta del modelo contradice el documento original?” La respuesta debe describir una acción concreta, como detener el flujo, señalar la incertidumbre o pasar el caso a una persona, y no limitarse a decir que el modelo es preciso.
 
-### 7. Propiedad y portabilidad
+## Valida privacidad, seguridad e integración antes de aprobar la arquitectura
 
-Mira el contrato, no solo el presupuesto. Deja claros por escrito: propiedad intelectual del software, acceso al código fuente, documentación técnica, acceso a repositorios y cuentas cloud, dependencia de APIs de terceros, SLA y soporte, mantenimiento, costes recurrentes, qué sucede si rescindes el contrato y la portabilidad de datos. Una solución aparentemente barata puede salir carísima si después no puedes migrarla a otro proveedor.
+Pide un diagrama del recorrido de los datos: qué sale de tus sistemas, qué proveedor o modelo lo procesa, dónde se almacena, quién accede, cuánto tiempo se conserva y cómo se elimina. Comprueba los subencargados, las copias de seguridad, los registros de actividad y el procedimiento ante incidentes.
 
-## Cómo mantienes el control durante el proyecto
+La guía de la AEPD explica que el RGPD puede aplicar a las distintas etapas de un tratamiento con IA. Entre los temas que aborda están la legitimación, la información a las personas, sus derechos, las decisiones automatizadas, la gestión de riesgos, la exactitud, la minimización y las transferencias internacionales. Pide al proveedor respuestas para tu caso y solicita revisión jurídica de las obligaciones aplicables. Una frase comercial como “cumplimos el RGPD” no sustituye esa explicación.
 
-La propiedad del código no basta si no puedes revisar avances, aprobar cambios o recuperar los accesos. Antes de empezar, deja por escrito quién decide, qué debe entregar cada fase y cómo se acepta. Mantén a nombre de tu empresa las cuentas que paga: repositorio, cloud y servicios de terceros. Si por una razón técnica una cuenta debe crearla el proveedor, acuerda cómo y cuándo se transfiere.
+Comprueba las integraciones una por una. Pide que indiquen si usarán APIs, conectores, exportaciones o automatización de interfaz, y qué ocurre cuando un sistema cambia. Una conexión que depende de pantallas frágiles puede costar más de mantener que una integración diseñada para ese uso.
 
-En cada revisión, comprueba cuatro cosas: qué se entregó, qué riesgos o decisiones siguen abiertos, cuánto presupuesto queda y qué tiene que aprobar tu equipo. Registra los cambios de alcance con su impacto en coste y plazo antes de ejecutarlos. Para la salida, incluye los accesos, el código, la documentación, los datos en un formato utilizable y una sesión de transferencia.
+**Fuente regulatoria:** [AEPD, guía para adaptar al RGPD los productos y servicios que utilizan IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-aepd-publica-una-guia-para-adaptar-al-rgpd-los-productos-y). La guía se dirige a responsables, desarrolladores y encargados que incorporan IA en tratamientos de datos personales.
 
-No necesitas dirigir el trabajo técnico. Sí necesitas conservar la capacidad de decidir, verificar y continuar sin que todo el conocimiento dependa de la consultora. Para ver cómo llevar estos controles a cada modelo de contratación, consulta [Cómo trabajar con una consultora de IA sin perder el control](https://osix.tech/guias/trabajar-con-consultora-ia-sin-perder-control/).
+## Compara el coste total y las condiciones de salida
 
-## Matriz de puntuación para comparar proveedores
+Pide que la propuesta separe diagnóstico, diseño, construcción, licencias, consumo de modelos, infraestructura, soporte y cambios futuros. Pregunta qué queda fuera del precio y cómo se cotizan nuevas integraciones. Compara propuestas con el mismo alcance y volumen estimado; una cifra sin esos supuestos no permite saber cuál sale más barata.
 
-Puntúa cada candidato de 1 a 5 y multiplica por el peso:
+Antes de firmar, deja por escrito quién es dueño del código y de los datos, quién administra las cuentas de nube y de modelos, qué documentación recibirás, cómo se exportan tus datos y qué ocurre si termina el contrato. Pide un coste estimado de operación y un ejemplo de cómo el proveedor avisará si aumenta el consumo.
 
-| Criterio | Peso |
-| --- | --- |
-| Capacidad técnica y experiencia en IA | 20% |
-| Casos similares a tu negocio | 15% |
-| Seguridad + RGPD + AI Act | 15% |
-| Calidad de arquitectura y neutralidad | 15% |
-| Capacidad de integración | 10% |
-| Control del proyecto, documentación y transferencia | 10% |
-| Soporte y mantenimiento | 5% |
-| Propiedad y portabilidad | 5% |
-| Precio | 5% |
+## Divide el proyecto en fases con una decisión al final de cada una
 
-No pongas el precio por encima de la experiencia y la arquitectura: en proyectos de IA, una mala arquitectura multiplica los costes posteriores. El precio importa, pero debe evaluarse contra el alcance, no en abstracto. Puntúa también el control del proyecto con evidencias: responsables con nombre, criterios de aceptación, registro de cambios, acceso a las cuentas y un procedimiento de salida. Los pesos suman 100%.
+1. **Descubrimiento:** acordar proceso, datos, riesgos y medida de éxito.
+2. **Prueba acotada:** comprobar una hipótesis con datos representativos.
+3. **Primera versión usable:** integrar el flujo necesario y definir la revisión humana.
+4. **Producción:** asegurar permisos, registros, pruebas, alertas y soporte.
+5. **Operación:** medir resultados, errores y coste, y mantener las integraciones.
 
-## Señales de alarma
+Una prueba de concepto no garantiza un producto listo para producción. Acordad qué se entrega en cada fase, qué criterios permiten avanzar y cuánto cuesta parar o cambiar de dirección.
 
-Desconfía de una empresa que:
+## Puntúa todas las propuestas con los mismos criterios
 
-- promete "IA 100% fiable";
-- no pregunta por tus datos ni habla de seguridad;
-- no puede explicar qué modelo usará y por qué;
-- te vende un chatbot cuando necesitas automatización de procesos o una aplicación a medida;
-- no contempla evaluación de resultados;
-- no separa el coste de desarrollo del coste de uso de IA y cloud;
-- no permite acceder al código o a la infraestructura;
-- no puedes consultar el estado de los entregables, los cambios aprobados o el presupuesto consumido;
-- solo la consultora controla las cuentas o puede explicar cómo continuar al terminar el contrato;
-- ofrece un presupuesto cerrado enorme sin una fase previa de descubrimiento.
+Usa una escala de 1 a 5 y anota la evidencia que justifica cada nota. Estos pesos son orientativos; ajústalos según el riesgo y el valor del proyecto.
 
-## Contrata por fases, no un proyecto grande de golpe
+| Criterio | Peso inicial | Evidencia que pedir |
+| --- | ---: | --- |
+| Comprensión del proceso y prueba con datos representativos | 25% | Casos de prueba, definición de éxito y tratamiento de excepciones |
+| Capacidad técnica e integración | 20% | Arquitectura explicada, interfaces necesarias y límites conocidos |
+| Seguridad y privacidad | 20% | Recorrido de datos, permisos, conservación, proveedores y borrado |
+| Entrega, pruebas y soporte | 15% | Responsables, criterios de aceptación, incidencias y mantenimiento |
+| Coste total y salida | 15% | Costes iniciales y recurrentes, propiedad y portabilidad |
+| Experiencia sectorial comparable | 5% | Caso verificable y papel concreto del equipo propuesto |
 
-Una estrategia mucho más segura que firmar un proyecto grande de una vez es avanzar por fases, y así compruebas cómo trabaja la empresa antes de comprometer una cantidad importante:
+No compenses una respuesta débil sobre privacidad o control humano con una nota alta en precio. Si un requisito es imprescindible, úsalo como condición de descarte y no como un criterio que pueda promediarse.
 
-1. **Descubrimiento:** definir problema, datos, arquitectura y métricas.
-2. **Prueba de concepto:** validar la hipótesis con un alcance pequeño.
-3. **MVP:** construir una versión usable.
-4. **Producción:** seguridad, escalabilidad, monitorización e integraciones.
-5. **Operación:** mantenimiento, evaluación continua y optimización de costes.
+## Estas señales justifican parar y pedir una explicación
 
-## Por qué las ayudas públicas importan al elegir
+- Prometen precisión perfecta o automatización completa, pero no explican cómo se detectan errores.
+- No preguntan qué datos se procesarán ni quién puede acceder a ellos.
+- Presentan una demo con datos preparados como prueba de que el sistema está listo para producción.
+- No identifican qué debe revisar una persona ni cómo se gestionan las excepciones.
+- Mezclan desarrollo, licencias y costes de uso en una única cifra sin supuestos.
+- No aclaran quién conserva el código, las cuentas y la documentación si termina el contrato.
+- Proponen un agente autónomo para una tarea que se resolvería con una regla o una integración sencilla.
 
-Una ventaja que se subestima de contratar una empresa que conoce el ecosistema de ayudas es la financiación pública. Kit Consulting (Red.es) ofrece bonos de asesoramiento en IA (hasta 12.000 a 24.000 € según tamaño), Kit Digital cubre implantación, y convocatorias autonómicas como IGAPE IA360 en Galicia (hasta 500.000 €) financian proyectos de IA. Una empresa que conoce estas convocatorias diseña el proyecto desde el inicio para que sea elegible, en vez de descubrir la ayuda cuando ya es tarde. *(Verifica las cifras y convocatorias vigentes en las webs oficiales de Red.es, IGAPE y tu comunidad antes de decidir.)*
+Una respuesta incompleta no siempre descarta al proveedor. Sí requiere aclarar alcance y responsabilidades antes de firmar.
+
+## Qué buscar en un proveedor gallego y qué no dar por supuesto
+
+Trabajar con un proveedor de Galicia puede facilitar reuniones presenciales y conocimiento de las ayudas autonómicas. Eso no demuestra por sí solo que sea la mejor opción. Compara la experiencia del equipo que ejecutará tu proyecto, la cobertura de soporte, el método de integración y el encaje entre el alcance y el tamaño del proveedor.
+
+OSIX Tech trabaja desde Santiago de Compostela y desarrolla aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA para pymes de Galicia y España, según su [página de desarrollo a medida](https://osix.tech/servicios/desarrollo-a-medida/). Esa página no publica una tarifa cerrada. Si evalúas OSIX, pide una propuesta por fases, costes recurrentes, acceso al código y un ejemplo comparable con criterios de medición. Aplica las mismas preguntas a cualquier otro proveedor.
 
 ## Preguntas frecuentes
 
-**¿Cómo trabajo con una consultora de IA sin perder el control?**
-
-Acuerda quién decide por tu empresa, qué se entrega y cómo se acepta cada fase. Conserva el acceso a tus cuentas, datos y repositorio, registra los cambios de alcance y define cómo recibirás el código, la documentación y la transferencia si termina el contrato. Revisa en cada hito los entregables, riesgos, presupuesto restante y decisiones pendientes.
-
 **¿Cómo sé si una empresa de desarrollo de software con IA es fiable?**
-Pide 2 a 3 proyectos similares al tuyo, una demo o prueba de concepto con datos parecidos, que expliquen la arquitectura y qué ocurre cuando la IA se equivoca, y que separen el coste de desarrollo del coste de operación. Si no preguntan por tus datos ni hablan de seguridad, es una mala señal.
 
-**¿Precio o calidad? ¿Qué pesa más?**
-La arquitectura y la experiencia pesan mucho más que el precio. Una mala arquitectura multiplica los costes posteriores. Usa la matriz de puntuación ponderada para comparar: el precio solo debería contar un 5% frente a la capacidad técnica y la experiencia.
+Pide una prueba con datos representativos, criterios de aceptación acordados, un recorrido claro de los datos y la identidad del equipo que implementará y mantendrá el sistema. Comprueba qué sucede cuando el modelo se equivoca.
 
-**¿Necesito cumplir RGPD y AI Act para usar IA?**
-Si tratas datos personales, sí. Pide que la empresa explique cómo implementa RGPD y LOPDGDD técnicamente, no un "sí, cumplimos". Desde agosto de 2026 también aplican obligaciones de transparencia del AI Act; la empresa debe saber clasificar tu sistema.
+**¿Conviene elegir una empresa grande o un equipo pequeño?**
 
-**¿Es mejor un proyecto grande de una vez o por fases?**
-Por fases: descubrimiento, prueba de concepto, MVP, producción y operación. Así validas cómo trabaja la empresa antes de comprometer una cantidad grande, y reduces el riesgo de un piloto que nunca llega a producción.
+Depende del alcance. Un equipo pequeño puede encajar en un piloto acotado o una integración directa. Un programa con varios sistemas, departamentos, turnos de soporte o requisitos formales puede necesitar más capacidad. En ambos casos pregunta quién trabajará realmente en tu proyecto y quién responde si algo falla.
 
-**¿Qué diferencia hay entre una empresa que desarrolla software con IA y una que solo monta herramientas?**
-Una empresa de desarrollo construye aplicaciones y sistemas a medida, con control del código y de la arquitectura. Una que solo conecta herramientas ya hechas (n8n, Make, chatbots de plantilla) entrega más rápido para casos simples, pero queda limitada cuando necesitas una aplicación nueva, un agente complejo o integraciones profundas con tu ERP.
+**¿Cuándo necesito desarrollo a medida y cuándo basta una herramienta ya hecha?**
 
-## Nuestro límite honesto
+Empieza por una herramienta existente si cubre el proceso y las integraciones necesarias sin trabajo manual oculto. Valora desarrollo a medida cuando hacen falta reglas propias, datos o sistemas que la herramienta no conecta, una experiencia de usuario específica o controles que no ofrece la solución estándar.
 
-OSIX Tech aparece en esta guía y lo decimos abiertamente: somos una empresa de desarrollo de software con IA en España, no una guía neutral. Por eso hemos puesto criterios objetivos y una matriz de puntuación para que decidas tú. Somos un equipo joven y pequeño, con menos trayectoria demostrada que una gran consultora: conviene pedirnos un caso de un sector parecido al tuyo antes de decidir. Donde somos fuertes es en desarrollo real a medida (no plantillas), integración con tus sistemas y gestión de ayudas públicas para financiar el proyecto.
+**¿Qué debería incluir una propuesta de IA?**
 
-## Cómo se elaboró esta guía
+El problema y la medida de éxito, el alcance, la arquitectura, los datos tratados, las integraciones, los controles humanos, los criterios de aceptación, los costes iniciales y recurrentes, el soporte y las condiciones de salida.
 
-Criterios sintetizados de las referencias públicas de consultoras y guías de selección españolas de 2026, del marco de la AEPD sobre IA y datos personales, y de los criterios que usamos en proyectos reales de desarrollo de software con IA. Los importes de las ayudas provienen de las webs oficiales de España Digital (Red.es) y de las convocatorias autonómicas.
+**¿Quién es responsable del cumplimiento del RGPD?**
+
+Depende del papel de cada organización y del tratamiento concreto. La empresa cliente y los proveedores pueden tener obligaciones distintas. Haz que el proveedor describa sus funciones y responsabilidades, y solicita revisión jurídica para el caso específico. Esta guía no sustituye asesoramiento legal.
 
 ## Fuentes
 
-- [onext: cómo elegir un IA partner en 2026, cinco criterios que no aparecen en tu RFP](https://www.onext.es//insights/como-elegir-ia-partner-2026-cinco-criterios-rfp/)
-- [AEPD: calidad, exactitud y minimización de datos personales en tratamientos con IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-analiza-calidad-exactitud-y-minimizacion-de-datos-personales-en-tratamientos-con-ia)
-- [Servicios de OSIX Tech](https://osix.tech)
+- [AEPD: guía para adaptar al RGPD los productos y servicios que utilizan IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-aepd-publica-una-guia-para-adaptar-al-rgpd-los-productos-y)
+- [Desarrollo a medida de OSIX Tech](https://osix.tech/servicios/desarrollo-a-medida/)

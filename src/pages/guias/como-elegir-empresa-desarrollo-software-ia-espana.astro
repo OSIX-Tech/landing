@@ -16,8 +16,8 @@ const GuideContent = (await import('../../content/es/guias/como-elegir-empresa-d
 const canonicalUrl = `https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/`;
 
 // SEO Data
-const seoTitle = 'Cómo elegir una empresa de desarrollo de software con IA en España (2026) - OSIX Tech';
-const seoDescription = 'Cómo elegir una empresa de desarrollo de software con IA en España: siete criterios que sí predicen el éxito, matriz de puntuación ponderada, señales de alarma, RGPD y AI Act, y las ayudas públicas que financian el proyecto.';
+const seoTitle = "Cómo elegir una empresa de desarrollo de software con IA en España (2026) - OSIX Tech";
+const seoDescription = "Qué pedir antes de contratar: prueba con datos, privacidad, integración, coste total y control por fases para elegir un proveedor de IA.";
 
 // Structured Data
 const breadcrumbSchema = {
@@ -55,43 +55,54 @@ const articleSchema = {
       "url": "https://osix.tech/logo_w.png"
     }
   },
-  "mainEntityOfPage": canonicalUrl
+  "mainEntityOfPage": canonicalUrl,
+  "dateModified": "2026-09-24"
 };
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cómo sé si una empresa de desarrollo de software con IA es fiable?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pide 2 a 3 proyectos similares al tuyo, una demo o prueba de concepto con datos parecidos, que expliquen la arquitectura y qué ocurre cuando la IA se equivoca, y que separen el coste de desarrollo del coste de operación. Si no preguntan por tus datos ni hablan de seguridad, es una mala señal." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Precio o calidad? ¿Qué pesa más?",
-      "acceptedAnswer": { "@type": "Answer", "text": "La arquitectura y la experiencia pesan mucho más que el precio. Una mala arquitectura multiplica los costes posteriores. Usa la matriz de puntuación ponderada para comparar: el precio solo debería contar un 5% frente a la capacidad técnica y la experiencia." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Necesito cumplir RGPD y AI Act para usar IA?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Si tratas datos personales, sí. Pide que la empresa explique cómo implementa RGPD y LOPDGDD técnicamente, no un 'sí, cumplimos'. Desde agosto de 2026 también aplican obligaciones de transparencia del AI Act; la empresa debe saber clasificar tu sistema." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es mejor un proyecto grande de una vez o por fases?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Por fases: descubrimiento, prueba de concepto, MVP, producción y operación. Así validas cómo trabaja la empresa antes de comprometer una cantidad grande, y reduces el riesgo de un piloto que nunca llega a producción." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué diferencia hay entre una empresa que desarrolla software con IA y una que solo monta herramientas?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Una empresa de desarrollo construye aplicaciones y sistemas a medida, con control del código y de la arquitectura. Una que solo conecta herramientas ya hechas (n8n, Make, chatbots de plantilla) entrega más rápido para casos simples, pero queda limitada cuando necesitas una aplicación nueva, un agente complejo o integraciones profundas con tu ERP." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo trabajo con una consultora de IA sin perder el control?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Acuerda quién decide por tu empresa, qué se entrega y cómo se acepta cada fase. Conserva el acceso a tus cuentas, datos y repositorio, registra los cambios de alcance y define cómo recibirás el código, la documentación y la transferencia si termina el contrato. Revisa en cada hito los entregables, riesgos, presupuesto restante y decisiones pendientes." }
-    }
+      {
+          "@type": "Question",
+          "name": "¿Cómo sé si una empresa de desarrollo de software con IA es fiable?",
+          "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pide una prueba con datos representativos, criterios de aceptación acordados, un recorrido claro de los datos y la identidad del equipo que implementará y mantendrá el sistema. Comprueba qué sucede cuando el modelo se equivoca."
+          }
+      },
+      {
+          "@type": "Question",
+          "name": "¿Conviene elegir una empresa grande o un equipo pequeño?",
+          "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende del alcance. Un equipo pequeño puede encajar en un piloto acotado o una integración directa. Un programa con varios sistemas, departamentos, turnos de soporte o requisitos formales puede necesitar más capacidad. En ambos casos pregunta quién trabajará realmente en tu proyecto y quién responde si algo falla."
+          }
+      },
+      {
+          "@type": "Question",
+          "name": "¿Cuándo necesito desarrollo a medida y cuándo basta una herramienta ya hecha?",
+          "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Empieza por una herramienta existente si cubre el proceso y las integraciones necesarias sin trabajo manual oculto. Valora desarrollo a medida cuando hacen falta reglas propias, datos o sistemas que la herramienta no conecta, una experiencia de usuario específica o controles que no ofrece la solución estándar."
+          }
+      },
+      {
+          "@type": "Question",
+          "name": "¿Qué debería incluir una propuesta de IA?",
+          "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El problema y la medida de éxito, el alcance, la arquitectura, los datos tratados, las integraciones, los controles humanos, los criterios de aceptación, los costes iniciales y recurrentes, el soporte y las condiciones de salida."
+          }
+      },
+      {
+          "@type": "Question",
+          "name": "¿Quién es responsable del cumplimiento del RGPD?",
+          "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Depende del papel de cada organización y del tratamiento concreto. La empresa cliente y los proveedores pueden tener obligaciones distintas. Haz que el proveedor describa sus funciones y responsabilidades, y solicita revisión jurídica para el caso específico. Esta guía no sustituye asesoramiento legal."
+          }
+      }
   ]
 };
 
@@ -116,7 +127,7 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
           Cómo elegir una empresa de desarrollo de software con IA en España
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          Siete criterios que sí predicen el éxito, una matriz de puntuación y las señales de alarma antes de firmar.
+          Pruebas, privacidad, integración, coste total y cómo conservar el control en un proyecto con IA.
         </p>
       </div>
     </div>
@@ -135,9 +146,9 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
       <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
         <h2 class="related-guides-title">Guías relacionadas</h2>
         <ul class="related-guides-list">
-          <li><a href="/guias/consultoras-ia-grandes-vs-especializadas-pymes/">Consultoras de IA grandes vs especializadas en pymes</a></li>
-          <li><a href="/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
-          <li><a href="/guias/mejores-empresas-automatizacion-ia-espana/">Mejores empresas de automatización con IA en España</a></li>
+          <li><a href="/guias/como-elegir-empresa-automatizacion-ia-galicia/">Cómo elegir una empresa de automatización con IA en Galicia</a></li>
+          <li><a href="/guias/mejores-empresas-automatizacion-ia-espana/">Mejores empresas de automatización con IA para pymes en España</a></li>
+          <li><a href="/guias/consultoras-ia-grandes-vs-especializadas-pymes/">Consultoras grandes frente a especialistas en pymes</a></li>
         </ul>
       </div>
 
