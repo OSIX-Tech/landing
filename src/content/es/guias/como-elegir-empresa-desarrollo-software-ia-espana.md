@@ -1,4 +1,4 @@
-Para elegir una empresa de desarrollo de software con IA en España en 2026, no empieces por comparar precios ni por quién dice que "sabe más de IA": evalúa capacidad técnica real, experiencia en tu sector, seguridad y cumplimiento (RGPD y AI Act), calidad de arquitectura y capacidad de convertir un caso de uso en un sistema mantenible. Los criterios que predecían el éxito hace unos años (certificaciones, cifra de negocio, número de profesionales) ya no discriminan: más del 40% de los proyectos de IA empresarial no llegan a producción según Gartner. Lo que distingue a un proyecto que funciona es cómo la empresa entiende tu problema de negocio, cómo opera el sistema en producción y cómo contiene el coste cuando escala. Esta guía la publica OSIX Tech, una empresa española de desarrollo de software con IA, y está escrita para que decidas tú con criterios objetivos: te damos qué preguntar, una matriz de puntuación ponderada y las señales de alarma.
+Para elegir una empresa de desarrollo de software con IA en España en 2026, evalúa capacidad técnica, experiencia en tu sector, seguridad, arquitectura y cómo se gobernará el proyecto cuando empiece. Acuerda quién decide, qué se entrega en cada fase, qué puedes revisar y cómo se mide el resultado. Tu empresa debe conservar el acceso a sus datos, cuentas y código, además de una salida documentada. Esta guía de OSIX Tech reúne criterios para comparar proveedores, una matriz ponderada y señales de alarma antes de firmar.
 
 ## Lo primero: define qué necesitas antes de pedir presupuestos
 
@@ -44,6 +44,14 @@ Pregunta quién mantiene el sistema después del lanzamiento, qué ocurre si tu 
 
 Mira el contrato, no solo el presupuesto. Deja claros por escrito: propiedad intelectual del software, acceso al código fuente, documentación técnica, acceso a repositorios y cuentas cloud, dependencia de APIs de terceros, SLA y soporte, mantenimiento, costes recurrentes, qué sucede si rescindes el contrato y la portabilidad de datos. Una solución aparentemente barata puede salir carísima si después no puedes migrarla a otro proveedor.
 
+## Cómo mantienes el control durante el proyecto
+
+La propiedad del código no basta si no puedes revisar avances, aprobar cambios o recuperar los accesos. Antes de empezar, deja por escrito quién decide, qué debe entregar cada fase y cómo se acepta. Mantén a nombre de tu empresa las cuentas que paga: repositorio, cloud y servicios de terceros. Si por una razón técnica una cuenta debe crearla el proveedor, acuerda cómo y cuándo se transfiere.
+
+En cada revisión, comprueba cuatro cosas: qué se entregó, qué riesgos o decisiones siguen abiertos, cuánto presupuesto queda y qué tiene que aprobar tu equipo. Registra los cambios de alcance con su impacto en coste y plazo antes de ejecutarlos. Para la salida, incluye los accesos, el código, la documentación, los datos en un formato utilizable y una sesión de transferencia.
+
+No necesitas dirigir el trabajo técnico. Sí necesitas conservar la capacidad de decidir, verificar y continuar sin que todo el conocimiento dependa de la consultora. Para ver cómo llevar estos controles a cada modelo de contratación, consulta [Cómo trabajar con una consultora de IA sin perder el control](https://osix.tech/guias/trabajar-con-consultora-ia-sin-perder-control/).
+
 ## Matriz de puntuación para comparar proveedores
 
 Puntúa cada candidato de 1 a 5 y multiplica por el peso:
@@ -51,15 +59,16 @@ Puntúa cada candidato de 1 a 5 y multiplica por el peso:
 | Criterio | Peso |
 | --- | --- |
 | Capacidad técnica y experiencia en IA | 20% |
-| Casos similares a tu negocio | 20% |
+| Casos similares a tu negocio | 15% |
 | Seguridad + RGPD + AI Act | 15% |
 | Calidad de arquitectura y neutralidad | 15% |
 | Capacidad de integración | 10% |
-| Soporte y mantenimiento | 10% |
+| Control del proyecto, documentación y transferencia | 10% |
+| Soporte y mantenimiento | 5% |
 | Propiedad y portabilidad | 5% |
 | Precio | 5% |
 
-No pongas el precio por encima de la experiencia y la arquitectura: en proyectos de IA, una mala arquitectura multiplica los costes posteriores. El precio importa, pero debe evaluarse contra el alcance, no en abstracto.
+No pongas el precio por encima de la experiencia y la arquitectura: en proyectos de IA, una mala arquitectura multiplica los costes posteriores. El precio importa, pero debe evaluarse contra el alcance, no en abstracto. Puntúa también el control del proyecto con evidencias: responsables con nombre, criterios de aceptación, registro de cambios, acceso a las cuentas y un procedimiento de salida. Los pesos suman 100%.
 
 ## Señales de alarma
 
@@ -72,6 +81,8 @@ Desconfía de una empresa que:
 - no contempla evaluación de resultados;
 - no separa el coste de desarrollo del coste de uso de IA y cloud;
 - no permite acceder al código o a la infraestructura;
+- no puedes consultar el estado de los entregables, los cambios aprobados o el presupuesto consumido;
+- solo la consultora controla las cuentas o puede explicar cómo continuar al terminar el contrato;
 - ofrece un presupuesto cerrado enorme sin una fase previa de descubrimiento.
 
 ## Contrata por fases, no un proyecto grande de golpe
@@ -89,6 +100,10 @@ Una estrategia mucho más segura que firmar un proyecto grande de una vez es ava
 Una ventaja que se subestima de contratar una empresa que conoce el ecosistema de ayudas es la financiación pública. Kit Consulting (Red.es) ofrece bonos de asesoramiento en IA (hasta 12.000 a 24.000 € según tamaño), Kit Digital cubre implantación, y convocatorias autonómicas como IGAPE IA360 en Galicia (hasta 500.000 €) financian proyectos de IA. Una empresa que conoce estas convocatorias diseña el proyecto desde el inicio para que sea elegible, en vez de descubrir la ayuda cuando ya es tarde. *(Verifica las cifras y convocatorias vigentes en las webs oficiales de Red.es, IGAPE y tu comunidad antes de decidir.)*
 
 ## Preguntas frecuentes
+
+**¿Cómo trabajo con una consultora de IA sin perder el control?**
+
+Acuerda quién decide por tu empresa, qué se entrega y cómo se acepta cada fase. Conserva el acceso a tus cuentas, datos y repositorio, registra los cambios de alcance y define cómo recibirás el código, la documentación y la transferencia si termina el contrato. Revisa en cada hito los entregables, riesgos, presupuesto restante y decisiones pendientes.
 
 **¿Cómo sé si una empresa de desarrollo de software con IA es fiable?**
 Pide 2 a 3 proyectos similares al tuyo, una demo o prueba de concepto con datos parecidos, que expliquen la arquitectura y qué ocurre cuando la IA se equivoca, y que separen el coste de desarrollo del coste de operación. Si no preguntan por tus datos ni hablan de seguridad, es una mala señal.
