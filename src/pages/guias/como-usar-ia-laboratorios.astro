@@ -4,20 +4,20 @@ import LoadingScreen from '../../components/LoadingScreen.astro';
 
 export const prerender = true;
 
-// Guía actualmente en español (prompt BOFU: cómo integrar la IA con el software existente de una pyme). Ampliar a en/gl cuando exista traducción.
+// Guía actualmente en español (prompt BOFU: cómo automatizar documentos sin perder la revisión humana). Ampliar a en/gl cuando exista traducción.
 export async function getStaticPaths() {
   return [{}];
 }
 
 const lang = 'es' as const;
 
-const GuideContent = (await import('../../content/es/guias/integrar-ia-software-pyme-espana.md')).default;
+const GuideContent = (await import('../../content/es/guias/como-usar-ia-laboratorios.md')).default;
 
-const canonicalUrl = `https://osix.tech/guias/integrar-ia-software-pyme-espana/`;
+const canonicalUrl = `https://osix.tech/guias/como-usar-ia-laboratorios/`;
 
 // SEO Data
-const seoTitle = 'Cómo integrar la IA con el software que ya usa tu empresa (2026): 5 vías reales y cuándo conviene a medida - OSIX Tech';
-const seoDescription = 'Cómo integrar IA con el ERP, CRM o LIMS que ya usa tu pyme: las 5 vías (API, webhook, no-code, base de datos, RAG), cuándo te basta no-code y cuándo necesitas desarrollo a medida, con límites honestos.';
+const seoTitle = "Cómo usar IA en un laboratorio: 5 aplicaciones prácticas y cuándo conectarlas al LIMS - OSIX Tech";
+const seoDescription = "Usos prácticos de la IA en laboratorios, ordenados por retorno potencial y riesgo: integración de instrumentos, documentos, alarmas, anomalías y mantenimiento.";
 
 // Structured Data
 const breadcrumbSchema = {
@@ -62,35 +62,25 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-{
+    {
       "@type": "Question",
-      "name": "¿Necesito saber programar para integrar IA con mi software?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No siempre. Para procesos simples entre aplicaciones ya conectadas, un conector no-code (Zapier, Make, n8n) se monta sin programar. Cuando la IA debe actuar dentro de un flujo complejo o leer datos de tu base, hace falta programar o contratar a quien lo haga." }
+      "name": "¿Hace falta IA para conectar un instrumento con un LIMS?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No necesariamente. Si el instrumento exporta datos estructurados y el LIMS puede importarlos de forma controlada, una interfaz convencional puede bastar. Reserva la IA para tareas como clasificar documentos, extraer información variable o detectar patrones que las reglas existentes no capturan bien." }
     },
-{
+    {
       "@type": "Question",
-      "name": "¿Cuánto cuesta integrar IA con mi ERP o CRM?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Depende de la vía: un conector no-code se paga con una cuota mensual por uso, un desarrollo a medida sobre un sistema existente es un proyecto con coste inicial. Te remitimos a nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) con precios reales del mercado español." }
+      "name": "¿Puede la IA validar resultados de laboratorio automáticamente?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Puede ayudar a aplicar reglas o priorizar excepciones, pero que una salida parezca correcta no equivale a que esté validada para su uso. En contextos clínicos, de calidad o regulados, define el uso previsto, evalúa el rendimiento local, conserva la trazabilidad y establece quién aprueba y qué casos se escalan." }
     },
-{
+    {
       "@type": "Question",
-      "name": "¿Puedo integrar IA con un LIMS de laboratorio?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí, con las vías 1 a 5 según el sistema: si tu LIMS expone una API, la integración es directa; si es cerrado, se suele hacer por webhook o exportando/importando datos estructurados. La clave es que los resultados medidos no salgan de tu control si así lo exige tu acreditación o tu cliente." }
+      "name": "¿Qué pasa con un equipo antiguo sin API?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Comprueba primero las opciones reales de exportación: CSV, puerto serie, fichero programado u otra interfaz documentada por el fabricante. Un adaptador puede leer y transformar esos datos sin reemplazar el equipo, pero hay que probar identificadores, unidades, marcas de tiempo, desconexiones y duplicados. Si no se obtiene un dato verificable, no se debe inventar ni completar automáticamente." }
     },
-{
+    {
       "@type": "Question",
-      "name": "¿Mis datos quedan seguros si uso la API de OpenAI o de Google?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Depende de qué datos envíes y de tu contrato. Con datos personales o confidenciales hay que revisar si salen de la UE y con qué garantía. Si la respuesta es \"no pueden salir\", se usa un modelo desplegado en tu entorno o en un proveedor europeo con contrato de tratamiento." }
-    },
-{
-      "@type": "Question",
-      "name": "¿Integrar IA me obliga a cambiar de software?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. El sentido de integrar es precisamente no cambiar: la IA se conecta al software que ya usas. Si un proveedor te propone cambiar de ERP para \"poder ponerle IA\", casi siempre es que quiere venderte su plataforma, no resolver tu problema." }
-    },
-{
-      "@type": "Question",
-      "name": "¿Cuánto tarda una integración a medida?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un piloto con conector puede estar en días; una integración a medida sobre un sistema existente suele ir de 4 a 8 semanas en casos típicos de pyme, y más si el sistema es muy antiguo o hay terceros implicados. Es orientativo, no una promesa." }
+      "name": "¿Un laboratorio pequeño necesita un LIMS con IA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No por defecto. Si el problema es una tarea manual sencilla, una plantilla, un conector o la configuración actual del LIMS pueden bastar. Un proyecto más complejo se justifica cuando el coste recurrente del flujo manual o del error supera el coste de integración, validación y mantenimiento." }
     }
   ]
 };
@@ -111,13 +101,9 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-4xl">
-        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · IA para pymes · España</span>
-        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
-          Cómo integrar la IA con el software que ya usa tu empresa
-        </h1>
-        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          Las 5 vías reales (API, webhook, no-code, base de datos, RAG) y cuándo conviene a medida.
-        </p>
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · IA para laboratorios · Integración y operaciones</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">Cómo usar IA en un laboratorio</h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">5 aplicaciones prácticas, su riesgo y cómo conectarlas al LIMS.</p>
       </div>
     </div>
   </section>
@@ -131,17 +117,13 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
         </div>
       </article>
 
-      <!-- Related guides (internal linking for indexation) -->
       <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
         <h2 class="related-guides-title">Guías relacionadas</h2>
         <ul class="related-guides-list">
-          <li><a href="/guias/como-usar-ia-laboratorios/">Cómo usar IA en un laboratorio: 5 aplicaciones prácticas</a></li>
-          <li><a href="/guias/donde-se-guardan-datos-ia-empresa/">Dónde se guardan los datos de tu empresa con un sistema de IA</a></li>
-          <li><a href="/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
-          <li><a href="/guias/medir-resultados-ia-pyme/">Cómo medir si la IA de tu pyme está dando resultados</a></li>
-          <li><a href="/guias/procesos-pyme-automatizar-con-ia/">Qué procesos de una pyme se pueden automatizar con IA</a></li>
-        </ul>
-      </div>
+          <li><a href="/guias/integrar-ia-software-pyme-espana/">Cómo integrar IA con el software que ya usa tu empresa</a></li>
+          <li><a href="/guias/automatizar-documentos-sin-perder-revision-humana/">Automatizar documentos sin perder la revisión humana</a></li>
+          <li><a href="/guias/automatizar-informes-pyme/">Cómo automatizar la generación de informes</a></li>
+        </ul>      </div>
 
       <!-- Back to home button -->
       <div class="text-center mt-12 fade-up" style="--delay: 0.4s">

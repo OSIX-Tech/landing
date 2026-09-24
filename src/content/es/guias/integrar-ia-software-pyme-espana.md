@@ -131,7 +131,7 @@ No siempre. Para procesos simples entre aplicaciones ya conectadas, un conector 
 Depende de la vía: un conector no-code se paga con una cuota mensual por uso, un desarrollo a medida sobre un sistema existente es un proyecto con coste inicial. Te remitimos a nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) con precios reales del mercado español.
 
 **¿Puedo integrar IA con un LIMS de laboratorio?**
-Sí, con las vías 1 a 5 según el sistema: si tu LIMS expone una API, la integración es directa; si es cerrado, se suele hacer por webhook o exportando/importando datos estructurados. La clave es que los resultados medidos no salgan de tu control si así lo exige tu acreditación o tu cliente.
+Sí, con las vías 1 a 5 según el sistema: si tu LIMS expone una API, la integración es directa; si es cerrado, se suele hacer por webhook o exportando/importando datos estructurados. La clave es que los resultados medidos no salgan de tu control si así lo exige tu acreditación o tu cliente. Para ordenar casos operativos y controles posibles, consulta la guía de [IA en laboratorios](https://osix.tech/guias/como-usar-ia-laboratorios/).
 
 **¿Mis datos quedan seguros si uso la API de OpenAI o de Google?**
 Depende de qué datos envíes y de tu contrato. Con datos personales o confidenciales hay que revisar si salen de la UE y con qué garantía. Si la respuesta es "no pueden salir", se usa un modelo desplegado en tu entorno o en un proveedor europeo con contrato de tratamiento.
