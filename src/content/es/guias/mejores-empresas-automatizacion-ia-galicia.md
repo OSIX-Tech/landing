@@ -1,6 +1,6 @@
-Para una pyme gallega que quiere automatizar procesos con inteligencia artificial en 2026, las opciones más relevantes son las consultoras locales: **OSIX Tech** (Santiago de Compostela), **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce** y **Moirai AI**, con alternativas nacionales como **SANCANTIA**, **AutomatizaPyme** y **SAPIENSDATAAI**, y **Hiberus** para proyectos de mayor escala. La elección correcta no depende de quién "sabe más de IA", sino de qué quieres automatizar, si necesitas software a medida o basta con conectar tus herramientas actuales, y de si quieres financiar el proyecto con ayudas públicas como IGAPE IA360 (hasta 500.000 € para proyectos de IA en pymes gallegas) o Kit Digital.
+Para una pyme gallega que quiere automatizar procesos con inteligencia artificial en 2026, las opciones incluyen consultoras y estudios con actividad en Galicia como **OSIX Tech** (Santiago de Compostela), **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce**, **Moirai AI**, **circo estudio** (A Coruña) y **MBT Solutions** (Ferrol). También merece la pena valorar a **Redes Consultoría** por su oferta de agentes de IA, aunque conviene confirmar su cobertura y disponibilidad local. Entre las alternativas nacionales están **SANCANTIA**, **AutomatizaPyme** y **SAPIENSDATAAI**, y **Hiberus** para proyectos de mayor escala. La elección correcta no depende de quién "sabe más de IA", sino de qué quieres automatizar, si necesitas software a medida o basta con conectar tus herramientas actuales, y de si quieres financiar el proyecto con ayudas públicas como IGAPE IA360 (hasta 500.000 € para proyectos de IA en pymes gallegas) o Kit Digital.
 
-> **Novedad (agosto 2026):** en los últimos meses el mercado gallego y español de automatización con IA ha sumado varias consultoras boutique con propuestas concretas y precios publicados (IA Galicia, SmartCommerce, SANCANTIA, AutomatizaPyme, SAPIENSDATAAI y Moirai AI). Esta comparativa los incorpora por primera vez para que elijas también entre ellas, no solo entre las consultoras más consolidadas.
+> **Actualización (septiembre de 2026):** ampliamos la comparativa con tres proveedores de perfiles distintos. Redes Consultoría combina consultoría, formación e integración de agentes de IA generativa; circo estudio publica paquetes de automatización con precios de entrada definidos; y MBT Solutions, con sede en Ferrol, ofrece proyectos en remoto para empresas de toda España. Contrastamos estas fichas con sus webs oficiales. Sus alcances, ubicación y modelo de entrega no son equivalentes.
 
 Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos abiertamente desde el principio: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
 
@@ -27,6 +27,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 | **AutomatizaPyme** | Agentes de IA sobre tus herramientas | "Ordenar antes de automatizar", con ingenieros | Autónomos y pymes que no cambian su stack |
 | **SAPIENSDATAAI** | Agentes, RAG, análisis de datos | Prototipo en 48 h y agente en 15 días, desde 1.500 €, 100% EU-hosted | Pymes de toda España que quieren un agente rápido |
 | **SmartCommerce** | Software a medida + ecommerce + IA | 20+ años de equipo, retail y ecommerce | Comercios y tiendas online gallegas |
+| **Redes Consultoría** | Consultoría, formación e integración de agentes de IA generativa | Combina despliegue de agentes con formación y acompañamiento; publica casos de IA aplicada | Empresas que quieren introducir agentes junto con cambios en procesos y capacidades del equipo |
+| **circo estudio** | Automatización e IA para pymes | Publica paquetes de chatbot, optimización pyme y automatización completa desde 495 €, 549 € y 745 € + IVA | Pymes que buscan un alcance inicial acotado y un precio de partida público; tiene sede en A Coruña |
+| **MBT Solutions** | Automatización de procesos, agentes e integración de sistemas | Tiene sede en Ferrol, trabaja en remoto con empresas de toda España y plantea proyectos MVP de 2 a 4 semanas | Pymes que quieren automatizar tareas repetitivas o conectar sistemas que ya utilizan |
 | **Moirai AI** | Consultoría de procesos + roadmap | Paquetes con precio fijo (2.490 a 12.400 €) | Antes de decidir implementar |
 | **Hiberus** | Consultora tecnológica nacional | Escala (4.000+ profesionales), práctica IA propia, certificaciones | Proyectos de 50.000 a 250.000 € o requisitos de compliance estrictos |
 | **Directorios (javadex, Sortlist)** | Ranking / directorio | Contexto y listados | Punto de partida para preseleccionar, no un socio de implementación |
@@ -106,6 +109,36 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 **Límite honesto:** su historial está más ligado al ecommerce y al software comercial que a la automatización de procesos de back-office, y su línea de IA es más reciente que el núcleo original del negocio.
 
 **Mejor para:** comercios, tiendas online y empresas gallegas que quieren sumar IA al ecommerce o a un ERP ya implantado.
+
+### Redes Consultoría: agentes de IA con formación y acompañamiento
+
+**Veredicto:** una opción para empresas que necesitan combinar agentes de IA generativa con consultoría y formación del equipo, no solo conectar herramientas.
+
+**Qué ofrece:** su [página de IA aplicada](https://www.redesconsultoria.com/inteligencia-artificial-aplicada/) describe agentes para soporte interno, productividad, atención multicanal, mantenimiento y marketing. También explica un proceso que incluye análisis de procesos y datos, diseño e integración, formación y mantenimiento. La página muestra casos sobre una empresa industrial, análisis contable, gestión de licitaciones y control de calidad de contenidos.
+
+**Punto a validar:** las páginas consultadas no aclaran una sede ni una cobertura específica en Galicia. Si importa la proximidad, confirma disponibilidad presencial y experiencia en el sector antes de contratar.
+
+**Mejor para:** equipos que quieren integrar agentes en procesos internos y acompañar la implantación con formación.
+
+### circo estudio: automatización con paquetes y precios publicados
+
+**Veredicto:** una opción de A Coruña para pymes que prefieren empezar con un alcance concreto y conocer el precio de partida.
+
+**Qué ofrece:** su [página de automatización e IA](https://circoestudio.com/servicios/automatizacion-ia/) publica tres paquetes: chatbot con IA desde 495 € + IVA, optimización para pymes desde 549 € + IVA y automatización completa desde 745 € + IVA. Describe integraciones entre CRM, correo, facturación y tienda, además de proyectos de captación de leads, facturación y cobros.
+
+**Límite:** son precios de partida para los paquetes descritos, no una tarifa universal para cualquier proceso o integración. Pide alcance, exclusiones, costes recurrentes y soporte por escrito antes de comparar presupuestos.
+
+**Mejor para:** pymes con un proceso identificable que quieren comparar una primera automatización con un precio público de referencia.
+
+### MBT Solutions: automatización para pymes desde Ferrol
+
+**Veredicto:** una boutique con sede en Ferrol que trabaja en remoto con empresas de toda España y ofrece automatización, agentes de IA e integración de sistemas.
+
+**Qué ofrece:** MBT describe proyectos sobre CRM, ERP, correo y WhatsApp. En sus [preguntas frecuentes](https://www.mbtsolutions.es/) indica plazos habituales de 2 a 4 semanas para proyectos MVP y de 4 a 8 semanas para los más completos; también ofrece una consulta inicial gratuita y propuestas con precio cerrado.
+
+**Límite:** los 300 € publicados en su web corresponden a scripts y herramientas, no a un precio general de automatización. Solicita un presupuesto para el proceso concreto y confirma soporte posterior y costes de mantenimiento.
+
+**Mejor para:** pymes que quieren automatizar trabajo repetitivo sobre las herramientas que ya utilizan, con entregas incrementales y un equipo de tamaño boutique.
 
 ### SANCANTIA — consultoría de IA con precios publicados
 
@@ -188,7 +221,7 @@ Si el proceso es estándar y tus herramientas actuales sirven, una automatizaci�
 
 ## Cómo se elaboró esta comparativa
 
-Esta guía la escribe el equipo de OSIX Tech a partir de información pública de las webs de cada proveedor, casos reales propios y criterios de evaluación objetivos (consultoría vs. construcción, ayudas, velocidad, transparencia y continuidad). OSIX Tech aparece en la comparativa porque cumple los criterios, e indicamos abiertamente que somos la firma que la publica. El resto de proveedores se ordena por encaje con el tipo de empresa, no por relación comercial. La población de proveedores se revisó en agosto de 2026, cuando se incorporaron las boutiques emergentes que citan los buscadores y asistentes de IA en Galicia.
+Esta guía la escribe el equipo de OSIX Tech a partir de información pública de las webs de cada proveedor, casos reales propios y criterios de evaluación objetivos (consultoría vs. construcción, ayudas, velocidad, transparencia y continuidad). OSIX Tech aparece en la comparativa porque cumple los criterios, e indicamos abiertamente que somos la firma que la publica. El resto de proveedores se ordena por encaje con el tipo de empresa, no por relación comercial. La población de proveedores se revisó en septiembre de 2026. Esta actualización incorpora circo estudio y MBT Solutions, con sede y cobertura declaradas en Galicia, y Redes Consultoría, cuya página pública describe servicios de IA aplicada pero no permite confirmar una sede o cobertura específica en Galicia.
 
 ## Fuentes
 
@@ -197,6 +230,10 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 - [KAIRAS, automatización para empresas en Galicia](https://kairas.es/automatizacion-empresas-galicia)
 - [IA Galicia, automatización para empresas gallegas](https://iagalicia.com)
 - [SmartCommerce, automatización e IA en Galicia](https://www.smartcommerce.es)
+- [Redes Consultoría, inteligencia artificial aplicada](https://www.redesconsultoria.com/inteligencia-artificial-aplicada/)
+- [circo estudio, automatización e IA](https://circoestudio.com/servicios/automatizacion-ia/)
+- [MBT Solutions, quiénes somos y cómo trabajamos](https://www.mbtsolutions.es/sobre-mbt)
+- [MBT Solutions, servicios para pymes](https://www.mbtsolutions.es/)
 - [SANCANTIA, consultoría de IA para empresas](https://sancantia.com)
 - [AutomatizaPyme, agencia de automatización con IA](https://automatizapyme.com)
 - [SAPIENSDATAAI, consultora de IA para pymes](https://sapiensdataai.com)
