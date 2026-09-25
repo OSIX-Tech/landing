@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LoadingScreen from '../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía en español sobre asistentes de IA basados en documentos (RAG).
+export async function getStaticPaths() {
+  return [{}];
+}
+
+const lang = 'es' as const;
+
+const GuideContent = (await import('../../content/es/guias/conectar-produccion-ventas-almacen-pyme-industrial.md')).default;
+
+const canonicalUrl = `https://osix.tech/guias/conectar-produccion-ventas-almacen-pyme-industrial/`;
+
+// SEO Data
+const seoTitle = "Cómo conectar producción, ventas y almacén en una pyme industrial: 4 vías de menor a mayor cambio - OSIX Tech";
+const seoDescription = "Cuatro vías para coordinar pedidos, stock y fabricación sin cambiar de ERP antes de tiempo. Criterios, riesgos y pruebas para pymes industriales.";
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Tengo que cambiar de ERP para conectar producción, ventas y almacén?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No necesariamente. Comprueba primero si el ERP actual puede registrar el flujo y si las aplicaciones separadas pueden integrarse. Una migración tiene sentido cuando la limitación es real y no se resuelve de forma razonable con configuración o conexión entre sistemas." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo conectar dos sistemas sin que el stock se duplique?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí, si se define qué sistema es la fuente válida de cada movimiento, se asigna un identificador único a cada pedido y se controlan los reintentos. La integración debe detectar una operación ya procesada en lugar de volver a crearla." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿EDI sirve para integrar la producción de mi empresa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "EDI permite intercambiar documentos estructurados entre empresas, como pedidos, albaranes y facturas. Puede ayudar con clientes o proveedores, pero la coordinación interna entre ventas, almacén y producción depende de cómo se configuren el ERP y las integraciones internas." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo conviene usar IA en el flujo?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cuando hace falta interpretar información no estructurada, como un pedido recibido en un PDF, correo o imagen. La IA puede extraer una propuesta de datos, pero una persona o regla del sistema debe validar las referencias y cantidades antes de confirmar el pedido." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué debo medir en un piloto?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mide el tiempo de registro, errores de inventario, líneas que requieren corrección, pedidos duplicados y entregas afectadas por falta de stock. Compara el mismo proceso antes y después con un conjunto de pedidos parecido." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Software industrial · Integración · Pymes</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">Cómo conectar producción, ventas y almacén en una pyme industrial</h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">Cuatro vías, de configurar el ERP actual a cambiarlo solo cuando haga falta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/guias/automatizar-informes-pyme/">Automatizar la generación de informes de tu empresa</a></li>
+          <li><a href="/guias/integrar-ia-software-pyme-espana/">Cómo integrar IA con el software que ya usa tu empresa</a></li>
+          <li><a href="/guias/como-elegir-empresa-desarrollo-software-ia-espana/">Cómo elegir una empresa de desarrollo de software</a></li>
+        </ul>      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>
