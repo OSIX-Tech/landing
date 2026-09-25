@@ -1,4 +1,4 @@
-# Cómo conectar producción, ventas y almacén en una pyme industrial: 4 vías de menor a mayor cambio
+## Cómo conectar producción, ventas y almacén en una pyme industrial: 4 vías de menor a mayor cambio
 
 Si una pyme industrial quiere conectar producción, ventas y almacén, no debería empezar cambiando de ERP. Primero conviene comprobar si el sistema actual puede coordinar pedidos, existencias, compras y órdenes de fabricación. Si cubre el flujo, configúralo; si los datos viven en varias aplicaciones, intégralas; cambia de ERP solo cuando el sistema no pueda sostener el proceso que la empresa necesita.
 
@@ -132,15 +132,3 @@ Esta guía la publica OSIX Tech, una consultora de software e IA para pymes en G
 - [Odoo: informes de asignación entre órdenes de fabricación y pedidos](https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/manufacturing/reporting/allocation.html)
 - [Odoo: importación de pedidos de compra mediante EDI](https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/purchase/advanced/edi.html)
 - [AECOC: diez pasos para comenzar con EDI](https://www.aecoc.es/factura-electronica-edi/)
-
-## Guías relacionadas
-
-- [Cómo automatizar la generación de informes de tu empresa](https://osix.tech/guias/automatizar-informes-pyme/)
-- [Cómo integrar la IA con el software que ya usa tu empresa](https://osix.tech/guias/integrar-ia-software-pyme-espana/)
-- [Cómo elegir una empresa de desarrollo de software con IA en España](https://osix.tech/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
-
-[Volver al índice de guías](https://osix.tech/guias/)
-
-[Volver al inicio](https://osix.tech/)
-
-[Contacta con OSIX Tech](https://wa.me/34648935068?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20vuestros%20servicios)
