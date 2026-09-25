@@ -1,5 +1,3 @@
-## Cómo conectar producción, ventas y almacén en una pyme industrial: 4 vías de menor a mayor cambio
-
 Si una pyme industrial quiere conectar producción, ventas y almacén, no debería empezar cambiando de ERP. Primero conviene comprobar si el sistema actual puede coordinar pedidos, existencias, compras y órdenes de fabricación. Si cubre el flujo, configúralo; si los datos viven en varias aplicaciones, intégralas; cambia de ERP solo cuando el sistema no pueda sostener el proceso que la empresa necesita.
 
 La decisión depende de dónde se mantiene cada dato y qué evento debe actualizar el siguiente sistema. Un pedido confirmado puede reservar existencias o generar una necesidad de fabricación; el consumo de materiales debe descontar stock; al terminar, las unidades fabricadas deben quedar disponibles para los pedidos. El objetivo no es tener más pantallas, sino registrar cada movimiento una vez y que las áreas afectadas trabajen con el mismo estado.
