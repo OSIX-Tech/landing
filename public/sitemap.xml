@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
       <loc>https://osix.tech/</loc>
       <lastmod>2026-09-22T00:00:00+00:00</lastmod>
@@ -32,9 +32,17 @@
     </url>
   <url>
       <loc>https://osix.tech/guias/</loc>
-      <lastmod>2026-09-25T00:00:00+00:00</lastmod>
+      <lastmod>2026-09-28T00:00:00+00:00</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
+    </url>
+    <url>
+      <loc>https://osix.tech/guias/ia-explicable-pyme/</loc>
+      <lastmod>2026-09-28T00:00:00+00:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/guias/ia-explicable-pyme/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/guias/ia-explicable-pyme/"/>
     </url>
   <url>
       <loc>https://osix.tech/guias/conectar-produccion-ventas-almacen-pyme-industrial/</loc>
