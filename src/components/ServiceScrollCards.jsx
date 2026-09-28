@@ -40,20 +40,20 @@ const serviceStats = {
 const servicePromos = {
   es: {
     'innovacion-subvencionada': {
-      headline: 'Convocatorias abiertas con financiación para tu empresa',
-      cta: 'Ver convocatorias',
+      headline: 'Comprueba el estado y los plazos antes de contar con una ayuda',
+      cta: 'Ver estado de las convocatorias',
     },
   },
   gl: {
     'innovacion-subvencionada': {
-      headline: 'Convocatorias abiertas con financiación para tu empresa',
-      cta: 'Ver convocatorias',
+      headline: 'Comproba o estado e os prazos antes de contar cunha axuda',
+      cta: 'Ver o estado das convocatorias',
     },
   },
   en: {
     'innovacion-subvencionada': {
-      headline: 'Open calls with funding for your business',
-      cta: 'View open calls',
+      headline: 'Check grant status and deadlines before planning funding',
+      cta: 'Check grant status',
     },
   },
 };

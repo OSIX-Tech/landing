@@ -1,138 +1,72 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import LoadingScreen from '../../components/LoadingScreen.astro';
-import KTEDHeader from '../../components/kted/KTEDHeader.astro';
-
-// Hero variants
-import HeroA from '../../components/kted/variants/HeroA.astro';
-import HeroB from '../../components/kted/variants/HeroB.astro';
-import HeroC from '../../components/kted/variants/HeroC.astro';
-
-// Shared components
-import KTEDWhatIs from '../../components/kted/KTEDWhatIs.astro';
-import KTEDAmounts from '../../components/kted/KTEDAmounts.astro';
-import KTEDProcess from '../../components/kted/KTEDProcess.astro';
-import KTEDWhyOsix from '../../components/kted/KTEDWhyOsix.astro';
-import KTEDSectors from '../../components/kted/KTEDSectors.astro';
-import KTEDFAQ from '../../components/kted/KTEDFAQ.astro';
-import KTEDFooterLogos from '../../components/kted/KTEDFooterLogos.astro';
-
-// Contact variants
-import ContactA from '../../components/kted/variants/ContactA.astro';
-import ContactB from '../../components/kted/variants/ContactB.astro';
-import ContactC from '../../components/kted/variants/ContactC.astro';
-
-import { LANGUAGES, type Lang } from '../../utils/languages';
+import { type Lang } from '../../utils/languages';
 
 export const prerender = true;
-
 export async function getStaticPaths() {
-  const variants = ['a', 'b', 'c'];
-
-  return LANGUAGES.flatMap(lang =>
-    variants.map(variant => ({
-      params: { lang, variant }
-    }))
-  );
+  return ['a', 'b', 'c'].map(variant => ({ params: { lang: 'es', variant } }));
 }
 
 const { lang = 'es', variant = 'a' } = Astro.params as { lang: Lang; variant: string };
-
-// SEO Data
-const seoData: Record<string, { title: string; description: string; keywords: string }> = {
+const copy = {
   es: {
-    title: 'Kit Espacios de Datos | Hasta 30.000€ de subvención - OSIX Tech',
-    description: 'Accede a hasta 30.000€ para integrar tu empresa en Espacios de Datos europeos. Programa Red.es financiado por NextGenerationEU. Gestión integral sin riesgo.',
-    keywords: 'kit espacios de datos, subvención espacios datos, red.es nextgenerationeu, ayudas digitalización empresas, KTED'
-  },
-  gl: {
-    title: 'Kit Espazos de Datos | Ata 30.000€ de subvención - OSIX Tech',
-    description: 'Accede a ata 30.000€ para integrar a túa empresa en Espazos de Datos europeos. Programa Red.es financiado por NextGenerationEU. Xestión integral sen risco.',
-    keywords: 'kit espazos de datos, subvención espazos datos, red.es nextgenerationeu, axudas dixitalización empresas, KTED'
+    title: 'Kit Espacios de Datos: estado de la convocatoria | OSIX Tech',
+    description: 'La información promocional anterior del KTED no debe tratarse como una convocatoria abierta. Consulta la ficha oficial de Red.es.',
+    eyebrow: 'Kit Espacios de Datos (KTED)',
+    heading: 'La información de esta página corresponde a una convocatoria anterior',
+    body: 'Red.es sitúa el fin del proyecto inicial en marzo de 2026. La ficha consultada no confirma una convocatoria sucesora abierta. No envíes una solicitud basándote en los importes, plazos o formularios de la antigua campaña.',
+    source: 'Consulta la ficha oficial de Red.es',
+    guide: 'Lee nuestra guía de ayudas para pymes gallegas',
   },
   en: {
-    title: 'Data Spaces Kit | Up to €30,000 grant - OSIX Tech',
-    description: 'Access up to €30,000 to integrate your company into European Data Spaces. Red.es program funded by NextGenerationEU. Full management with no risk.',
-    keywords: 'data spaces kit, data spaces grant spain, red.es nextgenerationeu, business digitization grants, KTED'
-  }
-};
-
-const currentSeo = seoData[lang] || seoData.es;
-
-// All variants point canonical to variant 'a'
-const canonicalUrl = `https://osix.tech/kted/a`;
-
-// Structured Data
-const webPageSchema = {
+    title: 'Data Spaces Kit: call status | OSIX Tech',
+    description: 'Previous KTED promotional information should not be treated as an open call. Check the official Red.es page.',
+    eyebrow: 'Data Spaces Kit (KTED)',
+    heading: 'This page contains information about a previous call',
+    body: 'Red.es lists the initial project as ending in March 2026. The page reviewed does not confirm an open successor call. Do not apply using amounts, deadlines, or forms from the old campaign.',
+    source: 'Check the official Red.es page',
+    guide: 'Read our grant guide for Galician SMEs',
+  },
+  gl: {
+    title: 'Kit Espazos de Datos: estado da convocatoria | OSIX Tech',
+    description: 'A información promocional anterior de KTED non se debe tratar como unha convocatoria aberta. Consulta a ficha oficial de Red.es.',
+    eyebrow: 'Kit Espazos de Datos (KTED)',
+    heading: 'Esta páxina contén información dunha convocatoria anterior',
+    body: 'Red.es sitúa o fin do proxecto inicial en marzo de 2026. A ficha consultada non confirma unha convocatoria sucesora aberta. Non envíes unha solicitude baseándote nos importes, prazos ou formularios da antiga campaña.',
+    source: 'Consulta a ficha oficial de Red.es',
+    guide: 'Le a nosa guía de axudas para pemes galegas',
+  },
+} as const;
+const currentCopy = copy[lang];
+const title = currentCopy.title;
+const description = currentCopy.description;
+const canonicalUrl = 'https://osix.tech/kted/a';
+const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": currentSeo.title,
-  "description": currentSeo.description,
+  "name": title,
+  "description": description,
   "url": `https://osix.tech/kted/${variant}`,
   "inLanguage": lang
 };
-
-// FAQ translations for structured data
-const faqTranslations = await import('../../../public/locales/es.json');
-const ft = (k: string) => faqTranslations.default[k] || k;
-
-const faqPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": ft('kted.faq.q1'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a1') } },
-    { "@type": "Question", "name": ft('kted.faq.q2'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a2') } },
-    { "@type": "Question", "name": ft('kted.faq.q3'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a3') } },
-    { "@type": "Question", "name": ft('kted.faq.q4'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a4') } },
-    { "@type": "Question", "name": ft('kted.faq.q5'), "acceptedAnswer": { "@type": "Answer", "text": ft('kted.faq.a5') } }
-  ]
-};
-
-const heroComponents = { a: HeroA, b: HeroB, c: HeroC };
-const contactComponents = { a: ContactA, b: ContactB, c: ContactC };
-
-const HeroComponent = heroComponents[variant as 'a' | 'b' | 'c'] || HeroA;
-const ContactComponent = contactComponents[variant as 'a' | 'b' | 'c'] || ContactA;
 ---
 
-<Layout
-  lang={lang}
-  title={currentSeo.title}
-  description={currentSeo.description}
-  keywords={currentSeo.keywords}
-  pageType="website"
-  canonical={canonicalUrl}
-  jsonLd={[webPageSchema, faqPageSchema]}
-  hideHeader={true}>
-
-  <KTEDHeader lang={lang} />
-  <LoadingScreen duration={800} />
-
-  <main data-variant={variant}>
-    <HeroComponent lang={lang} variant={variant} />
-
-    <KTEDWhatIs lang={lang} variant={variant} />
-
-    <KTEDAmounts lang={lang} variant={variant} />
-
-    <section id="how-it-works">
-      <KTEDProcess lang={lang} variant={variant} />
-    </section>
-
-    <KTEDWhyOsix lang={lang} variant={variant} />
-
-    <KTEDSectors lang={lang} variant={variant} />
-
-    <KTEDFAQ lang={lang} variant={variant} />
-
-    <ContactComponent lang={lang} variant={variant} />
-
-    <KTEDFooterLogos lang={lang} />
+<Layout lang={lang} title={title} description={description} pageType="website" canonical={canonicalUrl} jsonLd={jsonLd} noindex={true} hideHeader={true}>
+  <main class="notice">
+    <p class="eyebrow">{currentCopy.eyebrow}</p>
+    <h1>{currentCopy.heading}</h1>
+    <p>{currentCopy.body}</p>
+    <ul>
+      <li><a href="https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos">{currentCopy.source}</a></li>
+      <li><a href="/guias/subvenciones-ia-pymes-galicia-2026/">{currentCopy.guide}</a></li>
+    </ul>
   </main>
 </Layout>
 
 <style>
-  main {
-    overflow-x: hidden;
-  }
+  .notice { max-width: 54rem; margin: 8rem auto; padding: 2rem; color: #111; }
+  .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .notice h1 { margin: 1rem 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+  .notice p, .notice li { line-height: 1.7; }
+  .notice ul { margin-top: 1.5rem; padding-left: 1.25rem; }
 </style>

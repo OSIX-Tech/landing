@@ -110,7 +110,7 @@ Depende de la plataforma y de su contrato. Es la pregunta número uno que debes 
 Las plataformas low-code reducen la barrera, pero el mantenimiento, la integración y la supervisión humana siguen requiriendo criterio técnico. Muchas pymes combinan una plataforma con una consultora que la configura y la mantiene.
 
 **¿Qué ayudas públicas existen para un proyecto de IA en España?**
-Programas como Kit Digital (para digitalización de pymes) y líneas autonómicas como las de IGAPE en Galicia pueden cubrir parte del coste de implantación. Las convocatorias cambian cada año: verifica las condiciones vigentes en las fuentes oficiales antes de planificar el presupuesto.
+Programas como Kit Digital y líneas autonómicas pueden cubrir parte del coste solo si existe una convocatoria abierta y tu proyecto cumple sus bases. La convocatoria IGAPE IA360 2026/2027 cerró el 17 de marzo de 2026. Verifica el estado de cualquier nueva convocatoria en las fuentes oficiales antes de planificar el presupuesto.
 
 ## Cómo se elaboró esta guía
 

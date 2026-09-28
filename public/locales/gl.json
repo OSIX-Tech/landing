@@ -267,10 +267,10 @@
 
     "nav.kted": "KTED",
 
-    "kted.hero.badge": "Prazo aberto ata 31 marzo 2026",
-    "kted.hero.title": "Ata 30.000€ para integrar a túa empresa en Espazos de Datos",
-    "kted.hero.subtitle": "Subvención 100% a fondo perdido. Ti só pagas o IVE. Nós encargámonos de todo.",
-    "kted.hero.cta": "Solicitar información",
+    "kted.hero.badge": "Convocatoria anterior pechada",
+    "kted.hero.title": "Información sobre o Kit Espazos de Datos",
+    "kted.hero.subtitle": "Red.es sitúa o fin do proxecto inicial en marzo de 2026. Consulta a ficha oficial para coñecer novidades.",
+    "kted.hero.cta": "Consultar información oficial",
 
     "kted.whatIs.title": "Que é o Kit Espazos de Datos?",
     "kted.whatIs.text": "O KTED é un programa do Goberno de España a través de Red.es, financiado con fondos NextGenerationEU. O seu obxectivo é incorporar a empresas e administracións públicas a espazos de datos sectoriais europeos, permitindo compartir información de forma segura e controlada.",
@@ -333,7 +333,7 @@
     "kted.faq.q4": "Que é un espazo de datos?",
     "kted.faq.a4": "É un ecosistema seguro onde empresas comparten datos de forma controlada. Exemplo: datos de produción agroalimentaria para trazabilidade.",
     "kted.faq.q5": "Ata cando podo solicitalo?",
-    "kted.faq.a5": "O prazo pecha o 31 de marzo de 2026, pero os fondos esgótanse por orde de chegada.",
+    "kted.faq.a5": "A información promocional desta páxina corresponde a unha convocatoria anterior. Red.es sitúa o fin do proxecto inicial en marzo de 2026; a ficha consultada non confirma unha convocatoria sucesora aberta.",
 
     "kted.contact.title": "Queres saber se a túa empresa pode beneficiarse?",
     "kted.contact.subtitle": "Contactámoste en 24h para avaliar o teu caso sen compromiso",
@@ -365,7 +365,7 @@
     "service.faq.consultoria.a3": "Entregamos o informe en menos de 24 horas tras a visita e o plan de acción completo en menos dunha semana.",
 
     "service.faq.innovacion.q1": "Que subvencións xestionades?",
-    "service.faq.innovacion.a1": "Traballamos con IGAPE, IA360, Ticket Innova, Kit Digital, KTED e espazos de datos europeos. Coñecemos as convocatorias porque traballamos con elas a diario.",
+    "service.faq.innovacion.a1": "Revisamos convocatorias de IGAPE e Red.es, incluídas IA360 e KTED, só despois de comprobar o estado, o prazo, a elixibilidade e as bases oficiais. IA360 2026/2027 está pechada e Red.es sitúa o fin do proxecto inicial KTED en marzo de 2026; non damos por aberta unha convocatoria sucesora.",
     "service.faq.innovacion.q2": "Que pasa se non me aproban a subvención?",
     "service.faq.innovacion.a2": "Non pagas nada. Só cobramos se a subvención é aprobada. Ademais, verificamos a túa elixibilidade antes de empezar para maximizar as posibilidades.",
     "service.faq.innovacion.q3": "Preparades vós toda a documentación?",
@@ -376,11 +376,11 @@
     "home.faq.q1": "Que fai OSIX Tech?",
     "home.faq.a1": "OSIX Tech é unha consultoría de intelixencia artificial e desenvolvemento de software a medida con sede en Santiago de Compostela, Galicia. Construímos axentes intelixentes, automatizacións con IA e solucións dixitais personalizadas para empresas.",
     "home.faq.q2": "Que servizos de IA ofrece OSIX Tech en Galicia?",
-    "home.faq.a2": "Ofrecemos consultoría de IA, desenvolvemento de axentes intelixentes, automatización de procesos con intelixencia artificial, consultoría de transformación dixital e xestión de subvencións para innovación a través de programas como IGAPE IA360, Kit Digital e Ticket Innova.",
+    "home.faq.a2": "Ofrecemos consultoría de IA, desenvolvemento de axentes intelixentes, automatización de procesos con intelixencia artificial, consultoría de transformación dixital e apoio con axudas públicas cando existe unha convocatoria vixente que encaixa.",
     "home.faq.q3": "Canto custa unha consultoría de IA?",
-    "home.faq.a3": "A consulta inicial é gratuíta. Visitamos a túa empresa, analizamos a túa operativa e entregámosche un informe con oportunidades concretas e estimación de aforro en menos dunha semana. Ademais, moitos proxectos de IA poden financiarse parcialmente con axudas públicas como IGAPE IA360 (ata 500.000€ para proxectos de IA en PEMEs galegas).",
+    "home.faq.a3": "A consulta inicial é gratuíta. Visitamos a túa empresa, analizamos a túa operativa e entregámosche un informe con oportunidades concretas e estimación de aforro en menos dunha semana. O financiamento público depende de que exista unha convocatoria aberta e de que o proxecto cumpra as súas bases.",
     "home.faq.q4": "Que subvencións hai para proxectos de IA en Galicia?",
-    "home.faq.a4": "As principais axudas inclúen IGAPE IA360 (ata 500.000€ para proxectos de IA en PEMEs galegas), KTED, Ticket Innova e Kit Digital. En OSIX encargámonos de todo o proceso: identificamos a convocatoria, deseñamos o proxecto e preparamos a memoria técnica.",
+    "home.faq.a4": "Antes de planificar unha axuda, comproba o estado na ficha oficial. A convocatoria IGAPE IA360 2026/2027 pechou o 17 de marzo de 2026; Red.es sitúa o fin do proxecto inicial KTED en marzo de 2026 e a ficha consultada non confirma unha sucesora aberta. Non presentamos eses programas como dispoñibles para novas solicitudes.",
     "home.faq.q5": "En canto tempo se entrega un proxecto de IA?",
     "home.faq.a5": "Entregamos unha demo funcional en 2 semanas. Os prazos completos dependen do alcance, pero o noso proceso está deseñado para a velocidade: somos 2x máis rápidos ca a media do sector.",
     "home.faq.q6": "Onde está OSIX Tech?",

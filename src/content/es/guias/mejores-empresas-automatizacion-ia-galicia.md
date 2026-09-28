@@ -1,4 +1,4 @@
-Para una pyme gallega que quiere automatizar procesos con inteligencia artificial en 2026, las opciones incluyen consultoras y estudios con actividad en Galicia como **OSIX Tech** (Santiago de Compostela), **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce**, **Moirai AI**, **circo estudio** (A Coruña) y **MBT Solutions** (Ferrol). También merece la pena valorar a **Redes Consultoría** por su oferta de agentes de IA, aunque conviene confirmar su cobertura y disponibilidad local. Entre las alternativas nacionales están **SANCANTIA**, **AutomatizaPyme** y **SAPIENSDATAAI**, y **Hiberus** para proyectos de mayor escala. La elección correcta no depende de quién "sabe más de IA", sino de qué quieres automatizar, si necesitas software a medida o basta con conectar tus herramientas actuales, y de si quieres financiar el proyecto con ayudas públicas como IGAPE IA360 (hasta 500.000 € para proyectos de IA en pymes gallegas) o Kit Digital.
+Para una pyme gallega que quiere automatizar procesos con inteligencia artificial en 2026, las opciones incluyen consultoras y estudios con actividad en Galicia como **OSIX Tech** (Santiago de Compostela), **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce**, **Moirai AI**, **circo estudio** (A Coruña) y **MBT Solutions** (Ferrol). También merece la pena valorar a **Redes Consultoría** por su oferta de agentes de IA, aunque conviene confirmar su cobertura y disponibilidad local. Entre las alternativas nacionales están **SANCANTIA**, **AutomatizaPyme** y **SAPIENSDATAAI**, y **Hiberus** para proyectos de mayor escala. La elección correcta no depende de quién "sabe más de IA", sino de qué quieres automatizar, si necesitas software a medida o basta con conectar tus herramientas actuales, y de si existe una convocatoria abierta cuyas bases cubran el proyecto. IA360 2026/2027 cerró el 17 de marzo de 2026; no cuentes con esa convocatoria para nuevas solicitudes.
 
 > **Actualización (septiembre de 2026):** ampliamos la comparativa con tres proveedores de perfiles distintos. Redes Consultoría combina consultoría, formación e integración de agentes de IA generativa; circo estudio publica paquetes de automatización con precios de entrada definidos; y MBT Solutions, con sede en Ferrol, ofrece proyectos en remoto para empresas de toda España. Contrastamos estas fichas con sus webs oficiales. Sus alcances, ubicación y modelo de entrega no son equivalentes.
 
@@ -9,7 +9,7 @@ Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos a
 Antes de comparar proveedores, define el proceso que quieres quitar de en medio: facturas, correos, documentos, leads, CRM, informes o expedientes. Después evalúa a cada candidato por estos cinco ejes:
 
 - **Consultoría vs. construcción.** ¿Necesitas que te digan qué automatizar (consultoría) o que te lo construyan a medida (desarrollo)? No todas las empresas hacen ambas cosas.
-- **Conocimiento del entorno gallego y de las ayudas.** Quien conoce IGAPE, IA360, KTED o Kit Digital puede convertir un proyecto caro en uno financiado. Esto es determinante en Galicia.
+- **Conocimiento del entorno gallego y de las ayudas.** Conocer la elegibilidad, los gastos admitidos y el calendario ayuda a valorar la financiación, pero solo cuando hay una convocatoria abierta. IA360 2026/2027 cerró el 17 de marzo de 2026; Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026 y la ficha consultada no confirma una convocatoria sucesora.
 - **Velocidad de entrega.** Pregunta por el plazo del primer entregable real, no por el tiempo de la propuesta comercial.
 - **Transparencia de precios.** Una propuesta seria incluye coste de construcción, coste de mantenimiento y la métrica de ahorro. Si no explica estos puntos, no es una propuesta, es una promesa.
 - **Continuidad y revisión humana.** ¿Quién mantiene el sistema cuando cambia tu CRM o tu ERP? ¿Qué pasa si el proveedor desaparece? ¿En qué casos la IA no decide y revisa una persona?
@@ -18,7 +18,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 | Proveedor | Enfoque | Punto fuerte | Mejor para |
 | --- | --- | --- | --- |
-| **OSIX Tech** (editor) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) y dominio de subvenciones IGAPE IA360, KTED, Kit Digital | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
+| **OSIX Tech** (editor) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
 | **IA Galicia** | Diagnóstico + automatización e integración | Trato directo, diagnóstico gratuito, cobertura en las 7 provincias | Pymes y autónomos gallegos que quieren cercanía |
 | **KAIRAS** | Automatización para pymes y servicios | Procesos operativos en gestorías, clínicas, inmobiliarias; remoto + presencial | Negocios de servicios con mucho trato directo y procesos dependientes de personas |
 | **Imagina Ingenio** | Consultoría e implementación de IA | Amplio catálogo: RPA, chatbots, BI predictivo, ML a medida, APIs | Empresas que quieren explorar varios casos de uso de IA a la vez |
@@ -38,17 +38,17 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### OSIX Tech — consultoría y desarrollo a medida con IA
 
-**Veredicto:** la opción más equilibrada si quieres que te construyan la solución (no solo que te la vendan) y quieres financiarla con ayudas públicas. Es una de las pocas de la comparativa que une consultoría, desarrollo de software a medida y gestión de subvenciones en el mismo equipo.
+**Veredicto:** una opción a valorar si quieres que te construyan la solución y que revisen si existe una ayuda vigente aplicable. Une consultoría, desarrollo de software a medida y apoyo para preparar solicitudes cuando las bases y el plazo están confirmados.
 
 **Fortalezas:**
 - Desarrollo real: aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA construidas para tu caso, no adaptadas de una plantilla.
-- Especialización en innovación subvencionada: IGAPE IA360 (hasta 500.000 € para proyectos de IA en pymes gallegas), KTED (espacio de datos), Ticket Innova y Kit Digital. Identifican la convocatoria, diseñan el proyecto y preparan la memoria técnica.
+- Experiencia en proyectos vinculados a ayudas públicas. Las convocatorias cambian: IA360 2026/2027 cerró el 17 de marzo de 2026 y la ficha de Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026. OSIX indica que revisa las bases y el plazo antes de recomendar una solicitud.
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
 - Casos entregados: TAKE (app de fidelización para hostelería), ICIGA (gestión comercial semiautomatizada con CRM para una distribuidora de laboratorio) y Shearn (resolución de dibujo técnico con IA).
 
 **Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de 4.000 personas como Hiberus. No publica rangos de precios fijos, y conviene pedir un caso de un sector parecido al tuyo antes de decidir.
 
-**Mejor para:** pymes gallegas de industria, distribución, hostelería y servicios que quieren una solución construida a medida y aprovechar las ayudas públicas para pagarla.
+**Mejor para:** pymes gallegas de industria, distribución, hostelería y servicios que quieren una solución construida a medida y comprobar primero si hay una convocatoria vigente que encaja.
 
 ### KAIRAS — automatización para pymes y negocios de servicios
 
@@ -186,13 +186,13 @@ Páginas como la de **javadex** (ranking de consultoras de IA en España) o **So
 
 ## Por qué las subvenciones cambian la decisión en Galicia
 
-Una ventaja que se subestima de contratar una consultora local es el acceso a la financiación pública. En Galicia, varios programas cubren parte importante de un proyecto de IA:
+La financiación puede reducir el coste solo cuando la convocatoria está abierta y la empresa cumple sus condiciones. A 28 de septiembre de 2026, la convocatoria IGAPE IA360 2026/2027 está cerrada; Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026 y su ficha no confirma una convocatoria sucesora abierta. No presupuestes el proyecto contando con esas convocatorias pasadas.
 
-- **IGAPE IA360**: hasta 500.000 € para proyectos de IA en pymes gallegas.
-- **KTED**: espacio de datos, para proyectos que quieren sacar valor de sus datos con garantías.
-- **Ticket Innova** y **Kit Digital**: líneas de digitalización más accesibles para pymes y autónomos.
+- **IGAPE IA360**: la convocatoria 2026/2027 cerró el 17 de marzo de 2026. La ficha oficial consultada la marca como pechada.
+- **KTED (Red.es)**: el proyecto inicial terminó en marzo de 2026; la ficha consultada no confirma una convocatoria sucesora abierta.
+- **Ticket Innova** y **Kit Digital**: consulta sus fichas oficiales antes de planificar; no asumas que una convocatoria o su crédito siguen disponibles.
 
-Una consultora que conoce estas convocatorias puede diseñar el proyecto desde el inicio para que cumpla los requisitos de elegibilidad y auditoría, en vez de descubrir la ayuda cuando ya es tarde. Es un criterio de selección tan importante como la capacidad técnica. *(Verifica las cifras y convocatorias vigentes en la web de IGAPE antes de decidir; cambian cada año.)*
+Una consultora puede comprobar la elegibilidad y preparar un proyecto para una futura convocatoria, pero no debe presentar una ayuda cerrada como disponible. Verifica el estado, los plazos y las bases en las fichas oficiales de IGAPE, Red.es y tu comunidad autónoma antes de decidir.
 
 ## Preguntas que debes hacer antes de contratar
 
@@ -208,7 +208,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme gallega?**
-Depende del alcance. Los pilotos bien definidos suelen moverse entre 3.000 y 15.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, programas como IGAPE IA360 o Kit Digital cubren parte del coste. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. Los pilotos bien definidos suelen moverse entre 3.000 y 15.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.

@@ -1,4 +1,4 @@
-Si tienes una pyme en Galicia y quieres implantar inteligencia artificial, el primer dato que debes conocer a 1 de septiembre de 2026 es que ninguna de las grandes convocatorias está aceptando solicitudes nuevas hoy. Ticket Innova, procedimiento IG408K, fue la opción más directa para contratar un servicio externo de innovación en 2026, pero la Xunta publicó el agotamiento de su crédito el 15 de julio de 2026 (DOG 131). IA360, procedimiento IG408M, la línea específica para proyectos de IA, cerró su convocatoria 2026/2027 en marzo. Kit Digital y Kit Consulting, los programas estatales de Red.es, no tienen convocatoria abierta: la última ventanilla cerró el 31 de octubre de 2025. Esto no significa que no haya nada que hacer: significa que la ventaja está en preparar el proyecto, la memoria y los indicadores para presentarlo el día que se abra la próxima convocatoria.
+Si tienes una pyme en Galicia y quieres implantar inteligencia artificial, el primer dato que debes conocer a 28 de septiembre de 2026 es que ninguna de las grandes convocatorias está aceptando solicitudes nuevas hoy. Ticket Innova, procedimiento IG408K, fue la opción más directa para contratar un servicio externo de innovación en 2026, pero la Xunta publicó el agotamiento de su crédito el 15 de julio de 2026 (DOG 131). IA360, procedimiento IG408M, la línea específica para proyectos de IA, cerró su convocatoria 2026/2027 el 17 de marzo. Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026 y la ficha consultada no confirma una convocatoria sucesora abierta. Kit Digital y Kit Consulting, los programas estatales de Red.es, no tienen convocatoria abierta: la última ventanilla cerró el 31 de octubre de 2025. Esto no significa que no haya nada que hacer: significa que la ventaja está en preparar el proyecto, la memoria y los indicadores para presentarlo el día que se abra la próxima convocatoria.
 
 Esta es la guía corta: primero separa asesoramiento, implantación de una solución existente y desarrollo experimental. Después comprueba la convocatoria y sus gastos elegibles en la fuente oficial. Una ayuda no convierte en subvencionable un proyecto que empezó antes de tiempo ni sustituye una memoria técnica bien planteada.
 
@@ -12,7 +12,7 @@ Esta es la guía corta: primero separa asesoramiento, implantación de una soluc
 | Kit Consulting | Diagnóstico y asesoramiento para identificar oportunidades de IA | Convocatoria finalizada; sin ventanilla abierta | Red.es |
 | Otras convocatorias | Proyectos de innovación, datos o digitalización con otro encaje | Dependen del organismo, sector y fecha | Xunta, Estado o Unión Europea |
 
-Las fechas y el estado de una convocatoria pueden cambiar. La tabla refleja la consulta de las fichas oficiales y del Diario Oficial de Galicia en la fecha de actualización, 1 de septiembre de 2026.
+Las fechas y el estado de una convocatoria pueden cambiar. La tabla refleja la consulta de las fichas oficiales y del Diario Oficial de Galicia en la fecha de actualización, 28 de septiembre de 2026.
 
 ## 1. Ticket Innova, la opción más directa para contratar innovación en 2026
 
@@ -120,7 +120,7 @@ OSIX Tech trabaja en proyectos de automatización e IA para pymes y ofrece una c
 
 **¿Cuál es la mejor subvención para implantar IA en una pyme de Galicia?**
 
-A día de hoy, 1 de septiembre de 2026, no hay una convocatoria gallega o estatal abierta que acepte solicitudes nuevas: Ticket Innova agotó su crédito en julio, IA360 cerró en marzo, y Kit Digital y Kit Consulting no tienen ventanilla abierta. La mejor subvención será la que esté abierta cuando tu proyecto esté listo: prepara la memoria, los indicadores y el presupuesto para presentarte en cuanto se publique una convocatoria.
+A día de hoy, 28 de septiembre de 2026, no hay una convocatoria gallega o estatal abierta entre las ayudas revisadas que acepte solicitudes nuevas: Ticket Innova agotó su crédito en julio, IA360 cerró el 17 de marzo, el proyecto inicial KTED terminó en marzo y Kit Digital y Kit Consulting no tienen ventanilla abierta. La mejor subvención será la que esté abierta cuando tu proyecto esté listo: prepara la memoria, los indicadores y el presupuesto para presentarte en cuanto se publique una convocatoria.
 
 **¿IA360 está abierta en 2026?**
 
@@ -144,7 +144,7 @@ OSIX Tech publica esta comparativa y aparece en ella como posible consultora, po
 
 ## Cómo se elaboró esta guía
 
-La selección parte de los cuatro prompts no branded que Omnia monitoriza sobre subvenciones, IA360, Ticket Innova y Kit Digital. Contrastamos la situación de IG408K e IG408M en las fichas oficiales de la Xunta, el agotamiento del crédito de Ticket Innova en el DOG y el estado de las convocatorias de Kit Digital y Kit Consulting en Red.es, y revisamos las respuestas que los motores estaban generando. La guía se actualizó el 1 de septiembre de 2026: las convocatorias cambian y conviene releerla antes de decidir. El objetivo es aclarar la diferencia entre asesoramiento, solución de catálogo, servicio externo y desarrollo experimental. La guía no es asesoramiento jurídico ni una confirmación de elegibilidad.
+La selección parte de los cuatro prompts no branded que Omnia monitoriza sobre subvenciones, IA360, Ticket Innova y Kit Digital. Contrastamos la situación de IG408K e IG408M en las fichas oficiales de la Xunta, el agotamiento del crédito de Ticket Innova en el DOG y el estado de las convocatorias de Kit Digital y Kit Consulting en Red.es, y revisamos las respuestas que los motores estaban generando. La guía se actualizó el 28 de septiembre de 2026: las convocatorias cambian y conviene releerla antes de decidir. El objetivo es aclarar la diferencia entre asesoramiento, solución de catálogo, servicio externo y desarrollo experimental. La guía no es asesoramiento jurídico ni una confirmación de elegibilidad.
 
 ## Fuentes oficiales
 

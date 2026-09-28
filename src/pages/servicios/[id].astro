@@ -26,71 +26,20 @@ if (!service) {
 const serviceCases = getCaseStudiesForService(id);
 const otherServices = getAllServices(lang).filter(s => s.id !== id);
 
-// Convocatorias data (only for innovacion-subvencionada)
-const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: string; title: string; description: string; deadline?: string; ctaLabel: string; ctaHref: string }[] }> = {
-  es: {
-    sectionTitle: 'Convocatorias abiertas',
-    cards: [
-      {
-        tag: 'Kit Espacio de Datos',
-        title: 'Integra tu empresa en Espacios de Datos Europeos con hasta 30.000€',
-        description: 'Subvención de Red.es para incorporarte a espacios de datos sectoriales. 100% subvencionado, tú solo pagas el IVA.',
-        deadline: '31/03/2026',
-        ctaLabel: '¿Qué es el KTED?',
-        ctaHref: `/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
-      },
-      {
-        tag: 'Igape IA360',
-        title: 'Desarrolla soluciones IA para tu empresa con hasta 500.000€ de ayuda',
-        description: 'Subvención del Igape para proyectos de inteligencia artificial en pymes gallegas. Te acompañamos de inicio a fin.',
-        deadline: '17/03/2026',
-        ctaLabel: 'Solicitar asesoramiento',
-        ctaHref: `/#contact`,
-      },
-    ],
-  },
-  gl: {
-    sectionTitle: 'Convocatorias abertas',
-    cards: [
-      {
-        tag: 'Kit Espazo de Datos',
-        title: 'Integra a túa empresa en Espazos de Datos Europeos con ata 30.000€',
-        description: 'Subvención de Red.es para incorporarte a espazos de datos sectoriais. 100% subvencionado, ti só pagas o IVE.',
-        deadline: '31/03/2026',
-        ctaLabel: 'Que é o KTED?',
-        ctaHref: `/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
-      },
-      {
-        tag: 'Igape IA360',
-        title: 'Desenvolve solucións IA para a túa empresa con ata 500.000€ de axuda',
-        description: 'Subvención do Igape para proxectos de intelixencia artificial en pemes galegas. Acompañámoste de inicio a fin.',
-        deadline: '17/03/2026',
-        ctaLabel: 'Solicitar asesoramento',
-        ctaHref: `/#contact`,
-      },
-    ],
-  },
-  en: {
-    sectionTitle: 'Open calls',
-    cards: [
-      {
-        tag: 'Kit Espacio de Datos',
-        title: 'Integrate your company into European Data Spaces with up to €30,000',
-        description: 'Red.es grant to join sectoral data spaces. 100% subsidized, you only pay VAT.',
-        deadline: '31/03/2026',
-        ctaLabel: 'What is KTED?',
-        ctaHref: `/kted/${['a','b','c'][Math.floor(Math.random()*3)]}`,
-      },
-      {
-        tag: 'Igape IA360',
-        title: 'Develop AI solutions for your business with up to €500,000 in aid',
-        description: 'Igape grant for artificial intelligence projects in Galician SMEs. We guide you from start to finish.',
-        deadline: '17/03/2026',
-        ctaLabel: 'Request consultation',
-        ctaHref: `/#contact`,
-      },
-    ],
-  },
+// Grant status cards (only for innovacion-subvencionada). Do not present closed calls as available.
+const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: string; title: string; description: string; ctaLabel: string; ctaHref: string }[] }> = {
+  es: { sectionTitle: 'Estado de las convocatorias', cards: [
+    { tag: 'Red.es · Kit Espacios de Datos (KTED)', title: 'El proyecto inicial terminó en marzo de 2026', description: 'Red.es sitúa el fin del proyecto inicial en marzo de 2026. La ficha consultada no confirma una convocatoria sucesora abierta. Comprueba la información oficial antes de planificar una solicitud.', ctaLabel: 'Consultar ficha de Red.es', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
+    { tag: 'IGAPE · IA360 (IG408M)', title: 'La convocatoria 2026/2027 cerró el 17 de marzo de 2026', description: 'La Sede electrónica de la Xunta marca el plazo como cerrado: del 17 de enero al 17 de marzo de 2026. Consulta la ficha oficial para cualquier convocatoria futura.', ctaLabel: 'Consultar ficha de la Xunta', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
+  ]},
+  gl: { sectionTitle: 'Estado das convocatorias', cards: [
+    { tag: 'Red.es · Kit Espazos de Datos (KTED)', title: 'O proxecto inicial rematou en marzo de 2026', description: 'Red.es sitúa o fin do proxecto inicial en marzo de 2026. A ficha consultada non confirma unha convocatoria sucesora aberta. Comproba a información oficial antes de planificar unha solicitude.', ctaLabel: 'Consultar ficha de Red.es', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
+    { tag: 'IGAPE · IA360 (IG408M)', title: 'A convocatoria 2026/2027 pechou o 17 de marzo de 2026', description: 'A Sede electrónica da Xunta marca o prazo como pechado: do 17 de xaneiro ao 17 de marzo de 2026. Consulta a ficha oficial para calquera convocatoria futura.', ctaLabel: 'Consultar ficha da Xunta', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
+  ]},
+  en: { sectionTitle: 'Grant call status', cards: [
+    { tag: 'Red.es · Data Spaces Kit (KTED)', title: 'The initial project ended in March 2026', description: 'Red.es lists the initial project as ending in March 2026. The page reviewed does not confirm an open successor call. Check the official information before planning an application.', ctaLabel: 'Check Red.es information', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
+    { tag: 'IGAPE · IA360 (IG408M)', title: 'The 2026/2027 call closed on 17 March 2026', description: 'The Xunta electronic office marks the application period as closed, from 17 January to 17 March 2026. Check the official record for future calls.', ctaLabel: 'Check Xunta information', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
+  ]},
 };
 const convocatorias = id === 'innovacion-subvencionada' ? (convocatoriasData[lang] || convocatoriasData.es) : null;
 
@@ -183,7 +132,7 @@ const jsonLd = {
       "description": seoDescription,
       "url": `https://osix.tech/servicios/${id}`,
       "inLanguage": lang,
-      "dateModified": "2026-04-07",
+      "dateModified": id === "innovacion-subvencionada" ? "2026-09-28" : "2026-04-07",
       "isPartOf": { "@type": "WebSite", "@id": "https://osix.tech/#website", "name": "OSIX Tech", "url": "https://osix.tech" },
       "breadcrumb": breadcrumbSchema
     },
@@ -299,12 +248,6 @@ const jsonLd = {
               <span class="conv-tag">{card.tag}</span>
               <h3 class="conv-title">{card.title}</h3>
               <p class="conv-desc">{card.description}</p>
-              {card.deadline && (
-                <div class="conv-deadline">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span>{{ es: 'Plazo:', gl: 'Prazo:', en: 'Deadline:' }[lang]} {card.deadline}</span>
-                </div>
-              )}
               <a href={card.ctaHref} class="btn-secondary btn-arrow self-start" style="margin-top: auto;">
                 {card.ctaLabel}
                 <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

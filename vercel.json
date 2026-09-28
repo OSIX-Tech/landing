@@ -46,6 +46,126 @@
       "permanent": true
     },
     {
+      "source": "/kted/a",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/a/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/a",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/a/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/b",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/b/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/b",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/b/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/c",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/c/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/c",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/es/kted/c/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/a",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/a/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/b",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/b/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/c",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/en/kted/c/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/a",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/a/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/b",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/b/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/c",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/gl/kted/c/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy/",
       "permanent": true
