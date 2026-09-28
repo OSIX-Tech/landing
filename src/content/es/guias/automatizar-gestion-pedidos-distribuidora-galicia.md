@@ -1,5 +1,3 @@
-# Cómo automatizar la gestión de pedidos en una distribuidora gallega
-
 Una distribuidora puede automatizar la gestión de pedidos conectando la entrada de cada solicitud con su ERP, el stock, la preparación, la entrega y la facturación. No hace falta empezar cambiando de ERP ni añadiendo un sistema de almacén: primero hay que eliminar una tarea manual concreta, fijar qué sistema manda sobre cada dato y revisar los casos dudosos antes de que afecten al cliente o al inventario.
 
 El orden importa. Si se automatiza la captura antes de ordenar clientes, referencias, unidades y tarifas, los errores llegan antes al siguiente sistema. Conviene empezar por un canal o flujo repetitivo, medir el resultado y ampliar solo cuando los pedidos llegan correctos al siguiente paso.
