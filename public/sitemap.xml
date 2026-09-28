@@ -36,6 +36,14 @@
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
+  <url>
+      <loc>https://osix.tech/guias/modernizar-sistema-antiguo-sin-sustituir-todo/</loc>
+      <lastmod>2026-09-28T00:00:00+00:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="es" href="https://osix.tech/guias/modernizar-sistema-antiguo-sin-sustituir-todo/"/>
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/guias/modernizar-sistema-antiguo-sin-sustituir-todo/"/>
+  </url>
     <url>
       <loc>https://osix.tech/guias/ia-explicable-pyme/</loc>
       <lastmod>2026-09-28T00:00:00+00:00</lastmod>
