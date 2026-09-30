@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   );
 }
 
-const { id = '', lang = 'en' } = Astro.params as { id: string; lang: Lang };
+const { id = '', lang = 'es' } = Astro.params as { id: string; lang: Lang };
 const caseStudy = getCaseById(id, lang);
 
 if (!caseStudy) {
@@ -304,15 +304,16 @@ const jsonLd = {
             {({ es: 'Servicios relacionados', gl: 'Servizos relacionados', en: 'Related services' })[lang]}
           </span>
           <div class="closing-services-list">
-            {caseStudy.services.map(sid => {
-              const labels: Record<string, Record<string, string>> = {
-                'desarrollo-a-medida': { es: 'Desarrollo a Medida', gl: 'Desenvolvemento a Medida', en: 'Custom Development' },
-                'consultoria-transformacion': { es: 'Consultoría de Transformación Digital e IA', gl: 'Consultoría de Transformación Dixital e IA', en: 'Digital Transformation & AI Consulting' },
-                'innovacion-subvencionada': { es: 'Innovación Subvencionada', gl: 'Innovación Subvencionada', en: 'Subsidized Innovation' },
-              };
+            {caseStudy.services.map((sid) => {
+              const labels = {
+                'desarrollo-a-medida': { es: 'Desarrollo a Medida', en: 'Custom Development' },
+                'consultoria-transformacion': { es: 'Consultoría de Transformación Digital e IA', en: 'Digital Transformation & AI Consulting' },
+                'innovacion-subvencionada': { es: 'Innovación Subvencionada', en: 'Subsidized Innovation' },
+              } as const;
+              const label = labels[sid as keyof typeof labels]?.[lang as 'es' | 'en'] || sid;
               return (
                 <a href={`/${lang}/servicios/${sid}`} class="closing-service-link">
-                  <span class="closing-service-title">{labels[sid]?.[lang] || sid}</span>
+                  <span class="closing-service-title">{label}</span>
                   <svg class="closing-service-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
               );

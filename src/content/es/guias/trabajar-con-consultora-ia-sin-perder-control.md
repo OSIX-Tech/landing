@@ -1,5 +1,3 @@
-Los cinco modelos de contratación ordenados por el control que conservas, y las seis decisiones que no puedes delegar.
-
 El control de un proyecto de IA no depende de la buena voluntad de la consultora: depende del modelo de contratación que firmas. Un proyecto dividido en fases, con una puerta de decisión en cada una, te deja el mando aunque el proveedor sea mediocre. Un contrato llave en mano de doce meses, sin puertas ni responsable interno, te lo quita aunque el proveedor sea excelente. La diferencia entre ambos no es la confianza, es la estructura. En España el mismo diagnóstico de IA se anuncia entre 900 y 45.000 euros según quién lo firme, y lo que separa esas cifras casi nunca es el trabajo: es el alcance y quién decide. Esta guía ordena los cinco modelos reales de contratación por el control que conservas, explica las seis decisiones que ningún modelo puede quitarte y señala cuándo la gobernanza formal no aporta nada. La publica OSIX Tech, una consultora que cobra por proyectos por fases, así que escribe una parte interesada.
 
 ## El veredicto: elige el modelo por el control que te deja, no por el precio

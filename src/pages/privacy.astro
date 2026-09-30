@@ -38,7 +38,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": { es: 'Política de Privacidad', gl: 'Política de Privacidade', en: 'Privacy Policy' }[lang],
-      "item": `https://osix.tech/privacy`
+      "item": `https://osix.tech/privacy/`
     }
   ]
 };
@@ -48,7 +48,7 @@ const webPageSchema = {
   "@type": "WebPage",
   "name": seoTitle,
   "description": seoDescription,
-  "url": `https://osix.tech/privacy`,
+  "url": `https://osix.tech/privacy/`,
   "inLanguage": lang,
   "isPartOf": {
     "@type": "WebSite",
@@ -74,9 +74,9 @@ const jsonLd = [webPageSchema];
   <section class="hero-section relative min-h-[400px] bg-black lg:min-h-[450px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-3xl">
-        <h1 class="hero-title text-center text-5xl md:text-7xl font-bold text-white mb-4 opacity-0">
+        <div class="hero-title text-center text-5xl md:text-7xl font-bold text-white mb-4 opacity-0" aria-hidden="true">
           {{ es: 'Política de Privacidad', gl: 'Política de Privacidade', en: 'Privacy Policy' }[lang]}
-        </h1>
+        </div>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
           {{ es: 'Información sobre cómo OSIX Tech recopila, usa y protege tus datos personales', gl: 'Información sobre como OSIX Tech recompila, usa e protexe os teus datos persoais', en: 'Information about how OSIX Tech collects, uses and protects your personal data' }[lang]}
         </p>

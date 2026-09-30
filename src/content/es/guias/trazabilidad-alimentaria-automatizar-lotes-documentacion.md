@@ -1,5 +1,3 @@
-# Cómo automatizar la trazabilidad y la documentación en una pyme alimentaria
-
 Una pyme alimentaria puede automatizar la trazabilidad registrando cada lote cuando entra, cambia durante la producción, se mueve y sale. El sistema debe enlazar esos eventos con sus documentos y señalar datos incompletos antes de que el producto avance. Para empezar suelen bastar identificadores legibles, captura móvil y una conexión ordenada con el inventario o el ERP; RFID y visión artificial son opciones para problemas concretos, no el primer requisito.
 
 ## La prueba es reconstruir el recorrido de un lote
