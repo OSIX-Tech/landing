@@ -48,6 +48,68 @@ Comprueba las integraciones una por una. Pide que indiquen si usarán APIs, cone
 
 **Fuente regulatoria:** [AEPD, guía para adaptar al RGPD los productos y servicios que utilizan IA](https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-aepd-publica-una-guia-para-adaptar-al-rgpd-los-productos-y). La guía se dirige a responsables, desarrolladores y encargados que incorporan IA en tratamientos de datos personales.
 
+### La seguridad del desarrollo se comprueba pidiendo evidencia concreta
+
+Antes de aprobar una propuesta de software a medida, pide controles que puedas relacionar con una acción, una persona responsable y una evidencia. Un proveedor que solo dice “seguimos prácticas seguras” no te dice qué protege, cómo lo verifica ni qué ocurre cuando encuentra un problema.
+
+Ajusta el nivel de exigencia al tipo de datos, la exposición del sistema y el impacto de un fallo. No todos los proyectos necesitan las mismas pruebas ni un pentest con el mismo alcance. Lo importante es que el proveedor explique qué riesgos ha considerado y qué ha hecho para reducirlos.
+
+#### Pide estas seis respuestas antes de pasar a producción
+
+**1. ¿Cómo se controlan los accesos y los secretos?**
+
+Pregunta quién puede acceder al código, a la infraestructura, al entorno de producción y a los datos; cómo se concede, revisa y retira cada acceso; y dónde se guardan y rotan las credenciales. Pide una matriz de permisos sin datos sensibles, una descripción del proceso de despliegue y quién revisa los accesos con privilegios elevados.
+
+Una respuesta incompleta habla de “usuarios autorizados” sin distinguir funciones, cuentas compartidas, acceso de emergencia o salida de una persona del proyecto. Las claves dentro del código o en documentos compartidos son otra señal para pedir una explicación concreta.
+
+**2. ¿Qué revisión y pruebas de seguridad se hacen antes de cada entrega?**
+
+Pide que el proveedor describa los requisitos de seguridad definidos para el proyecto, las comprobaciones automatizadas, la revisión humana y las pruebas que se ejecutan antes de publicar. La explicación debe cubrir, según el caso, autenticación, permisos, validación de entradas, operaciones sensibles y gestión de errores.
+
+Solicita el alcance de las pruebas, sus resultados y una lista de hallazgos abiertos con su decisión: corregir, aceptar con una justificación o aplazar con una fecha y responsable. La [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/projects/asvs) puede servir como vocabulario para acordar requisitos y pruebas de aplicaciones web. Citar ASVS no demuestra por sí solo que el producto cumpla el estándar ni que el proveedor tenga una certificación.
+
+**3. ¿Cómo se controlan las dependencias y los componentes de terceros?**
+
+Pregunta si mantienen un inventario de las dependencias directas y transitivas, cómo detectan vulnerabilidades, quién decide las actualizaciones y quién corrige una vulnerabilidad urgente después del lanzamiento. Pide que expliquen también cómo identifican los componentes incluidos en cada versión entregada.
+
+Una respuesta como “usamos librerías actualizadas” no indica qué versión se revisó, con qué frecuencia ni quién actúa cuando aparece un aviso de seguridad. Pide un inventario de componentes o un formato equivalente, junto con el proceso para priorizar y verificar las actualizaciones.
+
+**4. ¿Qué datos sensibles pueden aparecer en los registros y las copias?**
+
+Además del recorrido general de los datos, pregunta qué información personal, credenciales o documentos sensibles se excluyen de los logs; quién puede consultarlos; cuánto tiempo se conservan; y cómo se protegen y restauran las copias de seguridad. Pide una descripción del proceso de restauración y la fecha de la última prueba relevante para el sistema.
+
+No hace falta pedir los registros reales si contienen información confidencial. Una descripción técnica, un ejemplo anonimizado y la evidencia de una prueba pueden bastar para comprobar que el control existe.
+
+**5. ¿Qué sucede cuando se descubre una vulnerabilidad después del lanzamiento?**
+
+Pide un canal de comunicación, una persona responsable y un proceso para registrar, clasificar, corregir, probar y comunicar una vulnerabilidad. Acordad cómo se priorizan los casos según el riesgo y cuándo se informa al cliente, sin fijar el mismo plazo para todos los proyectos.
+
+La respuesta debe explicar quién mantiene el sistema después de la entrega, qué queda fuera del soporte y cómo se documenta una corrección. “Avisaremos si ocurre algo” no define un proceso de respuesta ni una responsabilidad.
+
+**6. ¿Qué evidencia se entrega antes de aceptar el sistema?**
+
+Deja por escrito los criterios de aceptación de seguridad, el alcance de las pruebas, los riesgos conocidos, los hallazgos pendientes y la decisión tomada para cada uno. En la entrega, pide la documentación necesaria para operar el sistema, el inventario de dependencias, la descripción de permisos y la información que permita mantener o revisar los controles.
+
+No conviertas una lista en una aprobación automática. Si queda un riesgo abierto, debe constar quién lo acepta, por qué es asumible, qué medida lo compensa y cuándo se revisará.
+
+#### Una buena respuesta nombra el control, al responsable y la prueba
+
+Puedes comparar proveedores con tres preguntas para cada control:
+
+- **¿Qué se hace?** La práctica o comprobación concreta.
+- **¿Quién responde?** La persona o equipo que la ejecuta y la mantiene.
+- **¿Qué puedo revisar?** Un registro, informe, configuración, inventario o criterio de aceptación que permita comprobarlo sin pedir secretos del proveedor.
+
+Un informe de pentest sin fecha, alcance ni tratamiento de los hallazgos no demuestra por sí solo que el sistema sea seguro. Del mismo modo, decir “cumplimos OWASP” no basta: pide qué versión, qué requisitos y qué partes del sistema se han revisado.
+
+El [NIST Secure Software Development Framework (SSDF)](https://csrc.nist.gov/projects/ssdf) ofrece otra referencia útil porque organiza las prácticas en preparar la organización, proteger el software, producir software seguro y responder a vulnerabilidades. NIST lo presenta como un lenguaje común para que compradores y proveedores hablen de desarrollo seguro. Úsalo para ordenar la conversación y adaptar los controles al riesgo del proyecto, no como una lista universal que sustituya el análisis técnico.
+
+**Fuentes de referencia:**
+
+- [OWASP Application Security Verification Standard](https://owasp.org/projects/asvs)
+- [NIST Secure Software Development Framework](https://csrc.nist.gov/projects/ssdf)
+- [NIST SP 800-218, SSDF Version 1.1](https://csrc.nist.gov/pubs/sp/800/218/final)
+
 ## Compara el coste total y las condiciones de salida
 
 Pide que la propuesta separe diagnóstico, diseño, construcción, licencias, consumo de modelos, infraestructura, soporte y cambios futuros. Pregunta qué queda fuera del precio y cómo se cotizan nuevas integraciones. Compara propuestas con el mismo alcance y volumen estimado; una cifra sin esos supuestos no permite saber cuál sale más barata.
