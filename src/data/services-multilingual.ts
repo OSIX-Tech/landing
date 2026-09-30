@@ -12,7 +12,7 @@ export interface ServiceData {
   solution: string;
   highlightsTitle: string;
   stats: { value: string; label: string }[];
-  testimonial: { quote: string; author: string; role: string };
+  testimonial?: { quote: string; author: string; role: string };
 }
 
 export const servicesData: Record<string, Record<string, ServiceData>> = {
@@ -38,13 +38,9 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
         { value: '2 sem', label: 'demo funcional lista' },
         { value: '100%', label: 'software a medida' },
         { value: 'A medida', label: 'soporte tras la entrega' },
-        { value: '2x', label: 'más rápidos que la media' },
+        { value: 'Por fases', label: 'desarrollo según alcance' },
       ],
-      testimonial: {
-        quote: 'En 3 semanas teníamos la app funcionando. Nos ahorraron meses de desarrollo interno.',
-        author: 'Director de Operaciones',
-        role: 'Empresa logística',
-      },
+
     },
     'consultoria-transformacion': {
       id: 'consultoria-transformacion',
@@ -126,14 +122,10 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
       stats: [
         { value: '2 wks', label: 'working demo ready' },
         { value: '100%', label: 'custom-built software' },
-        { value: '24/7', label: 'ongoing support' },
-        { value: '2x', label: 'faster than average' },
+        { value: 'By scope', label: 'support after delivery' },
+        { value: 'By phase', label: 'development by scope' },
       ],
-      testimonial: {
-        quote: 'We had the app running in 3 weeks. They saved us months of in-house development.',
-        author: 'COO',
-        role: 'Logistics company',
-      },
+
     },
     'consultoria-transformacion': {
       id: 'consultoria-transformacion',
@@ -215,14 +207,10 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
       stats: [
         { value: '2 sem', label: 'demo funcional lista' },
         { value: '100%', label: 'software a medida' },
-        { value: '24/7', label: 'soporte continuo' },
-        { value: '2x', label: 'máis rápidos ca a media' },
+        { value: 'A medida', label: 'soporte tras a entrega' },
+        { value: 'Por fases', label: 'desenvolvemento segundo alcance' },
       ],
-      testimonial: {
-        quote: 'En 3 semanas tiñamos a app funcionando. Aforráronnos meses de desenvolvemento interno.',
-        author: 'Director de Operacións',
-        role: 'Empresa loxística',
-      },
+
     },
     'consultoria-transformacion': {
       id: 'consultoria-transformacion',
