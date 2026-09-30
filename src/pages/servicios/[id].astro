@@ -92,6 +92,11 @@ const faqKeyMap: Record<string, string> = {
 };
 const faqKey = faqKeyMap[id] || 'desarrollo';
 
+const maintenanceFaq = {
+  question: t('service.faq.desarrollo.q3'),
+  answer: t('service.faq.desarrollo.a3')
+};
+
 const faqQuestions = [1, 2, 3].map(i => ({
   "@type": "Question" as const,
   "name": t(`service.faq.${faqKey}.q${i}`),
@@ -132,7 +137,7 @@ const jsonLd = {
       "description": seoDescription,
       "url": `https://osix.tech/servicios/${id}`,
       "inLanguage": lang,
-      "dateModified": id === "innovacion-subvencionada" ? "2026-09-28" : "2026-04-07",
+      dateModified: id === "innovacion-subvencionada" ? "2026-09-28" : id === "desarrollo-a-medida" ? "2026-09-30" : "2026-04-07",
       "isPartOf": { "@type": "WebSite", "@id": "https://osix.tech/#website", "name": "OSIX Tech", "url": "https://osix.tech" },
       "breadcrumb": breadcrumbSchema
     },
@@ -234,6 +239,50 @@ const jsonLd = {
       </div>
     </div>
   </section>
+
+  <!-- POST-LAUNCH MAINTENANCE -->
+  {id === 'desarrollo-a-medida' && (
+    <section class="maintenance-section py-16 md:py-20 bg-white mb-0">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-4xl">
+          <p class="maintenance-eyebrow">Después del lanzamiento</p>
+          <h2 class="maintenance-title">{maintenanceFaq.question}</h2>
+          <p class="maintenance-lead">Después del lanzamiento, una aplicación puede necesitar correcciones, actualizaciones, comprobaciones de recuperación y cambios funcionales. El acuerdo de mantenimiento debe especificar qué sistemas cubre, quién atiende cada incidencia, qué tiempos de respuesta se ofrecen y qué trabajo se presupuesta aparte. El soporte no implica por sí solo disponibilidad 24/7: el horario, la cobertura y el coste se acuerdan para cada caso.</p>
+
+          <div class="maintenance-content">
+            <div>
+              <h3>El mantenimiento correctivo repara fallos del comportamiento acordado</h3>
+              <p>Se investiga y corrige un error o una incidencia que impide que una parte del software funcione como se esperaba. Para diagnosticarlo, ayuda registrar qué acción se realizó, cuándo ocurrió, qué mensaje apareció y a cuántas personas o procesos afecta.</p>
+            </div>
+            <div>
+              <h3>El mantenimiento preventivo y adaptativo reduce riesgos y responde a cambios</h3>
+              <p>Incluye revisar dependencias y aplicar actualizaciones de seguridad o compatibilidad cuando correspondan. También conviene acordar quién vigila los avisos de seguridad y los cambios en servicios externos de los que depende la aplicación. La <a href="https://www.cisa.gov/cyber-guidance-small-businesses">guía de ciberseguridad para pequeñas empresas de CISA</a> recomienda mantener los sistemas parcheados y revisar los avisos sobre vulnerabilidades explotadas.</p>
+            </div>
+            <div>
+              <h3>El mantenimiento evolutivo incorpora cambios al producto</h3>
+              <p>Una nueva funcionalidad, integración o cambio de proceso no es lo mismo que corregir un fallo. Conviene describir el resultado esperado, acordar cómo se probará y aprobar su alcance y presupuesto antes de empezar.</p>
+            </div>
+            <div>
+              <h3>Antes de contratar mantenimiento, deja estos puntos por escrito</h3>
+              <ul>
+                <li><strong>Sistemas incluidos:</strong> aplicación web o móvil, backend, base de datos, alojamiento, integraciones y servicios de terceros.</li>
+                <li><strong>Atención de incidencias:</strong> canal, horario, niveles de prioridad, escalado y diferencia entre tiempo de respuesta y tiempo de resolución.</li>
+                <li><strong>Actualizaciones y seguridad:</strong> quién revisa dependencias, avisos y cambios de compatibilidad, y cómo se aprueban y prueban.</li>
+                <li><strong>Copias y recuperación:</strong> quién hace las copias, con qué frecuencia y cuándo se comprueba que pueden restaurarse. Consulta la <a href="https://www.cisa.gov/stopransomware/ransomware-guide">guía contra el ransomware de CISA</a> para el enfoque de preparación y recuperación.</li>
+                <li><strong>Accesos y entrega:</strong> quién conserva el código fuente, los repositorios, las cuentas, la documentación y los accesos necesarios para operar el sistema.</li>
+                <li><strong>Límites y costes:</strong> qué cubre la garantía, qué se factura como mantenimiento, qué cuenta como evolución y cómo se aprueba el trabajo adicional.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="maintenance-faq">
+            <h3>{maintenanceFaq.question}</h3>
+            <p>{maintenanceFaq.answer}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- CONVOCATORIAS -->
   {convocatorias && (
@@ -900,6 +949,97 @@ const jsonLd = {
 
     .closing-services {
       order: -1;
+    }
+  }
+
+  /* Let service sections shrink to the phone viewport when the global section flex rule applies. */
+  section > .max-w-7xl {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .maintenance-section {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .maintenance-eyebrow {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .maintenance-title {
+    color: #000;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    max-width: 22ch;
+    margin-bottom: 1.25rem;
+  }
+
+  .maintenance-lead,
+  .maintenance-content p,
+  .maintenance-faq p {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .maintenance-lead {
+    max-width: 62rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .maintenance-content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maintenance-content h3,
+  .maintenance-faq h3 {
+    color: #111;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.65rem;
+  }
+
+  .maintenance-content ul {
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    list-style: disc;
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .maintenance-content li {
+    line-height: 1.6;
+  }
+
+  .maintenance-content a,
+  .maintenance-faq a {
+    color: #0366d6;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .maintenance-faq {
+    border-left: 3px solid #111;
+    margin-top: 2.5rem;
+    max-width: 62rem;
+    padding-left: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .maintenance-content {
+      grid-template-columns: 1fr;
     }
   }
 </style>

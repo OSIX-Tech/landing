@@ -37,7 +37,7 @@ export const servicesData: Record<string, Record<string, ServiceData>> = {
       stats: [
         { value: '2 sem', label: 'demo funcional lista' },
         { value: '100%', label: 'software a medida' },
-        { value: '24/7', label: 'soporte continuo' },
+        { value: 'A medida', label: 'soporte tras la entrega' },
         { value: '2x', label: 'más rápidos que la media' },
       ],
       testimonial: {
