@@ -56,6 +56,12 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://osix.tech/guias/modernizar-sistema-antiguo-sin-sustituir-todo/"/>
   </url>
     <url>
+      <loc>https://osix.tech/guias/cambiar-proveedor-software-sin-perder-proyecto/</loc>
+      <lastmod>2026-09-30T00:00:00+00:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+    <url>
       <loc>https://osix.tech/guias/ia-explicable-pyme/</loc>
       <lastmod>2026-09-28T00:00:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
