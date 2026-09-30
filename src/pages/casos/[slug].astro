@@ -25,7 +25,7 @@ export const prerender = true;
 
 // Spanish only: these are measured client figures, not copy we can translate.
 export async function getStaticPaths() {
-  return getCaseStudySlugs().map(slug => ({ params: { lang: 'es', slug } }));
+  return getCaseStudySlugs().map(slug => ({ params: { slug } }));
 }
 
 const { lang = 'es', slug = '' } = Astro.params as { lang: Lang; slug: string };
