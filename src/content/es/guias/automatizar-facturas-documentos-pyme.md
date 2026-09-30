@@ -1,5 +1,7 @@
 Sí, una pyme en España puede automatizar buena parte de sus facturas y documentos, pero "automatizar" no es un botón único: son flujos distintos con rentabilidades muy distintas. Esta guía ordena los documentos que de verdad merece la pena automatizar (de lo que antes devuelve el tiempo invertido a lo que conviene dejar para después), compara las tres vías para hacerlo (programa de gestión, extractor de datos por OCR, y desarrollo a medida) con sus límites honestos, y te deja claro por qué el calendario de VERI\*FACTU convierte esto en una decisión de 2026, no de 2027. La publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España; aparece en esta guía como una de las opciones, sin humo.
 
+Cuando el problema son documentos de proveedores que deben acabar dentro del ERP, conviene bajar un nivel más: [cómo automatizar albaranes y facturas sin cambiar de ERP](https://osix.tech/guias/automatizar-albaranes-facturas-proveedores-erp/).
+
 ## La respuesta en 30 segundos
 
 - Sí se puede: emitir facturas solas, leer facturas recibidas sin teclear, conciliar cobros y pagos, y archivar todo clasificado sin mover papeles.

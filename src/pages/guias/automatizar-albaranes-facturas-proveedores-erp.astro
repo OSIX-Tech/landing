@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LoadingScreen from '../../components/LoadingScreen.astro';
+
+export const prerender = true;
+
+// Guía actualmente en español (prompt BOFU: cómo integrar la IA con el software existente de una pyme). Ampliar a en/gl cuando exista traducción.
+export async function getStaticPaths() {
+  return [{}];
+}
+
+const lang = 'es' as const;
+
+const GuideContent = (await import('../../content/es/guias/automatizar-albaranes-facturas-proveedores-erp.md')).default;
+
+const canonicalUrl = `https://osix.tech/guias/automatizar-albaranes-facturas-proveedores-erp/`;
+
+// SEO Data
+const seoTitle = "Cómo automatizar albaranes y facturas de proveedores sin cambiar tu ERP | OSIX Tech";
+const seoDescription = "Cómo automatizar albaranes y facturas de proveedores sin cambiar de ERP: flujo OCR, datos estructurados, duplicados, excepciones, revisión humana y prueba piloto.";
+
+// Structured Data
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": `https://osix.tech/`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guías",
+      "item": canonicalUrl
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": seoTitle,
+  "description": seoDescription,
+  "url": canonicalUrl,
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSIX Tech",
+    "url": "https://osix.tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://osix.tech/logo_w.png"
+    }
+  },
+  "mainEntityOfPage": canonicalUrl
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Puedo automatizar albaranes si no quiero cambiar de ERP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. El flujo puede vigilar la entrada que ya usa tu empresa, extraer los datos y devolverlos en el formato que tu ERP o tu equipo necesita. La integración depende del sistema existente y de las reglas del proceso, pero cambiar de ERP no es un requisito de partida." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué ocurre si una factura o un albarán llega mal escaneado?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No debe inventar el dato que falta. El sistema debe marcar el documento, explicar qué campo no ha podido comprobar y enviarlo a revisión. Si el documento es crítico, la salida debe quedar bloqueada hasta que una persona lo corrija o pida una nueva copia." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se evitan los duplicados?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hay que definir una señal de duplicado antes del piloto. Puede combinar proveedor, número de documento, fecha, importe, referencias y la huella del archivo. La señal exacta depende del proceso, pero el objetivo es que una entrada repetida no produzca una segunda factura, un segundo albarán o una segunda exportación." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El OCR elimina la revisión humana?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No por defecto. La extracción puede automatizarse, pero la revisión depende del tipo de documento, de los campos críticos y del coste de equivocarse. Un sistema bien diseñado revisa las excepciones y mantiene controles sobre la parte que avanza automáticamente." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo basta una herramienta OCR y cuándo necesito desarrollo a medida?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Una herramienta OCR suele bastar si recibes documentos parecidos, necesitas extraer campos y el siguiente paso es sencillo. El desarrollo a medida tiene sentido cuando debes cruzar documentos con el ERP, aplicar reglas propias, controlar duplicados, gestionar excepciones y devolver la información al flujo que el equipo ya utiliza." }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué demuestra el caso de Roydisa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Demuestra que un flujo concreto procesó 31.377 ficheros, con una mediana de 27 segundos desde la foto hasta el Excel y un 88 % terminado en menos de un minuto durante la ventana publicada. No demuestra una precisión general para cualquier empresa. Antes de extrapolarlo hay que probar una muestra propia." }
+    }
+  ]
+};
+
+const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
+---
+
+<Layout
+  lang={lang}
+  title={seoTitle}
+  description={seoDescription}
+  pageType="article"
+  jsonLd={jsonLd}>
+
+  <LoadingScreen duration={1000} />
+
+  <!-- Hero Section -->
+  <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
+    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
+      <div class="flex-col flex justify-center items-center max-w-4xl">
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Albaranes y facturas · Automatización documental · España</span>
+        <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
+          Cómo automatizar albaranes y facturas de proveedores sin cambiar tu ERP
+        </h1>
+        <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
+          Flujo OCR, datos estructurados, duplicados, excepciones, revisión humana y prueba piloto.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section pt-16 pb-32 bg-white mb-0">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <article class="content-card bg-white rounded-lg p-8 md:p-12 fade-up" style="--delay: 0.2s">
+        <div class="markdown-body">
+          <GuideContent />
+        </div>
+      </article>
+
+      <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
+        <h2 class="related-guides-title">Guías relacionadas</h2>
+        <ul class="related-guides-list">
+          <li><a href="/casos/roydisa-ocr-documentos-proveedores/">Caso Roydisa: OCR de documentos de proveedores</a></li>
+          <li><a href="/servicios/consultoria-transformacion/">Consultoría de transformación digital e IA</a></li>
+          <li><a href="/guias/automatizar-facturas-documentos-pyme/">Cómo automatizar las facturas y los documentos de tu pyme</a></li>
+          <li><a href="/guias/automatizar-documentos-sin-perder-revision-humana/">Automatizar documentos sin perder la revisión humana</a></li>
+        </ul>
+      </div>
+
+      <!-- Back to home button -->
+      <div class="text-center mt-12 fade-up" style="--delay: 0.4s">
+        <a href={`/`} class="btn-primary btn-arrow">
+          Volver al inicio
+          <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Wrap markdown tables so they expand and scroll inside their own container,
+    // never making the page itself scroll horizontally.
+    document.querySelectorAll('.markdown-body table').forEach((t) => {
+      if (t.parentElement && !t.parentElement.classList.contains('table-scroll')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'table-scroll';
+        t.parentNode.insertBefore(wrap, t);
+        wrap.appendChild(t);
+      }
+    });
+
+    const initializeAnimations = () => {
+      setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
+      setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
+      setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
+      document.querySelectorAll('.fade-up').forEach(el => { el.classList.add('in-view'); });
+    };
+
+    if ((window as any).isLoadingComplete) {
+      initializeAnimations();
+    } else {
+      window.addEventListener('loadingComplete', initializeAnimations);
+    }
+  });
+</script>
+
+<style is:global>
+  /*
+   * Mobile horizontal overflow fix.
+   * The global `section { display: flex }` rule turns this section's wrapper into a
+   * flex item that refuses to shrink below its content's intrinsic width. Because the
+   * tables are `white-space: nowrap` inside their scroll containers, the intrinsic
+   * width of the whole article is the table width (well over the phone viewport), so the
+   * column rendered ~896px wide on a 390px phone and html/body's overflow-x:clip chopped
+   * the right edge off every paragraph. Fix: make the section a normal block so its child
+   * caps at the viewport, and let the tables keep scrolling inside their own containers.
+   */
+  .content-section {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hero Animations */
+  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
+  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
+  .hero-badge { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+  .hero-badge.animate { opacity: 1; transform: translateY(0); }
+
+  /* Fade up animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Section transitions */
+  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
+</style>
