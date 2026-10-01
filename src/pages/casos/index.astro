@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
-import BeamsBackground from '../../components/BeamsBackground.jsx';
 import { getCaseStudyCards } from '../../data/case-studies';
 import { genCaseArt } from '../../utils/caseArt';
 import type { Lang } from '../../utils/languages';
@@ -48,9 +47,6 @@ const jsonLd = {
   <LoadingScreen duration={1000} />
 
   <section class="cases-hub-hero relative bg-black overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
-    <div class="absolute inset-0 z-0">
-      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
-    </div>
     <div class="cases-hub-hero-inner">
       <span class="cases-hub-badge">Casos OSIX · software en producción</span>
       <h1 class="cases-hub-title">Software que ya está trabajando</h1>

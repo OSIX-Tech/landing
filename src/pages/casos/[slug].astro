@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import LoadingScreen from '../../components/LoadingScreen.astro';
-import BeamsBackground from '../../components/BeamsBackground.jsx';
 import CaseMetrics from '../../components/case/CaseMetrics';
 import CaseFAQ from '../../components/case/CaseFAQ.astro';
 import CaseRail from '../../components/case/CaseRail.astro';
@@ -100,10 +99,6 @@ const jsonLd = {
 
   <!-- HERO -->
   <section class="case-hero relative bg-black overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
-    <div class="absolute inset-0 z-0">
-      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
-    </div>
-
     <div class="case-hero-inner">
       <div class="case-hero-text">
         <nav class="case-crumbs hero-el" style="--d: 0.05s" aria-label="Breadcrumb">
