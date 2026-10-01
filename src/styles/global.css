@@ -17,7 +17,6 @@
   --line: rgba(10, 10, 10, 0.1);
   --line-strong: rgba(10, 10, 10, 0.22);
   --line-on-ink: rgba(255, 255, 255, 0.14);
-  --accent: #cd1c18;
 
   --font: var(--font-sans), system-ui, sans-serif;
   --shell: 80rem;
@@ -123,7 +122,7 @@ p {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -175,7 +174,7 @@ p {
   background: var(--surface);
 }
 
-/* Section heading: "Nuestros **servicios**" — bold, with the accent word in red. */
+/* Section heading: "Nuestros **servicios**" — bold; the ** word is for the Markdown twin, same colour here. */
 .section-head {
   display: flex;
   flex-wrap: wrap;
@@ -194,7 +193,6 @@ p {
 
 .section-title strong {
   font-weight: 800;
-  color: var(--accent);
 }
 
 .section-lead {
@@ -238,10 +236,6 @@ p {
 a.t-link:hover,
 a.t-link:focus-visible {
   background-size: 100% 1px;
-}
-
-.t-link-accent {
-  background-image: linear-gradient(var(--accent), var(--accent));
 }
 
 /* ---------- Buttons ---------- */
@@ -444,8 +438,8 @@ a.t-link:focus-visible {
 }
 
 .prose a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
+  text-decoration-color: var(--ink);
+  text-decoration-thickness: 2px;
 }
 
 .prose strong {

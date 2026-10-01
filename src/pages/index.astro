@@ -25,10 +25,6 @@ const description =
 
   <!-- Clients: a black band with the logos in white, moving slowly. Pauses on hover. -->
   <section class="clients" aria-label="Empresas que confían en OSIX">
-    <div class="shell clients-head">
-      <p class="eyebrow">Ya confían en nosotros</p>
-      <p class="clients-count">{clients.length} empresas y organismos</p>
-    </div>
     <div class="marquee">
       <ul class="marquee-track">
         {
@@ -151,26 +147,7 @@ const description =
   .clients {
     background: var(--black);
     color: var(--paper);
-    padding-block: 2rem 2.5rem;
-  }
-
-  .clients-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.75rem;
-  }
-
-  .clients .eyebrow {
-    color: var(--muted-on-ink);
-  }
-
-  .clients-count {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--muted-on-ink);
-    font-variant-numeric: tabular-nums;
+    padding-block: 2.25rem;
   }
 
   .marquee {
@@ -317,7 +294,7 @@ const description =
 
   .service-points li::before {
     content: '— ';
-    color: var(--accent);
+    color: var(--muted);
   }
 
   .service :global(.service-arrow) {
@@ -329,7 +306,7 @@ const description =
   }
 
   .service:hover :global(.service-arrow) {
-    color: var(--accent);
+    color: var(--ink);
   }
 
   /* ----- Cases and guides ----- */

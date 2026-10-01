@@ -65,11 +65,13 @@ function shapeFrom(points: Pt[], cx: number, cy: number) {
 }
 
 /** Camera distance per container width — mirrored by the poster's CSS scale. */
-export const cameraDistance = (width: number) => (width < 640 ? 9 : width < 1024 ? 7.5 : 6);
+export const cameraDistance = (width: number) => (width < 640 ? 7.5 : width < 1024 ? 6.25 : 5);
 
 export interface LogoOptions {
   /** Render a single still frame (used to produce the poster). */
   still?: boolean;
+  /** The explode effect is driven from outside (scroll) instead of toggled by a click. */
+  driven?: boolean;
 }
 
 export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
@@ -151,7 +153,7 @@ export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
 
   if (options.still) {
     renderer.render(scene, camera);
-    return { canvas: renderer.domElement, destroy: () => renderer.dispose() };
+    return { canvas: renderer.domElement, explode: () => {}, destroy: () => renderer.dispose() };
   }
 
   const coarse = window.matchMedia('(pointer: coarse)').matches;
@@ -176,6 +178,8 @@ export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
   let distance = explodeDistance();
   let exploded = false;
   let progress = 0;
+  // Scroll-driven mode: `target` is set from outside and the meshes ease towards it.
+  let target = 0;
   let floatTime = 0;
   let dragging = false;
   let downAt = 0;
@@ -190,7 +194,8 @@ export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
     const delta = Math.min((now - last) / 1000, 0.1);
     last = now;
     floatTime += delta * 1.5;
-    progress = exploded ? Math.min(progress + delta * 0.4, 1) : Math.max(progress - delta * 0.4, 0);
+    if (options.driven) progress += (target - progress) * Math.min(1, delta * 10);
+    else progress = exploded ? Math.min(progress + delta * 0.4, 1) : Math.max(progress - delta * 0.4, 0);
     const separation = 1 - Math.pow(1 - progress, 2);
     const spin = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
     leftMesh.position.lerpVectors(leftBase, leftOut.copy(leftBase).addScaledVector(leftDir, distance), separation);
@@ -221,7 +226,7 @@ export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
     if (downAt && performance.now() - downAt > 100) dragging = true;
   };
   const onUp = () => {
-    if (performance.now() - downAt < 200) exploded = !exploded;
+    if (!options.driven && performance.now() - downAt < 200) exploded = !exploded;
     dragging = false;
     downAt = 0;
   };
@@ -253,6 +258,10 @@ export function mountLogo(container: HTMLElement, options: LogoOptions = {}) {
 
   return {
     canvas: renderer.domElement,
+    /** 0 = assembled, 1 = fully apart. Only meaningful with `driven`. */
+    explode(value: number) {
+      target = Math.min(1, Math.max(0, value));
+    },
     destroy() {
       stop();
       io.disconnect();

@@ -1,10 +1,9 @@
 ---
-// Home hero: the 3D mark is the subject, the headline sits small under it.
-// The headline and poster paint immediately; the live 3D mark loads on intent:
-//   - desktop (fine pointer): on the visitor's first pointer move, scroll, key press or touch;
-//   - touch devices: when the visitor taps the mark;
-//   - never with prefers-reduced-motion or Save-Data — the poster stays.
-// The poster is a still of the same scene, so the swap is a crossfade, not a jump.
+// Home hero. The 3D mark floats alone on the first screen; scrolling pulls it apart and
+// the headline comes through the gap. GSAP ScrollTrigger scrubs the whole sequence.
+//   - first paint: the poster (a still of the same scene) and nothing else;
+//   - after load (or the first interaction): the live mark replaces the poster;
+//   - without JavaScript, with reduced motion or Save-Data: a static hero, mark above copy.
 import Icon from './Icon.astro';
 import { hero } from '../data/home';
 
@@ -12,28 +11,27 @@ let i = 0;
 const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i: i++ })));
 ---
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="stage" id="logo-stage">
-    <picture>
-      <source type="image/avif" srcset="/hero/osix-mark-800.avif 800w, /hero/osix-mark-1600.avif 1600w" sizes="200vh" />
-      <img
-        class="poster"
-        src="/hero/osix-mark-1600.webp"
-        srcset="/hero/osix-mark-800.webp 800w, /hero/osix-mark-1600.webp 1600w"
-        sizes="200vh"
-        width="1600"
-        height="800"
-        alt=""
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
-    <button class="stage-hit" type="button" aria-label="Animar el logo de OSIX en 3D"></button>
-  </div>
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="pin">
+    <div class="stage" id="logo-stage">
+      <picture>
+        <source type="image/avif" srcset="/hero/osix-mark-800.avif 800w, /hero/osix-mark-1600.avif 1600w" sizes="200vh" />
+        <img
+          class="poster"
+          src="/hero/osix-mark-1600.webp"
+          srcset="/hero/osix-mark-800.webp 800w, /hero/osix-mark-1600.webp 1600w"
+          sizes="200vh"
+          width="1600"
+          height="800"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
 
-  <div class="shell content">
-    <div class="copy">
-      <h1 id="hero-title" class="rise">
+    <div class="copy shell">
+      <h1 id="hero-title">
         {
           lines.map((words) => (
             <span class="line">
@@ -48,58 +46,93 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
           ))
         }
       </h1>
-      <p class="subtitle fade-in" style="--d:0.4s">{hero.subtitle}</p>
+      <p class="subtitle">{hero.subtitle}</p>
+      <div class="actions">
+        <a href="#servicios" class="btn btn-dark">Cómo te ayudamos <Icon name="arrow" size={15} class="arrow" /></a>
+        <a href="/contacto/" class="btn btn-outline">Háblanos de tu proyecto <Icon name="arrow" size={15} class="arrow" /></a>
+      </div>
     </div>
-    <div class="actions fade-in" style="--d:0.55s">
-      <a href="#servicios" class="btn btn-dark">Cómo te ayudamos <Icon name="arrow" size={15} class="arrow" /></a>
-      <a href="/contacto/" class="btn btn-outline">Háblanos de tu proyecto <Icon name="arrow" size={15} class="arrow" /></a>
-    </div>
-    <p class="hint fade-in" style="--d:0.9s" aria-hidden="true">Haz clic en el logo · arrástralo para girarlo</p>
+
+    <p class="hint" aria-hidden="true">
+      <span>Desplázate</span>
+      <Icon name="chevron" size={16} />
+    </p>
   </div>
 </section>
 
 <script>
-  const stage = document.getElementById('logo-stage');
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const hero = document.getElementById('hero')!;
+  const stage = document.getElementById('logo-stage')!;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
 
-  if (stage && !reduce && !saveData) {
-    let started = false;
-    const start = async () => {
-      if (started) return;
-      started = true;
-      cleanup();
-      try {
-        const { mountLogo } = await import('../scripts/logo3d');
-        mountLogo(stage);
-        stage.classList.add('is-live');
-      } catch {
-        // WebGL unavailable: the poster stays.
-      }
-    };
-    const intent = ['pointermove', 'scroll', 'keydown', 'wheel'] as const;
-    const fine = window.matchMedia('(pointer: fine)').matches;
-    const cleanup = () => intent.forEach((e) => window.removeEventListener(e, start));
-    if (fine) intent.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
-    stage.querySelector('.stage-hit')?.addEventListener('click', start, { once: true });
+  if (!reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    hero.classList.add('is-scrolly');
+
+    let logo: { explode(value: number): void } | null = null;
+    const words = hero.querySelectorAll<HTMLElement>('.w');
+    const tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
+    });
+    // 0 → 1 is the scroll through the hero. The mark comes apart over the first half and
+    // steps back; the words rise through it; the subtitle and buttons follow.
+    tl.to(hero.querySelector('.hint'), { opacity: 0, duration: 0.08 }, 0)
+      .to({ p: 0 }, { p: 1, duration: 0.55, onUpdate() { logo?.explode(this.targets()[0].p); } }, 0)
+      .to(stage, { scale: 1.18, opacity: 0.18, duration: 0.7, ease: 'power1.in' }, 0.05)
+      .fromTo(words, { yPercent: 110 }, { yPercent: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }, 0.3)
+      .fromTo(hero.querySelector('.subtitle'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.6)
+      .fromTo(hero.querySelector('.actions'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.7);
+
+    if (!saveData) {
+      let started = false;
+      const start = async () => {
+        if (started) return;
+        started = true;
+        cleanup();
+        try {
+          const { mountLogo } = await import('../scripts/logo3d');
+          logo = mountLogo(stage, { driven: true });
+          logo.explode(tl.scrollTrigger?.progress ? Math.min(1, tl.scrollTrigger.progress / 0.55) : 0);
+          stage.classList.add('is-live');
+        } catch {
+          // WebGL unavailable: the poster stays and still fades out on scroll.
+        }
+      };
+      const intent = ['pointermove', 'scroll', 'keydown', 'wheel', 'touchstart'] as const;
+      const cleanup = () => intent.forEach((e) => window.removeEventListener(e, start));
+      intent.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
+      // Or simply once the page is idle, so the mark is already alive when the scroll begins.
+      window.addEventListener('load', () => setTimeout(start, 800), { once: true });
+    }
   }
 </script>
 
 <style>
+  /* Static hero (no JS / reduced motion): the mark, then the copy. */
   .hero {
     position: relative;
-    display: flex;
-    min-height: calc(100svh - var(--header-h));
-    overflow: hidden;
-    isolation: isolate;
   }
 
-  /* The 3D stage takes most of the hero; the canvas and poster share its box. */
+  .pin {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100svh - var(--header-h));
+    overflow: hidden;
+  }
+
+  /* The poster was rendered at camera distance 6; the live camera sits at 5, so the
+     poster is scaled by 6/5 to match (and by the same ratio at the other breakpoints). */
   .stage {
-    position: absolute;
-    inset: 0 0 17% 0;
-    z-index: -1;
-    --logo-scale: 1;
+    position: relative;
+    height: min(52svh, 34rem);
+    --logo-scale: 1.2;
   }
 
   .poster {
@@ -124,83 +157,53 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     animation: canvas-in 0.6s var(--ease) 0.1s forwards;
   }
 
-  .stage.is-live .poster,
-  .stage.is-live .stage-hit {
+  .stage.is-live .poster {
     opacity: 0;
     visibility: hidden;
   }
 
-  .stage-hit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: min(70vw, 30rem);
-    aspect-ratio: 1;
-    transform: translate(-50%, -50%);
-    background: none;
-    border: 0;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .content {
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      'copy actions'
-      'copy hint';
-    align-items: end;
-    align-content: end;
-    gap: 0.75rem 2rem;
-    padding-block: 2.5rem clamp(1.75rem, 5vh, 3rem);
-    pointer-events: none;
-  }
-
-  .copy,
-  .actions,
-  .hint {
-    pointer-events: auto;
-  }
-
   .copy {
-    grid-area: copy;
-  }
-
-  .actions {
-    grid-area: actions;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.75rem;
-  }
-
-  .hint {
-    grid-area: hint;
-    justify-self: end;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    padding-block: 2rem 3rem;
   }
 
   h1 {
-    font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+    font-size: clamp(2.75rem, 8.5vw, 8rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
   }
 
   .line {
     display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+
+  .w {
+    display: inline-block;
   }
 
   .subtitle {
-    margin-top: 0.75rem;
-    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    margin: 1.5rem auto 0;
+    max-width: 38ch;
+    font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+    font-weight: 500;
     color: var(--muted);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+  }
+
+  .hint {
+    display: none;
   }
 
   @keyframes canvas-in {
@@ -209,60 +212,90 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     }
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .stage:not(.is-live) .poster {
-      animation: bob 4.2s ease-in-out infinite;
-    }
+  /* Scroll-driven hero: 260vh tall, the screen stays pinned while the sequence plays. */
+  .hero.is-scrolly {
+    height: 260svh;
   }
 
-  @keyframes bob {
+  .is-scrolly .pin {
+    position: sticky;
+    top: var(--header-h);
+    height: calc(100svh - var(--header-h));
+    min-height: 0;
+    display: block;
+  }
+
+  .is-scrolly .stage {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    transform-origin: 50% 50%;
+    will-change: transform, opacity;
+  }
+
+  .is-scrolly .copy {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 0;
+    pointer-events: none;
+  }
+
+  .is-scrolly .copy :is(h1, .subtitle, .actions) {
+    pointer-events: auto;
+  }
+
+  .is-scrolly .subtitle,
+  .is-scrolly .actions {
+    opacity: 0;
+  }
+
+  .is-scrolly .hint {
+    position: absolute;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .is-scrolly .hint :global(svg) {
+    animation: nudge 1.6s var(--ease) infinite;
+  }
+
+  @keyframes nudge {
     0%,
     100% {
-      transform: translate(-50%, -50%);
+      transform: translateY(0);
     }
     50% {
-      transform: translate(-50%, calc(-50% - 1.6%));
+      transform: translateY(4px);
     }
   }
 
   /* Mirrors cameraDistance() in logo3d.ts: the mark shrinks as the camera backs off. */
   @media (max-width: 1023px) {
     .stage {
-      --logo-scale: 0.8;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .content {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        'copy'
-        'actions';
-    }
-
-    .actions {
-      justify-content: flex-start;
-    }
-
-    .hint {
-      display: none;
+      --logo-scale: 0.96;
     }
   }
 
   @media (max-width: 639px) {
     .stage {
-      --logo-scale: 0.6667;
-      inset: 0 0 34% 0;
+      --logo-scale: 0.8;
     }
 
     .actions .btn {
       width: 100%;
-    }
-  }
-
-  @media (pointer: coarse) {
-    .hint {
-      display: none;
     }
   }
 </style>

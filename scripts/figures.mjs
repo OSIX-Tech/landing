@@ -16,7 +16,7 @@ import { parse } from 'yaml';
 const ROOT = path.resolve();
 const OUT = path.join(ROOT, 'src/assets/figures');
 const FONT_DIR = path.join(ROOT, 'node_modules/@fontsource/plus-jakarta-sans/files');
-const VERSION = 'figures-v3'; // bump to re-render everything after a design change
+const VERSION = 'figures-v4'; // bump to re-render everything after a design change
 
 const W = 1600;
 const H = 900;
@@ -25,7 +25,6 @@ const PAPER = '#ffffff';
 const SURFACE = '#f5f5f4';
 const MUTED = '#5c5c5c';
 const MUTED_ON_INK = '#a3a3a3';
-const ACCENT = '#cd1c18';
 const LINE = 'rgba(10, 10, 10, 0.14)';
 const LINE_ON_INK = 'rgba(255, 255, 255, 0.18)';
 const FONT = 'Plus Jakarta Sans';
@@ -118,8 +117,8 @@ function guideCover(slug, data) {
       x: 760 + i * 170 + rnd() * 120,
       y: 40 + rnd() * 380,
       rotate: rotations[Math.floor(rnd() * 4)],
-      left: i === 1 ? ACCENT : INK,
-      right: i === 1 ? INK : i === 2 ? MUTED : INK,
+      left: i === 2 ? MUTED_ON_INK : INK,
+      right: i === 1 ? MUTED : INK,
     });
   });
   const category = data.category;
@@ -160,7 +159,7 @@ function caseCover(data) {
         minWidth: 0,
         flexDirection: 'column',
         paddingTop: 32,
-        borderTop: `3px solid ${i === 0 ? ACCENT : LINE_ON_INK}`,
+        borderTop: `3px solid ${i === 0 ? PAPER : LINE_ON_INK}`,
       },
       [
         text(m.value, { fontSize: valueSize, fontWeight: 800, letterSpacing: -valueSize * 0.05, lineHeight: 1 }),
@@ -200,7 +199,7 @@ function bars(spec) {
     el('div', { alignItems: 'center', gap: 32 }, [
       text(item.label, { width: 440, fontSize: 26, fontWeight: 600, lineHeight: 1.2 }),
       el('div', { flex: 1, height: 52, background: SURFACE }, [
-        el('div', { width: `${Math.max(1, (item.value / max) * 100)}%`, height: '100%', background: item.value === max ? ACCENT : INK }),
+        el('div', { width: `${Math.max(1, (item.value / max) * 100)}%`, height: '100%', background: item.value === max ? INK : MUTED }),
       ]),
       text(item.display ?? `${number.format(item.value)}${spec.unit ? ` ${spec.unit}` : ''}`, {
         width: 230,
