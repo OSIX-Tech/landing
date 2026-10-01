@@ -19,9 +19,8 @@ const { guide, showSummary = false } = Astro.props;
   <h3 class="gcard-title"><span class="t-link">{guideTitle(guide)}</span></h3>
   {showSummary && <p class="gcard-text">{guide.data.summary}</p>}
   <p class="gcard-meta">
-    <time datetime={guide.data.published}>{formatDateShort(guide.data.published)}</time>
-    <span aria-hidden="true">·</span>
     <span>{GUIDE_SECTIONS[guide.data.section]}</span>
+    <time datetime={guide.data.published}>{formatDateShort(guide.data.published)}</time>
   </p>
 </a>
 
@@ -71,10 +70,11 @@ const { guide, showSummary = false } = Astro.props;
     line-height: 1.55;
   }
 
+  /* Section on the left edge, date on the right edge. */
   .gcard-meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 1rem;
     margin-top: auto;
     padding-top: 0.5rem;
     color: var(--muted);
