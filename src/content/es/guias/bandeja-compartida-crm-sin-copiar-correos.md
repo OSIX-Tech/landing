@@ -1,6 +1,9 @@
 # Cómo pasar de una bandeja compartida a un CRM sin copiar correos a mano
 
-Puedes pasar los correos de una bandeja compartida al CRM sin copiar cada mensaje, pero conectar el buzón es solo el primer paso. El flujo completo debe identificar el hilo y al remitente, clasificar el trabajo, crear o actualizar el registro correcto, asignar una persona responsable y conservar el correo original para su revisión. Si el sistema no reconoce con suficiente seguridad un pedido o una incidencia, debe dejarlo en una cola de revisión, no inventar un registro ni responder por su cuenta.
+Para convertir una bandeja compartida en un CRM sin copiar correos, conecta los buzones al flujo que conserva cada hilo, identifica al contacto, clasifica la solicitud y crea o actualiza la operación correspondiente. Asigna responsable y estado; manda los mensajes ambiguos a revisión humana. Si solo necesitas repartir conversaciones, comprueba primero las funciones de tu correo y CRM.
+
+> **Prueba en producción:** En un caso de siete meses, el sistema trazó **8.387 correos**, creó **4.893 transacciones** y registró **1.987 cambios de pipeline**. La mediana hasta una propuesta preparada fue de **29 segundos**, y el **99,3 %** quedó listo en menos de cinco minutos. Las propuestas no se envían automáticamente; el caso no publica horas ahorradas ni una tasa de precisión de clasificación. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
+
 
 ## Una bandeja compartida puede asignar conversaciones, pero no siempre organiza el trabajo comercial
 

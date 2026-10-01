@@ -1,6 +1,9 @@
 # Cómo automatizar albaranes y facturas de proveedores sin cambiar tu ERP
 
-Puedes automatizar albaranes y facturas de proveedores sin sustituir el ERP que ya utiliza tu empresa. El flujo habitual recibe fotos o PDF, identifica el tipo de documento, extrae los campos que necesitas, comprueba reglas y devuelve datos estructurados al formato de trabajo existente. La revisión humana se mantiene en los casos dudosos, los documentos ilegibles y las decisiones que pueden generar un pago o un compromiso.
+Puedes automatizar albaranes y facturas sin cambiar el ERP: recibe fotos o PDF, extrae los campos necesarios, comprueba pedidos y duplicados, y devuelve datos estructurados al sistema actual. Envía documentos ilegibles, datos dudosos y discrepancias a revisión humana; no contabilices una excepción a ciegas.
+
+> **Prueba en producción:** En Roydisa, el flujo procesó **31.377 ficheros**; la mediana desde la foto hasta el Excel fue de **27 segundos**, y el **88 %** terminó en menos de un minuto. El **0,04 %** es un error técnico observado, no una medida de precisión del OCR por campo. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
+
 
 La decisión no empieza por elegir un modelo de IA. Empieza por medir cuántos documentos entran, qué información debe salir de cada uno y dónde se atasca hoy el proceso.
 
