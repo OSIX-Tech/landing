@@ -16,7 +16,7 @@ import { parse } from 'yaml';
 const ROOT = path.resolve();
 const OUT = path.join(ROOT, 'src/assets/figures');
 const FONT_DIR = path.join(ROOT, 'node_modules/@fontsource/plus-jakarta-sans/files');
-const VERSION = 'figures-v5'; // bump to re-render everything after a design change
+const VERSION = 'figures-v7'; // bump to re-render everything after a design change
 
 const W = 1600;
 const H = 900;
@@ -106,21 +106,34 @@ function seeded(str) {
 }
 
 // ---------- renderers ----------
+const GREY_1 = '#8a8a8a';
+const GREY_2 = '#d9d9d9';
+const GREY_3 = '#efefef';
+
+/** Six hand-set compositions of the mark; the slug picks one, so every guide differs and
+ *  none looks accidental. All black, white and grey. The right half of the frame is theirs;
+ *  the text owns the bottom-left. */
+const LAYOUTS = [
+  () => [mark({ size: 980, x: 900, y: 40, rotate: 0, left: INK, right: GREY_2 })],
+  () => [mark({ size: 620, x: 1000, y: 60, rotate: 90, left: INK, right: INK })],
+  () => [
+    mark({ size: 520, x: 780, y: 60, rotate: 0, left: GREY_2, right: GREY_2 }),
+    mark({ size: 520, x: 1040, y: 300, rotate: 0, left: INK, right: INK }),
+  ],
+  () => [
+    mark({ size: 1500, x: 500, y: -120, rotate: 0, left: GREY_3, right: GREY_3 }),
+    mark({ size: 420, x: 1110, y: 90, rotate: 0, left: INK, right: INK }),
+  ],
+  () => [mark({ size: 760, x: 940, y: 150, rotate: 180, left: INK, right: GREY_1 })],
+  () => [
+    mark({ size: 300, x: 760, y: 100, rotate: 0, left: INK, right: INK }),
+    mark({ size: 300, x: 1030, y: 100, rotate: 0, left: GREY_1, right: GREY_1 }),
+    mark({ size: 300, x: 1300, y: 100, rotate: 0, left: GREY_2, right: GREY_2 }),
+  ],
+];
+
 function guideCover(slug, data) {
-  // Three marks, placed by a hash of the slug so every guide gets its own composition.
-  const rnd = seeded(slug);
-  const rotations = [0, 90, 180, 270];
-  const marks = [0, 1, 2].map((i) => {
-    const size = 300 + rnd() * 220;
-    return mark({
-      size,
-      x: 760 + i * 170 + rnd() * 120,
-      y: 40 + rnd() * 380,
-      rotate: rotations[Math.floor(rnd() * 4)],
-      left: i === 2 ? MUTED_ON_INK : INK,
-      right: i === 1 ? MUTED : INK,
-    });
-  });
+  const pick = Math.floor(seeded(slug)() * LAYOUTS.length);
   const category = data.category;
   const size = category.length > 22 ? 84 : category.length > 14 ? 104 : 128;
   return el(
@@ -138,11 +151,14 @@ function guideCover(slug, data) {
       overflow: 'hidden',
     },
     [
-      ...marks,
-      el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow('Guía práctica', MUTED), logo(logoDark, 40)]),
-      el('div', { flexDirection: 'column', maxWidth: 1000 }, [
-        text(category, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.045, lineHeight: 0.98 }),
-        text('Para pymes, con fuentes y límites claros', { marginTop: 28, fontSize: 28, fontWeight: 500, color: MUTED }),
+      ...LAYOUTS[pick](),
+      eyebrow('Guía práctica', MUTED),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1000 }, [
+          text(category, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.045, lineHeight: 0.98 }),
+          text('Para pymes, con fuentes y límites claros', { marginTop: 28, fontSize: 28, fontWeight: 500, color: MUTED }),
+        ]),
+        logo(logoDark, 40),
       ]),
     ],
   );

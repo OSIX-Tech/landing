@@ -6,11 +6,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import SectionHead from '../components/SectionHead.astro';
-import CaseCard from '../components/CaseCard.astro';
 import GuideCard from '../components/GuideCard.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { getCases, getGuides, getServices, getTeam } from '../lib/content';
+import { coverOf, getCases, getGuides, getServices, getTeam } from '../lib/content';
 import { faqPage, webPage } from '../lib/schema';
 import { clients, faqs } from '../data/home';
 
@@ -71,17 +70,52 @@ const description =
     </div>
   </section>
 
-  <!-- Cases: black, the covers carry the figures. -->
-  <section class="band band-ink" id="casos">
+  <!-- Cases: black. One featured cover, then every case as a line with its headline figure. -->
+  <section class="band band-ink cases" id="casos">
     <div class="shell">
-      <SectionHead
-        title="Casos en **producción**"
-        lead="No enseñamos demos aisladas. Cada caso publica la ventana medida y lo que la cifra no demuestra."
-        link={{ href: '/casos/', label: `Ver los ${cases.length} casos` }}
-      />
-      <div class="case-grid reveal-stagger">
-        {cases.slice(0, 3).map((c) => <CaseCard item={c} variant="ink" sizes="(max-width: 800px) calc(100vw - 2rem), 26rem" />)}
+      <div class="cases-head reveal">
+        <h2 class="section-title">Casos en<br />producción</h2>
+        <p class="cases-lead">
+          Software que ya trabaja en empresas reales: documentos que se procesan solos, correo que se clasifica, ofertas
+          que se preparan en segundos. Cada caso publica la cifra, el periodo medido y lo que esa cifra no demuestra.
+        </p>
       </div>
+      <div class="cases-body">
+        <a class="cases-featured reveal" href={`/casos/${cases[0].id}/`}>
+          <Image
+            class="cases-cover"
+            src={coverOf('casos', cases[0])}
+            alt={`${cases[0].data.metrics[0].value} ${cases[0].data.metrics[0].label}`}
+            widths={[640, 960, 1400]}
+            sizes="(max-width: 1000px) calc(100vw - 2rem), 56vw"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="cases-featured-text">
+            <span class="eyebrow">{cases[0].data.category}</span>
+            <span class="cases-featured-title t-link">{cases[0].data.title}</span>
+          </span>
+        </a>
+        <ol class="cases-list reveal-stagger">
+          {
+            cases.slice(1).map((c) => (
+              <li>
+                <a class="cases-row" href={`/casos/${c.id}/`}>
+                  <span class="cases-metric">
+                    <strong>{c.data.metrics[0].value}</strong>
+                    <span>{c.data.metrics[0].label}</span>
+                  </span>
+                  <span class="cases-row-title">
+                    <span class="t-link">{c.data.title}</span>
+                  </span>
+                  <Icon name="arrow" size={18} class="arrow" />
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <a class="link-arrow cases-all reveal" href="/casos/">Ver los {cases.length} casos <Icon name="arrow" size={15} class="arrow" /></a>
     </div>
   </section>
 
@@ -295,16 +329,126 @@ const description =
     color: var(--ink);
   }
 
-  /* ----- Cases and guides ----- */
-  .case-grid,
+  /* ----- Cases ----- */
+  .cases-head {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2rem clamp(3rem, 6vw, 7rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .cases-lead {
+    max-width: 58ch;
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--muted-on-ink);
+  }
+
+  .cases-body {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 3rem clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+
+  .cases-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .cases :global(.cases-cover) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid var(--line-on-ink);
+  }
+
+  .cases-featured-text {
+    display: block;
+  }
+
+  .cases-featured-text .eyebrow {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .cases-featured-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
+  }
+
+  .cases-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--line-on-ink);
+  }
+
+  .cases-row {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr) auto;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line-on-ink);
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .cases-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cases-metric strong {
+    font-size: 1.625rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .cases-metric span {
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    color: var(--muted-on-ink);
+  }
+
+  .cases-row-title {
+    display: block;
+    padding-top: 0.2rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .cases-row :global(.arrow) {
+    margin-top: 0.3rem;
+    color: var(--muted-on-ink);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .cases-row:hover :global(.arrow) {
+    color: var(--paper);
+  }
+
+  .cases-all {
+    margin-top: 2.5rem;
+  }
+
+  /* ----- Guides ----- */
   .guide-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3rem 2rem;
-  }
-
-  .case-grid :global(.card-title) {
-    font-size: 1.25rem;
   }
 
   /* ----- Team ----- */
@@ -376,7 +520,11 @@ const description =
       position: static;
     }
 
-    .case-grid,
+    .cases-head,
+    .cases-body {
+      grid-template-columns: 1fr;
+    }
+
     .guide-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -391,9 +539,12 @@ const description =
   }
 
   @media (max-width: 640px) {
-    .case-grid,
     .guide-grid {
       grid-template-columns: 1fr;
+    }
+
+    .cases-row {
+      grid-template-columns: 7rem minmax(0, 1fr) auto;
     }
 
     .service-title {
