@@ -1,4 +1,4 @@
-Para automatizar la generación de informes en tu empresa, la primera decisión no es la herramienta: es saber si tu informe es de datos o documental. Si los datos ya viven en un sistema o en una hoja estructurada (ERP, CRM, contabilidad), te basta una plantilla que se actualice sola o un cuadro de mando. Si viven en documentos que alguien tiene que copiar, leer o redactar cada vez (partes, albaranes, correos, tickets), necesitas un extractor o un desarrollo que lea por ti. La mayoría de las respuestas que encuentras al buscar este tema solo cubren la primera familia, los dashboards de Power BI o Looker Studio, y se olvidan de que buena parte de los informes de una pyme son documentos que alguien monta a mano cada semana. En esta guía separamos las dos familias, ordenamos seis informes típicos por retorno para una pyme española y te decimos cuándo basta una plantilla, cuándo un extractor y cuándo merece la pena un desarrollo a medida.
+Para automatizar la generación de informes en tu empresa, la primera decisión no es la herramienta: es saber si tu informe es de datos o documental. Si los datos ya viven en un sistema o en una hoja estructurada (ERP, CRM, contabilidad), te basta una plantilla que se actualice sola o un cuadro de mando. Si viven en documentos que alguien tiene que copiar, leer o redactar cada vez (partes, albaranes, correos, tickets), necesitas un extractor o un desarrollo que lea por ti. La mayoría de las respuestas que encuentras al buscar este tema solo cubren la primera familia, los dashboards de Power BI o Data Studio, y se olvidan de que buena parte de los informes de una pyme son documentos que alguien monta a mano cada semana. En esta guía separamos las dos familias, ordenamos seis informes típicos por retorno para una pyme española y te decimos cuándo basta una plantilla, cuándo un extractor y cuándo merece la pena un desarrollo a medida.
 
 ## Primero: decide si tu informe es de datos o documental
 
@@ -53,13 +53,13 @@ Para la mayoría de las pymes la decisión no es automatizar sí o no, sino por 
 
 | Vía | Para qué sirve | Ejemplos | Coste de entrada (sep 2026) | Límite honesto |
 | --- | --- | --- | --- | --- |
-| Plantilla y BI | Informes de datos que se actualizan solos | Power BI, Looker Studio, hojas programadas | Power BI Pro 12,10 € por usuario y mes (pago anual, sin IVA); Looker Studio gratis | No lee documentos: si hay que copiar datos a mano, el informe sigue siendo manual |
+| Plantilla y BI | Informes de datos que se actualizan solos | Power BI, Data Studio, hojas programadas | Power BI Pro 12,10 € por usuario y mes (pago anual, sin IVA); Data Studio gratis | No lee documentos: si hay que copiar datos a mano, el informe sigue siendo manual |
 | Extractor y automatización no-code | Documentos de terceros con formato parecido | Make, Zapier, n8n, Parseur | Make: gratis con 1.000 créditos al mes, Core desde 12 USD al mes; Zapier: gratis con 100 tareas al mes, de pago desde 19,99 USD al mes | Formatos muy variables o integración con el ERP se quedan cortos; revisión y registro básicos |
 | Desarrollo a medida | El informe cruza documentos y sistemas con reglas propias | Consultoras especializadas en pymes | Automatización back-office con informes, referencia de mercado 2026: 5.000 a 12.000 € de implantación más 200 a 500 € al mes | Más caro y más lento de arrancar; hay que mantenerlo |
 
 ### Vía 1. Plantilla y BI: para datos que ya están ordenados
 
-Si los datos ya viven en un sistema o en una hoja estructurada, la automatización consiste en conectarlos y programar la actualización. Power BI es la opción natural en entornos Microsoft, con un plan Pro de 12,10 € por usuario y mes en pago anual según su página de precios, y Looker Studio cubre el mismo trabajo gratis para fuentes de Google y otras conectadas. El resultado es un cuadro de mando que se actualiza solo y un envío programado, por ejemplo cada lunes a las siete. Límite honesto: ninguna de las dos lee documentos por sí sola. Si cada semana alguien recibe facturas o partes en PDF y los copia a la hoja, has automatizado la presentación pero no el trabajo, y el informe sigue siendo manual en la práctica.
+Si los datos ya viven en un sistema o en una hoja estructurada, la automatización consiste en conectarlos y programar la actualización. Power BI es la opción natural en entornos Microsoft, con un plan Pro de 12,10 € por usuario y mes en pago anual según su página de precios, y Data Studio cubre el mismo trabajo gratis para fuentes de Google y otras conectadas. El resultado es un cuadro de mando que se actualiza solo y un envío programado, por ejemplo cada lunes a las siete. Límite honesto: ninguna de las dos lee documentos por sí sola. Si cada semana alguien recibe facturas o partes en PDF y los copia a la hoja, has automatizado la presentación pero no el trabajo, y el informe sigue siendo manual en la práctica.
 
 ### Vía 2. Extractor y automatización no-code: cuando el informe sale de documentos con formato parecido
 
@@ -85,15 +85,15 @@ La automatización no es la respuesta para todos los informes, y saber cuándo e
 
 ### ¿Qué informes puede automatizar una pyme sin saber programar?
 
-Los que salen de datos ya estructurados, con un cuadro de mando de Power BI o Looker Studio o con una hoja programada, y los que salen de documentos con formato parecido, con un extractor no-code como Make o Zapier. Lo que no conviene montar sin ayuda técnica es un informe que cruza documentos muy variados con tu ERP, porque ahí la integración, la revisión y el registro necesitan un desarrollo.
+Los que salen de datos ya estructurados, con un cuadro de mando de Power BI o Data Studio o con una hoja programada, y los que salen de documentos con formato parecido, con un extractor no-code como Make o Zapier. Lo que no conviene montar sin ayuda técnica es un informe que cruza documentos muy variados con tu ERP, porque ahí la integración, la revisión y el registro necesitan un desarrollo.
 
 ### ¿Cuánto cuesta automatizar la generación de informes?
 
-Depende de la vía. Con una plantilla o un BI, el coste es la suscripción, por ejemplo 12,10 € por usuario y mes de Power BI Pro en pago anual, y Looker Studio es gratis. Con un extractor no-code, el plan de pago ronda los 12 a 20 USD al mes. Cuando el informe cruza documentos y sistemas y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 200 a 500 € al mes de operación.
+Depende de la vía. Con una plantilla o un BI, el coste es la suscripción, por ejemplo 12,10 € por usuario y mes de Power BI Pro en pago anual, y Data Studio es gratis. Con un extractor no-code, el plan de pago ronda los 12 a 20 USD al mes. Cuando el informe cruza documentos y sistemas y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 200 a 500 € al mes de operación.
 
-### ¿Power BI o Looker Studio para automatizar informes?
+### ¿Power BI o Data Studio para automatizar informes?
 
-Ambos resuelven lo mismo para datos estructurados: conectar fuentes, programar la actualización y compartir el cuadro de mando. Looker Studio es gratis y encaja bien con Google y con equipos sin licencias de Microsoft. Power BI se integra mejor con Microsoft 365, Excel y SharePoint, y su plan Pro cuesta 12,10 € por usuario y mes en pago anual. La elección depende de dónde viven ya tus datos. Ninguno de los dos lee documentos por sí solo.
+Ambos resuelven lo mismo para datos estructurados: conectar fuentes, programar la actualización y compartir el cuadro de mando. Data Studio es gratis y encaja bien con Google y con equipos sin licencias de Microsoft. Power BI se integra mejor con Microsoft 365, Excel y SharePoint, y su plan Pro cuesta 12,10 € por usuario y mes en pago anual. La elección depende de dónde viven ya tus datos. Ninguno de los dos lee documentos por sí solo.
 
 ### ¿Puede la IA redactar el informe sin revisión humana?
 
@@ -105,10 +105,10 @@ Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsa
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Looker Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: septiembre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: septiembre de 2026.
 
 - [Precios de Power BI (Microsoft, España)](https://www.microsoft.com/es-es/power-platform/products/power-bi/pricing)
 - [Planes y precios de Make](https://www.make.com/en/pricing)
 - [Planes y precios de Zapier](https://zapier.com//pricing)
-- [Looker Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
+- [Data Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
 - [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
