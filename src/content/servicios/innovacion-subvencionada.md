@@ -1,6 +1,7 @@
 ---
 title: "Innovación Subvencionada"
 tagline: "Identificamos ayudas públicas y preparamos tu proyecto"
+summary: "Comprobamos qué convocatorias públicas están abiertas y encajan con tu empresa, y preparamos la memoria técnica y la documentación de la solicitud. Si no hay una ayuda vigente que encaje, te lo decimos antes de que pierdas tiempo con ella."
 description: "Identificamos ayudas públicas y preparamos proyectos cuando existe una convocatoria vigente que encaja con tu empresa. Antes comprobamos el estado, el plazo, la elegibilidad y las bases oficiales. IA360 2026/2027 figura cerrada y Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026; no damos por abierta una convocatoria sucesora."
 order: 3
 icon: "lightbulb"

@@ -61,14 +61,10 @@ const description =
                 <span class="service-num">0{i + 1}</span>
                 <span class="service-main">
                   <h3 class="service-title"><span class="t-link">{s.data.title}</span></h3>
-                  <p class="service-tagline">{s.data.tagline}</p>
-                  <ul class="service-points">
-                    {s.data.highlights.slice(0, 3).map((h) => (
-                      <li>{h}</li>
-                    ))}
-                  </ul>
+                  <p class="service-text">{s.data.summary ?? s.data.description}</p>
+                  <span class="service-more">Ver servicio</span>
                 </span>
-                <Icon name="arrow" size={22} class="arrow service-arrow" />
+                <Icon name="arrow" size={24} class="arrow service-arrow" />
               </a>
             </li>
           ))
@@ -212,15 +208,17 @@ const description =
   }
 
   /* ----- Services ----- */
+  /* Legacy anchor; absolute so it is not a grid cell. */
   #services {
-    position: relative;
+    position: absolute;
     top: calc(-1 * var(--header-h));
   }
 
   .services {
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 3rem clamp(3rem, 6vw, 6rem);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 3rem clamp(3rem, 6vw, 7rem);
     align-items: start;
   }
 
@@ -231,6 +229,10 @@ const description =
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
+  }
+
+  .services-head .section-title {
+    font-size: clamp(2rem, 3.6vw, 3rem);
   }
 
   .services-head .section-lead {
@@ -245,16 +247,16 @@ const description =
 
   .service {
     display: grid;
-    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
     gap: 1.5rem;
-    padding: clamp(2rem, 4vw, 3rem) 0;
-    border-bottom: 1px solid var(--line-strong);
+    padding: clamp(2.5rem, 4.5vw, 4rem) 0;
+    border-bottom: 1px solid var(--ink);
     text-decoration: none;
     color: var(--ink);
   }
 
   .service-num {
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -265,40 +267,35 @@ const description =
   .service-main {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    align-items: flex-start;
+    gap: 1.25rem;
     min-width: 0;
   }
 
   .service-title {
-    font-size: clamp(1.625rem, 3vw, 2.5rem);
+    font-size: clamp(2rem, 3.8vw, 3.5rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
+    letter-spacing: -0.045em;
+    line-height: 1;
   }
 
-  .service-tagline {
-    font-size: 1.125rem;
+  .service-text {
+    max-width: 58ch;
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+    line-height: 1.6;
     color: var(--muted);
-    max-width: 48ch;
   }
 
-  .service-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    padding: 0.5rem 0 0;
-    list-style: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-  }
-
-  .service-points li::before {
-    content: '— ';
-    color: var(--muted);
+  .service-more {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
   }
 
   .service :global(.service-arrow) {
-    margin-top: 0.6rem;
+    margin-top: 0.75rem;
     color: var(--muted);
     transition:
       transform var(--t) var(--ease),
@@ -416,6 +413,10 @@ const description =
 
     .service-num {
       display: none;
+    }
+
+    .service-title {
+      font-size: 2rem;
     }
 
     .team {

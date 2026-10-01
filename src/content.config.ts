@@ -121,6 +121,8 @@ const servicios = defineCollection({
   schema: z.object({
     title: z.string(),
     tagline: z.string(),
+    /** Two or three sentences for the home. Falls back to `description`. */
+    summary: z.string().min(80).max(400).optional(),
     description: z.string().min(70),
     seoTitle: z.string().max(160).optional(),
     order: z.number().int(),

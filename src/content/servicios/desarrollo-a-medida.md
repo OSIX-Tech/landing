@@ -1,6 +1,7 @@
 ---
 title: "Desarrollo a Medida"
 tagline: "Software a medida con IA para pymes de Galicia y España."
+summary: "Aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA, integradas con los procesos y las herramientas que ya usas. Tú defines el qué; nosotros lo construimos, lo ponemos en producción y lo mantenemos."
 description: "Desarrollamos software a medida para pymes de Galicia y España: aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA. Integramos la solución con tus procesos y herramientas existentes, sin obligarte a cambiar cómo trabaja tu empresa."
 order: 1
 icon: "code"
