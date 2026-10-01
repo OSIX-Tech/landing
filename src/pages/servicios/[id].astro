@@ -203,10 +203,15 @@ const words = data.title.split(' ');
 
   .crumbs a {
     text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--t) var(--ease);
   }
 
   .crumbs a:hover {
-    text-decoration: underline;
+    background-size: 100% 1px;
   }
 
   h1 {
@@ -310,7 +315,8 @@ const words = data.title.split(' ');
 
   .svc-highlights-inner {
     padding: 2rem;
-    background: var(--surface);
+    background: var(--paper);
+    border: 1px solid var(--line);
   }
 
   .svc-highlights ul {
@@ -397,9 +403,12 @@ const words = data.title.split(' ');
     margin-top: 0.15rem;
   }
 
+  .svc-links a {
+    transition: color var(--t-fast) var(--ease);
+  }
+
   .svc-links a:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+    color: var(--muted);
   }
 
   @media (max-width: 900px) {

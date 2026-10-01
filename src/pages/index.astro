@@ -86,7 +86,7 @@ const description =
   </section>
 
   <!-- Guides: the library, on grey. -->
-  <section class="band band-surface" id="guias">
+  <section class="band" id="guias">
     <div class="shell">
       <SectionHead
         title="Guías **prácticas**"
@@ -123,11 +123,10 @@ const description =
     </div>
   </section>
 
-  <section class="band band-surface" id="faq">
+  <section class="band" id="faq">
     <div class="shell faq-grid">
       <div class="reveal">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2 class="section-title faq-title">Lo que <strong>necesitas</strong> saber</h2>
+        <h2 class="section-title faq-title">Preguntas<br />frecuentes</h2>
       </div>
       <Faq faqs={faqs} title="Preguntas frecuentes sobre OSIX" id="faq-osix" />
     </div>
@@ -329,7 +328,7 @@ const description =
     aspect-ratio: 1;
     object-fit: cover;
     margin-bottom: 0.75rem;
-    background: var(--surface);
+    background: var(--paper);
     filter: grayscale(1);
     transition: filter var(--t) var(--ease);
   }
@@ -357,7 +356,7 @@ const description =
   }
 
   .faq-title {
-    margin-top: 0.75rem;
+    margin-top: 0;
   }
 
   .faq-grid :global(.faq h2) {

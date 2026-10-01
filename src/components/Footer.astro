@@ -68,7 +68,7 @@ const year = new Date().getUTCFullYear();
 
 <style>
   .site-footer {
-    background: var(--ink);
+    background: var(--black);
     color: var(--paper);
     padding-block: 4.5rem 2rem;
     font-size: 0.9375rem;
@@ -136,20 +136,23 @@ const year = new Date().getUTCFullYear();
     margin-top: 0.55rem;
   }
 
+  /* Same hover as everywhere: an underline drawn from the left, text-wide. */
   .cols a,
-  .bottom a {
+  .bottom a,
+  .contact a {
     color: var(--paper);
     text-decoration: none;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--t) var(--ease);
   }
 
   .cols a:hover,
   .bottom a:hover,
   .contact a:hover {
-    opacity: 1;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+    background-size: 100% 1px;
   }
 
   .bottom {

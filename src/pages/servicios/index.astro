@@ -143,14 +143,17 @@ const description =
 
   li {
     padding: 0.35rem 0.75rem;
-    background: var(--surface);
+    background: var(--paper);
+    border: 1px solid var(--line);
     font-size: 0.875rem;
   }
 
+  .svc h2 {
+    transition: color var(--t-fast) var(--ease);
+  }
+
   .svc:hover h2 {
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
-    text-decoration-thickness: 2px;
+    color: var(--muted);
   }
 
   @media (max-width: 720px) {

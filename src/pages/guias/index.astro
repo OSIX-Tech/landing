@@ -180,15 +180,19 @@ const description =
   }
 
   .hub-item-title {
+    align-self: flex-start;
     font-size: 1.0625rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    transition: color 0.2s ease;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--t) var(--ease);
   }
 
   .hub-list a:hover .hub-item-title {
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+    background-size: 100% 1px;
   }
 
   .hub-item-summary {

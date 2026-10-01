@@ -16,7 +16,7 @@ import { parse } from 'yaml';
 const ROOT = path.resolve();
 const OUT = path.join(ROOT, 'src/assets/figures');
 const FONT_DIR = path.join(ROOT, 'node_modules/@fontsource/plus-jakarta-sans/files');
-const VERSION = 'figures-v4'; // bump to re-render everything after a design change
+const VERSION = 'figures-v5'; // bump to re-render everything after a design change
 
 const W = 1600;
 const H = 900;
@@ -131,7 +131,7 @@ function guideCover(slug, data) {
       flexDirection: 'column',
       justifyContent: 'space-between',
       padding: 72,
-      background: SURFACE,
+      background: PAPER,
       color: INK,
       fontFamily: FONT,
       position: 'relative',
