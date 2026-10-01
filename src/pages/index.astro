@@ -19,7 +19,12 @@ const description =
   'OSIX Tech: consultoría de IA y desarrollo de software a medida para pymes de Galicia y España. Automatización, agentes de IA y casos en producción con cifras medidas.';
 ---
 
-<BaseLayout title={title} description={description} jsonLd={[webPage({ path: '/', name: title, description }), faqPage('/', faqs)]}>
+<BaseLayout
+  title={title}
+  description={description}
+  markdown="/index.md"
+  jsonLd={[webPage({ path: '/', name: title, description }), faqPage('/', faqs)]}
+>
   <Hero />
 
   <!-- Clients: a black band with the logos in white, moving slowly. Pauses on hover. -->

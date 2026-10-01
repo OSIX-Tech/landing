@@ -211,12 +211,53 @@
       "permanent": true
     },
     {
+      "source": "/about",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
       "source": "/:path((?!.*\\.)(?!.*\\/$).+)",
       "destination": "/:path/",
       "permanent": true
     }
   ],
   "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*)text/markdown(.*)"
+        }
+      ],
+      "destination": "/index.md"
+    },
     {
       "source": "/guias/:slug/",
       "has": [
@@ -307,6 +348,19 @@
         {
           "key": "Link",
           "value": "</casos/:slug.md>; rel=\"alternate\"; type=\"text/markdown\""
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept"
+        },
+        {
+          "key": "Link",
+          "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\""
         }
       ]
     }
