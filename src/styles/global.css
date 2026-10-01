@@ -336,7 +336,6 @@ a.t-link:focus-visible {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: var(--black);
-  border: 1px solid var(--line);
 }
 
 .card-body {
@@ -535,24 +534,10 @@ a.t-link:focus-visible {
 }
 
 /* ---------- Disclosures ----------
-   Every <details> (FAQ, sidebar groups, mobile index) opens and closes smoothly, in CSS
-   only: the content box animates between 0 and its natural height. Browsers without
-   ::details-content or interpolate-size simply snap, as before. */
-:root {
-  interpolate-size: allow-keywords;
-}
-
-details:not(.mobile)::details-content {
-  display: block;
-  height: 0;
-  overflow: clip;
-  transition:
-    height var(--t) var(--ease),
-    content-visibility var(--t) allow-discrete;
-}
-
-details:not(.mobile)[open]::details-content {
-  height: auto;
+   <details> open and close smoothly through the small inline script in BaseLayout, which
+   animates the content's height and opacity; without it they snap, as native. */
+details > summary {
+  cursor: pointer;
 }
 
 /* ---------- Motion ---------- */

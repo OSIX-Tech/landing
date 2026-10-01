@@ -71,7 +71,7 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
     transition: transform var(--t) var(--ease);
   }
 
-  details[open] summary::after {
+  details[open]:not(.closing) summary::after {
     transform: rotate(45deg);
   }
 

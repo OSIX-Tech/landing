@@ -118,6 +118,40 @@ const speculation = {
       <slot />
     </main>
     <Footer />
+    <!-- Smooth open/close for <details> (FAQ, sidebar groups, mobile index). Half a kilobyte,
+         inline, no dependencies; reading pages still ship no bundled JavaScript. -->
+    <script is:inline>
+      (function () {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        document.addEventListener('click', function (e) {
+          var s = e.target.closest('summary');
+          if (!s) return;
+          var d = s.parentElement;
+          if (!d || d.tagName !== 'DETAILS' || d.classList.contains('mobile')) return;
+          var c = s.nextElementSibling;
+          if (!c || d.dataset.busy) return;
+          e.preventDefault();
+          d.dataset.busy = '1';
+          var o = { duration: 320, easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)' };
+          c.style.overflow = 'hidden';
+          var done = function () {
+            c.style.overflow = '';
+            delete d.dataset.busy;
+          };
+          if (d.open) {
+            d.classList.add('closing');
+            c.animate([{ height: c.offsetHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], o).onfinish = function () {
+              d.open = false;
+              d.classList.remove('closing');
+              done();
+            };
+          } else {
+            d.open = true;
+            c.animate([{ height: '0px', opacity: 0 }, { height: c.offsetHeight + 'px', opacity: 1 }], o).onfinish = done;
+          }
+        });
+      })();
+    </script>
     <Analytics />
     <SpeedInsights />
   </body>

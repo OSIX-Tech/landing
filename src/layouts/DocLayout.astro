@@ -321,7 +321,6 @@ const hasToc = toc.length >= 3;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     background: var(--black);
-    border: 1px solid var(--line);
   }
 
   .doc-cover figcaption {
@@ -375,7 +374,7 @@ const hasToc = toc.length >= 3;
     color: var(--muted);
   }
 
-  .sidebar-group[open] > summary::after {
+  .sidebar-group[open]:not(.closing) > summary::after {
     content: '–';
   }
 

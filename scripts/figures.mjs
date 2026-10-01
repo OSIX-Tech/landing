@@ -16,7 +16,7 @@ import { parse } from 'yaml';
 const ROOT = path.resolve();
 const OUT = path.join(ROOT, 'src/assets/figures');
 const FONT_DIR = path.join(ROOT, 'node_modules/@fontsource/plus-jakarta-sans/files');
-const VERSION = 'figures-v7'; // bump to re-render everything after a design change
+const VERSION = 'figures-v8'; // bump to re-render everything after a design change
 
 const W = 1600;
 const H = 900;
@@ -106,37 +106,13 @@ function seeded(str) {
 }
 
 // ---------- renderers ----------
-const GREY_1 = '#8a8a8a';
 const GREY_2 = '#d9d9d9';
-const GREY_3 = '#efefef';
 
-/** Six hand-set compositions of the mark; the slug picks one, so every guide differs and
- *  none looks accidental. All black, white and grey. The right half of the frame is theirs;
- *  the text owns the bottom-left. */
-const LAYOUTS = [
-  () => [mark({ size: 980, x: 900, y: 40, rotate: 0, left: INK, right: GREY_2 })],
-  () => [mark({ size: 620, x: 1000, y: 60, rotate: 90, left: INK, right: INK })],
-  () => [
-    mark({ size: 520, x: 780, y: 60, rotate: 0, left: GREY_2, right: GREY_2 }),
-    mark({ size: 520, x: 1040, y: 300, rotate: 0, left: INK, right: INK }),
-  ],
-  () => [
-    mark({ size: 1500, x: 500, y: -120, rotate: 0, left: GREY_3, right: GREY_3 }),
-    mark({ size: 420, x: 1110, y: 90, rotate: 0, left: INK, right: INK }),
-  ],
-  () => [mark({ size: 760, x: 940, y: 150, rotate: 180, left: INK, right: GREY_1 })],
-  () => [
-    mark({ size: 300, x: 760, y: 100, rotate: 0, left: INK, right: INK }),
-    mark({ size: 300, x: 1030, y: 100, rotate: 0, left: GREY_1, right: GREY_1 }),
-    mark({ size: 300, x: 1300, y: 100, rotate: 0, left: GREY_2, right: GREY_2 }),
-  ],
-];
+const GUIDE_DESIGN = process.env.GUIDE_DESIGN ?? 'titulo';
 
-function guideCover(slug, data) {
-  const pick = Math.floor(seeded(slug)() * LAYOUTS.length);
-  const category = data.category;
-  const size = category.length > 22 ? 84 : category.length > 14 ? 104 : 128;
-  return el(
+const titleSize = (t) => (t.length > 64 ? 64 : t.length > 44 ? 76 : 92);
+const frame = (children, extra = {}) =>
+  el(
     'div',
     {
       width: W,
@@ -144,25 +120,77 @@ function guideCover(slug, data) {
       flexDirection: 'column',
       justifyContent: 'space-between',
       padding: 72,
-      background: PAPER,
-      color: INK,
+      background: INK,
+      color: PAPER,
       fontFamily: FONT,
       position: 'relative',
       overflow: 'hidden',
+      ...extra,
     },
-    [
-      ...LAYOUTS[pick](),
-      eyebrow('Guía práctica', MUTED),
-      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
-        el('div', { flexDirection: 'column', maxWidth: 1000 }, [
-          text(category, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.045, lineHeight: 0.98 }),
-          text('Para pymes, con fuentes y límites claros', { marginTop: 28, fontSize: 28, fontWeight: 500, color: MUTED }),
-        ]),
-        logo(logoDark, 40),
-      ]),
-    ],
+    children,
   );
-}
+
+/** Guide covers: the case cover's language (black, white type, OSIX top right) with text
+ *  instead of figures. Four designs; GUIDE_DESIGN picks one. */
+const GUIDE_DESIGNS = {
+  // The guide's title, large, bottom-left.
+  titulo(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow(`Guía · ${data.category}`, MUTED_ON_INK), logo(logoLight, 40)]),
+      el('div', { flexDirection: 'column', maxWidth: 1340 }, [
+        text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+        text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+      ]),
+    ]);
+  },
+  // The category huge, the title under it in grey.
+  categoria(slug, data) {
+    const c = data.category;
+    const size = c.length > 22 ? 96 : c.length > 14 ? 120 : 150;
+    return frame([
+      el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow('Guía práctica', MUTED_ON_INK), logo(logoLight, 40)]),
+      el('div', { flexDirection: 'column', maxWidth: 1340 }, [
+        text(c, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.045, lineHeight: 0.98 }),
+        text(data.shortTitle ?? data.title, { marginTop: 32, fontSize: 34, fontWeight: 500, lineHeight: 1.3, color: GREY_2, maxWidth: 1100 }),
+      ]),
+    ]);
+  },
+  // Title bottom-left with the mark in dark grey cropped at the top right.
+  marca(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      mark({ size: 1100, x: 900, y: -140, rotate: 0, left: '#262626', right: '#1a1a1a' }),
+      el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow(`Guía · ${data.category}`, MUTED_ON_INK), logo(logoLight, 40)]),
+      el('div', { flexDirection: 'column', maxWidth: 1200 }, [
+        text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+        text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+      ]),
+    ]);
+  },
+  // Centred title between two hairlines, like a book cover.
+  centrado(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t) - 8;
+    return frame([
+      el('div', { justifyContent: 'space-between', alignItems: 'center', paddingBottom: 28, borderBottom: `1px solid ${LINE_ON_INK}` }, [
+        eyebrow('Guía práctica', MUTED_ON_INK),
+        eyebrow(data.category, MUTED_ON_INK),
+      ]),
+      el('div', { flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0 80px' }, [
+        text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.04, textAlign: 'center' }),
+      ]),
+      el('div', { justifyContent: 'space-between', alignItems: 'center', paddingTop: 28, borderTop: `1px solid ${LINE_ON_INK}` }, [
+        text('Para pymes · con fuentes y límites claros', { fontSize: 24, fontWeight: 500, color: MUTED_ON_INK }),
+        logo(logoLight, 36),
+      ]),
+    ]);
+  },
+};
+
+const guideCover = (slug, data) => GUIDE_DESIGNS[GUIDE_DESIGN](slug, data);
 
 function caseCover(data) {
   const metrics = data.metrics.slice(0, 4);
@@ -269,6 +297,15 @@ function frontmatter(file) {
   return parse(m[1]);
 }
 
+if (process.env.PREVIEW_OUT) {
+  const slug = process.env.PREVIEW_SLUG ?? 'automatizar-albaranes-facturas-proveedores-erp';
+  const data = frontmatter(path.join(ROOT, 'src/content/guias', `${slug}.md`));
+  fs.mkdirSync(process.env.PREVIEW_OUT, { recursive: true });
+  for (const name of Object.keys(GUIDE_DESIGNS)) await render(GUIDE_DESIGNS[name](slug, data), path.join(process.env.PREVIEW_OUT, `${name}.png`));
+  console.log(`preview: ${Object.keys(GUIDE_DESIGNS).join(', ')} → ${process.env.PREVIEW_OUT}`);
+  process.exit(0);
+}
+
 const started = Date.now();
 let rendered = 0;
 const wanted = new Set();
@@ -281,7 +318,7 @@ for (const collection of ['guias', 'casos']) {
     const out = path.join(OUT, collection, slug);
     wanted.add(path.join(collection, slug, 'cover'));
     if (collection === 'guias') {
-      rendered += await emit(out, 'cover', { category: data.category, slug }, () => guideCover(slug, data));
+      rendered += await emit(out, 'cover', { design: GUIDE_DESIGN, category: data.category, title: data.shortTitle ?? data.title }, () => guideCover(slug, data));
     } else {
       rendered += await emit(out, 'cover', { metrics: data.metrics, status: data.status, category: data.category }, () => caseCover(data));
       for (const spec of data.figures ?? []) {
