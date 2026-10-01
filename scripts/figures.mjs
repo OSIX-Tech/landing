@@ -73,13 +73,19 @@ const minY = Math.min(...all.map((p) => p[1]));
 const maxY = Math.max(...all.map((p) => p[1]));
 const MARK_RATIO = (maxX - minX) / (maxY - minY);
 
-function mark({ size, x, y, rotate, left, right }) {
+function mark({ size, x, y, rotate, left, right, stroke }) {
   // Satori has no polygon clipping, so the mark is an inline SVG passed as an image.
+  // With `stroke`, the halves are outlined instead of filled.
   const height = Math.round(size / MARK_RATIO);
   const pts = (points) => points.map(([px, py]) => `${(px - minX).toFixed(3)},${(py - minY).toFixed(3)}`).join(' ');
+  const pad = stroke ? 0.6 : 0;
+  const poly = (points, fill) =>
+    stroke
+      ? `<polygon points="${pts(points)}" fill="none" stroke="${fill}" stroke-width="${stroke}" stroke-linejoin="round"/>`
+      : `<polygon points="${pts(points)}" fill="${fill}"/>`;
   const svg =
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${(maxX - minX).toFixed(3)} ${(maxY - minY).toFixed(3)}">` +
-    `<polygon points="${pts(LEFT)}" fill="${left}"/><polygon points="${pts(RIGHT)}" fill="${right}"/></svg>`;
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-pad} ${-pad} ${(maxX - minX + 2 * pad).toFixed(3)} ${(maxY - minY + 2 * pad).toFixed(3)}">` +
+    poly(LEFT, left) + poly(RIGHT, right) + `</svg>`;
   return {
     type: 'img',
     props: {
@@ -108,7 +114,7 @@ function seeded(str) {
 // ---------- renderers ----------
 const GREY_2 = '#d9d9d9';
 
-const GUIDE_DESIGN = process.env.GUIDE_DESIGN ?? 'marca';
+const GUIDE_DESIGN = process.env.GUIDE_DESIGN ?? 'marca-arriba';
 
 const titleSize = (t) => (t.length > 64 ? 64 : t.length > 44 ? 76 : 92);
 const frame = (children, extra = {}) =>
@@ -168,6 +174,135 @@ const GUIDE_DESIGNS = {
       el('div', { flexDirection: 'column', maxWidth: 1080 }, [
         text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
         text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+      ]),
+    ]);
+  },
+  // Mark top-right, cut in half; wordmark bottom-right.
+  'marca-arriba'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const m = 1080;
+    return frame([
+      mark({ size: m, x: W - m * 0.56, y: -150, rotate: 0, left: PAPER, right: PAPER }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Mark top-right, cut in half, with the wordmark in black over it.
+  'marca-arriba-negro'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const m = 760;
+    return frame([
+      mark({ size: m, x: W - m / 2, y: 40, rotate: 0, left: PAPER, right: PAPER }),
+      el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow(`Guía · ${data.category}`, MUTED_ON_INK), logo(logoDark, 40)]),
+      el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+        text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+        text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+      ]),
+    ]);
+  },
+  // White cover: black mark top-right cut in half, black wordmark bottom-right.
+  'blanco'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const m = 1080;
+    return frame(
+      [
+        mark({ size: m, x: W - m * 0.56, y: -150, rotate: 0, left: INK, right: INK }),
+        eyebrow(`Guía · ${data.category}`, MUTED),
+        el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+          el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+            text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+            text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED }),
+          ]),
+          logo(logoDark, 40),
+        ]),
+      ],
+      { background: PAPER, color: INK },
+    );
+  },
+  // Whole mark, white, upper right.
+  'marca-entera'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      mark({ size: 520, x: W - 72 - 520, y: 72, rotate: 0, left: PAPER, right: PAPER }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Whole mark outlined, upper right.
+  'marca-trazo'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      mark({ size: 560, x: W - 72 - 560, y: 60, rotate: 0, left: PAPER, right: PAPER, stroke: 0.35 }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Whole mark, one half white and one grey, upper right.
+  'marca-dos-tonos'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      mark({ size: 520, x: W - 72 - 520, y: 72, rotate: 0, left: PAPER, right: '#5c5c5c' }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // The full OSIX wordmark, large, upper right; nothing else.
+  'wordmark'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-start' }, [eyebrow(`Guía · ${data.category}`, MUTED_ON_INK), logo(logoLight, 96)]),
+      el('div', { flexDirection: 'column', maxWidth: 1200 }, [
+        text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+        text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+      ]),
+    ]);
+  },
+  // A row of three small marks fading to grey, upper right.
+  'tres-marcas'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      mark({ size: 220, x: W - 72 - 220, y: 72, rotate: 0, left: PAPER, right: PAPER }),
+      mark({ size: 220, x: W - 72 - 220 * 2 - 40, y: 72, rotate: 0, left: '#8a8a8a', right: '#8a8a8a' }),
+      mark({ size: 220, x: W - 72 - 220 * 3 - 80, y: 72, rotate: 0, left: '#3a3a3a', right: '#3a3a3a' }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
       ]),
     ]);
   },

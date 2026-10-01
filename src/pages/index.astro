@@ -96,7 +96,7 @@ const description =
         </a>
         <ol class="cases-list reveal-stagger">
           {
-            cases.slice(1).map((c) => (
+            cases.slice(1, 5).map((c) => (
               <li>
                 <a class="cases-row" href={`/casos/${c.id}/`}>
                   <span class="cases-metric">
@@ -111,9 +111,20 @@ const description =
               </li>
             ))
           }
+          <li>
+            <a class="cases-row cases-more" href="/casos/">
+              <span class="cases-metric">
+                <strong>+{cases.length - 5}</strong>
+                <span>casos más</span>
+              </span>
+              <span class="cases-row-title">
+                <span class="t-link">Ver los {cases.length} casos en producción</span>
+              </span>
+              <Icon name="arrow" size={18} class="arrow" />
+            </a>
+          </li>
         </ol>
       </div>
-      <a class="link-arrow cases-all reveal" href="/casos/">Ver los {cases.length} casos <Icon name="arrow" size={15} class="arrow" /></a>
     </div>
   </section>
 
@@ -432,8 +443,17 @@ const description =
     color: var(--paper);
   }
 
-  .cases-all {
-    margin-top: 2.5rem;
+  .cases-more .cases-metric strong,
+  .cases-more .cases-row-title {
+    color: var(--muted-on-ink);
+  }
+
+  .cases-more:hover .cases-row-title {
+    color: var(--paper);
+  }
+
+  .cases-row-title {
+    transition: color var(--t-fast) var(--ease);
   }
 
   /* ----- Guides ----- */
