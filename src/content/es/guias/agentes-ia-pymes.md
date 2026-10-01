@@ -102,7 +102,7 @@ Los conceptos y límites se contrastaron con las referencias que los buscadores 
 
 ## Fuentes
 
-- [Google Cloud: qué son los agentes de IA](https://cloud.google.com/use-cases/ai-agents)
+- [Google Cloud: qué es un agente de IA](https://cloud.google.com/discover/what-are-ai-agents)
 - [OpenAI: agentes para empresas](https://openai.com/index/introducing-agent-kit/)
 - [IBM: guía de agentes de IA](https://www.ibm.com/think/topics/ai-agents)
 - [Microsoft: agentes en Copilot](https://www.microsoft.com/es-es/microsoft-copilot)

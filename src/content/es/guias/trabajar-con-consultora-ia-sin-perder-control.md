@@ -159,5 +159,5 @@ El marco legal se ha verificado contra fuentes oficiales: el artículo 28 del RG
 - AEPD, responsable y encargado del tratamiento (artículo 28 del RGPD): https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/8-responsable-y-encargado-del-tratamiento
 - AEPD, decálogo de recomendaciones para proteger la privacidad al usar herramientas de IA: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-publica-decalogo-recomendaciones-proteger-privacidad-al-usar-ia
 - Hiberus Booster, consultor de IA para empresas: precio y cómo elegir (tarifas por día): https://www.hiberusbooster.com/guias/consultor-ia-para-empresas/
-- Utilia, consultoría de IA: cuándo la necesitas (tramos de precio): https://www.utilia.ai//blog/consultoria-ia-cuando-necesitas
+- Utilia, consultoría de IA: cuándo la necesitas (tramos de precio): https://www.utilia.ai/es/blog/consultoria-ia-cuando-necesitas
 - OSIX Tech, cuánto cuesta automatizar procesos con IA en una pyme española: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
