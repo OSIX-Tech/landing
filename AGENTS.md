@@ -125,8 +125,9 @@ Editorial rules for cases (binding):
 
 - Reading pages (guides, cases, legal, `/nosotros/`) ship **no client JavaScript**.
   `scripts/check-dist.mjs` fails the build if they do.
-- Typography is bold: headings are weight 700–800, section titles put one word in the
-  accent red. Nothing on the site uses weights under 500 except body text.
+- OSIX is black and white: full black (`#000000`) and full white, greys only for
+  hierarchy, no accent colour anywhere, images included. Headings are weight 700–800;
+  nothing on the site uses weights under 500 except body text.
 - Motion: micro-interactions 150–250 ms, transitions 300–400 ms, the `--ease` curve, no
   spring or bounce, only `transform` and `opacity`, prefer fading over moving, never hide
   the H1 or above-the-fold content, nothing moves under `prefers-reduced-motion`. List
