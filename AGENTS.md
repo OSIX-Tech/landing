@@ -29,11 +29,13 @@ Reading pages are text, tables, quotes and images. The images come from
 `scripts/figures.mjs`, which runs before every `pnpm dev` and `pnpm build` (or alone with
 `pnpm figures`) and writes PNGs to `src/assets/figures/` (not committed):
 
-- **Every guide and case gets a cover** at `src/assets/figures/<collection>/<slug>/cover.png`.
-  It is the image on cards, at the top of the page and in social previews. A guide cover
-  shows its `category`; a case cover shows its `metrics` and `status`. To use a real
-  photo or illustration instead, add `cover: "../../assets/covers/<file>.png"` (16:9) to the
-  frontmatter.
+- **Every case gets a cover** at `src/assets/figures/casos/<slug>/cover.png`: black, with
+  its `metrics` and `status`. It is the image on cards, at the top of the page and in
+  social previews. To use a real photo or illustration instead, add
+  `cover: "../../assets/covers/<file>.png"` (16:9) to the frontmatter.
+- **Guides show no images.** Their cards and pages are text. The build still renders
+  `src/assets/figures/guias/<slug>/cover.png` (black, the title) but only as the social
+  preview (`og:image`); `cover:` in the frontmatter replaces it.
 - **A case can declare charts** in `figures:` and place them in the body with a normal
   Markdown image whose path is `../../assets/figures/casos/<slug>/<id>.png`. The build
   fails if the body references a figure that is not declared. Only `type: "bars"` exists;

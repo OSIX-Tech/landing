@@ -81,10 +81,8 @@ const guias = defineCollection({
       related: z.array(z.string()).default([]),
       /** Only when the body has no "## Preguntas frecuentes" section; rendered visibly. */
       faqs: z.array(faq).optional(),
-      /** Own cover (16:9, in src/assets/covers/). Without it the build generates one. */
+      /** Own social-preview image (16:9). Without it the build generates one; guides show no cover on the page. */
       cover: image().optional(),
-      /** Lucide icon drawn on the generated cover; defaults by category, then section. */
-      icon: z.string().regex(/^[a-z0-9-]+$/).optional(),
       draft: z.boolean().default(false),
     }),
 });
