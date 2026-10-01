@@ -20,51 +20,6 @@ metrics:
   - value: "62,2 %"
     label: "del correo entrante era ruido"
     note: "apartado automáticamente"
-secondaryMetrics:
-  - value: "4.893"
-    label: "transacciones creadas solas"
-    note: "3.176 ventas · 1.717 compras · 7 meses"
-  - value: "8.387"
-    label: "correos trazados en el CRM"
-    note: "unos 1.251 al mes"
-  - value: "1.987"
-    label: "cambios de estado del pipeline"
-    note: "100 % automáticos"
-  - value: "212"
-    label: "días sin reiniciar"
-    note: "mismo despliegue desde febrero"
-limit:
-  title: "El límite que mantenemos visible"
-  body:
-    - "La métrica mide ingesta, clasificación, propuesta y registro. No afirma que el sistema envíe respuestas: el envío asistido está construido, pero el equipo no lo usa, así que no publicamos tiempo de respuesta al cliente ni respuestas enviadas."
-    - "Tampoco publicamos horas ahorradas. Sabemos cuántos correos se clasifican y se registran solos; no cuántos minutos costaba hacerlo a mano en esta empresa concreta."
-    - "La precisión de la clasificación tampoco tiene todavía una cifra pública: para darla habría que revisar a mano una muestra y compararla."
-facts:
-  - key: "Cliente"
-    value: "ICIGA, distribución de material químico y de laboratorio."
-  - key: "En producción desde"
-    value: "9 de febrero de 2026."
-  - key: "Entrada"
-    value: "cuatro buzones de Gmail, con sus adjuntos."
-  - key: "Salida"
-    value: "propuesta de respuesta y CRM de transacciones anclado al hilo."
-  - key: "Intervención humana"
-    value: "ninguna en ingesta, clasificación y registro."
-  - key: "Fuente de las cifras"
-    value: "agregados de producción, logs y repositorios, sin datos personales."
-  - key: "Fecha de corte"
-    value: "8 de septiembre de 2026."
-faqs:
-  - question: "¿El sistema contesta a los clientes por su cuenta?"
-    answer: "No. Deja preparada una propuesta de respuesta y es una persona quien decide qué se envía. De hecho, en esta implantación el equipo no utiliza el envío asistido, y por eso no publicamos ninguna cifra de respuestas enviadas."
-  - question: "¿Qué pasa con el correo que llega de noche o en fin de semana?"
-    answer: "Se procesa igual. El 28,9 % del correo entra fuera de horario y queda clasificado y registrado antes de que nadie abra la bandeja."
-  - question: "¿Hay que cambiar de correo o de CRM?"
-    answer: "No. El sistema trabaja sobre los buzones de Gmail que la empresa ya usa y construye el registro de transacciones a partir de esos hilos, además de consultar el catálogo y el ERP existentes."
-cta:
-  title: "¿Tienes un proceso parecido?"
-  body:
-    - "Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible."
 relatedGuides:
   - "bandeja-compartida-crm-sin-copiar-correos"
 ---
@@ -90,3 +45,49 @@ Desde el **9** de febrero de 2026 el sistema ha trazado **8.387** correos y ha c
 En los últimos **31** días procesó **1.463** correos, **47** al día con un pico de **124**. El **99,5 %** de los correos relevantes llegó con una propuesta preparada: **377** de **379**.
 
 De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99,3 %** está listo en menos de cinco minutos. El **28,9 %** del correo entra fuera de horario y se procesa igual. El despliegue lleva **212** días sin reiniciarse y treinta días sin un solo error de aplicación.
+
+## Desglose de producción
+
+| Cifra | Qué mide | Detalle |
+| --- | --- | --- |
+| **4.893** | transacciones creadas solas | 3.176 ventas · 1.717 compras · 7 meses |
+| **8.387** | correos trazados en el CRM | unos 1.251 al mes |
+| **1.987** | cambios de estado del pipeline | 100 % automáticos |
+| **212** | días sin reiniciar | mismo despliegue desde febrero |
+
+## El límite que mantenemos visible
+
+La métrica mide ingesta, clasificación, propuesta y registro. No afirma que el sistema envíe respuestas: el envío asistido está construido, pero el equipo no lo usa, así que no publicamos tiempo de respuesta al cliente ni respuestas enviadas.
+
+Tampoco publicamos horas ahorradas. Sabemos cuántos correos se clasifican y se registran solos; no cuántos minutos costaba hacerlo a mano en esta empresa concreta.
+
+La precisión de la clasificación tampoco tiene todavía una cifra pública: para darla habría que revisar a mano una muestra y compararla.
+
+## Ficha del proyecto
+
+| | |
+| --- | --- |
+| **Cliente** | ICIGA, distribución de material químico y de laboratorio |
+| **En producción desde** | 9 de febrero de 2026 |
+| **Entrada** | Cuatro buzones de Gmail, con sus adjuntos |
+| **Salida** | Propuesta de respuesta y CRM de transacciones anclado al hilo |
+| **Intervención humana** | Ninguna en ingesta, clasificación y registro |
+| **Fuente de las cifras** | Agregados de producción, logs y repositorios, sin datos personales |
+| **Fecha de corte** | 8 de septiembre de 2026 |
+
+## Preguntas frecuentes
+
+**¿El sistema contesta a los clientes por su cuenta?**
+No. Deja preparada una propuesta de respuesta y es una persona quien decide qué se envía. De hecho, en esta implantación el equipo no utiliza el envío asistido, y por eso no publicamos ninguna cifra de respuestas enviadas.
+
+**¿Qué pasa con el correo que llega de noche o en fin de semana?**
+Se procesa igual. El 28,9 % del correo entra fuera de horario y queda clasificado y registrado antes de que nadie abra la bandeja.
+
+**¿Hay que cambiar de correo o de CRM?**
+No. El sistema trabaja sobre los buzones de Gmail que la empresa ya usa y construye el registro de transacciones a partir de esos hilos, además de consultar el catálogo y el ERP existentes.
+
+## ¿Tienes un proceso parecido?
+
+Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible.
+
+[Cuéntanos tu proceso](/contacto/)

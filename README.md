@@ -22,8 +22,9 @@ See [AGENTS.md](AGENTS.md) for how to add or change content.
 
 ```bash
 pnpm install
-pnpm dev        # http://localhost:4321
-pnpm build      # writes dist/
+pnpm dev        # renders covers and charts, then http://localhost:4321
+pnpm build      # renders covers and charts, then writes dist/
+pnpm figures    # only re-render the generated images (src/assets/figures/, not committed)
 pnpm check      # type checks and post-build checks (after build)
 ```
 

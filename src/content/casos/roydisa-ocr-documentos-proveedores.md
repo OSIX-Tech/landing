@@ -24,57 +24,18 @@ metrics:
     label: "error técnico desde junio"
     note: "7 de 17.500 documentos"
 metricsNote: "En la ventana medida, el sistema procesó 31.377 ficheros. La mediana desde la foto hasta el Excel fue de 27 segundos y el 88 % de los documentos terminó en menos de un minuto."
-secondaryMetrics:
-  - value: "16.021"
-    label: "Excels generados"
-    note: "8.672 albaranes · 5.024 facturas · 2.325 confirmaciones"
-  - value: "9.258"
-    label: "albaranes digitalizados"
-    note: "13.394 páginas · 4 delegaciones"
-  - value: "7.421"
-    label: "duplicados absorbidos"
-    note: "sin salida repetida"
-  - value: "1.026"
-    label: "ficheros en un día"
-    note: "pico observado"
-limit:
-  title: "El resultado medido tiene un alcance concreto"
-  body:
-    - "Este caso demuestra volumen procesado, tiempo de respuesta y error técnico observado. El 0,04 % corresponde a 7 errores en 17.500 documentos desde junio. No lo presentamos como una tasa general de precisión por campo, porque esa validación requeriría una revisión completa contra un conjunto de referencia."
-    - "Tampoco presentamos como resultado observado el ahorro estimado de horas administrativas. Para publicar esa cifra habría que comparar el tiempo real de introducción manual por tipo de documento antes y después del sistema."
-    - "Esa distinción es importante para cualquier proyecto de automatización documental. Procesar un documento no significa que todos sus campos estén validados de la misma forma, y reducir el tiempo de una etapa no demuestra por sí solo un ahorro financiero completo."
-facts:
-  - key: "Cliente"
-    value: "Roydisa."
-  - key: "Sector"
-    value: "distribución y suministros industriales."
-  - key: "En producción desde"
-    value: "12 de marzo de 2026."
-  - key: "Entrada"
-    value: "fotos y PDF depositados en carpetas del cliente."
-  - key: "Salida"
-    value: "Excel estructurado por línea de producto."
-  - key: "Despliegue"
-    value: "Google Drive o servidor propio con Docker."
-  - key: "Fuente de las cifras"
-    value: "agregados de producción, logs y metadatos de Drive, sin datos personales."
-  - key: "Fecha de corte"
-    value: "8 de septiembre de 2026."
-faqs:
-  - question: "¿El OCR funciona con documentos de proveedores diferentes?"
-    answer: "El flujo se midió sobre documentos reales de proveedores de Roydisa, con fotos y PDF de distintos tipos. La cifra publicada refleja el sistema en ese entorno concreto. Antes de extrapolar el resultado a otro negocio conviene probar una muestra propia."
-  - question: "¿Hay que contratar servidores nuevos?"
-    answer: "No necesariamente. El servicio puede vigilar carpetas de Google Drive o ejecutarse en un servidor propio con Docker. La arquitectura final depende de los requisitos del cliente y de dónde deban permanecer sus documentos."
-  - question: "¿El sistema elimina toda revisión humana?"
-    answer: "La cifra publicada mide el procesamiento automático y el error técnico observado. La necesidad de revisión depende del tipo de documento, de los campos críticos y del nivel de control que necesite cada proceso."
-  - question: "¿Qué diferencia hay entre error técnico y precisión del OCR?"
-    answer: "El error técnico indica fallos del flujo o de su ejecución en la ventana medida. No equivale a una validación completa de la exactitud de cada campo extraído. Por eso este caso no publica una precisión general por campo."
-cta:
-  title: "¿Qué documentos procesa hoy tu equipo?"
-  body:
-    - "Si tu equipo convierte albaranes, facturas, confirmaciones u otros documentos en datos a mano, el primer paso no es elegir un modelo. Es medir el flujo: cuántos documentos entran, qué tipos se repiten, cuánto tarda cada etapa y qué errores obligan a volver atrás."
-    - "OSIX puede ayudarte a localizar la parte que merece automatizarse primero y a decidir si necesitas OCR, reglas, integración con tu ERP o una combinación de las tres cosas."
-sourceNote: "Las cifras proceden de una auditoría agregada de la base documental, los logs y los repositorios de producción de cada producto OSIX. Se revisaron los metadatos completos del flujo de OCR en modo solo lectura. No se utilizaron datos personales."
+figures:
+  - id: "excels-por-tipo"
+    type: "bars"
+    title: "Excels generados por tipo de documento"
+    subtitle: "16.021 Excels entre el 12 de marzo y el 8 de septiembre de 2026"
+    items:
+      - label: "Albaranes"
+        value: 8672
+      - label: "Facturas"
+        value: 5024
+      - label: "Confirmaciones de pedido"
+        value: 2325
 relatedGuides:
   - "automatizar-albaranes-facturas-proveedores-erp"
 ---
@@ -99,6 +60,62 @@ No hay base de datos: la serie histórica de este caso se reconstruyó a partir 
 
 La ventana observada va del **12** de marzo al **8** de septiembre de 2026. En ese periodo se generaron **16.021** Excels: **8.672** albaranes, **5.024** facturas y **2.325** confirmaciones, a partir de unos **13,5** GB de fotos y PDF.
 
+![Excels generados por tipo de documento: 8.672 albaranes, 5.024 facturas y 2.325 confirmaciones de pedido](../../assets/figures/casos/roydisa-ocr-documentos-proveedores/excels-por-tipo.png)
+
 La media fue de **5.214** ficheros al mes, pero el sistema también absorbió un pico de **1.026** ficheros en un solo día. Ese contraste importa: el caso no demuestra únicamente que el flujo funcione en un día normal, sino que puede absorber días de mayor carga sin cambiar manualmente de infraestructura. De marzo a junio el volumen creció un **49 %**.
 
 Los **13.394** folios de albaranes se distribuyeron entre cuatro delegaciones. La salida no fue una cifra abstracta de documentos leídos, sino una colección de Excels que el equipo podía llevar a su siguiente paso operativo.
+
+## Desglose de producción
+
+| Cifra | Qué mide | Detalle |
+| --- | --- | --- |
+| **16.021** | Excels generados | 8.672 albaranes · 5.024 facturas · 2.325 confirmaciones |
+| **9.258** | albaranes digitalizados | 13.394 páginas · 4 delegaciones |
+| **7.421** | duplicados absorbidos | sin salida repetida |
+| **1.026** | ficheros en un día | pico observado |
+
+## El resultado medido tiene un alcance concreto
+
+Este caso demuestra volumen procesado, tiempo de respuesta y error técnico observado. El 0,04 % corresponde a 7 errores en 17.500 documentos desde junio. No lo presentamos como una tasa general de precisión por campo, porque esa validación requeriría una revisión completa contra un conjunto de referencia.
+
+Tampoco presentamos como resultado observado el ahorro estimado de horas administrativas. Para publicar esa cifra habría que comparar el tiempo real de introducción manual por tipo de documento antes y después del sistema.
+
+Esa distinción es importante para cualquier proyecto de automatización documental. Procesar un documento no significa que todos sus campos estén validados de la misma forma, y reducir el tiempo de una etapa no demuestra por sí solo un ahorro financiero completo.
+
+## Ficha del proyecto
+
+| | |
+| --- | --- |
+| **Cliente** | Roydisa |
+| **Sector** | Distribución y suministros industriales |
+| **En producción desde** | 12 de marzo de 2026 |
+| **Entrada** | Fotos y PDF depositados en carpetas del cliente |
+| **Salida** | Excel estructurado por línea de producto |
+| **Despliegue** | Google Drive o servidor propio con Docker |
+| **Fuente de las cifras** | Agregados de producción, logs y metadatos de Drive, sin datos personales |
+| **Fecha de corte** | 8 de septiembre de 2026 |
+
+Las cifras proceden de una auditoría agregada de la base documental, los logs y los repositorios de producción de cada producto OSIX. Se revisaron los metadatos completos del flujo de OCR en modo solo lectura. No se utilizaron datos personales.
+
+## Preguntas frecuentes
+
+**¿El OCR funciona con documentos de proveedores diferentes?**
+El flujo se midió sobre documentos reales de proveedores de Roydisa, con fotos y PDF de distintos tipos. La cifra publicada refleja el sistema en ese entorno concreto. Antes de extrapolar el resultado a otro negocio conviene probar una muestra propia.
+
+**¿Hay que contratar servidores nuevos?**
+No necesariamente. El servicio puede vigilar carpetas de Google Drive o ejecutarse en un servidor propio con Docker. La arquitectura final depende de los requisitos del cliente y de dónde deban permanecer sus documentos.
+
+**¿El sistema elimina toda revisión humana?**
+La cifra publicada mide el procesamiento automático y el error técnico observado. La necesidad de revisión depende del tipo de documento, de los campos críticos y del nivel de control que necesite cada proceso.
+
+**¿Qué diferencia hay entre error técnico y precisión del OCR?**
+El error técnico indica fallos del flujo o de su ejecución en la ventana medida. No equivale a una validación completa de la exactitud de cada campo extraído. Por eso este caso no publica una precisión general por campo.
+
+## ¿Qué documentos procesa hoy tu equipo?
+
+Si tu equipo convierte albaranes, facturas, confirmaciones u otros documentos en datos a mano, el primer paso no es elegir un modelo. Es medir el flujo: cuántos documentos entran, qué tipos se repiten, cuánto tarda cada etapa y qué errores obligan a volver atrás.
+
+OSIX puede ayudarte a localizar la parte que merece automatizarse primero y a decidir si necesitas OCR, reglas, integración con tu ERP o una combinación de las tres cosas.
+
+[Cuéntanos tu proceso](/contacto/)

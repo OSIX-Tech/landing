@@ -28,8 +28,9 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
 <style>
   .faq h2 {
     margin-bottom: 1.25rem;
-    font-size: 1.625rem;
-    letter-spacing: -0.025em;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 
   details {
@@ -46,10 +47,15 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
     gap: 1.5rem;
     padding: 1.15rem 0;
     font-size: 1.0625rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.4;
     cursor: pointer;
     list-style: none;
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  summary:hover {
+    color: var(--accent);
   }
 
   summary::-webkit-details-marker {
@@ -62,7 +68,7 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
     font-size: 1.35rem;
     font-weight: 300;
     line-height: 1;
-    transition: transform 0.25s var(--ease-out);
+    transition: transform var(--t) var(--ease);
   }
 
   details[open] summary::after {

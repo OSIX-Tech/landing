@@ -19,53 +19,19 @@ metrics:
   - value: "495"
     label: "tests automatizados"
     note: "ejecutados en cada cambio"
-secondaryMetrics:
-  - value: "105"
-    label: "castelanismos catalogados"
-    note: "recurso lingüístico propio"
-  - value: "104"
-    label: "reglas de lusismos"
-    note: "validadas después por un modelo de lenguaje"
-  - value: "41"
-    label: "patrones de muletilla"
-    note: "detección de repeticiones"
-  - value: "24 h"
-    label: "hasta el borrado automático"
-    note: "sin registro ni base de datos"
-limit:
-  title: "El límite que mantenemos visible"
-  body:
-    - "Lo que publicamos aquí es ingeniería y arquitectura, no adopción. El uso externo observable en tres meses de logs es mínimo, así que no damos usuarios, análisis realizados ni minutos de audio procesados."
-    - "Los objetivos técnicos comprometidos, tasa de error de transcripción, recall de castelanismos y latencia en el percentil 95, siguen sin validar contra un conjunto anotado, y hasta que se validen no se presentan como conseguidos."
-    - "El tiempo de análisis procede de mediciones puntuales, no de una serie con volumen. Lo damos como orden de magnitud."
-facts:
-  - key: "Contexto"
-    value: "colaboración con el Proxecto Nós (USC); presentado en el Foro ALIA de junio de 2026."
-  - key: "En producción desde"
-    value: "26 de mayo de 2026."
-  - key: "Entrada"
-    value: "audio en galego, sin registro previo."
-  - key: "Salida"
-    value: "transcripción anotada, puntuaciones, métricas de voz y feedback, exportable a PDF."
-  - key: "Datos"
-    value: "sin base de datos; borrado automático a las 24 horas."
-  - key: "Despliegue"
-    value: "nube o ejecución 100 % local con modelos abiertos gallegos."
-  - key: "Fuente de las cifras"
-    value: "agregados de producción, logs y repositorios, sin datos personales."
-  - key: "Fecha de corte"
-    value: "8 de septiembre de 2026."
-faqs:
-  - question: "¿Qué pasa con los audios que se suben?"
-    answer: "No se guardan. El sistema funciona sin registro y sin base de datos, y todo dato se borra automáticamente a las 24 horas."
-  - question: "¿Se puede ejecutar sin enviar nada a la nube?"
-    answer: "Sí. El mismo análisis puede correr en un pipeline 100 % local con modelos abiertos gallegos, que resuelve un audio de 60 segundos en 7 a 12 segundos sobre una GPU de gama media."
-  - question: "¿Cuánta gente lo usa?"
-    answer: "Poca, y no lo presentamos de otra forma. El uso externo observable es mínimo: este caso publica la ingeniería del sistema y la soberanía del dato, no cifras de adopción."
-cta:
-  title: "¿Tienes un proceso parecido?"
-  body:
-    - "Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible."
+figures:
+  - id: "motores-por-funcion"
+    type: "bars"
+    title: "Diecinueve motores conmutables, por función"
+    subtitle: "Incluidos el ASR de Nós y las voces Celtia y Brais"
+    unit: "motores"
+    items:
+      - label: "Modelos de lenguaje"
+        value: 11
+      - label: "Transcripción (ASR)"
+        value: 6
+      - label: "Síntesis de voz"
+        value: 2
 ---
 
 ## Galego falado, sin registro y sin base de datos
@@ -80,6 +46,8 @@ El caso de uso está seleccionado y financiado dentro de la colaboración con el
 
 El sistema conmuta entre **19** motores: **6** de transcripción, **11** de lenguaje y **2** de voz, incluidos el ASR de Nós y las voces Celtia y Brais.
 
+![Motores conmutables por función: 11 de lenguaje, 6 de transcripción y 2 de voz](../../assets/figures/casos/alia-galego/motores-por-funcion.png)
+
 El mismo análisis puede ejecutarse en nube o completamente en local con modelos abiertos gallegos. Esa es la parte que importa para una administración o un centro educativo: el audio puede no salir nunca de su infraestructura.
 
 La detección lingüística se apoya en recursos propios, **105** castelanismos, **104** reglas de lusismos y **41** patrones de muletilla, que después valida un modelo de lenguaje para reducir falsos positivos.
@@ -91,3 +59,50 @@ Un análisis completo en nube tarda unos **36** segundos de extremo a extremo. E
 El proyecto se construyó en **13** semanas con **85** commits, **26** pull requests, **26** incidencias cerradas y **7** decisiones de arquitectura documentadas, y se sostiene sobre **495** tests automatizados que se ejecutan en cada cambio.
 
 La landing responde en **17** milisegundos de mediana y no registra errores **5**xx para usuarios reales.
+
+## Desglose de producción
+
+| Cifra | Qué mide | Detalle |
+| --- | --- | --- |
+| **105** | castelanismos catalogados | recurso lingüístico propio |
+| **104** | reglas de lusismos | validadas después por un modelo de lenguaje |
+| **41** | patrones de muletilla | detección de repeticiones |
+| **24 h** | hasta el borrado automático | sin registro ni base de datos |
+
+## El límite que mantenemos visible
+
+Lo que publicamos aquí es ingeniería y arquitectura, no adopción. El uso externo observable en tres meses de logs es mínimo, así que no damos usuarios, análisis realizados ni minutos de audio procesados.
+
+Los objetivos técnicos comprometidos, tasa de error de transcripción, recall de castelanismos y latencia en el percentil 95, siguen sin validar contra un conjunto anotado, y hasta que se validen no se presentan como conseguidos.
+
+El tiempo de análisis procede de mediciones puntuales, no de una serie con volumen. Lo damos como orden de magnitud.
+
+## Ficha del proyecto
+
+| | |
+| --- | --- |
+| **Contexto** | Colaboración con el Proxecto Nós (USC); presentado en el Foro ALIA de junio de 2026 |
+| **En producción desde** | 26 de mayo de 2026 |
+| **Entrada** | Audio en galego, sin registro previo |
+| **Salida** | Transcripción anotada, puntuaciones, métricas de voz y feedback, exportable a PDF |
+| **Datos** | Sin base de datos; borrado automático a las 24 horas |
+| **Despliegue** | Nube o ejecución 100 % local con modelos abiertos gallegos |
+| **Fuente de las cifras** | Agregados de producción, logs y repositorios, sin datos personales |
+| **Fecha de corte** | 8 de septiembre de 2026 |
+
+## Preguntas frecuentes
+
+**¿Qué pasa con los audios que se suben?**
+No se guardan. El sistema funciona sin registro y sin base de datos, y todo dato se borra automáticamente a las 24 horas.
+
+**¿Se puede ejecutar sin enviar nada a la nube?**
+Sí. El mismo análisis puede correr en un pipeline 100 % local con modelos abiertos gallegos, que resuelve un audio de 60 segundos en 7 a 12 segundos sobre una GPU de gama media.
+
+**¿Cuánta gente lo usa?**
+Poca, y no lo presentamos de otra forma. El uso externo observable es mínimo: este caso publica la ingeniería del sistema y la soberanía del dato, no cifras de adopción.
+
+## ¿Tienes un proceso parecido?
+
+Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible.
+
+[Cuéntanos tu proceso](/contacto/)

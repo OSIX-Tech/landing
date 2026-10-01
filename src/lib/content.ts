@@ -1,5 +1,6 @@
 // Every page reads content through these helpers, so ordering, draft handling and
 // cross-reference checks live in one place. A broken reference throws at build time.
+import type { ImageMetadata } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { GUIDE_SECTIONS } from '../content.config';
 
@@ -49,7 +50,17 @@ function validate(guides: Guide[], cases: Case[], services: Service[]) {
       );
     }
   }
-  for (const c of cases) check(`src/content/casos/${c.id}.md (relatedGuides)`, c.data.relatedGuides);
+  for (const c of cases) {
+    check(`src/content/casos/${c.id}.md (relatedGuides)`, c.data.relatedGuides);
+    if (!parseBodyFaq(c.body ?? '')) {
+      problems.push(`src/content/casos/${c.id}.md: falta la sección "## Preguntas frecuentes" con al menos una pregunta.`);
+    }
+    for (const id of referencedFigures(c.body ?? '')) {
+      if (!c.data.figures.some((f) => f.id === id)) {
+        problems.push(`src/content/casos/${c.id}.md: el cuerpo enlaza la figura "${id}" pero no está definida en "figures".`);
+      }
+    }
+  }
   for (const s of services) check(`src/content/servicios/${s.id}.md (guides)`, s.data.guides);
   if (problems.length) throw new Error(`Contenido inválido:\n- ${problems.join('\n- ')}`);
 }
@@ -84,8 +95,28 @@ export async function getCasesForService(serviceId: string, limit = 3) {
 export const guideTitle = (g: Guide) => g.data.shortTitle ?? g.data.title;
 export const lastModified = (d: { published?: string; updated?: string }) => d.updated ?? d.published;
 
+// ---------- Covers and figures ----------
+// scripts/figures.mjs renders a cover for every guide and case before each build. A page
+// can bring its own with `cover:` in the frontmatter; otherwise the generated one is used.
+const generatedCovers = import.meta.glob<ImageMetadata>('/src/assets/figures/*/*/cover.png', {
+  eager: true,
+  import: 'default',
+});
+
+export function coverOf(collection: 'guias' | 'casos', entry: Guide | Case): ImageMetadata {
+  if (entry.data.cover) return entry.data.cover;
+  const file = `/src/assets/figures/${collection}/${entry.id}/cover.png`;
+  const cover = generatedCovers[file];
+  if (!cover) throw new Error(`Falta la portada generada ${file}. Ejecuta "pnpm figures" (pnpm dev y pnpm build lo hacen solos).`);
+  return cover;
+}
+
+/** Figure ids referenced from a body as ![alt](../../assets/figures/casos/<slug>/<id>.png). */
+export const FIGURE_IMAGE = /!\[([^\]]*)\]\((?:\.\.\/)+assets\/figures\/casos\/[^/]+\/([a-z0-9-]+)\.png\)/g;
+export const referencedFigures = (body: string) => [...body.matchAll(FIGURE_IMAGE)].map((m) => m[2]);
+
 // ---------- FAQ ----------
-// A guide's FAQ lives in its body under "## Preguntas frecuentes", in either house format:
+// A guide's or case's FAQ lives in its body under "## Preguntas frecuentes", in either format:
 //   **¿Pregunta?**            ### ¿Pregunta?
 //   Respuesta…                (blank line) Respuesta…
 // The FAQPage markup is derived from that text, so it always matches what readers see.
@@ -122,6 +153,7 @@ export function parseBodyFaq(body: string): Faq[] | null {
 }
 
 export const guideFaqs = (g: Guide): Faq[] => g.data.faqs ?? parseBodyFaq(g.body ?? '') ?? [];
+export const caseFaqs = (c: Case): Faq[] => parseBodyFaq(c.body ?? '') ?? [];
 
 /** Markdown → plain text for structured data and llms.txt. */
 export const plain = (md: string) =>
@@ -131,7 +163,9 @@ export const plain = (md: string) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-// ---------- Dates ----------
+// ---------- Numbers and dates ----------
+const num = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2, useGrouping: 'always' });
+export const formatNumber = (n: number) => num.format(n);
 const fmt = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const fmtShort = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 export const formatDate = (iso: string) => fmt.format(new Date(`${iso}T00:00:00Z`));

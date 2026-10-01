@@ -1,11 +1,13 @@
 ---
+// A case study: header, generated cover with the headline figures, then the Markdown body
+// (narrative, breakdown table, limit, project sheet, FAQ, closing section). Nothing else.
 import { render } from 'astro:content';
 import DocLayout from '../../layouts/DocLayout.astro';
-import Metrics from '../../components/Metrics.astro';
-import Faq from '../../components/Faq.astro';
 import CaseCard from '../../components/CaseCard.astro';
-import { getCases, getGuidesById, guideTitle, lastModified, type Case } from '../../lib/content';
+import { caseFaqs, coverOf, getCases, getGuidesById, guideTitle, lastModified, type Case } from '../../lib/content';
+import { ogImage } from '../../lib/og';
 import { article, faqPage } from '../../lib/schema';
+import { absolute } from '../../site';
 
 export async function getStaticPaths() {
   const cases = await getCases();
@@ -19,6 +21,9 @@ const path = `/casos/${item.id}/`;
 const cases = await getCases();
 const related = cases.filter((c) => c.id !== item.id).slice(0, 3);
 const guides = await getGuidesById(data.relatedGuides);
+const cover = coverOf('casos', item);
+const og = await ogImage(cover);
+const coverAlt = `Cifras medidas: ${data.metrics.map((m) => `${m.value} ${m.label}`).join(', ')}`;
 
 const sidebar = {
   title: 'Todos los casos',
@@ -31,13 +36,6 @@ const sidebar = {
     },
   ],
 };
-
-const tocHeadings = [
-  ...headings,
-  { depth: 2, slug: 'limite', text: data.limit.title },
-  { depth: 2, slug: 'ficha', text: 'Ficha del proyecto' },
-  { depth: 2, slug: 'preguntas-frecuentes', text: 'Preguntas frecuentes' },
-];
 ---
 
 <DocLayout
@@ -52,8 +50,12 @@ const tocHeadings = [
   ]}
   published={data.published}
   updated={data.updated}
-  headings={tocHeadings}
+  headings={headings}
   sidebar={sidebar}
+  cover={cover}
+  coverAlt={coverAlt}
+  coverCaption={[data.metricsNote, data.status].filter(Boolean).join(' ')}
+  image={og}
   markdown={`/casos/${item.id}.md`}
   jsonLd={[
     article({
@@ -63,195 +65,59 @@ const tocHeadings = [
       published: data.published,
       modified: lastModified(data)!,
       section: 'Casos de estudio',
+      image: absolute(og),
     }),
-    faqPage(path, data.faqs),
+    faqPage(path, caseFaqs(item)),
   ]}
 >
-  <Fragment slot="lead">
-    <section class="case-metrics" aria-label="Cifras medidas">
-      <Metrics items={data.metrics} label="Cifras medidas" variant="light" />
-      {data.metricsNote && <p class="case-note">{data.metricsNote}</p>}
-      <p class="case-status"><strong>Estado:</strong> {data.status}</p>
-    </section>
-  </Fragment>
-
   <Content />
 
   <Fragment slot="end">
     {
-      data.secondaryMetrics && (
-        <section class="case-secondary">
-          <Metrics items={data.secondaryMetrics} label="Desglose de producción" variant="light" />
-        </section>
-      )
-    }
-
-    <section class="case-limit" aria-labelledby="limite">
-      <p class="eyebrow">Alcance</p>
-      <h2 id="limite">{data.limit.title}</h2>
-      {data.limit.body.map((p) => <p>{p}</p>)}
-    </section>
-
-    <section class="case-facts" aria-labelledby="ficha">
-      <h2 id="ficha">Ficha del proyecto</h2>
-      <dl>
-        {
-          data.facts.map((f) => (
-            <div>
-              <dt>{f.key}</dt>
-              <dd>{f.value}</dd>
-            </div>
-          ))
-        }
-      </dl>
-      {data.sourceNote && <p class="case-source">{data.sourceNote}</p>}
-    </section>
-
-    <div class="case-faq">
-      <Faq faqs={data.faqs} />
-    </div>
-
-    <aside class="case-cta">
-      <h2>{data.cta.title}</h2>
-      {data.cta.body.map((p) => <p>{p}</p>)}
-      <a class="btn btn-dark" href="/contacto/">Cuéntanos tu proceso</a>
-      {
-        guides.length > 0 && (
-          <ul class="case-guides">
+      guides.length > 0 && (
+        <aside class="case-guides" aria-label="Guías relacionadas">
+          <p class="eyebrow">Para profundizar</p>
+          <ul>
             {guides.map((g) => (
               <li>
-                Guía relacionada: <a href={`/guias/${g.id}/`}>{guideTitle(g)}</a>
+                <a href={`/guias/${g.id}/`} class="t-link">
+                  {guideTitle(g)}
+                </a>
               </li>
             ))}
           </ul>
-        )
-      }
-    </aside>
+        </aside>
+      )
+    }
 
     <section class="case-related" aria-labelledby="otros">
       <h2 id="otros">Otros casos</h2>
       <div class="card-grid">
-        {related.map((c, i) => <CaseCard item={c} index={i + 1} />)}
+        {related.map((c) => <CaseCard item={c} sizes="(max-width: 640px) calc(100vw - 2rem), 14rem" />)}
       </div>
     </section>
   </Fragment>
 </DocLayout>
 
 <style>
-  .case-metrics {
-    margin-bottom: 2.75rem;
-    padding: 1.75rem;
-    background: var(--surface);
-  }
-
-  .case-note {
-    margin-top: 1.5rem;
-    color: #2b2b2b;
-    font-size: 0.9375rem;
-    max-width: 65ch;
-  }
-
-  .case-status {
-    margin-top: 0.75rem;
-    font-size: 0.9375rem;
-    color: var(--muted);
-  }
-
-  .case-secondary {
-    margin-top: 3rem;
-  }
-
-  .case-limit {
-    margin-top: 3.5rem;
-    padding: 1.75rem;
-    border: 1px solid var(--ink);
-  }
-
-  .case-limit h2,
-  .case-facts h2,
-  .case-cta h2,
-  .case-related h2 {
-    font-size: 1.5rem;
-    letter-spacing: -0.025em;
-  }
-
-  .case-limit h2 {
-    margin-top: 0.5rem;
-  }
-
-  .case-limit p:not(.eyebrow) {
-    margin-top: 0.9rem;
-    line-height: 1.7;
-    color: #2b2b2b;
-  }
-
-  .case-facts {
-    margin-top: 3.5rem;
-  }
-
-  .case-facts dl {
-    margin-top: 1.25rem;
-  }
-
-  .case-facts dl > div {
-    display: grid;
-    grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
-    gap: 1.5rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 0.9375rem;
-  }
-
-  .case-facts dt {
-    font-weight: 700;
-  }
-
-  .case-source {
-    margin-top: 1.25rem;
-    font-size: 0.875rem;
-    color: var(--muted);
-  }
-
-  .case-faq {
-    margin-top: 3.5rem;
-  }
-
-  .case-cta {
-    margin-top: 3.5rem;
-    padding: 1.75rem;
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .case-cta p {
-    margin: 0.75rem 0 0;
-    color: var(--muted-on-ink);
-    max-width: 62ch;
-  }
-
-  .case-cta .btn {
-    margin-top: 1.5rem;
-    border-color: var(--paper);
-    background: var(--paper);
-    color: var(--ink);
-  }
-
-  .case-cta .btn:hover {
-    background: transparent;
-    color: var(--paper);
-  }
-
   .case-guides {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .case-guides ul {
     list-style: none;
-    padding: 1.25rem 0 0;
-    margin-top: 1.5rem;
-    border-top: 1px solid var(--line-on-ink);
-    color: var(--muted-on-ink);
-    font-size: 0.9375rem;
+    padding: 0;
+    margin-top: 0.75rem;
+  }
+
+  .case-guides li + li {
+    margin-top: 0.4rem;
   }
 
   .case-guides a {
-    color: var(--paper);
+    font-weight: 600;
   }
 
   .case-related {
@@ -259,17 +125,17 @@ const tocHeadings = [
   }
 
   .case-related h2 {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
   }
 
   .case-related .card-grid {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+    gap: 2rem 1.25rem;
   }
 
-  @media (max-width: 560px) {
-    .case-facts dl > div {
-      grid-template-columns: 1fr;
-      gap: 0.2rem;
-    }
+  .case-related :global(.card-title) {
+    font-size: 1rem;
   }
 </style>

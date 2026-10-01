@@ -56,7 +56,7 @@ const description =
   <section class="shell hub-latest" aria-labelledby="recientes">
     <h2 id="recientes" class="hub-section-title">Lo más reciente</h2>
     <div class="card-grid reveal-stagger">
-      {latest.map((g, i) => <GuideCard guide={g} index={i} showSummary />)}
+      {latest.map((g) => <GuideCard guide={g} showSummary />)}
     </div>
   </section>
 

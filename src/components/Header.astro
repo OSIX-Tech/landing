@@ -29,18 +29,23 @@ const current = (key: string) => (section === key ? 'page' : undefined);
             Servicios <Icon name="chevron" size={14} class="chev" />
           </a>
           <div class="menu">
-            <ul class="menu-grid">
+            <ul class="menu-list">
               {
-                services.map((s) => (
+                services.map((s, i) => (
                   <li>
-                    <a href={`/servicios/${s.id}/`} class="menu-card">
-                      <span class="menu-card-title">{s.data.title}</span>
-                      <span class="menu-card-text">{s.data.tagline}</span>
+                    <a href={`/servicios/${s.id}/`} class="menu-item">
+                      <span class="menu-num">0{i + 1}</span>
+                      <span class="menu-text">
+                        <span class="menu-title t-link">{s.data.title}</span>
+                        <span class="menu-tagline">{s.data.tagline}</span>
+                      </span>
+                      <Icon name="arrow" size={15} class="arrow" />
                     </a>
                   </li>
                 ))
               }
             </ul>
+            <a href="/servicios/" class="menu-all t-link">Todos los servicios</a>
           </div>
         </li>
         {
@@ -127,6 +132,11 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     padding: 0;
   }
 
+  .has-menu {
+    position: relative;
+  }
+
+  /* Every top-level link gets the same hover: an underline drawn from the left. */
   .nav-link {
     display: inline-flex;
     align-items: center;
@@ -140,16 +150,19 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     background-size: 0 1.5px;
     background-repeat: no-repeat;
     background-position: 0.85rem calc(100% - 0.35rem);
-    transition: background-size 0.3s var(--ease-out);
+    transition: background-size var(--t) var(--ease);
   }
 
   .nav-link:hover,
+  .nav-link:focus-visible,
+  .has-menu:hover .nav-link,
+  .has-menu:focus-within .nav-link,
   .nav-link[aria-current='page'] {
     background-size: calc(100% - 1.7rem) 1.5px;
   }
 
   .nav-link :global(.chev) {
-    transition: transform 0.25s var(--ease-out);
+    transition: transform var(--t) var(--ease);
   }
 
   .has-menu:hover .nav-link :global(.chev),
@@ -157,67 +170,109 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     transform: rotate(180deg);
   }
 
-  /* Services menu: a full-width panel under the bar. */
+  /* Services menu: a list of lines under the link, no cards. Fades, does not move. */
   .menu {
     position: absolute;
     left: 0;
-    right: 0;
     top: 100%;
-    padding: 0.75rem var(--gutter) 1.25rem;
+    width: 27rem;
+    padding: 0.5rem 0 0;
     background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--line);
+    border-top: 0;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-6px);
     transition:
-      opacity 0.2s ease,
-      transform 0.25s var(--ease-out),
-      visibility 0s linear 0.25s;
+      opacity var(--t-fast) var(--ease),
+      visibility 0s linear var(--t-fast);
+  }
+
+  .menu::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 0.75rem;
   }
 
   .has-menu:hover .menu,
   .has-menu:focus-within .menu {
     opacity: 1;
     visibility: visible;
-    transform: none;
     transition-delay: 0s;
   }
 
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
+  .menu-list {
     list-style: none;
     padding: 0;
   }
 
-  .menu-card {
+  .menu-item {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .menu-item:hover .menu-title,
+  .menu-item:focus-visible .menu-title {
+    background-size: 100% 1px;
+  }
+
+  .menu-num {
+    padding-top: 0.2rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .menu-text {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    height: 100%;
-    padding: 1.15rem 1.25rem;
-    background: var(--ink);
-    color: var(--paper);
-    text-decoration: none;
-    transition: background-color 0.2s ease;
+    gap: 0.2rem;
+    min-width: 0;
   }
 
-  .menu-card:hover {
-    background: var(--ink-2);
-  }
-
-  .menu-card-title {
+  .menu-title {
+    font-size: 1rem;
     font-weight: 700;
-    font-size: 1.0625rem;
     letter-spacing: -0.01em;
+    line-height: 1.3;
   }
 
-  .menu-card-text {
+  .menu-tagline {
     font-size: 0.875rem;
-    color: var(--muted-on-ink);
     line-height: 1.45;
+    color: var(--muted);
+  }
+
+  .menu-item :global(.arrow) {
+    margin-top: 0.3rem;
+    color: var(--muted);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .menu-item:hover :global(.arrow) {
+    transform: translateX(4px);
+    color: var(--accent);
+  }
+
+  .menu-all {
+    display: inline-block;
+    margin: 0.25rem 1.25rem 1.1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   .nav-cta {
@@ -293,8 +348,8 @@ const current = (key: string) => (section === key ? 'page' : undefined);
 
   .mobile-main a {
     font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
 
   @media (max-width: 900px) {

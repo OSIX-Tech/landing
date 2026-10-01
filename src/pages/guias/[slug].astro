@@ -4,6 +4,7 @@ import DocLayout from '../../layouts/DocLayout.astro';
 import Faq from '../../components/Faq.astro';
 import GuideCard from '../../components/GuideCard.astro';
 import {
+  coverOf,
   getGuides,
   getGuidesBySection,
   getGuidesById,
@@ -13,8 +14,10 @@ import {
   lastModified,
   type Guide,
 } from '../../lib/content';
+import { ogImage } from '../../lib/og';
 import { article, faqPage, personId } from '../../lib/schema';
 import { GUIDE_SECTIONS } from '../../content.config';
+import { absolute } from '../../site';
 
 export async function getStaticPaths() {
   const guides = await getGuides();
@@ -37,6 +40,8 @@ const related = [...picked, ...sameSection.filter((g) => !data.related.includes(
 
 const faqs = guideFaqs(guide);
 const words = (guide.body ?? '').split(/\s+/).length;
+const cover = coverOf('guias', guide);
+const og = await ogImage(cover);
 
 const sidebar = {
   title: 'Todas las guías',
@@ -66,6 +71,9 @@ const sidebar = {
   readingMinutes={Math.max(1, Math.round(words / 220))}
   headings={headings}
   sidebar={sidebar}
+  cover={cover}
+  coverAlt={`Guía de OSIX Tech sobre ${data.category.toLowerCase()}`}
+  image={og}
   markdown={`/guias/${guide.id}.md`}
   jsonLd={[
     article({
@@ -76,6 +84,7 @@ const sidebar = {
       modified: lastModified(data)!,
       section: GUIDE_SECTIONS[data.section],
       authorId: author ? personId(author.id) : undefined,
+      image: absolute(og),
     }),
     faqPage(path, faqs),
   ]}
@@ -103,8 +112,8 @@ const sidebar = {
         <section class="guide-related" aria-labelledby="relacionadas">
           <h2 id="relacionadas">Guías relacionadas</h2>
           <div class="card-grid">
-            {related.map((g, i) => (
-              <GuideCard guide={g} index={i} />
+            {related.map((g) => (
+              <GuideCard guide={g} sizes="(max-width: 640px) calc(100vw - 2rem), 14rem" />
             ))}
           </div>
         </section>
@@ -120,9 +129,8 @@ const sidebar = {
 
   .guide-cta {
     margin-top: 4rem;
-    padding: 1.75rem;
-    background: var(--surface);
-    border-left: 3px solid var(--ink);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink);
   }
 
   .guide-cta p:not(.eyebrow) {
@@ -136,12 +144,17 @@ const sidebar = {
   }
 
   .guide-related h2 {
-    margin-bottom: 1.25rem;
-    font-size: 1.375rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
   }
 
   .guide-related .card-grid {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+    gap: 2rem 1.25rem;
+  }
+
+  .guide-related :global(.card-title) {
+    font-size: 1rem;
   }
 </style>

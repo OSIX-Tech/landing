@@ -32,66 +32,88 @@ const metric = z.object({
   note: z.string().optional(),
 });
 
-const paragraphs = z.object({
+/** A chart rendered by scripts/figures.mjs from these numbers, referenced in the body as
+ *  ![alt](../../assets/figures/casos/<slug>/<id>.png). */
+const figure = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/, 'El id de la figura es el nombre del fichero: minúsculas, números y guiones.'),
+  type: z.literal('bars'),
   title: z.string().min(5),
-  body: z.array(z.string().min(10)).min(1),
+  subtitle: z.string().optional(),
+  /** Appended to every value, e.g. "usuarios". */
+  unit: z.string().optional(),
+  /** Small print under the chart. Defaults to "Cifras de producción medidas por OSIX". */
+  note: z.string().optional(),
+  items: z
+    .array(
+      z.object({
+        label: z.string().min(1),
+        value: z.number(),
+        /** How the value is printed when the default es-ES formatting is not right, e.g. "5,75". */
+        display: z.string().optional(),
+      }),
+    )
+    .min(2)
+    .max(8),
 });
 
 const guias = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/guias' }),
-  schema: z.object({
-    /** The page's H1. */
-    title: z.string().min(10),
-    /** <title> tag. Defaults to "<title> | OSIX Tech". */
-    seoTitle: z.string().max(160).optional(),
-    /** Meta description and the summary AI answers quote. */
-    description: z.string().min(70).max(320),
-    /** One line under the H1. */
-    subtitle: z.string().optional(),
-    /** Card title when the H1 is too long for a card. */
-    shortTitle: z.string().optional(),
-    /** One line on cards and in llms.txt. */
-    summary: z.string().min(10),
-    /** Short tag shown on the card, e.g. "Agentes de IA". */
-    category: z.string().min(2).max(40),
-    section: z.enum(sectionIds),
-    published: isoDate,
-    updated: isoDate.optional(),
-    author: reference('equipo').optional(),
-    related: z.array(z.string()).default([]),
-    /** Only when the body has no "## Preguntas frecuentes" section; rendered visibly. */
-    faqs: z.array(faq).optional(),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      /** The page's H1. */
+      title: z.string().min(10),
+      /** <title> tag. Defaults to "<title> | OSIX Tech". */
+      seoTitle: z.string().max(160).optional(),
+      /** Meta description and the summary AI answers quote. */
+      description: z.string().min(70).max(320),
+      /** One line under the H1. */
+      subtitle: z.string().optional(),
+      /** Card title when the H1 is too long for a card. */
+      shortTitle: z.string().optional(),
+      /** One line on cards and in llms.txt. */
+      summary: z.string().min(10),
+      /** Short tag shown on the card and in the generated cover, e.g. "Agentes de IA". */
+      category: z.string().min(2).max(40),
+      section: z.enum(sectionIds),
+      published: isoDate,
+      updated: isoDate.optional(),
+      author: reference('equipo').optional(),
+      related: z.array(z.string()).default([]),
+      /** Only when the body has no "## Preguntas frecuentes" section; rendered visibly. */
+      faqs: z.array(faq).optional(),
+      /** Own cover (16:9, in src/assets/covers/). Without it the build generates one. */
+      cover: image().optional(),
+      draft: z.boolean().default(false),
+    }),
 });
 
 const casos = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/casos' }),
-  schema: z.object({
-    title: z.string().min(10),
-    seoTitle: z.string().max(160).optional(),
-    description: z.string().min(70).max(320),
-    lead: z.string().min(40),
-    category: z.string().min(2),
-    services: z.array(z.enum(['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'])).min(1),
-    /** Position on /casos/ and the home (lower first). */
-    order: z.number().int(),
-    status: z.string().min(10),
-    published: isoDate,
-    updated: isoDate.optional(),
-    /** The headline figures. Only audited figures — see AGENTS.md. */
-    metrics: z.array(metric).min(1).max(4),
-    metricsNote: z.string().optional(),
-    secondaryMetrics: z.array(metric).max(4).optional(),
-    /** What the figures do not prove. Required: every case publishes its limit. */
-    limit: paragraphs,
-    facts: z.array(z.object({ key: z.string(), value: z.string() })).min(1),
-    faqs: z.array(faq).min(1),
-    cta: paragraphs,
-    sourceNote: z.string().optional(),
-    relatedGuides: z.array(z.string()).default([]),
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(10),
+      seoTitle: z.string().max(160).optional(),
+      description: z.string().min(70).max(320),
+      /** One paragraph under the H1: what the client does and what OSIX built. */
+      lead: z.string().min(40),
+      category: z.string().min(2),
+      services: z.array(z.enum(['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'])).min(1),
+      /** Position on /casos/ and the home (lower first). */
+      order: z.number().int(),
+      /** One line, e.g. "En producción desde el 12 de marzo de 2026." Printed on the cover. */
+      status: z.string().min(10),
+      published: isoDate,
+      updated: isoDate.optional(),
+      /** The headline figures, drawn on the cover. Only audited figures — see AGENTS.md. */
+      metrics: z.array(metric).min(1).max(4),
+      /** One or two sentences under the cover explaining the headline figures. */
+      metricsNote: z.string().optional(),
+      /** Own cover instead of the generated one. */
+      cover: image().optional(),
+      figures: z.array(figure).default([]),
+      relatedGuides: z.array(z.string()).default([]),
+      draft: z.boolean().default(false),
+    }),
 });
 
 const servicios = defineCollection({

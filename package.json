@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "node scripts/figures.mjs && astro dev",
+    "build": "node scripts/figures.mjs && astro build",
     "preview": "astro preview",
+    "figures": "node scripts/figures.mjs",
     "check": "astro check && node scripts/check-dist.mjs",
     "astro": "astro"
   },
@@ -20,7 +21,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^6.0.3"
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "satori": "^0.33.5",
+    "typescript": "^6.0.3",
+    "yaml": "^2.9.1"
   },
   "pnpm": {
     "overrides": {

@@ -1,4 +1,6 @@
 ---
+// The home is the showcase: the one page that is allowed to move. Each section has its
+// own background and composition; everything below the hero still reads without JS.
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
@@ -21,85 +23,94 @@ const description =
 <BaseLayout title={title} description={description} jsonLd={[webPage({ path: '/', name: title, description }), faqPage('/', faqs)]}>
   <Hero />
 
+  <!-- Clients: a black band with the logos in white, moving slowly. Pauses on hover. -->
   <section class="clients" aria-label="Empresas que confían en OSIX">
-    <div class="shell clients-inner">
+    <div class="shell clients-head">
       <p class="eyebrow">Ya confían en nosotros</p>
-      <ul>
+      <p class="clients-count">{clients.length} empresas y organismos</p>
+    </div>
+    <div class="marquee">
+      <ul class="marquee-track">
         {
-          clients.map((c) => (
-            <li>
-              <Image src={c.logo} alt={c.name} height={36} densities={[1, 2]} loading="lazy" decoding="async" />
-            </li>
-          ))
+          [0, 1].map((copy) =>
+            clients.map((c) => (
+              <li aria-hidden={copy === 1 ? 'true' : undefined}>
+                <Image src={c.logo} alt={copy === 0 ? c.name : ''} height={44} densities={[1, 2]} loading="lazy" decoding="async" />
+              </li>
+            )),
+          )
         }
       </ul>
     </div>
   </section>
 
+  <!-- Services: the title stays while the three services scroll past it. -->
   <section class="band" id="servicios">
-    <div class="shell">
+    <div class="shell services">
       <span id="services" aria-hidden="true"></span>
-      <SectionHead title="Nuestros **servicios**" link={{ href: '/servicios/', label: 'Ver servicios' }} />
-      <div class="services reveal-stagger">
+      <div class="services-head reveal">
+        <p class="eyebrow">Servicios</p>
+        <h2 class="section-title">Tres formas de <strong>trabajar</strong> con OSIX</h2>
+        <p class="section-lead">
+          Construimos el software, te ayudamos a decidir qué automatizar o preparamos el proyecto cuando hay una ayuda
+          pública vigente que encaja. En los tres casos empezamos por tu proceso real.
+        </p>
+        <a class="link-arrow" href="/servicios/">Ver servicios <Icon name="arrow" size={15} class="arrow" /></a>
+      </div>
+      <ol class="services-list">
         {
           services.map((s, i) => (
-            <a class="service" href={`/servicios/${s.id}/`}>
-              <span class="service-top">
+            <li class="reveal">
+              <a class="service" href={`/servicios/${s.id}/`}>
                 <span class="service-num">0{i + 1}</span>
-                <Icon name={s.data.icon} size={22} />
-              </span>
-              <h3>{s.data.title}</h3>
-              <p>{s.data.tagline}</p>
-              <ul>
-                {s.data.highlights.slice(0, 3).map((h) => (
-                  <li>{h}</li>
-                ))}
-              </ul>
-              <span class="link-arrow">
-                Ver servicio <Icon name="arrow" size={15} class="arrow" />
-              </span>
-            </a>
+                <span class="service-main">
+                  <h3 class="service-title"><span class="t-link">{s.data.title}</span></h3>
+                  <p class="service-tagline">{s.data.tagline}</p>
+                  <ul class="service-points">
+                    {s.data.highlights.slice(0, 3).map((h) => (
+                      <li>{h}</li>
+                    ))}
+                  </ul>
+                </span>
+                <Icon name="arrow" size={22} class="arrow service-arrow" />
+              </a>
+            </li>
           ))
         }
-      </div>
+      </ol>
     </div>
   </section>
 
-  <section class="band band-surface" id="casos">
+  <!-- Cases: black, the covers carry the figures. -->
+  <section class="band band-ink" id="casos">
     <div class="shell">
       <SectionHead
         title="Casos en **producción**"
         lead="No enseñamos demos aisladas. Cada caso publica la ventana medida y lo que la cifra no demuestra."
         link={{ href: '/casos/', label: `Ver los ${cases.length} casos` }}
       />
-      <div class="card-grid reveal-stagger">
-        {cases.slice(0, 3).map((c, i) => <CaseCard item={c} index={i} />)}
-        <a class="card card-all" href="/casos/">
-          <strong>{cases.length}</strong>
-          <span class="link-arrow">Ver todos los casos <Icon name="arrow" size={15} class="arrow" /></span>
-        </a>
+      <div class="case-grid reveal-stagger">
+        {cases.slice(0, 3).map((c) => <CaseCard item={c} variant="ink" sizes="(max-width: 800px) calc(100vw - 2rem), 26rem" />)}
       </div>
     </div>
   </section>
 
-  <section class="band" id="guias">
+  <!-- Guides: the library, on grey. -->
+  <section class="band band-surface" id="guias">
     <div class="shell">
       <SectionHead
         title="Guías **prácticas**"
         lead="Costes, plazos, proveedores y procesos explicados para pymes, con fuentes y límites honestos."
         link={{ href: '/guias/', label: `Ver las ${guides.length} guías` }}
       />
-      <div class="card-grid reveal-stagger">
-        {guides.slice(0, 5).map((g, i) => <GuideCard guide={g} index={i} />)}
-        <a class="card card-all" href="/guias/">
-          <strong>{guides.length}</strong>
-          <span class="link-arrow">Ver todas las guías <Icon name="arrow" size={15} class="arrow" /></span>
-        </a>
+      <div class="guide-grid reveal-stagger">
+        {guides.slice(0, 6).map((g) => <GuideCard guide={g} sizes="(max-width: 640px) calc(100vw - 2rem), 26rem" />)}
       </div>
     </div>
   </section>
 
-  <section class="band band-surface" id="about-us">
+  <!-- Team: six portraits in a row, colour on hover. -->
+  <section class="band" id="about-us">
     <div class="shell">
       <SectionHead
         title="Quién está **detrás**"
@@ -111,8 +122,8 @@ const description =
           team.map((m) => (
             <li>
               <a href={`/nosotros/#${m.id}`}>
-                <Image src={m.data.photo} alt="" width={240} height={240} loading="lazy" decoding="async" class="team-photo" />
-                <span class="team-name">{m.data.name}</span>
+                <Image src={m.data.photo} alt="" width={320} height={320} widths={[240, 320, 480]} sizes="(max-width: 640px) 50vw, 15rem" loading="lazy" decoding="async" class="team-photo" />
+                <span class="team-name t-link">{m.data.name}</span>
                 <span class="team-role">{m.data.role}</span>
               </a>
             </li>
@@ -122,11 +133,11 @@ const description =
     </div>
   </section>
 
-  <section class="band" id="faq">
+  <section class="band band-surface" id="faq">
     <div class="shell faq-grid">
       <div class="reveal">
         <p class="eyebrow">Preguntas frecuentes</p>
-        <h2 class="faq-title">Lo que necesitas saber</h2>
+        <h2 class="section-title faq-title">Lo que <strong>necesitas</strong> saber</h2>
       </div>
       <Faq faqs={faqs} title="Preguntas frecuentes sobre OSIX" id="faq-osix" />
     </div>
@@ -136,45 +147,94 @@ const description =
 </BaseLayout>
 
 <style>
+  /* ----- Clients ----- */
   .clients {
-    border-block: 1px solid var(--line);
+    background: var(--black);
+    color: var(--paper);
+    padding-block: 2rem 2.5rem;
   }
 
-  .clients-inner {
+  .clients-head {
     display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    padding-block: 1.75rem;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
   }
 
   .clients .eyebrow {
-    flex-shrink: 0;
+    color: var(--muted-on-ink);
   }
 
-  .clients ul {
+  .clients-count {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--muted-on-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .marquee-track {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 1.25rem 2.5rem;
+    gap: clamp(3rem, 6vw, 5.5rem);
+    width: max-content;
+    padding: 0 clamp(1.5rem, 3vw, 2.75rem);
     list-style: none;
-    padding: 0;
   }
 
-  .clients img {
-    height: 1.75rem;
+  .marquee-track img {
+    height: 2.5rem;
     width: auto;
-    filter: grayscale(1);
-    opacity: 0.7;
-    transition:
-      opacity 0.3s ease,
-      filter 0.3s ease;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    transition: opacity var(--t-fast) var(--ease);
   }
 
-  .clients img:hover {
-    filter: none;
+  .marquee-track li:hover img {
     opacity: 1;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee-track {
+      animation: marquee 48s linear infinite;
+    }
+
+    .marquee:hover .marquee-track,
+    .marquee:focus-within .marquee-track {
+      animation-play-state: paused;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .marquee-track {
+      flex-wrap: wrap;
+      width: auto;
+      gap: 1.5rem 3rem;
+    }
+
+    .marquee-track li[aria-hidden] {
+      display: none;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ----- Services ----- */
   #services {
     position: relative;
     top: calc(-1 * var(--header-h));
@@ -182,69 +242,113 @@ const description =
 
   .services {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 3rem clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .services-head {
+    position: sticky;
+    top: calc(var(--header-h) + 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1.25rem;
+  }
+
+  .services-head .section-lead {
+    margin-top: 0.25rem;
+  }
+
+  .services-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--ink);
   }
 
   .service {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    padding: 1.75rem;
-    background: var(--ink);
-    color: var(--paper);
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    border-bottom: 1px solid var(--line-strong);
     text-decoration: none;
-    transition: transform 0.4s var(--ease-out);
-  }
-
-  .service:hover {
-    transform: translateY(-4px);
-  }
-
-  .service-top {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted-on-ink);
+    color: var(--ink);
   }
 
   .service-num {
+    padding-top: 0.5rem;
     font-size: 0.8125rem;
     font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
   }
 
-  .service h3 {
-    margin-top: 1.5rem;
-    font-size: 1.625rem;
-    letter-spacing: -0.03em;
+  .service-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-width: 0;
   }
 
-  .service p {
-    color: var(--muted-on-ink);
+  .service-title {
+    font-size: clamp(1.625rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
   }
 
-  .service ul {
-    display: grid;
-    gap: 0.5rem;
-    padding: 1rem 0 0;
-    margin-bottom: auto;
-    border-top: 1px solid var(--line-on-ink);
+  .service-tagline {
+    font-size: 1.125rem;
+    color: var(--muted);
+    max-width: 48ch;
+  }
+
+  .service-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 0.5rem 0 0;
     list-style: none;
     font-size: 0.9375rem;
+    font-weight: 500;
   }
 
-  .service li::before {
+  .service-points li::before {
     content: '— ';
-    color: var(--muted-on-ink);
+    color: var(--accent);
   }
 
-  .service .link-arrow {
-    margin-top: 1rem;
+  .service :global(.service-arrow) {
+    margin-top: 0.6rem;
+    color: var(--muted);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
   }
 
+  .service:hover :global(.service-arrow) {
+    color: var(--accent);
+  }
+
+  /* ----- Cases and guides ----- */
+  .case-grid,
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem 2rem;
+  }
+
+  .case-grid :global(.card-title) {
+    font-size: 1.25rem;
+  }
+
+  /* ----- Team ----- */
   .team {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1.25rem;
+    gap: 1.5rem;
     list-style: none;
     padding: 0;
   }
@@ -260,9 +364,10 @@ const description =
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.75rem;
+    background: var(--surface);
     filter: grayscale(1);
-    transition: filter 0.4s ease;
+    transition: filter var(--t) var(--ease);
   }
 
   .team a:hover :global(.team-photo) {
@@ -270,6 +375,7 @@ const description =
   }
 
   .team-name {
+    align-self: flex-start;
     font-weight: 700;
     font-size: 0.9375rem;
   }
@@ -279,6 +385,7 @@ const description =
     color: var(--muted);
   }
 
+  /* ----- FAQ ----- */
   .faq-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -287,9 +394,6 @@ const description =
 
   .faq-title {
     margin-top: 0.75rem;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    letter-spacing: -0.035em;
   }
 
   .faq-grid :global(.faq h2) {
@@ -305,6 +409,15 @@ const description =
       grid-template-columns: 1fr;
     }
 
+    .services-head {
+      position: static;
+    }
+
+    .case-grid,
+    .guide-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .team {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -312,11 +425,24 @@ const description =
     .faq-grid {
       grid-template-columns: 1fr;
     }
+  }
 
-    .clients-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
+  @media (max-width: 640px) {
+    .case-grid,
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .service-num {
+      display: none;
+    }
+
+    .team {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

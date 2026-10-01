@@ -1,5 +1,6 @@
 ---
-// Home hero. The headline and poster paint immediately; the live 3D mark loads on intent:
+// Home hero: the 3D mark is the subject, the headline sits small under it.
+// The headline and poster paint immediately; the live 3D mark loads on intent:
 //   - desktop (fine pointer): on the visitor's first pointer move, scroll, key press or touch;
 //   - touch devices: when the visitor taps the mark;
 //   - never with prefers-reduced-motion or Save-Data — the poster stays.
@@ -48,10 +49,10 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
         }
       </h1>
       <p class="subtitle fade-in" style="--d:0.4s">{hero.subtitle}</p>
-      <div class="actions fade-in" style="--d:0.55s">
-        <a href="#servicios" class="btn btn-dark">Cómo te ayudamos <Icon name="arrow" size={15} class="arrow" /></a>
-        <a href="/contacto/" class="btn btn-outline">Háblanos de tu proyecto <Icon name="arrow" size={15} class="arrow" /></a>
-      </div>
+    </div>
+    <div class="actions fade-in" style="--d:0.55s">
+      <a href="#servicios" class="btn btn-dark">Cómo te ayudamos <Icon name="arrow" size={15} class="arrow" /></a>
+      <a href="/contacto/" class="btn btn-outline">Háblanos de tu proyecto <Icon name="arrow" size={15} class="arrow" /></a>
     </div>
     <p class="hint fade-in" style="--d:0.9s" aria-hidden="true">Haz clic en el logo · arrástralo para girarlo</p>
   </div>
@@ -93,10 +94,10 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     isolation: isolate;
   }
 
-  /* The 3D stage fills the upper part of the hero; the canvas and poster share its box. */
+  /* The 3D stage takes most of the hero; the canvas and poster share its box. */
   .stage {
     position: absolute;
-    inset: 0 0 26% 0;
+    inset: 0 0 17% 0;
     z-index: -1;
     --logo-scale: 1;
   }
@@ -110,7 +111,7 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     max-width: none;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.6s var(--ease);
   }
 
   .stage :global(.logo-canvas) {
@@ -120,7 +121,7 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     height: 100%;
     cursor: grab;
     opacity: 0;
-    animation: canvas-in 0.6s ease 0.1s forwards;
+    animation: canvas-in 0.6s var(--ease) 0.1s forwards;
   }
 
   .stage.is-live .poster,
@@ -133,7 +134,7 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     position: absolute;
     top: 50%;
     left: 50%;
-    width: min(60vw, 22rem);
+    width: min(70vw, 30rem);
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     background: none;
@@ -144,23 +145,51 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
 
   .content {
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-block: 2.5rem clamp(2rem, 6vh, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'copy actions'
+      'copy hint';
+    align-items: end;
+    align-content: end;
+    gap: 0.75rem 2rem;
+    padding-block: 2.5rem clamp(1.75rem, 5vh, 3rem);
     pointer-events: none;
   }
 
   .copy,
+  .actions,
   .hint {
     pointer-events: auto;
   }
 
-  h1 {
-    font-size: clamp(2.25rem, 6.2vw, 4.75rem);
+  .copy {
+    grid-area: copy;
+  }
+
+  .actions {
+    grid-area: actions;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .hint {
+    grid-area: hint;
+    justify-self: end;
+    font-size: 0.6875rem;
     font-weight: 700;
-    letter-spacing: -0.045em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
     line-height: 1.02;
   }
 
@@ -169,24 +198,9 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
   }
 
   .subtitle {
-    margin-top: 1.25rem;
-    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    margin-top: 0.75rem;
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
     color: var(--muted);
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2rem;
-  }
-
-  .hint {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    white-space: nowrap;
   }
 
   @keyframes canvas-in {
@@ -218,14 +232,27 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
     }
   }
 
-  @media (max-width: 639px) {
-    .stage {
-      --logo-scale: 0.6667;
-      inset: 0 0 38% 0;
+  @media (max-width: 800px) {
+    .content {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'copy'
+        'actions';
+    }
+
+    .actions {
+      justify-content: flex-start;
     }
 
     .hint {
       display: none;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .stage {
+      --logo-scale: 0.6667;
+      inset: 0 0 34% 0;
     }
 
     .actions .btn {

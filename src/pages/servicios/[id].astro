@@ -143,7 +143,7 @@ const words = data.title.split(' ');
     <div class="shell">
       <SectionHead title="Casos en **producción**" link={{ href: '/casos/', label: 'Ver todos los casos' }} />
       <div class="card-grid reveal-stagger">
-        {cases.map((c, i) => <CaseCard item={c} index={i} />)}
+        {cases.map((c) => <CaseCard item={c} />)}
       </div>
     </div>
   </section>

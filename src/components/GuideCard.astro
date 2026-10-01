@@ -1,25 +1,27 @@
 ---
-import { genGuideArt } from '../utils/guideArt';
-import { formatDateShort, guideTitle, type Guide } from '../lib/content';
+// A guide on a list: its cover, category, title and date. The cover is the generated
+// one unless the guide brings its own (see scripts/figures.mjs).
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { coverOf, formatDateShort, guideTitle, type Guide } from '../lib/content';
 interface Props {
   guide: Guide;
-  index?: number;
   showSummary?: boolean;
+  variant?: 'paper' | 'ink';
+  sizes?: string;
 }
-const { guide, index = 0, showSummary = false } = Astro.props;
+const { guide, showSummary = false, variant = 'paper', sizes = '(max-width: 640px) calc(100vw - 2rem), 24rem' } = Astro.props;
 ---
 
-<a class="card" href={`/guias/${guide.id}/`}>
-  <div class="card-media">
-    <Fragment set:html={genGuideArt(guide.id, index)} />
-    <span class="card-tag">{guide.data.category}</span>
-  </div>
+<a class:list={['card', { 'card-ink': variant === 'ink' }]} href={`/guias/${guide.id}/`}>
+  <Image class="card-cover" src={coverOf('guias', guide)} alt="" widths={[480, 800, 1200]} sizes={sizes} loading="lazy" decoding="async" />
   <div class="card-body">
-    <h3 class="card-title">{guideTitle(guide)}</h3>
+    <p class="eyebrow">{guide.data.category}</p>
+    <h3 class="card-title"><span class="t-link">{guideTitle(guide)}</span></h3>
     {showSummary && <p class="card-text">{guide.data.summary}</p>}
     <p class="card-meta">
       <time datetime={guide.data.published}>{formatDateShort(guide.data.published)}</time>
-      <span aria-hidden="true">→</span>
+      <Icon name="arrow" size={15} class="arrow" />
     </p>
   </div>
 </a>

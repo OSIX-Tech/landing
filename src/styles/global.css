@@ -1,9 +1,15 @@
 /* OSIX design tokens and base styles. Components keep their own scoped styles;
-   only shared primitives live here: tokens, type, buttons, prose and motion. */
+   only shared primitives live here: tokens, type, buttons, links, cards, prose, motion.
+
+   Motion rules (also in AGENTS.md): micro-interactions 150–250 ms, transitions 300–400 ms,
+   one ease-out curve, no spring or bounce, animate only transform and opacity, prefer
+   opacity over movement, never hide above-the-fold content, and nothing moves when the
+   visitor asks for reduced motion. */
 
 :root {
   --ink: #0a0a0a;
   --ink-2: #1c1c1c;
+  --black: #000000;
   --paper: #ffffff;
   --surface: #f5f5f4;
   --muted: #5c5c5c;
@@ -17,7 +23,11 @@
   --shell: 80rem;
   --gutter: clamp(1rem, 4vw, 3rem);
   --header-h: 4.5rem;
+
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 180ms;
+  --t: 320ms;
 
   color-scheme: light;
 }
@@ -54,6 +64,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -83,6 +94,12 @@ select {
   color: inherit;
 }
 
+a,
+button,
+summary {
+  touch-action: manipulation;
+}
+
 a {
   color: inherit;
 }
@@ -92,9 +109,13 @@ h2,
 h3,
 h4 {
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   text-wrap: balance;
   font-weight: 700;
+}
+
+h1 {
+  font-weight: 800;
 }
 
 p {
@@ -146,7 +167,7 @@ p {
 }
 
 .band-ink {
-  background: var(--ink);
+  background: var(--black);
   color: var(--paper);
 }
 
@@ -154,30 +175,30 @@ p {
   background: var(--surface);
 }
 
-/* Section heading with the OSIX hairline above it: "Nuestros **servicios**". */
+/* Section heading: "Nuestros **servicios**" — bold, with the accent word in red. */
 .section-head {
   display: flex;
   flex-wrap: wrap;
   align-items: end;
   justify-content: space-between;
   gap: 1rem 2rem;
-  padding-top: 1.75rem;
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
-  border-top: 1px solid currentColor;
 }
 
 .section-title {
-  font-size: clamp(1.875rem, 4vw, 3rem);
-  font-weight: 300;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 }
 
 .section-title strong {
-  font-weight: 700;
+  font-weight: 800;
+  color: var(--accent);
 }
 
 .section-lead {
-  max-width: 62ch;
+  max-width: 58ch;
   color: var(--muted);
   font-size: 1.0625rem;
 }
@@ -199,6 +220,30 @@ p {
   color: var(--muted-on-ink);
 }
 
+/* ---------- Text links ----------
+   The one hover on the site: an underline that draws itself from the left. Works on
+   wrapped text (each line gets its own) and never jumps, unlike text-decoration. */
+.t-link {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size var(--t) var(--ease);
+}
+
+:where(a:hover, a:focus-visible, .card:hover, .card:focus-visible) .t-link,
+a.t-link:hover,
+a.t-link:focus-visible {
+  background-size: 100% 1px;
+}
+
+.t-link-accent {
+  background-image: linear-gradient(var(--accent), var(--accent));
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -215,9 +260,9 @@ p {
   text-decoration: none;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    background-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    border-color var(--t-fast) var(--ease);
 }
 
 .btn-dark {
@@ -251,12 +296,15 @@ p {
   color: var(--paper);
 }
 
-.btn .arrow {
-  transition: transform 0.25s var(--ease-out);
+.btn .arrow,
+.link-arrow .arrow,
+.card .arrow {
+  transition: transform var(--t) var(--ease);
 }
 
 .btn:hover .arrow,
-.link-arrow:hover .arrow {
+.link-arrow:hover .arrow,
+.card:hover .arrow {
   transform: translateX(4px);
 }
 
@@ -271,102 +319,44 @@ p {
   text-decoration: none;
 }
 
-.link-arrow .arrow {
-  transition: transform 0.25s var(--ease-out);
-}
-
-/* ---------- Cards (shared by guides and cases) ---------- */
+/* ---------- Cards (guides and cases) ----------
+   A cover image and text under it, no box. The cover carries the visual; the hover is
+   the title underline and the arrow — nothing scales, nothing casts a shadow. */
 .card-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 2.5rem 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   min-width: 0;
-  background: var(--paper);
-  border: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.4s var(--ease-out);
 }
 
-.card:hover {
-  border-color: var(--ink);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-}
-
-.card-media {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: var(--ink);
-}
-
-.card-media svg {
+.card-cover {
   width: 100%;
-  height: 100%;
-  transition: transform 0.6s var(--ease-out);
-}
-
-.card:hover .card-media svg {
-  transform: scale(1.05);
-}
-
-.card-tag {
-  position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  padding: 0.3rem 0.65rem;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.card-metric {
-  position: absolute;
-  left: 1rem;
-  bottom: 0.85rem;
-  display: flex;
-  flex-direction: column;
-  color: var(--paper);
-}
-
-.card-metric strong {
-  font-size: 1.85rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1;
-}
-
-.card-metric span {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.75);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--black);
+  border: 1px solid var(--line);
 }
 
 .card-body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.6rem;
-  padding: 1.15rem 1.2rem 1.25rem;
+  gap: 0.5rem;
 }
 
 .card-title {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
 }
 
 .card-text {
@@ -377,27 +367,29 @@ p {
 
 .card-meta {
   margin-top: auto;
+  padding-top: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
-.card-all {
-  justify-content: space-between;
-  padding: 1.5rem;
-  background: var(--ink);
-  border-color: var(--ink);
+.card-ink {
   color: var(--paper);
 }
 
-.card-all strong {
-  font-size: 2.75rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 1;
+.card-ink .card-cover {
+  border-color: var(--line-on-ink);
+}
+
+.card-ink .card-text,
+.card-ink .card-meta,
+.card-ink .eyebrow {
+  color: var(--muted-on-ink);
 }
 
 /* ---------- Prose: every Markdown page ---------- */
@@ -413,16 +405,19 @@ p {
 
 .prose h2 {
   margin-top: 2.6em;
-  font-size: 1.625rem;
-  letter-spacing: -0.025em;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--ink);
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
 }
 
 .prose h3 {
   margin-top: 2em;
-  font-size: 1.2rem;
-  letter-spacing: -0.015em;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
   color: var(--ink);
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
 }
 
 .prose h4 {
@@ -438,15 +433,19 @@ p {
 
 .prose a {
   color: var(--ink);
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: var(--line-strong);
-  text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
-  transition: text-decoration-color 0.2s ease;
+  text-underline-offset: 0.2em;
+  transition:
+    text-decoration-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
 }
 
 .prose a:hover {
-  text-decoration-color: var(--ink);
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 .prose strong {
@@ -507,6 +506,7 @@ p {
   border-collapse: collapse;
   font-size: 0.9375rem;
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 
 .prose th,
@@ -515,7 +515,7 @@ p {
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
-  min-width: 9rem;
+  min-width: 7rem;
 }
 
 .prose th {
@@ -524,15 +524,23 @@ p {
   white-space: nowrap;
 }
 
-.prose img {
-  margin-inline: auto;
+.prose th:empty {
+  padding: 0;
+  border: 0;
 }
 
-/* ---------- Motion ----------
-   Rules: content is visible on first paint; only transform and opacity animate;
-   nothing starts at opacity 0 above the fold; no motion at all when the visitor
-   asks for less. Scroll reveals use CSS view timelines, so browsers without them
-   simply show the content. */
+.prose td:first-child {
+  white-space: nowrap;
+}
+
+/* Figures: generated charts and covers sit on the text column, edge to edge. */
+.prose img {
+  width: 100%;
+  margin-block: 2em;
+  border: 1px solid var(--line);
+}
+
+/* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -551,17 +559,18 @@ p {
     animation-delay: var(--d, 0.35s);
   }
 
+  /* Scroll reveals use CSS view timelines; browsers without them show the content. */
   @supports (animation-timeline: view()) {
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 0% entry 50%;
     }
 
     .reveal-stagger > * {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 70%;
+      animation-range: entry 0% entry 65%;
     }
   }
 }
@@ -576,13 +585,13 @@ p {
 @keyframes fade-in {
   from {
     opacity: 0.01;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 }
 
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(16px);
   }
 }

@@ -50,7 +50,7 @@ const modified = cases.map((c) => lastModified(c.data)!).sort().at(-1);
 
   <section class="shell hub-body" aria-label="Casos">
     <div class="card-grid reveal-stagger">
-      {cases.map((c, i) => <CaseCard item={c} index={i} showLead />)}
+      {cases.map((c) => <CaseCard item={c} showLead />)}
     </div>
   </section>
 
