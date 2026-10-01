@@ -20,11 +20,10 @@ const files = walk(DIST);
 const html = files.filter((f) => f.endsWith('.html'));
 const routeOf = (file) => '/' + path.relative(DIST, file).replace(/index\.html$/, '').replace(/\\/g, '/');
 
-// Redirect sources, as regexes, so links to retired URLs are reported as such.
-const redirectRes = vercel.redirects.map((r) => ({
-  re: new RegExp('^' + r.source.replace(/:\w+\*?/g, '[^/]+').replace(/\((.*)\)/, '$1') + '$'),
-  to: r.destination,
-}));
+// Redirect routes (the ones with a Location header), so links to retired URLs are reported as such.
+const redirectRes = vercel.routes
+  .filter((r) => r.headers?.Location)
+  .map((r) => ({ re: new RegExp(r.src), to: r.headers.Location }));
 
 function resolves(urlPath) {
   const clean = decodeURIComponent(urlPath.split('#')[0].split('?')[0]);

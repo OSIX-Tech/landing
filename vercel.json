@@ -1,368 +1,476 @@
 {
-  "redirects": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
     {
-      "source": "/es",
-      "destination": "/",
-      "permanent": true
+      "src": "^/es$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/",
-      "destination": "/",
-      "permanent": true
+      "src": "^/es/$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/en",
-      "destination": "/",
-      "permanent": true
+      "src": "^/en$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/",
-      "destination": "/",
-      "permanent": true
+      "src": "^/en/$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl",
-      "destination": "/",
-      "permanent": true
+      "src": "^/gl$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/",
-      "destination": "/",
-      "permanent": true
+      "src": "^/gl/$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/(.*)",
-      "destination": "/$1",
-      "permanent": true
+      "src": "^/es/(.*)$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
     },
     {
-      "source": "/en/(.*)",
-      "destination": "/$1",
-      "permanent": true
+      "src": "^/en/(.*)$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/(.*)",
-      "destination": "/$1",
-      "permanent": true
+      "src": "^/gl/(.*)$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/a",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/a$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/a/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/a/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/a",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/a$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/a/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/a/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/b",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/b$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/b/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/b/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/b",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/b$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/b/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/b/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/c",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/c$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/c/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/c/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/c",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/c$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/es/kted/c/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/es/kted/c/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/a",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/a$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/a/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/a/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/b",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/b$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/b/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/b/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/c",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/c$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/en/kted/c/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/en/kted/c/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/a",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/a$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/a/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/a/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/b",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/b$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/b/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/b/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/c",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/c$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/gl/kted/c/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/gl/kted/c/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/privacy",
-      "destination": "/privacidad/",
-      "permanent": true
+      "src": "^/privacy$",
+      "headers": {
+        "Location": "/privacidad/"
+      },
+      "status": 308
     },
     {
-      "source": "/privacy/",
-      "destination": "/privacidad/",
-      "permanent": true
+      "src": "^/privacy/$",
+      "headers": {
+        "Location": "/privacidad/"
+      },
+      "status": 308
     },
     {
-      "source": "/casos/roydisa",
-      "destination": "/casos/roydisa-ocr-documentos-proveedores/",
-      "permanent": true
+      "src": "^/casos/roydisa$",
+      "headers": {
+        "Location": "/casos/roydisa-ocr-documentos-proveedores/"
+      },
+      "status": 308
     },
     {
-      "source": "/casos/roydisa/",
-      "destination": "/casos/roydisa-ocr-documentos-proveedores/",
-      "permanent": true
+      "src": "^/casos/roydisa/$",
+      "headers": {
+        "Location": "/casos/roydisa-ocr-documentos-proveedores/"
+      },
+      "status": 308
     },
     {
-      "source": "/casos/iciga/",
-      "destination": "/casos/iciga-correo-crm/",
-      "permanent": true
+      "src": "^/casos/iciga/$",
+      "headers": {
+        "Location": "/casos/iciga-correo-crm/"
+      },
+      "status": 308
     },
     {
-      "source": "/casos/take/",
-      "destination": "/casos/take-fidelizacion/",
-      "permanent": true
+      "src": "^/casos/take/$",
+      "headers": {
+        "Location": "/casos/take-fidelizacion/"
+      },
+      "status": 308
     },
     {
-      "source": "/casos/shearn/",
-      "destination": "/casos/",
-      "permanent": true
+      "src": "^/casos/shearn/$",
+      "headers": {
+        "Location": "/casos/"
+      },
+      "status": 308
     },
     {
-      "source": "/kted/:variant/",
-      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
-      "permanent": true
+      "src": "^/kted/([^/]+)/$",
+      "headers": {
+        "Location": "/guias/subvenciones-ia-pymes-galicia-2026/"
+      },
+      "status": 308
     },
     {
-      "source": "/locales/:file",
-      "destination": "/",
-      "permanent": true
+      "src": "^/locales/([^/]+)$",
+      "headers": {
+        "Location": "/"
+      },
+      "status": 308
     },
     {
-      "source": "/about",
-      "destination": "/nosotros/",
-      "permanent": true
+      "src": "^/about$",
+      "headers": {
+        "Location": "/nosotros/"
+      },
+      "status": 308
     },
     {
-      "source": "/about/",
-      "destination": "/nosotros/",
-      "permanent": true
+      "src": "^/about/$",
+      "headers": {
+        "Location": "/nosotros/"
+      },
+      "status": 308
     },
     {
-      "source": "/contact",
-      "destination": "/contacto/",
-      "permanent": true
+      "src": "^/contact$",
+      "headers": {
+        "Location": "/contacto/"
+      },
+      "status": 308
     },
     {
-      "source": "/contact/",
-      "destination": "/contacto/",
-      "permanent": true
+      "src": "^/contact/$",
+      "headers": {
+        "Location": "/contacto/"
+      },
+      "status": 308
     },
     {
-      "source": "/privacy-policy",
-      "destination": "/privacidad/",
-      "permanent": true
+      "src": "^/privacy\\-policy$",
+      "headers": {
+        "Location": "/privacidad/"
+      },
+      "status": 308
     },
     {
-      "source": "/privacy-policy/",
-      "destination": "/privacidad/",
-      "permanent": true
+      "src": "^/privacy\\-policy/$",
+      "headers": {
+        "Location": "/privacidad/"
+      },
+      "status": 308
     },
     {
-      "source": "/:path((?!.*\\.)(?!.*\\/$).+)",
-      "destination": "/:path/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
+      "src": "^/((?!.*\\.)(?!.*/$).+)$",
+      "headers": {
+        "Location": "/$1/"
+      },
+      "status": 308
+    },
     {
-      "source": "/",
+      "src": "^/(.*)\\.md$",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "X-Robots-Tag": "noindex",
+        "Vary": "Accept"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/llms(.*)\\.txt$",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/_astro/(.*)$",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/$",
+      "headers": {
+        "Vary": "Accept",
+        "Link": "</index.md>; rel=\"alternate\"; type=\"text/markdown\""
+      },
+      "continue": true
+    },
+    {
+      "src": "^/guias/([^/]+)/$",
+      "headers": {
+        "Vary": "Accept",
+        "Link": "</guias/$1.md>; rel=\"alternate\"; type=\"text/markdown\""
+      },
+      "continue": true
+    },
+    {
+      "src": "^/casos/([^/]+)/$",
+      "headers": {
+        "Vary": "Accept",
+        "Link": "</casos/$1.md>; rel=\"alternate\"; type=\"text/markdown\""
+      },
+      "continue": true
+    },
+    {
+      "src": "^/$",
       "has": [
         {
           "type": "header",
           "key": "accept",
-          "value": "(.*)text/markdown(.*)"
+          "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/index.md"
+      "dest": "/index.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept"
+      }
     },
     {
-      "source": "/guias/:slug/",
+      "src": "^/guias/([^/]+)/$",
       "has": [
         {
           "type": "header",
           "key": "accept",
-          "value": "(.*)text/markdown(.*)"
+          "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/guias/:slug.md"
+      "dest": "/guias/$1.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept"
+      }
     },
     {
-      "source": "/casos/:slug/",
+      "src": "^/casos/([^/]+)/$",
       "has": [
         {
           "type": "header",
           "key": "accept",
-          "value": "(.*)text/markdown(.*)"
+          "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/casos/:slug.md"
+      "dest": "/casos/$1.md",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept"
+      }
     },
     {
-      "source": "/demo/malasa/",
-      "destination": "https://malasa-informes.vercel.app/index.html"
+      "src": "^/demo/malasa/$",
+      "dest": "https://malasa-informes.vercel.app/index.html"
     },
     {
-      "source": "/demo/malasa/:path*",
-      "destination": "https://malasa-informes.vercel.app/:path*"
+      "src": "^/demo/malasa/(.*)$",
+      "dest": "https://malasa-informes.vercel.app/$1"
     },
     {
-      "source": "/demos/(.*)",
-      "destination": "https://portfolio-osix.vercel.app/demos/$1"
-    }
-  ],
-  "headers": [
+      "src": "^/demos/(.*)$",
+      "dest": "https://portfolio-osix.vercel.app/demos/$1"
+    },
     {
-      "source": "/(.*)\\.md",
-      "headers": [
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/.*$",
+      "has": [
         {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
         }
-      ]
+      ],
+      "dest": "/404.md",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Vary": "Accept"
+      }
     },
     {
-      "source": "/llms(.*)\\.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/_astro/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/guias/:slug/",
-      "headers": [
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "Link",
-          "value": "</guias/:slug.md>; rel=\"alternate\"; type=\"text/markdown\""
-        }
-      ]
-    },
-    {
-      "source": "/casos/:slug/",
-      "headers": [
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "Link",
-          "value": "</casos/:slug.md>; rel=\"alternate\"; type=\"text/markdown\""
-        }
-      ]
-    },
-    {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Vary",
-          "value": "Accept"
-        },
-        {
-          "key": "Link",
-          "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\""
-        }
-      ]
+      "src": "^/.*$",
+      "dest": "/404.html",
+      "status": 404
     }
   ]
 }
