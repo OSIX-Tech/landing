@@ -1,0 +1,462 @@
+---
+// Clean reading layout for every Markdown page (guides, cases, company and legal pages).
+// Zero client JavaScript: the sidebar groups and the mobile index are native <details>.
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../lib/content';
+import type { JsonLd } from '../lib/schema';
+import { breadcrumbs as breadcrumbLd } from '../lib/schema';
+
+type Crumb = { name: string; path: string };
+type Heading = { depth: number; slug: string; text: string };
+type SidebarGroup = { id: string; label: string; items: { href: string; label: string; current?: boolean }[] };
+
+interface Props {
+  title: string;
+  seoTitle?: string;
+  description: string;
+  subtitle?: string;
+  eyebrow?: string;
+  crumbs?: Crumb[];
+  published?: string;
+  updated?: string;
+  author?: { name: string; href: string };
+  readingMinutes?: number;
+  headings?: Heading[];
+  sidebar?: { title: string; href: string; groups: SidebarGroup[] };
+  markdown?: string;
+  jsonLd?: (JsonLd | null)[];
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  seoTitle,
+  description,
+  subtitle,
+  eyebrow,
+  crumbs = [],
+  published,
+  updated,
+  author,
+  readingMinutes,
+  headings = [],
+  sidebar,
+  markdown,
+  jsonLd = [],
+  type = 'article',
+} = Astro.props;
+
+const trail = [{ name: 'Inicio', path: '/' }, ...crumbs];
+const toc = headings.filter((h) => h.depth === 2);
+const hasToc = toc.length >= 3;
+---
+
+<BaseLayout
+  title={seoTitle ?? `${title} | OSIX Tech`}
+  description={description}
+  type={type}
+  published={published}
+  modified={updated ?? published}
+  markdown={markdown}
+  jsonLd={[...jsonLd, breadcrumbLd(trail)]}
+>
+  <div class:list={['shell', 'doc', { 'has-sidebar': sidebar, 'has-toc': hasToc }]}>
+    {
+      sidebar && (
+        <aside class="doc-sidebar" aria-label={sidebar.title}>
+          <p class="sidebar-title">
+            <a href={sidebar.href}>{sidebar.title}</a>
+          </p>
+          {sidebar.groups.map((g) => (
+            <details class="sidebar-group" open={g.items.some((i) => i.current)}>
+              <summary>{g.label}</summary>
+              <ul>
+                {g.items.map((i) => (
+                  <li>
+                    <a href={i.href} aria-current={i.current ? 'page' : undefined}>
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </aside>
+      )
+    }
+
+    <article class="doc-main">
+      <header class="doc-head">
+        <nav class="crumbs" aria-label="Migas de pan">
+          <ol>
+            {
+              trail.map((c, i) => (
+                <li>{i < trail.length - 1 ? <a href={c.path}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>
+              ))
+            }
+          </ol>
+        </nav>
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        {subtitle && <p class="doc-subtitle">{subtitle}</p>}
+        {
+          (published || author || readingMinutes) && (
+            <p class="doc-meta">
+              {author && (
+                <span>
+                  Por <a href={author.href}>{author.name}</a>
+                </span>
+              )}
+              {published && (
+                <span>
+                  Publicado <time datetime={published}>{formatDate(published)}</time>
+                </span>
+              )}
+              {updated && updated !== published && (
+                <span>
+                  Actualizado <time datetime={updated}>{formatDate(updated)}</time>
+                </span>
+              )}
+              {readingMinutes && <span>{readingMinutes} min de lectura</span>}
+            </p>
+          )
+        }
+      </header>
+
+      {
+        hasToc && (
+          <details class="toc-mobile">
+            <summary>En esta página</summary>
+            <ol>
+              {toc.map((h) => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )
+      }
+
+      <slot name="lead" />
+      <div class="prose doc-body">
+        <slot />
+      </div>
+      <slot name="end" />
+    </article>
+
+    {
+      hasToc && (
+        <aside class="doc-toc" aria-label="En esta página">
+          <p class="toc-title">En esta página</p>
+          <ol>
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ol>
+          {markdown && (
+            <a class="toc-md" href={markdown}>
+              Ver en Markdown
+            </a>
+          )}
+        </aside>
+      )
+    }
+  </div>
+  <slot name="after" />
+</BaseLayout>
+
+<style>
+  .doc {
+    display: grid;
+    grid-template-columns: minmax(0, 46rem);
+    justify-content: center;
+    gap: 3.5rem;
+    padding-block: 2.5rem 5rem;
+  }
+
+  .doc.has-sidebar {
+    grid-template-columns: 15rem minmax(0, 46rem);
+    justify-content: start;
+  }
+
+  .doc.has-toc {
+    grid-template-columns: minmax(0, 46rem) 13rem;
+  }
+
+  .doc.has-sidebar.has-toc {
+    grid-template-columns: 15rem minmax(0, 46rem) 13rem;
+    justify-content: space-between;
+  }
+
+  /* ----- Head ----- */
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 0.35rem;
+    color: var(--line-strong);
+  }
+
+  .crumbs a {
+    text-decoration: none;
+  }
+
+  .crumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .crumbs span {
+    display: inline-block;
+    max-width: 32ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+  .doc-head {
+    padding-bottom: 2rem;
+    margin-bottom: 2.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc-head .eyebrow {
+    margin-top: 2rem;
+  }
+
+  .doc-head h1 {
+    margin-top: 0.75rem;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  .crumbs + h1 {
+    margin-top: 2rem;
+  }
+
+  .doc-subtitle {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .doc-meta a {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ----- Sidebar ----- */
+  .doc-sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+    max-height: calc(100svh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    font-size: 0.875rem;
+    scrollbar-width: thin;
+  }
+
+  .sidebar-title {
+    padding-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .sidebar-title a {
+    text-decoration: none;
+  }
+
+  .sidebar-group {
+    border-top: 1px solid var(--line);
+    padding-block: 0.4rem;
+  }
+
+  .sidebar-group > summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.45rem 0;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .sidebar-group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sidebar-group > summary::after {
+    content: '+';
+    font-weight: 400;
+  }
+
+  .sidebar-group[open] > summary::after {
+    content: '–';
+  }
+
+  .sidebar-group ul {
+    list-style: none;
+    padding: 0 0 0.5rem;
+  }
+
+  .sidebar-group a {
+    display: block;
+    padding: 0.35rem 0 0.35rem 0.75rem;
+    border-left: 1px solid var(--line);
+    color: var(--muted);
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .sidebar-group a:hover {
+    color: var(--ink);
+    border-left-color: var(--line-strong);
+  }
+
+  .sidebar-group a[aria-current='page'] {
+    color: var(--ink);
+    font-weight: 600;
+    border-left: 2px solid var(--ink);
+  }
+
+  /* ----- TOC ----- */
+  .doc-toc {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+    max-height: calc(100svh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    font-size: 0.8125rem;
+  }
+
+  .toc-title {
+    margin-bottom: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .doc-toc ol,
+  .toc-mobile ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  .doc-toc li + li {
+    margin-top: 0.55rem;
+  }
+
+  .doc-toc a {
+    color: var(--muted);
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .doc-toc a:hover {
+    color: var(--ink);
+  }
+
+  .toc-md {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+
+  .toc-mobile {
+    display: none;
+    margin-bottom: 2rem;
+    border: 1px solid var(--line);
+    font-size: 0.9375rem;
+  }
+
+  .toc-mobile summary {
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .toc-mobile ol {
+    padding: 0 1rem 1rem;
+  }
+
+  .toc-mobile li + li {
+    margin-top: 0.5rem;
+  }
+
+  .toc-mobile a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  @media (max-width: 1240px) {
+    .doc.has-toc {
+      grid-template-columns: minmax(0, 46rem);
+    }
+
+    .doc.has-sidebar.has-toc {
+      grid-template-columns: 15rem minmax(0, 46rem);
+      justify-content: start;
+    }
+
+    .doc-toc {
+      display: none;
+    }
+
+    .toc-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .doc.has-sidebar,
+    .doc.has-sidebar.has-toc {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .doc {
+      padding-top: 1.25rem;
+    }
+
+    .doc-sidebar {
+      position: static;
+      max-height: none;
+      order: 2;
+      margin-top: 3rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.125rem;
+    }
+  }
+
+</style>

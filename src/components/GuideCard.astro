@@ -1,0 +1,25 @@
+---
+import { genGuideArt } from '../utils/guideArt';
+import { formatDateShort, guideTitle, type Guide } from '../lib/content';
+interface Props {
+  guide: Guide;
+  index?: number;
+  showSummary?: boolean;
+}
+const { guide, index = 0, showSummary = false } = Astro.props;
+---
+
+<a class="card" href={`/guias/${guide.id}/`}>
+  <div class="card-media">
+    <Fragment set:html={genGuideArt(guide.id, index)} />
+    <span class="card-tag">{guide.data.category}</span>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{guideTitle(guide)}</h3>
+    {showSummary && <p class="card-text">{guide.data.summary}</p>}
+    <p class="card-meta">
+      <time datetime={guide.data.published}>{formatDateShort(guide.data.published)}</time>
+      <span aria-hidden="true">→</span>
+    </p>
+  </div>
+</a>

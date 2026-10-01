@@ -1,0 +1,308 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { breadcrumbs, webPage } from '../lib/schema';
+import { org } from '../site';
+import { getServices } from '../lib/content';
+
+const services = await getServices();
+const title = 'Contacto: cuéntanos tu proyecto | OSIX Tech';
+const description =
+  'Habla con OSIX Tech sobre tu proyecto de IA, automatización o software a medida. Respondemos en menos de 24 horas; la consulta inicial es gratuita.';
+// Values are what the EmailJS template and the team's inbox already expect.
+const serviceValue: Record<string, string> = {
+  'desarrollo-a-medida': 'custom',
+  'consultoria-transformacion': 'consultoria-transformacion',
+  'innovacion-subvencionada': 'innovacion-subvencionada',
+};
+const products = ['APEC', 'Nessie', 'Moura', 'ACTA', 'IRIS', 'BOND'];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={[
+    webPage({ path: '/contacto/', name: title, description, type: 'ContactPage' }),
+    breadcrumbs([
+      { name: 'Inicio', path: '/' },
+      { name: 'Contacto', path: '/contacto/' },
+    ]),
+  ]}
+>
+  <div class="shell contact">
+    <section class="info">
+      <p class="eyebrow fade-in" style="--d:0s">Contacto</p>
+      <h1 class="rise">
+        <span class="w" style="--i:0">Cuéntanos</span> <span class="w" style="--i:1">tu</span> <span class="w" style="--i:2">proyecto</span>
+      </h1>
+      <p class="lead fade-in">
+        Rellena el formulario y te respondemos en menos de 24 horas. La consulta inicial es gratuita: analizamos tu caso y
+        te decimos con honestidad qué podemos hacer por ti, y qué no.
+      </p>
+      <ul class="channels fade-in" style="--d:0.45s">
+        <li>
+          <Icon name="mail" />
+          <div><span>Email</span><a href={`mailto:${org.email}`}>{org.email}</a></div>
+        </li>
+        <li>
+          <Icon name="phone" />
+          <div><span>Teléfono</span><a href={org.phoneHref}>{org.phone}</a></div>
+        </li>
+        <li>
+          <Icon name="pin" />
+          <div>
+            <span>Oficina</span>
+            <address>
+              {org.address.street}, {org.address.postalCode} {org.address.locality}
+            </address>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="form-wrap" aria-labelledby="form-title">
+      <h2 id="form-title" class="sr-only">Formulario de contacto</h2>
+      <form id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">Nombre</label>
+          <input id="name" name="user_name" type="text" autocomplete="name" required minlength="2" />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="user_email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Teléfono <span class="opt">(opcional)</span></label>
+            <input id="phone" name="user_phone" type="tel" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="service">¿Qué te interesa?</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <optgroup label="Servicios">
+              {services.map((s) => <option value={serviceValue[s.id]}>{s.data.title}</option>)}
+              <option value="kted">Espacios de Datos (experiencia KTED)</option>
+            </optgroup>
+            <optgroup label="Productos">
+              {products.map((p) => <option value={p}>{p}</option>)}
+            </optgroup>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="6" required minlength="10" placeholder="Qué proceso quieres mejorar, con qué herramientas trabajáis hoy…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Enviar mensaje <Icon name="arrow" size={15} class="arrow" /></button>
+        <p class="status" role="status" aria-live="polite"></p>
+        <p class="consent">
+          Usamos estos datos solo para responder a tu consulta. Más información en la <a href="/privacidad/">política de privacidad</a>.
+        </p>
+      </form>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  // EmailJS is only fetched once someone starts filling the form.
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = form?.querySelector<HTMLElement>('.status');
+  let client: Promise<typeof import('@emailjs/browser')> | undefined;
+  const loadClient = () => (client ??= import('@emailjs/browser'));
+
+  form?.addEventListener('focusin', loadClient, { once: true });
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const data = new FormData(form);
+    button.disabled = true;
+    if (status) status.textContent = 'Enviando…';
+    try {
+      const { default: emailjs } = await loadClient();
+      await emailjs.send(
+        import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          user_name: data.get('user_name'),
+          user_email: data.get('user_email'),
+          service: data.get('service'),
+          user_phone: data.get('user_phone'),
+          message: data.get('message'),
+          date: new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'short' }),
+        },
+        { publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY },
+      );
+      form.reset();
+      if (status) status.textContent = 'Mensaje enviado. Te respondemos en menos de 24 horas.';
+    } catch {
+      if (status) status.textContent = 'No se pudo enviar el mensaje. Escríbenos a info@osix.tech.';
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    padding-block: clamp(3rem, 7vw, 5.5rem) clamp(4rem, 8vw, 6rem);
+  }
+
+  h1 {
+    margin-top: 1rem;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .lead {
+    margin-top: 1.5rem;
+    max-width: 48ch;
+    color: var(--muted);
+    font-size: 1.125rem;
+    --d: 0.3s;
+  }
+
+  .channels {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .channels li {
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .channels li > :global(svg) {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .channels span {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .channels a,
+  .channels address {
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .form-wrap {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  form {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .opt {
+    font-weight: 400;
+    color: var(--muted-on-ink);
+  }
+
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 0;
+    color: var(--paper);
+    transition: border-color 0.2s ease;
+  }
+
+  select option,
+  select optgroup {
+    color: var(--ink);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--paper);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 9rem;
+  }
+
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .consent {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--muted-on-ink);
+  }
+
+  .consent a {
+    color: var(--paper);
+  }
+
+  button {
+    justify-self: start;
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+
+  button:hover {
+    background: transparent;
+    color: var(--paper);
+  }
+
+  button:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .status {
+    min-height: 1.5em;
+    font-size: 0.9375rem;
+  }
+
+  @media (max-width: 860px) {
+    .contact,
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

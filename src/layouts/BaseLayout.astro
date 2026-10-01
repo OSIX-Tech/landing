@@ -1,0 +1,124 @@
+---
+// Every page renders through this layout: <head>, structured data, header, footer.
+import { Font } from 'astro:assets';
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteGraph, type JsonLd } from '../lib/schema';
+import { absolute } from '../site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Article pages get article:* Open Graph tags. */
+  type?: 'website' | 'article';
+  image?: string;
+  imageAlt?: string;
+  published?: string;
+  modified?: string;
+  /** Path of this page's Markdown twin, if it has one. */
+  markdown?: string;
+  jsonLd?: (JsonLd | null)[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  type = 'website',
+  image = '/og-image.png',
+  imageAlt = 'OSIX Tech',
+  published,
+  modified,
+  markdown,
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const canonical = absolute(Astro.url.pathname);
+const imageUrl = absolute(image);
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [...siteGraph(), ...jsonLd.filter(Boolean)],
+};
+const speculation = {
+  prefetch: [{ where: { href_matches: '/*' }, eagerness: 'moderate' }],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+    />
+    {!noindex && <link rel="alternate" hreflang="es" href={canonical} />}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={canonical} />}
+    {markdown && <link rel="alternate" type="text/markdown" href={markdown} title="Versión Markdown" />}
+
+    <Font cssVariable="--font-sans" preload />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon-96x96.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="OSIX Tech" />
+    <meta property="og:locale" content="es_ES" />
+    {!noindex && <meta property="og:url" content={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    {type === 'article' && published && <meta property="article:published_time" content={published} />}
+    {type === 'article' && modified && <meta property="article:modified_time" content={modified} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(graph)} />
+    <script type="speculationrules" is:inline set:html={JSON.stringify(speculation)} />
+
+    <!-- GA4 loads after the page has finished loading, off the critical path. -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-RMEFVS4V09');
+      window.addEventListener(
+        'load',
+        function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RMEFVS4V09';
+          document.head.appendChild(s);
+        },
+        { once: true },
+      );
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+    <Analytics />
+    <SpeedInsights />
+  </body>
+</html>

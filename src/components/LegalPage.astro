@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from 'astro:content';
+import DocLayout from '../layouts/DocLayout.astro';
+import { webPage } from '../lib/schema';
+
+interface Props {
+  id: 'privacidad' | 'seguridad-informacion';
+}
+const { id } = Astro.props;
+const page = (await getEntry('paginas', id))!;
+const { Content, headings } = await render(page);
+const path = `/${id}/`;
+---
+
+<DocLayout
+  title={page.data.title}
+  description={page.data.description}
+  crumbs={[{ name: page.data.title, path }]}
+  updated={page.data.updated}
+  headings={headings}
+  type="website"
+  jsonLd={[webPage({ path, name: page.data.title, description: page.data.description, modified: page.data.updated })]}
+>
+  <Content />
+</DocLayout>

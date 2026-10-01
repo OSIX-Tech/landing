@@ -1,0 +1,151 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import DocLayout from '../layouts/DocLayout.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { getTeam } from '../lib/content';
+import { personId, webPage } from '../lib/schema';
+import { org, ORG_ID } from '../site';
+
+const page = (await getEntry('paginas', 'nosotros'))!;
+const { Content } = await render(page);
+const team = await getTeam();
+---
+
+<DocLayout
+  title={page.data.title}
+  seoTitle="Quiénes somos: el equipo de OSIX Tech | OSIX Tech"
+  description={page.data.description}
+  crumbs={[{ name: 'Nosotros', path: '/nosotros/' }]}
+  type="website"
+  jsonLd={[
+    webPage({ path: '/nosotros/', name: page.data.title, description: page.data.description, type: 'AboutPage', modified: page.data.updated }),
+    ...team.map((m) => ({
+      '@type': 'Person',
+      '@id': personId(m.id),
+      name: m.data.name,
+      jobTitle: m.data.role,
+      description: m.body?.trim(),
+      worksFor: { '@id': ORG_ID },
+      sameAs: [m.data.linkedin, m.data.github].filter(Boolean),
+    })),
+  ]}
+>
+  <Content />
+
+  <Fragment slot="end">
+    <section class="team" aria-labelledby="equipo">
+      <h2 id="equipo">El equipo</h2>
+      <ul class="team-grid">
+        {
+          team.map((m) => (
+            <li class="member" id={m.id}>
+              <Image src={m.data.photo} alt={m.data.name} width={320} height={320} widths={[240, 320, 480]} sizes="(max-width: 640px) 50vw, 240px" class="photo" />
+              <h3>{m.data.name}</h3>
+              <p class="role">{m.data.role}</p>
+              <p class="bio">{m.body?.trim()}</p>
+              <p class="links">
+                <a href={m.data.linkedin} rel="noopener">
+                  <Icon name="linkedin" size={15} label={`LinkedIn de ${m.data.name}`} />
+                </a>
+                {m.data.github && (
+                  <a href={m.data.github} rel="noopener">
+                    <Icon name="github" size={15} label={`GitHub de ${m.data.name}`} />
+                  </a>
+                )}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="where" aria-labelledby="donde">
+      <h2 id="donde">Dónde estamos</h2>
+      <address>
+        <strong>{org.legalName}</strong><br />
+        {org.address.street}<br />
+        {org.address.postalCode} {org.address.locality}, {org.address.region}<br />
+        <a href={`mailto:${org.email}`}>{org.email}</a> · <a href={org.phoneHref}>{org.phone}</a>
+      </address>
+    </section>
+  </Fragment>
+
+  <CtaBand slot="after" />
+</DocLayout>
+
+<style>
+  .team {
+    margin-top: 3.5rem;
+  }
+
+  .team h2,
+  .where h2 {
+    font-size: 1.625rem;
+    letter-spacing: -0.025em;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+    gap: 2.25rem 1.5rem;
+    margin-top: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .member :global(.photo) {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter 0.4s ease;
+  }
+
+  .member:hover :global(.photo) {
+    filter: none;
+  }
+
+  .member h3 {
+    margin-top: 0.9rem;
+    font-size: 1.0625rem;
+  }
+
+  .role {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .bio {
+    margin-top: 0.6rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #2b2b2b;
+  }
+
+  .links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .links a {
+    color: var(--muted);
+  }
+
+  .links a:hover {
+    color: var(--ink);
+  }
+
+  .where {
+    margin-top: 3.5rem;
+  }
+
+  address {
+    margin-top: 1rem;
+    font-style: normal;
+    line-height: 1.8;
+  }
+</style>
