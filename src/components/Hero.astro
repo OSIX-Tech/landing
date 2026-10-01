@@ -61,32 +61,39 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
 </section>
 
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+  // Nothing heavy on the critical path: GSAP arrives after first paint, the 3D mark after
+  // the page is idle (desktop) or on the first touch (touch devices, so it never delays
+  // the first screen on a phone).
   const hero = document.getElementById('hero')!;
   const stage = document.getElementById('logo-stage')!;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
 
   if (!reduce) {
-    gsap.registerPlugin(ScrollTrigger);
     hero.classList.add('is-scrolly');
-
     let logo: { explode(value: number): void } | null = null;
-    const words = hero.querySelectorAll<HTMLElement>('.w');
-    const tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
-    });
-    // 0 → 1 is the scroll through the hero. The mark comes apart over the first half and
-    // steps back; the words rise through it; the subtitle and buttons follow.
-    tl.to(hero.querySelector('.hint'), { opacity: 0, duration: 0.08 }, 0)
-      .to({ p: 0 }, { p: 1, duration: 0.55, onUpdate() { logo?.explode(this.targets()[0].p); } }, 0)
-      .to(stage, { scale: 1.18, opacity: 0.18, duration: 0.7, ease: 'power1.in' }, 0.05)
-      .fromTo(words, { yPercent: 110 }, { yPercent: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }, 0.3)
-      .fromTo(hero.querySelector('.subtitle'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.6)
-      .fromTo(hero.querySelector('.actions'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.7);
+    let progress = 0;
+
+    const animate = async () => {
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
+      gsap.registerPlugin(ScrollTrigger);
+      const words = hero.querySelectorAll<HTMLElement>('.w');
+      const tl = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: 0.6 },
+      });
+      // 0 → 1 is the scroll through the hero. The mark comes apart over the first half and
+      // steps back; the words rise through it; the subtitle and buttons follow.
+      tl.to(hero.querySelector('.hint'), { opacity: 0, duration: 0.08 }, 0)
+        .to({ p: 0 }, { p: 1, duration: 0.55, onUpdate() { progress = this.targets()[0].p; logo?.explode(progress); } }, 0)
+        .to(stage, { scale: 1.18, opacity: 0.18, duration: 0.7, ease: 'power1.in' }, 0.05)
+        .fromTo(words, { yPercent: 110 }, { yPercent: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }, 0.3)
+        .fromTo(hero.querySelector('.subtitle'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.6)
+        .fromTo(hero.querySelector('.actions'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.7);
+    };
+    // The headline is already hidden by CSS, so GSAP can wait until the page has painted.
+    if (document.readyState === 'complete') animate();
+    else window.addEventListener('load', () => setTimeout(animate, 50), { once: true });
 
     if (!saveData) {
       let started = false;
@@ -97,7 +104,7 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
         try {
           const { mountLogo } = await import('../scripts/logo3d');
           logo = mountLogo(stage, { driven: true });
-          logo.explode(tl.scrollTrigger?.progress ? Math.min(1, tl.scrollTrigger.progress / 0.55) : 0);
+          logo.explode(progress);
           stage.classList.add('is-live');
         } catch {
           // WebGL unavailable: the poster stays and still fades out on scroll.
@@ -106,8 +113,11 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
       const intent = ['pointermove', 'scroll', 'keydown', 'wheel', 'touchstart'] as const;
       const cleanup = () => intent.forEach((e) => window.removeEventListener(e, start));
       intent.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }));
-      // Or simply once the page is idle, so the mark is already alive when the scroll begins.
-      window.addEventListener('load', () => setTimeout(start, 800), { once: true });
+      if (window.matchMedia('(pointer: fine)').matches) {
+        // Desktop: also once idle, so the mark is alive before the scroll begins.
+        const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(start, { timeout: 3000 }) : setTimeout(start, 2000));
+        window.addEventListener('load', () => setTimeout(idle, 1500), { once: true });
+      }
     }
   }
 </script>
@@ -251,6 +261,10 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
   .is-scrolly .subtitle,
   .is-scrolly .actions {
     opacity: 0;
+  }
+
+  .is-scrolly .w {
+    transform: translateY(110%);
   }
 
   .is-scrolly .hint {
