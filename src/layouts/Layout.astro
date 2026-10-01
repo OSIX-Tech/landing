@@ -59,10 +59,12 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes" />
 
-    <!-- Font loading: preconnect + non-blocking stylesheet -->
+    <!-- Keep font CSS off the render-critical path; use the system fallback until it loads. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" /></noscript>
 
     <meta name="mobile-web-app-capable" content="yes" />
 
@@ -123,13 +125,18 @@ const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
       <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
 
-    <!-- Google Analytics 4 -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-RMEFVS4V09"></script>
+    <!-- Google Analytics 4: load after the page's first paint, preserving the existing measurement ID. -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag(){window.dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-RMEFVS4V09');
+      window.addEventListener('load', function () {
+        var analyticsScript = document.createElement('script');
+        analyticsScript.async = true;
+        analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-RMEFVS4V09';
+        document.head.appendChild(analyticsScript);
+      }, { once: true });
     </script>
 
   </head>

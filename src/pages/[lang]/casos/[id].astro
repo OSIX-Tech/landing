@@ -2,7 +2,6 @@
 import Layout from '../../../layouts/Layout.astro';
 import { getCaseById, getCaseIds, getAllCases } from '../../../data/cases-multilingual';
 import LoadingScreen from '../../../components/LoadingScreen.astro';
-import BeamsBackground from '../../../components/BeamsBackground.jsx';
 import { LANGUAGES, type Lang } from '../../../utils/languages';
 
 export const prerender = true;
@@ -85,9 +84,6 @@ const jsonLd = {
 
   <!-- HERO -->
   <section class="hero-section relative min-h-[350px] bg-black lg:min-h-[400px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
-    <div class="absolute inset-0 z-0">
-      <BeamsBackground client:only="react" beamWidth={4} beamHeight={20} beamNumber={10} speed={2} noiseIntensity={0.5} scale={0.2} rotation={30} />
-    </div>
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center max-w-3xl">
         <span class="hero-badge opacity-0 text-sm font-semibold tracking-widest uppercase text-gray-400 mb-4">
