@@ -1,17 +1,41 @@
 ---
-// Site header. No JavaScript: the services menu opens with :hover/:focus-within and
-// the mobile menu is a native <details>. The active section is set at build time.
+// Site header. No JavaScript: every menu opens with :hover/:focus-within and the mobile
+// menu is a native <details>. The active section is set at build time. Servicios, Casos
+// and Guías each get the same list-of-lines menu, built from the content collections.
 import Icon from './Icon.astro';
-import { getServices } from '../lib/content';
+import { getCases, getGuidesBySection, getServices } from '../lib/content';
 
-const services = await getServices();
+const [services, cases, sections] = await Promise.all([getServices(), getCases(), getGuidesBySection()]);
 const path = Astro.url.pathname;
 const section = path.split('/')[1] ?? '';
 
-const links = [
-  { href: '/casos/', label: 'Casos', key: 'casos' },
-  { href: '/guias/', label: 'Guías', key: 'guias' },
-  { href: '/nosotros/', label: 'Nosotros', key: 'nosotros' },
+type Item = { href: string; title: string; text?: string };
+type Menu = { key: string; label: string; href: string; all: string; items: Item[] };
+
+const menus: Menu[] = [
+  {
+    key: 'servicios',
+    label: 'Servicios',
+    href: '/servicios/',
+    all: 'Todos los servicios',
+    items: services.map((s) => ({ href: `/servicios/${s.id}/`, title: s.data.shortTitle ?? s.data.title, text: s.data.tagline })),
+  },
+  {
+    key: 'casos',
+    label: 'Casos',
+    href: '/casos/',
+    all: `Los ${cases.length} casos`,
+    items: cases.map((c) => ({ href: `/casos/${c.id}/`, title: c.data.title })),
+  },
+  {
+    key: 'guias',
+    label: 'Guías',
+    href: '/guias/',
+    all: 'Todas las guías',
+    items: sections
+      .filter((s) => s.guides.length)
+      .map((s) => ({ href: `/guias/#${s.id}`, title: s.label, text: `${s.guides.length} guías` })),
+  },
 ];
 const current = (key: string) => (section === key ? 'page' : undefined);
 ---
@@ -24,39 +48,36 @@ const current = (key: string) => (section === key ? 'page' : undefined);
 
     <nav class="nav" aria-label="Principal">
       <ul class="nav-list">
-        <li class="has-menu">
-          <a href="/servicios/" class="nav-link" aria-current={current('servicios')}>
-            Servicios <Icon name="chevron" size={14} class="chev" />
-          </a>
-          <div class="menu">
-            <ul class="menu-list">
-              {
-                services.map((s, i) => (
-                  <li>
-                    <a href={`/servicios/${s.id}/`} class="menu-item">
-                      <span class="menu-num">0{i + 1}</span>
-                      <span class="menu-text">
-                        <span class="menu-title t-link">{s.data.title}</span>
-                        <span class="menu-tagline">{s.data.tagline}</span>
-                      </span>
-                      <Icon name="arrow" size={15} class="arrow" />
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-            <a href="/servicios/" class="menu-all t-link">Todos los servicios</a>
-          </div>
-        </li>
         {
-          links.map((l) => (
-            <li>
-              <a href={l.href} class="nav-link" aria-current={current(l.key)}>
-                {l.label}
+          menus.map((m) => (
+            <li class="has-menu">
+              <a href={m.href} class="nav-link" aria-current={current(m.key)}>
+                {m.label} <Icon name="chevron" size={14} class="chev" />
               </a>
+              <div class="menu">
+                <ul class="menu-list">
+                  {m.items.map((i) => (
+                    <li>
+                      <a href={i.href} class="menu-item">
+                        <span class="menu-text">
+                          <span class="menu-title t-link">{i.title}</span>
+                          {i.text && <span class="menu-tagline">{i.text}</span>}
+                        </span>
+                        <Icon name="arrow" size={15} class="arrow" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a href={m.href} class="menu-all t-link">
+                  {m.all}
+                </a>
+              </div>
             </li>
           ))
         }
+        <li>
+          <a href="/nosotros/" class="nav-link" aria-current={current('nosotros')}>Nosotros</a>
+        </li>
       </ul>
     </nav>
 
@@ -70,26 +91,29 @@ const current = (key: string) => (section === key ? 'page' : undefined);
         <Icon name="close" size={24} class="shut" />
       </summary>
       <nav class="mobile-panel" aria-label="Principal (móvil)">
-        <p class="mobile-group">Servicios</p>
-        <ul>
-          {
-            services.map((s) => (
-              <li>
-                <a href={`/servicios/${s.id}/`}>{s.data.title}</a>
-              </li>
-            ))
-          }
-        </ul>
+        {
+          menus.map((m) => (
+            <details class="mobile-group" open={m.key === section}>
+              <summary>
+                {m.label} <Icon name="chevron" size={18} class="chev" />
+              </summary>
+              <ul>
+                {m.items.map((i) => (
+                  <li>
+                    <a href={i.href}>{i.title}</a>
+                  </li>
+                ))}
+                <li>
+                  <a href={m.href} class="mobile-all">
+                    {m.all}
+                  </a>
+                </li>
+              </ul>
+            </details>
+          ))
+        }
         <ul class="mobile-main">
-          {
-            links.map((l) => (
-              <li>
-                <a href={l.href} aria-current={current(l.key)}>
-                  {l.label}
-                </a>
-              </li>
-            ))
-          }
+          <li><a href="/nosotros/" aria-current={current('nosotros')}>Nosotros</a></li>
           <li><a href="/contacto/">Contacto</a></li>
         </ul>
       </nav>
@@ -170,12 +194,13 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     transform: rotate(180deg);
   }
 
-  /* Services menu: a list of lines under the link, no cards. Fades, does not move. */
+  /* Menus: a list of lines under the link, no cards. Fades, does not move. */
   .menu {
     position: absolute;
     left: 0;
     top: 100%;
     width: 27rem;
+    max-width: calc(100vw - 2 * var(--gutter));
     padding: 0.5rem 0 0;
     background: var(--paper);
     border: 1px solid var(--line);
@@ -185,6 +210,12 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     transition:
       opacity var(--t-fast) var(--ease),
       visibility 0s linear var(--t-fast);
+  }
+
+  /* The last two menus open to the left so they stay inside the viewport. */
+  .has-menu:nth-last-child(-n + 3) .menu {
+    left: auto;
+    right: 0;
   }
 
   .menu::before {
@@ -210,10 +241,10 @@ const current = (key: string) => (section === key ? 'page' : undefined);
 
   .menu-item {
     display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
     gap: 0.75rem;
-    padding: 1rem 1.25rem;
+    padding: 0.85rem 1.25rem;
     border-top: 1px solid var(--line);
     text-decoration: none;
     color: var(--ink);
@@ -224,36 +255,28 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     background-size: 100% 1px;
   }
 
-  .menu-num {
-    padding-top: 0.2rem;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-
   .menu-text {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.15rem;
     min-width: 0;
   }
 
   .menu-title {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    line-height: 1.3;
+    line-height: 1.35;
   }
 
   .menu-tagline {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     line-height: 1.45;
     color: var(--muted);
   }
 
   .menu-item :global(.arrow) {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
     color: var(--muted);
     transition:
       transform var(--t) var(--ease),
@@ -286,7 +309,7 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     margin-left: auto;
   }
 
-  .mobile summary {
+  .mobile > summary {
     display: grid;
     place-items: center;
     width: 2.75rem;
@@ -295,7 +318,7 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     list-style: none;
   }
 
-  .mobile summary::-webkit-details-marker {
+  .mobile > summary::-webkit-details-marker {
     display: none;
   }
 
@@ -315,7 +338,7 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     top: 100%;
     height: calc(100svh - var(--header-h));
     overflow-y: auto;
-    padding: 1.5rem var(--gutter) 3rem;
+    padding: 0.5rem var(--gutter) 3rem;
     background: var(--paper);
     border-top: 1px solid var(--line);
   }
@@ -325,31 +348,63 @@ const current = (key: string) => (section === key ? 'page' : undefined);
     padding: 0;
   }
 
-  .mobile-panel a {
-    display: block;
-    padding: 0.7rem 0;
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
+  .mobile-group {
     border-bottom: 1px solid var(--line);
   }
 
-  .mobile-group {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .mobile-main {
-    margin-top: 1.75rem;
-  }
-
-  .mobile-main a {
+  .mobile-group > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mobile-group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-group > summary :global(.chev) {
+    transition: transform var(--t) var(--ease);
+  }
+
+  .mobile-group[open] > summary :global(.chev) {
+    transform: rotate(180deg);
+  }
+
+  .mobile-group ul {
+    padding-bottom: 0.75rem;
+  }
+
+  .mobile-group a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .mobile-all {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted) !important;
+  }
+
+  .mobile-main a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
   }
 
   @media (max-width: 900px) {

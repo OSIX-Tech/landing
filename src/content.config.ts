@@ -120,6 +120,8 @@ const servicios = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/servicios' }),
   schema: z.object({
     title: z.string(),
+    /** One word for the home and menus, e.g. "Desarrollo". Falls back to `title`. */
+    shortTitle: z.string().max(24).optional(),
     tagline: z.string(),
     /** Two or three sentences for the home. Falls back to `description`. */
     summary: z.string().min(80).max(400).optional(),

@@ -46,7 +46,7 @@ const description =
       <span id="services" aria-hidden="true"></span>
       <div class="services-head reveal">
         <p class="eyebrow">Servicios</p>
-        <h2 class="section-title">Tres formas de <strong>trabajar</strong> con OSIX</h2>
+        <h2 class="section-title">Tres formas de<br />trabajar con OSIX</h2>
         <p class="section-lead">
           Construimos el software, te ayudamos a decidir qué automatizar o preparamos el proyecto cuando hay una ayuda
           pública vigente que encaja. En los tres casos empezamos por tu proceso real.
@@ -59,9 +59,8 @@ const description =
             <li class="reveal">
               <a class="service" href={`/servicios/${s.id}/`}>
                 <span class="service-main">
-                  <h3 class="service-title">{s.data.title}</h3>
+                  <h3 class="service-title"><span class="t-link">{s.data.shortTitle ?? s.data.title}</span></h3>
                   <p class="service-text">{s.data.summary ?? s.data.description}</p>
-                  <span class="service-more">Ver servicio</span>
                 </span>
                 <Icon name="arrow" size={24} class="arrow service-arrow" />
               </a>
@@ -232,6 +231,7 @@ const description =
 
   .services-head .section-title {
     font-size: clamp(2rem, 3.6vw, 3rem);
+    text-wrap: nowrap;
   }
 
   .services-head .section-lead {
@@ -262,17 +262,19 @@ const description =
     min-width: 0;
   }
 
-  /* No underline on a title that wraps: the hover is the arrow moving and the text dimming. */
   .service-title {
     font-size: clamp(2rem, 3.8vw, 3.5rem);
     font-weight: 800;
     letter-spacing: -0.045em;
     line-height: 1;
-    transition: color var(--t-fast) var(--ease);
   }
 
-  .service:hover .service-title {
-    color: var(--muted);
+  .service-title .t-link {
+    background-size: 0% 3px;
+  }
+
+  .service:hover .service-title .t-link {
+    background-size: 100% 3px;
   }
 
   .service-text {
@@ -280,14 +282,6 @@ const description =
     font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
     line-height: 1.6;
     color: var(--muted);
-  }
-
-  .service-more {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
   }
 
   .service :global(.service-arrow) {

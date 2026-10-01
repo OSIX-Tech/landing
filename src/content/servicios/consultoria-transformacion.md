@@ -1,5 +1,6 @@
 ---
 title: "Consultoría de Transformación Digital e IA"
+shortTitle: "Consultoría"
 tagline: "Consultoría de IA para pymes que quieren automatizar con criterio."
 summary: "Visitamos tu empresa, entendemos cómo trabajáis de verdad y señalamos qué procesos merecen automatizarse. En menos de una semana tienes oportunidades concretas, una estimación de ahorro y un plan priorizado. Si no necesitas nada, te lo decimos."
 description: "Somos una consultora de IA para pymes de Galicia y España. Visitamos tu empresa, entendemos cómo trabajáis de verdad y señalamos qué procesos pueden mejorar con automatización e inteligencia artificial. En menos de una semana recibes oportunidades concretas, estimación de ahorro y un plan de acción priorizado. Si no necesitas nada, te lo decimos."
