@@ -83,6 +83,8 @@ const guias = defineCollection({
       faqs: z.array(faq).optional(),
       /** Own cover (16:9, in src/assets/covers/). Without it the build generates one. */
       cover: image().optional(),
+      /** Lucide icon drawn on the generated cover; defaults by category, then section. */
+      icon: z.string().regex(/^[a-z0-9-]+$/).optional(),
       draft: z.boolean().default(false),
     }),
 });

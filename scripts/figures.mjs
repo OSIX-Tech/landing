@@ -97,6 +97,43 @@ function mark({ size, x, y, rotate, left, right, stroke }) {
   };
 }
 
+// ---------- Lucide icons for guide covers ----------
+// A guide can set `icon:` (a Lucide name) in its frontmatter; otherwise its category, then its
+// section, decides. Drawn as thin white lines, large, in the cover's upper right.
+const ICON_BY_CATEGORY = {
+  Criterios: 'list-checks', Comparativa: 'columns-3', 'IA para pymes': 'sparkles', 'Automatización documental': 'file-stack',
+  Turismo: 'map-pin', 'Software a medida': 'code', Procesos: 'workflow', 'Precios reales': 'euro', 'Precios de agentes': 'coins',
+  Ofertas: 'receipt', Modernización: 'refresh-cw', Medición: 'gauge', Licitaciones: 'landmark', Laboratorios: 'flask-conical',
+  Integración: 'plug', Informes: 'chart-column', Industria: 'factory', Implantación: 'rocket', 'IA explicable': 'eye',
+  Herramientas: 'wrench', Gobernanza: 'shield-check', Gestorías: 'briefcase', Facturación: 'receipt-euro', Expectativas: 'target',
+  Distribución: 'truck', Datos: 'database', 'Correo y CRM': 'mail', Contratos: 'file-signature', Continuidad: 'repeat',
+  Conceptos: 'book-open', Chatbots: 'message-square', 'Casos reales': 'badge-check', Ayudas: 'hand-coins', Automatización: 'bot',
+  'Atención al cliente': 'headset', 'Asistentes con IA': 'message-circle', Alimentación: 'wheat', 'Agentes de IA': 'bot',
+};
+const ICON_BY_SECTION = {
+  'primeros-pasos': 'compass', 'costes-y-resultados': 'calculator', 'elegir-proveedor': 'search-check',
+  'automatizar-procesos': 'workflow', sectores: 'factory', 'software-y-contratos': 'file-check',
+};
+const ICON_DIR = path.join(ROOT, 'node_modules/lucide-static/icons');
+
+function iconFor(data) {
+  return data.icon ?? ICON_BY_CATEGORY[data.category] ?? ICON_BY_SECTION[data.section] ?? 'book-open';
+}
+
+function icon(name, { size, color, strokeWidth = 1.25, x, y }) {
+  const file = path.join(ICON_DIR, `${name}.svg`);
+  if (!fs.existsSync(file)) throw new Error(`Icono Lucide desconocido: "${name}" (mira node_modules/lucide-static/icons).`);
+  const svg = fs
+    .readFileSync(file, 'utf8')
+    .replace(/<!--[\s\S]*?-->/, '')
+    .replace('stroke="currentColor"', `stroke="${color}"`)
+    .replace('stroke-width="2"', `stroke-width="${strokeWidth}"`);
+  return {
+    type: 'img',
+    props: { src: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`, width: size, height: size, style: { position: 'absolute', left: x, top: y } },
+  };
+}
+
 // ---------- seeded variation for guide covers ----------
 function seeded(str) {
   let h = 1779033703 ^ str.length;
@@ -306,6 +343,167 @@ const GUIDE_DESIGNS = {
       ]),
     ]);
   },
+  // A thin line icon for the guide's subject, upper right.
+  icono(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const n = 400;
+    return frame([
+      icon(iconFor(data), { size: n, color: PAPER, strokeWidth: 1.1, x: W - 72 - n + 20, y: 48 }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Same icon, larger and in grey so the title stays in front.
+  'icono-grande'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const n = 560;
+    return frame([
+      icon(iconFor(data), { size: n, color: '#8a8a8a', strokeWidth: 0.9, x: W - 72 - n + 40, y: 20 }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // A grid of dots, upper right.
+  puntos(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const dots = [];
+    for (let r = 0; r < 5; r++) for (let c = 0; c < 9; c++) dots.push(el('div', { position: 'absolute', left: W - 72 - 9 * 56 + c * 56, top: 72 + r * 56, width: 12, height: 12, borderRadius: 6, background: c + r >= 8 ? PAPER : '#5c5c5c' }));
+    return frame([
+      ...dots,
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Section number, large and thin, upper right.
+  numero(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const sections = ['primeros-pasos', 'costes-y-resultados', 'elegir-proveedor', 'automatizar-procesos', 'sectores', 'software-y-contratos'];
+    const n = String(sections.indexOf(data.section) + 1).padStart(2, '0');
+    return frame([
+      text(n, { position: 'absolute', right: 60, top: 20, fontSize: 320, fontWeight: 500, letterSpacing: -20, lineHeight: 1, color: '#3a3a3a' }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Concentric rings, upper right.
+  anillos(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const rings = [440, 330, 220, 110].map((d, i) =>
+      el('div', { position: 'absolute', right: 72 + (440 - d) / 2, top: 60 + (440 - d) / 2, width: d, height: d, borderRadius: d / 2, border: `2px solid ${i === 3 ? PAPER : i === 2 ? '#a3a3a3' : i === 1 ? '#5c5c5c' : '#333333'}` }),
+    );
+    return frame([
+      ...rings,
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // Diagonal hairlines block, upper right.
+  rayas(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      el('div', { position: 'absolute', right: 72, top: 72, width: 480, height: 300, backgroundImage: `repeating-linear-gradient(135deg, ${PAPER} 0, ${PAPER} 2px, transparent 2px, transparent 18px)` }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // The subject icon inside a ring, upper right.
+  'icono-anillo'(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const d = 400;
+    return frame([
+      el('div', { position: 'absolute', right: 72, top: 60, width: d, height: d, borderRadius: d / 2, border: `2px solid ${PAPER}` }),
+      icon(iconFor(data), { size: 200, color: PAPER, strokeWidth: 1.25, x: W - 72 - d / 2 - 100, y: 60 + d / 2 - 100 }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // A big arrow pointing up-right: every guide goes somewhere.
+  flecha(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    return frame([
+      icon('arrow-up-right', { size: 440, color: PAPER, strokeWidth: 1, x: W - 72 - 440 + 40, y: 20 }),
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
+  // A three-line checklist, like the guide's "respuesta en 30 segundos".
+  lista(slug, data) {
+    const t = data.shortTitle ?? data.title;
+    const size = titleSize(t);
+    const rows = [0, 1, 2].map((i) =>
+      el('div', { position: 'absolute', right: 72, top: 80 + i * 92, alignItems: 'center', gap: 28 }, [
+        el('div', { width: 44, height: 44, border: `2px solid ${PAPER}`, alignItems: 'center', justifyContent: 'center' }, i === 0 ? [el('div', { width: 20, height: 20, background: PAPER })] : []),
+        el('div', { width: [360, 280, 320][i], height: 2, background: i === 0 ? PAPER : '#5c5c5c' }),
+      ]),
+    );
+    return frame([
+      ...rows,
+      eyebrow(`Guía · ${data.category}`, MUTED_ON_INK),
+      el('div', { justifyContent: 'space-between', alignItems: 'flex-end' }, [
+        el('div', { flexDirection: 'column', maxWidth: 1080 }, [
+          text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
+          text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
+        ]),
+        logo(logoLight, 40),
+      ]),
+    ]);
+  },
   // Centred title between two hairlines, like a book cover.
   centrado(slug, data) {
     const t = data.shortTitle ?? data.title;
@@ -434,11 +632,14 @@ function frontmatter(file) {
 }
 
 if (process.env.PREVIEW_OUT) {
-  const slug = process.env.PREVIEW_SLUG ?? 'automatizar-albaranes-facturas-proveedores-erp';
-  const data = frontmatter(path.join(ROOT, 'src/content/guias', `${slug}.md`));
+  const slugs = (process.env.PREVIEW_SLUG ?? 'automatizar-albaranes-facturas-proveedores-erp').split(',');
+  const designs = (process.env.PREVIEW_DESIGNS ?? Object.keys(GUIDE_DESIGNS).join(',')).split(',');
   fs.mkdirSync(process.env.PREVIEW_OUT, { recursive: true });
-  for (const name of Object.keys(GUIDE_DESIGNS)) await render(GUIDE_DESIGNS[name](slug, data), path.join(process.env.PREVIEW_OUT, `${name}.png`));
-  console.log(`preview: ${Object.keys(GUIDE_DESIGNS).join(', ')} → ${process.env.PREVIEW_OUT}`);
+  for (const slug of slugs) {
+    const data = frontmatter(path.join(ROOT, 'src/content/guias', `${slug}.md`));
+    for (const name of designs) await render(GUIDE_DESIGNS[name](slug, data), path.join(process.env.PREVIEW_OUT, `${name}--${slug}.png`));
+  }
+  console.log(`preview → ${process.env.PREVIEW_OUT}`);
   process.exit(0);
 }
 
