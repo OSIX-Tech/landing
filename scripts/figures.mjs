@@ -108,7 +108,7 @@ function seeded(str) {
 // ---------- renderers ----------
 const GREY_2 = '#d9d9d9';
 
-const GUIDE_DESIGN = process.env.GUIDE_DESIGN ?? 'titulo';
+const GUIDE_DESIGN = process.env.GUIDE_DESIGN ?? 'marca';
 
 const titleSize = (t) => (t.length > 64 ? 64 : t.length > 44 ? 76 : 92);
 const frame = (children, extra = {}) =>
@@ -157,14 +157,15 @@ const GUIDE_DESIGNS = {
       ]),
     ]);
   },
-  // Title bottom-left with the mark in dark grey cropped at the top right.
+  // Title bottom-left; the white mark sits mid-height at the right edge, cut in half.
   marca(slug, data) {
     const t = data.shortTitle ?? data.title;
     const size = titleSize(t);
+    const markSize = 760;
     return frame([
-      mark({ size: 1100, x: 900, y: -140, rotate: 0, left: '#262626', right: '#1a1a1a' }),
+      mark({ size: markSize, x: W - markSize / 2, y: (H - markSize / MARK_RATIO) / 2, rotate: 0, left: PAPER, right: PAPER }),
       el('div', { justifyContent: 'space-between', alignItems: 'center' }, [eyebrow(`Guía · ${data.category}`, MUTED_ON_INK), logo(logoLight, 40)]),
-      el('div', { flexDirection: 'column', maxWidth: 1200 }, [
+      el('div', { flexDirection: 'column', maxWidth: 1080 }, [
         text(t, { fontSize: size, fontWeight: 800, letterSpacing: -size * 0.04, lineHeight: 1.02 }),
         text('Para pymes · con fuentes y límites claros', { marginTop: 28, fontSize: 26, fontWeight: 500, color: MUTED_ON_INK }),
       ]),

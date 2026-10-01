@@ -133,6 +133,12 @@ const speculation = {
           e.preventDefault();
           d.dataset.busy = '1';
           var o = { duration: 320, easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)' };
+          var cs = getComputedStyle(c);
+          // Padding collapses with the height, otherwise the box stops at its padding.
+          var shut = { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 };
+          var full = function (h) {
+            return { height: h + 'px', paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom, opacity: 1 };
+          };
           c.style.overflow = 'hidden';
           var done = function () {
             c.style.overflow = '';
@@ -140,14 +146,21 @@ const speculation = {
           };
           if (d.open) {
             d.classList.add('closing');
-            c.animate([{ height: c.offsetHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], o).onfinish = function () {
+            c.animate([full(c.offsetHeight), shut], o).onfinish = function () {
               d.open = false;
               d.classList.remove('closing');
               done();
             };
           } else {
+            // Measure a frame later: right after opening, the browser has not laid the
+            // content out yet (content-visibility), so its height would read as 0.
             d.open = true;
-            c.animate([{ height: '0px', opacity: 0 }, { height: c.offsetHeight + 'px', opacity: 1 }], o).onfinish = done;
+            c.style.height = '0px';
+            requestAnimationFrame(function () {
+              var h = c.scrollHeight;
+              c.style.height = '';
+              c.animate([shut, full(h)], o).onfinish = done;
+            });
           }
         });
       })();
