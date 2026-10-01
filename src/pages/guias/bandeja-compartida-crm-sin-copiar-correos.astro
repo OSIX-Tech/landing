@@ -4,20 +4,20 @@ import LoadingScreen from '../../components/LoadingScreen.astro';
 
 export const prerender = true;
 
-// Guía actualmente en español (prompt BOFU: cómo automatizar la preparación de ofertas desde un correo de cliente). Ampliar a en/gl cuando exista traducción.
+// Guía actualmente en español (prompt BOFU: cómo automatizar documentos sin perder la revisión humana). Ampliar a en/gl cuando exista traducción.
 export async function getStaticPaths() {
   return [{}];
 }
 
 const lang = 'es' as const;
 
-const GuideContent = (await import('../../content/es/guias/automatizar-ofertas-presupuestos-correo-pyme.md')).default;
+const GuideContent = (await import('../../content/es/guias/bandeja-compartida-crm-sin-copiar-correos.md')).default;
 
-const canonicalUrl = `https://osix.tech/guias/automatizar-ofertas-presupuestos-correo-pyme/`;
+const canonicalUrl = `https://osix.tech/guias/bandeja-compartida-crm-sin-copiar-correos/`;
 
 // SEO Data
-const seoTitle = "Automatizar la preparación de ofertas desde el correo del cliente (2026): las 3 vías - OSIX Tech";
-const seoDescription = "Cómo automatizar las ofertas y presupuestos que te piden por correo: el flujo en seis pasos, las tres vías con precios reales y las cinco señales de que todavía no toca.";
+const seoTitle = "Cómo pasar de una bandeja compartida a un CRM sin copiar correos a mano | OSIX Tech";
+const seoDescription = "Cómo convertir el correo compartido en trabajo asignado y registros trazables del CRM, con clasificación, deduplicación, revisión humana y prueba piloto.";
 
 // Structured Data
 const breadcrumbSchema = {
@@ -64,50 +64,34 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Qué parte de una oferta puede automatizarse sin perder el control?",
+      "name": "¿Necesito sustituir Gmail o Microsoft 365 para conectar el correo al CRM?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "La clasificación del correo, la extracción de requisitos, la consulta de tarifas y el montaje del borrador pueden automatizarse. La persona debe revisar siempre el alcance, el precio, las condiciones y cualquier dato que falte antes de enviar. Si el sistema no encuentra una referencia o una cantidad, detiene el flujo y pide una aclaración; nunca completa el hueco inventando."
+        "text": "No necesariamente. Primero comprueba las funciones de la bandeja y del CRM que ya utilizas. Si el flujo debe crear registros, consultar el ERP o aplicar reglas que la integración nativa no cubre, añade un conector o una solución específica sin cambiar de correo por defecto."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Cuánto cuesta automatizar la preparación de ofertas desde un correo?",
+      "name": "¿Cómo evito que una respuesta o un reenvío cree un registro duplicado?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Depende de la vía. Con un flujo no-code, el coste es la suscripción: Make Core desde 12 USD al mes y Zapier desde 19,99 USD al mes, los dos con plan gratis limitado. Con un software de extracción más tu CRM, Parseur parte de un plan gratis de 20 páginas al mes y planes de pago por volumen. Cuando la oferta cruza correo, ERP y reglas propias y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 200 a 500 € al mes de operación."
+        "text": "Define qué identifica una conversación y una operación, por ejemplo el identificador del hilo más la referencia de pedido cuando exista. Antes de crear un registro, busca una coincidencia y decide si corresponde actualizarla, crear una nueva o pedir revisión. Diseña los reintentos para que una caída de conexión no duplique la operación."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Puede la IA enviar la oferta sin revisión humana?",
+      "name": "¿Puede la IA responder a los clientes automáticamente?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Técnicamente puede, y no lo recomendamos: una oferta es un compromiso de precio, plazo y condiciones, y un error de extracción o de regla se convierte en un compromiso firmado. La regla es la misma que para el resto de la automatización documental: la máquina prepara el borrador y la persona decide antes de enviar. El envío automático solo debería plantearse después de semanas midiendo un segmento concreto con un margen de error de cero."
+        "text": "Puede redactar una propuesta, pero al principio una persona debería revisar los datos, las condiciones y el tono antes de enviarla. En el caso de producción descrito aquí, el sistema prepara la propuesta y el equipo decide qué se envía."
       }
     },
     {
       "@type": "Question",
-      "name": "¿Qué pasa si la IA no encuentra un dato en el correo?",
+      "name": "¿Cuándo basta con una bandeja compartida y cuándo necesito un CRM?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El sistema no debe inventar el dato que falta: debe derivar la solicitud a revisión o pedir la aclaración al cliente de forma automática. Diseñar bien la excepción, qué ocurre cuando falta la cantidad o la referencia, es lo que separa una automatización fiable de una que siembra errores. Si las excepciones son la mayoría de los casos, aplica la primera señal de la lista anterior."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Sirve para cualquier empresa o solo para las que venden con tarifa?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Funciona mejor donde hay catálogo, tarifa o histórico de ofertas aprobadas contra lo que validar. Las empresas de servicios (consultoras, talleres, estudios) también lo aprovechan cuando el alcance se repite: misma clase de proyecto, misma estructura de coste, mismo tipo de cliente. Si no hay nada que se repita ni nada que validar, el retorno cae y la vía correcta es otra."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es legal que un sistema lea los correos de clientes y los use para preparar ofertas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsable sigue siendo tu empresa, y el tratamiento debe ser proporcionado, seguro y documentado. Un correo comercial contiene datos personales de contacto, así que conviene decidir qué datos usa el sistema, dónde se almacenan y quién puede acceder, y elegir un proveedor que diga con claridad en qué servidores trabaja. Automatizar no traslada tu responsabilidad a la herramienta."
+        "text": "Una bandeja compartida puede bastar para repartir conversaciones y marcarlas como resueltas. El CRM resulta útil cuando necesitas relacionar mensajes con contactos, oportunidades, pedidos o incidencias, asignar un responsable y conservar el estado de cada operación.\n\nSi el equipo sigue copiando cada correo a mano, empieza por identificar una categoría de mensajes, el registro que debe producir y la excepción que debe revisar una persona. Después prueba ese flujo con una muestra antes de conectarlo a toda la bandeja."
       }
     }
   ]
@@ -129,12 +113,12 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
   <section class="hero-section relative min-h-[420px] bg-black lg:min-h-[480px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
     <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
       <div class="flex-col flex justify-center items-center max-w-4xl">
-        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Ofertas · Presupuestos · Automatización · Pymes · España</span>
+        <span class="hero-badge text-xs uppercase tracking-widest text-gray-400 mb-4 opacity-0">Guía · Bandeja compartida · CRM · Automatización de correo · España</span>
         <h1 class="hero-title text-center text-4xl md:text-6xl font-bold text-white mb-4 opacity-0 leading-tight">
-          Automatizar la preparación de ofertas desde el correo del cliente
+          Cómo pasar de una bandeja compartida a un CRM sin copiar correos a mano
         </h1>
         <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">
-          El flujo en seis pasos, las tres vías con su coste real y cuándo no conviene automatizar tus ofertas.
+          Cómo clasificar correos, crear registros trazables, asignar responsables y mantener la revisión humana.
         </p>
       </div>
     </div>
@@ -152,11 +136,10 @@ const jsonLd = [breadcrumbSchema, articleSchema, faqSchema];
       <div class="related-guides mt-12 fade-up" style="--delay: 0.3s">
         <h2 class="related-guides-title">Guías relacionadas</h2>
         <ul class="related-guides-list">
-          <li><a href="/guias/bandeja-compartida-crm-sin-copiar-correos/">Pasar de una bandeja compartida a un CRM sin copiar correos</a></li>
-          <li><a href="/guias/automatizar-facturas-documentos-pyme/">Cómo automatizar las facturas y los documentos de tu pyme</a></li>
-          <li><a href="/guias/automatizar-documentos-sin-perder-revision-humana/">Automatizar documentos sin perder la revisión humana</a></li>
-          <li><a href="/guias/integrar-ia-software-pyme-espana/">Cómo integrar la IA con el software que ya usa tu empresa</a></li>
-          <li><a href="/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/">Cuánto cuesta automatizar procesos con IA en una pyme</a></li>
+          <li><a href="/casos/iciga-correo-crm/">Caso ICIGA: de cuatro bandejas de entrada a un flujo comercial trazable</a></li>
+          <li><a href="/servicios/desarrollo-a-medida/">Desarrollo de software a medida</a></li>
+          <li><a href="/guias/automatizar-ofertas-presupuestos-correo-pyme/">Preparar ofertas desde el correo del cliente</a></li>
+          <li><a href="/guias/automatizar-gestion-pedidos-distribuidora-galicia/">Automatizar pedidos en una distribuidora</a></li>
         </ul>      </div>
 
       <!-- Back to home button -->
