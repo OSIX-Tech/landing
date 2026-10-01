@@ -1,0 +1,85 @@
+---
+// A guide on a list: text only. Category, title, optional summary, date and section,
+// a hairline on top and the arrow. The hover is the title underline and the arrow.
+import Icon from './Icon.astro';
+import { formatDateShort, guideTitle, type Guide } from '../lib/content';
+import { GUIDE_SECTIONS } from '../content.config';
+interface Props {
+  guide: Guide;
+  showSummary?: boolean;
+}
+const { guide, showSummary = false } = Astro.props;
+---
+
+<a class="gcard" href={`/guias/${guide.id}/`}>
+  <span class="gcard-top">
+    <span class="eyebrow">{guide.data.category}</span>
+    <Icon name="arrow" size={18} class="arrow" />
+  </span>
+  <h3 class="gcard-title"><span class="t-link">{guideTitle(guide)}</span></h3>
+  {showSummary && <p class="gcard-text">{guide.data.summary}</p>}
+  <p class="gcard-meta">
+    <span>{GUIDE_SECTIONS[guide.data.section]}</span>
+    <time datetime={guide.data.published}>{formatDateShort(guide.data.published)}</time>
+  </p>
+</a>
+
+<style>
+  .gcard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+    height: 100%;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .gcard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .gcard-top :global(.arrow) {
+    flex-shrink: 0;
+    color: var(--muted);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .gcard:hover :global(.arrow) {
+    transform: translateX(4px);
+    color: var(--ink);
+  }
+
+  .gcard-title {
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .gcard-text {
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* Section on the left edge, date on the right edge. */
+  .gcard-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+</style>

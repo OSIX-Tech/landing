@@ -1,102 +1,51 @@
-# OSIX Tech - Portfolio & Landing Page
+# osix.tech
 
-Multilingual portfolio and landing page for [OSIX Tech](https://osix.tech), built with Astro, React, and Three.js. Supports English and Spanish with static site generation.
+The website of [OSIX Tech](https://osix.tech): an animated home page and a set of clean,
+Markdown-driven pages for services, case studies, guides and company information.
 
-## Tech Stack
+## How the site is built
 
-| Category | Technologies |
-|----------|-------------|
-| **Framework** | Astro 5.7 (static output) |
-| **UI** | React 19, Tailwind CSS |
-| **3D & Animation** | Three.js, GSAP, Framer Motion, Rive |
-| **i18n** | i18next with HTTP backend |
-| **Contact** | EmailJS (serverless) |
-| **Deployment** | GitHub Pages via GitHub Actions |
+- **Astro 7, static output.** Every page is plain HTML generated at build time.
+- **Home: showcase.** Subtle CSS motion and the interactive 3D OSIX mark (Three.js),
+  which loads only after the visitor's first interaction. A still poster of the same scene
+  paints first.
+- **Everything else: reading pages.** Guides, cases and company pages render Markdown
+  through one layout with no client JavaScript.
+- **Content as files.** Each page is one Markdown file in `src/content/`, validated by
+  the schemas in `src/content.config.ts`. The sitemap, `llms.txt`, `llms-full.txt`, the
+  Markdown copy of each guide and case, indexes, related links and structured data
+  are all generated from those files.
 
-## Getting Started
+See [AGENTS.md](AGENTS.md) for how to add or change content.
+
+## Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start dev server (localhost:4321)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+pnpm install
+pnpm dev        # renders covers and charts, then http://localhost:4321
+pnpm build      # renders covers and charts, then writes dist/
+pnpm figures    # only re-render the generated images (src/assets/figures/, not committed)
+pnpm check      # type checks and post-build checks (after build)
 ```
 
-### Environment Variables
+The contact form uses EmailJS and needs `PUBLIC_EMAILJS_SERVICE_ID`,
+`PUBLIC_EMAILJS_TEMPLATE_ID` and `PUBLIC_EMAILJS_PUBLIC_KEY` at build time.
 
-Create a `.env` file with:
-
-```env
-PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-## Project Structure
+## Layout
 
 ```
 src/
-├── pages/
-│   ├── index.astro                 # Root redirect + language detection
-│   └── [lang]/                     # Dynamic routes (en/es)
-│       ├── index.astro             # Main landing page
-│       ├── privacy.astro           # Privacy policy
-│       ├── projects/[id].astro     # Project detail pages
-│       └── kted/[variant].astro    # KTED landing variants
-├── components/
-│   ├── Hero.astro                  # Hero with 3D logo
-│   ├── OsixLogo3D.jsx             # Three.js interactive logo
-│   ├── BentoGridSection.astro      # Services bento grid
-│   ├── ProjectsSection.astro       # Projects showcase
-│   ├── AboutSection.astro          # Team section
-│   ├── StaticContactSection.astro  # Contact form (EmailJS)
-│   ├── kted/                       # KTED-specific components
-│   └── ui/                         # Radix UI primitives
-├── data/
-│   └── projects-multilingual.ts    # Project definitions (en/es)
-├── content/
-│   ├── en/                         # English markdown content
-│   └── es/                         # Spanish markdown content
-└── utils/
-    ├── emailjs.js                  # EmailJS config
-    └── analytics.ts                # GA4 tracking
-public/
-├── locales/                        # i18next translation JSONs
-├── animations/                     # Rive .riv files
-└── projects/                       # Project images & videos
+  content/        one Markdown file per page (guias, casos, servicios, equipo, paginas)
+  content.config.ts  schemas for those files
+  pages/          routes; generated files (sitemap.xml, llms.txt, *.md twins)
+  layouts/        BaseLayout (every page) and DocLayout (reading pages)
+  components/     header, footer, cards, FAQ, hero
+  scripts/        logo3d.ts, the only heavy client script
+  lib/            content queries, structured data, Markdown export
+  site.ts         company facts used across the site
+  data/home.ts    home copy, client logos, home FAQ
+scripts/check-dist.mjs   post-build checks
+vercel.json      redirects, headers, Markdown content negotiation
 ```
 
-## Sections
-
-- **Hero** - Interactive 3D OSIX logo (Three.js) with CTA buttons
-- **Logo Slider** - Partner/client logo carousel
-- **Services (Bento Grid)** - 12-column grid with metrics, quotes, flip cards, and animations
-- **Projects** - Showcase of TAKE (mobile loyalty app), Nessie (AI document assistant), and KTED (Data Spaces)
-- **Team** - Team member carousel
-- **Contact** - Form with EmailJS integration and validation
-
-## Internationalization
-
-Routes are generated statically for both `en` and `es` via `getStaticPaths()`. Translations live in `/public/locales/{lang}.json` and are loaded by i18next at runtime. Content collections in `/src/content/{lang}/` handle markdown pages.
-
-## Deployment
-
-Automatic deployment to GitHub Pages on push to `master` via the `.github/workflows/deploy.yml` workflow:
-
-1. Builds static site with `withastro/action@v4`
-2. Deploys to GitHub Pages with `actions/deploy-pages@v4`
-
-## SEO
-
-- Open Graph & Twitter Card meta tags
-- JSON-LD structured data (Organization, WebPage, BreadcrumbList)
-- Language alternates (hreflang)
-- Sitemap & robots.txt
-- Google Analytics 4
+Vercel deploys on push; `master` is production.

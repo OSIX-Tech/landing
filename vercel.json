@@ -167,7 +167,77 @@
     },
     {
       "source": "/privacy",
-      "destination": "/privacy/",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/casos/roydisa",
+      "destination": "/casos/roydisa-ocr-documentos-proveedores/",
+      "permanent": true
+    },
+    {
+      "source": "/casos/roydisa/",
+      "destination": "/casos/roydisa-ocr-documentos-proveedores/",
+      "permanent": true
+    },
+    {
+      "source": "/casos/iciga/",
+      "destination": "/casos/iciga-correo-crm/",
+      "permanent": true
+    },
+    {
+      "source": "/casos/take/",
+      "destination": "/casos/take-fidelizacion/",
+      "permanent": true
+    },
+    {
+      "source": "/casos/shearn/",
+      "destination": "/casos/",
+      "permanent": true
+    },
+    {
+      "source": "/kted/:variant/",
+      "destination": "/guias/subvenciones-ia-pymes-galicia-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/locales/:file",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacidad/",
       "permanent": true
     },
     {
@@ -177,6 +247,39 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*)text/markdown(.*)"
+        }
+      ],
+      "destination": "/index.md"
+    },
+    {
+      "source": "/guias/:slug/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*)text/markdown(.*)"
+        }
+      ],
+      "destination": "/guias/:slug.md"
+    },
+    {
+      "source": "/casos/:slug/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(.*)text/markdown(.*)"
+        }
+      ],
+      "destination": "/casos/:slug.md"
+    },
     {
       "source": "/demo/malasa/",
       "destination": "https://malasa-informes.vercel.app/index.html"
@@ -188,6 +291,78 @@
     {
       "source": "/demos/(.*)",
       "destination": "https://portfolio-osix.vercel.app/demos/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/llms(.*)\\.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/guias/:slug/",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept"
+        },
+        {
+          "key": "Link",
+          "value": "</guias/:slug.md>; rel=\"alternate\"; type=\"text/markdown\""
+        }
+      ]
+    },
+    {
+      "source": "/casos/:slug/",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept"
+        },
+        {
+          "key": "Link",
+          "value": "</casos/:slug.md>; rel=\"alternate\"; type=\"text/markdown\""
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept"
+        },
+        {
+          "key": "Link",
+          "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\""
+        }
+      ]
     }
   ]
 }

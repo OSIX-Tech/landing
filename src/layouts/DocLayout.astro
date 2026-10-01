@@ -1,0 +1,516 @@
+---
+// Clean reading layout for every Markdown page (guides, cases, company and legal pages).
+// Zero client JavaScript: the sidebar groups and the mobile index are native <details>.
+// The reading column is 46rem wide and keeps that width before anything else: the two
+// side columns shrink and then disappear, the text never does.
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../lib/content';
+import type { JsonLd } from '../lib/schema';
+import { breadcrumbs as breadcrumbLd } from '../lib/schema';
+
+type Crumb = { name: string; path: string };
+type Heading = { depth: number; slug: string; text: string };
+type SidebarGroup = { id: string; label: string; items: { href: string; label: string; current?: boolean }[] };
+
+interface Props {
+  title: string;
+  seoTitle?: string;
+  description: string;
+  subtitle?: string;
+  eyebrow?: string;
+  crumbs?: Crumb[];
+  published?: string;
+  updated?: string;
+  author?: { name: string; href: string };
+  readingMinutes?: number;
+  headings?: Heading[];
+  sidebar?: { title: string; href: string; groups: SidebarGroup[] };
+  /** Cover shown under the header; also the card image and the social preview. */
+  cover?: ImageMetadata;
+  coverAlt?: string;
+  coverCaption?: string;
+  /** Path of the social preview image (see lib/og.ts). */
+  image?: string;
+  markdown?: string;
+  jsonLd?: (JsonLd | null)[];
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  seoTitle,
+  description,
+  subtitle,
+  eyebrow,
+  crumbs = [],
+  published,
+  updated,
+  author,
+  readingMinutes,
+  headings = [],
+  sidebar,
+  cover,
+  coverAlt = '',
+  coverCaption,
+  image,
+  markdown,
+  jsonLd = [],
+  type = 'article',
+} = Astro.props;
+
+const trail = [{ name: 'Inicio', path: '/' }, ...crumbs];
+const toc = headings.filter((h) => h.depth === 2);
+const hasToc = toc.length >= 3;
+---
+
+<BaseLayout
+  title={seoTitle ?? `${title} | OSIX Tech`}
+  description={description}
+  type={type}
+  image={image}
+  imageAlt={coverAlt || title}
+  published={published}
+  modified={updated ?? published}
+  markdown={markdown}
+  jsonLd={[...jsonLd, breadcrumbLd(trail)]}
+>
+  <div class:list={['shell', 'doc', { 'has-sidebar': sidebar, 'has-toc': hasToc }]}>
+    {
+      sidebar && (
+        <aside class="doc-sidebar" aria-label={sidebar.title}>
+          <p class="sidebar-title">
+            <a href={sidebar.href} class="t-link">
+              {sidebar.title}
+            </a>
+          </p>
+          {sidebar.groups.map((g) => (
+            <details class="sidebar-group" open={g.items.some((i) => i.current)}>
+              <summary>{g.label}</summary>
+              <ul>
+                {g.items.map((i) => (
+                  <li>
+                    <a href={i.href} aria-current={i.current ? 'page' : undefined}>
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </aside>
+      )
+    }
+
+    <article class="doc-main">
+      <header class="doc-head">
+        <nav class="crumbs" aria-label="Migas de pan">
+          <ol>
+            {
+              trail.map((c, i) => (
+                <li>
+                  {i < trail.length - 1 ? (
+                    <a href={c.path} class="t-link">
+                      {c.name}
+                    </a>
+                  ) : (
+                    <span aria-current="page">{c.name}</span>
+                  )}
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        {subtitle && <p class="doc-subtitle">{subtitle}</p>}
+        {
+          (published || author || readingMinutes) && (
+            <p class="doc-meta">
+              {author && (
+                <span>
+                  Por{' '}
+                  <a href={author.href} class="t-link">
+                    {author.name}
+                  </a>
+                </span>
+              )}
+              {published && (
+                <span>
+                  Publicado <time datetime={published}>{formatDate(published)}</time>
+                </span>
+              )}
+              {updated && updated !== published && (
+                <span>
+                  Actualizado <time datetime={updated}>{formatDate(updated)}</time>
+                </span>
+              )}
+              {readingMinutes && <span>{readingMinutes} min de lectura</span>}
+            </p>
+          )
+        }
+      </header>
+
+      {
+        cover && (
+          <figure class="doc-cover">
+            <Image
+              src={cover}
+              alt={coverAlt}
+              widths={[640, 960, 1600]}
+              sizes="(max-width: 960px) calc(100vw - 2rem), 46rem"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            {coverCaption && <figcaption>{coverCaption}</figcaption>}
+          </figure>
+        )
+      }
+
+      {
+        hasToc && (
+          <details class="toc-mobile">
+            <summary>En esta página</summary>
+            <ol>
+              {toc.map((h) => (
+                <li>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )
+      }
+
+      <slot name="lead" />
+      <div class="prose doc-body">
+        <slot />
+      </div>
+      <slot name="end" />
+    </article>
+
+    {
+      hasToc && (
+        <aside class="doc-toc" aria-label="En esta página">
+          <p class="toc-title">En esta página</p>
+          <ol>
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ol>
+          {markdown && (
+            <a class="toc-md t-link" href={markdown}>
+              Ver en Markdown
+            </a>
+          )}
+        </aside>
+      )
+    }
+  </div>
+  <slot name="after" />
+</BaseLayout>
+
+<style>
+  .doc {
+    --shell: 94rem;
+    --col: 46rem;
+    --side: 14rem;
+    --toc: 12rem;
+    display: grid;
+    grid-template-columns: minmax(0, var(--col));
+    justify-content: center;
+    column-gap: clamp(2.5rem, 4vw, 4.5rem);
+    padding-block: 2.5rem 5rem;
+  }
+
+  .doc.has-sidebar {
+    grid-template-columns: var(--side) minmax(0, var(--col));
+    justify-content: start;
+  }
+
+  .doc.has-toc {
+    grid-template-columns: minmax(0, var(--col)) var(--toc);
+  }
+
+  .doc.has-sidebar.has-toc {
+    grid-template-columns: var(--side) minmax(0, var(--col)) var(--toc);
+    justify-content: space-between;
+  }
+
+  /* ----- Head ----- */
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    padding: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 0.35rem;
+    color: var(--line-strong);
+  }
+
+  .crumbs span {
+    display: inline-block;
+    max-width: 32ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+  .doc-head {
+    padding-bottom: 2rem;
+    margin-bottom: 2.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .doc-head .eyebrow {
+    margin-top: 2rem;
+  }
+
+  .doc-head h1 {
+    margin-top: 0.75rem;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.06;
+  }
+
+  .crumbs + h1 {
+    margin-top: 2rem;
+  }
+
+  .doc-subtitle {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .doc-meta a {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ----- Cover ----- */
+  .doc-cover {
+    margin: 0 0 2.5rem;
+  }
+
+  .doc-cover img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--black);
+  }
+
+  .doc-cover figcaption {
+    margin-top: 0.85rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  /* ----- Sidebar ----- */
+  .doc-sidebar {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+    max-height: calc(100svh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    font-size: 0.875rem;
+    scrollbar-width: thin;
+  }
+
+  .sidebar-title {
+    padding-bottom: 0.6rem;
+    font-weight: 700;
+  }
+
+  .sidebar-group {
+    border-top: 1px solid var(--line);
+    padding-block: 0.4rem;
+  }
+
+  .sidebar-group > summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .sidebar-group > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sidebar-group > summary::after {
+    content: '+';
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .sidebar-group[open]:not(.closing) > summary::after {
+    content: '–';
+  }
+
+  .sidebar-group ul {
+    list-style: none;
+    padding: 0 0 0.5rem;
+  }
+
+  /* Items are a list of lines, not pills: the hover brightens the text and the line. */
+  .sidebar-group a,
+  .doc-toc a {
+    display: block;
+    padding: 0.35rem 0 0.35rem 0.85rem;
+    border-left: 1px solid var(--line);
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    transition:
+      color var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease);
+  }
+
+  .sidebar-group a:hover,
+  .doc-toc a:hover {
+    color: var(--ink);
+    border-left-color: var(--ink);
+  }
+
+  .sidebar-group a[aria-current='page'] {
+    color: var(--ink);
+    font-weight: 700;
+    border-left: 2px solid var(--ink);
+    padding-left: calc(0.85rem - 1px);
+  }
+
+  /* ----- TOC ----- */
+  .doc-toc {
+    position: sticky;
+    top: calc(var(--header-h) + 1.5rem);
+    align-self: start;
+    max-height: calc(100svh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    font-size: 0.8125rem;
+  }
+
+  .toc-title {
+    margin-bottom: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .doc-toc ol,
+  .toc-mobile ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc-md {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .toc-mobile {
+    display: none;
+    margin-bottom: 2rem;
+    border: 1px solid var(--line);
+    font-size: 0.9375rem;
+  }
+
+  .toc-mobile summary {
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .toc-mobile ol {
+    padding: 0 1rem 1rem;
+  }
+
+  .toc-mobile li + li {
+    margin-top: 0.5rem;
+  }
+
+  .toc-mobile a {
+    color: var(--muted);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  /* Below 1280px the reading column keeps its width and the index moves above the text. */
+  @media (max-width: 1280px) {
+    .doc.has-toc {
+      grid-template-columns: minmax(0, var(--col));
+    }
+
+    .doc.has-sidebar.has-toc {
+      grid-template-columns: var(--side) minmax(0, var(--col));
+      justify-content: start;
+    }
+
+    .doc-toc {
+      display: none;
+    }
+
+    .toc-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .doc.has-sidebar,
+    .doc.has-sidebar.has-toc {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    .doc {
+      padding-top: 1.25rem;
+    }
+
+    .doc-sidebar {
+      position: static;
+      max-height: none;
+      order: 2;
+      margin-top: 3rem;
+    }
+
+    .sidebar-title {
+      font-size: 1.125rem;
+    }
+  }
+</style>

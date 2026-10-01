@@ -1,1061 +1,423 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getService, getServiceIds, getAllServices } from '../../data/services-multilingual';
-import LoadingScreen from '../../components/LoadingScreen.astro';
-import { getCaseStudiesForService } from '../../data/case-studies';
-import { genCaseArt } from '../../utils/caseArt';
-import { LANGUAGES, type Lang } from '../../utils/languages';
-
-export const prerender = true;
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import CaseCard from '../../components/CaseCard.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getServices, getCasesForService, getGuidesById, guideTitle, type Service } from '../../lib/content';
+import { breadcrumbs, faqPage, webPage } from '../../lib/schema';
+import { absolute, ORG_ID } from '../../site';
 
 export async function getStaticPaths() {
-  const serviceIds = getServiceIds();
-
-  return serviceIds.map(id => ({ params: { id } }));
+  const services = await getServices();
+  return services.map((service) => ({ params: { id: service.id }, props: { service } }));
 }
 
-const { id = '', lang = 'es' } = Astro.params as { id: string; lang: Lang };
-const service = getService(id, lang);
-
-if (!service) {
-  return Astro.redirect(`/404`);
-}
-
-const serviceCases = getCaseStudiesForService(id);
-const otherServices = getAllServices(lang).filter(s => s.id !== id);
-
-// Grant status cards (only for innovacion-subvencionada). Do not present closed calls as available.
-const convocatoriasData: Record<string, { sectionTitle: string; cards: { tag: string; title: string; description: string; ctaLabel: string; ctaHref: string }[] }> = {
-  es: { sectionTitle: 'Estado de las convocatorias', cards: [
-    { tag: 'Red.es · Kit Espacios de Datos (KTED)', title: 'El proyecto inicial terminó en marzo de 2026', description: 'Red.es sitúa el fin del proyecto inicial en marzo de 2026. La ficha consultada no confirma una convocatoria sucesora abierta. Comprueba la información oficial antes de planificar una solicitud.', ctaLabel: 'Consultar ficha de Red.es', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
-    { tag: 'IGAPE · IA360 (IG408M)', title: 'La convocatoria 2026/2027 cerró el 17 de marzo de 2026', description: 'La Sede electrónica de la Xunta marca el plazo como cerrado: del 17 de enero al 17 de marzo de 2026. Consulta la ficha oficial para cualquier convocatoria futura.', ctaLabel: 'Consultar ficha de la Xunta', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
-  ]},
-  gl: { sectionTitle: 'Estado das convocatorias', cards: [
-    { tag: 'Red.es · Kit Espazos de Datos (KTED)', title: 'O proxecto inicial rematou en marzo de 2026', description: 'Red.es sitúa o fin do proxecto inicial en marzo de 2026. A ficha consultada non confirma unha convocatoria sucesora aberta. Comproba a información oficial antes de planificar unha solicitude.', ctaLabel: 'Consultar ficha de Red.es', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
-    { tag: 'IGAPE · IA360 (IG408M)', title: 'A convocatoria 2026/2027 pechou o 17 de marzo de 2026', description: 'A Sede electrónica da Xunta marca o prazo como pechado: do 17 de xaneiro ao 17 de marzo de 2026. Consulta a ficha oficial para calquera convocatoria futura.', ctaLabel: 'Consultar ficha da Xunta', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
-  ]},
-  en: { sectionTitle: 'Grant call status', cards: [
-    { tag: 'Red.es · Data Spaces Kit (KTED)', title: 'The initial project ended in March 2026', description: 'Red.es lists the initial project as ending in March 2026. The page reviewed does not confirm an open successor call. Check the official information before planning an application.', ctaLabel: 'Check Red.es information', ctaHref: 'https://www.red.es/es/iniciativas/proyectos/kit-espacios-de-datos' },
-    { tag: 'IGAPE · IA360 (IG408M)', title: 'The 2026/2027 call closed on 17 March 2026', description: 'The Xunta electronic office marks the application period as closed, from 17 January to 17 March 2026. Check the official record for future calls.', ctaLabel: 'Check Xunta information', ctaHref: 'https://sede.xunta.gal/detalle-procedemento?codtram=IG408M' },
-  ]},
-};
-const convocatorias = id === 'innovacion-subvencionada' ? (convocatoriasData[lang] || convocatoriasData.es) : null;
-
-// Contextual guide links per service (Spanish guides; other locales fall back to the same set)
-const serviceGuides: Record<string, { slug: string; label: string }[]> = {
-  'desarrollo-a-medida': [
-    { slug: 'bandeja-compartida-crm-sin-copiar-correos', label: 'Cómo pasar de una bandeja compartida a un CRM sin copiar correos' },
-    { slug: 'automatizar-albaranes-facturas-proveedores-erp', label: 'Cómo automatizar albaranes y facturas sin cambiar tu ERP' },
-    { slug: 'como-elegir-empresa-desarrollo-software-ia-espana', label: 'Cómo elegir empresa de desarrollo de software con IA' },
-    { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', label: 'Consultoras de IA grandes vs especializadas' },
-  ],
-  'consultoria-transformacion': [
-    { slug: 'bandeja-compartida-crm-sin-copiar-correos', label: 'Cómo pasar de una bandeja compartida a un CRM sin copiar correos' },
-    { slug: 'automatizar-albaranes-facturas-proveedores-erp', label: 'Cómo automatizar albaranes y facturas sin cambiar tu ERP' },
-    { slug: 'automatizar-documentos-sin-perder-revision-humana', label: 'Automatizar documentos sin perder la revisión humana' },
-    { slug: 'contratar-empresa-ia-o-usar-herramientas', label: '¿Contratar empresa de IA o usar herramientas hechas?' },
-  ],
-  'innovacion-subvencionada': [
-    { slug: 'cuanto-cuesta-automatizar-con-ia-pyme-espana', label: 'Cuánto cuesta automatizar con IA (ayudas y subvenciones)' },
-    { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', label: 'Cuánto se tarda en ver resultados al implantar IA' },
-  ],
-};
-const guideLinks = serviceGuides[id] || [];
-const guiasLabel = ({ es: 'Guías relacionadas', gl: 'Guías relacionadas', en: 'Related guides' })[lang];
-
-const translations = await import('../../../public/locales/es.json');
-const t = (key: string) => translations.default[key] || key;
-
-// SEO Data
-const seoTitle = `${service.title} - ${service.tagline} | OSIX Tech`;
-const seoDescription = service.description.substring(0, 160);
-
-// Structured Data
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://osix.tech/` },
-    { "@type": "ListItem", "position": 2, "name": { es: 'Servicios', gl: 'Servizos', en: 'Services' }[lang], "item": `https://osix.tech/#services` },
-    { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://osix.tech/servicios/${id}` }
-  ]
-};
-
-const serviceTypeMap: Record<string, string> = {
-  'desarrollo-a-medida': 'Custom Software Development',
-  'consultoria-transformacion': 'Digital Transformation and AI Consulting',
-  'innovacion-subvencionada': 'Innovation and Grants Consulting'
-};
-
-// FAQ key mapping per service
-const faqKeyMap: Record<string, string> = {
-  'desarrollo-a-medida': 'desarrollo',
-  'consultoria-transformacion': 'consultoria',
-  'innovacion-subvencionada': 'innovacion'
-};
-const faqKey = faqKeyMap[id] || 'desarrollo';
-
-const maintenanceFaq = {
-  question: t('service.faq.desarrollo.q3'),
-  answer: t('service.faq.desarrollo.a3')
-};
-
-const faqQuestions = [1, 2, 3].map(i => ({
-  "@type": "Question" as const,
-  "name": t(`service.faq.${faqKey}.q${i}`),
-  "acceptedAnswer": { "@type": "Answer" as const, "text": t(`service.faq.${faqKey}.a${i}`) }
-}));
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Service",
-      "@id": `https://osix.tech/servicios/${id}#service`,
-      "name": service.title,
-      "description": service.description,
-      "url": `https://osix.tech/servicios/${id}`,
-      "serviceType": serviceTypeMap[id] || service.title,
-      "provider": { "@id": "https://osix.tech/#organization" },
-      "areaServed": [
-        { "@type": "Country", "name": "Spain" },
-        { "@type": "AdministrativeArea", "name": "Galicia" }
-      ],
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": `https://osix.tech/servicios/${id}`,
-        "servicePhone": "+34 648935068"
-      },
-      ...(service.testimonial ? {
-        "review": {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "author": { "@type": "Person", "name": service.testimonial.author },
-          "reviewBody": service.testimonial.quote
-        }
-      } : {})
-    },
-    {
-      "@type": "WebPage",
-      "@id": `https://osix.tech/servicios/${id}#webpage`,
-      "name": seoTitle,
-      "description": seoDescription,
-      "url": `https://osix.tech/servicios/${id}`,
-      "inLanguage": lang,
-      dateModified: id === "innovacion-subvencionada" ? "2026-09-28" : id === "desarrollo-a-medida" ? "2026-09-30" : "2026-04-07",
-      "isPartOf": { "@type": "WebSite", "@id": "https://osix.tech/#website", "name": "OSIX Tech", "url": "https://osix.tech" },
-      "breadcrumb": breadcrumbSchema
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `https://osix.tech/servicios/${id}#faq`,
-      "isPartOf": { "@id": `https://osix.tech/servicios/${id}#webpage` },
-      "mainEntity": faqQuestions
-    }
-  ]
-};
-
+const { service } = Astro.props as { service: Service };
+const { data } = service;
+const { Content } = await render(service);
+const hasBody = Boolean(service.body?.trim());
+const path = `/servicios/${service.id}/`;
+const cases = await getCasesForService(service.id);
+const guides = await getGuidesById(data.guides);
+const others = (await getServices()).filter((s) => s.id !== service.id);
+const seoTitle = data.seoTitle ?? `${data.title}: ${data.tagline.replace(/\.$/, '')} | OSIX Tech`;
+const words = data.title.split(' ');
 ---
 
-<Layout
-  lang={lang}
+<BaseLayout
   title={seoTitle}
-  description={seoDescription}
-  pageType="website"
-  jsonLd={jsonLd}>
-  <LoadingScreen duration={1000} />
-
-  <!-- HERO -->
-  <section class="hero-section relative min-h-[400px] bg-black lg:min-h-[450px] flex items-center overflow-hidden mb-0" style="margin-top: var(--header-h, 0px)">
-    <div class="flex justify-center mx-auto max-w-7xl z-10 px-4 sm:px-6 lg:px-0 w-full">
-      <div class="flex-col flex justify-center items-center max-w-3xl">
-          <h1 class="hero-title text-center text-5xl md:text-7xl font-bold text-white mb-4 opacity-0">{service.title}</h1>
-          <p class="hero-subtitle text-xl text-center md:text-2xl text-gray-300 mb-6 opacity-0">{service.tagline}</p>
-          <a href={`/#contact`} class="hero-cta btn-secondary btn-arrow opacity-0">
-            {t('services.tellUsYourCase')}
-            <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENTO GRID: Narrative + Stats + Image + CTA -->
-  <section class="py-16 md:py-20 bg-white mb-0">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="bento-grid">
-        <!-- Row 1: Narrative (8) + Stats (4) -->
-        <div class="bento-narrative bento-card fade-up" style="--delay: 0.1s">
-          <div class="bento-narrative-block">
-            <h2 class="bento-card-title">{service.problemTitle}</h2>
-            <p class="bento-card-text">{service.problem}</p>
-          </div>
-          <div class="bento-narrative-divider"></div>
-          <div class="bento-narrative-block">
-            <h2 class="bento-card-title">{service.solutionTitle}</h2>
-            <p class="bento-card-text">{service.solution}</p>
-          </div>
-        </div>
-
-        <div class="bento-stats fade-up" style="--delay: 0.2s">
-          <div class="bento-stats-grid">
-            {service.stats.map((stat) => (
-              <div class="bento-stat-item">
-                <p class="bento-stat-value">{stat.value}</p>
-                <p class="bento-stat-label">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Row 2: Testimonial (4) + CTA (8) -->
-        {service.testimonial && (
-          <div class="bento-testimonial fade-up" style="--delay: 0.3s">
-            <div class="testimonial-top">
-              <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
-              <p class="testimonial-text">{service.testimonial.quote}</p>
-            </div>
-            <div class="testimonial-author">
-              <span class="testimonial-author-name">{service.testimonial.author}</span>
-              <span class="testimonial-author-role">{service.testimonial.role}</span>
-            </div>
-          </div>
-        )}
-
-        <div class="bento-cta fade-up" style="--delay: 0.4s">
-          <div class="bento-cta-content">
-            <h3 class="bento-cta-title">{service.highlightsTitle}</h3>
-            <div class="bento-cta-highlights">
-              {service.highlights.map((highlight) => (
-                <div class="bento-cta-highlight-item">
-                  <svg class="bento-cta-check" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>{highlight}</span>
-                </div>
-              ))}
-            </div>
-            <a href={`/#contact`} class="btn-secondary btn-arrow self-start">
-              {t('services.tellUsYourCase')}
-              <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POST-LAUNCH MAINTENANCE -->
-  {id === 'desarrollo-a-medida' && (
-    <section class="maintenance-section py-16 md:py-20 bg-white mb-0">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="max-w-4xl">
-          <p class="maintenance-eyebrow">Después del lanzamiento</p>
-          <h2 class="maintenance-title">{maintenanceFaq.question}</h2>
-          <p class="maintenance-lead">Después del lanzamiento, una aplicación puede necesitar correcciones, actualizaciones, comprobaciones de recuperación y cambios funcionales. El acuerdo de mantenimiento debe especificar qué sistemas cubre, quién atiende cada incidencia, qué tiempos de respuesta se ofrecen y qué trabajo se presupuesta aparte. El soporte no implica por sí solo disponibilidad 24/7: el horario, la cobertura y el coste se acuerdan para cada caso.</p>
-
-          <div class="maintenance-content">
-            <div>
-              <h3>El mantenimiento correctivo repara fallos del comportamiento acordado</h3>
-              <p>Se investiga y corrige un error o una incidencia que impide que una parte del software funcione como se esperaba. Para diagnosticarlo, ayuda registrar qué acción se realizó, cuándo ocurrió, qué mensaje apareció y a cuántas personas o procesos afecta.</p>
-            </div>
-            <div>
-              <h3>El mantenimiento preventivo y adaptativo reduce riesgos y responde a cambios</h3>
-              <p>Incluye revisar dependencias y aplicar actualizaciones de seguridad o compatibilidad cuando correspondan. También conviene acordar quién vigila los avisos de seguridad y los cambios en servicios externos de los que depende la aplicación. La <a href="https://www.cisa.gov/cyber-guidance-small-businesses">guía de ciberseguridad para pequeñas empresas de CISA</a> recomienda mantener los sistemas parcheados y revisar los avisos sobre vulnerabilidades explotadas.</p>
-            </div>
-            <div>
-              <h3>El mantenimiento evolutivo incorpora cambios al producto</h3>
-              <p>Una nueva funcionalidad, integración o cambio de proceso no es lo mismo que corregir un fallo. Conviene describir el resultado esperado, acordar cómo se probará y aprobar su alcance y presupuesto antes de empezar.</p>
-            </div>
-            <div>
-              <h3>Antes de contratar mantenimiento, deja estos puntos por escrito</h3>
-              <ul>
-                <li><strong>Sistemas incluidos:</strong> aplicación web o móvil, backend, base de datos, alojamiento, integraciones y servicios de terceros.</li>
-                <li><strong>Atención de incidencias:</strong> canal, horario, niveles de prioridad, escalado y diferencia entre tiempo de respuesta y tiempo de resolución.</li>
-                <li><strong>Actualizaciones y seguridad:</strong> quién revisa dependencias, avisos y cambios de compatibilidad, y cómo se aprueban y prueban.</li>
-                <li><strong>Copias y recuperación:</strong> quién hace las copias, con qué frecuencia y cuándo se comprueba que pueden restaurarse. Consulta la <a href="https://www.cisa.gov/stopransomware/ransomware-guide">guía contra el ransomware de CISA</a> para el enfoque de preparación y recuperación.</li>
-                <li><strong>Accesos y entrega:</strong> quién conserva el código fuente, los repositorios, las cuentas, la documentación y los accesos necesarios para operar el sistema.</li>
-                <li><strong>Límites y costes:</strong> qué cubre la garantía, qué se factura como mantenimiento, qué cuenta como evolución y cómo se aprueba el trabajo adicional.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="maintenance-faq">
-            <h3>{maintenanceFaq.question}</h3>
-            <p>{maintenanceFaq.answer}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- CONVOCATORIAS -->
-  {convocatorias && (
-    <section id="convocatorias" class="py-16 md:py-20 bg-white mb-0">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 class="text-3xl font-bold text-black mb-10 fade-up" style="--delay: 0.1s">
-          {convocatorias.sectionTitle}
-        </h2>
-        <div class="conv-grid fade-up" style="--delay: 0.2s">
-          {convocatorias.cards.map((card) => (
-            <div class="conv-card">
-              <span class="conv-tag">{card.tag}</span>
-              <h3 class="conv-title">{card.title}</h3>
-              <p class="conv-desc">{card.description}</p>
-              <a href={card.ctaHref} class="btn-secondary btn-arrow self-start" style="margin-top: auto;">
-                {card.ctaLabel}
-                <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- CASES -->
-  {serviceCases.length > 0 && (
-    <section id="cases" class="pt-16 pb-24 bg-white mb-0">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="svc-cases-head fade-up" style="--delay: 0.1s">
-          <div>
-            <span class="svc-cases-eyebrow">{{ es: 'Casos en producción', gl: 'Casos en produción', en: 'Cases in production' }[lang]}</span>
-            <h2 class="svc-cases-title">{{ es: 'Software nuestro que ya está trabajando', gl: 'Software noso que xa está traballando', en: 'Our software already at work' }[lang]}</h2>
-          </div>
-          <a href="/casos/" class="svc-cases-all">
-            {{ es: 'Ver todos los casos', gl: 'Ver todos os casos', en: 'See all case studies' }[lang]}
-            <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-        <div class="svc-cases-grid fade-up" style="--delay: 0.2s">
-          {serviceCases.map((c, i) => (
-            <a href={`/casos/${c.slug}/`} class="svc-case-card">
-              <span class="svc-case-media">
-                <Fragment set:html={genCaseArt(c.slug, i)} />
-                <span class="svc-case-metric">
-                  <strong>{c.metrics[0].value}</strong>
-                  <span>{c.metrics[0].label}</span>
-                </span>
-              </span>
-              <span class="svc-case-body">
-                <span class="svc-case-tag">{c.category}</span>
-                <span class="svc-case-title">{c.title}</span>
-              </span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- CLOSING: Contact + Other Services -->
-  <section class="bg-black mb-0">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
-      <div class="closing-grid">
-        <div class="closing-contact">
-          <img src="/full_logo_w.png" alt="OSIX Tech" class="closing-logo" />
-          <div class="closing-contact-list">
-            <a href="mailto:info@osix.tech" class="closing-contact-item">
-              <svg class="text-white/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <span>info@osix.tech</span>
-            </a>
-            <a href="tel:+34648935068" class="closing-contact-item">
-              <svg class="text-white/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.58 2.8.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>+34 648 935 068</span>
-            </a>
-            <div class="closing-contact-item">
-              <svg class="text-white/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span>{t('contact.location.value')}</span>
-            </div>
-          </div>
-        </div>
-        {guideLinks.length > 0 && (
-          <div class="closing-services">
-            <span class="closing-services-label">{guiasLabel}</span>
-            <div class="closing-services-list">
-              {guideLinks.map((g) => (
-                <a href={`/guias/${g.slug}/`} class="closing-service-link">
-                  <svg class="closing-service-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                  <span class="closing-service-title">{g.label}</span>
-                  <svg class="closing-service-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-        {otherServices.length > 0 && (
-          <div class="closing-services">
-            <span class="closing-services-label">{t('services.otherServices')}</span>
-            <div class="closing-services-list">
-              {otherServices.map((s) => (
-                <a href={`/servicios/${s.id}`} class="closing-service-link">
-                  {s.icon === 'Code' ? (
-                    <svg class="text-white/40 closing-service-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                  ) : s.icon === 'Lightbulb' ? (
-                    <svg class="text-white/40 closing-service-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14a6 6 0 1 0-6.18 0c.59.59 1.09 1.33 1.09 2v2h4v-2c0-.67.5-1.41 1.09-2z"/></svg>
-                  ) : (
-                    <svg class="text-white/40 closing-service-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.64 9A7 7 0 0 1 18.36 7L20 12"/><path d="M18.36 15A7 7 0 0 1 5.64 17L4 12"/></svg>
-                  )}
-                  <span class="closing-service-title">{s.title}</span>
-                  <svg class="closing-service-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  </section>
-</Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const initializeAnimations = () => {
-      const hasHash = !!window.location.hash;
-
-      if (hasHash) {
-        // Skip delays: show hero instantly and observe fade-ups immediately
-        document.querySelector('.hero-badge')?.classList.add('animate');
-        document.querySelector('.hero-title')?.classList.add('animate');
-        document.querySelector('.hero-subtitle')?.classList.add('animate');
-        document.querySelector('.hero-cta')?.classList.add('animate');
-      } else {
-        setTimeout(() => { document.querySelector('.hero-badge')?.classList.add('animate'); }, 200);
-        setTimeout(() => { document.querySelector('.hero-title')?.classList.add('animate'); }, 400);
-        setTimeout(() => { document.querySelector('.hero-subtitle')?.classList.add('animate'); }, 600);
-        setTimeout(() => { document.querySelector('.hero-cta')?.classList.add('animate'); }, 800);
+  description={data.description.length > 200 ? data.description.slice(0, data.description.lastIndexOf(' ', 197)) + '…' : data.description}
+  jsonLd={[
+    {
+      '@type': 'Service',
+      '@id': `${absolute(path)}#service`,
+      name: data.title,
+      description: data.description,
+      serviceType: data.serviceType,
+      url: absolute(path),
+      provider: { '@id': ORG_ID },
+      areaServed: [
+        { '@type': 'Country', name: 'España' },
+        { '@type': 'AdministrativeArea', name: 'Galicia' },
+      ],
+    },
+    webPage({ path, name: seoTitle, description: data.description, modified: data.updated }),
+    faqPage(path, data.faqs),
+    breadcrumbs([
+      { name: 'Inicio', path: '/' },
+      { name: 'Servicios', path: '/servicios/' },
+      { name: data.title, path },
+    ]),
+  ]}
+>
+  <header class="shell svc-hero">
+    <nav class="crumbs fade-in" style="--d:0s" aria-label="Migas de pan">
+      <a href="/">Inicio</a> <span aria-hidden="true">/</span> <a href="/servicios/">Servicios</a>
+    </nav>
+    <h1 class="rise">
+      {
+        words.map((w, i) => (
+          <>
+            <span class="w" style={`--i:${i}`}>
+              {w}
+            </span>{' '}
+          </>
+        ))
       }
+    </h1>
+    <p class="svc-tagline fade-in">{data.tagline}</p>
+    <div class="svc-actions fade-in" style="--d:0.5s">
+      <a class="btn btn-dark" href="/contacto/">Cuéntanos tu caso <Icon name="arrow" size={15} class="arrow" /></a>
+      <a class="btn btn-outline" href="#preguntas-frecuentes">Preguntas frecuentes</a>
+    </div>
+  </header>
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('in-view');
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  <section class="shell svc-intro">
+    <p class="svc-description reveal">{data.description}</p>
+  </section>
 
-      setTimeout(() => {
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-      }, hasHash ? 0 : 1200);
+  <section class="shell svc-grid">
+    <div class="svc-narrative reveal">
+      <div>
+        <h2>{data.problem.title}</h2>
+        <p>{data.problem.body}</p>
+      </div>
+      <div>
+        <h2>{data.solution.title}</h2>
+        <p>{data.solution.body}</p>
+      </div>
+    </div>
+    <dl class="svc-stats reveal">
+      {
+        data.stats.map((s) => (
+          <div>
+            <dt>{s.label}</dt>
+            <dd>{s.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
 
-};
-
-    if ((window as any).isLoadingComplete) {
-      initializeAnimations();
-    } else {
-      window.addEventListener('loadingComplete', initializeAnimations);
+  <section class="shell svc-highlights">
+    <div class="svc-highlights-inner reveal">
+      <h2>{data.highlightsTitle}</h2>
+      <ul>
+        {
+          data.highlights.map((h) => (
+            <li>
+              <Icon name="check" size={18} />
+              <span>{h}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    {
+      data.testimonial && (
+        <figure class="svc-quote reveal">
+          <Icon name="quote" size={28} />
+          <blockquote>{data.testimonial.quote}</blockquote>
+          <figcaption>
+            {data.testimonial.author} · {data.testimonial.role}
+          </figcaption>
+        </figure>
+      )
     }
-  });
-</script>
+  </section>
+
+  {
+    hasBody && (
+      <section class="shell svc-body">
+        <div class="prose">
+          <Content />
+        </div>
+      </section>
+    )
+  }
+
+  <section class="band">
+    <div class="shell">
+      <SectionHead title="Casos en **producción**" link={{ href: '/casos/', label: 'Ver todos los casos' }} />
+      <div class="card-grid reveal-stagger">
+        {cases.map((c) => <CaseCard item={c} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="shell svc-faq">
+    <div class="svc-faq-inner">
+      <Faq faqs={data.faqs} />
+    </div>
+    <aside class="svc-links">
+      {
+        guides.length > 0 && (
+          <div>
+            <p class="eyebrow">Guías relacionadas</p>
+            <ul>
+              {guides.map((g) => (
+                <li>
+                  <a href={`/guias/${g.id}/`}>
+                    <Icon name="book" size={16} />
+                    {guideTitle(g)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      <div>
+        <p class="eyebrow">Otros servicios</p>
+        <ul>
+          {
+            others.map((s) => (
+              <li>
+                <a href={`/servicios/${s.id}/`}>
+                  <Icon name={s.data.icon} size={16} />
+                  {s.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
 
 <style>
-  /* Hero animations */
-  .hero-badge { opacity: 0; transform: translateX(-30px); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
-  .hero-badge.animate { opacity: 1; transform: translateX(0); }
-  .hero-title { opacity: 0; transform: translateX(-100px) skewX(-5deg); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-  .hero-title.animate { opacity: 1; transform: translateX(0) skewX(0); }
-  .hero-subtitle { opacity: 0; transform: translateX(100px); transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
-  .hero-subtitle.animate { opacity: 1; transform: translateX(0); }
-  .hero-cta { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
-  .hero-cta.animate { opacity: 1; transform: translateY(0); }
-  .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: var(--delay, 0s); }
-  .fade-up.in-view { opacity: 1; transform: translateY(0); }
-  .hero-section { animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1); }
-  @keyframes heroReveal { from { opacity: 0; } to { opacity: 1; } }
-
-  /* Bento Grid */
-  .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto auto;
-    gap: 1.5rem;
+  .svc-hero {
+    padding-block: clamp(2.5rem, 7vw, 5.5rem) 2rem;
   }
 
-  .bento-card {
-    padding: 2.5rem;
-    border: 1px solid #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .crumbs {
+    font-size: 0.8125rem;
+    color: var(--muted);
   }
 
-  /* Row 1: Narrative (8) + Stats (4) */
-  .bento-narrative {
-    grid-column: 1 / 9;
-    grid-row: 1 / 2;
+  .crumbs a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--t) var(--ease);
   }
 
-  .bento-narrative-block {
-    display: flex;
-    flex-direction: column;
+  .crumbs a:hover {
+    background-size: 100% 1px;
   }
 
-  .bento-narrative-divider {
-    width: 60px;
-    height: 1px;
-    background: #e5e7eb;
-    margin: 1.5rem 0;
+  h1 {
+    margin-top: 1.75rem;
+    max-width: 18ch;
+    font-size: clamp(2.5rem, 7.5vw, 5.5rem);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
   }
 
-  .bento-card-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-weight: 600;
-    color: #000;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
+  .svc-tagline {
+    margin-top: 1.5rem;
+    max-width: 48ch;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--muted);
+    --d: 0.35s;
   }
 
-  .bento-card-text {
-    font-size: 1.05rem;
-    color: #555;
-    line-height: 1.7;
-  }
-
-  /* Stats */
-  .bento-stats {
-    grid-column: 9 / 13;
-    grid-row: 1 / 2;
-    background: #0a0a0a;
-    padding: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-  .bento-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1.5rem 1rem;
-    width: 100%;
-    height: 100%;
-    align-content: center;
-  }
-
-  .bento-stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 0.25rem;
-  }
-
-  .bento-stat-value {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(2rem, 3vw, 2.75rem);
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.1;
-  }
-
-  .bento-stat-label {
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-    min-height: 2.4em;
-    line-height: 1.2;
-    display: flex;
-    align-items: flex-start;
-  }
-
-  /* Testimonial */
-  .bento-testimonial {
-    grid-column: 1 / 5;
-    grid-row: 2 / 3;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
-  }
-
-  .testimonial-top {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .testimonial-quote-icon {
-    width: 32px;
-    height: 32px;
-    color: rgba(0, 0, 0, 0.08);
-    flex-shrink: 0;
-  }
-
-  .testimonial-text {
-    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-    color: #222;
-    line-height: 1.55;
-    font-style: italic;
-    font-weight: 500;
-  }
-
-  .testimonial-author {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-
-  .testimonial-author-name {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #000;
-    letter-spacing: 0.02em;
-  }
-
-  .testimonial-author-role {
-    font-size: 0.7rem;
-    color: rgba(0, 0, 0, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* CTA card */
-  .bento-cta {
-    grid-column: 5 / 13;
-    grid-row: 2 / 3;
-    background: #0a0a0a;
-    padding: 2.5rem;
-  }
-
-  .bento-cta-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .bento-cta-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.03em;
-  }
-
-  .bento-cta-highlights {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem 2rem;
-  }
-
-  .bento-cta-highlight-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.4;
-  }
-
-  .bento-cta-check {
-    width: 1rem;
-    height: 1rem;
-    color: #fff;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-
-
-  /* Case studies on a service page */
-  .svc-cases-head {
+  .svc-actions {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .svc-cases-eyebrow {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(0, 0, 0, 0.4);
-    margin-bottom: 0.75rem;
-  }
-
-  .svc-cases-title {
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: #000;
-    max-width: 24ch;
-  }
-
-  .svc-cases-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #000;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .svc-cases-all:hover { border-color: #000; }
-
-  .svc-cases-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 640px) { .svc-cases-grid { grid-template-columns: repeat(3, 1fr); } }
-
-  .svc-case-card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-  }
-
-  .svc-case-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12); }
-
-  .svc-case-media { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #0a0a0a; }
-  .svc-case-media svg { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-  .svc-case-card:hover .svc-case-media svg { transform: scale(1.05); }
-
-  .svc-case-metric { position: absolute; left: 1rem; bottom: 0.85rem; display: flex; flex-direction: column; gap: 0.1rem; }
-  .svc-case-metric strong { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.05em; color: #fff; line-height: 1; }
-  .svc-case-metric span { font-size: 0.62rem; font-weight: 600; color: #fff; }
-
-  .svc-case-body { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.15rem; }
-  .svc-case-tag { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(0, 0, 0, 0.45); }
-  .svc-case-title { font-size: 1rem; font-weight: 700; line-height: 1.3; color: #000; }
-
-  /* Convocatorias */
-  .conv-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .conv-card {
-    background: #0a0a0a;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .conv-tag {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.4);
-  }
-
-  .conv-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.25;
-  }
-
-  .conv-desc {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.6;
-  }
-
-  .conv-deadline {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #ef4444;
-  }
-
-  .conv-deadline svg {
-    flex-shrink: 0;
-    stroke: #ef4444;
-  }
-
-
-  @media (max-width: 768px) {
-    .conv-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .conv-card {
-      padding: 1.5rem;
-    }
-  }
-
-  /* Closing section */
-  .closing-logo {
-    height: 1.5rem;
-    width: auto;
-    margin-bottom: 1.25rem;
-    opacity: 0.9;
-  }
-
-  .closing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .closing-services-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.4);
-    display: block;
-    margin-bottom: 1.25rem;
-  }
-
-  .closing-contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .closing-contact-item {
-    display: flex;
-    align-items: center;
     gap: 0.75rem;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: color 0.2s ease;
+    margin-top: 2rem;
   }
 
-  a.closing-contact-item:hover {
-    color: #fff;
+  .svc-intro {
+    padding-block: 2rem;
   }
 
-  .closing-services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .closing-service-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.2s ease;
-  }
-
-  .closing-service-link:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .closing-service-link:hover .closing-service-title {
-    color: #fff;
-    transform: translateX(0.5rem);
-  }
-
-  .closing-service-link:hover :global(.closing-service-icon) {
-    transform: translateX(0.5rem);
-  }
-
-  .closing-service-link:hover .closing-service-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .closing-service-title {
-    font-size: 1rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.2s ease, transform 0.2s ease;
-    flex: 1;
-  }
-
-  .closing-service-arrow {
-    width: 14px;
-    height: 14px;
-    color: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: all 0.25s ease;
-    flex-shrink: 0;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .bento-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-
-    .bento-narrative,
-    .bento-stats,
-    .bento-testimonial,
-    .bento-cta {
-      grid-column: 1 / -1;
-      grid-row: auto;
-    }
-
-    .bento-testimonial {
-      grid-column: 1 / -1;
-      grid-row: auto;
-    }
-
-    .bento-stats-grid {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1fr;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .bento-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .bento-narrative,
-    .bento-stats,
-    .bento-logo,
-    .bento-cta {
-      grid-column: 1 / -1;
-      grid-row: auto;
-    }
-
-    .bento-card { padding: 1.5rem; }
-    .bento-stats { padding: 2rem; }
-    .bento-cta { padding: 1.5rem; }
-    .bento-testimonial { padding: 1.25rem; gap: 1.5rem; }
-
-    .bento-logo {
-      display: none;
-    }
-
-    .bento-cta-highlights {
-      grid-template-columns: 1fr;
-    }
-
-    .bento-stats-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-    }
-
-    .closing-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-
-    .closing-services {
-      order: -1;
-    }
-  }
-
-  /* Let service sections shrink to the phone viewport when the global section flex rule applies. */
-  section > .max-w-7xl {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .maintenance-section {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .maintenance-eyebrow {
-    color: rgba(0, 0, 0, 0.45);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-  }
-
-  .maintenance-title {
-    color: #000;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    max-width: 22ch;
-    margin-bottom: 1.25rem;
-  }
-
-  .maintenance-lead,
-  .maintenance-content p,
-  .maintenance-faq p {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .maintenance-lead {
-    max-width: 62rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .maintenance-content {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .maintenance-content h3,
-  .maintenance-faq h3 {
-    color: #111;
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 0.65rem;
-  }
-
-  .maintenance-content ul {
-    color: #444;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    list-style: disc;
-    margin: 0;
-    padding-left: 1.25rem;
-  }
-
-  .maintenance-content li {
+  .svc-description {
+    max-width: 68ch;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ink);
+    font-size: clamp(1.125rem, 1.8vw, 1.3125rem);
     line-height: 1.6;
   }
 
-  .maintenance-content a,
-  .maintenance-faq a {
-    color: #0366d6;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  .svc-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-block: 2rem;
   }
 
-  .maintenance-faq {
-    border-left: 3px solid #111;
-    margin-top: 2.5rem;
-    max-width: 62rem;
-    padding-left: 1.25rem;
+  .svc-narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    padding: 2rem;
+    border: 1px solid var(--line);
   }
 
-  @media (max-width: 768px) {
-    .maintenance-content {
+  .svc-narrative h2,
+  .svc-highlights h2 {
+    font-size: 1.375rem;
+    letter-spacing: -0.02em;
+  }
+
+  .svc-narrative p {
+    margin-top: 0.85rem;
+    color: #2b2b2b;
+  }
+
+  .svc-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line-on-ink);
+    border: 1px solid var(--ink);
+  }
+
+  .svc-stats > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .svc-stats dd {
+    order: -1;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .svc-stats dt {
+    margin-top: 0.4rem;
+    font-size: 0.8125rem;
+    color: var(--muted-on-ink);
+  }
+
+  .svc-highlights {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .svc-highlights-inner {
+    padding: 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+
+  .svc-highlights ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem 2rem;
+    margin-top: 1.25rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .svc-highlights li {
+    display: flex;
+    gap: 0.6rem;
+    font-weight: 500;
+  }
+
+  .svc-highlights li :global(svg) {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .svc-quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--line);
+  }
+
+  .svc-quote blockquote {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .svc-quote figcaption {
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .svc-body {
+    padding-block: 3rem 1rem;
+  }
+
+  .svc-body .prose {
+    max-width: 46rem;
+  }
+
+  .svc-faq {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 3.5rem;
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .svc-links {
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+  }
+
+  .svc-links ul {
+    margin-top: 0.75rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .svc-links a {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+
+  .svc-links a :global(svg) {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .svc-links a {
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  .svc-links a:hover {
+    color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .svc-grid,
+    .svc-highlights,
+    .svc-faq,
+    .svc-narrative,
+    .svc-highlights ul {
       grid-template-columns: 1fr;
     }
-  }
-</style>
-
-<style is:global>
-  .closing-service-icon {
-    transition: transform 0.2s ease;
   }
 </style>

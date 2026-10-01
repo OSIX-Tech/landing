@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getGuides, guideTitle } from '../lib/content';
+const latest = (await getGuides()).slice(0, 5);
+---
+
+<BaseLayout title="Página no encontrada | OSIX Tech" description="La página que buscas no existe o ha cambiado de dirección." noindex>
+  <section class="shell nf">
+    <p class="eyebrow">Error 404</p>
+    <h1>Esta página no existe</h1>
+    <p>Puede que la dirección haya cambiado. Estas páginas sí existen:</p>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/servicios/">Servicios</a></li>
+      <li><a href="/casos/">Casos en producción</a></li>
+      <li><a href="/guias/">Todas las guías</a></li>
+      {latest.map((g) => <li><a href={`/guias/${g.id}/`}>{guideTitle(g)}</a></li>)}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    padding-block: clamp(4rem, 10vw, 8rem);
+  }
+
+  h1 {
+    margin-top: 1rem;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    letter-spacing: -0.04em;
+  }
+
+  p:not(.eyebrow) {
+    margin-top: 1rem;
+    color: var(--muted);
+  }
+
+  ul {
+    margin-top: 1.5rem;
+    padding-left: 1.25rem;
+    line-height: 2;
+  }
+</style>

@@ -1,0 +1,91 @@
+---
+// FAQ as native disclosure widgets: readable without JavaScript and fully present in
+// the HTML, so the FAQPage markup always matches visible text.
+import { blockMd } from '../lib/inline';
+import type { Faq as FaqItem } from '../lib/content';
+interface Props {
+  faqs: FaqItem[];
+  title?: string;
+  id?: string;
+}
+const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = Astro.props;
+---
+
+{
+  faqs.length > 0 && (
+    <section class="faq" aria-labelledby={id}>
+      <h2 id={id}>{title}</h2>
+      {faqs.map((f, i) => (
+        <details open={i === 0}>
+          <summary>{f.question.replace(/\*\*/g, '')}</summary>
+          <div class="faq-answer" set:html={blockMd(f.answer)} />
+        </details>
+      ))}
+    </section>
+  )
+}
+
+<style>
+  .faq h2 {
+    margin-bottom: 1.25rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  details {
+    border-top: 1px solid var(--line);
+  }
+
+  details:last-of-type {
+    border-bottom: 1px solid var(--line);
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.15rem 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  summary:hover {
+    color: var(--muted);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: '+';
+    flex-shrink: 0;
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform var(--t) var(--ease);
+  }
+
+  details[open]:not(.closing) summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 2.5rem 1.35rem 0;
+    color: #2b2b2b;
+    line-height: 1.7;
+  }
+
+  .faq-answer :global(p + p) {
+    margin-top: 0.8em;
+  }
+
+  .faq-answer :global(a) {
+    text-underline-offset: 0.18em;
+  }
+</style>

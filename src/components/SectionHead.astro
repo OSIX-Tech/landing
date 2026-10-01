@@ -1,0 +1,36 @@
+---
+// "Nuestros **servicios**" — light title with a bold word, OSIX hairline above.
+interface Props {
+  title: string;
+  id?: string;
+  lead?: string;
+  link?: { href: string; label: string };
+  as?: 'h2' | 'h1';
+}
+const { title, id, lead, link, as: Tag = 'h2' } = Astro.props;
+const html = title.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+---
+
+<div class="section-head reveal">
+  <div>
+    <Tag class="section-title" id={id} set:html={html} />
+    {lead && <p class="section-lead">{lead}</p>}
+  </div>
+  {
+    link && (
+      <a class="link-arrow" href={link.href}>
+        {link.label}
+        <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14" />
+          <path d="m13 6 6 6-6 6" />
+        </svg>
+      </a>
+    )
+  }
+</div>
+
+<style>
+  .section-lead {
+    margin-top: 0.85rem;
+  }
+</style>

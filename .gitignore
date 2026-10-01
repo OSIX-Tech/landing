@@ -23,3 +23,12 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .playwright-mcp/
+
+# Lighthouse CI reports
+.lighthouseci/
+
+# local preview config
+.claude/launch.json
+
+# generated figures (scripts/figures.mjs)
+src/assets/figures/

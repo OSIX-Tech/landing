@@ -1,66 +1,40 @@
-# Robots.txt for https://osix.tech
+# https://osix.tech/robots.txt
+#
+# Policy: search engines and AI assistants that answer questions with live web
+# results may read the whole site, so OSIX can be found and cited. Crawlers that
+# only collect training data stay blocked.
 
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /_astro/
-Crawl-delay: 1
 
-# Sitemap location
-Sitemap: https://osix.tech/sitemap.xml
-
-# Major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-# AI search retrieval bots (needed for AI citations)
-User-agent: ChatGPT-User
-Allow: /
-
+# AI search and answer retrieval (cites pages in answers)
 User-agent: OAI-SearchBot
-Allow: /
-
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: PerplexityBot
+User-agent: Perplexity-User
 Allow: /
 
-User-agent: Claude-Web
-Allow: /
-
-# AI training bots (block to protect IP)
-User-agent: GPTBot
-Disallow: /
-
+# Gemini grounding and Apple Intelligence (also used for model training)
 User-agent: Google-Extended
-Disallow: /
+User-agent: Applebot-Extended
+Allow: /
 
+# Training-only crawlers
+User-agent: GPTBot
+User-agent: ClaudeBot
 User-agent: CCBot
+User-agent: Bytespider
+User-agent: meta-externalagent
 Disallow: /
 
-User-agent: anthropic-ai
-Disallow: /
-
-# Block SEO scraper bots
+# SEO scrapers
 User-agent: AhrefsBot
-Disallow: /
-
 User-agent: SemrushBot
-Disallow: /
-
 User-agent: DotBot
-Disallow: /
-
 User-agent: MJ12bot
 Disallow: /
+
+Sitemap: https://osix.tech/sitemap.xml

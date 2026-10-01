@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import { org } from '../site';
+interface Props {
+  title?: string;
+  text?: string;
+  id?: string;
+}
+const {
+  title = 'Hablemos de tu próximo proyecto',
+  text = 'Analizamos tu caso y te decimos con honestidad qué podemos hacer por ti. La consulta inicial es gratuita y respondemos en menos de 24 horas.',
+  id,
+} = Astro.props;
+---
+
+<section class="band band-ink cta" id={id}>
+  <div class="shell cta-inner">
+    <div class="reveal">
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <div class="cta-actions reveal">
+      <a class="btn btn-light" href="/contacto/">Cuéntanos tu caso <Icon name="arrow" size={15} class="arrow" /></a>
+      <a class="cta-mail" href={`mailto:${org.email}`}>o escríbenos a {org.email}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 2.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    letter-spacing: -0.035em;
+  }
+
+  p {
+    margin-top: 1rem;
+    max-width: 52ch;
+    color: var(--muted-on-ink);
+    font-size: 1.0625rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .cta-mail {
+    color: var(--muted-on-ink);
+    font-size: 0.9375rem;
+  }
+
+  .cta-mail:hover {
+    color: var(--paper);
+  }
+
+  @media (max-width: 800px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

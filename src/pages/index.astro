@@ -1,548 +1,573 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// The home is the showcase: the one page that is allowed to move. Each section has its
+// own background and composition; everything below the hero still reads without JS.
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ServicesShowcase from '../components/ServicesShowcase.astro';
-import AboutUsSection from '../components/AboutUsSection.astro';
-import HomeFAQ from '../components/HomeFAQ.astro';
-import StaticContactSection from '../components/StaticContactSection.astro';
-import LoadingScreen from '../components/LoadingScreen.astro';
-import { getAllServices } from '../data/services-multilingual';
-import { genGuideArt } from '../utils/guideArt';
-import { getCaseStudyCards } from '../data/case-studies';
-import { genCaseArt } from '../utils/caseArt';
+import Icon from '../components/Icon.astro';
+import SectionHead from '../components/SectionHead.astro';
+import GuideCard from '../components/GuideCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { coverOf, getCases, getGuides, getServices, getTeam } from '../lib/content';
+import { faqPage, webPage } from '../lib/schema';
+import { clients, faqs } from '../data/home';
 
-export const prerender = true;
-
-export async function getStaticPaths() {
-  return [{}];
-}
-
-const lang = 'es' as const;
-
-// ── Guias section: latest guides + generative placeholder art ──
-const latestGuides = [
-  { slug: 'agentes-ia-pymes', date: '2026-08-29', tag: { es: 'Agentes de IA', gl: 'Axentes de IA', en: 'AI agents' }[lang], title: { es: '¿Qué es un agente de IA y qué puede hacer por mi negocio?', gl: 'Que é un axente de IA e que pode facer por meu negocio?', en: 'What is an AI agent and what can it do for your business?' }[lang] },
-  { slug: 'chatbot-sin-programar', date: '2026-08-29', tag: { es: 'Chatbots', gl: 'Chatbots', en: 'Chatbots' }[lang], title: { es: '¿Puedo montar un chatbot para mi empresa sin saber programar?', gl: 'Podo montar un chatbot para a miña empresa sen saber programar?', en: 'Can I build a chatbot for my business without coding?' }[lang] },
-  { slug: 'para-que-sirve-ia-pyme', date: '2026-08-27', tag: { es: 'IA para pymes', gl: 'IA para pemes', en: 'AI for SMEs' }[lang], title: { es: 'Para qué sirve la IA en una pyme: las 8 formas que dan resultados', gl: 'Para que serve a IA nunha peme: as 8 formas que dan resultados', en: 'What AI is for in an SME: the 8 ways that deliver results' }[lang] },
-  { slug: 'procesos-pyme-automatizar-con-ia', date: '2026-08-26', tag: { es: 'Procesos', gl: 'Procesos', en: 'Processes' }[lang], title: { es: 'Qué procesos de una pyme se pueden automatizar con IA', gl: 'Que procesos dunha peme se poden automatizar con IA', en: 'Which SME processes can be automated with AI' }[lang] },
-  { slug: 'pymes-espanolas-que-mejoraron-con-ia', date: '2026-08-25', tag: { es: 'Casos reales', gl: 'Casos reais', en: 'Real cases' }[lang], title: { es: 'Casos reales de pymes españolas que mejoraron con IA', gl: 'Casos reais de pemes españolas que melloraron con IA', en: 'Real cases of Spanish SMEs that improved with AI' }[lang] },
-  { slug: 'que-es-automatizacion-inteligente-pymes-espana', date: '2026-08-24', tag: { es: 'Conceptos', gl: 'Conceptos', en: 'Concepts' }[lang], title: { es: '¿Qué es la automatización inteligente? Guía para pymes', gl: 'Que é a automatización intelixente? Guía para pemes', en: 'What is intelligent automation? A guide for SMEs' }[lang] },
-  { slug: 'cuanto-tarda-ia-primeros-resultados-pyme-espana', date: '2026-08-21', tag: { es: 'Expectativas', gl: 'Expectativas', en: 'Expectations' }[lang], title: { es: 'Cuánto se tarda en ver resultados al implantar IA', gl: 'Canto se tarda en ver resultados ao implantar IA', en: 'How long until AI results show' }[lang] },
-  { slug: 'consultoras-ia-grandes-vs-especializadas-pymes', date: '2026-08-20', tag: { es: 'Comparativa', gl: 'Comparativa', en: 'Comparison' }[lang], title: { es: 'Consultoras de IA grandes vs especializadas en pymes', gl: 'Consultoras de IA grandes vs especializadas en pemes', en: 'Big AI consultancies vs SME specialists' }[lang] },
-];
-
-const formatGuideDate = (iso: string) => {
-  const localeMap: Record<string, string> = { es: 'es-ES', gl: 'gl-ES', en: 'en-GB' };
-  return new Date(iso).toLocaleDateString(localeMap[lang] || 'es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
-};
-
-
-// SEO Data
-const seoTitle = ({ es: 'Consultoría de IA para pymes en Galicia | OSIX Tech', gl: 'OSIX Tech - Consultoría Tecnolóxica & Desenvolvemento a Medida con IA', en: 'OSIX Tech - Technology Consulting & Custom AI Development' }[lang]);
-
-const seoDescription = ({ es: 'Consultoría de IA para pymes en Galicia y España. OSIX Tech diseña automatizaciones, agentes inteligentes y software a medida para mejorar procesos con resultados medibles.', gl: 'OSIX Tech: Desenvolvemento de software a medida con IA, consultoría de transformación dixital e xestión de subvencións. Tecnoloxía que xera resultados reais para a túa empresa.', en: 'OSIX Tech: Custom AI software development, digital transformation consulting, and innovation grants. Technology that delivers real results for your business.' }[lang]);
-
-// FAQ translations for structured data
-const faqTranslations = await import('../../public/locales/es.json');
-const ft = (k: string) => faqTranslations.default[k] || k;
-
-// Team members for Person schema (E-E-A-T signals)
-const teamPersons = [
-  { name: "Mateo Bodenlle", role: "CEO", linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/" },
-  { name: "Juan Freire", role: "Backend Engineer", linkedin: "https://www.linkedin.com/in/juan-freire-alvarez/" },
-  { name: "David Gutiérrez", role: "Security & AI Backend Engineer", linkedin: "https://www.linkedin.com/in/david-gutierrez-cs/" },
-  { name: "Nicolás Corbal", role: "Frontend Engineer", linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-corbal-912929318/" },
-  { name: "David M. Raposeiras", role: "DevOps Engineer", linkedin: "https://www.linkedin.com/in/david-manuel-raposeiras-canabal-a95028210/" },
-  { name: "Diego Cristóbal", role: "Full Stack Mobile Engineer", linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/" },
-];
-
-const allServices = getAllServices(lang);
-
-// Structured Data — unified @graph
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["Organization", "LocalBusiness"],
-      "@id": "https://osix.tech/#organization",
-      "name": "OSIX Tech",
-      "url": "https://osix.tech",
-      "logo": "https://osix.tech/logo_w.png",
-      "description": seoDescription,
-      "telephone": "+34 648935068",
-      "email": "info@osix.tech",
-      "foundingDate": "2024",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Santiago del Estero, 2-4 1G",
-        "addressLocality": "Santiago de Compostela",
-        "addressRegion": "Galicia",
-        "postalCode": "15702",
-        "addressCountry": "ES"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 42.8782,
-        "longitude": -8.5448
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "Spain" },
-        { "@type": "AdministrativeArea", "name": "Galicia" }
-      ],
-      "sameAs": [
-        "https://github.com/OSIX-Tech",
-        "https://es.linkedin.com/company/osix-tech"
-      ],
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "Inteligencia Artificial",
-        "Intelixencia Artificial",
-        "AI Consulting",
-        "Consultoría de IA",
-        "Consultoría de IA en Galicia",
-        "Digital Transformation",
-        "Intelligent Agents",
-        "Process Automation",
-        "IGAPE IA360",
-        "Custom Software Development"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "email": "info@osix.tech",
-        "telephone": "+34 648935068",
-        "availableLanguage": ["English", "Spanish", "Galician"]
-      },
-      "employee": teamPersons.map(p => ({
-        "@type": "Person",
-        "name": p.name,
-        "jobTitle": p.role,
-        "worksFor": { "@id": "https://osix.tech/#organization" },
-        "sameAs": [p.linkedin]
-      })),
-      "makesOffer": allServices.map(s => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": s.title,
-          "description": s.description,
-          "url": `https://osix.tech/servicios/${s.id}`
-        }
-      }))
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://osix.tech/#website",
-      "name": "OSIX Tech",
-      "url": "https://osix.tech",
-      "publisher": { "@id": "https://osix.tech/#organization" },
-      "inLanguage": "es"
-    },
-    {
-      "@type": "WebPage",
-      "@id": `https://osix.tech/#webpage`,
-      "name": seoTitle,
-      "description": seoDescription,
-      "url": `https://osix.tech/`,
-      "inLanguage": lang,
-      "dateModified": "2026-09-28",
-      "isPartOf": { "@id": "https://osix.tech/#website" },
-      "about": { "@id": "https://osix.tech/#organization" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `https://osix.tech/`
-        }]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `https://osix.tech/#faq`,
-      "isPartOf": { "@id": `https://osix.tech/#webpage` },
-      "mainEntity": [
-        { "@type": "Question", "name": ft('home.faq.q1'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a1') } },
-        { "@type": "Question", "name": ft('home.faq.q2'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a2') } },
-        { "@type": "Question", "name": ft('home.faq.q3'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a3') } },
-        { "@type": "Question", "name": ft('home.faq.q4'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a4') } },
-        { "@type": "Question", "name": ft('home.faq.q5'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a5') } },
-        { "@type": "Question", "name": ft('home.faq.q6'), "acceptedAnswer": { "@type": "Answer", "text": ft('home.faq.a6') } }
-      ]
-    }
-  ]
-};
-
-
-// Case studies are Spanish-only, like the guides: the cards always link to //.
-const caseCards = getCaseStudyCards().slice(0, 3);
+const [services, cases, guides, team] = await Promise.all([getServices(), getCases(), getGuides(), getTeam()]);
+const title = 'Consultoría de IA para pymes en Galicia | OSIX Tech';
+const description =
+  'OSIX Tech: consultoría de IA y desarrollo de software a medida para pymes de Galicia y España. Automatización, agentes de IA y casos en producción con cifras medidas.';
 ---
 
-<Layout 
-  lang={lang}
-  title={seoTitle}
-  description={seoDescription}
-  pageType="website"
-  jsonLd={jsonLd}
+<BaseLayout
+  title={title}
+  description={description}
+  markdown="/index.md"
+  jsonLd={[webPage({ path: '/', name: title, description }), faqPage('/', faqs)]}
 >
-  <LoadingScreen duration={1000} />
-  <section id="hero"><Hero lang={lang} /></section>
-  <section id="services"><ServicesShowcase lang={lang} /></section>
-  <section id="casos" class="home-casos bg-white text-black">
-    <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <h2 class="section-title" set:html={{ es: "Casos en <span class='font-bold'>producción</span>", gl: "Casos en <span class='font-bold'>produción</span>", en: "Cases in <span class='font-bold'>production</span>" }[lang]} />
-    </div>
-    <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <p class="home-casos-lead">{{ es: 'No enseñamos demos aisladas. Cada caso publica la ventana medida y lo que la cifra no demuestra.', gl: 'Non ensinamos demos illadas. Cada caso publica a xanela medida e o que a cifra non demostra.', en: 'We do not show isolated demos. Each case publishes the measured window and what the figure does not prove.' }[lang]}</p>
-      <div class="home-casos-grid">
-        {caseCards.map((c, i) => (
-          <a class="home-caso-card" href={c.href}>
-            <div class="home-caso-media">
-              <Fragment set:html={genCaseArt(c.slug, i)} />
-              <span class="home-caso-metric">
-                <strong>{c.metric.value}</strong>
-                <span>{c.metric.label}</span>
-              </span>
-            </div>
-            <div class="home-caso-body">
-              <span class="home-caso-tag">{c.category}</span>
-              <h3 class="home-caso-title">{c.title}</h3>
-            </div>
-          </a>
-        ))}
-        <a class="home-caso-card home-caso-card-all" href={`/casos/`}>
-          <div class="home-caso-all-inner">
-            <span class="home-caso-all-count">8</span>
-            <span class="home-caso-all-label">{{ es: 'Ver todos los casos', gl: 'Ver todos os casos', en: 'See all case studies' }[lang]}</span>
-            <span class="home-caso-all-arrow" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-      </div>
+  <Hero />
+
+  <!-- Clients: a black band with the logos in white, moving slowly. Pauses on hover. -->
+  <section class="clients" aria-label="Empresas que confían en OSIX">
+    <div class="marquee">
+      <ul class="marquee-track">
+        {
+          [0, 1].map((copy) =>
+            clients.map((c) => (
+              <li aria-hidden={copy === 1 ? 'true' : undefined}>
+                <Image src={c.logo} alt={copy === 0 ? c.name : ''} height={44} densities={[1, 2]} loading="lazy" decoding="async" />
+              </li>
+            )),
+          )
+        }
+      </ul>
     </div>
   </section>
-  <section id="guias" class="home-guias bg-white text-black">
-    <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <h2 class="section-title" set:html={{ es: "Guías <span class='font-bold'>prácticas</span>", gl: "Guías <span class='font-bold'>prácticas</span>", en: "Practical <span class='font-bold'>guides</span>" }[lang]} />
-    </div>
-    <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-      <div class="home-guias-grid">
-        {latestGuides.slice(0, 5).map((g, i) => (
-          <a class="guia-home-card" href={`/guias/${g.slug}/`}>
-            <div class="guia-home-media">
-              <Fragment set:html={genGuideArt(g.slug, i)} />
-              <span class="guia-home-tag">{g.tag}</span>
-            </div>
-            <div class="guia-home-body">
-              <h3 class="guia-home-title">{g.title}</h3>
-              <div class="guia-home-meta">
-                <span class="guia-home-arrow" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+  <!-- Services: a head like the cases section, then three equal columns. -->
+  <section class="band" id="servicios">
+    <div class="shell services-wrap">
+      <span id="services" aria-hidden="true"></span>
+      <div class="services-head reveal">
+        <h2 class="section-title">Tres formas de<br />trabajar con OSIX</h2>
+        <p class="services-lead">
+          Construimos el software, te ayudamos a decidir qué automatizar o preparamos el proyecto cuando hay una ayuda
+          pública vigente que encaja. En los tres casos empezamos por tu proceso real.
+        </p>
+      </div>
+      <ol class="services-grid reveal-stagger">
+        {
+          services.map((s) => (
+            <li>
+              <a class="service" href={`/servicios/${s.id}/`}>
+                <span class="service-top">
+                  <h3 class="service-title"><span class="t-link">{s.data.shortTitle ?? s.data.title}</span></h3>
+                  <Icon name="arrow" size={22} class="arrow" />
                 </span>
-                <time class="guia-home-date" datetime={g.date}>{formatGuideDate(g.date)}</time>
-              </div>
-            </div>
-          </a>
-        ))}
-        <a class="guia-home-card guia-home-card-all" href={`/guias/`}>
-          <div class="guia-home-all-inner">
-            <span class="guia-home-all-count">10+</span>
-            <span class="guia-home-all-label">{{ es: 'Ver todas las guías', gl: 'Ver todas as guías', en: 'See all guides' }[lang]}</span>
-            <span class="guia-home-all-arrow" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
-          </div>
+                <p class="service-text">{s.data.summary ?? s.data.description}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- Cases: black. One featured cover, then every case as a line with its headline figure. -->
+  <section class="band band-ink cases" id="casos">
+    <div class="shell">
+      <div class="cases-head reveal">
+        <h2 class="section-title">Casos en<br />producción</h2>
+        <p class="cases-lead">
+          Software que ya trabaja en empresas reales: documentos que se procesan solos, correo que se clasifica, ofertas
+          que se preparan en segundos. Cada caso publica la cifra, el periodo medido y lo que esa cifra no demuestra.
+        </p>
+      </div>
+      <div class="cases-body">
+        <a class="cases-featured reveal" href={`/casos/${cases[0].id}/`}>
+          <Image
+            class="cases-cover"
+            src={coverOf('casos', cases[0])}
+            alt={`${cases[0].data.metrics[0].value} ${cases[0].data.metrics[0].label}`}
+            widths={[640, 960, 1400]}
+            sizes="(max-width: 1000px) calc(100vw - 2rem), 56vw"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="cases-featured-text">
+            <span class="eyebrow">{cases[0].data.category}</span>
+            <span class="cases-featured-title t-link">{cases[0].data.title}</span>
+          </span>
         </a>
+        <ol class="cases-list reveal-stagger">
+          {
+            cases.slice(1, 5).map((c) => (
+              <li>
+                <a class="cases-row" href={`/casos/${c.id}/`}>
+                  <span class="cases-metric">
+                    <strong>{c.data.metrics[0].value}</strong>
+                    <span>{c.data.metrics[0].label}</span>
+                  </span>
+                  <span class="cases-row-title">
+                    <span class="t-link">{c.data.title}</span>
+                  </span>
+                  <Icon name="arrow" size={18} class="arrow" />
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a class="cases-row cases-more" href="/casos/">
+              <span class="cases-metric">
+                <strong>+{cases.length - 5}</strong>
+                <span>casos más</span>
+              </span>
+              <span class="cases-row-title">
+                <span class="t-link">Ver los {cases.length} casos en producción</span>
+              </span>
+              <Icon name="arrow" size={18} class="arrow" />
+            </a>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
-  <section id="about-us"><AboutUsSection lang={lang} /></section>
-  <section id="faq"><HomeFAQ lang={lang} /></section>
-  <section id="contact"><StaticContactSection lang={lang} /></section>
-</Layout>
+
+  <!-- Guides: the library, on grey. -->
+  <section class="band" id="guias">
+    <div class="shell">
+      <SectionHead
+        title="Guías **prácticas**"
+        lead="Costes, plazos, proveedores y procesos explicados para pymes, con fuentes y límites honestos."
+        link={{ href: '/guias/', label: `Ver las ${guides.length} guías` }}
+      />
+      <div class="guide-grid reveal-stagger">
+        {guides.slice(0, 6).map((g) => <GuideCard guide={g} showSummary />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team: six portraits in a row, colour on hover. -->
+  <section class="band" id="about-us">
+    <div class="shell">
+      <SectionHead
+        title="Quién está **detrás**"
+        lead="Un equipo de ingenieros en Santiago de Compostela que diseña, construye y mantiene cada proyecto."
+        link={{ href: '/nosotros/', label: 'Conocer al equipo' }}
+      />
+      <ul class="team reveal-stagger">
+        {
+          team.map((m) => (
+            <li>
+              <a href={`/nosotros/#${m.id}`}>
+                <Image src={m.data.photo} alt="" width={320} height={320} widths={[240, 320, 480]} sizes="(max-width: 640px) 50vw, 15rem" loading="lazy" decoding="async" class="team-photo" />
+                <span class="team-name t-link">{m.data.name}</span>
+                <span class="team-role">{m.data.role}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="shell faq-grid">
+      <div class="reveal">
+        <h2 class="section-title faq-title">Preguntas<br />frecuentes</h2>
+      </div>
+      <Faq faqs={faqs} title="Preguntas frecuentes sobre OSIX" id="faq-osix" />
+    </div>
+  </section>
+
+  <CtaBand id="contact" />
+</BaseLayout>
 
 <style>
-  #hero {
-    margin-bottom: 7.5vh !important;
+  /* ----- Clients ----- */
+  .clients {
+    background: var(--black);
+    color: var(--paper);
+    padding-block: 2.25rem;
   }
 
-  .contact-section {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-
-  .contact-section.visible {
-    transform: translateY(0);
-    opacity: 1;
-  }
-</style>
-
-<style is:global>
-  .home-casos { padding: 32px 0 0; }
-
-  .home-casos-lead {
-    max-width: 62ch;
-    margin-bottom: 2rem;
-    color: #555;
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-
-  .home-casos-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 640px) { .home-casos-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1024px) { .home-casos-grid { grid-template-columns: repeat(4, 1fr); } }
-
-  .home-caso-card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    color: #0a0a0a;
-    transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
-  }
-
-  .home-caso-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
-
-  .home-caso-media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #0a0a0a; }
-  .home-caso-media svg { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.16,1,.3,1); }
-  .home-caso-card:hover .home-caso-media svg { transform: scale(1.05); }
-
-  .home-caso-metric { position: absolute; left: 1rem; bottom: .85rem; display: flex; flex-direction: column; gap: .1rem; }
-  .home-caso-metric strong { font-size: 1.8rem; font-weight: 800; letter-spacing: -.05em; color: #fff; line-height: 1; }
-  .home-caso-metric span { font-size: .62rem; font-weight: 600; color: rgba(255,255,255,.55); }
-
-  .home-caso-body { display: flex; flex-direction: column; gap: .5rem; padding: 1.15rem; }
-  .home-caso-tag { font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(0,0,0,.45); }
-  .home-caso-title { font-size: 1rem; font-weight: 700; line-height: 1.3; color: #000; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-  .home-caso-card-all { background: #0a0a0a; border-color: #0a0a0a; justify-content: center; }
-  .home-caso-all-inner { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.75rem; }
-  .home-caso-all-count { font-size: 2.6rem; font-weight: 800; letter-spacing: -.05em; color: #fff; line-height: 1; }
-  .home-caso-all-label { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.7); }
-  .home-caso-all-arrow { color: #fff; margin-top: .5rem; }
-
-  .home-guias {
-    padding: 32px 0 112px;
-  }
-
-  .home-guias-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .home-guias-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .home-guias-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .guia-home-card {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    text-decoration: none;
+  .marquee {
     overflow: hidden;
-    opacity: 0;
-    transform: translateY(32px);
-    transition:
-      opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
-      transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
-      border-color 0.3s ease,
-      box-shadow 0.3s ease;
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 
-  .home-guias.in-view .guia-home-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .home-guias.in-view .guia-home-card:nth-child(1) { transition-delay: 0.05s, 0.05s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(2) { transition-delay: 0.13s, 0.13s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(3) { transition-delay: 0.21s, 0.21s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(4) { transition-delay: 0.29s, 0.29s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(5) { transition-delay: 0.37s, 0.37s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(6) { transition-delay: 0.45s, 0.45s, 0s, 0s; }
-  .home-guias.in-view .guia-home-card:nth-child(7) { transition-delay: 0.53s, 0.53s, 0s, 0s; }
-
-  .guia-home-card:hover {
-    border-color: #0a0a0a;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  }
-
-  /* Upper part: image + category tag */
-  .guia-home-media {
-    position: relative;
-    aspect-ratio: 16 / 8;
-    background: #0a0a0a;
-    overflow: hidden;
-  }
-
-  .guia-home-media svg,
-  .guia-home-media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .guia-home-card:hover .guia-home-media svg,
-  .guia-home-card:hover .guia-home-media img {
-    transform: scale(1.06);
-  }
-
-  .guia-home-tag {
-    position: absolute;
-    top: 0.85rem;
-    right: 0.85rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #0a0a0a;
-    background: #fff;
-    padding: 0.3rem 0.7rem;
-  }
-
-  /* Lower part: title + date */
-  .guia-home-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 1.25rem 1.25rem 1rem;
-  }
-
-  .guia-home-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #0a0a0a;
-    line-height: 1.4;
-    margin: 0 0 1rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .guia-home-meta {
+  .marquee-track {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
+    gap: clamp(3rem, 6vw, 5.5rem);
+    width: max-content;
+    padding: 0 clamp(1.5rem, 3vw, 2.75rem);
+    list-style: none;
   }
 
-  .guia-home-arrow {
-    color: rgba(0, 0, 0, 0.3);
-    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  .marquee-track img {
+    height: 2.5rem;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    transition: opacity var(--t-fast) var(--ease);
   }
 
-  .guia-home-card:hover .guia-home-arrow {
-    color: #0a0a0a;
-    transform: translateX(5px);
+  .marquee-track li:hover img {
+    opacity: 1;
   }
 
-  .guia-home-date {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.35);
-    letter-spacing: 0.04em;
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee-track {
+      animation: marquee 48s linear infinite;
+    }
+
+    .marquee:hover .marquee-track,
+    .marquee:focus-within .marquee-track {
+      animation-play-state: paused;
+    }
   }
 
-  /* "See all" card */
-  .guia-home-card-all {
-    background: #0a0a0a;
-    border-color: #0a0a0a;
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .marquee-track {
+      flex-wrap: wrap;
+      width: auto;
+      gap: 1.5rem 3rem;
+    }
+
+    .marquee-track li[aria-hidden] {
+      display: none;
+    }
   }
 
-  .guia-home-card-all:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
   }
 
-  .guia-home-all-inner {
+  /* ----- Services ----- */
+  .services-wrap {
+    position: relative;
+  }
+
+  /* Legacy anchor; absolute so it takes no space. */
+  #services {
+    position: absolute;
+    top: calc(-1 * var(--header-h));
+  }
+
+  .services-head {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2rem clamp(3rem, 6vw, 7rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .services-lead {
+    max-width: 58ch;
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .service {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-    padding: 1.5rem;
+    gap: 1rem;
+    height: 100%;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
   }
 
-  .guia-home-all-count {
-    font-size: 3rem;
+  .service-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .service-title {
+    font-size: clamp(1.75rem, 2.4vw, 2.25rem);
     font-weight: 800;
-    color: #fff;
+    letter-spacing: -0.04em;
     line-height: 1;
   }
 
-  .guia-home-all-label {
-    font-size: 1.15rem;
+  .service-title .t-link {
+    background-size: 0% 2px;
+  }
+
+  .service:hover .service-title .t-link {
+    background-size: 100% 2px;
+  }
+
+  .service-top :global(.arrow) {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    color: var(--muted);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .service:hover :global(.arrow) {
+    color: var(--ink);
+  }
+
+  .service-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* ----- Cases ----- */
+  .cases-head {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 2rem clamp(3rem, 6vw, 7rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .cases-lead {
+    max-width: 58ch;
+    font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--muted-on-ink);
+  }
+
+  .cases-body {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 3rem clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+
+  .cases-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .cases :global(.cases-cover) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .cases-featured-text {
+    display: block;
+  }
+
+  .cases-featured-text .eyebrow {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .cases-featured-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem);
     font-weight: 700;
-    color: #fff;
-    line-height: 1.35;
-    margin-top: auto;
-    margin-bottom: 1.25rem;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
   }
 
-  .guia-home-all-arrow {
-    color: #fff;
-    transition: color 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  .cases-list {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--line-on-ink);
   }
 
-  .guia-home-card-all:hover .guia-home-all-arrow {
-    color: #fff;
-    transform: translateX(6px);
+  .cases-row {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr) auto;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--line-on-ink);
+    color: var(--paper);
+    text-decoration: none;
   }
 
-  @media (max-width: 1023px) {
-    .home-guias {
-      padding-bottom: 80px;
+  .cases-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cases-metric strong {
+    font-size: 1.625rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .cases-metric span {
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    color: var(--muted-on-ink);
+  }
+
+  .cases-row-title {
+    display: block;
+    padding-top: 0.2rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .cases-row :global(.arrow) {
+    margin-top: 0.3rem;
+    color: var(--muted-on-ink);
+    transition:
+      transform var(--t) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .cases-row:hover :global(.arrow) {
+    color: var(--paper);
+  }
+
+  .cases-more .cases-metric strong,
+  .cases-more .cases-row-title {
+    color: var(--muted-on-ink);
+  }
+
+  .cases-more:hover .cases-row-title {
+    color: var(--paper);
+  }
+
+  .cases-row-title {
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  /* ----- Guides ----- */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+
+  /* ----- Team ----- */
+  .team {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .team a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-decoration: none;
+  }
+
+  .team :global(.team-photo) {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    background: var(--paper);
+    filter: grayscale(1);
+    transition: filter var(--t) var(--ease);
+  }
+
+  .team a:hover :global(.team-photo) {
+    filter: none;
+  }
+
+  .team-name {
+    align-self: flex-start;
+    font-weight: 700;
+    font-size: 0.9375rem;
+  }
+
+  .team-role {
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  /* ----- FAQ ----- */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 3rem;
+  }
+
+  .faq-title {
+    margin-top: 0;
+  }
+
+  .faq-grid :global(.faq h2) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  @media (max-width: 1000px) {
+    .services-head {
+      grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .cases-head,
+    .cases-body {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cases-row {
+      grid-template-columns: 7rem minmax(0, 1fr) auto;
+    }
+
+
+    .team {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactSection = document.querySelector('.contact-section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    if (contactSection) {
-      observer.observe(contactSection);
-    }
-
-    const guiasSection = document.querySelector('.home-guias');
-    if (guiasSection) {
-      const guiasObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            guiasObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      guiasObserver.observe(guiasSection);
-    }
-  });
-</script>

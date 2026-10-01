@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getServices } from '../../lib/content';
+import { breadcrumbs, webPage } from '../../lib/schema';
+import { absolute } from '../../site';
+
+const services = await getServices();
+const title = 'Servicios de IA y software a medida para pymes | OSIX Tech';
+const description =
+  'Desarrollo de software a medida con IA, consultoría de transformación digital e innovación subvencionada para pymes de Galicia y España.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={[
+    {
+      ...webPage({ path: '/servicios/', name: title, description, type: 'CollectionPage' }),
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: services.map((s, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: absolute(`/servicios/${s.id}/`),
+          name: s.data.title,
+        })),
+      },
+    },
+    breadcrumbs([
+      { name: 'Inicio', path: '/' },
+      { name: 'Servicios', path: '/servicios/' },
+    ]),
+  ]}
+>
+  <header class="shell head">
+    <h1 class="rise">
+      <span class="w" style="--i:0">Tres</span> <span class="w" style="--i:1">formas</span> <span class="w" style="--i:2">de</span>
+      <span class="w" style="--i:3">trabajar</span> <span class="w" style="--i:4">con</span> <span class="w" style="--i:5">OSIX</span>
+    </h1>
+    <p class="lead fade-in">
+      Construimos el software, te ayudamos a decidir qué automatizar o preparamos el proyecto cuando hay una ayuda pública
+      vigente que encaja. En los tres casos empezamos por tu proceso real.
+    </p>
+  </header>
+
+  <section class="shell list" aria-label="Servicios">
+    {
+      services.map((s, i) => (
+        <a class="svc reveal" href={`/servicios/${s.id}/`}>
+          <span class="num">0{i + 1}</span>
+          <div class="svc-main">
+            <h2>
+              <Icon name={s.data.icon} size={22} /> {s.data.title}
+            </h2>
+            <p class="svc-tagline">{s.data.tagline}</p>
+            <ul>
+              {s.data.highlights.map((h) => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          </div>
+          <span class="link-arrow">
+            Ver servicio <Icon name="arrow" size={15} class="arrow" />
+          </span>
+        </a>
+      ))
+    }
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .head {
+    padding-block: clamp(3rem, 8vw, 6rem) 2.5rem;
+  }
+
+  h1 {
+    margin-top: 1rem;
+    max-width: 14ch;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .lead {
+    margin-top: 1.5rem;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 1.125rem;
+    --d: 0.3s;
+  }
+
+  .list {
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .svc {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--ink);
+    text-decoration: none;
+  }
+
+  .svc:last-child {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .num {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    letter-spacing: -0.03em;
+  }
+
+  .svc-tagline {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 1.0625rem;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 0.35rem 0.75rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    font-size: 0.875rem;
+  }
+
+  .svc h2 {
+    transition: color var(--t-fast) var(--ease);
+  }
+
+  .svc:hover h2 {
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .svc {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>

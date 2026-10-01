@@ -1,0 +1,157 @@
+---
+import { render } from 'astro:content';
+import DocLayout from '../../layouts/DocLayout.astro';
+import Faq from '../../components/Faq.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import {
+  coverOf,
+  getGuides,
+  getGuidesBySection,
+  getGuidesById,
+  getTeam,
+  guideFaqs,
+  guideTitle,
+  lastModified,
+  type Guide,
+} from '../../lib/content';
+import { ogImage } from '../../lib/og';
+import { article, faqPage, personId } from '../../lib/schema';
+import { GUIDE_SECTIONS } from '../../content.config';
+import { absolute } from '../../site';
+
+export async function getStaticPaths() {
+  const guides = await getGuides();
+  return guides.map((guide) => ({ params: { slug: guide.id }, props: { guide } }));
+}
+
+const { guide } = Astro.props as { guide: Guide };
+const { data } = guide;
+const { Content, headings } = await render(guide);
+const path = `/guias/${guide.id}/`;
+
+const team = await getTeam();
+const author = data.author ? team.find((m) => m.id === data.author!.id) : undefined;
+
+// Related: the author's picks first, then the newest guides from the same section.
+const sections = await getGuidesBySection();
+const sameSection = sections.find((s) => s.id === data.section)!.guides.filter((g) => g.id !== guide.id);
+const picked = await getGuidesById(data.related);
+const related = [...picked, ...sameSection.filter((g) => !data.related.includes(g.id))].slice(0, 3);
+
+const faqs = guideFaqs(guide);
+const words = (guide.body ?? '').split(/\s+/).length;
+const og = await ogImage(coverOf('guias', guide));
+
+const sidebar = {
+  title: 'Todas las guías',
+  href: '/guias/',
+  groups: sections.map((s) => ({
+    id: s.id,
+    label: s.label,
+    items: s.guides.map((g) => ({ href: `/guias/${g.id}/`, label: guideTitle(g), current: g.id === guide.id })),
+  })),
+};
+---
+
+<DocLayout
+  title={data.title}
+  seoTitle={data.seoTitle}
+  description={data.description}
+  subtitle={data.subtitle}
+  eyebrow={`Guía · ${data.category}`}
+  crumbs={[
+    { name: 'Guías', path: '/guias/' },
+    { name: GUIDE_SECTIONS[data.section], path: `/guias/#${data.section}` },
+    { name: guideTitle(guide), path },
+  ]}
+  published={data.published}
+  updated={data.updated}
+  author={author ? { name: author.data.name, href: `/nosotros/#${author.id}` } : { name: 'OSIX Tech', href: '/nosotros/' }}
+  readingMinutes={Math.max(1, Math.round(words / 220))}
+  headings={headings}
+  sidebar={sidebar}
+  image={og}
+  markdown={`/guias/${guide.id}.md`}
+  jsonLd={[
+    article({
+      path,
+      headline: data.title,
+      description: data.description,
+      published: data.published,
+      modified: lastModified(data)!,
+      section: GUIDE_SECTIONS[data.section],
+      authorId: author ? personId(author.id) : undefined,
+      image: absolute(og),
+    }),
+    faqPage(path, faqs),
+  ]}
+>
+  <Content />
+
+  <Fragment slot="end">
+    {
+      data.faqs && (
+        <div class="guide-faq">
+          <Faq faqs={data.faqs} />
+        </div>
+      )
+    }
+    <aside class="guide-cta">
+      <p class="eyebrow">Quién publica esta guía</p>
+      <p>
+        OSIX Tech desarrolla software y automatizaciones con IA para pymes desde Santiago de Compostela. Si quieres aplicar
+        lo que explica esta guía a tu empresa, te decimos con franqueza qué conviene y qué no.
+      </p>
+      <a class="btn btn-dark" href="/contacto/">Cuéntanos tu caso</a>
+    </aside>
+    {
+      related.length > 0 && (
+        <section class="guide-related" aria-labelledby="relacionadas">
+          <h2 id="relacionadas">Guías relacionadas</h2>
+          <div class="card-grid">
+            {related.map((g) => (
+              <GuideCard guide={g} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </Fragment>
+</DocLayout>
+
+<style>
+  .guide-faq {
+    margin-top: 3.5rem;
+  }
+
+  .guide-cta {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink);
+  }
+
+  .guide-cta p:not(.eyebrow) {
+    margin: 0.6rem 0 1.25rem;
+    max-width: 60ch;
+    color: #2b2b2b;
+  }
+
+  .guide-related {
+    margin-top: 4rem;
+  }
+
+  .guide-related h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .guide-related .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+    gap: 2rem 1.5rem;
+  }
+
+  .guide-related :global(.gcard-title) {
+    font-size: 1.125rem;
+  }
+</style>

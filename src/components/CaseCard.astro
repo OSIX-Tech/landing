@@ -1,0 +1,38 @@
+---
+// A case on a list. Its cover already shows the headline figures, so the text under it
+// is just category and title (plus the lead where there is room).
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { coverOf, type Case } from '../lib/content';
+interface Props {
+  item: Case;
+  showLead?: boolean;
+  variant?: 'paper' | 'ink';
+  sizes?: string;
+  /** Heading level: h2 when the cards sit directly under the page's H1. */
+  as?: 'h2' | 'h3';
+}
+const { item, showLead = false, variant = 'paper', sizes = '(max-width: 640px) calc(100vw - 2rem), 26rem', as: Tag = 'h3' } = Astro.props;
+const metric = item.data.metrics[0];
+---
+
+<a class:list={['card', { 'card-ink': variant === 'ink' }]} href={`/casos/${item.id}/`}>
+  <Image
+    class="card-cover"
+    src={coverOf('casos', item)}
+    alt={`${metric.value} ${metric.label}`}
+    widths={[480, 800, 1200]}
+    sizes={sizes}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="card-body">
+    <p class="eyebrow">{item.data.category}</p>
+    <Tag class="card-title"><span class="t-link">{item.data.title}</span></Tag>
+    {showLead && <p class="card-text">{item.data.lead}</p>}
+    <p class="card-meta">
+      <span>Caso en producción</span>
+      <Icon name="arrow" size={15} class="arrow" />
+    </p>
+  </div>
+</a>
