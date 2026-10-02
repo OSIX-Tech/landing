@@ -84,10 +84,12 @@ const lines = hero.lines.map((line) => line.split(' ').map((word) => ({ word, i:
       });
       // 0 → 1 is the scroll through the hero. The mark comes apart over the first half and
       // steps back; the words rise through it; the subtitle and buttons follow.
+      // The words start hidden by CSS (translateY(110%)); GSAP reads that as a pixel `y`, so
+      // the tween sets y: 0 explicitly and drives yPercent, or the words would stay offscreen.
       tl.to(hero.querySelector('.hint'), { opacity: 0, duration: 0.08 }, 0)
         .to({ p: 0 }, { p: 1, duration: 0.55, onUpdate() { progress = this.targets()[0].p; logo?.explode(progress); } }, 0)
         .to(stage, { scale: 1.18, opacity: 0.18, duration: 0.7, ease: 'power1.in' }, 0.05)
-        .fromTo(words, { yPercent: 110 }, { yPercent: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }, 0.3)
+        .fromTo(words, { yPercent: 110, y: 0 }, { yPercent: 0, y: 0, duration: 0.3, stagger: 0.06, ease: 'power2.out' }, 0.3)
         .fromTo(hero.querySelector('.subtitle'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.6)
         .fromTo(hero.querySelector('.actions'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.2 }, 0.7);
     };
