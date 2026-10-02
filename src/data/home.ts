@@ -61,6 +61,6 @@ export const faqs = [
   {
     question: '¿Dónde está OSIX Tech?',
     answer:
-      'Nuestra sede está en Santiago de Compostela, Galicia. Trabajamos con empresas de toda Galicia y España, combinando visitas presenciales con trabajo en remoto.',
+      'Nuestra sede está en Santiago de Compostela, Galicia. Trabajamos con empresas de toda Galicia y España. Si se acuerda soporte después de la entrega, se definen para cada proyecto el alcance, los sistemas cubiertos, el horario y los tiempos de respuesta.',
   },
 ];
