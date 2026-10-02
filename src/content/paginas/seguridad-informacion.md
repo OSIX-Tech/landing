@@ -29,7 +29,7 @@ Nuestra misión es garantizar la protección integral de la información, asegur
 
 El marco normativo de las actividades de OSIX Tech en el ámbito de esta Política de Seguridad de la Información está integrado por las siguientes normas:
 
-- **Real Decreto 311/2023**, de 3 de mayo, por el que se regula el Esquema Nacional de Seguridad.
+- [**Real Decreto 311/2022**, de 3 de mayo](https://www.boe.es/eli/es/rd/2022/05/03/311), por el que se regula el Esquema Nacional de Seguridad.
 - **Reglamento (UE) 2016/679** (RGPD) del Parlamento Europeo y del Consejo, de 27 de abril de 2016.
 - **Ley Orgánica 3/2018**, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.
 
