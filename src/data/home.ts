@@ -56,7 +56,7 @@ export const faqs = [
   {
     question: '¿En cuánto tiempo se entrega un proyecto de IA?',
     answer:
-      'Entregamos una demo funcional en 2 semanas. El plazo completo depende del alcance, las integraciones y las pruebas que necesite cada proyecto.',
+      'En proyectos de desarrollo a medida, entregamos una demo funcional en 2 semanas. El plazo total depende del alcance, las integraciones y las pruebas necesarias.',
   },
   {
     question: '¿Dónde está OSIX Tech?',
