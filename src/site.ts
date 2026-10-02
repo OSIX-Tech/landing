@@ -21,6 +21,9 @@ export const org = {
     country: 'ES',
   },
   geo: { latitude: 42.8782, longitude: -8.5448 },
+  /** Google Maps: the Business Profile card (embed) and directions. */
+  mapEmbed: 'https://maps.google.com/maps?q=OSIX+Tech%2C+Santiago+del+Estero+2-4%2C+15702+Santiago+de+Compostela&z=16&hl=es&output=embed',
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=OSIX+Tech%2C+Santiago+del+Estero+2-4%2C+15702+Santiago+de+Compostela',
   sameAs: ['https://es.linkedin.com/company/osix-tech', 'https://github.com/OSIX-Tech'],
   linkedin: 'https://www.linkedin.com/company/osix-tech',
   github: 'https://github.com/OSIX-Tech',
