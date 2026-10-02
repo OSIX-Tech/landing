@@ -63,12 +63,24 @@ const team = await getTeam();
 
     <section class="where" aria-labelledby="donde">
       <h2 id="donde">Dónde estamos</h2>
-      <address>
-        <strong>{org.legalName}</strong><br />
-        {org.address.street}<br />
-        {org.address.postalCode} {org.address.locality}, {org.address.region}<br />
-        <a href={`mailto:${org.email}`}>{org.email}</a> · <a href={org.phoneHref}>{org.phone}</a>
-      </address>
+      <!-- Google Maps shows the Business Profile card for the query. Lazy: it only loads when
+           the visitor scrolls here, so the page's first paint stays untouched. -->
+      <iframe
+        class="map"
+        src={org.mapEmbed}
+        title={`Mapa: ${org.name} en ${org.address.locality}`}
+        width="736"
+        height="420"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+      <div class="where-line">
+        <address>
+          {org.address.street}, {org.address.postalCode} {org.address.locality}
+        </address>
+        <a href={org.mapUrl} rel="noopener" target="_blank" class="t-link">Cómo llegar</a>
+      </div>
     </section>
   </Fragment>
 
@@ -84,6 +96,41 @@ const team = await getTeam();
   .where h2 {
     font-size: 1.625rem;
     letter-spacing: -0.025em;
+  }
+
+  .map {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin-top: 1.25rem;
+    border: 0;
+    background: var(--surface);
+    filter: grayscale(1);
+    transition: filter var(--t) var(--ease);
+  }
+
+  .map:hover {
+    filter: none;
+  }
+
+  .where-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.85rem;
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+
+  .where-line address {
+    font-style: normal;
+  }
+
+  .where-line a {
+    font-weight: 700;
+    color: var(--ink);
   }
 
   .team-grid {
