@@ -449,6 +449,14 @@
       "dest": "https://portfolio-osix.vercel.app/demos/$1"
     },
     {
+      "src": "^/demo-fichaxe-wifi/?$",
+      "dest": "https://fichaxe-wifi.vercel.app/demo-fichaxe-wifi/index.html"
+    },
+    {
+      "src": "^/demo-fichaxe-wifi/(.*)$",
+      "dest": "https://fichaxe-wifi.vercel.app/demo-fichaxe-wifi/$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
