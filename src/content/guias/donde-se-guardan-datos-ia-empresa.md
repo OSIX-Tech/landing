@@ -158,8 +158,3 @@ OSIX Tech también desarrolla software con IA, por lo que tiene interés comerci
 - [AEPD: contratación voluntaria de servicios externos de adecuación al RGPD](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/3-que-obligaciones-establece-el-rgpd-para-los-responsables/FAQ-0244-sobre-obligacion-de-contratar-consultora-externa-por-pyme-o-autonomo)
 - [EDPB: diferencia entre anonimización y seudonimización](https://www.edpb.europa.eu/topics/ai-and-technology/anonymisation-pseudonymisation_en)
 
-## Guías relacionadas
-
-[Para qué sirve la IA en una pyme](/guias/para-que-sirve-ia-pyme/) · [Cuánto cuesta automatizar con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) · [Consultoras grandes o especializadas](/guias/consultoras-ia-grandes-vs-especializadas-pymes/)
-
-[Contacto de OSIX Tech](/contacto/)
