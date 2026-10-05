@@ -1,128 +1,165 @@
 ---
-title: "Dónde se guardan los datos de tu empresa si contratas un sistema de IA"
-seoTitle: "Dónde se guardan los datos de tu empresa si contratas un sistema de IA: las 4 opciones reales (2026) - OSIX Tech"
-description: "Las 4 opciones reales de dónde se guardan los datos de tu empresa al contratar IA: nube fuera de la UE, nube con residencia en la UE, on-premise e híbrido. Qué dice el RGPD, qué preguntar antes de firmar y los errores que se repiten."
-subtitle: "Las 4 opciones reales, qué dice el RGPD y las 8 preguntas que hacer antes de firmar."
-shortTitle: "Dónde se guardan los datos de tu empresa si contratas un sistema de IA: las 4 opciones reales"
-summary: "Nube UE, fuera de la UE, on-premise e híbrido: qué dice el RGPD y qué preguntar antes de firmar"
+title: "¿Es seguro dar mis datos a una consultora de IA?"
+seoTitle: "¿Es seguro dar mis datos a una consultora de IA? Qué comprobar antes - OSIX Tech"
+description: "Puede ser seguro compartir datos con una consultora de IA, pero depende de qué información recibe, quién accede y qué se acuerda. Qué comprobar antes de contratar."
+subtitle: "Qué pedir sobre finalidad, acceso, terceros, ubicación, conservación y borrado."
+shortTitle: "Seguridad de datos al contratar IA"
+summary: "Qué comprobar antes de compartir datos con una consultora de IA: finalidad, contrato, proveedores, acceso, ubicación, conservación y borrado."
 category: "Datos"
 section: "software-y-contratos"
 published: "2026-09-01"
-updated: "2026-09-22"
+updated: "2026-10-03"
 related:
   - "para-que-sirve-ia-pyme"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
 ---
 
-Si contratas un sistema de IA para tu empresa, tus datos acaban en uno de cuatro sitios: la nube de un proveedor con sede fuera de la UE (normalmente EE. UU.), una nube con residencia de datos en Europa, servidores propios (on-premise) o una combinación de ambos. No es una decisión solo técnica: si los datos son personales, el Reglamento General de Protección de Datos (RGPD) exige que cualquier salida del Espacio Económico Europeo tenga una base legal, por ejemplo cláusulas contractuales tipo, y que firmes un contrato de encargado de tratamiento (DPA). Para la mayoría de las pymes españolas el equilibrio razonable es una nube con residencia en la UE y un contrato que excluya el entrenamiento con tus datos; la nube estadounidense es legal pero obliga a revisar el DPA; y el on-premise solo compensa con datos muy sensibles o por exigencia de un cliente. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y el resto de España, y se basa en las páginas oficiales de los proveedores y de la Comisión Europea, revisadas en septiembre de 2026.
+Puede ser seguro compartir datos con una consultora de IA, pero no basta con que el proveedor prometa confidencialidad, use una cuenta empresarial o aloje información en la UE. Antes de enviar nada, pide que explique qué datos necesita, para qué, quién los tratará, qué proveedores intervienen, dónde se procesan y almacenan, cuánto tiempo se conservan y cómo se devuelven o borran. Empieza las pruebas con ejemplos ficticios o datos sintéticos adecuados; usa datos reales solo cuando el tratamiento, los permisos y las garantías estén claros para ese proyecto.
+
+OSIX Tech también desarrolla soluciones con IA, así que esta guía no es un comparador independiente. Es una lista de comprobaciones para aplicar a cualquier proveedor, incluido nosotros. La respuesta jurídica depende de los datos y del uso concreto; esta guía es informativa, no asesoramiento legal.
 
 ## La respuesta en 30 segundos
 
-- Dónde acaban tus datos depende de la opción que elijas, no de la tecnología: el mismo modelo de IA puede guardar datos en EE. UU., en la UE o en tu oficina.
-- Si eliges un plan de empresa con residencia en la UE (OpenAI, Microsoft, AWS y Google Cloud lo ofrecen), tus datos personales se quedan dentro de Europa, lo que simplifica el cumplimiento del RGPD.
-- Si los datos salen del Espacio Económico Europeo, hace falta una base legal (cláusulas contractuales tipo u otra) y un DPA firmado; sin eso, el riesgo es de tu empresa, no del proveedor.
-- "Residencia en la UE" no significa que todo el procesamiento ocurra en la UE: la inferencia, que es la ejecución del modelo, puede ocurrir fuera salvo que contrates la opción específica.
-- El on-premise da el control máximo, pero cuesta en hardware, mantenimiento y personal, y no elimina tu responsabilidad como responsable del tratamiento.
+- No hay un sí o no universal: el riesgo depende de la información, el tratamiento, las personas con acceso y los compromisos verificables del proveedor.
+- Separa datos personales de información confidencial de la empresa. Un contrato de confidencialidad no sustituye las obligaciones de protección de datos, y que algo no sea dato personal no significa que se pueda compartir sin permiso.
+- Pide un esquema del recorrido completo: entradas, respuestas, registros, almacenamiento, copias de seguridad, proveedores tecnológicos y accesos de soporte.
+- Si un proveedor trata datos personales por cuenta de tu empresa, aclara por escrito las funciones de cada parte y el contrato de encargo que corresponda. Comprueba también los subencargados y las transferencias fuera del Espacio Económico Europeo.
+- Confirma los términos concretos del servicio contratado: uso para entrenar o mejorar modelos, retención, eliminación y acceso por personal del proveedor.
+- Para una prueba inicial, usa datos ficticios o sintéticos. No subas información real de clientes, empleados o contratos hasta validar el flujo y autorizar expresamente su uso.
 
-## Antes de nada: qué dice el RGPD sobre dónde pueden ir tus datos
+## La seguridad depende de todo el recorrido de los datos
 
-El RGPD no obliga a que tus datos estén en España ni en la UE. Lo que obliga es a dos cosas. Primera: si tratas datos personales, tu empresa es el responsable del tratamiento y el proveedor que los procesa por tu cuenta es un encargado, con un contrato (el DPA) que lo obligue. Segunda: si los datos salen del Espacio Económico Europeo, la transferencia necesita un mecanismo legal. El más usado son las cláusulas contractuales tipo (SCC), que la Comisión Europea tiene preaprobadas para ese fin.
+Cuando una consultora crea un asistente, procesa documentos o conecta una herramienta de IA con tus sistemas, la información puede pasar por varios componentes: tu aplicación, el servicio de la consultora, un proveedor de modelos, alojamiento en la nube, registros técnicos y sistemas de soporte. Pregunta por cada paso, no solo por el modelo de IA.
 
-Esto importa porque los datos no personales, como un proceso interno sin información de clientes, tienen menos exigencias, mientras que los datos de clientes, empleados o proveedores entran de lleno en el RGPD. En España, la AEPD es la autoridad que puede pedirte cuentas.
+Aclara también qué información está en juego. Los nombres, identificadores y expedientes pueden ser datos personales. Un contrato, un precio, un código fuente o una estrategia comercial pueden ser confidenciales aunque no identifiquen a una persona. La AEPD aconseja no compartir con herramientas de IA datos personales ni información delicada o sensible, y recomienda describir casos ficticios sin detalles que permitan identificar a nadie. En el trabajo, pide seguir las políticas de información y seguridad de la organización.
 
-## Las 4 opciones, comparadas
+La pregunta útil no es solo «¿la herramienta es segura?». Pregunta: «¿Qué información concreta saldrá de mi empresa, quién podrá verla, para qué la usará y qué ocurrirá cuando termine el proyecto?».
 
-| Opción | Dónde viven los datos | Coste relativo | Control | Mejor para |
-| --- | --- | --- | --- | --- |
-| 1. Nube del proveedor fuera de la UE | Centros de datos del proveedor (EE. UU. u otros) | Bajo | Bajo | Pruebas y datos no personales |
-| 2. Nube con residencia en la UE | Región UE del proveedor (Azure, AWS, Google Cloud, OpenAI) | Medio | Medio | La mayoría de pymes con datos de clientes o empleados |
-| 3. Servidores propios (on-premise) | Tu infraestructura | Alto | Máximo | Datos muy sensibles o requisito contractual |
-| 4. Híbrido | Parte en tu infraestructura, parte en nube UE | Medio-alto | Alto | Proyectos donde solo una parte toca datos sensibles |
+## Pide estas respuestas antes de compartir datos
 
-## Opción por opción
+Un proveedor debería poder contestar estas preguntas por escrito, para el proyecto y la configuración que propone. Pide respuestas concretas y evidencia proporcionada, no acceso a secretos técnicos ni una certificación que no sea pertinente.
 
-### 1. La nube del proveedor fuera de la UE (normalmente EE. UU.)
+### 1. ¿Qué datos necesitas y para qué?
 
-Es lo que ocurre por defecto con las herramientas sin configurar: cuentas gratuitas o planes personales de ChatGPT, Gemini o Claude, y muchos servicios que no ofrecen elegir región. Los datos se guardan y procesan en los centros de datos del proveedor y quedan sujetos a sus políticas, no a las tuyas. No hay contrato entre tu empresa y el proveedor: la relación es entre el empleado y la plataforma. Es lo que se llama shadow AI, y es donde más riesgo se concentra.
+Pide que se identifiquen los datos imprescindibles, su finalidad y la fase del proyecto en que se usarán. Pregunta si bastan datos públicos, ficticios o una muestra reducida. No envíes un expediente completo cuando el proveedor solo necesita probar un campo o un flujo.
 
-**Mejor para:** pruebas, datos no personales y usos puntuales sin información de clientes.
+Separa la información personal de los secretos comerciales, las credenciales y los datos sujetos a obligaciones de confidencialidad. Comprueba si tienes permiso para compartir cada categoría y si tus acuerdos con clientes, empleados u otros proveedores imponen límites.
 
-**Límite honesto:** si un empleado introduce datos de clientes ahí, estás delegando responsabilidad RGPD sin contrato ni trazabilidad. La transferencia a EE. UU. solo es legal con un mecanismo del RGPD y un DPA, y con cuentas personales no hay ninguno.
+### 2. ¿Qué papel tendrá cada parte y qué contrato lo regula?
 
-### 2. Nube con residencia de datos en la UE
+Pregunta quién decide la finalidad y los medios del tratamiento, quién procesa datos por instrucciones de otra parte y si otros proveedores actuarán como subencargados. El nombre comercial de una empresa no determina por sí solo su papel: depende de lo que haga con los datos en cada actividad.
 
-La opción que recomendamos como punto de partida. Los grandes proveedores permiten fijar la región: Azure y Microsoft 365 dentro del EU Data Boundary de Microsoft, AWS en sus regiones europeas y Google Cloud con residencia de datos en regiones de la UE. OpenAI ofrece residencia de datos en Europa (EEE y Suiza) para ChatGPT Enterprise y Edu, y residencia de inferencia, que mantiene la ejecución del modelo en GPUs europeas, para clientes elegibles.
+Cuando un proveedor actúa como encargado del tratamiento, la relación debe quedar regulada por un contrato. La guía para pymes del Comité Europeo de Protección de Datos indica que ese contrato debe cubrir, entre otros puntos, las instrucciones, la confidencialidad, la seguridad, los subencargados, la asistencia ante solicitudes y brechas, las transferencias, la devolución o eliminación de los datos y la información necesaria para demostrar el cumplimiento.
 
-**Mejor para:** pymes que tratan datos de clientes o empleados y quieren cumplir el RGPD sin montar infraestructura propia.
+Un DPA o contrato de encargo es una parte del análisis, no una garantía automática de que cualquier uso sea correcto ni un requisito para contratar una consultora externa solo por ser pyme. La AEPD aclara que la contratación de servicios externos de adecuación es voluntaria; si se contratan, el estudio debe adaptarse al tratamiento concreto. Confirma también la finalidad, la base aplicable, los datos tratados y las responsabilidades del cliente y del proveedor. Si el caso es complejo, pide revisión de tu responsable de protección de datos o asesoría jurídica.
 
-**Límite honesto:** la residencia cubre el almacenamiento y, si la contratas, la inferencia, pero parte del procesamiento (autenticación, extracción de texto de documentos, enrutamiento) puede seguir ocurriendo fuera de la región. Y el DPA del proveedor es de adhesión: no se negocia, se firma.
+### 3. ¿Quién puede acceder y qué controles aplica?
 
-### 3. Servidores propios (on-premise)
+Pide una lista por funciones de quién puede acceder a los datos: el equipo de proyecto, soporte, administración, proveedor de nube o proveedor del modelo. Averigua si el acceso es individual, limitado al mínimo necesario, temporal cuando proceda y revocable al terminar una tarea o el proyecto.
 
-Los datos y el modelo viven en infraestructura que tú controlas, en tu oficina o en un centro de datos contratado. Es la opción con el control más alto: nada sale de tu perímetro salvo la llamada puntual a un modelo externo, si lo usas. Es habitual en sectores regulados o con datos muy sensibles, donde la política o el cliente exigen que los datos no salgan de la empresa.
+Pregunta qué medidas técnicas y organizativas protegen la información y cómo se revisan ante cambios o incidentes. La AEPD explica que las medidas de seguridad deben ajustarse al riesgo, al contexto y a la naturaleza del tratamiento. Una respuesta útil conecta cada control con un riesgo y explica quién lo mantiene; una frase como «usamos seguridad estándar» no permite valorar el caso.
 
-**Mejor para:** clínicas, despachos, empresas con secretos industriales o contratos que prohíben sacar datos del perímetro.
+No compartas contraseñas maestras ni credenciales reutilizables por correo o chat. Si la integración necesita acceso a un sistema, acuerda un mecanismo de acceso específico, limitado y revocable.
 
-**Límite honesto:** es la opción más cara (hardware, licencias, mantenimiento y alguien que lo administre) y no elimina tu responsabilidad: sigues siendo el responsable del tratamiento. Si el modelo corre en tu infraestructura, el cumplimiento es más directo, pero el coste y la complejidad suben.
+### 4. ¿Qué ocurre con prompts, documentos, respuestas y registros?
 
-### 4. El híbrido
+Pregunta si las entradas, salidas, archivos cargados o registros técnicos se usan para prestar el servicio, depurar errores, mejorar productos o entrenar modelos. Pide que la respuesta distinga los servicios y configuraciones incluidos en tu propuesta, y que señale la cláusula o ajuste aplicable.
 
-Parte de la operación vive en tu infraestructura y parte en una nube con residencia en la UE. Es la arquitectura que más vemos en proyectos reales: los datos sensibles no salen, y el resto aprovecha la nube europea. Requiere definir claramente qué dato va a cada sitio, que es justo lo que suele faltar.
+No des por hecho que una etiqueta como «empresarial», una opción de configuración o una conversación con el comercial describe todas las condiciones. Revisa los términos vigentes del servicio que realmente se utilizará, incluida la API o integración concreta, y pide que cualquier compromiso relevante figure en el acuerdo.
 
-**Mejor para:** proyectos donde solo una parte de los datos es sensible, o como escalón entre la nube y el on-premise total.
+### 5. ¿Dónde se procesan y almacenan, y quién más interviene?
 
-**Límite honesto:** si no dejas escrito qué va a cada lado, la frontera se desdibuja y vuelves al escenario 1 sin darte cuenta. Y sigue siendo tuya la responsabilidad de que cada flujo tenga su base legal.
+Solicita un diagrama sencillo que distinga dónde se reciben, procesan y almacenan los datos, dónde se ejecuta el modelo, qué ocurre con copias de seguridad y registros, y qué proveedores o equipos de soporte pueden acceder. Pregunta también si se envía información a países fuera del Espacio Económico Europeo.
 
-## Los 3 errores que vemos una y otra vez
+Que un centro de datos esté en la UE no responde por sí solo a dónde ocurre cada operación ni resuelve todas las obligaciones. Si hay una transferencia internacional de datos personales, pide identificar el mecanismo aplicable y la documentación que lo respalda. La AEPD contempla decisiones de adecuación y otras garantías; en determinados casos con cláusulas contractuales tipo, también puede ser necesario evaluar las circunstancias y las medidas suplementarias.
 
-**1. Empleados con cuentas personales introduciendo datos de clientes.** Es el escenario más común y el más arriesgado: sin DPA, sin contrato y sin política interna. Una política de uso de IA, aunque sea una página, convierte algo invisible en una decisión de la empresa.
+### 6. ¿Cuánto tiempo se conservan y cómo se borran o devuelven?
 
-**2. Confundir "residencia en la UE" con "todo se procesa en la UE".** Con la residencia de datos, el almacenamiento está en la UE. La inferencia, que es donde el modelo ejecuta y genera la respuesta, es otra cosa: si no la contratas explícitamente (OpenAI la ofrece para Europa), puede ocurrir fuera. Pregunta por las dos.
+Pregunta por los plazos de conservación de cada tipo de dato, incluidos registros, copias y datos guardados por subproveedores. Aclara cómo solicitar la eliminación o devolución al acabar el servicio y qué información debe conservarse por obligaciones aplicables.
 
-**3. Firmar el DPA sin leer qué hace el proveedor con los datos.** Los planes de empresa de los grandes proveedores excluyen el entrenamiento con tus datos, pero eso no es automático en planes básicos ni en cuentas gratuitas. El DPA te dice qué puedes exigir y qué no; si no lo tienes, pídelo antes de conectar datos de clientes.
+Pide que se explique el proceso y sus límites. «Borramos tus datos» no aclara cuándo, de qué sistemas, qué pasa con las copias ni si los proveedores posteriores siguen conservando información.
 
-## Las 8 preguntas que hacer a cualquier proveedor antes de firmar
+### 7. ¿Cómo probarás el flujo sin exponer datos innecesarios?
 
-1. ¿En qué país o región se almacenan mis datos, incluidas las copias de seguridad?
-2. ¿Dónde se procesan las consultas y los documentos? ¿Y dónde se ejecuta la inferencia?
-3. ¿Se usan mis datos para entrenar o mejorar modelos?
-4. ¿Cuánto tiempo se conservan mis datos después de que yo los elimine?
-5. ¿Qué subcontratistas o subprocesadores tienen acceso?
-6. ¿Existe un DPA firmable conforme al RGPD?
-7. ¿Qué mecanismo se usa si los datos salen del EEE?
-8. ¿Puedo fijar una residencia exclusivamente en la UE?
+Propón empezar con ejemplos ficticios o datos sintéticos diseñados para probar el formato, los casos normales y los errores. La AEPD señala que los datos sintéticos pueden ser útiles para desarrollo y pruebas, pero advierte que generarlos a partir de datos personales reales también puede constituir un tratamiento y que hay que valorar el riesgo de reidentificación. La EDPB distingue la seudonimización, que reduce la posibilidad de vincular datos con una persona, de la anonimización, que impide esa vinculación. No trates «sintético» como sinónimo automático de anónimo.
 
-Si un proveedor no puede responder por escrito a estas ocho, no le conectes datos de clientes ni de empleados.
+Si una prueba necesita datos reales, acuerda antes su finalidad, alcance, autorización, acceso, seguridad y eliminación. Reduce la muestra y los campos a lo estrictamente necesario. Para datos de terceros, confirma además que tienes permiso para utilizarlos en esa prueba.
 
-## La respuesta que damos cuando nos preguntan
+## La ubicación importa, pero no decide por sí sola
 
-Para una pyme española que va a tratar datos de clientes, la combinación que recomendamos casi siempre es: un plan de empresa con residencia de datos en la UE, un DPA firmado, la exclusión contractual del entrenamiento y una política interna de uso de IA. El on-premise queda para datos muy sensibles o exigencias contractuales. Y si el dato no es personal, la decisión es más simple: elige por coste y por lo que te dé el control que necesites.
+Hay varias formas de desplegar una solución. El nombre de la opción no basta: pide el flujo de datos completo y compara control, coste y obligaciones para tu caso.
 
-No es una decisión que se toma una vez: los proveedores cambian sus términos, las regiones cambian de precio y tu empresa cambia de datos. La revisión forma parte del mantenimiento.
+| Opción | Qué debes confirmar | Límite que conviene tener presente |
+| --- | --- | --- |
+| Nube con servicios fuera del EEE | Países de procesamiento y almacenamiento, destinatarios, mecanismo de transferencia y condiciones del proveedor | La transferencia no es automáticamente ilícita ni automáticamente válida; hay que revisar las garantías que aplican al flujo concreto |
+| Nube con residencia de datos en la UE | Si la residencia cubre almacenamiento, procesamiento, copias, registros, soporte y subproveedores | «Residencia UE» puede describir solo parte del servicio; confirma por separado cada operación y sus condiciones |
+| Infraestructura propia o dedicada | Quién administra, actualiza y protege servidores, copias, accesos y conexiones a servicios externos | Más control técnico exige operación y mantenimiento; no elimina por sí solo riesgos ni responsabilidades |
+| Arquitectura híbrida | Qué datos van a cada entorno, cuándo cruzan de uno a otro y cómo se controla el flujo | Si no se documentan las fronteras, información sensible puede acabar en un servicio externo sin que el equipo lo advierta |
 
-## Metodología y transparencia
+El RGPD no se sustituye por elegir una región concreta. Antes de aprobar la arquitectura, comprueba también qué categorías de datos se usan, con qué finalidad y bajo qué condiciones contractuales.
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y el resto de España. No tenemos afiliación ni comisión con ninguno de los proveedores citados. Los datos sobre residencia de datos de OpenAI provienen de su página de seguridad y privacidad empresarial y de su página de ayuda oficial; la información sobre el EU Data Boundary proviene de la documentación de Microsoft; la de AWS, de su página de soberanía digital europea; la de Google Cloud, de su documentación de residencia de datos de Assured Workloads; y las cláusulas contractuales tipo están explicadas en la página oficial de la Comisión Europea. Todas se consultaron en septiembre de 2026 y pueden cambiar. No hay ningún proyecto de cliente citado en esta guía.
+## Señales para frenar antes de enviar información
+
+- El proveedor no puede explicar por escrito qué datos necesita, para qué los tratará o quién accederá.
+- Responde «todo se queda en Europa» sin distinguir almacenamiento, procesamiento, registros, copias y soporte.
+- No aclara qué empresas externas participan ni qué ocurre si cambian los subproveedores.
+- No identifica qué condiciones aplican al uso para entrenamiento, mejora del servicio, retención y borrado.
+- Pide datos reales para una demostración que podría hacerse con un ejemplo ficticio o una muestra reducida.
+- Promete que un DPA, el cifrado o una cuenta empresarial hacen seguro cualquier uso, sin revisar el proceso concreto.
+
+Una respuesta incompleta no prueba por sí sola una mala práctica. Sí es motivo para pausar el envío y pedir aclaraciones antes de conectar datos.
 
 ## Preguntas frecuentes
 
-### ¿ChatGPT, Gemini o Claude entrenan con los datos de mi empresa?
+**¿Es seguro dar datos de mi empresa a una consultora de IA?**
 
-En los planes de empresa (sin uso gratuito) los grandes proveedores se comprometen contractualmente a no usar tus datos para entrenar modelos: OpenAI lo declara explícitamente en su página de privacidad empresarial, y Microsoft, Google y Anthropic hacen lo propio en sus contratos de empresa. En cuentas gratuitas o personales, eso no está garantizado. Si tus datos importan, usa el plan de empresa y guarda el compromiso por escrito.
+Puede serlo si el uso está definido, se comparten solo los datos necesarios, las personas y empresas que intervienen están identificadas y existen controles y compromisos adecuados para ese tratamiento. No lo des por seguro solo por una promesa comercial, una región de alojamiento o una cuenta empresarial.
 
-### ¿Es ilegal que mis datos estén en EE. UU.?
+**¿Qué datos no debería compartir durante una primera reunión o una demo?**
 
-No por sí solo. La transferencia fuera del EEE es legal si hay un mecanismo del RGPD (como las cláusulas contractuales tipo) y un DPA firmado. Lo que es problemático es que un empleado use una cuenta personal con datos de clientes sin contrato ni política.
+Empieza con información pública, ficticia o diseñada para la prueba. Evita datos personales, expedientes de clientes o empleados, detalles médicos o financieros, contratos confidenciales, contraseñas y secretos comerciales, salvo que la necesidad y las autorizaciones estén claras y se hayan acordado las medidas pertinentes.
 
-### ¿Necesito los datos en España o basta con la UE?
+**¿Firmar un DPA basta para estar protegido?**
 
-Para la mayoría de las pymes basta con que los datos permanezcan en la Unión Europea. Exigir España en concreto solo tiene sentido en sectores muy regulados o por requisito contractual de un cliente.
+No. Si el proveedor trata datos personales por cuenta de tu organización, el contrato de encargo es una parte importante de la relación. También hay que valorar finalidad, base aplicable, datos, seguridad, subproveedores, transferencias, derechos y el uso real del sistema. El reparto de responsabilidades depende del tratamiento concreto.
 
-### ¿Qué es un DPA?
+**¿Si los datos se alojan en la UE ya cumplen el RGPD?**
 
-Es el contrato de encargado de tratamiento. Es el acuerdo que firman tu empresa y el proveedor para dejar claro qué hace él con los datos, dónde los guarda, cuánto los conserva y qué pasa si hay una brecha. Sin DPA firmado con cada proveedor, no tienes garantía contractual real.
+No necesariamente. Hay que preguntar dónde se procesan los datos, quién puede acceder, qué proveedores participan, cuánto tiempo se conservan y si existe una transferencia internacional. La residencia es un dato relevante, no una evaluación completa del tratamiento.
 
-### ¿El on-premise elimina el riesgo por completo?
+**¿Los datos sintéticos siempre son anónimos?**
 
-Reduce el riesgo y te da el control máximo, pero no elimina tu responsabilidad: tu empresa sigue siendo la responsable del tratamiento. Y añade costes de hardware, mantenimiento y personal que muchas pymes no necesitan.
+No. La AEPD advierte que generar datos sintéticos a partir de datos personales reales puede ser en sí mismo un tratamiento y recomienda valorar si el resultado permite identificar a alguien. La EDPB distingue la seudonimización, que reduce la posibilidad de vincular datos con una persona, de la anonimización. Para las primeras pruebas, usa ejemplos ficticios cuando sean suficientes.
+
+**¿Necesito contratar una consultora externa para cumplir el RGPD?**
+
+No necesariamente. La AEPD aclara que contratar servicios externos de adecuación es voluntario para pymes y autónomos. Si contratas a un proveedor que procesa datos personales por cuenta de tu empresa, define sus funciones y formaliza el acuerdo que corresponda.
+
+**¿Qué hago si la consultora no responde claramente?**
+
+No envíes los datos todavía. Pide la respuesta por escrito para la herramienta y el flujo concretos. Si hay datos personales o compromisos con clientes, consulta al responsable de protección de datos o a una persona asesora antes de aprobar el acceso.
+
+## Nuestro límite honesto
+
+Esta lista ayuda a hacer preguntas; no certifica a una consultora, no confirma que un servicio sea seguro y no sustituye una evaluación técnica o legal del caso. Las condiciones cambian según el proveedor, el producto, el plan y la configuración. Verifica los contratos vigentes y quién tratará los datos antes de usarlos en producción.
+
+## Cómo se elaboró esta guía
+
+OSIX Tech también desarrolla software con IA, por lo que tiene interés comercial en este tema. Las comprobaciones se basan en las orientaciones públicas de la AEPD y del Comité Europeo de Protección de Datos consultadas el 3 de octubre de 2026. La guía resume criterios generales y no afirma que OSIX ni ningún otro proveedor aplique una medida concreta en un proyecto sin revisar sus contratos y su operación.
+
+## Fuentes
+
+- [Comité Europeo de Protección de Datos: responsable, encargado y contrato de tratamiento](https://www.edpb.europa.eu/sme/learn-the-basics/data-controller-or-data-processor_en)
+- [AEPD: recomendaciones para proteger la privacidad al usar herramientas de IA](https://www.aepd.es/guias/recomendaciones-ia-aepd.pdf)
+- [AEPD: garantías para transferencias internacionales de datos personales](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/garantias-transferencias-datos-personales)
+- [AEPD: seguridad de los tratamientos](https://www.aepd.es/derechos-y-deberes/cumple-tus-deberes/medidas-de-cumplimiento/seguridad-de-los-tratamientos)
+- [AEPD: datos sintéticos y protección de datos](https://www.aepd.es/prensa-y-comunicacion/blog/datos-sinteticos-y-proteccion-de-datos)
+- [AEPD: contratación voluntaria de servicios externos de adecuación al RGPD](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/3-que-obligaciones-establece-el-rgpd-para-los-responsables/FAQ-0244-sobre-obligacion-de-contratar-consultora-externa-por-pyme-o-autonomo)
+- [EDPB: diferencia entre anonimización y seudonimización](https://www.edpb.europa.eu/topics/ai-and-technology/anonymisation-pseudonymisation_en)
+
+## Guías relacionadas
+
+[Para qué sirve la IA en una pyme](/guias/para-que-sirve-ia-pyme/) · [Cuánto cuesta automatizar con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) · [Consultoras grandes o especializadas](/guias/consultoras-ia-grandes-vs-especializadas-pymes/)
+
+[Contacto de OSIX Tech](/contacto/)
