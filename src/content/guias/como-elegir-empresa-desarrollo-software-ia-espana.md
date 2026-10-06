@@ -15,6 +15,8 @@ related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
 ---
 
+En las páginas consultadas para 2026, E2D publica **3.000–9.000 €** para una aplicación de gestión sencilla en su primera versión funcional; [Arteco Consulting, 8.000–30.000 €](https://www.arteco-consulting.com/articulos/cuanto-cuesta-desarrollo-software-a-medida/) para una aplicación web con base de datos, incluidos análisis, diseño, desarrollo, pruebas y despliegue inicial; y [Hiberus Booster, 30.000–90.000 €](https://www.hiberusbooster.com/guias/desarrollo-software-a-medida/) para un MVP funcional. [E2D](https://e2d.es/blog/cuanto-cuesta-software-a-medida) especifica que el IVA va aparte. Son cifras publicadas por esos proveedores para alcances distintos, no un promedio independiente ni precios de OSIX. El presupuesto de un proyecto concreto depende de sus funciones, integraciones, datos, pruebas y operación posterior.
+
 Elige una empresa que pueda demostrar cómo convertirá un proceso concreto en software mantenible, no una que solo enseñe demos de IA. Antes de firmar, pide una propuesta sobre el mismo problema a cada candidato, una prueba pequeña con datos representativos, criterios para revisar errores y el coste completo de construir y mantener la solución. Compara las pruebas y los entregables, no el número de modelos que aparecen en la presentación.
 
 OSIX Tech publica esta guía y también desarrolla software con IA para pymes. No es un comparador independiente. El objetivo es darte preguntas y pruebas que puedas aplicar a cualquier proveedor, incluido nosotros.
