@@ -7,36 +7,41 @@ category: "Aplicaciones móviles y fidelización"
 services:
   - "desarrollo-a-medida"
 order: 4
-status: "En producción desde el 28 de agosto de 2025. 2.119 recompensas entregadas."
+status: "En producción desde el 28 de agosto de 2025. Más de 2.000 recompensas entregadas."
 published: "2026-09-17"
 updated: "2026-10-06"
 metrics:
-  - value: "37.627"
-    label: "visitas selladas con QR"
-    note: "42.369 sellos en un año"
-  - value: "2.921"
-    label: "usuarios registrados"
-    note: "960 en el primer mes"
   - value: "90,3 %"
-    label: "repetición entre clientes sellados"
-    note: "1.819 clientes distintos"
+    label: "repetición entre clientes que sellan"
+    note: "20,7 visitas de media por cliente"
+  - value: "40,3 %"
+    label: "retención a 30 días"
+    note: "47 % en las cohortes de otoño"
+  - value: "78 %"
+    label: "lleva la tarjeta en el Wallet"
+    note: "sella sin abrir la app"
+  - value: "+37.000"
+    label: "visitas selladas con QR"
+    note: "en un año"
+metricsNote: "El 90,3 % de los clientes que sellan vuelve, y el 78 % lleva la tarjeta en Apple o Google Wallet. En un año la cafetería ha registrado más de 37.000 visitas selladas."
 figures:
   - id: "usuarios-por-funcion"
     type: "bars"
-    title: "Usuarios de la app por función"
-    subtitle: "Sobre 2.921 usuarios registrados en un año"
-    unit: "usuarios"
+    title: "Qué usan los clientes de la app"
+    subtitle: "Porcentaje sobre los usuarios registrados en un año"
     items:
-      - label: "Registrados"
-        value: 2921
       - label: "Tarjeta en Apple o Google Wallet"
-        value: 2275
+        value: 78
+        display: "78 %"
       - label: "Juegan a los minijuegos"
-        value: 1888
+        value: 65
+        display: "65 %"
       - label: "Han sellado alguna vez"
-        value: 1819
+        value: 62
+        display: "62 %"
       - label: "Notificaciones activas"
-        value: 1594
+        value: 55
+        display: "55 %"
 ---
 
 ## Una cafetería, una app y un año de datos
@@ -47,30 +52,30 @@ Del primer commit del repositorio a los primeros usuarios reales pasaron unas ci
 
 ## La tarjeta vive en el Wallet, no dentro de la app
 
-El cliente guarda su tarjeta en Apple Wallet o Google Wallet: lo han hecho **2.275** usuarios, el **78 %** del total. Sellar no obliga a abrir la aplicación, que es donde se cae la mayoría de los programas de fidelización.
+El **78 %** de los usuarios guarda su tarjeta en Apple Wallet o Google Wallet. Sellar no obliga a abrir la aplicación, que es donde se cae la mayoría de los programas de fidelización.
 
-Al llegar a quince sellos la recompensa se entrega sola. Se han entregado **2.119** a **812** clientes distintos.
+Al llegar a quince sellos la recompensa se entrega sola. Se han entregado más de **2.000**.
 
-Los minijuegos los usa el **65 %** de los registrados: **1.888** jugadores, **4.301** puntuaciones y **41** rankings, con hasta **706** participantes en un solo periodo. Además, **1.594** usuarios tienen las notificaciones activas, algo más de la mitad.
+Los minijuegos los usa el **65 %** de los registrados, con rankings por periodo que reúnen a cientos de participantes. Además, el **55 %** de los usuarios tiene las notificaciones activas.
 
 ## Un año en producción
 
-En el primer mes se registraron **960** clientes y a lo largo del año **2.921**. De ellos, **1.819** han sellado alguna vez, el **62 %**, y el **90,3 %** de quienes sellan vuelve. El cliente medio acumula **20,7** visitas, y **681** clientes superan las quince.
+En el primer mes se registraron casi mil clientes, y a lo largo del año casi **3.000**. El **62 %** ha sellado alguna vez, y el **90,3 %** de quienes sellan vuelve. El cliente medio acumula **20,7** visitas, y cientos de clientes superan las quince.
 
-![Usuarios de la app por función: 2.921 registrados, 2.275 con tarjeta en Wallet, 1.888 jugadores, 1.819 con algún sello y 1.594 con notificaciones activas](../../assets/figures/casos/take-fidelizacion/usuarios-por-funcion.png)
+![Qué usan los clientes de la app: 78 % tarjeta en Wallet, 65 % minijuegos, 62 % han sellado y 55 % notificaciones activas](../../assets/figures/casos/take-fidelizacion/usuarios-por-funcion.png)
 
-En total son **37.627** visitas selladas con QR y **42.369** sellos. Los días de apertura registran **145** sellados de media, con un máximo de **334**.
+En total son más de **37.000** visitas selladas con QR. Los días de apertura registran más de un centenar de sellados de media, y el día más fuerte superó los trescientos.
 
-La retención a **30** días es del **40,3 %**, y sube a alrededor del **47 %** en las cohortes de otoño; el **70 %** de los usuarios vuelve después de la primera semana. En la ventana de registros revisada, solo una de **2.444** peticiones falló.
+La retención a **30** días es del **40,3 %**, y sube a alrededor del **47 %** en las cohortes de otoño; el **70 %** de los usuarios vuelve después de la primera semana. En la ventana de registros revisada solo falló el **0,04 %** de las peticiones.
 
 ## Desglose de producción
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **2.119** | recompensas entregadas | a 812 clientes distintos |
-| **2.275** | tarjetas en Apple o Google Wallet | 78 % de los usuarios |
-| **20,7** | visitas por cliente sellado | 681 clientes con 15 o más |
-| **1.888** | jugadores en los minijuegos | 65 % de los registrados |
+| **20,7** | visitas por cliente sellado | de media en un año |
+| **70 %** | de los usuarios vuelve tras la primera semana | retención temprana |
+| **65 %** | de los registrados juega a los minijuegos | rankings por periodo |
+| **+2.000** | recompensas entregadas | automáticas a los 15 sellos |
 
 ## El límite que mantenemos visible
 

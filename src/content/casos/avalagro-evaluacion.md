@@ -7,7 +7,7 @@ category: "Aplicación móvil y evaluación de equipos"
 services:
   - "desarrollo-a-medida"
 order: 5
-status: "En producción desde el 16 de abril de 2026. 18 empleados, 31 criterios y 146 evaluaciones registradas."
+status: "En producción desde el 16 de abril de 2026."
 published: "2026-09-17"
 updated: "2026-10-06"
 metrics:
@@ -16,10 +16,7 @@ metrics:
     note: "antes, una vez por trimestre"
   - value: "9,9 min"
     label: "por ronda completa"
-    note: "mediana · 18 empleados desde el móvil"
-  - value: "1.009"
-    label: "puntuaciones registradas"
-    note: "146 evaluaciones desde abril"
+    note: "mediana · todo el equipo desde el móvil"
   - value: "8"
     label: "semanas hasta las tiendas"
     note: "del primer commit a la app publicada"
@@ -42,40 +39,40 @@ figures:
 
 Cooperativa Grille, del sector lácteo, evaluaba a su equipo con una hoja de cálculo y una cadencia trimestral. El histórico y los informes salían del mismo sitio y de la misma forma: a mano.
 
-Lo que se gestiona son **18** empleados repartidos en cuatro grupos, con un supervisor y dos administradores, sobre **31** criterios ponderados.
+La plantilla se organiza en varios grupos, con un supervisor que puntúa y administradores que consultan, sobre una treintena de criterios ponderados.
 
 ## Evaluar desde el móvil y consolidar sin pasos intermedios
 
-La app, disponible en gallego y castellano, permite al supervisor puntuar a todo el equipo desde el móvil sobre esos **31** criterios. La administración consulta los históricos y obtiene informes en PDF sin montar nada.
+La app, disponible en gallego y castellano, permite al supervisor puntuar a todo el equipo desde el móvil sobre esos criterios. La administración consulta los históricos y obtiene informes en PDF sin montar nada.
 
-**17** de los **18** empleados ya tienen histórico acumulado, de forma que cada ronda se lee contra las anteriores en lugar de quedarse como una foto suelta.
+El **94 %** de la plantilla ya tiene histórico acumulado, de forma que cada ronda se lee contra las anteriores en lugar de quedarse como una foto suelta.
 
 De la primera línea de código a la app publicada en las tiendas pasaron unas ocho semanas.
 
 ## Cinco meses de uso, y un cambio de cadencia
 
-Desde el **16** de abril de 2026 se han registrado **146** evaluaciones y **1.009** puntuaciones, repartidas en **8** rondas completas y **5** parciales.
+Desde el **16** de abril de 2026 se han registrado más de **1.000** puntuaciones.
 
-Una ronda completa de **18** empleados, unas **110** puntuaciones, se cierra en **9,9** minutos de mediana desde el móvil.
+Una ronda completa de todo el equipo se cierra en **9,9** minutos de mediana desde el móvil.
 
 El cambio más visible no es el tiempo por ronda, sino la frecuencia: el cliente pasó de evaluar cada trimestre a hacerlo cada quince días, **10** rondas en **21** semanas. En ese periodo la nota media del equipo pasó de **5,75** en mayo a **8,16** en septiembre. ![Nota media del equipo: 5,75 en mayo y 8,16 en septiembre de 2026](../../assets/figures/casos/avalagro-evaluacion/nota-media.png)
 
-En los últimos treinta días, ninguna de sus **1.086** peticiones falló.
+En los últimos treinta días no falló ninguna petición.
 
 ## Desglose de producción
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **31** | criterios ponderados | 18 empleados en 4 grupos |
-| **13** | rondas registradas | 8 completas y 5 parciales |
-| **17** | empleados con histórico acumulado | de 18 evaluados |
-| **110** | puntuaciones por ronda completa | 9,9 minutos de mediana desde el móvil |
+| **10** | rondas en 21 semanas | antes, una por trimestre |
+| **94 %** | de la plantilla con histórico acumulado | cada ronda se compara con las anteriores |
+| **+1.000** | puntuaciones registradas | desde abril de 2026 |
+| **2** | idiomas | gallego y castellano, en Android e iOS |
 
 ## El límite que mantenemos visible
 
 La subida de la nota media está en los datos, pero no la presentamos como causada por la app. Evaluar más a menudo, el propio efecto de medir y los cambios en el equipo entran todos en esa misma cifra.
 
-Tampoco publicamos usuarios activos: el sistema lo operan cuatro cuentas, y cualquier métrica de uso diario sobre esa base diría poco.
+Tampoco publicamos usuarios activos: el sistema lo operan unas pocas cuentas, y cualquier métrica de uso diario sobre esa base diría poco.
 
 Conviene dejar claro qué es este producto: evalúa desempeño. No gestiona turnos, partes de trabajo ni fichajes.
 
@@ -86,7 +83,7 @@ Conviene dejar claro qué es este producto: evalúa desempeño. No gestiona turn
 | **Cliente** | Cooperativa Grille, sector lácteo |
 | **En producción desde** | 16 de abril de 2026 |
 | **Plataformas** | Android e iOS, en gallego y castellano |
-| **Alcance** | 18 empleados, 4 grupos, 31 criterios ponderados |
+| **Alcance** | Toda la plantilla, por grupos y con criterios ponderados |
 | **Salida** | Histórico por empleado e informes en PDF |
 | **Fuente de las cifras** | Agregados de producción, logs y repositorios, sin datos personales |
 | **Fecha de corte** | 8 de septiembre de 2026 |

@@ -1,7 +1,7 @@
 ---
-title: "Roydisa procesa documentos de proveedores sin teclearlos uno a uno"
+title: "Roydisa pasa cada documento de proveedor a Excel en 27 segundos, sin teclearlo"
 seoTitle: "Roydisa: OCR de documentos de proveedores en 27 segundos | OSIX Tech"
-description: "Caso de estudio de OSIX Tech: 31.377 documentos de proveedores procesados, 27 segundos de mediana desde la foto al Excel y 0,04 % de error técnico desde junio de 2026."
+description: "Caso de estudio de OSIX Tech: más de 30.000 documentos de proveedores procesados, 27 segundos de mediana desde la foto al Excel y 0,04 % de error técnico desde junio de 2026."
 lead: "Roydisa recibe documentos de proveedores que deben convertirse en información utilizable para compras, administración y operaciones. El flujo de OSIX toma las fotos y PDF desde las carpetas del cliente, los procesa y devuelve Excels estructurados por línea de producto."
 category: "Automatización documental y OCR"
 services:
@@ -10,10 +10,11 @@ services:
 order: 1
 status: "En producción desde el 12 de marzo de 2026."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
-  - value: "31.377"
+  - value: "+30.000"
     label: "ficheros tratados"
-    note: "12 mar · 8 sep 2026"
+    note: "en seis meses"
   - value: "27 s"
     label: "mediana foto a Excel"
     note: "flujo completo"
@@ -22,20 +23,23 @@ metrics:
     note: "documentos procesados"
   - value: "0,04 %"
     label: "error técnico desde junio"
-    note: "7 de 17.500 documentos"
-metricsNote: "En la ventana medida, el sistema procesó 31.377 ficheros. La mediana desde la foto hasta el Excel fue de 27 segundos y el 88 % de los documentos terminó en menos de un minuto."
+    note: "fallos del flujo, no de lectura por campo"
+metricsNote: "En seis meses el sistema trató más de 30.000 ficheros. La mediana desde la foto hasta el Excel fue de 27 segundos y el 88 % de los documentos terminó en menos de un minuto."
 figures:
   - id: "excels-por-tipo"
     type: "bars"
     title: "Excels generados por tipo de documento"
-    subtitle: "16.021 Excels entre el 12 de marzo y el 8 de septiembre de 2026"
+    subtitle: "Reparto de más de 16.000 Excels entre marzo y septiembre de 2026"
     items:
       - label: "Albaranes"
-        value: 8672
+        value: 54
+        display: "54 %"
       - label: "Facturas"
-        value: 5024
+        value: 31
+        display: "31 %"
       - label: "Confirmaciones de pedido"
-        value: 2325
+        value: 15
+        display: "15 %"
 relatedGuides:
   - "automatizar-albaranes-facturas-proveedores-erp"
 ---
@@ -54,30 +58,30 @@ El servicio vigila las carpetas de Google Drive, o del servidor propio, donde Od
 
 El flujo distingue los tipos de documento, absorbe duplicados sin generar una salida repetida y puede ejecutarse en Docker. Eso permite mantener la arquitectura cerca de los datos del cliente y evitar una base de datos propia o servidores nuevos cuando no hacen falta.
 
-No hay base de datos: la serie histórica de este caso se reconstruyó a partir del listado completo del Drive, **47.433** elementos. La decisión técnica importante no fue añadir una capa de interfaz, sino hacer que el resultado apareciera en el lugar y en el formato que el equipo ya podía utilizar.
+La decisión técnica importante no fue añadir una capa de interfaz, sino hacer que el resultado apareciera en el lugar y en el formato que el equipo ya podía utilizar.
 
 ## La producción muestra volumen, velocidad y estabilidad
 
-La ventana observada va del **12** de marzo al **8** de septiembre de 2026. En ese periodo se generaron **16.021** Excels: **8.672** albaranes, **5.024** facturas y **2.325** confirmaciones, a partir de unos **13,5** GB de fotos y PDF.
+La ventana observada va del **12** de marzo al **8** de septiembre de 2026. En ese periodo se generaron más de **16.000** Excels: el **54 %** albaranes, el **31 %** facturas y el **15 %** confirmaciones de pedido.
 
-![Excels generados por tipo de documento: 8.672 albaranes, 5.024 facturas y 2.325 confirmaciones de pedido](../../assets/figures/casos/roydisa-ocr-documentos-proveedores/excels-por-tipo.png)
+![Excels generados por tipo de documento: 54 % albaranes, 31 % facturas y 15 % confirmaciones de pedido](../../assets/figures/casos/roydisa-ocr-documentos-proveedores/excels-por-tipo.png)
 
-La media fue de **5.214** ficheros al mes, pero el sistema también absorbió un pico de **1.026** ficheros en un solo día. Ese contraste importa: el caso no demuestra únicamente que el flujo funcione en un día normal, sino que puede absorber días de mayor carga sin cambiar manualmente de infraestructura. De marzo a junio el volumen creció un **49 %**.
+El sistema trata de media más de **5.000** ficheros al mes y ha absorbido días de más de **1.000**. Ese contraste importa: el caso no demuestra únicamente que el flujo funcione en un día normal, sino que puede absorber días de mayor carga sin cambiar manualmente de infraestructura. De marzo a junio el volumen creció un **49 %** con el mismo sistema.
 
-Los **13.394** folios de albaranes se distribuyeron entre cuatro delegaciones. La salida no fue una cifra abstracta de documentos leídos, sino una colección de Excels que el equipo podía llevar a su siguiente paso operativo.
+Los albaranes llegan de varias delegaciones. La salida no fue una cifra abstracta de documentos leídos, sino una colección de Excels que el equipo podía llevar a su siguiente paso operativo.
 
 ## Desglose de producción
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **16.021** | Excels generados | 8.672 albaranes · 5.024 facturas · 2.325 confirmaciones |
-| **9.258** | albaranes digitalizados | 13.394 páginas · 4 delegaciones |
-| **7.421** | duplicados absorbidos | sin salida repetida |
-| **1.026** | ficheros en un día | pico observado |
+| **+16.000** | Excels generados | albaranes, facturas y confirmaciones de pedido |
+| **+7.000** | duplicados absorbidos | sin salida repetida |
+| **+1.000** | ficheros en un solo día | pico absorbido sin cambios manuales |
+| **49 %** | más volumen de marzo a junio | con el mismo sistema |
 
 ## El resultado medido tiene un alcance concreto
 
-Este caso demuestra volumen procesado, tiempo de respuesta y error técnico observado. El 0,04 % corresponde a 7 errores en 17.500 documentos desde junio. No lo presentamos como una tasa general de precisión por campo, porque esa validación requeriría una revisión completa contra un conjunto de referencia.
+Este caso demuestra volumen procesado, tiempo de respuesta y error técnico observado. El 0,04 % corresponde a los errores técnicos registrados desde junio. No lo presentamos como una tasa general de precisión por campo, porque esa validación requeriría una revisión completa contra un conjunto de referencia.
 
 Tampoco presentamos como resultado observado el ahorro estimado de horas administrativas. Para publicar esa cifra habría que comparar el tiempo real de introducción manual por tipo de documento antes y después del sistema.
 

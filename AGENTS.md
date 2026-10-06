@@ -119,6 +119,13 @@ Editorial rules for cases (binding):
   endpoints, architecture decisions, HTTP errors, latency of a landing page, days
   without a restart) never goes there; at most one plain sentence in the body, e.g.
   "en los últimos treinta días no falló ninguna petición".
+- Disclose as little as the claim needs. Only results stay exact: rates and percentages,
+  times and speeds, before/after comparisons and time to production. Volumes are rounded
+  down ("más de 30.000 ficheros", "+700", "cientos de"), and charts of volumes show
+  shares in percent. Never publish the client's business details (revenue, quoted
+  amounts, headcount, number of customers or suppliers), small pilot counts (users,
+  drafts, queries) or OSIX's own costs; AI cost is given as an upper bound or as
+  "céntimos" ("menos de 10 € por alumno y curso").
 - A chart only shows numbers the body already states. Charts compare counts of the same
   kind; never put unrelated units on one chart.
 - Cases are Spanish only: these are measured client figures and must not be machine-translated.

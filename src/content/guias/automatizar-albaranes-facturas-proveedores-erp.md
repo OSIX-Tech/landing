@@ -6,7 +6,7 @@ summary: "Flujo OCR, datos estructurados, duplicados, excepciones, revisión hum
 category: "Automatización documental"
 section: "automatizar-procesos"
 published: "2026-09-30"
-updated: "2026-10-01"
+updated: "2026-10-06"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -14,7 +14,7 @@ related:
 
 Puedes automatizar albaranes y facturas sin cambiar el ERP: recibe fotos o PDF, extrae los campos necesarios, comprueba pedidos y duplicados, y devuelve datos estructurados al sistema actual. Envía documentos ilegibles, datos dudosos y discrepancias a revisión humana; no contabilices una excepción a ciegas.
 
-> **Prueba en producción:** En Roydisa, el flujo procesó **31.377 ficheros**; la mediana desde la foto hasta el Excel fue de **27 segundos**, y el **88 %** terminó en menos de un minuto. El **0,04 %** es un error técnico observado, no una medida de precisión del OCR por campo. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
+> **Prueba en producción:** En Roydisa, el flujo procesó **más de 30.000 ficheros**; la mediana desde la foto hasta el Excel fue de **27 segundos**, y el **88 %** terminó en menos de un minuto. El **0,04 %** es un error técnico observado, no una medida de precisión del OCR por campo. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
 
 
 La decisión no empieza por elegir un modelo de IA. Empieza por medir cuántos documentos entran, qué información debe salir de cada uno y dónde se atasca hoy el proceso.
@@ -52,7 +52,7 @@ En esos casos no basta con leer. Hay que coordinar entrada, extracción, reglas,
 
 En el [caso de Roydisa sobre automatización documental y OCR](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/), OSIX midió un flujo que recibe fotos y PDF desde las carpetas del cliente y devuelve Excels estructurados por línea de producto.
 
-La ventana publicada procesó **31.377 ficheros**. La mediana desde la foto hasta el Excel fue de **27 segundos**, y el **88 %** de los documentos terminó en menos de un minuto. El sistema generó **16.021 Excels**, absorbió **7.421 duplicados** sin producir una salida repetida y soportó un pico de **1.026 ficheros en un día**.
+La ventana publicada procesó **más de 30.000 ficheros**. La mediana desde la foto hasta el Excel fue de **27 segundos**, y el **88 %** de los documentos terminó en menos de un minuto. El sistema generó **más de 16.000 Excels**, absorbió **más de 7.000 duplicados** sin producir una salida repetida y soportó picos de **más de 1.000 ficheros en un día**.
 
 El resultado relevante no es solo que el sistema lea documentos. Es que la salida aparece en un formato que compras, administración y operaciones pueden revisar y utilizar sin rehacer la transcripción.
 
@@ -142,7 +142,7 @@ Una herramienta OCR suele bastar si recibes documentos parecidos, necesitas extr
 
 ### ¿Qué demuestra el caso de Roydisa?
 
-Demuestra que un flujo concreto procesó 31.377 ficheros, con una mediana de 27 segundos desde la foto hasta el Excel y un 88 % terminado en menos de un minuto durante la ventana publicada. No demuestra una precisión general para cualquier empresa. Antes de extrapolarlo hay que probar una muestra propia.
+Demuestra que un flujo concreto procesó más de 30.000 ficheros, con una mediana de 27 segundos desde la foto hasta el Excel y un 88 % terminado en menos de un minuto durante la ventana publicada. No demuestra una precisión general para cualquier empresa. Antes de extrapolarlo hay que probar una muestra propia.
 
 ## La prueba debe responder a tu proceso, no a una demo
 
