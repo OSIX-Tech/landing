@@ -1,32 +1,39 @@
 ---
-title: "Roydisa prepara borradores de oferta en 16 segundos"
+title: "Roydisa prepara borradores de oferta con el precio trazado en 16 segundos"
 seoTitle: "Roydisa prepara borradores de oferta en 16 segundos | OSIX Tech"
-description: "47.518 presupuestos históricos y 57.296 productos alimentan un asistente que generó borradores en una mediana de 16 segundos durante el piloto."
-lead: "47.518 presupuestos históricos y 57.296 productos alimentan un asistente que generó borradores en una mediana de 16 segundos durante el piloto."
+description: "Diez años de presupuestos y más de 55.000 productos alimentan un asistente que prepara borradores de oferta en una mediana de 16 segundos, con cada precio trazado hasta su origen."
+lead: "Diez años de presupuestos y más de 55.000 productos alimentan un asistente que prepara borradores de oferta en una mediana de 16 segundos, con cada precio trazado hasta su origen."
 category: "Automatización comercial"
 services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
 order: 2
-status: "Piloto real desde el 18 de junio de 2026. 64 borradores reales, 17 enviados al cliente."
+status: "Piloto real con el equipo comercial desde el 18 de junio de 2026."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
-  - value: "47.518"
-    label: "presupuestos históricos indexados"
-    note: "103.495 líneas · 2017-2026"
   - value: "16 s"
-    label: "mediana de generación"
-    note: "percentil 95 en 27,4 s"
+    label: "por borrador de oferta"
+    note: "mediana · 95 % en 27,4 s"
   - value: "93 %"
     label: "referencias identificadas solas"
-    note: "152 de 163 líneas"
+    note: "sin buscarlas a mano"
+  - value: "8 min"
+    label: "del borrador al envío"
+    note: "mediana, con la revisión del comercial"
+  - value: "10 años"
+    label: "de presupuestos consultables"
+    note: "casi 50.000 ofertas de Odoo"
+metricsNote: "El asistente prepara un borrador en 16 segundos de mediana e identifica solo el 93 % de las referencias. Del borrador al envío al cliente pasan 8 minutos de mediana."
+relatedGuides:
+  - "automatizar-ofertas-presupuestos-correo-pyme"
 ---
 
 ## El histórico ya existía; lo que faltaba era consultarlo al ritmo de una oferta
 
-Roydisa acumula diez años de actividad comercial en Odoo: **47.518** presupuestos y **103.495** líneas emitidas entre 2017 y 2026, por un valor presupuestado de **29,65** millones de euros.
+Roydisa acumula diez años de actividad comercial en Odoo: casi **50.000** presupuestos y más de **100.000** líneas emitidas entre 2017 y 2026.
 
-Alrededor de ese histórico hay un catálogo de **57.296** productos de **257** proveedores y **20** marcas, **80.303** precios de mercado capturados de seis portales y **597.933** descuentos por cliente y familia importados del propio ERP.
+Alrededor de ese histórico hay un catálogo de más de **55.000** productos de cientos de proveedores, precios de mercado capturados de seis portales y los descuentos pactados con cada cliente, importados del propio ERP.
 
 Toda esa información estaba disponible. Lo que no existía era una forma de cruzarla en el tiempo que dura una conversación con un cliente: localizar la referencia, recuperar qué se le vendió antes, comprobar el coste y aplicar el descuento pactado.
 
@@ -40,28 +47,28 @@ Esa trazabilidad era el requisito de diseño, no un extra. Un asistente que prop
 
 ## Lo que muestra el piloto
 
-El piloto arrancó el **18** de junio de 2026 con cinco comerciales. Hasta la fecha de corte se generaron **64** borradores reales para **28** clientes, por un total de **58.099** € ofertados.
+El piloto arrancó el **18** de junio de 2026 con una parte del equipo comercial, sobre peticiones reales de clientes.
 
 La generación tiene una mediana de **16,0** segundos y un percentil **95** de **27,4**. El sistema identifica automáticamente el **93 %** de las líneas. Del borrador al envío al cliente pasan **8** minutos de mediana.
 
-**17** de esos **64** borradores se enviaron al cliente, y casi un tercio de ellos sin editar una sola línea. El coste de IA por borrador ronda los **0,016** dólares: toda la vida del sistema, bancos de pruebas incluidos, ha consumido menos de **20** dólares.
+Casi un tercio de los borradores enviados salió sin editar una sola línea. El coste de IA por borrador es de céntimos.
 
 ## Desglose de producción
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **57.296** | productos en catálogo | 257 proveedores · 20 marcas |
-| **80.303** | precios de mercado capturados | 6 portales de proveedores |
-| **64** | borradores reales en el piloto | 28 clientes · 58.099 € ofertados |
-| **0,016 $** | de IA por borrador | menos de 20 $ en toda la vida del sistema |
+| **+55.000** | productos en catálogo | de cientos de proveedores |
+| **+80.000** | precios de mercado capturados | seis portales de proveedores |
+| **+100.000** | líneas de presupuesto históricas | 2017-2026 |
+| **27,4 s** | percentil 95 de generación | 19 de cada 20 borradores, por debajo |
 
 ## El límite que mantenemos visible
 
-El piloto todavía no mide ofertas ganadas o perdidas. Los 17 envíos no se presentan como ventas, y no publicamos una tasa de aceptación porque ningún borrador tiene marcado su resultado.
+El piloto todavía no mide ofertas ganadas o perdidas. Los borradores enviados no se presentan como ventas, y no publicamos una tasa de aceptación porque ningún borrador tiene marcado su resultado.
 
-Tampoco publicamos adopción ni crecimiento mensual. El piloto corre con cinco comerciales sobre un equipo mayor, y agosto es mes de vacaciones: cualquier curva mensual hablaría del calendario antes que del producto.
+Tampoco publicamos adopción ni crecimiento mensual. El piloto corre con una parte del equipo comercial, y agosto es mes de vacaciones: cualquier curva mensual hablaría del calendario antes que del producto.
 
-Lo que sí está medido es el tiempo de generación, la proporción de referencias que el sistema resuelve solo y el coste por borrador.
+Lo que sí está medido es el tiempo de generación, la proporción de referencias que el sistema resuelve solo y el tiempo hasta el envío.
 
 ## Ficha del proyecto
 
@@ -69,7 +76,7 @@ Lo que sí está medido es el tiempo de generación, la proporción de referenci
 | --- | --- |
 | **Cliente** | Roydisa |
 | **Sector** | Distribución y suministros industriales |
-| **Estado** | Piloto real con cinco comerciales desde el 18 de junio de 2026 |
+| **Estado** | Piloto real con el equipo comercial desde el 18 de junio de 2026 |
 | **Entrada** | Correo o foto con la petición del cliente |
 | **Salida** | Borrador de oferta con precio trazable, exportable a Excel |
 | **Integraciones** | Odoo y seis portales de precios de proveedores |

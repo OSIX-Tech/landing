@@ -1,5 +1,5 @@
 ---
-title: "Un instituto de investigación pregunta a sus 732 documentos y recibe cada respuesta con su fuente"
+title: "Un instituto de investigación pregunta a cientos de documentos y recibe cada respuesta con su fuente"
 seoTitle: "Nessie: preguntar a un Google Drive y recibir respuestas con fuente | OSIX Tech"
 description: "Nessie sincroniza unidades compartidas, describe documentos e imágenes con IA y responde preguntas citando la documentación de origen."
 lead: "Nessie sincroniza unidades compartidas, describe documentos e imágenes con IA y responde preguntas citando la documentación de origen."
@@ -8,28 +8,28 @@ services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
 order: 6
-status: "Piloto B2B desde marzo de 2026 con un instituto de investigación educativa. 153 consultas y 41 entregables generados."
+status: "Piloto B2B desde marzo de 2026 con un instituto de investigación educativa."
 published: "2026-09-17"
 updated: "2026-10-06"
 metrics:
-  - value: "732"
+  - value: "+700"
     label: "documentos consultables"
-    note: "y 1.447 imágenes, sin moverlos de Drive"
+    note: "y más de 1.400 imágenes, sin moverlos de Drive"
+  - value: "100 %"
+    label: "del equipo con acceso lo usó"
+    note: "durante el piloto"
   - value: "92 %"
-    label: "de los usuarios volvió otro día"
-    note: "12 de 12 lo probaron"
-  - value: "0,09 $"
-    label: "de IA por consulta"
-    note: "153 consultas respondidas"
-  - value: "41"
-    label: "entregables generados"
-    note: "PDF, Word y PowerPoint"
-metricsNote: "Todo el equipo con acceso lo probó y el 92 % volvió en días distintos. Cada consulta cuesta unos 0,09 dólares de IA y responde citando el documento de origen."
+    label: "volvió otro día"
+    note: "uso repetido, no una prueba suelta"
+  - value: "54 %"
+    label: "de las consultas fueron conversaciones"
+    note: "varios turnos afinando la pregunta"
+metricsNote: "Todo el equipo con acceso lo usó y el 92 % volvió en días distintos. Más de la mitad de las consultas fueron conversaciones de varios turnos, con cada respuesta citando el documento de origen."
 ---
 
 ## Un corpus de investigación repartido en unidades compartidas
 
-Un instituto de investigación educativa guarda su documentación en unidades compartidas de Google Drive: **215** carpetas en dos unidades, con un volumen equivalente a unas **8.100** páginas y **4,1** millones de palabras.
+Un instituto de investigación educativa guarda su documentación en unidades compartidas de Google Drive: cientos de carpetas con un volumen equivalente a más de **8.000** páginas y unos **4** millones de palabras.
 
 El material está ahí y es accesible. Pero a ese tamaño la pregunta deja de ser dónde está el documento y pasa a ser qué dice el conjunto.
 
@@ -37,26 +37,26 @@ El material está ahí y es accesible. Pero a ese tamaño la pregunta deja de se
 
 Nessie sincroniza las unidades compartidas de forma continua, describe cada documento y cada imagen con IA y responde preguntas en lenguaje natural citando la documentación de la que sale cada respuesta.
 
-El corpus está vectorizado en **20.409** fragmentos, unos **28** por documento. Las **1.447** imágenes extraídas tienen descripción en el **99,5 %** de los casos, de modo que también son consultables.
+Las más de **1.400** imágenes extraídas tienen descripción en el **99,5 %** de los casos, de modo que también son consultables.
 
-Además de responder, genera entregables a partir del propio corpus: **41** documentos creados hasta la fecha, **35** en PDF, **4** en Word y **2** en PowerPoint.
+Además de responder, genera entregables a partir del propio corpus: decenas de documentos en PDF, Word y PowerPoint hasta la fecha.
 
 ## Lo que muestra el piloto
 
-Los **732** documentos indexados están descritos por IA al **100 %**. Los **12** usuarios provisionados han consultado el sistema y el **92 %** ha vuelto en días distintos, con una media de **12,8** consultas por usuario.
+El **100 %** de los documentos indexados está descrito por IA, sin etiquetado manual. El **100 %** de las personas con acceso ha consultado el sistema y el **92 %** ha vuelto en días distintos.
 
-De las **153** consultas respondidas, ninguna quedó truncada, y el **54 %** fueron conversaciones de varios turnos: gente afinando una pregunta en lugar de probar una vez y abandonar.
+Ninguna consulta quedó truncada, y el **54 %** fueron conversaciones de varios turnos: gente afinando una pregunta en lugar de probar una vez y abandonar.
 
-El coste de IA por consulta ronda los **0,09** dólares, y en los registros disponibles no consta ningún fallo del sistema.
+El coste de IA por consulta es de céntimos, y en los registros disponibles no consta ningún fallo del sistema.
 
 ## Desglose de producción
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **20.409** | fragmentos vectorizados | unos 28 por documento |
-| **8.100** | páginas equivalentes | unos 4,1 millones de palabras |
-| **41** | entregables generados | 35 PDF · 4 DOCX · 2 PPTX |
-| **215** | carpetas sincronizadas | 2 unidades compartidas, en continuo |
+| **100 %** | de los documentos descritos por IA | sin etiquetado manual |
+| **99,5 %** | de las imágenes con descripción | también consultables |
+| **+8.000** | páginas equivalentes | unos 4 millones de palabras |
+| **0** | consultas truncadas | todas respondidas completas |
 
 ## El límite que mantenemos visible
 
@@ -72,7 +72,7 @@ Tampoco publicamos una tasa general de precisión. Hay un benchmark interno, per
 | **Estado** | Piloto B2B desde marzo de 2026 |
 | **Entrada** | Unidades compartidas de Google Drive, en sincronización continua |
 | **Salida** | Respuestas citando el documento de origen y entregables en PDF, DOCX y PPTX |
-| **Corpus** | 732 documentos y 1.447 imágenes, 20.409 fragmentos vectorizados |
+| **Corpus** | Cientos de documentos y más de mil imágenes |
 | **Fuente de las cifras** | Agregados de producción, logs y repositorios, sin datos personales |
 | **Fecha de corte** | 8 de septiembre de 2026 |
 

@@ -5,6 +5,7 @@ subtitle: "Cómo clasificar correos, crear registros trazables, asignar responsa
 summary: "Clasificación, registros trazables, responsables, excepciones y revisión humana"
 category: "Correo y CRM"
 section: "automatizar-procesos"
+updated: "2026-10-06"
 published: "2026-10-01"
 related:
   - "automatizar-ofertas-presupuestos-correo-pyme"
@@ -13,7 +14,7 @@ related:
 
 Para convertir una bandeja compartida en un CRM sin copiar correos, conecta los buzones al flujo que conserva cada hilo, identifica al contacto, clasifica la solicitud y crea o actualiza la operación correspondiente. Asigna responsable y estado; manda los mensajes ambiguos a revisión humana. Si solo necesitas repartir conversaciones, comprueba primero las funciones de tu correo y CRM.
 
-> **Prueba en producción:** En un caso de siete meses, el sistema trazó **8.387 correos**, creó **4.893 transacciones** y registró **1.987 cambios de pipeline**. La mediana hasta una propuesta preparada fue de **29 segundos**, y el **99,3 %** quedó listo en menos de cinco minutos. Las propuestas no se envían automáticamente; el caso no publica horas ahorradas ni una tasa de precisión de clasificación. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
+> **Prueba en producción:** En un caso de siete meses, el sistema trazó **más de 8.000 correos**, creó **casi 5.000 transacciones** e hizo de forma automática el **100 %** de los cambios de estado del pipeline. La mediana hasta una propuesta preparada fue de **29 segundos**, y el **99,3 %** quedó listo en menos de cinco minutos. Las propuestas no se envían automáticamente; el caso no publica horas ahorradas ni una tasa de precisión de clasificación. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
 
 
 ## Una bandeja compartida puede asignar conversaciones, pero no siempre organiza el trabajo comercial
@@ -77,7 +78,7 @@ No midas solo cuántos correos procesa el sistema. Una clasificación rápida qu
 
 ## Un caso de producción convirtió cuatro buzones en un flujo comercial trazable
 
-En un sistema de correo y CRM desarrollado por OSIX para una empresa distribuidora, cuatro buzones de Gmail alimentan la clasificación y el registro de operaciones. La ficha pública del [caso de correo a CRM](https://osix.tech/casos/iciga-correo-crm/) recoge **8.387 correos trazados**, **4.893 transacciones creadas** y **1.987 cambios de estado del pipeline** en el periodo medido. Desde el correo recibido hasta una propuesta preparada, la mediana fue de **29 segundos**; el **99,3 %** de las propuestas quedó listo en menos de cinco minutos.
+En un sistema de correo y CRM desarrollado por OSIX para una empresa distribuidora, cuatro buzones de Gmail alimentan la clasificación y el registro de operaciones. La ficha pública del [caso de correo a CRM](https://osix.tech/casos/iciga-correo-crm/) recoge **más de 8.000 correos trazados**, **casi 5.000 transacciones creadas** y el **100 %** de los cambios de estado del pipeline hechos de forma automática en el periodo medido. Desde el correo recibido hasta una propuesta preparada, la mediana fue de **29 segundos**; el **99,3 %** de las propuestas quedó listo en menos de cinco minutos.
 
 Esos resultados describen esa implantación y su periodo de medición, no una garantía para otra empresa. El sistema prepara propuestas, pero no las envía automáticamente. La página del caso tampoco publica horas ahorradas ni una tasa de precisión de clasificación, así que esta guía no atribuye esos resultados.
 

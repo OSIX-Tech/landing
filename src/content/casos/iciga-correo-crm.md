@@ -8,23 +8,23 @@ services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
 order: 3
-status: "En producción desde el 9 de febrero de 2026. 4.893 transacciones y 8.387 correos trazados en siete meses."
+status: "En producción desde el 9 de febrero de 2026. Casi 5.000 operaciones y más de 8.000 correos trazados en siete meses."
 published: "2026-09-17"
 updated: "2026-10-06"
 metrics:
   - value: "99,5 %"
     label: "de los correos comerciales con propuesta lista"
-    note: "377 de 379 en 31 días"
+    note: "en los últimos 31 días"
   - value: "29 s"
     label: "de correo a propuesta lista"
     note: "mediana · percentil 90 en 58 s"
   - value: "62,2 %"
     label: "del correo entrante era ruido"
     note: "apartado sin que nadie lo abra"
-  - value: "4.893"
-    label: "operaciones registradas solas"
-    note: "en siete meses, sin teclear en el CRM"
-metricsNote: "El sistema aparta el ruido, que es el 62,2 % del correo, y deja preparada una propuesta para casi todos los correos comerciales en 29 segundos de mediana. Mientras tanto registra cada operación en el CRM sin que nadie la teclee."
+  - value: "100 %"
+    label: "del registro en el CRM, automático"
+    note: "casi 5.000 operaciones en siete meses"
+metricsNote: "El sistema aparta el ruido, que es el 62,2 % del correo, y deja preparada una propuesta para el 99,5 % de los correos comerciales en 29 segundos de mediana. Mientras tanto registra cada operación en el CRM sin que nadie la teclee."
 relatedGuides:
   - "bandeja-compartida-crm-sin-copiar-correos"
 ---
@@ -37,7 +37,7 @@ La mayor parte de ese volumen no es trabajo: el **62,2 %** del correo entrante e
 
 ## Un copiloto de bandeja que además construye el CRM
 
-El sistema lee los cuatro buzones en tiempo real, aparta el ruido y clasifica cada correo por tipo de solicitud, tipo de cliente y urgencia. Después consulta el catálogo y el ERP y deja preparada una propuesta de respuesta. Los adjuntos entran en el mismo flujo: **1.478** al mes entre PDF, imágenes y hojas de cálculo, con un **0,4 %** de fallos de lectura.
+El sistema lee los cuatro buzones en tiempo real, aparta el ruido y clasifica cada correo por tipo de solicitud, tipo de cliente y urgencia. Después consulta el catálogo y el ERP y deja preparada una propuesta de respuesta. Los adjuntos entran en el mismo flujo, más de mil al mes entre PDF, imágenes y hojas de cálculo, con un **0,4 %** de fallos de lectura.
 
 En paralelo construye un CRM de transacciones anclado a los hilos de Gmail. Da de alta clientes, proveedores y contactos, crea la operación y mueve su estado en el pipeline comercial a medida que el hilo avanza.
 
@@ -45,9 +45,9 @@ La ingesta, la clasificación y el registro funcionan sin intervención humana. 
 
 ## Siete meses de operaciones registradas solas
 
-Desde el **9** de febrero de 2026 el sistema ha trazado **8.387** correos y ha creado **4.893** transacciones, **3.176** de venta y **1.717** de compra, con **1.987** cambios de estado del pipeline, todos automáticos. Por el camino ha dado de alta **306** clientes, **212** proveedores y **875** contactos.
+Desde el **9** de febrero de 2026 el sistema ha trazado más de **8.000** correos y ha creado casi **5.000** transacciones de venta y de compra. El **100 %** de los cambios de estado del pipeline, casi **2.000**, se hizo de forma automática. Por el camino ha dado de alta cientos de clientes, proveedores y contactos.
 
-En los últimos **31** días procesó **1.463** correos, **47** al día con un pico de **124**. El **99,5 %** de los correos relevantes llegó con una propuesta preparada: **377** de **379**.
+Entran unos **50** correos al día, con picos de más de **100**. El **99,5 %** de los correos comerciales llegó con una propuesta preparada.
 
 De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99,3 %** está listo en menos de cinco minutos. El **28,9 %** del correo entra fuera de horario y se procesa igual. En los últimos treinta días el sistema no registró ni un error.
 
@@ -55,16 +55,16 @@ De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99
 
 | Cifra | Qué mide | Detalle |
 | --- | --- | --- |
-| **4.893** | transacciones creadas solas | 3.176 ventas · 1.717 compras · 7 meses |
-| **8.387** | correos trazados en el CRM | unos 1.251 al mes |
-| **1.987** | cambios de estado del pipeline | 100 % automáticos |
-| **1.393** | altas creadas solas | 306 clientes · 212 proveedores · 875 contactos |
+| **99,3 %** | de las propuestas, listas en menos de 5 minutos | mediana de 29 segundos |
+| **28,9 %** | del correo llega fuera de horario | se procesa igual |
+| **0,4 %** | de adjuntos con fallo de lectura | PDF, imágenes y hojas de cálculo |
+| **+8.000** | correos trazados en el CRM | en siete meses |
 
 ## El límite que mantenemos visible
 
 La métrica mide ingesta, clasificación, propuesta y registro. No afirma que el sistema envíe respuestas: el envío asistido está construido, pero el equipo no lo usa, así que no publicamos tiempo de respuesta al cliente ni respuestas enviadas.
 
-Tampoco publicamos horas ahorradas. Sabemos cuántos correos se clasifican y se registran solos; no cuántos minutos costaba hacerlo a mano en esta empresa concreta.
+Tampoco publicamos horas ahorradas. Sabemos qué parte del correo se clasifica y se registra sola; no cuántos minutos costaba hacerlo a mano en esta empresa concreta.
 
 La precisión de la clasificación tampoco tiene todavía una cifra pública: para darla habría que revisar a mano una muestra y compararla.
 

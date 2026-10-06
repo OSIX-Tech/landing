@@ -24,19 +24,6 @@ metrics:
     label: "semanas hasta producción"
     note: "del inicio a la demo pública"
 metricsNote: "ALIA no guarda los audios más de 24 horas y puede ejecutarse entera en la infraestructura del cliente. Detecta fenómenos del galego con 250 reglas propias y llegó a producción en 13 semanas."
-figures:
-  - id: "reglas-linguisticas"
-    type: "bars"
-    title: "Doscientas cincuenta reglas propias para el galego"
-    subtitle: "Recursos lingüísticos que después valida un modelo de lenguaje"
-    unit: "reglas"
-    items:
-      - label: "Castelanismos catalogados"
-        value: 105
-      - label: "Reglas de lusismos"
-        value: 104
-      - label: "Patrones de muletilla"
-        value: 41
 relatedGuides:
   - "donde-se-guardan-datos-ia-empresa"
 ---
@@ -57,15 +44,13 @@ Y no hace falta un servidor especial. El pipeline local resuelve un audio de **6
 
 ## Hecho para el galego, no traducido
 
-La detección lingüística se apoya en **250** reglas propias: **105** castelanismos, **104** reglas de lusismos y **41** patrones de muletilla. Después las valida un modelo de lenguaje para reducir falsos positivos.
-
-![Reglas lingüísticas propias: 105 castelanismos, 104 reglas de lusismos y 41 patrones de muletilla](../../assets/figures/casos/alia-galego/reglas-linguisticas.png)
+La detección lingüística se apoya en **250** reglas propias: más de un centenar de castelanismos, otro centenar de reglas de lusismos y decenas de patrones de muletilla. Después las valida un modelo de lenguaje para reducir falsos positivos.
 
 La transcripción y la voz usan tecnología gallega, incluidos el ASR de Nós y las voces Celtia y Brais.
 
 ## Sin depender de un único proveedor de IA
 
-El sistema puede cambiar de motor sin rehacerse: hay **19** disponibles, **6** de transcripción, **11** de lenguaje y **2** de voz. Si un proveedor sube precios, cambia condiciones o deja de servir, se cambia por otro.
+El sistema puede cambiar de motor sin rehacerse: hay una veintena disponibles, de transcripción, de lenguaje y de voz. Si un proveedor sube precios, cambia condiciones o deja de servir, se cambia por otro.
 
 Del inicio del proyecto a la demo pública pasaron **13** semanas, y cada cambio se prueba automáticamente antes de publicarse.
 
@@ -75,7 +60,7 @@ Del inicio del proyecto a la demo pública pasaron **13** semanas, y cada cambio
 | --- | --- | --- |
 | **7–12 s** | por minuto de audio en local | GPU de gama media |
 | **36 s** | por análisis completo en nube | de extremo a extremo |
-| **19** | motores intercambiables | 6 de transcripción · 11 de lenguaje · 2 de voz |
+| **3** | tipos de motor intercambiables | transcripción, lenguaje y voz |
 | **0** | cuentas o datos personales pedidos | sin registro previo |
 
 ## El límite que mantenemos visible
@@ -108,7 +93,7 @@ No se guardan. El sistema funciona sin registro y sin base de datos, y todo dato
 Sí. El mismo análisis puede correr en un pipeline 100 % local con modelos abiertos gallegos, que resuelve un audio de 60 segundos en 7 a 12 segundos sobre una GPU de gama media.
 
 **¿Qué pasa si el proveedor de IA cambia sus condiciones?**
-Se cambia de motor. ALIA puede usar 19 motores distintos de transcripción, lenguaje y voz, y pasar de uno a otro no exige rehacer el sistema.
+Se cambia de motor. ALIA puede usar una veintena de motores distintos de transcripción, lenguaje y voz, y pasar de uno a otro no exige rehacer el sistema.
 
 **¿Cuánta gente lo usa?**
 Poca, y no lo presentamos de otra forma. El uso externo observable es mínimo: este caso publica la capacidad del sistema y la soberanía del dato, no cifras de adopción.
