@@ -1,6 +1,6 @@
 ---
-title: "ICIGA convierte cuatro bandejas de entrada en un flujo comercial trazable"
-seoTitle: "ICIGA convierte cuatro bandejas de entrada en un flujo comercial trazable | OSIX Tech"
+title: "ICIGA tiene lista la respuesta a cada correo comercial en 29 segundos y el CRM se rellena solo"
+seoTitle: "ICIGA: propuesta de respuesta en 29 segundos y CRM automático desde Gmail | OSIX Tech"
 description: "El sistema procesa correo, filtra ruido y prepara propuestas mientras construye un CRM de transacciones a partir de los hilos de Gmail."
 lead: "El sistema procesa correo, filtra ruido y prepara propuestas mientras construye un CRM de transacciones a partir de los hilos de Gmail."
 category: "Automatización de correo y CRM"
@@ -10,16 +10,21 @@ services:
 order: 3
 status: "En producción desde el 9 de febrero de 2026. 4.893 transacciones y 8.387 correos trazados en siete meses."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
-  - value: "1.463"
-    label: "correos procesados en 31 días"
-    note: "47 al día · pico de 124"
+  - value: "99,5 %"
+    label: "de los correos comerciales con propuesta lista"
+    note: "377 de 379 en 31 días"
   - value: "29 s"
     label: "de correo a propuesta lista"
     note: "mediana · percentil 90 en 58 s"
   - value: "62,2 %"
     label: "del correo entrante era ruido"
-    note: "apartado automáticamente"
+    note: "apartado sin que nadie lo abra"
+  - value: "4.893"
+    label: "operaciones registradas solas"
+    note: "en siete meses, sin teclear en el CRM"
+metricsNote: "El sistema aparta el ruido, que es el 62,2 % del correo, y deja preparada una propuesta para casi todos los correos comerciales en 29 segundos de mediana. Mientras tanto registra cada operación en el CRM sin que nadie la teclee."
 relatedGuides:
   - "bandeja-compartida-crm-sin-copiar-correos"
 ---
@@ -38,13 +43,13 @@ En paralelo construye un CRM de transacciones anclado a los hilos de Gmail. Da d
 
 La ingesta, la clasificación y el registro funcionan sin intervención humana. Nadie abre un correo para decidir dónde va.
 
-## Siete meses en producción sin un reinicio
+## Siete meses de operaciones registradas solas
 
 Desde el **9** de febrero de 2026 el sistema ha trazado **8.387** correos y ha creado **4.893** transacciones, **3.176** de venta y **1.717** de compra, con **1.987** cambios de estado del pipeline, todos automáticos. Por el camino ha dado de alta **306** clientes, **212** proveedores y **875** contactos.
 
 En los últimos **31** días procesó **1.463** correos, **47** al día con un pico de **124**. El **99,5 %** de los correos relevantes llegó con una propuesta preparada: **377** de **379**.
 
-De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99,3 %** está listo en menos de cinco minutos. El **28,9 %** del correo entra fuera de horario y se procesa igual. El despliegue lleva **212** días sin reiniciarse y treinta días sin un solo error de aplicación.
+De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99,3 %** está listo en menos de cinco minutos. El **28,9 %** del correo entra fuera de horario y se procesa igual. En los últimos treinta días el sistema no registró ni un error.
 
 ## Desglose de producción
 
@@ -53,7 +58,7 @@ De correo recibido a propuesta lista pasan **29** segundos de mediana, y el **99
 | **4.893** | transacciones creadas solas | 3.176 ventas · 1.717 compras · 7 meses |
 | **8.387** | correos trazados en el CRM | unos 1.251 al mes |
 | **1.987** | cambios de estado del pipeline | 100 % automáticos |
-| **212** | días sin reiniciar | mismo despliegue desde febrero |
+| **1.393** | altas creadas solas | 306 clientes · 212 proveedores · 875 contactos |
 
 ## El límite que mantenemos visible
 

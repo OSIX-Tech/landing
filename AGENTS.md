@@ -112,6 +112,13 @@ Editorial rules for cases (binding):
   unless they were measured. The limit section says out loud what is not measured.
 - The audit's savings estimates are sales hypotheses, not results. No case publishes hours
   or euros saved.
+- Headline figures (`metrics`, the `## Desglose de producción` table, charts) answer a
+  buyer's question: what it costs, how fast it is, what work it removes, whether it fits
+  the tools they already use, whether their data is safe, whether people use it, how
+  soon it shipped. Engineering evidence (tests, commits, pull requests, lines of code,
+  endpoints, architecture decisions, HTTP errors, latency of a landing page, days
+  without a restart) never goes there; at most one plain sentence in the body, e.g.
+  "en los últimos treinta días no falló ninguna petición".
 - A chart only shows numbers the body already states. Charts compare counts of the same
   kind; never put unrelated units on one chart.
 - Cases are Spanish only: these are measured client figures and must not be machine-translated.

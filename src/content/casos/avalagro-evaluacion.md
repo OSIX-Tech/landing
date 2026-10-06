@@ -1,24 +1,29 @@
 ---
-title: "Avalagro completa una ronda de evaluación en 9,9 minutos"
-seoTitle: "Avalagro completa una ronda de evaluación en 9,9 minutos | OSIX Tech"
-description: "Una cooperativa sustituyó la hoja de cálculo por una app bilingüe para evaluar semanalmente a sus equipos y generar históricos e informes."
-lead: "Una cooperativa sustituyó la hoja de cálculo por una app bilingüe para evaluar semanalmente a sus equipos y generar históricos e informes."
+title: "Una cooperativa láctea pasa de evaluar a su equipo cada trimestre a cada quince días"
+seoTitle: "Avalagro: evaluar al equipo cada 15 días en 9,9 minutos | OSIX Tech"
+description: "Una cooperativa sustituyó la hoja de cálculo por una app bilingüe para evaluar a su equipo cada quince días y generar históricos e informes."
+lead: "Una cooperativa sustituyó la hoja de cálculo por una app bilingüe para evaluar a su equipo cada quince días y generar históricos e informes."
 category: "Aplicación móvil y evaluación de equipos"
 services:
   - "desarrollo-a-medida"
 order: 5
 status: "En producción desde el 16 de abril de 2026. 18 empleados, 31 criterios y 146 evaluaciones registradas."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
+  - value: "15 días"
+    label: "entre evaluaciones"
+    note: "antes, una vez por trimestre"
   - value: "9,9 min"
     label: "por ronda completa"
-    note: "mediana · 18 empleados, unas 110 puntuaciones"
+    note: "mediana · 18 empleados desde el móvil"
   - value: "1.009"
     label: "puntuaciones registradas"
     note: "146 evaluaciones desde abril"
-  - value: "8,16"
-    label: "nota media del equipo en septiembre"
-    note: "desde 5,75 en mayo"
+  - value: "8"
+    label: "semanas hasta las tiendas"
+    note: "del primer commit a la app publicada"
+metricsNote: "La cooperativa evaluaba a su equipo una vez por trimestre; ahora lo hace cada quince días, y una ronda completa le cuesta 9,9 minutos desde el móvil. La app llegó a las tiendas en ocho semanas."
 figures:
   - id: "nota-media"
     type: "bars"
@@ -55,7 +60,7 @@ Una ronda completa de **18** empleados, unas **110** puntuaciones, se cierra en 
 
 El cambio más visible no es el tiempo por ronda, sino la frecuencia: el cliente pasó de evaluar cada trimestre a hacerlo cada quince días, **10** rondas en **21** semanas. En ese periodo la nota media del equipo pasó de **5,75** en mayo a **8,16** en septiembre. ![Nota media del equipo: 5,75 en mayo y 8,16 en septiembre de 2026](../../assets/figures/casos/avalagro-evaluacion/nota-media.png)
 
-El servicio acumula **145** días sin redespliegue, **1.086** peticiones en treinta días y ningún error **5**xx.
+En los últimos treinta días, ninguna de sus **1.086** peticiones falló.
 
 ## Desglose de producción
 
@@ -63,8 +68,8 @@ El servicio acumula **145** días sin redespliegue, **1.086** peticiones en trei
 | --- | --- | --- |
 | **31** | criterios ponderados | 18 empleados en 4 grupos |
 | **13** | rondas registradas | 8 completas y 5 parciales |
-| **145** | días sin redesplegar | 0 errores 5xx en 1.086 peticiones |
-| **8** | semanas hasta las tiendas | del primer commit a la app publicada |
+| **17** | empleados con histórico acumulado | de 18 evaluados |
+| **110** | puntuaciones por ronda completa | 9,9 minutos de mediana desde el móvil |
 
 ## El límite que mantenemos visible
 
