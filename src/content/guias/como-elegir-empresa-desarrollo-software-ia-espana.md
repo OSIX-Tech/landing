@@ -8,7 +8,7 @@ summary: "Pruebas, privacidad, integración, coste total y control del proyecto 
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-09-30"
+updated: "2026-10-06"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -130,6 +130,20 @@ El [NIST Secure Software Development Framework (SSDF)](https://csrc.nist.gov/pro
 ## Compara el coste total y las condiciones de salida
 
 Pide que la propuesta separe diagnóstico, diseño, construcción, licencias, consumo de modelos, infraestructura, soporte y cambios futuros. Pregunta qué queda fuera del precio y cómo se cotizan nuevas integraciones. Compara propuestas con el mismo alcance y volumen estimado; una cifra sin esos supuestos no permite saber cuál sale más barata.
+
+Las páginas públicas de tres proveedores españoles muestran por qué no existe una cifra única: sus ejemplos publicados van desde automatizaciones acotadas hasta plataformas empresariales, con alcances distintos. No son una encuesta independiente ni precios de OSIX. Úsalos para preparar preguntas y compara solo ofertas que cubran el mismo trabajo.
+
+| Proveedor y alcance publicado | Importe orientativo que publica y condiciones |
+| --- | --- |
+| [E2D, primera versión funcional](https://e2d.es/blog/cuanto-cuesta-software-a-medida): automatización aislada, aplicación de gestión, portal de clientes, aplicación con varios módulos y app móvil nativa | 1.500–4.000 €, 3.000–9.000 €, 6.000–15.000 €, 12.000–30.000 € y 15.000–40.000 €, respectivamente. Indica que el IVA va aparte. |
+| [Arteco Consulting](https://www.arteco-consulting.com/articulos/cuanto-cuesta-desarrollo-software-a-medida/): aplicación web con base de datos, integración API/EDI/ERP, ERP y app móvil | 8.000–30.000 €, 5.000–25.000 €, 30.000–150.000 € y 25.000–80.000 €, respectivamente. Declara que sus rangos incluyen análisis, diseño, desarrollo, pruebas y despliegue inicial. |
+| [Hiberus Booster](https://www.hiberusbooster.com/guias/desarrollo-software-a-medida/): MVP, plataforma de negocio y sistema enterprise | 30.000–90.000 €, 90.000–250.000 € y 250.000–500.000 € o más. Son rangos de la propia empresa, atribuidos a proyectos que dice haber desarrollado en España. |
+
+Las integraciones no tienen una unidad común en estas fuentes. E2D estima entre 15 y 40 horas para una API moderna y documentada, y advierte que sistemas antiguos o documentación desactualizada pueden requerir más trabajo. Arteco publica entre 5.000 y 25.000 € para integraciones API, EDI o ERP. No compares horas con un precio cerrado como si midieran lo mismo.
+
+Los costes recurrentes también van aparte: E2D publica 20–150 € al mes para hosting y servicios, y 100–500 € al mes para mantenimiento. Arteco y Hiberus mencionan un mantenimiento anual del 15–20 % del coste de desarrollo. Son cifras declaradas por cada proveedor, no una tarifa general. Pide que la oferta separe alojamiento, licencias, uso de modelos, soporte y mantenimiento, e indique qué conceptos incluye y cuáles excluye. E2D especifica IVA aparte; Arteco dice que sus rangos incluyen el despliegue inicial. Las páginas no detallan todas las exclusiones de forma comparable, así que confirma el alcance, las integraciones, migración de datos, pruebas y soporte antes de comparar.
+
+Si tu necesidad es automatizar un flujo de trabajo, no encargar una aplicación a medida, consulta también nuestra [guía sobre el coste de automatizar con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Sus rangos responden a otro tipo de proyecto.
 
 Antes de firmar, deja por escrito quién es dueño del código y de los datos, quién administra las cuentas de nube y de modelos, qué documentación recibirás, cómo se exportan tus datos y qué ocurre si termina el contrato. Pide un coste estimado de operación y un ejemplo de cómo el proveedor avisará si aumenta el consumo.
 
