@@ -1,6 +1,6 @@
 ---
-title: "Nessie convierte un Google Drive de investigación en un asistente consultable"
-seoTitle: "Nessie convierte un Google Drive de investigación en un asistente consultable | OSIX Tech"
+title: "Un instituto de investigación pregunta a sus 732 documentos y recibe cada respuesta con su fuente"
+seoTitle: "Nessie: preguntar a un Google Drive y recibir respuestas con fuente | OSIX Tech"
 description: "Nessie sincroniza unidades compartidas, describe documentos e imágenes con IA y responde preguntas citando la documentación de origen."
 lead: "Nessie sincroniza unidades compartidas, describe documentos e imágenes con IA y responde preguntas citando la documentación de origen."
 category: "Inteligencia documental"
@@ -10,16 +10,21 @@ services:
 order: 6
 status: "Piloto B2B desde marzo de 2026 con un instituto de investigación educativa. 153 consultas y 41 entregables generados."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
   - value: "732"
-    label: "documentos indexados"
-    note: "100 % con descripción generada"
-  - value: "1.447"
-    label: "imágenes descritas"
-    note: "99,5 % con descripción"
-  - value: "100 %"
-    label: "de los usuarios provisionados consultó"
-    note: "12 de 12"
+    label: "documentos consultables"
+    note: "y 1.447 imágenes, sin moverlos de Drive"
+  - value: "92 %"
+    label: "de los usuarios volvió otro día"
+    note: "12 de 12 lo probaron"
+  - value: "0,09 $"
+    label: "de IA por consulta"
+    note: "153 consultas respondidas"
+  - value: "41"
+    label: "entregables generados"
+    note: "PDF, Word y PowerPoint"
+metricsNote: "Todo el equipo con acceso lo probó y el 92 % volvió en días distintos. Cada consulta cuesta unos 0,09 dólares de IA y responde citando el documento de origen."
 ---
 
 ## Un corpus de investigación repartido en unidades compartidas
@@ -42,7 +47,7 @@ Los **732** documentos indexados están descritos por IA al **100 %**. Los **12*
 
 De las **153** consultas respondidas, ninguna quedó truncada, y el **54 %** fueron conversaciones de varios turnos: gente afinando una pregunta en lugar de probar una vez y abandonar.
 
-El coste de IA por consulta ronda los **0,09** dólares, y los logs disponibles no registran errores **5**xx.
+El coste de IA por consulta ronda los **0,09** dólares, y en los registros disponibles no consta ningún fallo del sistema.
 
 ## Desglose de producción
 

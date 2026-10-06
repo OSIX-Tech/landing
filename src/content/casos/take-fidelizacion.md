@@ -1,6 +1,6 @@
 ---
-title: "TAKE registra visitas y recompensas desde una app móvil"
-seoTitle: "TAKE registra visitas y recompensas desde una app móvil | OSIX Tech"
+title: "El 90 % de los clientes que sellan en TAKE vuelve: un año de fidelización con app y Wallet"
+seoTitle: "TAKE: 90 % de repetición con tarjeta de sellos en Wallet | OSIX Tech"
 description: "Una cafetería de Santiago usa una app con tarjeta en Wallet, sellos QR, recompensas y juegos para medir la repetición de sus clientes."
 lead: "Una cafetería de Santiago usa una app con tarjeta en Wallet, sellos QR, recompensas y juegos para medir la repetición de sus clientes."
 category: "Aplicaciones móviles y fidelización"
@@ -9,6 +9,7 @@ services:
 order: 4
 status: "En producción desde el 28 de agosto de 2025. 2.119 recompensas entregadas."
 published: "2026-09-17"
+updated: "2026-10-06"
 metrics:
   - value: "37.627"
     label: "visitas selladas con QR"
@@ -60,7 +61,7 @@ En el primer mes se registraron **960** clientes y a lo largo del año **2.921**
 
 En total son **37.627** visitas selladas con QR y **42.369** sellos. Los días de apertura registran **145** sellados de media, con un máximo de **334**.
 
-La retención a **30** días es del **40,3 %**, y sube a alrededor del **47 %** en las cohortes de otoño; el **70 %** de los usuarios vuelve después de la primera semana. La API responde en **127** milisegundos de mediana y acumula un único error **5**xx en **2.444** peticiones.
+La retención a **30** días es del **40,3 %**, y sube a alrededor del **47 %** en las cohortes de otoño; el **70 %** de los usuarios vuelve después de la primera semana. En la ventana de registros revisada, solo una de **2.444** peticiones falló.
 
 ## Desglose de producción
 
