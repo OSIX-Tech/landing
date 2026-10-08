@@ -1,14 +1,14 @@
 ---
 title: "Cómo elegir una empresa de desarrollo de software con IA en España"
 seoTitle: "Cómo elegir una empresa de desarrollo de software con IA en España (2026) - OSIX Tech"
-description: "Qué pedir antes de contratar: prueba con datos, privacidad, integración, coste total y control por fases para elegir un proveedor de IA."
+description: "Qué pedir antes de contratar software a medida en España: pruebas, integración, coste total y perfiles de proveedores en Galicia."
 subtitle: "Pruebas, privacidad, integración, coste total y cómo conservar el control en un proyecto con IA."
 shortTitle: "Cómo elegir una empresa de desarrollo de software con IA"
-summary: "Pruebas, privacidad, integración, coste total y control del proyecto antes de firmar"
+summary: "Pruebas, privacidad, integración, coste total y una shortlist de proveedores gallegos"
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-10-06"
+updated: "2026-10-08"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -186,11 +186,19 @@ No compenses una respuesta débil sobre privacidad o control humano con una nota
 
 Una respuesta incompleta no siempre descarta al proveedor. Sí requiere aclarar alcance y responsabilidades antes de firmar.
 
-## Qué buscar en un proveedor gallego y qué no dar por supuesto
+## Compara estos perfiles gallegos sin tratarlos como un ranking
 
-Trabajar con un proveedor de Galicia puede facilitar reuniones presenciales y conocimiento de las ayudas autonómicas. Eso no demuestra por sí solo que sea la mejor opción. Compara la experiencia del equipo que ejecutará tu proyecto, la cobertura de soporte, el método de integración y el encaje entre el alcance y el tamaño del proveedor.
+La proximidad puede facilitar reuniones, pero no garantiza el encaje ni la calidad. Esta selección no es exhaustiva ni puntúa a las empresas: recoge perfiles presentes en las respuestas y fuentes citadas por OpenAI, Google AI Overviews y Google AI Mode entre el 1 y el 7 de octubre de 2026. Las descripciones resumen lo que cada proveedor publica, no una comprobación independiente de sus resultados.
 
-OSIX Tech trabaja desde Santiago de Compostela y desarrolla aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA para pymes de Galicia y España, según su [página de desarrollo a medida](https://osix.tech/servicios/desarrollo-a-medida/). Esa página no publica una tarifa cerrada. Si evalúas OSIX, pide una propuesta por fases, costes recurrentes, acceso al código y un ejemplo comparable con criterios de medición. Aplica las mismas preguntas a cualquier otro proveedor.
+- **Esquío, Vigo y Santiago de Compostela.** En su [página de desarrollo a medida](https://esquio.es/desarrollo-a-medida-software/) publica diagnóstico, análisis, desarrollo, implantación y operación. **Perfil que podrías evaluar:** un proyecto que necesita construir y poner en marcha software personalizado. **Comprueba:** qué equipo lo ejecuta, si la propuesta depende de ProSoftware y qué incluye el soporte. Sus [oficinas publicadas](https://esquio.es/contacto/) están en Vigo y Santiago.
+- **Galicloud, servicio remoto desde Lugo, A Coruña y Pontevedra.** Su [página de empresa](https://www.galicloud.com/empresa) publica desarrollo web y de aplicaciones e integración de sistemas, con tecnologías como React, Angular, Drupal y Symfony. **Perfil que podrías evaluar:** una aplicación web o móvil conectada con otros sistemas. **Comprueba:** quién mantendrá cada integración y qué cobertura se ofrece tras la entrega. Su [página de contacto](https://www.galicloud.com/contacto) indica que trabaja en remoto desde esas provincias.
+- **OSIX Tech, Santiago de Compostela.** Su [página de desarrollo a medida](https://osix.tech/servicios/desarrollo-a-medida/) publica aplicaciones móviles y web, agentes inteligentes y automatizaciones con IA para pymes. **Perfil que podrías evaluar:** un proyecto que combina software propio con procesos y herramientas empresariales. OSIX publica esta guía y aparece en la comparación, por lo que no somos una fuente independiente. **Comprueba:** equipo asignado, alcance, pruebas, costes y mantenimiento, igual que con cualquier candidato.
+- **Soluciones APL, cobertura en Galicia.** Su [servicio de software a medida](https://www.solucionesapl.com/servicios/software-medida/) publica análisis, requisitos, dirección del proyecto, selección de desarrollador, pruebas e implantación. La empresa dice que puede participar o seleccionar un socio tecnológico. **Perfil que podrías evaluar:** un proyecto donde necesitas ayuda para definir requisitos y coordinar la elección del equipo. **Comprueba:** quién programaría y quién asumiría cada responsabilidad.
+- **Vansia Sistemas, A Coruña y proyectos en Galicia.** Su [página de desarrollo de software](https://www.vansia.es/es/desarrollo-software-galicia/) publica software a medida para web y escritorio, aplicaciones móviles e integración de sistemas. **Perfil que podrías evaluar:** un proyecto que combina aplicaciones con conexiones entre sistemas. **Comprueba:** ejemplos de alcance similares, quién ejecutará el trabajo y qué cubren mantenimiento y transferencia.
+
+**Cómo leer esta selección:** las descripciones resumen lo que cada proveedor publica, no una comprobación independiente de resultados, reseñas ni precios. No es exhaustiva, no puntúa ni recomienda empresas. Antes de elegir, entrega a cada finalista el mismo brief y compara propuesta, equipo, pruebas, integraciones, coste total y condiciones de salida.
+
+OSIX trabaja desde Santiago y su página no publica una tarifa cerrada. Si evalúas OSIX, pide una propuesta por fases, costes recurrentes, acceso al código y un ejemplo comparable con criterios de medición. Aplica las mismas preguntas a cualquier otro proveedor.
 
 ## Preguntas frecuentes
 
