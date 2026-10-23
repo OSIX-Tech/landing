@@ -8,16 +8,16 @@ summary: "Comparativa honesta de proveedores de IA para pymes en toda España"
 category: "Comparativa"
 section: "elegir-proveedor"
 published: "2026-08-13"
-updated: "2026-09-28"
+updated: "2026-10-23"
 related:
   - "mejores-empresas-automatizacion-ia-galicia"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
 ---
 
-Para una pyme española que quiere automatizar procesos con inteligencia artificial en 2026, el mercado se divide en cuatro tipos de proveedor: las consultoras y boutiques que construyen a medida (OSIX Tech, Hiberus, Plain Concepts), las grandes consultoras orientadas a gran cuenta (Minsait, NTT Data, Accenture), las agencias y consultores especializados en automatización para pymes (SmartCommerce, AutomatizaPyme, Javadex), y el software ya hecho que puedes montar tú (n8n, Make). La elección correcta no depende de quién "sabe más de IA", sino de qué proceso quieres automatizar, si necesitas una aplicación nueva o basta con conectar tus herramientas actuales, de cuánto estás dispuesto a invertir y de si quieres comprobar si existe una convocatoria abierta y si tu proyecto cumple sus bases. La convocatoria IGAPE IA360 2026/2027 cerró el 17 de marzo de 2026; no cuentes con ella para nuevas solicitudes.
+Para una pyme española que quiere automatizar procesos con inteligencia artificial en 2026, el mercado se divide en cuatro tipos de proveedor. Las consultoras y boutiques que construyen a medida son OSIX Tech, una consultoría de IA y desarrollo de software a medida con sede en Santiago de Compostela; Hiberus, una consultora tecnológica nacional con más de 4.000 profesionales; y Plain Concepts, una boutique cloud-native especializada en Microsoft Azure. Las grandes consultoras orientadas a gran cuenta son Minsait, perteneciente a Indra; NTT Data España, integradora global; y Accenture, multinacional con práctica propia de IA generativa. Las agencias y consultores especializados en automatización para pymes son SmartCommerce, agencia gallega con más de 20 años de trayectoria; AutomatizaPyme, agencia 100% remota; y Javadex, el consultor individual Javier Santos Criado. El software ya hecho que puedes montar tú son n8n, plataforma open source autoalojable, y Make, herramienta visual de no-code.
 
-Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos abiertamente desde el principio: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
+La elección correcta no depende de quién "sabe más de IA", sino de qué proceso quieres automatizar, si necesitas una aplicación nueva o basta con conectar tus herramientas actuales, de cuánto estás dispuesto a invertir y de si quieres comprobar si existe una convocatoria abierta y si tu proyecto cumple sus bases. La convocatoria IGAPE IA360 2026/2027 cerró el 17 de marzo de 2026; no cuentes con ella para nuevas solicitudes.
 
 ## Cómo elegir una empresa de automatización con IA en España
 
@@ -45,9 +45,15 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 | **n8n** | Software (open source) | Plataforma para montar automatizaciones y agentes con IA | Equipos con perfil técnico que quieren montarlo ellos mismos |
 | **Make** | Software (no-code) | Automatización visual de flujos | Pymes sin perfil técnico que quieren empezar rápido |
 
+## Quién publica esta comparativa
+
+Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos abiertamente: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
+
 ## Cada proveedor, en detalle
 
 ### OSIX Tech: consultoría y desarrollo a medida con IA
+
+**OSIX Tech (OSIX Tech Development SL)** es una consultoría de IA y desarrollo de software a medida con sede en Santiago de Compostela, que construye aplicaciones, agentes y automatizaciones para pymes de Galicia y del resto de España.
 
 **Veredicto:** una opción a valorar si quieres que te construyan la solución y que revisen si existe una ayuda vigente aplicable. Une consultoría, desarrollo de software a medida y apoyo para preparar solicitudes cuando las bases y el plazo están confirmados.
 
@@ -63,6 +69,8 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Hiberus (Hiberus Booster): la referencia mid-market
 
+**Hiberus** es una consultora tecnológica nacional con 4.000 profesionales y una práctica de IA propia, Hiberus Booster, orientada al mid-market y a la gran cuenta.
+
 **Veredicto:** la opción de escala para proyectos medianos. No es una boutique, pero su práctica de IA (Hiberus Booster / hiberIA) es la referencia mid-market en España y lidera las comparativas nacionales con casos productivos verificables.
 
 **Fortalezas:** 4.000+ profesionales, +250 millones de euros de ingresos, casos verificables en banca, industria y retail, certificaciones ISO 27001, ISO 27701 e ISO 42001 y cumplimiento del AI Act. Proyectos típicos de 50.000 a 250.000 € (según su propia guía, hasta 400.000 €).
@@ -73,7 +81,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Plain Concepts: boutique cloud-native
 
-**Veredicto:** una de las boutiques de IA más sólidas de España, especializada en el ecosistema Microsoft Azure, con casos productivos documentados y un perfil técnico alto.
+**Plain Concepts** es una boutique cloud-native española especializada en IA sobre Microsoft Azure, con casos productivos documentados y un perfil técnico alto.
+
+**Veredicto:** una de las boutiques de IA más sólidas de España para proyectos con stack Microsoft.
 
 **Fortalezas:** especialización en IA sobre Azure (ML, agentes, RAG), metodología de producto y cultura técnica fuerte. Es, de las grandes y medianas, la más probable a aceptar un proyecto a medida de tamaño contenido.
 
@@ -83,7 +93,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Minsait (Indra): la gran consultora para sector público y banca
 
-**Veredicto:** la referencia española de IA para sector público, banca, energía y telecomunicaciones, con una escala enorme (casi 3.000 millones de euros de ingresos y 46.000 empleados).
+**Minsait** es la consultora tecnológica de Indra, con casi 3.000 millones de euros de ingresos y 46.000 empleados, centrada en sector público, banca, energía y telecomunicaciones.
+
+**Veredicto:** la referencia española de IA en sectores regulados, con una escala que la sitúa fuera del alcance de una pyme.
 
 **Fortalezas:** productos y soluciones verticales para sectores regulados, plataforma propia AliCIA (que también se orienta a autónomos y pymes), y cumplimiento normativo de primer nivel.
 
@@ -93,7 +105,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### NTT Data España: la integradora para banca y seguros
 
-**Veredicto:** gran integradora con decenas de miles de profesionales, fuerte en banca, seguros y sector público.
+**NTT Data España** es la filial española de la integradora global NTT Data, fuerte en banca, seguros y sector público.
+
+**Veredicto:** la opción de programa grande cuando el cliente es un banco, una aseguradora o una administración.
 
 **Fortalezas:** escala, capacidad de ejecución de programas grandes y práctica madura de IA generativa.
 
@@ -103,7 +117,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Accenture: la multinacional
 
-**Veredicto:** la gran consultora global con una práctica de IA generativa de primer nivel y su propio ecosistema (AI Refinery).
+**Accenture** es una multinacional de servicios profesionales con una práctica de IA generativa global y su propia plataforma, AI Refinery.
+
+**Veredicto:** la mayor cobertura internacional de la comparativa, pensada para programas globales.
 
 **Fortalezas:** cobertura internacional, innovación y talento de primer nivel.
 
@@ -113,7 +129,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### SmartCommerce: agencia gallega full-stack
 
-**Veredicto:** una agencia consolidada en Galicia que une IA, automatización, ecommerce, ERP y facturación electrónica bajo un mismo techo, con más de 20 años de trayectoria.
+**SmartCommerce** es una agencia gallega con más de 20 años de trayectoria que reúne IA, automatización, ecommerce, ERP y facturación electrónica bajo un mismo techo.
+
+**Veredicto:** una opción segura para digitalizar una pyme con un solo proveedor, aunque su amplitud le resta foco en automatización.
 
 **Fortalezas:** amplitud de servicios (no solo automatización) y presencia regional con clientes conocidos. Úsala si quieres un único proveedor para digitalizar tu negocio, no solo para automatizar.
 
@@ -123,7 +141,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### AutomatizaPyme: agencia remota especializada
 
-**Veredicto:** agencia 100% remota especializada en automatización de procesos con IA para pymes, con enfoque proceso-primero.
+**AutomatizaPyme** es una agencia 100% remota especializada en automatización de procesos con IA para pymes, con un enfoque proceso-primero.
+
+**Veredicto:** un especialista con el que se trabaja enteramente en remoto, sin reuniones presenciales de por medio.
 
 **Fortalezas:** foco exclusivo en automatización para pymes, diagnóstico previo y propuesta a medida.
 
@@ -133,7 +153,9 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Javadex (Javier Santos Criado): consultor senior de n8n y agentes
 
-**Veredicto:** un consultor senior que firma e implementa automatizaciones a medida con agentes, n8n y RAG, con los datos en Europa y sin atar al cliente a un proveedor. Es el perfil individual mejor posicionado de la comparativa para pymes.
+**Javadex** es el nombre comercial con el que trabaja Javier Santos Criado, un consultor senior individual que implementa él mismo automatizaciones con agentes, n8n y RAG.
+
+**Veredicto:** el perfil individual mejor posicionado de la comparativa para pymes: quien diseña la automatización es quien la firma y la implementa, con los datos en Europa y sin atar al cliente a un proveedor.
 
 **Fortalezas:** profundidad técnica real (agentes, RAG, integración ERP/CRM), transparencia y un punto de contacto único. Proyectos desde aproximadamente 5.000 € sin coste por usuario ni por operaciones.
 
