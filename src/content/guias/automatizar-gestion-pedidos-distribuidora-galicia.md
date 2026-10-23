@@ -7,6 +7,7 @@ summary: "De la recepción por correo, portal o EDI al stock, preparación, entr
 category: "Distribución"
 section: "sectores"
 published: "2026-09-28"
+updated: "2026-10-23"
 related:
   - "conectar-produccion-ventas-almacen-pyme-industrial"
   - "automatizar-facturas-documentos-pyme"
@@ -14,6 +15,8 @@ related:
 ---
 
 Una distribuidora puede automatizar la gestión de pedidos conectando la entrada de cada solicitud con su ERP, el stock, la preparación, la entrega y la facturación. No hace falta empezar cambiando de ERP ni añadiendo un sistema de almacén: primero hay que eliminar una tarea manual concreta, fijar qué sistema manda sobre cada dato y revisar los casos dudosos antes de que afecten al cliente o al inventario.
+
+> **Prueba en producción:** En ICIGA, distribuidora de material químico y de laboratorio, el **62,2 %** del correo entrante era ruido. El sistema aparta ese ruido, deja preparada una propuesta para el **99,5 %** de los correos comerciales en **29 segundos** de mediana y registra cada operación en el CRM sin que nadie la teclee: casi **5.000 operaciones** y más de **8.000 correos** trazados en siete meses. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
 
 El orden importa. Si se automatiza la captura antes de ordenar clientes, referencias, unidades y tarifas, los errores llegan antes al siguiente sistema. Conviene empezar por un canal o flujo repetitivo, medir el resultado y ampliar solo cuando los pedidos llegan correctos al siguiente paso.
 

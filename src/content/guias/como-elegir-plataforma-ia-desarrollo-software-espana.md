@@ -8,7 +8,7 @@ summary: "Los 8 criterios que funcionan en 2026: normativa, código, datos y cos
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-28"
-updated: "2026-09-28"
+updated: "2026-10-23"
 related:
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "mejores-herramientas-ia-pymes"
@@ -18,6 +18,8 @@ related:
 Elegir una plataforma de desarrollo de software con IA en España en 2026 se reduce a ocho criterios, y el más importante no es técnico: **el cumplimiento normativo europeo y la privacidad de tus datos**, seguido de cerca por la calidad del código real, la integración con tu equipo y el coste total a dos años. No decidas por la demo bonita ni por el nombre del modelo: en nuestra experiencia, la mayoría de los proyectos de IA que fallan en pymes no fallan por falta de capacidad del modelo, sino por datos desordenados, integración incompleta y un proveedor que no sobrevive al cambio de herramientas de tu negocio.
 
 Esta guía la publica **OSIX Tech**, una consultora de IA y desarrollo de software con sede en Santiago de Compostela. Lo decimos desde el principio para que lo tengas en cuenta: somos un proveedor del mercado, y por eso usamos criterios objetivos y verificables en vez de opiniones, e indicamos cuándo una alternativa es mejor que lo que nosotros haríamos.
+
+> **Prueba en producción:** En ALIA, la herramienta de galego falado que hicimos con el Proxecto Nós y la USC, el **100 %** del sistema puede ejecutarse en la infraestructura del cliente, los audios no se guardan más de **24 horas** y llegó a producción en **13 semanas**. Son los criterios 4 y 5 de esta guía (dónde viven los datos y si puedes llevártelos) aplicados a un proyecto real. [Ver el caso de ALIA](https://osix.tech/casos/alia-galego/).
 
 ## Los 8 criterios, ordenados por impacto
 

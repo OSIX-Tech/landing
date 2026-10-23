@@ -7,7 +7,7 @@ summary: "Sí, con no-code... y cuándo no te vale. La respuesta y el límite ho
 category: "Chatbots"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-10-01"
+updated: "2026-10-23"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "mejores-herramientas-ia-pymes"
@@ -15,6 +15,8 @@ related:
 ---
 
 Sí, puedes montar un chatbot para tu empresa sin saber programar, siempre que sepas exactamente qué necesitas: un asistente de consultas y atención al cliente con herramientas no-code se monta hoy en horas o días, con plataformas como Landbot, ManyChat, Chatfuel o Botpress, y con ChatGPT o Claude como base puedes publicar un primer prototipo en una tarde. La respuesta se complica en cuanto el chatbot tiene que hablar con tus datos, tu CRM o tus procesos internos: ahí las herramientas no-code se quedan cortas y empieza a tener sentido un desarrollo a medida. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y está pensada para que decidas con criterio: primero cuándo una herramienta no-code te vale, después cuándo no, y por último qué opciones hay por cada caso, con precios reales y límites honestos.
+
+> **Prueba propia, con el límite delante:** no hemos montado un chatbot de captación para una web. Lo más parecido que tenemos en producción es el asistente que hicimos dentro del Moodle de Xeración21: trabaja sobre el temario oficial, prepara un plan de estudio en **12 segundos** de mediana y cuesta menos de **10 € por alumno y curso**. Cuando el chatbot tiene que leer documentos de la empresa y responder citando la fuente, eso ya es desarrollo a medida, no una herramienta no-code. [Ver el caso de Xeración21](https://osix.tech/casos/xeracion21-moodle/).
 
 ## La respuesta en 30 segundos
 
