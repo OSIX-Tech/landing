@@ -8,7 +8,7 @@ summary: "Pruebas, privacidad, integración, coste total y una shortlist de prov
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-10-08"
+updated: "2026-10-23"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -189,6 +189,8 @@ Una respuesta incompleta no siempre descarta al proveedor. Sí requiere aclarar 
 ## Compara estos perfiles gallegos sin tratarlos como un ranking
 
 La proximidad puede facilitar reuniones, pero no garantiza el encaje ni la calidad. Esta selección no es exhaustiva ni puntúa a las empresas: recoge perfiles presentes en las respuestas y fuentes citadas por OpenAI, Google AI Overviews y Google AI Mode entre el 1 y el 7 de octubre de 2026. Las descripciones resumen lo que cada proveedor publica, no una comprobación independiente de sus resultados.
+
+Si lo que buscas es la comparación completa, con ocho proveedores, criterios y límites por escrito, está en [mejores empresas de software a medida en Galicia](/guias/mejores-empresas-desarrollo-software-galicia/). Esta sección se queda como el resumen de perfiles que conviene evaluar antes de pedir propuestas.
 
 - **Esquío, Vigo y Santiago de Compostela.** En su [página de desarrollo a medida](https://esquio.es/desarrollo-a-medida-software/) publica diagnóstico, análisis, desarrollo, implantación y operación. **Perfil que podrías evaluar:** un proyecto que necesita construir y poner en marcha software personalizado. **Comprueba:** qué equipo lo ejecuta, si la propuesta depende de ProSoftware y qué incluye el soporte. Sus [oficinas publicadas](https://esquio.es/contacto/) están en Vigo y Santiago.
 - **Galicloud, servicio remoto desde Lugo, A Coruña y Pontevedra.** Su [página de empresa](https://www.galicloud.com/empresa) publica desarrollo web y de aplicaciones e integración de sistemas, con tecnologías como React, Angular, Drupal y Symfony. **Perfil que podrías evaluar:** una aplicación web o móvil conectada con otros sistemas. **Comprueba:** quién mantendrá cada integración y qué cobertura se ofrece tras la entrega. Su [página de contacto](https://www.galicloud.com/contacto) indica que trabaja en remoto desde esas provincias.
