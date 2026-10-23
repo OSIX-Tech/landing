@@ -1,14 +1,14 @@
 ---
 title: "Automatizar las facturas y los documentos de tu pyme"
 seoTitle: "Cómo automatizar las facturas y los documentos de tu pyme (2026): qué documentos por orden y las 3 vías - OSIX Tech"
-description: "Cómo automatizar las facturas y los documentos de una pyme en España: qué documentos merece la pena por orden, las 3 vías (programa de gestión, extractor OCR, desarrollo a medida), VERI*FACTU 2027 y límites honestos."
+description: "Cómo automatizar las facturas y los documentos de una pyme en España: qué documentos merece la pena por orden, las 3 vías (programa de gestión, extractor OCR, desarrollo a medida), el calendario de VERI*FACTU y de la factura electrónica B2B, y límites honestos."
 subtitle: "Qué documentos automatizar por orden de retorno y cuándo te basta un programa, un extractor o un desarrollo a medida."
 shortTitle: "Cómo automatizar las facturas y los documentos de tu pyme"
 summary: "Qué documentos automatizar por orden de retorno y cuándo te basta un programa, un extractor o un desarrollo a medida"
 category: "Facturación"
 section: "automatizar-procesos"
 published: "2026-09-03"
-updated: "2026-09-30"
+updated: "2026-10-23"
 related:
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
   - "integrar-ia-software-pyme-espana"
@@ -16,7 +16,9 @@ related:
   - "procesos-pyme-automatizar-con-ia"
 ---
 
-Sí, una pyme en España puede automatizar buena parte de sus facturas y documentos, pero "automatizar" no es un botón único: son flujos distintos con rentabilidades muy distintas. Esta guía ordena los documentos que de verdad merece la pena automatizar (de lo que antes devuelve el tiempo invertido a lo que conviene dejar para después), compara las tres vías para hacerlo (programa de gestión, extractor de datos por OCR, y desarrollo a medida) con sus límites honestos, y te deja claro por qué el calendario de VERI\*FACTU convierte esto en una decisión de 2026, no de 2027. La publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España; aparece en esta guía como una de las opciones, sin humo.
+Sí, una pyme en España puede automatizar buena parte de sus facturas y documentos, pero "automatizar" no es un botón único: son flujos distintos con rentabilidades muy distintas. Esta guía ordena los documentos que de verdad merece la pena automatizar (de lo que antes devuelve el tiempo invertido a lo que conviene dejar para después), compara las tres vías para hacerlo (programa de gestión, extractor de datos por OCR, y desarrollo a medida) con sus límites honestos, y te deja claro qué cambia en el calendario fiscal de 2026 a 2029 para que no hagas dos proyectos donde cabe uno. La publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España; aparece en esta guía como una de las opciones, sin humo.
+
+> **Prueba en producción:** En Roydisa, el flujo de lectura de documentos de proveedores procesó **más de 30.000 ficheros** en seis meses, con una mediana de **27 segundos** desde la foto hasta el Excel y el **88 %** de los documentos resueltos en menos de un minuto. El **0,04 %** es el error técnico observado desde junio, es decir, fallos del flujo, no una medida de acierto del OCR campo a campo. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
 
 Cuando el problema son documentos de proveedores que deben acabar dentro del ERP, conviene bajar un nivel más: [cómo automatizar albaranes y facturas sin cambiar de ERP](https://osix.tech/guias/automatizar-albaranes-facturas-proveedores-erp/).
 
@@ -26,7 +28,7 @@ Cuando el problema son documentos de proveedores que deben acabar dentro del ERP
 - Lo que antes devuelve el esfuerzo es **automatizar la factura recibida y la conciliación bancaria** (ahí está el grueso de las horas y de los errores).
 - Hay **3 vías**: un programa de gestión (Holded, Quipu, Anfix, Sage), un extractor de datos por OCR (Parseur, ABBYY, herramientas de captura), o desarrollo a medida para un flujo o ERP concreto.
 - La vía no la decide el tamaño de tu empresa, sino **cuánto documento mueves y qué software ya usas**.
-- Date prisa por el calendario: los sistemas de facturación deben adaptarse a VERI\*FACTU antes del **1 de enero de 2027** (empresas) o del **1 de julio de 2027** (autónomos y resto). Automatizar y cumplir no son dos proyectos, son uno.
+- El calendario fiscal se movió en octubre de 2026: la factura electrónica B2B ya tiene fechas firmes (**6 de octubre de 2027** para quien supera 8 millones de euros de volumen y **6 de octubre de 2028** para el resto), y Hacienda anunció que alineará VERI\*FACTU con esa fecha, sin norma publicada todavía. Automatizar y cumplir siguen siendo un solo proyecto, pero con más margen del que se contaba.
 
 
 ## Lo primero: distinguir dos problemas que se venden como uno
@@ -138,18 +140,21 @@ No es "¿cuánto mides?", es "¿qué software ya usas y cuánto documento mueves
 Regla práctica: **empieza por la vía más simple que cumpla, y sube solo cuando se te quede corta.** Lo que casi nunca funciona es pagar un desarrollo grande para un proceso que no está ni medido ni definido, o cambiar de ERP solo para "poder automatizar".
 
 
-## Por qué VERI\*FACTU hace que esto sea una decisión de 2026
+## El calendario fiscal cambió en octubre de 2026
 
-VERI\*FACTU es el sistema de la Agencia Tributaria (AEAT) que regula los sistemas informáticos de facturación (SIF): quién factura debe usar un programa que genere registros de facturación íntegros, verificables y legibles, y poder remitirlos a Hacienda. No es "factura electrónica" (esa es otra obligación, la B2B de la ley Crea y Crece, en otro calendario): es cómo debe ser tu software de facturación.
+Aquí conviene separar dos obligaciones que se confunden todo el rato, porque tienen calendarios distintos y no dependen de la misma norma.
 
-Los plazos de adaptación son firmes y, tras el retraso del Real Decreto-ley 15/2025, quedan así:
+**VERI\*FACTU** es el sistema de la Agencia Tributaria (AEAT) sobre cómo debe ser tu software de facturación: registros íntegros, verificables y legibles, con capacidad de remitirlos a Hacienda. No es factura electrónica, es cómo funciona el programa que la emite. La norma publicada sigue diciendo lo mismo que tras el Real Decreto-ley 15/2025: antes del 1 de enero de 2027 para los obligados del Impuesto sobre Sociedades y antes del 1 de julio de 2027 para el resto, autónomos incluidos. El 5 de octubre de 2026, el Ministerio de Hacienda publicó una [nota informativa](https://www.hacienda.gob.es/sgt/gabsehacienda/nota-informativa-verifactu.pdf) con la previsión de aplazar las obligaciones pendientes hasta octubre de 2028 para alinearlas con la factura electrónica. Es una previsión, no una norma: hoy no hay ninguna disposición publicada en el BOE que cambie esas fechas, así que el aplazamiento no se puede dar por hecho.
 
-- **Empresas que tributan por el Impuesto sobre Sociedades: antes del 1 de enero de 2027.**
-- **Autónomos y el resto de obligados: antes del 1 de julio de 2027.**
+**La factura electrónica B2B**, la de la ley Crea y Crece, sí tiene fechas firmes desde octubre de 2026. La [Orden HAC/1028/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20587), publicada el 5 de octubre y en vigor desde el 6 de octubre de 2026, puso en marcha el cómputo de los plazos del Real Decreto 238/2026. Según el [calendario de la AEAT](https://sede.agenciatributaria.gob.es/Sede/todas-noticias/2026/octubre/7/solucion-publica-facturacion-electronica.html):
 
-Lo dijo la propia AEAT en su nota informativa de ampliación de plazo: quienes presenten el Impuesto sobre Sociedades deberán tener adaptados sus sistemas antes del 1 de enero de 2027, y el resto antes del 1 de julio de 2027. El periodo previo a esas fechas es de pruebas, no de dejadez.
+- **6 de octubre de 2027:** empresarios y profesionales con un volumen de operaciones superior a 8 millones de euros. Expedir, remitir y recibir factura electrónica, e informar del estado de las facturas y de los pagos.
+- **6 de octubre de 2028:** el resto de empresarios y profesionales. Además, las personas jurídicas de hasta 8 millones tendrán que informar del estado de las facturas y de los pagos.
+- **6 de octubre de 2029:** personas físicas y entidades en régimen de atribución de rentas, para la información de estados y pagos.
 
-Por qué importa para esta guía: si en 2026 vas a tocar tu facturación de todos modos para cumplir, es el momento de automatizar de una vez, porque el coste de hacerlo encima de un sistema ya adaptado es menor que el de hacer dos proyectos en dos años. **Automatizar y cumplir no son dos compras, son una.** Cuando elijas vía o proveedor, una de las primeras preguntas es: "¿tu solución ya está adaptada a VERI\*FACTU o te la adapta?".
+Qué cambia esto para la guía: el argumento de "aprovecho que toco la facturación en 2026 porque me corre prisa" ya no se sostiene igual, porque la mayoría de las pymes tiene margen hasta 2028. El argumento bueno es el otro: automatizar la factura recibida devuelve horas todos los meses, independientemente de la norma, y llegar a la fecha con el flujo ya montado sale más barato que montarlo entonces. Lo que no conviene es comprar el programa en 2027 sin haber ordenado antes el proceso.
+
+Cuando elijas vía o proveedor, haz dos preguntas separadas, porque son cosas distintas y no todos los programas resuelven las dos: "¿tu solución está adaptada a VERI\*FACTU?" y "¿emite y recibe factura electrónica en el formato de la norma?".
 
 ## Seguridad y datos: las preguntas antes de automatizar
 
@@ -182,15 +187,15 @@ Las facturas recibidas y la conciliación bancaria, porque son donde más horas 
 **¿Cuál es la diferencia entre factura emitida y factura recibida para automatizar?**
 La emitida es la que tú mandas: generarla y enviarla es sencillo. La recibida es la que te llega de proveedores: hay que leerla (proveedor, base, IVA, total) y pasarla a contabilidad. Automatizar la recibida es lo que más tiempo te devuelve.
 
-**¿Qué es VERI\*FACTU y cuándo es obligatorio?**
-Es el sistema de la AEAT sobre cómo debe ser tu software de facturación. Las empresas que tributan por el Impuesto sobre Sociedades deben tenerlo adaptado antes del 1 de enero de 2027; autónomos y el resto, antes del 1 de julio de 2027.
+**¿Qué es Verifactu y cuándo es obligatorio?**
+Es el sistema de la AEAT sobre cómo debe ser tu software de facturación. La norma vigente fija el 1 de enero de 2027 para los obligados del Impuesto sobre Sociedades y el 1 de julio de 2027 para autónomos y el resto. En octubre de 2026 Hacienda anunció su intención de aplazarlo hasta octubre de 2028, pero ese aplazamiento todavía no está publicado en el BOE.
 
 **¿Automatizar facturas es lo mismo que factura electrónica B2B?**
-No. Automatizar es que el sistema genere, lea y archive sin teclear. La factura electrónica B2B (obligatoria para empresas y autónomos por la ley Crea y Crece) es otro requisito, con otro calendario. Un buen proyecto de automatización de 2026 puede dejarte preparado para ambos.
+No. Automatizar es que el sistema genere, lea y archive sin teclear. La factura electrónica B2B, la de la ley Crea y Crece, es otro requisito y ya tiene fechas: 6 de octubre de 2027 para quien supera 8 millones de euros de volumen y 6 de octubre de 2028 para el resto. Un buen proyecto de automatización puede dejarte preparado para las dos.
 
 **¿Me conviene un programa de gestión, un extractor o desarrollo a medida?**
 Depende de tu software y volumen. De cero o casi, un programa de gestión. Muchas facturas repetitivas con contabilidad ya montada, un extractor. Ya vives en un ERP y quieres que la factura entre y salga dentro de él, desarrollo a medida. Empieza por la vía más simple que cumpla.
 
 ## Cómo se elaboró esta guía
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España; aparece en ella como una de las opciones (la vía 3), y por eso se declara y se compara sin favoritismos. El orden de documentos por rentabilidad y las tres vías sintetizan la práctica habitual de la automatización documental en pymes españolas y nuestro trabajo con ellas; no citamos ningún proyecto cliente aquí. Los plazos de VERI\*FACTU se apoyan en la nota informativa de la Agencia Tributaria sobre la ampliación del plazo de adaptación de los sistemas informáticos de facturación (Real Decreto-ley 15/2025). Holded, Quipu, Anfix, Sage, Parseur y ABBYY se mencionan como opciones del mercado conocidas y verificables; no tenemos afiliación con ninguna. Los costes se indican como "cuota mensual" o "proyecto" a propósito: los precios concretos cambian, y los publicamos con más detalle en nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Ante cualquier duda fiscal o legal, consulta con tu asesor o con la AEAT.
+Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España; aparece en ella como una de las opciones (la vía 3), y por eso se declara y se compara sin favoritismos. El orden de documentos por rentabilidad y las tres vías sintetizan la práctica habitual de la automatización documental en pymes españolas y nuestro trabajo con ellas. El caso de Roydisa que aparece al principio es un proyecto nuestro en producción: la ventana medida, la fuente de las cifras y los límites de extrapolación están publicados en la página del caso. El calendario fiscal se apoya en la Orden HAC/1028/2026 y el Real Decreto 238/2026, en la nota informativa del Ministerio de Hacienda del 5 de octubre de 2026 y en la página de la AEAT sobre la solución pública de facturación electrónica, consultadas el 23 de octubre de 2026. Holded, Quipu, Anfix, Sage, Parseur y ABBYY se mencionan como opciones del mercado conocidas y verificables; no tenemos afiliación con ninguna. Los costes se indican como "cuota mensual" o "proyecto" a propósito: los precios concretos cambian, y los publicamos con más detalle en nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Ante cualquier duda fiscal o legal, consulta con tu asesor o con la AEAT.

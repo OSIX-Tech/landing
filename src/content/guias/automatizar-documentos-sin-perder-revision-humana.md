@@ -7,7 +7,7 @@ summary: "Seis tipos de documento por retorno y riesgo, los controles que mantie
 category: "Automatización documental"
 section: "automatizar-procesos"
 published: "2026-09-04"
-updated: "2026-09-30"
+updated: "2026-10-23"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "integrar-ia-software-pyme-espana"
@@ -16,6 +16,8 @@ related:
 ---
 
 Sí se puede automatizar documentos sin perder la revisión humana, si se separan preparación y decisión. La máquina recibe el PDF, correo o formulario, extrae los datos, comprueba reglas y prepara una propuesta. La persona decide cuando el documento implica pagar, firmar, enviar, presentar o asumir un riesgo difícil de revertir. Para una pyme, el mejor primer proceso suele ser el que combina volumen repetitivo, reglas visibles y errores corregibles, no el documento más llamativo.
+
+> **Prueba en producción:** En Roydisa, el flujo de documentos de proveedores trató **más de 30.000 ficheros** con una mediana de **27 segundos** de la foto al Excel, y el **0,04 %** de error técnico desde junio. Ese 0,04 % mide fallos del flujo, no aciertos campo a campo: lo que la revisión humana sigue cazando es el dato bien leído que no cuadra con el pedido o con el precio acordado. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
 
 ## La regla: automatiza el preparar, conserva el decidir
 
@@ -153,6 +155,6 @@ Depende de cuántas excepciones genere el proceso. Un diseño honesto arranca co
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización documental a medida para pymes. Los seis tipos se ordenan por dos criterios editoriales: retorno, el volumen de trabajo que el proceso quita al equipo; y riesgo, el impacto de un error multiplicado por su reversibilidad. No citamos clientes ni casos de éxito. Fuentes: la definición de human-in-the-loop de IBM, que recoge el artículo 14 de la Ley de IA de la UE (Reglamento (UE) 2024/1689) sobre supervisión humana en sistemas de alto riesgo. Última revisión: septiembre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización documental a medida para pymes. Los seis tipos se ordenan por dos criterios editoriales: retorno, el volumen de trabajo que el proceso quita al equipo; y riesgo, el impacto de un error multiplicado por su reversibilidad. Las cifras de Roydisa que abren la guía son de un proyecto nuestro en producción, con su ventana de medición y sus límites publicados en la página del caso; el resto de la guía no cita clientes. Fuentes: la definición de human-in-the-loop de IBM, que recoge el artículo 14 de la Ley de IA de la UE (Reglamento (UE) 2024/1689) sobre supervisión humana en sistemas de alto riesgo. Última revisión: octubre de 2026.
 
 - [Qué es human in the loop (HITL), según IBM](https://www.ibm.com/es-es/think/topics/human-in-the-loop)

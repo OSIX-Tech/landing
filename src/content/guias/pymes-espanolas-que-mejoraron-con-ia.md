@@ -1,13 +1,13 @@
 ---
 title: "Casos reales de pymes españolas que mejoraron con IA"
 seoTitle: "Casos reales de pymes españolas que mejoraron con IA (2026): qué hicieron distinto - OSIX Tech"
-description: "Ejemplos reales y documentados de pymes españolas que han mejorado con IA: los cinco resultados más comunes (atención al cliente, automatización, predicción, RRHH y presupuestos), con los datos nacionales de Sage y la contrapartida honesta de cada caso."
+description: "Ejemplos reales y documentados de pymes españolas que han mejorado con IA: los cinco resultados más comunes (atención al cliente, automatización, predicción, RRHH y presupuestos), con los datos nacionales de Sage, la contrapartida honesta de cada caso y ocho casos propios con sus cifras."
 subtitle: "Los cinco resultados más documentados, con sus datos, sus sectores y la contrapartida honesta de cada uno."
 summary: "Qué hicieron distinto y qué resultados obtuvieron"
 category: "Casos reales"
 section: "primeros-pasos"
 published: "2026-08-25"
-updated: "2026-09-22"
+updated: "2026-10-23"
 related:
   - "procesos-pyme-automatizar-con-ia"
   - "para-que-sirve-ia-pyme"
@@ -78,6 +78,21 @@ La contrapartida: la automatización aquí funciona solo si los precios y las ti
 
 **Mejor para:** construcción, instaladores, servicios técnicos y cualquier negocio que cotice de forma recurrente.
 
+## Los ocho casos que sí podemos documentar con nuestras cifras
+
+La lista anterior son patrones documentados por terceros. Esta sección es de otra naturaleza: proyectos que ha construido OSIX Tech, cada uno con su página pública, su ventana de medición y sus límites. Los ponemos aparte y con nombre porque la pregunta que trae a la mayoría hasta aquí es si esto se ha hecho de verdad en alguna empresa, y un porcentaje nacional no la responde.
+
+- **Roydisa** (distribución y suministros industriales). Lectura de documentos de proveedores con salida a Excel: 27 s de mediana de la foto al Excel en más de 30.000 ficheros, y el 88 % resuelto en menos de un minuto. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
+- **Roydisa, equipo comercial.** Borradores de oferta con el precio trazado: 16 s de mediana por borrador y el 93 % de las referencias identificadas sin buscarlas. [Ver el caso de Roydisa en ofertas](https://osix.tech/casos/roydisa-ofertas/).
+- **ICIGA** (distribución de material químico y de laboratorio). Correo comercial, propuestas y CRM desde Gmail: propuesta lista para el 99,5 % de los correos comerciales en 29 s de mediana, con el 62,2 % del correo entrante apartado como ruido. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
+- **Nessie** (instituto de investigación educativa). Asistente sobre los documentos de la organización: más de 700 documentos consultables sin moverlos de Drive y el 92 % del equipo volviendo otro día. [Ver el caso de Nessie](https://osix.tech/casos/nessie-documentos/).
+- **TAKE** (cafetería en Santiago). App de fidelización con tarjeta en Wallet: 90,3 % de repetición entre los clientes que sellan y el 78 % con la tarjeta en el móvil. [Ver el caso de TAKE](https://osix.tech/casos/take-fidelizacion/).
+- **Avalagro** (cooperativa láctea). Evaluación de equipo desde el móvil: de una evaluación trimestral a una cada quince días, con 9,9 min por ronda completa. [Ver el caso de Avalagro](https://osix.tech/casos/avalagro-evaluacion/).
+- **Xeración21** (academia de oposiciones). Corrección y planes de estudio dentro de su Moodle: menos de 10 € de IA por alumno y curso y 12 s para preparar un plan de estudio. [Ver el caso de Xeración21](https://osix.tech/casos/xeracion21-moodle/).
+- **ALIA** (análisis de gallego hablado, con Proxecto Nós y la USC). Transcripción y detección de fenómenos lingüísticos: 24 h como máximo de retención del audio y ejecución 100 % local disponible. [Ver el caso de ALIA](https://osix.tech/casos/alia-galego/).
+
+El sesgo de este listado es evidente y conviene decirlo: los números los medimos nosotros, en nuestros propios proyectos, no una auditoría independiente. Cada caso publica la ventana observada, la fuente de las cifras y lo que no permite concluir, y ninguno se presenta como una garantía de resultado para otra empresa. Si lo que buscas es una referencia externa, quédate con los datos de Sage y con los ejemplos de la lista anterior.
+
 ## Qué distingue a las pymes que mejoraron de las que no
 
 Los datos de Sage también describen al otro lado: el 44% de las pymes españolas aún no ha implementado IA, el 30% de las que quieren hacerlo declara no saber por dónde empezar, y el 51% cita la falta de claridad normativa como barrera. Ese hueco entre querer y saber es el mismo que separa a las que mejoran de las que no, y el factor decisivo rara vez es el presupuesto.
@@ -92,7 +107,7 @@ El patrón inverso es igual de reconocible: proyectos que arrancan sin métrica,
 
 ## Cómo se ha elaborado esta guía
 
-La publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela. La fotografía nacional (56% de adopción, 93% que percibe mejora, usos por área: atención 34%, datos 32%, RRHH 47%, automatización 34%) procede del estudio AI Action Summit Research de Sage de septiembre de 2025, difundido por Europa Press; los ejemplos sectoriales de atención, presupuestos, bodega y comercio están documentados en los programas públicos de divulgación del IME Business School de la Universidad de Salamanca. Aparecemos en el mercado que describimos: no constituimos una fuente neutral, por eso hemos puesto las fuentes de cada dato y por eso ningún caso de esta lista es un proyecto nuestro. Los porcentajes y patrones son orientativos y reflejan estudios de terceros, no resultados garantizados para tu empresa.
+La publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela. La fotografía nacional (56% de adopción, 93% que percibe mejora, usos por área: atención 34%, datos 32%, RRHH 47%, automatización 34%) procede del estudio AI Action Summit Research de Sage de septiembre de 2025, difundido por Europa Press; los ejemplos sectoriales de atención, presupuestos, bodega y comercio están documentados en los programas públicos de divulgación del IME Business School de la Universidad de Salamanca. Aparecemos en el mercado que describimos: no constituimos una fuente neutral, por eso hemos puesto las fuentes de cada dato y por eso los cinco patrones de la lista son de terceros. Nuestros propios proyectos aparecen en una sección aparte, identificados como nuestros y con su medición enlazada, para que puedas descontarlos. Los porcentajes y patrones son orientativos y reflejan estudios de terceros, no resultados garantizados para tu empresa.
 
 ## Preguntas frecuentes
 
@@ -116,8 +131,12 @@ No necesariamente. Varios de los casos más comunes (chatbot de atención, autom
 
 En los casos de esta lista, no: la automatización y la atención automatizada liberan al equipo de trabajo mecánico y repetitivo, pero el criterio, la revisión y las decisiones siguen siendo humanos. El riesgo señalado por las propias pymes (falta de talento, según el estudio de Sage, con un 48%) se reduce cuando la empresa forma a su gente en la herramienta, no cuando solo la sabe una persona externa.
 
+### ¿Qué casos reales ha hecho OSIX Tech en España?
+
+Ocho, con sus cifras publicadas: Roydisa (documentos de proveedores a Excel en 27 segundos de mediana), ICIGA (propuesta lista para el 99,5 % de los correos comerciales en 29 segundos), TAKE (90,3 % de repetición entre los clientes que sellan), Avalagro (evaluaciones cada quince días en 9,9 minutos), Xeración21 (corrección con IA por menos de 10 € por alumno y curso), Nessie (más de 700 documentos consultables con su fuente), ALIA (análisis de gallego hablado sin guardar el audio) y Roydisa otra vez en borradores de oferta. Cada caso tiene su página con la ventana medida y sus límites de extrapolación.
+
 ## Fuentes
 
-- Sage / Europa Press, AI Action Summit Research (septiembre 2025), adopción y percepción de mejora en pymes españolas: https://www.europapress.es/portaltic/empresas/noticia-56-pymes-espanolas-ya-utiliza-ia-percibiendo-mejora-productividad-93-casos-20250925110058.html
-- IME Business School (Universidad de Salamanca), casos de aplicación de IA en pequeñas empresas españolas: https://imeusal.eu/casos-reales-de-aplicacion-de-ia-en-pequenas-empresas-espanolas/
-- IME Business School (Universidad de Salamanca), bodegas inteligentes y predicción de cosecha: https://imeusal.eu/bodegas-inteligentes-como-se-usa-la-ia-para-prever-cosechas-y-optimizar-procesos/
+- [Sage / Europa Press, AI Action Summit Research (septiembre 2025), adopción y percepción de mejora en pymes españolas](https://www.europapress.es/portaltic/empresas/noticia-56-pymes-espanolas-ya-utiliza-ia-percibiendo-mejora-productividad-93-casos-20250925110058.html)
+- [IME Business School (Universidad de Salamanca), casos de aplicación de IA en pequeñas empresas españolas](https://imeusal.eu/casos-reales-de-aplicacion-de-ia-en-pequenas-empresas-espanolas/)
+- [IME Business School (Universidad de Salamanca), bodegas inteligentes y predicción de cosecha](https://imeusal.eu/bodegas-inteligentes-como-se-usa-la-ia-para-prever-cosechas-y-optimizar-procesos/)

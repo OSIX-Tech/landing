@@ -7,6 +7,7 @@ summary: "RAG explicado sin jerga: preparar documentos, respetar permisos y prob
 category: "Asistentes con IA"
 section: "primeros-pasos"
 published: "2026-09-24"
+updated: "2026-10-23"
 related:
   - "integrar-ia-software-pyme-espana"
   - "chatbot-sin-programar"
@@ -25,6 +26,8 @@ faqs:
 ---
 
 Un asistente de IA que responde sobre los documentos de tu empresa no necesita que vuelvas a entrenar el modelo con cada archivo. Normalmente usa RAG: cuando alguien pregunta, busca pasajes relevantes en una colección de documentos, los pasa como contexto al modelo y genera una respuesta basada en ellos. Puede incluir referencias al archivo y la página si el sistema conserva esa información, pero RAG reduce las respuestas inventadas, no garantiza que desaparezcan.
+
+> **Prueba en producción:** En el piloto de Nessie con un instituto de investigación educativa quedaron consultables **más de 700 documentos** y **1.400 imágenes** sin moverlos de Drive; lo usó el **100 %** del equipo con acceso, el **92 %** volvió otro día y el **54 %** de las consultas fueron conversaciones de varios turnos, con cada respuesta citando el documento de origen. [Ver el caso de Nessie](https://osix.tech/casos/nessie-documentos/).
 
 ## El asistente busca fragmentos, no relee toda tu carpeta
 
@@ -115,7 +118,7 @@ No siempre. Si el uso es sencillo y la plataforma respeta las fuentes y permisos
 
 ## Cómo se elaboró esta guía
 
-La publica OSIX Tech, que desarrolla [software a medida con IA para pymes](https://osix.tech/servicios/desarrollo-a-medida/). Esta guía explica el criterio general para decidir el alcance de un piloto; no sustituye una revisión de seguridad, privacidad o cumplimiento para un sistema concreto. La descripción técnica se contrastó con la documentación de Microsoft, Google Cloud y AWS. La recomendación práctica es empezar con documentos de bajo riesgo, probar búsqueda, respuesta, citas y permisos por separado, y ampliar solo cuando los fallos estén controlados.
+La publica OSIX Tech, que desarrolla [software a medida con IA para pymes](https://osix.tech/servicios/desarrollo-a-medida/). El piloto de Nessie que aparece al principio es un proyecto nuestro, y su página de caso publica la ventana medida, la fuente de las cifras y los límites de extrapolación. Esta guía explica el criterio general para decidir el alcance de un piloto; no sustituye una revisión de seguridad, privacidad o cumplimiento para un sistema concreto. La descripción técnica se contrastó con la documentación de Microsoft, Google Cloud y AWS. La recomendación práctica es empezar con documentos de bajo riesgo, probar búsqueda, respuesta, citas y permisos por separado, y ampliar solo cuando los fallos estén controlados.
 
 ## Fuentes
 
