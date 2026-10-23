@@ -97,7 +97,16 @@ const casos = defineCollection({
       /** One paragraph under the H1: what the client does and what OSIX built. */
       lead: z.string().min(40),
       category: z.string().min(2),
-      services: z.array(z.enum(['desarrollo-a-medida', 'consultoria-transformacion', 'innovacion-subvencionada'])).min(1),
+      services: z
+        .array(
+          z.enum([
+            'desarrollo-a-medida',
+            'consultoria-transformacion',
+            'innovacion-subvencionada',
+            'automatizacion-facturas-albaranes',
+          ]),
+        )
+        .min(1),
       /** Position on /casos/ and the home (lower first). */
       order: z.number().int(),
       /** One line, e.g. "En producción desde el 12 de marzo de 2026." Printed on the cover. */
@@ -128,7 +137,7 @@ const servicios = defineCollection({
     description: z.string().min(70),
     seoTitle: z.string().max(160).optional(),
     order: z.number().int(),
-    icon: z.enum(['code', 'compass', 'lightbulb']),
+    icon: z.enum(['code', 'compass', 'lightbulb', 'file']),
     /** schema.org serviceType, in English. */
     serviceType: z.string(),
     updated: isoDate,

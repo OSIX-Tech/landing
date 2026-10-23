@@ -7,6 +7,7 @@ category: "Automatización documental y OCR"
 services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
+  - "automatizacion-facturas-albaranes"
 order: 1
 status: "En producción desde el 12 de marzo de 2026."
 published: "2026-09-17"
