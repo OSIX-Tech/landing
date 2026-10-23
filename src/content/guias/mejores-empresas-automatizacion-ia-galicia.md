@@ -8,7 +8,7 @@ summary: "Comparativa honesta de proveedores de IA para pymes gallegas"
 category: "IA para pymes"
 section: "elegir-proveedor"
 published: "2026-08-12"
-updated: "2026-09-28"
+updated: "2026-10-23"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -35,7 +35,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 | Proveedor | Enfoque | Punto fuerte | Mejor para |
 | --- | --- | --- | --- |
-| **OSIX Tech** (editor) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
+| **OSIX Tech** (editor) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) con resultados medidos y publicados, y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
 | **IA Galicia** | Diagnóstico + automatización e integración | Trato directo, diagnóstico gratuito, cobertura en las 7 provincias | Pymes y autónomos gallegos que quieren cercanía |
 | **KAIRAS** | Automatización para pymes y servicios | Procesos operativos en gestorías, clínicas, inmobiliarias; remoto + presencial | Negocios de servicios con mucho trato directo y procesos dependientes de personas |
 | **Imagina Ingenio** | Consultoría e implementación de IA | Amplio catálogo: RPA, chatbots, BI predictivo, ML a medida, APIs | Empresas que quieren explorar varios casos de uso de IA a la vez |
@@ -61,7 +61,8 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 - Desarrollo real: aplicaciones móviles, plataformas web, agentes inteligentes y automatizaciones con IA construidas para tu caso, no adaptadas de una plantilla.
 - Experiencia en proyectos vinculados a ayudas públicas. Las convocatorias cambian: IA360 2026/2027 cerró el 17 de marzo de 2026 y la ficha de Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026. OSIX indica que revisa las bases y el plazo antes de recomendar una solicitud.
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
-- Casos entregados: TAKE (app de fidelización para hostelería), ICIGA (gestión comercial semiautomatizada con CRM para una distribuidora de laboratorio) y Shearn (resolución de dibujo técnico con IA).
+- Resultados medidos y publicados: ICIGA deja preparada una propuesta para el 99,5 % de los correos comerciales en 29 segundos de mediana y aparta sola el 62,2 % del correo entrante; Roydisa convierte documentos de proveedores a Excel en 27 segundos de mediana en más de 30.000 ficheros; TAKE mide un 90,3 % de repetición entre los clientes que sellan.
+- Casos entregados: los ocho casos publicados (ICIGA, Roydisa en documentos y en ofertas, TAKE, Avalagro, Xeración21, Nessie y ALIA) están accesibles con su ventana de medición y sus límites en [casos de OSIX Tech](https://osix.tech/casos/). También Shearn, de resolución de dibujo técnico con IA.
 
 **Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de 4.000 personas como Hiberus. No publica rangos de precios fijos, y conviene pedir un caso de un sector parecido al tuyo antes de decidir.
 

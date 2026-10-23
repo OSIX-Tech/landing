@@ -8,7 +8,7 @@ summary: "La secuencia en 7 pasos, qué puede hacer tu equipo solo y qué exigir
 category: "Implantación"
 section: "primeros-pasos"
 published: "2026-09-11"
-updated: "2026-09-22"
+updated: "2026-10-23"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "procesos-pyme-automatizar-con-ia"
@@ -21,6 +21,8 @@ Guía · Implantación · IA para pymes · España
 La secuencia en 7 pasos, lo que puede hacer tu equipo sin ayuda externa y lo que conviene exigir cuando entra un proveedor.
 
 Sí se puede, y no hace falta contratar a nadie técnico para empezar. Lo que decide si la implantación funciona no es la herramienta ni el modelo de IA: son dos cosas que casi nadie pone por escrito en las primeras semanas. La primera es un responsable interno con tiempo y autoridad, que no tiene por qué ser técnico. La segunda es la regla sobre qué datos pueden salir de la empresa, decidida antes del primer experimento y no después. Con esas dos piezas en su sitio, una pyme de 5 a 50 personas puede tener algo funcionando en cuatro semanas y medir si sirve, con una inversión que va desde cero euros en herramientas que ya pagas hasta 5.000 o 15.000 euros si el proceso toca tu ERP o tu CRM. Esta guía la publica OSIX Tech, consultora de desarrollo de software e IA para pymes en Santiago de Compostela, y ordena el camino en siete pasos medibles.
+
+> **Prueba en producción:** En ICIGA, una distribuidora de material químico y de laboratorio, el flujo se montó alrededor de las cuatro bandejas de Gmail y el ERP que la empresa ya usaba, sin cambiar de correo ni de programa de gestión: hoy aparta solo el **62,2 %** del correo entrante y deja preparada una propuesta para el **99,5 %** de los correos comerciales en **29 segundos** de mediana. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
 
 Antes de la secuencia, una advertencia útil: la mayoría de las pymes que se quedan atascadas no se equivocan de herramienta, se saltan el paso de escribir cómo se hace hoy el trabajo. Sin ese papel, nadie puede medir si la IA ayudó, y la conversación se convierte en una opinión.
 
@@ -188,7 +190,7 @@ Esta guía la publica OSIX Tech, una consultora de desarrollo de software e IA p
 
 La secuencia de siete pasos se construyó a partir de los patrones que se repiten en proyectos de automatización con IA en pymes pequeñas y medianas, y del criterio que aplicamos al analizar un proceso antes de proponer nada. Las cifras de adopción proceden del informe del ONTSI sobre uso de inteligencia artificial en España (edición 2026, con datos de 2025). Los precios de herramientas son los publicados por cada proveedor en la fecha de actualización. Los tramos de proyecto son referencias de mercado que contrastamos con proyectos reales de pyme, y están desglosados por tipo de proyecto en nuestra guía de precios. Las obligaciones legales se citan desde las fuentes oficiales: el portal de la AESIA para el artículo 4 del Reglamento europeo de IA y la web de la AEPD para protección de datos.
 
-Fecha de actualización: 11 de septiembre de 2026. Los precios de licencias y el estado de la normativa cambian; verifica ambos en la fuente antes de decidir.
+Fecha de actualización: 23 de octubre de 2026. Los precios de licencias y el estado de la normativa cambian; verifica ambos en la fuente antes de decidir.
 
 ## Fuentes
 

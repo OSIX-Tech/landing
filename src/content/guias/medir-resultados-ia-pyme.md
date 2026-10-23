@@ -7,7 +7,7 @@ summary: "El marco de 5 capas (financiero, negocio, operaciones, adopción, cali
 category: "Medición"
 section: "costes-y-resultados"
 published: "2026-09-01"
-updated: "2026-09-22"
+updated: "2026-10-23"
 related:
   - "cuanto-tarda-ia-primeros-resultados-pyme-espana"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -16,6 +16,8 @@ related:
 ---
 
 Para una pyme en España en 2026, medir si la IA da resultados no es mirar "cuánto se usa", sino responder una sola pregunta: ¿qué resultado de negocio debía mejorar y cuánto ha mejorado gracias a la IA? La forma práctica es un marco de 5 capas: impacto financiero, resultados de negocio, cambio operativo, adopción real y calidad de la IA. Se empieza definiendo el KPI de negocio antes de implantar nada, se mide el proceso antes y después, y se comparan los resultados contra el coste total (implantación, licencias, mantenimiento y horas del equipo). Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y adapta a la realidad de una pyme el enfoque de 5 capas que McKinsey propone para grandes empresas, con el límite honesto de qué puede y qué no puede demostrar la medición.
+
+> **Prueba en producción:** En Avalagro, una cooperativa láctea, la evaluación del equipo pasó de una vez por trimestre a una cada quince días, y una ronda completa cuesta **9,9 minutos** de mediana desde el móvil. Es el tipo de cambio que este marco mide: una cifra de partida, otra después, y la misma definición en las dos. [Ver el caso de Avalagro](https://osix.tech/casos/avalagro-evaluacion/).
 
 ## La respuesta en 30 segundos
 
@@ -109,6 +111,18 @@ El estándar de referencia es evaluar el sistema antes del despliegue y periódi
 4. **Compara contra el coste total.** Beneficio mensual x 12 contra el coste a 24 meses.
 5. **Revisa cada mes, no cada año.** 30 minutos al mes con la hoja de cálculo. Si un KPI no se mueve, investiga antes de escalar.
 
+## El método aplicado, con cifras de proyectos reales
+
+La teoría se entiende mejor con números que ya existen. Estos son cinco proyectos de OSIX Tech, cada uno con su métrica principal, su cifra y lo que esa cifra no permite concluir. Lo último de cada línea es lo que importa: es el mismo límite honesto de abajo, aplicado caso por caso.
+
+- **Avalagro.** Evaluaba a su equipo una vez por trimestre; ahora cada quince días, con 9,9 min por ronda completa desde el móvil. *No demuestra:* no publica el tiempo por ronda antes de la app, así que la mejora de esfuerzo no está medida.
+- **ICIGA.** El 62,2 % del correo entrante se aparta solo y la propuesta está lista para el 99,5 % de los correos comerciales en 29 s de mediana. *No demuestra:* si se cerraron más ventas; mide tiempo y volumen, no conversión.
+- **Roydisa.** 27 s de mediana de la foto al Excel en más de 30.000 ficheros, con 0,04 % de error técnico del flujo. *No demuestra:* el 0,04 % cuenta fallos del flujo, no aciertos campo a campo del OCR.
+- **TAKE.** 90,3 % de repetición entre los clientes que sellan y 40,3 % de retención a 30 días. *No demuestra:* sin grupo de control no separa el efecto de la app del atractivo del propio negocio.
+- **Xeración21.** Menos de 10 € de IA por alumno y curso y 12 s para preparar un plan de estudio. *No demuestra:* mejora de resultados académicos, solo coste y velocidad.
+
+Ninguna de esas cifras es un ROI. Son el paso 2 (la línea base) y el paso 3 (medir con el mismo criterio), que es justo lo que se puede demostrar sin un laboratorio. [Los casos completos, con su ventana de medición y sus límites, están aquí](https://osix.tech/casos/).
+
 ## El límite honesto: qué no puede demostrar la medición
 
 La medición tiene tres límites que conviene nombrar, porque un proveedor que no los nombra te está vendiendo humo:
@@ -136,4 +150,4 @@ No. Hay usos donde el valor no es económico directo: mejorar la experiencia del
 
 ## Cómo se elaboró esta guía
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. El marco de 5 capas adapta el enfoque de medición de valor de IA que publica McKinsey para grandes empresas, simplificado para el tamaño de una pyme; la recomendación de evaluar los sistemas de IA antes del despliegue y periódicamente durante la operación proviene del marco de gestión de riesgos de IA de NIST. Los ejemplos de KPIs y el método antes/después son la síntesis de esos marcos y de nuestro trabajo con pymes españolas; no hay ningún proyecto cliente citado aquí. No tenemos afiliación con McKinsey ni con NIST. Los importes de coste son referencias del mercado español que publicamos en nuestra guía de precios; verificables y actualizables.
+Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. El marco de 5 capas adapta el enfoque de medición de valor de IA que publica McKinsey para grandes empresas, simplificado para el tamaño de una pyme; la recomendación de evaluar los sistemas de IA antes del despliegue y periódicamente durante la operación proviene del marco de gestión de riesgos de IA de NIST. Los ejemplos de KPIs y el método antes/después son la síntesis de esos marcos y de nuestro trabajo con pymes españolas. Las cifras de la tabla de proyectos son de cinco proyectos nuestros en producción, cada una con su página de caso, su ventana de medición y sus límites publicados. No tenemos afiliación con McKinsey ni con NIST. Los importes de coste son referencias del mercado español que publicamos en nuestra guía de precios; verificables y actualizables.

@@ -7,7 +7,7 @@ summary: "Qué consultas automatizar, comparativa de Zendesk, HubSpot, Intercom 
 category: "Atención al cliente"
 section: "automatizar-procesos"
 published: "2026-08-31"
-updated: "2026-09-22"
+updated: "2026-10-23"
 related:
   - "chatbot-sin-programar"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -15,6 +15,8 @@ related:
 ---
 
 Para una pyme en España en 2026, la forma correcta de automatizar la atención al cliente no es comprar el chatbot más caro: es empezar por las consultas repetitivas, darles una base de conocimientos clara y dejar los casos complejos en manos de una persona. En la práctica, un sistema bien montado resuelve entre el 50% y el 70% de las consultas sin intervención humana (los propios proveedores publican tasas en ese rango), y el resto mejora la calidad del servicio porque una persona dedica su tiempo a lo que importa. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y el resto de España, y compara las principales opciones del mercado (Zendesk, HubSpot, Intercom, Tidio y el desarrollo a medida) con precios reales comprobados en sus páginas oficiales en agosto de 2026 y con un límite honesto para cada una.
+
+> **Prueba en producción:** En ICIGA, una distribuidora de material químico y de laboratorio, el sistema aparta solo el **62,2 %** del correo entrante (spam, correo no comercial y ofertas de proveedores) y deja preparada una propuesta para el **99,5 %** de los correos comerciales en **29 segundos** de mediana, con el CRM rellenándose sin que nadie lo teclee. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
 
 ## La respuesta en 30 segundos
 
@@ -122,7 +124,7 @@ También es una opción legítima. Si tu negocio recibe pocas consultas, tu equi
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. No tenemos afiliación ni comisión con ninguna de las herramientas citadas; cuando una no nos convence, lo decimos. Los precios son los publicados en las páginas oficiales (zendesk.es, hubspot.com, intercom.com, tidio.com) en agosto de 2026, sin IVA en los casos en que la página no lo incluye, y pueden cambiar. Los ejemplos de consultas y el método por pasos son la síntesis de las guías públicas de IBM, Zendesk y HubSpot y de nuestro trabajo con pymes españolas; no hay ningún proyecto cliente citado aquí. Las tasas de resolución del 50-70% son las que publican los propios proveedores (Intercom, Tidio, HubSpot) y dependen de cómo esté montado cada sistema.
+Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. No tenemos afiliación ni comisión con ninguna de las herramientas citadas; cuando una no nos convence, lo decimos. Los precios son los publicados en las páginas oficiales (zendesk.es, hubspot.com, intercom.com, tidio.com) en agosto de 2026, sin IVA en los casos en que la página no lo incluye, y pueden cambiar. Los ejemplos de consultas y el método por pasos son la síntesis de las guías públicas de IBM, Zendesk y HubSpot y de nuestro trabajo con pymes españolas. El caso de ICIGA que abre la guía es un proyecto nuestro en producción; las cifras y la ventana de medición están publicadas en la página del caso. Las tasas de resolución del 50-70% son las que publican los propios proveedores (Intercom, Tidio, HubSpot) y dependen de cómo esté montado cada sistema.
 
 ## Preguntas frecuentes
 
