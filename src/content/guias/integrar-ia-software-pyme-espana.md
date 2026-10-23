@@ -7,7 +7,7 @@ summary: "Las 5 vías reales (API, webhook, no-code, base de datos, RAG) y cuán
 category: "Integración"
 section: "automatizar-procesos"
 published: "2026-09-03"
-updated: "2026-09-24"
+updated: "2026-10-20"
 related:
   - "como-usar-ia-laboratorios"
   - "donde-se-guardan-datos-ia-empresa"
@@ -48,6 +48,13 @@ Casi todos los proveedores de IA (OpenAI, Anthropic, Google, Mistral, y los mode
 - Cuándo: tu software o un proveedor técnico puede escribir unas líneas de código para llamar al modelo dentro de un flujo.
 - Ventaja: control total, funciona con cualquier sistema que tenga API propia, escalable.
 - Límite honesto: requiere programar (tuya o de un proveedor) y gestionar costes por uso y seguridad de la clave.
+
+**MCP: el conector común que se apoya en esta vía.** MCP (Model Context Protocol) es un estándar abierto para conectar aplicaciones de IA con sistemas externos: fuentes de datos, herramientas y flujos de trabajo. La documentación del proyecto lo explica con una comparación que se entiende a la primera: es como el puerto USB-C de las aplicaciones de IA, un conector común en lugar de un cable distinto por cada aparato.
+
+En la práctica cambia una cosa: si tu ERP, tu CRM o tu LIMS se puede exponer como servidor MCP, la IA se conecta una vez y ese mismo conector sirve para cualquier cliente compatible. Claude, ChatGPT, Visual Studio Code y Cursor lo soportan, entre otros, así que la integración deja de multiplicarse por cada asistente que quieras poner encima.
+
+- Cuándo te ahorra trabajo: varios sistemas que conectar, o varios asistentes que deben ver los mismos datos.
+- Límite honesto: MCP estandariza el enchufe, no el trabajo de detrás. Sigue haciendo falta decidir qué datos expone cada sistema, con qué permisos y qué queda auditado, y no vuelve conectable un sistema cerrado que no ofrece ni API ni acceso a sus datos.
 
 ### 2. Webhook: cuando un evento debe disparar la IA
 
@@ -114,7 +121,7 @@ Un proyecto de integración que funciona no empieza escribiendo código ni compr
 1. **Define el proceso y el resultado.** Qué tarea concreta debe hacer la IA y qué mejora esperas (menos horas, menos errores, respuestas más rápidas). Igual que en nuestra guía de [medir si la IA da resultados](https://osix.tech/guias/medir-resultados-ia-pyme/), sin resultado definido no hay proyecto.
 2. **Localiza los datos.** Dónde está la información que la IA necesita y cómo se accede a ella hoy.
 3. **Elige la vía mínima.** La conexión más simple que cumpla: primero no-code si basta, API si hace falta, y reserva el desarrollo a medida para lo que de verdad lo exige.
-4. **Piloto con un humano en medio.** La IA propone, una persona valida. Mide precisión, tiempo y coste real antes de soltar.
+4. **Piloto con un humano en medio.** La IA propone, una persona valida. Mide precisión, tiempo y coste real antes de soltar. Ponle fecha y criterio de salida antes de empezar: qué métrica tiene que mejorar, cuánto y para cuándo, y qué se hace si no se cumple. Un piloto sin criterio de parada deja de ser una prueba y pasa a ser un coste fijo.
 5. **Escala con control.** Cuando el piloto demuestra valor, se automatiza el flujo y se define quién supervisa y qué métricas se miran.
 
 En cuanto a plazos: un piloto con un conector puede estar listo en días o un par de semanas; una integración a medida sobre un sistema existente suele ir de 4 a 8 semanas en los casos típicos de pyme, y más si hay que tocar sistemas muy antiguos o integraciones con terceros. Es un rango orientativo del mercado español, no una promesa; cada caso concreto depende del sistema y de los datos.
