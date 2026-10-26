@@ -7,7 +7,7 @@ summary: "Seis tipos de documento por retorno y riesgo, los controles que mantie
 category: "Automatización documental"
 section: "automatizar-procesos"
 published: "2026-09-04"
-updated: "2026-10-23"
+updated: "2026-10-26"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "integrar-ia-software-pyme-espana"
@@ -95,6 +95,42 @@ Estos cuatro controles son los que separan una automatización gobernada de una 
 
 4. Aprende de las correcciones. Las correcciones de la bandeja son información: si el mismo error se repite, se ajusta la regla, la plantilla o el origen de los datos. Así la revisión deja de ser un coste y pasa a ser el mecanismo de mejora del proceso.
 
+## Validar antes de registrar: qué se comprueba y en qué orden
+
+La validación antes de registrar sigue un orden fijo: identidad del proveedor contra el maestro, importe contra el pedido o contrato, campos obligatorios, duplicados y coherencia de fechas. El orden no es un detalle de estilo. Cada comprobación descarta documentos que harían inútil la siguiente, y registrar es la acción menos reversible del flujo: lo que llega al registro debería estar ya limpio de dudas.
+
+1. Identidad del proveedor contra el registro maestro. Se compara el NIF con el que ya tienes dado de alta, no el nombre comercial, que cambia más que la sociedad. Si el NIF no existe o no coincide, el documento se detiene antes de mirar importes: una factura de un proveedor mal identificado puede acabar pagada a quien no es o contabilizada en la cuenta equivocada, y el importe correcto no arregla eso.
+
+2. Importe contra el pedido, el contrato o el albarán. Es la comprobación de más valor y la única que necesita un documento de referencia. Base, IVA, retenciones y total deben cuadrar con lo aprobado, con una tolerancia escrita y distinta para cada familia de gasto. Sin tolerancia definida, la regla o no salta nunca o salta siempre.
+
+3. Campos obligatorios del registro. Antes de dar de alta, el sistema comprueba que están los datos que el registro exige, no solo los que la extracción encontró: número de factura, fecha, proveedor, base, IVA, total y referencia interna. Un campo vacío que pasa al registro se convierte en un dato que alguien rellenará a mano después, sin el documento delante.
+
+4. Duplicados. Se busca la misma factura por número, proveedor e importe, y también por el archivo original. Esta comprobación va antes de asignar número de registro porque deshacer un duplicado ya registrado cuesta más que detenerlo: toca contabilidad, pagos y conciliación a la vez.
+
+5. Coherencia de fechas. La fecha del documento, la de recepción y la del vencimiento deben encajar con las condiciones de pago del proveedor. Es la comprobación más barata de la lista y va la última porque solo tiene sentido sobre documentos que ya han pasado las anteriores.
+
+Ejemplo de regla falsable: toda factura cuyo NIF no coincida exactamente con el del maestro se detiene, aunque el nombre comercial sea idéntico. Un proveedor que empieza a facturar desde otra sociedad del grupo, o que pasa de autónomo a sociedad, mantiene el nombre con el que le conoces y cambia el NIF, y esa factura tiene que llegar a una persona. La regla se puede probar: si en un mes con altas de proveedores no ha detenido ningún documento, no está mirando el campo que crees.
+
+Límite honesto: estas cinco comprobaciones validan el documento contra tus datos, no contra la realidad. Si el registro maestro está desactualizado, la validación reproduce el error con más confianza, porque el sistema confirma que la factura coincide con un proveedor que ya no es ese proveedor. Cuando una validación pasa y el resultado sigue estando mal, el primer sitio donde hay que mirar es el maestro.
+
+## Cómo saber que la automatización se está equivocando
+
+El automatismo se está equivocando cuando sus propias señales dejan de moverse: la tasa de error de una regla se repite mes a mes, una excepción que debería saltar no salta nunca, las correcciones se concentran en un campo o en un proveedor, o el muestreo deja de encontrar errores. Las cuatro se calculan con el registro de revisiones que el flujo ya genera, sin panel nuevo y sin cambiar de herramienta.
+
+1. Tasa de error repetida por regla. No cuenta el error global, cuenta cuántas correcciones provoca cada regla en proporción a los documentos que filtra. Una regla que falla igual todos los meses no es ruido: es una regla mal calibrada, y se arregla en la regla, no revisando más.
+
+2. Excepciones que nunca se disparan. Una regla que no detiene nada en miles de documentos puede estar bien, pero también puede estar mirando un campo que la extracción rellena siempre con el mismo valor. Merece la misma revisión que la que salta demasiado, porque las dos son formas de no estar mirando.
+
+3. Correcciones concentradas en un campo o en un proveedor. Si la mayoría de las correcciones cae en el mismo campo, el problema está en cómo se extrae ese campo. Si cae en el mismo proveedor, el problema está en su formato o en su forma de facturar, y se resuelve con una plantilla propia o una regla específica antes que con más horas de revisión.
+
+4. Muestreo que deja de encontrar errores. El muestreo existe para encontrar lo que los umbrales no ven. Si durante varias semanas no aparece nada, hay dos lecturas y conviene descartar la primera: el proceso ha mejorado de verdad, o se está muestreando justo lo que el sistema ya filtra bien. La prueba es mover la muestra: proveedores nuevos, importes por encima de la media y formatos que entraron este mes.
+
+Ejemplo con números propios: si en un mes se revisan 200 facturas y se corrigen 6 importes, la regla de importes falla en el 3 % de lo que revisa. Ese porcentaje, repetido dos meses, dice más sobre la automatización que cualquier medida de confianza del modelo, porque está medido sobre decisiones que tomaron personas.
+
+El 0,04 % de error técnico de Roydisa que abre esta guía mide fallos del flujo, documentos que no se pudieron procesar, no aciertos campo a campo. Un flujo puede fallar casi nunca al procesar y equivocarse en el importe de una de cada veinte facturas: las dos cosas son compatibles porque miden cosas distintas. La señal que sirve para decidir es la tasa de corrección por regla, no el error técnico.
+
+Límite honesto: ninguna de estas cuatro señales ve el error que nadie revisa y nadie reclama. Si el diseño manda a verde un documento mal leído y el proveedor cobra lo que esperaba, el error es invisible para el sistema y para el cliente. Por eso conviene no eliminar el muestreo del todo, y por eso el registro de auditoría importa más de lo que parece: sin él no hay correcciones que contar.
+
 ## Patrones de revisión según el riesgo
 
 El patrón de revisión se elige con dos preguntas: cuánto duele un error y si se puede revertir. A más impacto o menos reversibilidad, la persona se coloca más cerca del principio del flujo.
@@ -149,12 +185,20 @@ Solo en procesos de bajo riesgo y reversibles, con muestreo y revisión posterio
 
 Está listo para un piloto cuando puedes describir la entrada, los campos que deben extraerse, las reglas que validan el resultado, la persona responsable de revisar las excepciones y la acción que bloquea el flujo. Si no puedes decir qué es un caso normal y qué es una excepción, primero define el proceso. La revisión humana no corrige un automatismo sin criterio; solo recibe sus errores más deprisa.
 
+### ¿Cómo automatizar la validación de documentos antes de registrarlos?
+
+Se automatiza con un motor de reglas que comprueba el documento en un orden fijo antes de darle número de registro: identidad del proveedor contra el maestro, importe contra el pedido o contrato, campos obligatorios, duplicados y coherencia de fechas. Lo que no pasa queda en una cola de excepciones con el motivo escrito, y solo lo que pasa las cinco llega al registro. La validación no decide si el documento es correcto de origen, solo si encaja con tus datos y tus reglas.
+
+### ¿Cómo detectar errores al automatizar documentos con inteligencia artificial?
+
+Se detectan con cuatro señales sacadas del registro de revisiones: la tasa de corrección de cada regla, las excepciones que nunca se disparan, las correcciones concentradas en un campo o en un proveedor, y un muestreo que deja de encontrar errores. Ninguna mide la confianza del modelo; todas miden lo que las personas tuvieron que corregir. El error técnico del flujo no sirve para esto: un proceso puede fallar casi nunca al procesar y equivocarse a menudo al leer.
+
 ### ¿Cuánto cuesta mantener la revisión humana?
 
 Depende de cuántas excepciones genere el proceso. Un diseño honesto arranca con un porcentaje alto de revisión y lo baja con datos, cuando las reglas demuestran que pueden confiar en el resto. Si desde el primer día la bandeja recibe más casos de los que el equipo puede atender, el proceso no está listo para automatizar. El objetivo no es revisar cero, es revisar menos y mejor.
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización documental a medida para pymes. Los seis tipos se ordenan por dos criterios editoriales: retorno, el volumen de trabajo que el proceso quita al equipo; y riesgo, el impacto de un error multiplicado por su reversibilidad. Las cifras de Roydisa que abren la guía son de un proyecto nuestro en producción, con su ventana de medición y sus límites publicados en la página del caso; el resto de la guía no cita clientes. Fuentes: la definición de human-in-the-loop de IBM, que recoge el artículo 14 de la Ley de IA de la UE (Reglamento (UE) 2024/1689) sobre supervisión humana en sistemas de alto riesgo. Última revisión: octubre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización documental a medida para pymes. Los seis tipos se ordenan por dos criterios editoriales: retorno, el volumen de trabajo que el proceso quita al equipo; y riesgo, el impacto de un error multiplicado por su reversibilidad. Las cifras de Roydisa que abren la guía, y que se matizan en la sección sobre cómo saber que la automatización se está equivocando, son de un proyecto nuestro en producción, con su ventana de medición y sus límites publicados en la página del caso; el resto de la guía no cita clientes. Fuentes: la definición de human-in-the-loop de IBM, que recoge el artículo 14 de la Ley de IA de la UE (Reglamento (UE) 2024/1689) sobre supervisión humana en sistemas de alto riesgo. Última revisión: octubre de 2026.
 
 - [Qué es human in the loop (HITL), según IBM](https://www.ibm.com/es-es/think/topics/human-in-the-loop)
