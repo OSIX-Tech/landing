@@ -139,8 +139,12 @@ Editorial rules for cases (binding):
 
 ## Design and code rules
 
-- Reading pages (guides, cases, legal, `/nosotros/`) ship **no client JavaScript**.
-  `scripts/check-dist.mjs` fails the build if they do.
+- Reading pages (guides, cases, legal, `/nosotros/`) ship **no client JavaScript bundle**.
+  `scripts/check-dist.mjs` fails the build if a page loads one. Small inline behaviour scripts
+  are the only exception and stay under a few kilobytes: the `<details>` motion in
+  `DocLayout` and the no-code cost calculator in the integration guide, which is arithmetic
+  only and leaves the whole method readable with the script blocked. Anything heavier belongs
+  on a page that is not a reading page.
 - OSIX is black and white: full black (`#000000`) and full white, greys only for
   hierarchy, no accent colour anywhere, images included. Headings are weight 700–800;
   nothing on the site uses weights under 500 except body text.
