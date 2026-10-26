@@ -7,6 +7,7 @@ category: "Automatización de correo y CRM"
 services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
+  - "automatizacion-correo-crm"
 order: 3
 status: "En producción desde el 9 de febrero de 2026. Casi 5.000 operaciones y más de 8.000 correos trazados en siete meses."
 published: "2026-09-17"
@@ -27,6 +28,8 @@ metrics:
 metricsNote: "El sistema aparta el ruido, que es el 62,2 % del correo, y deja preparada una propuesta para el 99,5 % de los correos comerciales en 29 segundos de mediana. Mientras tanto registra cada operación en el CRM sin que nadie la teclee."
 relatedGuides:
   - "bandeja-compartida-crm-sin-copiar-correos"
+  - "clasificar-correos-ventas-pedidos-incidencias"
+  - "preparar-respuestas-correos-revision-humana"
 ---
 
 ## La actividad comercial entraba entera por el correo

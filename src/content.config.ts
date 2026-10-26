@@ -104,6 +104,7 @@ const casos = defineCollection({
             'consultoria-transformacion',
             'innovacion-subvencionada',
             'automatizacion-facturas-albaranes',
+            'automatizacion-correo-crm',
           ]),
         )
         .min(1),
@@ -137,7 +138,7 @@ const servicios = defineCollection({
     description: z.string().min(70),
     seoTitle: z.string().max(160).optional(),
     order: z.number().int(),
-    icon: z.enum(['code', 'compass', 'lightbulb', 'file']),
+    icon: z.enum(['code', 'compass', 'lightbulb', 'file', 'mail']),
     /** schema.org serviceType, in English. */
     serviceType: z.string(),
     updated: isoDate,
