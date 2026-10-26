@@ -19,7 +19,7 @@ Para una pyme gallega que quiere automatizar procesos con inteligencia artificia
 
 > **Actualización (septiembre de 2026):** ampliamos la comparativa con tres proveedores de perfiles distintos. Redes Consultoría combina consultoría, formación e integración de agentes de IA generativa; circo estudio publica paquetes de automatización con precios de entrada definidos; y MBT Solutions, con sede en Ferrol, ofrece proyectos en remoto para empresas de toda España. Contrastamos estas fichas con sus webs oficiales. Sus alcances, ubicación y modelo de entrega no son equivalentes.
 
-Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos abiertamente desde el principio: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
+Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de software a medida en Santiago de Compostela, y aparece en ella. Lo decimos abiertamente desde el principio: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
 
 ## Cómo elegir una empresa de automatización con IA en Galicia
 
@@ -35,7 +35,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 | Proveedor | Enfoque | Punto fuerte | Mejor para |
 | --- | --- | --- | --- |
-| **OSIX Tech** (editor) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) con resultados medidos y publicados, y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
+| **OSIX Tech** (consultora) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) con resultados medidos y publicados, y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
 | **IA Galicia** | Diagnóstico + automatización e integración | Trato directo, diagnóstico gratuito, cobertura en las 7 provincias | Pymes y autónomos gallegos que quieren cercanía |
 | **KAIRAS** | Automatización para pymes y servicios | Procesos operativos en gestorías, clínicas, inmobiliarias; remoto + presencial | Negocios de servicios con mucho trato directo y procesos dependientes de personas |
 | **Imagina Ingenio** | Consultoría e implementación de IA | Amplio catálogo: RPA, chatbots, BI predictivo, ML a medida, APIs | Empresas que quieren explorar varios casos de uso de IA a la vez |

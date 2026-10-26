@@ -24,7 +24,7 @@ Para una empresa gallega que necesita software a medida en 2026, los proveedores
 - Pide por escrito quién es dueño del código fuente, qué cubre el mantenimiento y qué pasa si el proveedor desaparece. Es la pregunta que más proyectos rotos evita.
 - La convocatoria IG300C de la Xunta está cerrada. No hagas números contando con ella.
 
-Esta guía la publica **OSIX Tech**, una de las empresas que aparecen en la comparativa. No es un ranking neutral: es una comparativa hecha por un proveedor, y por eso el orden de las fichas es alfabético, cada entrada dice dónde otra opción es mejor que la nuestra y no puntuamos a nadie.
+Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de software a medida en Santiago de Compostela, y es una de las empresas que aparecen en ella. No es un ranking neutral: es una comparativa hecha por un proveedor, y por eso el orden de las fichas es alfabético, cada entrada dice dónde otra opción es mejor que la nuestra y no puntuamos a nadie.
 
 ## Cómo elegir una empresa de software a medida en Galicia
 
@@ -47,7 +47,7 @@ Orden alfabético. No es una clasificación.
 | **Inforges** | Implantación de CRM y ERP de terceros | Partner Gold de HubSpot, partner de Salesforce y agente digitalizador del Kit Digital | Empresas que necesitan un CRM estándar funcionando, no software propio |
 | **Innovatec Galicia** | Servicios informáticos integrales con desarrollo a medida | Integración entre sistemas distintos, incluidos entornos antiguos, y soporte posterior | Empresas con sistemas heredados que necesitan conectarlos sin rehacerlo todo |
 | **Irix Galicia** | Desarrollo a medida, redes y mantenimiento | Proveedor único de informática desde 2001, con programación, servidores y soporte | Empresas pequeñas que prefieren una sola empresa para software y sistemas |
-| **OSIX Tech** (editor) | Desarrollo a medida y consultoría de IA | Aplicaciones, agentes y automatizaciones construidas para un proceso concreto | Pymes que quieren software nuevo con IA y una demo funcional en dos semanas |
+| **OSIX Tech** (consultora) | Desarrollo a medida y consultoría de IA | Aplicaciones, agentes y automatizaciones construidas para un proceso concreto | Pymes que quieren software nuevo con IA y una demo funcional en dos semanas |
 | **Rowan Tech** | ERP, SGA y software empresarial a medida | Cooperativa con sede en Vigo, código propiedad del cliente y precios publicados por fases | Distribución, industria y logística que necesitan ERP o gestión de almacén a medida |
 | **Softigal** | Programas de gestión y facturación | Veinte años de producto, más de 750 clientes y más de diez sectores | Comercios y autónomos que quieren un programa de gestión probado |
 

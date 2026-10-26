@@ -33,7 +33,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 | Proveedor | Perfil | Foco | Mejor para |
 | --- | --- | --- | --- |
-| **OSIX Tech** (editor) | Consultoría + desarrollo a medida | Apps, agentes, automatizaciones y revisión de elegibilidad para ayudas vigentes | Pymes que quieren una solución construida a su medida y financiada con ayudas |
+| **OSIX Tech** (consultora) | Consultoría + desarrollo a medida | Apps, agentes, automatizaciones y revisión de elegibilidad para ayudas vigentes | Pymes que quieren una solución construida a su medida y financiada con ayudas |
 | **Hiberus** | Consultora tecnológica nacional | IA aplicada mid-market y gran cuenta, agentes IA productivos | Proyectos de 50.000 a 400.000 € o requisitos de compliance estrictos |
 | **Plain Concepts** | Boutique cloud-native | IA sobre Microsoft Azure, casos productivos verificables | Empresas con stack Azure o necesidades técnicas específicas |
 | **Minsait** | Gran consultora (Indra) | Sector público, banca, energía, gran cuenta IBEX | Proyectos grandes con compliance intensivo |
@@ -47,7 +47,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ## Quién publica esta comparativa
 
-Esta guía la publica **OSIX Tech**, que aparece en la comparativa. Lo decimos abiertamente: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
+Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de software a medida en Santiago de Compostela, y aparece en ella. Lo decimos abiertamente: no es un ranking neutral, es una comparativa hecha por uno de los proveedores, y por eso ponemos criterios objetivos para que decidas tú, e indicamos dónde otras opciones son mejores que la nuestra.
 
 ## Cada proveedor, en detalle
 
