@@ -8,7 +8,7 @@ seoTitle: "Automatización de facturas y albaranes de proveedores con OCR | OSIX
 order: 4
 icon: "file"
 serviceType: "Document Automation and OCR"
-updated: "2026-10-23"
+updated: "2026-10-27"
 problem:
   title: "El proveedor manda el documento y alguien lo copia a mano"
   body: "Cada albarán o factura que llega en foto o PDF termina en una pantalla, tecleado por una persona. En Roydisa son más de 5.000 documentos al mes, unas 166 horas de tecleo, y la cola crece justo en los días de más entradas."
@@ -57,7 +57,7 @@ guides:
   - "automatizar-gestion-pedidos-distribuidora-galicia"
 ---
 
-> **Prueba en producción:** En Roydisa el flujo lleva desde el 12 de marzo de 2026 procesando documentos de proveedores. Ha tratado **más de 30.000 ficheros**, la mediana desde la foto hasta el Excel es de **27 segundos** y el **88 %** termina en menos de un minuto. El **0,04 %** es el error técnico del flujo, no una medida de precisión por campo. [Ver el caso de Roydisa](/casos/roydisa-ocr-documentos-proveedores/).
+> **Prueba en producción:** En Roydisa, el flujo que montamos en OSIX Tech lleva desde el 12 de marzo de 2026 procesando documentos de proveedores. Ha tratado **más de 30.000 ficheros**, la mediana desde la foto hasta el Excel es de **27 segundos** y el **88 %** termina en menos de un minuto. El **0,04 %** es el error técnico del flujo, no una medida de precisión por campo. [Ver el caso de Roydisa](/casos/roydisa-ocr-documentos-proveedores/).
 
 ## Cada documento tecleado cuesta minutos que no vuelven
 
