@@ -1,13 +1,13 @@
 ---
 title: "Cómo medir si la IA de tu pyme está dando resultados"
 seoTitle: "Cómo medir si la IA de tu pyme está dando resultados (2026): KPIs, método antes/después y límites - OSIX Tech"
-description: "Cómo medir si la IA de tu pyme da resultados en 2026: el marco de 5 capas (impacto financiero, negocio, operaciones, adopción, calidad), el método antes/después y el límite honesto de la medición."
+description: "Cómo medir si la IA de tu pyme da resultados en 2026: el marco de 5 capas (impacto financiero, negocio, operaciones, adopción, calidad), el método antes/después, el límite honesto de la medición y cómo justificar los resultados ante una subvención."
 subtitle: "KPIs, método antes/después y el límite honesto de la medición."
 summary: "El marco de 5 capas (financiero, negocio, operaciones, adopción, calidad), el método antes/después y el límite honesto"
 category: "Medición"
 section: "costes-y-resultados"
 published: "2026-09-01"
-updated: "2026-10-23"
+updated: "2026-10-28"
 related:
   - "cuanto-tarda-ia-primeros-resultados-pyme-espana"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -123,6 +123,58 @@ La teoría se entiende mejor con números que ya existen. Estos son cinco proyec
 
 Ninguna de esas cifras es un ROI. Son el paso 2 (la línea base) y el paso 3 (medir con el mismo criterio), que es justo lo que se puede demostrar sin un laboratorio. [Los casos completos, con su ventana de medición y sus límites, están aquí](https://osix.tech/casos/).
 
+## Cómo justificar los resultados de un proyecto subvencionado
+
+Justificar los resultados de un proyecto subvencionado es demostrar que la cifra que declaraste al pedir la ayuda se cumple, con la misma definición y el mismo periodo, sobre facturas pagadas. En IA360, la línea de IA del Igape (procedimiento IG408M), la justificación incluye una memoria técnica de ejecución con el cronograma, los resultados obtenidos y las desviaciones sobre el proyecto original, y esa memoria se contrasta con lo que declaraste en la solicitud: una discrepancia entre las dos puede abrir un expediente de incumplimiento. La consecuencia práctica es que la medición empieza antes de presentar la solicitud, no cuando el proyecto termina.
+
+### Qué pide el Igape en la memoria técnica de ejecución
+
+El artículo 20 de las bases de la convocatoria 2026/2027, cerrada el 17 de marzo, fija los contenidos mínimos. La memoria tiene que incluir:
+
+- El cronograma de desarrollo del proyecto.
+- La descripción de lo realizado y de los resultados obtenidos, con un diagrama de bloques.
+- Los recursos empleados en cada tarea.
+- Las modificaciones y desviaciones sobre el proyecto original, incluidos los cambios de proveedor.
+- Documentación gráfica de lo entregado: capturas de pantalla de la aplicación, fotos de equipos y su relación con los números de serie.
+- Las licencias adquiridas o los contratos de licencia, si los hay.
+
+Junto con la memoria van las facturas y los justificantes de pago por transferencia, certificación o extracto bancario: no valen recibos del proveedor ni pagos en efectivo. Si imputas horas de tu equipo, se añaden nóminas y sus justificantes bancarios, boletines de cotización, informe de vida laboral y hojas mensuales de horas firmadas por cada trabajador y por su responsable. Y la ayuda se publicita: una descripción de la operación con sus objetivos y resultados en la web y en las redes, un cartel A3 en un lugar visible y la marca del Igape en los materiales del proyecto.
+
+El margen para prepararlo es corto. En esa convocatoria la línea A cerraba la ejecución el 15 de septiembre de 2027 y la justificación el 30 de septiembre; la línea B, el 30 de septiembre de 2026 y el 15 de octubre. Quince días en los dos casos. El anticipo, de hasta el 50 %, se justifica aparte: 31 de enero de 2027 para la anualidad de 2026. Las bases que citamos son las de esa convocatoria: en la siguiente cambian las fechas y hay que volver a leer los artículos.
+
+Fuente: [bases reguladoras de IA360, artículo 20 (DOG del 16 de enero de 2026)](https://www.xunta.gal/dog/Publicados/2026/20260116/AnuncioO92-181225-0001_es.html).
+
+### Lo que hay que medir antes de pedir la ayuda
+
+El artículo 5.7 de las mismas bases obliga a que el proyecto empiece después de la fecha de solicitud: si cualquier actividad se inició antes, el proyecto entero es inadmisible. Los estudios de viabilidad previos a la solicitud no cuentan como inicio, así que medir la línea base antes de pedir la ayuda no pone en riesgo la subvención. No medirla te deja sin nada que enseñar después.
+
+El indicador que declaras también puntúa. El criterio 3 del baremo reparte 10 puntos sobre 100 a los resultados esperados y las métricas de éxito, y dentro de ellos hasta 5 van a los "indicadores de resultado cuantificables (KPI, TRL, etc.)". Ese KPI es la referencia con la que se lee tu memoria al final.
+
+Antes de firmar la solicitud conviene tener cuatro cosas:
+
+- La definición exacta de la métrica: qué se cuenta y qué no (una factura rectificada, un pedido anulado, un correo duplicado).
+- El valor de partida y el periodo que cubre.
+- De dónde sale el dato: el campo del ERP, el registro de entradas, la hoja de pedidos.
+- Quién lo va a mantener cada mes.
+
+Guarda la línea base con fecha: una captura del sistema, un extracto exportado, el recuento firmado por quien lleva el proceso. Una cifra sin fecha ni fuente no se puede defender dos años después.
+
+### Cómo se reporta un resultado que no se movió
+
+La memoria pide resultados obtenidos y desviaciones, no una historia de éxito. Un KPI que no se movió se declara con la misma definición y el mismo periodo, y se explica: qué cambió en el proceso, qué se midió mal, qué se corrigió y con qué evidencia. En el caso de Avalagro, la cifra defendible es "9,9 minutos de mediana por ronda completa desde el móvil", medida en la app; la que no se sostiene es "el equipo está mucho más ágil". La primera se puede repetir dentro de un año con el mismo criterio.
+
+La pérdida de la ayuda se mide sobre la base subvencionable que ejecutas y pagas: por debajo del 50 % se considera incumplimiento total, y por encima se valora de forma proporcional. El indicador entra por otra vía: la memoria se contrasta con la solicitud, así que un KPI que no se movió se explica por escrito. Una desviación declarada se discute; una silenciada se convierte en discrepancia.
+
+### Ticket Innova justifica los resultados al pedir la ayuda
+
+En Ticket Innova (IG408K) la justificación se resuelve en el formulario de solicitud: una cuenta justificativa simplificada, con gastos ya facturados y pagados, que incluye una memoria de actuación con las actividades realizadas y los resultados obtenidos, la relación clasificada de gastos con fecha de emisión y de pago, otros ingresos o subvenciones y los justificantes de pago. El listón es el mismo: lo que declares ahí es lo que se te va a pedir después.
+
+Fuente: [bases reguladoras de Ticket Innova, apartado 3 del artículo 7 (DOG del 16 de enero de 2026)](https://www.xunta.gal/dog/Publicados/2026/20260116/AnuncioO92-111225-0003_es.html).
+
+Las cinco vías, su estado y sus fechas están en la guía de ayudas:
+
+[Ayudas y subvenciones para implantar IA en una pyme gallega](/guias/subvenciones-ia-pymes-galicia-2026/)
+
 ## El límite honesto: qué no puede demostrar la medición
 
 La medición tiene tres límites que conviene nombrar, porque un proveedor que no los nombra te está vendiendo humo:
@@ -145,9 +197,12 @@ Una por capa: un KPI de negocio, un indicador operativo, un indicador de adopci�
 **¿Mi contable puede hacer esta medición?**
 Sí. Con una hoja de cálculo y los datos del proceso (tiempos, costes, errores) cualquier persona de tu equipo puede llevar el seguimiento mensual. Lo que necesita criterio es definir el KPI correcto y aislar la atribución, y ahí sí conviene apoyo externo.
 
+**¿Cómo justifico los resultados de un proyecto de automatización subvencionado?**
+Con una memoria técnica de ejecución que compare la cifra declarada en la solicitud con la medida al terminar, más las facturas y los justificantes de pago. En IA360 el Igape pide además el cronograma, las desviaciones sobre el proyecto original y capturas de lo entregado, y contrasta todo con lo declarado al pedir la ayuda. Si el resultado no se movió, se declara con la misma definición y se explica la causa: una desviación declarada se discute, una silenciada se convierte en discrepancia.
+
 **¿La IA tiene que demostrar ROI siempre?**
 No. Hay usos donde el valor no es económico directo: mejorar la experiencia del cliente, liberar tiempo del equipo para tareas de más valor, o reducir el riesgo de error. Si el objetivo no es financiero, define el KPI de ese objetivo y mídelo igual: antes y después, con el mismo criterio.
 
 ## Cómo se elaboró esta guía
 
-Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. El marco de 5 capas adapta el enfoque de medición de valor de IA que publica McKinsey para grandes empresas, simplificado para el tamaño de una pyme; la recomendación de evaluar los sistemas de IA antes del despliegue y periódicamente durante la operación proviene del marco de gestión de riesgos de IA de NIST. Los ejemplos de KPIs y el método antes/después son la síntesis de esos marcos y de nuestro trabajo con pymes españolas. Las cifras de la tabla de proyectos son de cinco proyectos nuestros en producción, cada una con su página de caso, su ventana de medición y sus límites publicados. No tenemos afiliación con McKinsey ni con NIST. Los importes de coste son referencias del mercado español que publicamos en nuestra guía de precios; verificables y actualizables.
+Esta guía la publica OSIX Tech, una consultora de desarrollo de software a medida con IA para pymes en Galicia y España. El marco de 5 capas adapta el enfoque de medición de valor de IA que publica McKinsey para grandes empresas, simplificado para el tamaño de una pyme; la recomendación de evaluar los sistemas de IA antes del despliegue y periódicamente durante la operación proviene del marco de gestión de riesgos de IA de NIST. Los ejemplos de KPIs y el método antes/después son la síntesis de esos marcos y de nuestro trabajo con pymes españolas. La sección sobre justificación de proyectos subvencionados se apoya en las bases reguladoras que el Igape publicó en el DOG del 16 de enero de 2026 para IA360 (IG408M) y Ticket Innova (IG408K), leídas el 28 de octubre de 2026; no sustituyen a las bases de la convocatoria que apliques ni al criterio de tu gestoría. Las cifras de la tabla de proyectos son de cinco proyectos nuestros en producción, cada una con su página de caso, su ventana de medición y sus límites publicados. No tenemos afiliación con McKinsey ni con NIST. Los importes de coste son referencias del mercado español que publicamos en nuestra guía de precios; verificables y actualizables.
