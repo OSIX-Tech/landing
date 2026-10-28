@@ -7,7 +7,7 @@ summary: "El flujo en seis pasos, las tres vías con precios reales y cuándo no
 category: "Ofertas"
 section: "automatizar-procesos"
 published: "2026-09-06"
-updated: "2026-10-09"
+updated: "2026-10-27"
 related:
   - "bandeja-compartida-crm-sin-copiar-correos"
   - "automatizar-facturas-documentos-pyme"
@@ -20,7 +20,7 @@ Para automatizar la preparación de una oferta desde un correo, la máquina debe
 
 ## El flujo en seis pasos, ordenados por el tiempo que devuelven
 
-El proceso completo va del correo que llega a la oferta enviada y registrada. Todos los pasos son automatizables en algún grado, pero no todos devuelven el mismo tiempo: extraer y montar es donde se gana la hora; clasificar apenas devuelve nada; revisar y decidir no se automatiza, se protege. La tabla resume cada paso y después explicamos el detalle.
+El proceso completo va del correo que llega a la oferta enviada y registrada. Todos los pasos son automatizables en algún grado, pero no todos devuelven el mismo tiempo: extraer y montar es donde se gana la hora; clasificar apenas devuelve nada; revisar y decidir no se automatiza, se protege. La tabla resume cada paso y después explicamos el detalle. El flujo que montamos en OSIX Tech para Roydisa, una empresa industrial gallega, sigue estos mismos seis pasos: el borrador de oferta sale en una mediana de 16 segundos y el sistema identifica automáticamente el 93 % de las referencias.
 
 | Paso | Qué hace la máquina | Qué queda en la persona | Retorno |
 | --- | --- | --- | --- |
