@@ -7,7 +7,7 @@ summary: "Qué hacen, qué no hacen, y cuándo merece la pena montar uno"
 category: "Agentes de IA"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-10-01"
+updated: "2026-10-29"
 related:
   - "para-que-sirve-ia-pyme"
   - "que-es-automatizacion-inteligente-pymes-espana"
@@ -21,7 +21,7 @@ Un agente de IA es un programa que no se limita a responder: recibe una tarea, d
 - Un agente de IA **hace tareas**, no solo responde: recibe un objetivo, planifica, usa tus herramientas y ejecuta.
 - Para una pyme, los usos con retorno real son **procesar documentos, atender clientes, ordenar ventas y preparar trabajo administrativo**.
 - No son magia ni sustituyen al equipo: son **asistentes que ejecutan con reglas, límites y supervisión humana**.
-- Cuestan **de 5.000 a 20.000 €** montados a medida según alcance, más 200 a 800 €/mes de operación. Hay agentes básicos por menos y plataformas complejas por más.
+- Cuestan **de 3.000 a 20.000 €** montados a medida según alcance, más 200 a 800 €/mes de operación. Hay agentes básicos por menos y plataformas complejas por más.
 - El criterio para empezar: **un proceso con volumen, un dolor medible y datos ordenados**.
 
 ## Qué es exactamente un agente de IA

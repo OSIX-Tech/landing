@@ -8,7 +8,7 @@ summary: "Cinco modelos de contratación ordenados por el control que conservas 
 category: "Gobernanza"
 section: "elegir-proveedor"
 published: "2026-09-10"
-updated: "2026-10-01"
+updated: "2026-10-29"
 related:
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
@@ -50,7 +50,7 @@ La consultora pone perfiles que trabajan con tu equipo, con tus prioridades y tu
 
 **El límite honesto.** Necesitas saber dirigir. Sin un responsable interno que priorice y acepte entregables, el equipo dedicado se convierte en un proveedor caro sin compromiso de entrega: pagas por horas y no por resultado. Y el conocimiento se va con la persona cuando se va, salvo que exijas documentación y formación de forma continua en lugar de al final.
 
-**Cuánto cuesta.** Las tarifas publicadas por el sector sitúan un consultor freelance entre 400 y 900 euros por día y un perfil senior de consultora entre 700 y 1.500, según el barómetro que Hiberus Booster publica en su guía de consultor de IA (junio de 2026). Un mes completo de un senior a jornada laboral ronda los 14.000 a 30.000 euros. Es el modelo más caro por mes y el más fácil de corregir, porque puedes cambiar la dedicación el mes siguiente.
+**Cuánto cuesta.** Las tarifas publicadas por el sector sitúan un consultor freelance entre 400 y 900 euros por día y un perfil senior de consultora entre 700 y 1.800, según el barómetro que Hiberus Booster publica en su guía de consultor de IA (junio de 2026). Un mes completo de un senior a jornada laboral ronda los 14.000 a 36.000 euros. Es el modelo más caro por mes y el más fácil de corregir, porque puedes cambiar la dedicación el mes siguiente.
 
 ## Modelo 3: diagnóstico o auditoría puntual, como segunda opinión
 
@@ -60,7 +60,7 @@ Un alcance corto y cerrado cuyo entregable es una decisión, no un sistema: la v
 
 **El límite honesto.** No construye nada. Si el informe no termina en una decisión tomada, el dinero se ha gastado en un documento. La señal de un buen diagnóstico es concreta: te dice qué hacer el mes siguiente y qué no hacer, con cifras.
 
-**Cuánto cuesta.** Aquí el mercado es un desierto de referencias. Un diagnóstico acotado de un proceso de una empresa especializada en pymes se publica desde 900 a 1.500 euros; Utilia, otra consultora española, anuncia consultoría exploratoria de 1.500 a 4.000 euros y estratégica de 4.000 a 12.000; y Hiberus Booster publica diagnósticos con hoja de ruta de 10.000 a 45.000 euros. Son dos órdenes de magnitud para lo que se presenta con la misma palabra, así que no compares diagnósticos por precio sino por entregable: cuántas horas, cuántos procesos y qué documento exacto recibes.
+**Cuánto cuesta.** Aquí el mercado es un desierto de referencias. Un diagnóstico acotado de un proceso de una empresa especializada en pymes se publica desde 900 a 1.500 euros; Utilia, otra consultora española, anuncia consultoría exploratoria de 1.500 a 4.000 euros y estratégica de 4.000 a 12.000; y Hiberus Booster publica diagnósticos con hoja de ruta de 15.000 a 45.000 euros. Son dos órdenes de magnitud para lo que se presenta con la misma palabra, así que no compares diagnósticos por precio sino por entregable: cuántas horas, cuántos procesos y qué documento exacto recibes.
 
 ## Modelo 4: retainer mensual de acompañamiento
 

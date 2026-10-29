@@ -7,7 +7,7 @@ summary: "Qué hicieron distinto y qué resultados obtuvieron"
 category: "Casos reales"
 section: "primeros-pasos"
 published: "2026-08-25"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "procesos-pyme-automatizar-con-ia"
   - "para-que-sirve-ia-pyme"
@@ -95,7 +95,7 @@ El sesgo de este listado es evidente y conviene decirlo: los números los medimo
 
 ## Qué distingue a las pymes que mejoraron de las que no
 
-Los datos de Sage también describen al otro lado: el 44% de las pymes españolas aún no ha implementado IA, el 30% de las que quieren hacerlo declara no saber por dónde empezar, y el 51% cita la falta de claridad normativa como barrera. Ese hueco entre querer y saber es el mismo que separa a las que mejoran de las que no, y el factor decisivo rara vez es el presupuesto.
+Los datos de Sage también describen al otro lado: el 44% de las pymes españolas aún no ha implementado IA; entre las que encuentran barreras, el 51% cita la falta de claridad normativa, el 48% la falta de talento especializado y el 30% los elevados costes de implementación. Ese hueco entre querer y saber es el mismo que separa a las que mejoran de las que no, y el factor decisivo rara vez es el presupuesto.
 
 Las que mejoran comparten tres rasgos que ningún blog de listados va a cambiarte:
 

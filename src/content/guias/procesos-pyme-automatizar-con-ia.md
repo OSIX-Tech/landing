@@ -7,7 +7,7 @@ summary: "La lista honesta, con ejemplos por área"
 category: "Procesos"
 section: "primeros-pasos"
 published: "2026-08-26"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "para-que-sirve-ia-pyme"
   - "pymes-espanolas-que-mejoraron-con-ia"
@@ -117,7 +117,7 @@ El patrón inverso es igual de reconocible: proyectos que arrancan sin métrica,
 
 ## Cómo se ha elaborado esta guía
 
-La publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela. Los datos de adopción y uso por área (atención al cliente 34%, tareas repetitivas 34%, análisis de datos 32%, RRHH 47%) proceden del estudio AI Action Summit Research de Sage sobre más de 1.000 pymes españolas, difundido por Europa Press. Aparecemos en el mercado que describimos y no somos una fuente neutral, por eso hemos puesto las fuentes al final y por eso ningún caso de esta lista es un proyecto nuestro. El orden de los procesos refleja nuestro criterio profesional: retorno esperado frente a esfuerzo y datos de implantación para una pyme, y es orientativo, no una garantía de resultados para tu empresa.
+La publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela. Los datos de adopción y uso por área (atención al cliente 34%, tareas repetitivas 34%, análisis de datos 32%, RRHH 47%) proceden del estudio AI Action Summit Research de Sage sobre más de 1.000 pymes españolas, difundido por Europa Press. Aparecemos en el mercado que describimos y no somos una fuente neutral, por eso hemos puesto las fuentes al final y por eso el único caso propio que aparece en esta lista es el bloque de prueba en producción. El orden de los procesos refleja nuestro criterio profesional: retorno esperado frente a esfuerzo y datos de implantación para una pyme, y es orientativo, no una garantía de resultados para tu empresa.
 
 ## Preguntas frecuentes
 

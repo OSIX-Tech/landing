@@ -8,7 +8,7 @@ summary: "Los cinco caminos, del más rápido al más lento, con expectativas re
 category: "Expectativas"
 section: "costes-y-resultados"
 published: "2026-08-21"
-updated: "2026-09-22"
+updated: "2026-10-29"
 related:
   - "para-que-sirve-ia-pyme"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -49,7 +49,7 @@ Sus condiciones: un proceso cada vez, y un responsable interno que lo vigile. Un
 
 Un copiloto que responde con tus documentos (manuales, contratos, incidencias, normativa interna) entra en producción en 4 a 6 semanas: indexar la documentación, montar la consulta con un modelo de lenguaje, probar con casos reales y ajustar. El ahorro llega cuando el equipo deja de buscar en carpetas y pregunta directamente; en nuestra experiencia se consolida entre el mes 2 y el 3.
 
-Su contrapartida es directa: la calidad del copiloto es la calidad de tu documentación. Si los documentos están desactualizados o repartidos en cuatro unidades, las primeras semanas se van a ordenar ese material, y el proyecto se alarga. También necesita mantenimiento, porque la documentación cambia y el copiloto tiene que cambiar con ella. Las referencias públicas del sector van en la misma línea: Hiberus Booster publica de 6 a 12 semanas para llevar un copiloto documental a producción, y de 10 a 16 semanas para un modelo predictivo con histórico limpio.
+Su contrapartida es directa: la calidad del copiloto es la calidad de tu documentación. Si los documentos están desactualizados o repartidos en cuatro unidades, las primeras semanas se van a ordenar ese material, y el proyecto se alarga. También necesita mantenimiento, porque la documentación cambia y el copiloto tiene que cambiar con ella. Las referencias públicas del sector van en la misma línea: Hiberus Booster publica de 10 a 14 semanas para llevar un copiloto documental a producción, y de 14 a 20 semanas para un modelo predictivo con histórico limpio.
 
 **Mejor para:** equipos que pierden horas buscando información (soporte, oficina técnica, administración, RRHH).
 

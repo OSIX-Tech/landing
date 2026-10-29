@@ -7,7 +7,7 @@ summary: "De la recepción por correo, portal o EDI al stock, preparación, entr
 category: "Distribución"
 section: "sectores"
 published: "2026-09-28"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "conectar-produccion-ventas-almacen-pyme-industrial"
   - "automatizar-facturas-documentos-pyme"
@@ -146,4 +146,4 @@ Usa una referencia estable del pedido y comprueba si ya se procesó antes de cre
 
 ## Cómo se elaboró esta guía
 
-Esta guía la publica OSIX Tech y propone un orden de decisión desde la revisión del proceso hasta la integración o sustitución de sistemas. Se basa en documentación pública de AECOC y Odoo enlazada aquí, que ilustra prácticas y opciones de producto, no requisitos universales. No compara precios ni atribuye resultados a clientes. La configuración adecuada depende del ERP, los acuerdos comerciales y el flujo real de cada distribuidora.
+Esta guía la publica OSIX Tech y propone un orden de decisión desde la revisión del proceso hasta la integración o sustitución de sistemas. Se basa en documentación pública de AECOC y Odoo enlazada aquí, que ilustra prácticas y opciones de producto, no requisitos universales. No compara precios y limita los resultados de cliente al bloque de prueba en producción, que remite al caso publicado. La configuración adecuada depende del ERP, los acuerdos comerciales y el flujo real de cada distribuidora.

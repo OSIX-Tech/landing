@@ -7,7 +7,7 @@ summary: "Seis informes por retorno, informes de datos vs documentales y cuándo
 category: "Informes"
 section: "automatizar-procesos"
 published: "2026-09-05"
-updated: "2026-10-01"
+updated: "2026-10-29"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -128,4 +128,4 @@ Esta guía la publica OSIX Tech, consultora de desarrollo de software e intelige
 - [Planes y precios de Make](https://www.make.com/en/pricing)
 - [Planes y precios de Zapier](https://zapier.com//pricing)
 - [Data Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
-- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](//guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)

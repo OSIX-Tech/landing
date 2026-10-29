@@ -8,7 +8,7 @@ summary: "La secuencia en 7 pasos, qué puede hacer tu equipo solo y qué exigir
 category: "Implantación"
 section: "primeros-pasos"
 published: "2026-09-11"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "procesos-pyme-automatizar-con-ia"
@@ -125,7 +125,7 @@ Aquí conviene separar dos cosas que se mezclan mucho: licencias y proyecto. La 
 
 La columna de riesgo es la que casi nadie mira y la que decide el coste real. Un proyecto de 4.000 € sin mantenimiento acaba costando más que uno de 9.000 € que sigue funcionando a los dos años. Pide siempre dos números separados, implantación y operación, y calcula el total a 24 meses. Si un proveedor solo te da una cifra global, no tienes una propuesta: tienes una promesa.
 
-Para comparar proveedores con criterio, los criterios que de verdad predicen si el proyecto saldrá bien (proceso, integraciones, revisión humana, datos y continuidad) están desarrollados en la [guía para elegir una empresa de automatización con IA en Galicia](//guias/como-elegir-empresa-automatizacion-ia-galicia/), y la comparación entre una empresa grande y una especializada, en [consultoras de IA grandes vs especializadas en pymes](//guias/consultoras-ia-grandes-vs-especializadas-pymes/).
+Para comparar proveedores con criterio, los criterios que de verdad predicen si el proyecto saldrá bien (proceso, integraciones, revisión humana, datos y continuidad) están desarrollados en la [guía para elegir una empresa de automatización con IA en Galicia](/guias/como-elegir-empresa-automatizacion-ia-galicia/), y la comparación entre una empresa grande y una especializada, en [consultoras de IA grandes vs especializadas en pymes](/guias/consultoras-ia-grandes-vs-especializadas-pymes/).
 
 ## Los 6 errores que hunden una implantación sin equipo técnico
 
@@ -163,7 +163,7 @@ Si decides que el paso 5 lo haga alguien de fuera, estas cinco preguntas separan
 - ¿En qué casos la IA no decide y revisa una persona? Pide los tres ejemplos concretos.
 - ¿Qué pasa si el proveedor desaparece o el sistema falla? ¿Quién tiene acceso al código y a las cuentas?
 
-Si te cuesta obtener respuestas concretas a las cinco, ese es el dato más útil de la conversación. La guía [cómo trabajar con una consultora de IA sin perder el control](//guias/trabajar-con-consultora-ia-sin-perder-control/) desarrolla las decisiones que no conviene delegar, y en [dónde se guardan los datos de tu empresa al contratar IA](//guias/donde-se-guardan-datos-ia-empresa/) están las cuatro opciones reales de alojamiento con lo que dice el RGPD.
+Si te cuesta obtener respuestas concretas a las cinco, ese es el dato más útil de la conversación. La guía [cómo trabajar con una consultora de IA sin perder el control](/guias/trabajar-con-consultora-ia-sin-perder-control/) desarrolla las decisiones que no conviene delegar, y en [dónde se guardan los datos de tu empresa al contratar IA](/guias/donde-se-guardan-datos-ia-empresa/) están las cuatro opciones reales de alojamiento con lo que dice el RGPD.
 
 ## Preguntas frecuentes
 

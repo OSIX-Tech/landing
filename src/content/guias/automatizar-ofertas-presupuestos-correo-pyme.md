@@ -7,7 +7,7 @@ summary: "El flujo en seis pasos, las tres vías con precios reales y cuándo no
 category: "Ofertas"
 section: "automatizar-procesos"
 published: "2026-09-06"
-updated: "2026-10-28"
+updated: "2026-10-29"
 related:
   - "bandeja-compartida-crm-sin-copiar-correos"
   - "automatizar-facturas-documentos-pyme"
@@ -63,7 +63,7 @@ La vía correcta depende de dónde vive la decisión comercial. Usa un flujo no-
 | --- | --- | --- | --- | --- |
 | Flujo no-code | Pymes con volumen medio y solicitudes de formato parecido | Make, Zapier, n8n | Make: gratis con 1.000 créditos al mes, Core desde 12 USD al mes; Zapier: gratis con 100 tareas al mes, de pago desde 19,99 USD al mes | Reglas comerciales complejas, integración con el ERP y una bandeja de revisión sólida se quedan cortas |
 | Software de extracción con tu CRM | Empresas que ya trabajan con CRM o ERP y reciben los pedidos en correo o PDF | Parseur + HubSpot, Salesforce o el módulo de tu ERP | Parseur: gratis hasta 20 páginas al mes, planes de pago por volumen | Extrae y estructura, pero las reglas de márgenes y la oferta final dependen de lo que tu CRM sepa hacer |
-| Desarrollo a medida | La oferta cruza correo, ERP y reglas propias con revisión y registro | Consultoras especializadas en pymes | Automatización comercial con ofertas, referencia de mercado 2026: 5.000 a 12.000 € de implantación más 200 a 500 € al mes | La vía más cara y la más lenta de arrancar; solo hace falta cuando las otras dos se quedan cortas |
+| Desarrollo a medida | La oferta cruza correo, ERP y reglas propias con revisión y registro | Consultoras especializadas en pymes | Automatización comercial con ofertas, referencia de mercado 2026: 5.000 a 12.000 € de implantación más 250 a 500 € al mes | La vía más cara y la más lenta de arrancar; solo hace falta cuando las otras dos se quedan cortas |
 
 | Si tu proceso se parece a esto | Empieza por | No la elijas si… |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ Si ya trabajas con un CRM o un ERP, la vía natural es que un extractor lea el c
 
 ### Vía 3. Desarrollo a medida: cuando la oferta cruza correo, ERP y reglas propias
 
-El desarrollo a medida tiene sentido cuando el proceso une varias piezas: solicitudes variadas que llegan por correo con adjuntos distintos, validación contra tarifas y márgenes que viven en tu ERP, ofertas en varios formatos o idiomas, y la necesidad de un registro de quién aprobó cada envío. Es el caso de una empresa que recibe peticiones de presupuesto con planos o pliegos, o de un servicio que cotiza con reglas propias y márgenes por cliente. En nuestra guía de precios del mercado español recogemos que una automatización comercial de este tipo se mueve en 2026 entre 5.000 y 12.000 € de implantación, más 200 a 500 € al mes de operación. Límite honesto: es la vía más cara y la más lenta de poner en marcha, y no hace falta si tu caso cabe en las dos primeras filas de la tabla.
+El desarrollo a medida tiene sentido cuando el proceso une varias piezas: solicitudes variadas que llegan por correo con adjuntos distintos, validación contra tarifas y márgenes que viven en tu ERP, ofertas en varios formatos o idiomas, y la necesidad de un registro de quién aprobó cada envío. Es el caso de una empresa que recibe peticiones de presupuesto con planos o pliegos, o de un servicio que cotiza con reglas propias y márgenes por cliente. En nuestra guía de precios del mercado español recogemos que una automatización comercial de este tipo se mueve en 2026 entre 5.000 y 12.000 € de implantación, más 250 a 500 € al mes de operación. Límite honesto: es la vía más cara y la más lenta de poner en marcha, y no hace falta si tu caso cabe en las dos primeras filas de la tabla.
 
 La tercera vía es la que OSIX Tech construye para pymes: generadores de ofertas y presupuestos que leen el correo del cliente, validan contra el software que ya usas y dejan la decisión final en la persona. En el piloto de Roydisa, el asistente consulta el histórico de presupuestos de Odoo, prepara un borrador en una mediana de 16 segundos e identifica automáticamente el 93 % de las referencias. Cada línea conserva la fórmula del precio, su fuente y las últimas ventas reales a ese cliente para que el comercial revise el borrador antes de enviarlo. El piloto no mide ofertas ganadas. [Ver el caso completo de Roydisa](/casos/roydisa-ofertas/). Y lo decimos sin rodeos: si tus ofertas son pocas, todas distintas y sin tarifas que consultar, un desarrollo a medida no es la respuesta; monta una plantilla mejor y dedica el presupuesto a otra cosa.
 
@@ -109,7 +109,7 @@ La forma segura de arrancar es un piloto acotado, no la automatización de todo 
 
 ### ¿Cuánto cuesta automatizar la preparación de ofertas desde un correo?
 
-Depende de la vía. Con un flujo no-code, el coste es la suscripción: Make Core desde 12 USD al mes y Zapier desde 19,99 USD al mes, los dos con plan gratis limitado. Con un software de extracción más tu CRM, Parseur parte de un plan gratis de 20 páginas al mes y planes de pago por volumen. Cuando la oferta cruza correo, ERP y reglas propias y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 200 a 500 € al mes de operación.
+Depende de la vía. Con un flujo no-code, el coste es la suscripción: Make Core desde 12 USD al mes y Zapier desde 19,99 USD al mes, los dos con plan gratis limitado. Con un software de extracción más tu CRM, Parseur parte de un plan gratis de 20 páginas al mes y planes de pago por volumen. Cuando la oferta cruza correo, ERP y reglas propias y hace falta un desarrollo a medida, la referencia de mercado en España en 2026 está entre 5.000 y 12.000 € de implantación más 250 a 500 € al mes de operación.
 
 ### ¿Puede la IA enviar la oferta sin revisión humana?
 

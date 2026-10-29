@@ -20,7 +20,7 @@ Que un programa tenga años no demuestra por sí solo que haya que cambiarlo. La
 
 Antes de elegir tecnología, anota el resultado que buscas. Por ejemplo: reducir el tiempo que lleva registrar un pedido, conectar una aplicación de almacén con el sistema de gestión, o retirar un servidor sin soporte. “Modernizar” no es un resultado medible. El problema operativo sí puede serlo.
 
-Martin Fowler y sus coautores describen un riesgo habitual: los proyectos de reemplazo largos pueden quedarse a medias, mientras el sistema anterior sigue acumulando trabajo y complejidad. Su recomendación es aclarar primero los resultados, dividir el cambio en partes manejables y entregar esas partes de forma incremental ([Patterns of Legacy Displacement](https://martinfowler.com/articles/patterns-legacy-displacement/)).
+Ian Cartwright, Rob Horn y James Lewis describen un riesgo habitual: los proyectos de reemplazo largos pueden quedarse a medias, mientras el sistema anterior sigue acumulando trabajo y complejidad. Su recomendación es aclarar primero los resultados, dividir el cambio en partes manejables y entregar esas partes de forma incremental ([Patterns of Legacy Displacement](https://martinfowler.com/articles/patterns-legacy-displacement/)).
 
 ## Elige entre conservar, conectar, reemplazar por partes o sustituir
 

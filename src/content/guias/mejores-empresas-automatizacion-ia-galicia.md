@@ -8,7 +8,7 @@ summary: "Comparativa honesta de proveedores de IA para pymes gallegas"
 category: "IA para pymes"
 section: "elegir-proveedor"
 published: "2026-08-12"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -36,13 +36,13 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 | Proveedor | Enfoque | Punto fuerte | Mejor para |
 | --- | --- | --- | --- |
 | **OSIX Tech** (consultora) | Consultoría + desarrollo a medida con IA | Software a medida (apps, agentes, automatizaciones) con resultados medidos y publicados, y revisión de elegibilidad para convocatorias vigentes | Pymes gallegas que quieren una solución construida a su medida y financiada con ayudas |
-| **IA Galicia** | Diagnóstico + automatización e integración | Trato directo, diagnóstico gratuito, cobertura en las 7 provincias | Pymes y autónomos gallegos que quieren cercanía |
+| **IA Galicia** | Diagnóstico + automatización e integración | Trato directo, diagnóstico gratuito, cobertura en Galicia (siete ciudades) | Pymes y autónomos gallegos que quieren cercanía |
 | **KAIRAS** | Automatización para pymes y servicios | Procesos operativos en gestorías, clínicas, inmobiliarias; remoto + presencial | Negocios de servicios con mucho trato directo y procesos dependientes de personas |
 | **Imagina Ingenio** | Consultoría e implementación de IA | Amplio catálogo: RPA, chatbots, BI predictivo, ML a medida, APIs | Empresas que quieren explorar varios casos de uso de IA a la vez |
 | **Openinnova** | Consultora IA end-to-end + Odoo | Ciclo completo (diagnóstico a producción) sobre software libre/Odoo | Empresas del ecosistema Odoo o que buscan un socio integral con raíz gallega |
 | **SANCANTIA** | Consultoría IA y automatización | Precios publicados y método claro (OTC), red de especialistas | Pymes de cualquier comunidad con presupuesto claro |
 | **AutomatizaPyme** | Agentes de IA sobre tus herramientas | "Ordenar antes de automatizar", con ingenieros | Autónomos y pymes que no cambian su stack |
-| **SAPIENSDATAAI** | Agentes, RAG, análisis de datos | Prototipo en 48 h y agente en 15 días, desde 1.500 €, 100% EU-hosted | Pymes de toda España que quieren un agente rápido |
+| **SAPIENSDATAAI** | Agentes, RAG, análisis de datos | Prototipo en una semana y agente en 15 días, 100% EU-hosted | Pymes de toda España que quieren un agente rápido |
 | **SmartCommerce** | Software a medida + ecommerce + IA | 20+ años de equipo, retail y ecommerce | Comercios y tiendas online gallegas |
 | **Redes Consultoría** | Consultoría, formación e integración de agentes de IA generativa | Combina despliegue de agentes con formación y acompañamiento; publica casos de IA aplicada | Empresas que quieren introducir agentes junto con cambios en procesos y capacidades del equipo |
 | **circo estudio** | Automatización e IA para pymes | Publica paquetes de chatbot, optimización pyme y automatización completa desde 495 €, 549 € y 745 € + IVA | Pymes que buscan un alcance inicial acotado y un precio de partida público; tiene sede en A Coruña |

@@ -8,7 +8,7 @@ summary: "Comparativa honesta de proveedores de IA para pymes en toda España"
 category: "Comparativa"
 section: "elegir-proveedor"
 published: "2026-08-13"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "mejores-empresas-automatizacion-ia-galicia"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
@@ -167,7 +167,7 @@ Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de soft
 
 Antes de contratar a nadie, valora si te sirve montarlo tú mismo:
 
-- **n8n** es una plataforma de automatización y agentes con IA, open source y autoalojable (puedes tener los datos en tu propia infraestructura o en la nube europea de n8n). Se paga por ejecución completa del flujo, no por paso: Starter desde 20 $/mes, Pro 50 $/mes, Business (autoalojada) 800 $/mes. Es la herramienta más usada por las agencias españolas porque permite lógica compleja, agentes y RAG.
+- **n8n** es una plataforma de automatización y agentes con IA, open source y autoalojable (puedes tener los datos en tu propia infraestructura o en la nube europea de n8n). Se paga por ejecución completa del flujo, no por paso: Starter desde 20 $/mes, Pro 50 $/mes, Business (autoalojada) 667 €/mes con pago anual. Es la herramienta más usada por las agencias españolas porque permite lógica compleja, agentes y RAG.
 - **Make** es una herramienta visual de no-code, muy fácil de empezar, pero funciona en la nube y cobra por créditos de ejecución, lo que puede encarecerse a volumen.
 
 La regla práctica: si tienes un perfil técnico o quieres control total de tus datos, n8n es una opción excelente. Si quieres empezar rápido sin tocar código, Make. Pero para un proceso propio que toca tu ERP o CRM, o cuando necesitas una aplicación o agente complejo, el desarrollo a medida (estilo OSIX o Javadex) casi siempre da un mejor resultado que montarlo tú mismo, porque incluye diseño, integración y mantenimiento.

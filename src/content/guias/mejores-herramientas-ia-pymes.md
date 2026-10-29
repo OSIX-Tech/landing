@@ -7,7 +7,7 @@ summary: "9 opciones probadas con precios reales, límites honestos y tabla comp
 category: "Herramientas"
 section: "elegir-proveedor"
 published: "2026-08-29"
-updated: "2026-09-22"
+updated: "2026-10-29"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -49,7 +49,7 @@ Cada entrada lleva veredicto, para qué es, precio real y límite honesto. Los p
 
 **Para qué es.** Redactar y resumir en Word y Outlook, preparar presentaciones en PowerPoint, analizar datos en Excel, resumir reuniones en Teams y buscar información de tu empresa con acceso a más de 100 conectores.
 
-**Precio real.** Microsoft 365 Copilot para empresas, 27,73 €/usuario al mes con pago anual, sin IVA. Requiere una licencia de Microsoft 365 aparte (Business Standard, 12,10 €/usuario al mes con pago anual, sin IVA). Es decir, el coste real ronda los 40 €/usuario al mes.
+**Precio real.** Microsoft 365 Copilot para empresas, 21,84 €/usuario al mes sin IVA. Requiere una licencia de Microsoft 365 aparte (Business Standard, 12,10 €/usuario al mes con pago anual, sin IVA). Es decir, el coste real ronda los 34 €/usuario al mes. Microsoft vende además paquetes conjuntos: Empresa Estándar con Copilot por 20,36 € y Empresa Premium con Copilot por 27,73 €, por usuario y mes con pago anual.
 
 **Límite honesto.** Es el precio por usuario más alto de esta lista, y su valor depende de que el equipo ya use Microsoft 365 a fondo. Si tu pyme vive en Google o en papeles, no es la primera compra.
 
@@ -79,7 +79,7 @@ Cada entrada lleva veredicto, para qué es, precio real y límite honesto. Los p
 
 **Para qué es.** Automatizar flujos complejos con lógica, ramas y agentes de IA, con ejecuciones ilimitadas de pasos en los planes de pago. Al ser de código abierto, puedes autoalojarlo y controlar tus datos.
 
-**Precio real.** Edición Community (autoalojada), gratuita. Starter en la nube, 20 €/mes con pago anual, con 2.500 ejecuciones al mes y usuarios ilimitados. Pro, 50 €/mes con pago anual. Los datos de los planes alojados se almacenan en la UE, en Frankfurt.
+**Precio real.** Edición Community (autoalojada), gratuita. Starter en la nube, 20 US$/mes con pago anual, con 2.500 ejecuciones al mes y usuarios ilimitados. Pro, 50 US$/mes con pago anual. Los datos de los planes alojados se almacenan en la UE, en Frankfurt.
 
 **Límite honesto.** No es para quien no ha automatizado nunca: la interfaz y los conceptos exigen tiempo. Y el salto de Pro (50 €) a Business (667 €/mes con pago anual) es enorme si algún día lo necesitas.
 
@@ -97,9 +97,9 @@ Cada entrada lleva veredicto, para qué es, precio real y límite honesto. Los p
 
 **Veredicto.** La herramienta de diseño más rentable para pymes que publican en redes o necesitan material comercial sin contratar a nadie.
 
-**Para qué es.** Crear posts, carteles, presentaciones, vídeos cortos y material de marca con plantillas y funciones de IA: redimensionar, traducir, quitar fondos y generar imágenes. El plan gratuito incluye hasta 200 usos de IA estándar al mes.
+**Para qué es.** Crear posts, carteles, presentaciones, vídeos cortos y material de marca con plantillas y funciones de IA: redimensionar, traducir, quitar fondos y generar imágenes. El plan gratuito incluye hasta 20 usos de IA estándar o premium al mes.
 
-**Precio real.** Gratis. Pro, 180 US$/año por persona (unos 15 US$/mes). Business, 250 US$/año por persona, con kits de marca y colaboración en equipo.
+**Precio real.** Gratis. Pro, 144 US$/año por persona (unos 12 US$/mes). Business, 250 US$/año por persona, con kits de marca y colaboración en equipo.
 
 **Límite honesto.** Para un diseño verdaderamente personalizado o una identidad seria, las plantillas se quedan cortas y se nota el "estilo Canva". Y el plan Business, pensado para equipos, solo merece la pena si publican varias personas.
 
@@ -128,12 +128,12 @@ Cada entrada lleva veredicto, para qué es, precio real y límite honesto. Los p
 | Herramienta | Mejor para | Plan gratuito | Precio de pago (aprox.) | En español | Datos en la UE |
 | --- | --- | --- | --- | --- | --- |
 | ChatGPT | Asistente general | Sí | 20 US$/mes (Plus) | Sí | No garantizado |
-| Microsoft 365 Copilot | Ofimática Microsoft | No (prueba) | 27,73 €/usuario/mes + M365 | Sí | Sí (frontera UE) |
+| Microsoft 365 Copilot | Ofimática Microsoft | No (prueba) | 21,84 €/usuario/mes + M365 | Sí | Sí (frontera UE) |
 | Google Workspace + Gemini | Ofimática Google | No (prueba) | 7-14 US$/usuario/mes | Sí | Sí |
 | Make | Automatización sin código | Sí (1.000 créditos/mes) | 12 US$/mes (Core) | No | Sí |
-| n8n | Automatización avanzada | Sí (autoalojado) | 20 €/mes (Starter) | No | Sí (Frankfurt) |
+| n8n | Automatización avanzada | Sí (autoalojado) | 20 US$/mes (Starter) | No | Sí (Frankfurt) |
 | Power Automate | Automatización Microsoft | No (prueba) | 13,00 €/usuario/mes | Sí | Sí (frontera UE) |
-| Canva | Diseño y redes | Sí (200 usos IA/mes) | 180 US$/año (Pro) | Sí | No publicado |
+| Canva | Diseño y redes | Sí (20 usos IA/mes) | 144 US$/año (Pro) | Sí | No publicado |
 | Tidio | Atención al cliente | Sí (50 conversaciones/mes) | desde 24,17 US$/mes | Sí | No publicado |
 | Lovable | Apps sin programar | Sí | 25 US$/mes (Pro) | Parcial | No publicado |
 
@@ -161,7 +161,7 @@ Un asistente general como ChatGPT, con su plan gratuito, para redactar, resumir 
 
 **¿Cuánto cuesta la IA para una pyme?**
 
-Desde 0 €, con los planes gratuitos de ChatGPT, Canva, Make o Tidio, hasta 27,73 €/usuario al mes de Microsoft 365 Copilot (sin IVA), más la licencia de Microsoft 365. La mayoría de las herramientas de pago para equipos pequeños se mueven entre 10 y 30 €/usuario al mes.
+Desde 0 €, con los planes gratuitos de ChatGPT, Canva, Make o Tidio, hasta 21,84 €/usuario al mes de Microsoft 365 Copilot (sin IVA), más la licencia de Microsoft 365. La mayoría de las herramientas de pago para equipos pequeños se mueven entre 10 y 30 €/usuario al mes.
 
 **¿Qué herramientas de IA están en español?**
 

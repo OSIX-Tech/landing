@@ -6,7 +6,7 @@ summary: "Flujo OCR, datos estructurados, duplicados, excepciones, revisión hum
 category: "Automatización documental"
 section: "automatizar-procesos"
 published: "2026-09-30"
-updated: "2026-10-27"
+updated: "2026-10-29"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -164,6 +164,6 @@ La guía general de [automatización de facturas y documentos para pymes](https:
 
 ### Fuentes y transparencia
 
-Esta guía la publica OSIX Tech a partir de su trabajo en automatización documental y del caso público de Roydisa. El caso de Roydisa publica la ventana medida, el flujo, los resultados y los límites de extrapolación. Las cifras no se presentan como una garantía para otros documentos o empresas. La última revisión de esta página corresponde a septiembre de 2026.
+Esta guía la publica OSIX Tech a partir de su trabajo en automatización documental y del caso público de Roydisa. El caso de Roydisa publica la ventana medida, el flujo, los resultados y los límites de extrapolación. Las cifras no se presentan como una garantía para otros documentos o empresas. La última revisión de esta página corresponde a octubre de 2026.
 
 Si quieres revisar un proceso concreto, [cuéntanos cómo entran hoy tus documentos](https://osix.tech/contacto/).

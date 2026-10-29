@@ -8,7 +8,7 @@ summary: "Ticket Innova, IA360, Kit Digital y Kit Consulting, con fechas, límit
 category: "Ayudas"
 section: "costes-y-resultados"
 published: "2026-08-30"
-updated: "2026-09-28"
+updated: "2026-10-29"
 related:
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
@@ -32,7 +32,7 @@ Las fechas y el estado de una convocatoria pueden cambiar. La tabla refleja la c
 
 ## 1. Ticket Innova, la opción más directa para contratar innovación en 2026
 
-**Veredicto:** Ticket Innova fue la vía más directa para contratar un servicio externo de innovación en 2026, pero su crédito está agotado. La Resolución de 9 de julio de 2026, publicada en el DOG 131 del 15 de julio, dio publicidad al agotamiento del crédito de la convocatoria 2026: la última solicitud completa concedida se presentó el 5 de febrero de 2026 a las 9:32. La ficha de la sede sigue mostrando la ventana nominal del 26 de enero al 30 de septiembre, pero no queda presupuesto para nuevas concesiones.
+**Veredicto:** Ticket Innova fue la vía más directa para contratar un servicio externo de innovación en 2026, pero su crédito está agotado. La Resolución de 9 de julio de 2026, publicada en el DOG 131 del 15 de julio, dio publicidad al agotamiento del crédito de la convocatoria 2026: la última solicitud completa concedida se presentó el 5 de febrero de 2026 a las 9:32. La ficha de la sede ya figura como cerrada, del 26 de enero al 30 de septiembre, y no queda presupuesto para nuevas concesiones.
 
 **Mejor para:** una empresa que necesita definir, diseñar o poner en marcha un proyecto de innovación con un proveedor externo. Puede ser una vía razonable para una primera automatización, siempre que el servicio encaje en uno de los seis tickets de la convocatoria.
 
@@ -144,7 +144,7 @@ La ficha oficial del procedimiento IG408M consultada el 30 de agosto de 2026 ind
 
 **¿Ticket Innova puede pagar un proyecto de IA?**
 
-Pudo en la convocatoria 2026 mientras hubo crédito. La Xunta publicó el agotamiento del crédito en el DOG 131 del 15 de julio de 2026: la última solicitud completa concedida se presentó el 5 de febrero de 2026. La sede todavía muestra la ventana nominal hasta el 30 de septiembre, pero no queda presupuesto para nuevas concesiones.
+Pudo en la convocatoria 2026 mientras hubo crédito. La Xunta publicó el agotamiento del crédito en el DOG 131 del 15 de julio de 2026: la última solicitud completa concedida se presentó el 5 de febrero de 2026. La sede ya marca el plazo como cerrado, y no queda presupuesto para nuevas concesiones.
 
 **¿El Kit Digital paga cualquier desarrollo de IA a medida?**
 

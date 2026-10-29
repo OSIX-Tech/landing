@@ -7,7 +7,7 @@ summary: "Siete criterios para comparar proveedores: proceso, integraciones, rev
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-09-09"
-updated: "2026-09-22"
+updated: "2026-10-29"
 related:
   - "mejores-empresas-automatizacion-ia-galicia"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
@@ -94,7 +94,7 @@ OSIX Tech trabaja desde Santiago de Compostela en consultoría, automatización,
 
 **Mejor para:** una pyme que valora un diagnóstico inicial, atención local y automatizaciones conectadas con CRM, ecommerce, informes o atención al cliente.
 
-En su web describe cobertura de las siete provincias, integración de ERP y CRM, automatización de procesos y acompañamiento posterior. También publica un proceso de trabajo en cuatro pasos: diagnóstico, propuesta, implantación y acompañamiento.
+En su web describe cobertura de siete ciudades gallegas, integración de ERP y CRM, automatización de procesos y acompañamiento posterior. También publica un proceso de trabajo en cuatro pasos: diagnóstico, propuesta, implantación y acompañamiento.
 
 **Límite honesto:** si necesitas una plataforma compleja o una arquitectura de software propia, pregunta qué parte construye directamente el equipo y qué parte depende de herramientas externas.
 
