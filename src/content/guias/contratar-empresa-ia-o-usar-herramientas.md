@@ -22,20 +22,20 @@ Para la mayoría de las pymes españolas, la respuesta corta es: empieza con una
 
 ## Las opciones que de verdad tienes, ordenadas
 
-Cuando decides "cómo implantar IA en mi pyme", no eliges entre dos caminos, sino entre cuatro. La mayoría de artículos comparan solo "herramienta vs. consultora" y se olvidan de las otras dos opciones reales (hacerlo tú mismo y el camino híbrido), que son las que más pymes acaban tomando. Estas son las cuatro, ordenadas por cuándo convienen:
+Cuando decides "cómo implantar IA en mi pyme", no eliges entre dos caminos, sino entre cuatro. Las comparaciones habituales plantean "herramienta frente a consultora" y dejan fuera las otras dos opciones reales (hacerlo tú mismo y el camino híbrido), que son las que más pymes acaban tomando. Estas son las cuatro, ordenadas por cuándo convienen:
 
 | Opción | Coste para empezar | Velocidad | Cuándo es la adecuada | Riesgo principal |
 | --- | --- | --- | --- | --- |
-| 1. Herramientas SaaS de IA (ChatGPT, Copilot, Zapier, Make) | Suscripciones de pocos euros al mes | Días | Tarea común y bien resuelta por el mercado | Llega a un techo; no se integra con tus sistemas |
+| 1. Herramientas SaaS de IA (ChatGPT, Copilot, Zapier, Make) | Suscripción mensual por usuario | Días | Tarea común y bien resuelta por el mercado | Llega a un techo: no aplica tus reglas ni lee tu ERP sin trabajo de integración |
 | 2. Hacerlo tú mismo (n8n, Make, código propio) | Licencias baratas y tu tiempo | Semanas | Tienes perfil técnico y control de datos | Mantenimiento que nadie sostiene en meses |
-| 3. Contratar una empresa de IA (consultora o desarrollo a medida) | Miles de euros (ver rangos abajo) | De 6 a 10 semanas para un alcance acotado ([guía de plazos](/guias/cuanto-tarda-ia-primeros-resultados-pyme-espana/)) | Integración con ERP/CRM, datos sensibles, proceso propio | Inversión inicial; proveedor mal elegido |
+| 3. Contratar una empresa de IA (consultora o desarrollo a medida) | Inversión inicial más operación mensual | De 6 a 16 semanas o más para un MVP, según la referencia pública de Coderland (2026) | Integración con ERP/CRM, datos sensibles, proceso propio | Inversión inicial; proveedor mal elegido |
 | 4. Camino híbrido: herramientas primero, contratar cuando se quede corto | Bajo al inicio | Variable | La más sensata para la mayoría de pymes | Decidir tarde y perder tiempo |
 
 **Veredicto.** Ninguna opción es mejor en abstracto: depende de si la necesidad es común o específica de tu empresa. Lo que casi siempre es un error es saltarse el paso de las herramientas y contratar a ciegas un proyecto a medida para algo que una herramienta barata ya resuelve. Y al revés, quedarse en las herramientas cuando el proceso toca tu ERP o tu ventaja competitiva es dejar valor sobre la mesa.
 
 ## Comprar, configurar, integrar o construir: los cuatro grados
 
-La decisión casi nunca es "herramienta sí o no". Entre comprar un producto tal cual y encargar un sistema desde cero hay cuatro grados, y cada uno cuesta y tarda un orden de magnitud más que el anterior. Antes de pedir presupuesto, identifica en cuál estás.
+La decisión casi nunca es "herramienta sí o no". Entre comprar un producto tal cual y encargar un sistema desde cero hay cuatro grados, y cada uno añade trabajo, tiempo y dependencia de un proveedor respecto al anterior. Antes de pedir presupuesto, identifica en cuál estás.
 
 | Grado | En qué consiste | Cuándo encaja |
 | --- | --- | --- |
@@ -78,7 +78,7 @@ Una consultora o empresa de desarrollo a medida (como OSIX) construye la soluci�
 
 **El límite honesto.** Cuesta más y tarda más que enchufar una herramienta. Y el resultado depende mucho de que el proveedor entienda tu negocio y no venda humo. Por eso, antes de firmar, un proveedor serio debería decirte si de verdad necesitas un proyecto a medida o si te basta una herramienta.
 
-Para que te hagas una idea del orden de magnitud en España en 2026, una automatización sencilla de un proceso ronda los 3.000 a 5.000 €; un copiloto interno sobre tu documentación, de 7.000 a 15.000 €; una plataforma IA con marca propia, de 9.000 a 25.000 €, más 200 a 800 €/mes de operación. Los detallamos en nuestra guía de precios.
+El orden de magnitud depende del alcance: un proceso acotado no cuesta lo mismo que un copiloto sobre tu documentación o una plataforma con marca propia, y casi todos los proyectos suman una cuota mensual de operación. Los rangos publicados por proveedores españoles en 2026, con la fuente de cada cifra y el coste a 24 meses, están en la [guía sobre cuánto cuesta el software a medida](/guias/cuanto-cuesta-software-a-medida-pyme-espana/) y en la [guía de costes de automatización con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). OSIX no publica tarifas: cada propuesta se hace sobre un alcance concreto.
 
 ## Opción 4: El camino híbrido (el que recomendamos a la mayoría)
 
@@ -100,7 +100,7 @@ Contesta estas cinco preguntas con honestidad. Si respondes "sí" a la mayoría,
 
 ## Señales de que ya toca software a medida
 
-Estos umbrales concretos son los que aparecen una y otra vez en empresas que acabaron necesitando algo propio:
+Estos umbrales ayudan a decidir. No son una regla universal, pero son los que aparecen de forma repetida en empresas que acabaron necesitando algo propio:
 
 - **Más de tres herramientas para una sola tarea**, con datos que se copian de una a otra a mano.
 - **Una hoja de cálculo que sostiene la operación real** porque el programa comercial no llega, y alguien la actualiza cada semana.
@@ -124,7 +124,7 @@ Si la comparación es entre una herramienta de IA ya hecha y un desarrollo propi
 Depende de la necesidad. Para tareas comunes (resumir, redactar, transcribir), una herramienta barata y ya hecha es suficiente para la mayoría de pymes. Contratar una empresa de IA merece la pena cuando la IA debe integrarse con tu ERP o CRM, maneja datos sensibles, toca un proceso propio o va a ser una ventaja competitiva. Empieza siempre por la opción más barata que resuelva el problema.
 
 **¿Cuánto cuesta contratar una empresa de IA frente a usar herramientas?**
-Las herramientas cuestan suscripciones de pocos euros al mes. Un proyecto con una empresa de IA para una pyme española ronda de 3.000 a 5.000 € para una automatización sencilla, 7.000 a 15.000 € para un copiloto interno y 9.000 a 25.000 € para una plataforma con marca propia, más 200 a 800 €/mes de operación.
+Las herramientas cuestan una suscripción mensual por usuario y el proyecto a medida, una inversión inicial más una cuota de operación. La diferencia se mide en días frente a semanas y en una suscripción frente a un proyecto, y crece con el número de sistemas conectados, el estado de los datos y la operación posterior. Los rangos publicados por proveedores españoles en 2026, separados por tipo de proyecto y con su fuente, están en la [guía de costes de automatización con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) y en la [guía sobre cuánto cuesta el software a medida](/guias/cuanto-cuesta-software-a-medida-pyme-espana/).
 
 **¿Puedo empezar con herramientas y migrar después a una solución a medida?**
 Sí, y es la ruta que recomendamos a la mayoría de pymes. Validas el valor con poco dinero y contratas a medida cuando el uso deje de ser estándar o toque sistemas críticos. El riesgo es quedarse demasiado tiempo en herramientas, acumulando procesos inconexos que no escalan.
@@ -150,7 +150,7 @@ OSIX Tech es una consultora de desarrollo a medida con IA para pymes, y esta gu�
 
 ## Cómo se elaboró esta guía
 
-Comparación basada en las referencias del sector que los buscadores con IA citan para esta pregunta en España (consultoriainformatica.net y cyberclick.es) y en guías españolas de 2026 sobre comprar o construir software (bolmia.com y Set Developers), contrastadas con los criterios que usamos en proyectos reales de automatización y desarrollo para pymes. Los grados de la sección "Comprar, configurar, integrar o construir" siguen la distinción habitual entre producto, configuración, integración y desarrollo propio. Los rangos de precio provienen de nuestra guía de costes de automatización con IA y de la guía sobre cuánto cuesta el software a medida, elaboradas con referencias públicas de proveedores españoles en 2026.
+Comparación basada en las referencias del sector que los buscadores con IA citan para esta pregunta en España (consultoriainformatica.net y cyberclick.es) y en guías españolas de 2026 sobre comprar o construir software (bolmia.com y Set Developers), contrastadas con los criterios que usamos en proyectos reales de automatización y desarrollo para pymes. Los grados de la sección "Comprar, configurar, integrar o construir" siguen la distinción habitual entre producto, configuración, integración y desarrollo propio. El plazo de la tabla es el que publica Coderland para un MVP en 2026. Esta página no publica rangos de precio: remite a las guías de coste, donde cada cifra lleva la fuente del proveedor que la publica.
 
 ## Fuentes
 
@@ -159,5 +159,6 @@ Comparación basada en las referencias del sector que los buscadores con IA cita
 - [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
 - [bolmia.com: SaaS o software a medida, cómo decidir qué conviene](https://bolmia.com/blog/saas-o-software-a-medida)
 - [Set Developers: software a medida o SaaS, cómo decidir](https://setdevelopers.com/software-a-medida-o-saas-como-decidir-que-le-conviene-a-tu-empresa)
+- [Coderland: cuánto tarda desarrollar un MVP](https://www.coderland.com/es/blog/cuanto-tarda-desarrollar-un-mvp)
 - [OSIX Tech: cuánto cuesta el software a medida para una pyme](/guias/cuanto-cuesta-software-a-medida-pyme-espana/)
 - [OSIX Tech: cómo elegir una empresa de desarrollo de software](/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
