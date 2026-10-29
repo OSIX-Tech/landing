@@ -7,6 +7,7 @@ summary: "Qué conservar, conectar o reemplazar y cómo migrar una función cada
 category: "Modernización"
 section: "software-y-contratos"
 published: "2026-09-28"
+updated: "2026-10-29"
 related:
   - "integrar-ia-software-pyme-espana"
   - "conectar-produccion-ventas-almacen-pyme-industrial"
