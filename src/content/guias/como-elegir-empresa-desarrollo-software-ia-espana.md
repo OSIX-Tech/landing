@@ -8,7 +8,7 @@ summary: "Pruebas, privacidad, integración, coste total y una shortlist de prov
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-10-23"
+updated: "2026-10-29"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -20,6 +20,26 @@ En las páginas consultadas para 2026, E2D publica **3.000–9.000 €** para un
 Elige una empresa que pueda demostrar cómo convertirá un proceso concreto en software mantenible, no una que solo enseñe demos de IA. Antes de firmar, pide una propuesta sobre el mismo problema a cada candidato, una prueba pequeña con datos representativos, criterios para revisar errores y el coste completo de construir y mantener la solución. Compara las pruebas y los entregables, no el número de modelos que aparecen en la presentación.
 
 OSIX Tech publica esta guía y también desarrolla software con IA para pymes. No es un comparador independiente. El objetivo es darte preguntas y pruebas que puedas aplicar a cualquier proveedor, incluido nosotros.
+
+## La respuesta en 30 segundos
+
+- Pide oferta a **tres o cinco empresas**, no a una ni a diez: dos con equipo cerca de tu operación y una o dos especializadas en el tipo de sistema que necesitas.
+- Entrega a todas el **mismo brief** con el proceso, los datos, las excepciones y la primera versión que quieres.
+- Exige **una prueba con datos representativos** y la lista de lo que queda fuera del precio.
+- Puntúa las propuestas con los **mismos criterios y los mismos pesos**, y trata la seguridad y el control de datos como condición de descarte, no como una nota que se compensa.
+- Compara el **coste a 24 meses** (construcción, integraciones, operación y mantenimiento) y las condiciones de salida, no solo la cifra inicial.
+
+## A qué empresas de software a medida pedir oferta
+
+La lista se monta antes de hablar con nadie, y con un criterio: cada candidato tiene que cubrir una parte distinta del riesgo. Una lista razonable para una pyme española tiene tres o cinco nombres.
+
+1. **Dos proveedores con equipo en tu provincia o comunidad.** No por patriotismo: la primera fase del proyecto se resuelve en reuniones cortas y con acceso a los datos, y la distancia encarece las dos cosas. Si el proyecto es 100 % remoto, elige dos que trabajen en tu franja horaria y respondan por escrito.
+2. **Uno o dos especialistas en el tipo de sistema que necesitas.** Un equipo que ya ha integrado tu ERP, tu CRM o el software sectorial de tu gremio cotiza con menos incertidumbre que uno que lo descubre durante el proyecto.
+3. **Un integrador de plataforma, solo si ya tienes una.** Si tu operación corre sobre un ERP comercial, el partner oficial de esa plataforma es un candidato distinto del que construye desde cero, y conviene compararlos.
+
+Por qué tres o cinco: con dos propuestas no sabes si la tercera habría sido mejor y con más de cinco el brief se multiplica sin añadir información. Si un candidato no puede decirte **quién trabajará en el proyecto**, no acepta una **prueba con datos tuyos** o no aclara **quién es dueño del código**, no hace falta puntuarlo: descártalo antes de la comparación.
+
+Dónde encontrarlos: la comparación de [ocho proveedores de software a medida en Galicia](/guias/mejores-empresas-desarrollo-software-galicia/), los casos publicados por cada empresa (con cifras medibles, no solo logotipos) y las referencias de empresas de tu sector que ya hayan pasado por un proyecto parecido.
 
 ## Primero decide qué tipo de solución necesitas
 
@@ -145,7 +165,7 @@ Las integraciones no tienen una unidad común en estas fuentes. E2D estima entre
 
 Los costes recurrentes también van aparte: E2D publica 20–150 € al mes para hosting y servicios, y 100–500 € al mes para mantenimiento. Arteco y Hiberus mencionan un mantenimiento anual del 15–20 % del coste de desarrollo. Son cifras declaradas por cada proveedor, no una tarifa general. Pide que la oferta separe alojamiento, licencias, uso de modelos, soporte y mantenimiento, e indique qué conceptos incluye y cuáles excluye. E2D especifica IVA aparte; Arteco dice que sus rangos incluyen el despliegue inicial. Las páginas no detallan todas las exclusiones de forma comparable, así que confirma el alcance, las integraciones, migración de datos, pruebas y soporte antes de comparar.
 
-Si tu necesidad es automatizar un flujo de trabajo, no encargar una aplicación a medida, consulta también nuestra [guía sobre el coste de automatizar con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Sus rangos responden a otro tipo de proyecto.
+Si lo que necesitas antes de puntuar propuestas es ordenar los importes publicados y construir el coste a 24 meses, esa comparación está desarrollada en la [guía sobre cuánto cuesta el software a medida](/guias/cuanto-cuesta-software-a-medida-pyme-espana/). Y si tu necesidad es automatizar un flujo de trabajo, no encargar una aplicación a medida, consulta la [guía sobre el coste de automatizar con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). Sus rangos responden a otro tipo de proyecto.
 
 Antes de firmar, deja por escrito quién es dueño del código y de los datos, quién administra las cuentas de nube y de modelos, qué documentación recibirás, cómo se exportan tus datos y qué ocurre si termina el contrato. Pide un coste estimado de operación y un ejemplo de cómo el proveedor avisará si aumenta el consumo.
 
@@ -173,6 +193,22 @@ Usa una escala de 1 a 5 y anota la evidencia que justifica cada nota. Estos peso
 | Experiencia sectorial comparable | 5% | Caso verificable y papel concreto del equipo propuesto |
 
 No compenses una respuesta débil sobre privacidad o control humano con una nota alta en precio. Si un requisito es imprescindible, úsalo como condición de descarte y no como un criterio que pueda promediarse.
+
+### Ejemplo de puntuación con dos propuestas
+
+Este ejemplo es ilustrativo: las notas y los importes son inventados para mostrar el método, no son ofertas reales. Dos proveedores responden al mismo brief para una primera versión de una aplicación de pedidos.
+
+| Criterio | Peso | Propuesta A | Propuesta B | Qué enseña cada una |
+| --- | ---: | ---: | ---: | --- |
+| Comprensión del proceso y prueba con datos | 25% | 3 | 5 | A no ha pedido una muestra de pedidos reales; B ha probado diez casos y ha encontrado dos excepciones |
+| Capacidad técnica e integración | 20% | 4 | 4 | Ambas han integrado antes el ERP; ninguna ha tocado el sistema de almacén |
+| Seguridad y privacidad | 20% | 2 | 4 | A no describe retención ni quién accede a los datos; B entrega un recorrido de datos escrito |
+| Entrega, pruebas y soporte | 15% | 3 | 4 | A propone una entrega única; B propone tres cortes con criterios de aceptación |
+| Coste total y salida | 15% | 5 | 3 | A es un 15 % más barata, pero no incluye mantenimiento; B sí lo detalla |
+| Experiencia sectorial comparable | 5% | 4 | 3 | A tiene un caso del mismo sector; B no |
+| **Nota ponderada** |  | **3,35** | **4,05** |  |
+
+Dos lecturas de esta tabla. La primera: la propuesta más barata no gana cuando el precio pesa un 15 %. La segunda, más importante: la propuesta A **se descarta antes de calcular la nota**, porque la seguridad es un requisito imprescindible y una nota baja no se compensa con un 5 en coste. Si conviertes un requisito en condición de descarte, la media ponderada deja de decidir por ti.
 
 ## Estas señales justifican parar y pedir una explicación
 
@@ -219,6 +255,14 @@ Empieza por una herramienta existente si cubre el proceso y las integraciones ne
 **¿Qué debería incluir una propuesta de IA?**
 
 El problema y la medida de éxito, el alcance, la arquitectura, los datos tratados, las integraciones, los controles humanos, los criterios de aceptación, los costes iniciales y recurrentes, el soporte y las condiciones de salida.
+
+**¿A cuántas empresas de desarrollo de software conviene pedir oferta?**
+
+A tres o cinco. Dos con equipo cerca de tu operación y una o dos especializadas en el tipo de sistema que necesitas. Con dos propuestas no sabes si existía una mejor; con más de cinco multiplicas el mismo brief sin añadir información nueva. Si un candidato no puede nombrar al equipo, no acepta una prueba con datos tuyos o no aclara la propiedad del código, descártalo antes de puntuar.
+
+**¿Cómo comparo dos propuestas con alcances distintos?**
+
+No las compares hasta normalizarlas. Devuelve a cada proveedor la misma lista de alcance, pide que marquen qué incluye y qué excluye cada partida, y que coticen por separado construcción, integraciones, operación anual y salida. Puntúa después con los mismos pesos y compara el coste a 24 meses. Un importe menor sobre un alcance más pequeño no es una oferta más barata.
 
 **¿Quién es responsable del cumplimiento del RGPD?**
 

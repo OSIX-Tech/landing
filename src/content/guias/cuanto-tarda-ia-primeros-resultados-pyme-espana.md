@@ -15,7 +15,7 @@ related:
   - "pymes-espanolas-que-mejoraron-con-ia"
 ---
 
-La respuesta corta: entre 2 semanas y 6 meses, y el plazo lo decide el tipo de proyecto, no la tecnología. Con herramientas SaaS con IA bien adoptadas, el primer ahorro se nota en días. Automatizando un proceso concreto, el primer flujo en producción tarda de 2 a 4 semanas. Un copiloto interno sobre tu documentación, de 4 a 6 semanas. Una aplicación o agente a medida que se integra con tu ERP o CRM, de 6 a 10 semanas. Un modelo predictivo sobre tus datos históricos, de 3 a 6 meses. Esta guía ordena los cinco caminos del más rápido al más lento, explica qué se consigue con cada uno, qué contrapartidas tiene y qué es lo que de verdad retrasa los proyectos. La publica OSIX Tech, consultora de desarrollo de software con IA para pymes, y los plazos reflejan nuestra experiencia de entrega y las referencias públicas del mercado español.
+La respuesta corta: entre 2 semanas y 6 meses, y el plazo lo decide el tipo de proyecto, no la tecnología. Con herramientas SaaS con IA bien adoptadas, el primer ahorro se nota en días. Automatizando un proceso concreto, el primer flujo en producción tarda de 2 a 4 semanas. Un copiloto interno sobre tu documentación, de 4 a 6 semanas. Una aplicación o agente a medida que se integra con tu ERP o CRM, de 6 a 10 semanas. Un modelo predictivo sobre tus datos históricos, de 3 a 6 meses. Esta guía ordena los cinco caminos del más rápido al más lento, explica qué se consigue con cada uno, qué contrapartidas tiene y qué es lo que de verdad retrasa los proyectos. La publica OSIX Tech, equipo de desarrollo de software con IA para pymes, y los plazos salen de los proyectos que hemos entregado y de las referencias públicas del mercado español.
 
 Conviene separar dos ideas que muchas veces se mezclan: el primer resultado útil (algo funcionando que tu equipo usa) y el ahorro consolidado (el momento en que el ahorro se mide y se sostiene solo). El primero llega en semanas; el segundo, casi siempre entre el mes 2 y el 4. Si alguien te promete lo segundo en la primera semana, desconfía; si te dice que lo primero necesita un año, también.
 
@@ -47,9 +47,9 @@ Sus condiciones: un proceso cada vez, y un responsable interno que lo vigile. Un
 
 ## 3. Copiloto interno sobre tu documentación: 4 a 6 semanas
 
-Un copiloto que responde con tus documentos (manuales, contratos, incidencias, normativa interna) entra en producción en 4 a 6 semanas: indexar la documentación, montar la consulta con un modelo de lenguaje, probar con casos reales y ajustar. El ahorro llega cuando el equipo deja de buscar en carpetas y pregunta directamente; en nuestra experiencia se consolida entre el mes 2 y el 3.
+Un copiloto que responde con tus documentos (manuales, contratos, incidencias, normativa interna) entra en producción en 4 a 6 semanas: indexar la documentación, montar la consulta con un modelo de lenguaje, probar con casos reales y ajustar. El ahorro llega cuando el equipo deja de buscar en carpetas y pregunta directamente; en los proyectos que hemos entregado se consolida entre el mes 2 y el 3.
 
-Su contrapartida es directa: la calidad del copiloto es la calidad de tu documentación. Si los documentos están desactualizados o repartidos en cuatro unidades, las primeras semanas se van a ordenar ese material, y el proyecto se alarga. También necesita mantenimiento, porque la documentación cambia y el copiloto tiene que cambiar con ella. Las referencias públicas del sector van en la misma línea: Hiberus Booster publica de 10 a 14 semanas para llevar un copiloto documental a producción, y de 14 a 20 semanas para un modelo predictivo con histórico limpio.
+Su contrapartida es directa: la calidad del copiloto es la calidad de tu documentación. Si los documentos están desactualizados o repartidos en cuatro unidades, las primeras semanas se van a ordenar ese material, y el proyecto se alarga. También necesita mantenimiento, porque la documentación cambia y el copiloto tiene que cambiar con ella. Las referencias públicas del sector son más conservadoras que este rango: Hiberus Booster publica de 10 a 14 semanas para llevar un copiloto documental a producción, y de 14 a 20 semanas para un modelo predictivo con histórico limpio. Si tu documentación no está ordenada, planifica con el plazo largo.
 
 **Mejor para:** equipos que pierden horas buscando información (soporte, oficina técnica, administración, RRHH).
 
@@ -57,9 +57,29 @@ Su contrapartida es directa: la calidad del copiloto es la calidad de tu documen
 
 Cuando el proceso toca tus sistemas de gestión (presupuestos que leen el ERP, un generador de ofertas con tus precios, un agente que atiende al cliente con tus datos), el desarrollo a medida entra en el rango de 6 a 10 semanas hasta el primer uso real. El tiempo extra frente a la automatización simple se va en integración y en pruebas con datos reales, que es justamente lo que hace que el resultado se quede funcionando.
 
-A cambio de ese plazo: control de tus datos, un sistema que encaja con tu forma de trabajar y sin dependencia de las limitaciones de una herramienta genérica. La inversión inicial es mayor, típicamente de 5.000 a 15.000 € en una pyme para un proyecto bien acotado (desglosamos los rangos por tipo de proyecto en nuestra guía de precios). El riesgo aquí no es técnico, es de alcance: si el proyecto crece durante el camino, el plazo crece con él.
+A cambio de ese plazo: control de tus datos, un sistema que encaja con tu forma de trabajar y sin dependencia de las limitaciones de una herramienta genérica. La inversión inicial es mayor que la de una herramienta, y el importe depende del alcance: los rangos publicados por proveedores españoles para cada tipo de proyecto están en la [guía sobre cuánto cuesta el software a medida](/guias/cuanto-cuesta-software-a-medida-pyme-espana/). El riesgo aquí no es técnico, es de alcance: si el proyecto crece durante el camino, el plazo crece con él.
 
 **Mejor para:** procesos que tocan el núcleo del negocio y donde el dato importa: ventas, operaciones, atención al cliente.
+
+## La primera versión de una aplicación: tres entregables, tres plazos
+
+Cuando la pregunta es cuánto tarda una empresa de desarrollo en entregar la primera versión de una aplicación, la respuesta útil no es una cifra: es qué significa "primera versión". Hay tres entregables distintos y cada uno tiene su plazo. Confundirlos es la causa más habitual de un proyecto que "llega tarde" sin que nadie haya incumplido nada.
+
+- **Demostrador con tus datos (2 a 4 semanas).** Un flujo completo de punta a punta sobre una muestra real de tu empresa, sin permisos, sin casos raros y sin integración definitiva. Sirve para decidir si el enfoque funciona y para enseñarlo a quien tiene que aprobar el resto. No sirve para trabajar con él todos los días.
+- **Primera versión usable (6 a 10 semanas).** Tu equipo la usa a diario para un proceso concreto, con permisos básicos, registro de lo que ocurre y un punto de revisión humana. Aquí entran la integración con tu ERP o CRM y las pruebas con datos reales, que es donde se va la diferencia de plazo frente al demostrador.
+- **Primera versión en producción (10 a 16 semanas).** Añade lo que hace que el sistema aguante: seguridad y gestión de accesos, copias, alertas, formación del equipo, soporte y un plan para retirar el proceso anterior. Sustituye a lo que había; no convive con una hoja de cálculo en paralelo.
+
+El tramo de 6 a 10 semanas de la sección anterior corresponde a la primera versión usable de una aplicación integrada. Los tres plazos son coherentes con las referencias públicas del mercado español, que sitúan un MVP entre 6 y 16 semanas según complejidad (Coderland) y añaden entre dos y cuatro semanas de prueba controlada tras el lanzamiento antes de considerar que el producto está validado.
+
+### Qué decide que sean 6 semanas o 16
+
+- **Cuántos sistemas hay que conectar.** Cada integración necesita análisis, desarrollo y pruebas. Conectar el ERP y el sistema de almacén no cuesta lo mismo que leer una carpeta de documentos.
+- **El estado de los datos.** Si los datos que alimentan la aplicación están duplicados o en hojas de cálculo, la primera versión incluye trabajo de limpieza que nadie había presupuestado.
+- **Los criterios de aceptación.** "Que funcione" no se puede probar. "Que registre cada pedido y avise cuando falte un dato, con estos diez casos de prueba" sí, y permite cerrar la versión en una fecha.
+- **La revisión de las tiendas de aplicaciones.** Si la aplicación se distribuye en Google Play o App Store, el alta de la cuenta y las pruebas cerradas obligatorias añaden semanas que no dependen del equipo de desarrollo.
+- **Tus tiempos de decisión.** Un proyecto con un responsable interno que responde en 24 horas avanza; uno que espera aprobaciones cada dos semanas acumula retraso sin que nadie programe más despacio.
+
+Si un proveedor te da un plazo sin preguntar por integraciones, datos y criterios de aceptación, te está dando el plazo de la primera categoría con la promesa de la tercera.
 
 ## 5. Modelo predictivo sobre tus datos: 3 a 6 meses
 
@@ -82,7 +102,7 @@ Es también el camino con el retorno más grande cuando funciona, y el más fác
 | Integración con sistemas antiguos sin API | Retrasa: de 2 a 6 semanas solo de análisis |
 | Nadie interno se hace cargo del sistema | Retrasa: el sistema funciona y nadie lo usa |
 
-En nuestra experiencia, el retraso más común no es técnico: es no haber decidido qué se mide. Un proyecto que arranca sin métrica (horas ahorradas por semana, errores evitados, tiempo de respuesta) llega a producción y nadie sabe decir si valió lo que costó.
+En los proyectos que hemos visto, el retraso más común no es técnico: es no haber decidido qué se mide. Un proyecto que arranca sin métrica (horas ahorradas por semana, errores evitados, tiempo de respuesta) llega a producción y nadie sabe decir si valió lo que costó.
 
 ## Cómo saber si tu proyecto va a buen ritmo
 
@@ -94,13 +114,21 @@ Tres puntos de control, válidos para los caminos 2 a 4:
 
 ## Cómo se ha elaborado esta guía
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela. Los plazos de los cinco caminos resumen nuestra experiencia de entrega en proyectos de automatización y desarrollo con IA, contrastada con referencias públicas del mercado español: la guía de plazos de Hiberus Booster y la guía de ROI de implantación de IA de Aprender21, que sitúan rangos coherentes con los nuestros (SaaS en 1 a 4 semanas, copilotos documentales entre 6 y 12 semanas, modelos predictivos entre 10 semanas y 6 meses según el estado de los datos). Publicamos esta página como parte de nuestro contenido de divulgación y aparecemos en el mercado que describimos; los rangos son orientativos y no constituyen un presupuesto. Para precios por tipo de proyecto, consulta nuestra guía de costes de automatización con IA.
+Esta guía la publica OSIX Tech, equipo de desarrollo de software e IA para pymes con base en Santiago de Compostela. Los plazos de los cinco caminos resumen los proyectos de automatización y desarrollo con IA que hemos entregado, contrastados con referencias públicas del mercado español: la guía de plazos de Hiberus Booster (10 a 14 semanas para un copiloto documental y 14 a 20 para un modelo predictivo) y la guía de ROI de implantación de IA de Aprender21, que sitúa los copilotos documentales entre 6 y 12 semanas y los modelos predictivos entre 10 semanas y 6 meses según el estado de los datos. Donde nuestra experiencia y la referencia pública difieren, la guía muestra las dos cifras para que puedas planificar con la más conservadora. Publicamos esta página como parte de nuestro contenido de divulgación y aparecemos en el mercado que describimos; los rangos son orientativos y no constituyen un presupuesto. Para precios por tipo de proyecto, consulta la guía de costes de automatización con IA.
 
 ## Preguntas frecuentes
 
 ### ¿Cuánto se tarda en ver los primeros resultados de la IA en una pyme?
 
 Depende del camino: días a 2 semanas con herramientas SaaS bien adoptadas, 2 a 4 semanas para automatizar un proceso concreto, 4 a 6 semanas para un copiloto documental, 6 a 10 semanas para una aplicación a medida y de 3 a 6 meses para un modelo predictivo. El ahorro consolidado suele llegar entre el mes 2 y el 4 en los caminos rápidos.
+
+### ¿Cuánto tarda una empresa de desarrollo de software en entregar la primera versión de una aplicación?
+
+Entre 2 y 16 semanas según lo que se entregue. Un demostrador con datos reales que sirve para decidir, de 2 a 4 semanas; una primera versión que tu equipo usa a diario en un proceso, de 6 a 10 semanas; la primera versión lista para producción, con accesos, copias, alertas, formación y soporte, de 10 a 16 semanas. El plazo se mueve por el número de integraciones, el estado de los datos, los criterios de aceptación, la revisión de las tiendas de aplicaciones y tus propios tiempos de decisión.
+
+### ¿Qué diferencia hay entre un MVP y la primera versión en producción?
+
+Un MVP demuestra que el enfoque resuelve el problema y se puede usar con un grupo reducido. La primera versión en producción añade lo que hace falta para que el sistema sustituya al proceso anterior: gestión de accesos, copias, alertas, formación, soporte y criterios de aceptación probados. Un MVP no está listo para producción aunque funcione; la producción no es una fecha, es un conjunto de garantías.
 
 ### ¿Es realista tener IA funcionando en un mes?
 
@@ -112,7 +140,7 @@ Tres cosas, por este orden: datos sucios o repartidos (2 a 6 semanas extra), un 
 
 ### ¿Cuánto cuesta implantar IA en una pyme?
 
-De 3.000 a 5.000 € para automatizar un proceso sencillo, de 7.000 a 15.000 € para un copiloto interno y de 9.000 a 25.000 € para una plataforma a medida, más 200 a 800 €/mes de operación. Los rangos completos, por tipo de proyecto, están en nuestra guía de precios.
+El importe depende del alcance: no cuesta lo mismo automatizar un proceso concreto que construir una plataforma a medida con operación mensual. Los rangos publicados por proveedores españoles en 2026, separados por tipo de proyecto y con el coste a 24 meses, están en la [guía de costes de automatización con IA](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) y en la [guía sobre cuánto cuesta el software a medida](/guias/cuanto-cuesta-software-a-medida-pyme-espana/). OSIX no publica tarifas ni precios de partida: cada propuesta se hace sobre un alcance concreto.
 
 ### ¿Necesito muchos datos para empezar con IA?
 
@@ -125,5 +153,6 @@ Sí, como primer paso: dan resultados en días y enseñan al equipo qué es posi
 ## Fuentes
 
 - Hiberus Booster, guía de plazos de implementación de IA: https://www.hiberusbooster.com/guias/cuanto-tarda-implementar-ia-empresa/
+- Coderland, cuánto tarda desarrollar un MVP: https://www.coderland.com/es/blog/cuanto-tarda-desarrollar-un-mvp
 - Aprender21, ROI de implementar IA en empresas: https://www.aprender21.com/blog/roi-implementacion-ia-empresa
 - OSIX Tech, guía de costes de automatización con IA para pymes: https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/
