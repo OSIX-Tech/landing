@@ -122,7 +122,7 @@ Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsa
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: septiembre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: octubre de 2026.
 
 - [Precios de Power BI (Microsoft, España)](https://www.microsoft.com/es-es/power-platform/products/power-bi/pricing)
 - [Planes y precios de Make](https://www.make.com/en/pricing)
