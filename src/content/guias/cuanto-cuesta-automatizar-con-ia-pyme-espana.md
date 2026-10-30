@@ -8,7 +8,7 @@ summary: "Precios reales por tipo de proyecto y cómo se financian con ayudas"
 category: "Precios reales"
 section: "costes-y-resultados"
 published: "2026-08-18"
-updated: "2026-09-22"
+updated: "2026-10-30"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "mejores-empresas-automatizacion-ia-galicia"
@@ -55,7 +55,7 @@ En la implantación deberían aparecer el análisis del proceso actual, el dise�
 - qué ocurre si el proveedor deja de prestar el servicio;
 - quién conserva el código, los datos, las instrucciones y las credenciales de operación.
 
-Los sistemas sin API, los datos desordenados, las excepciones abundantes y los requisitos de trazabilidad elevan el trabajo. Intelixia Lab identifica esos factores como causas habituales de aumento del presupuesto, mientras que Ciberfobia y Javadex separan también integración, nivel de personalización y mantenimiento en sus rangos publicados.
+Los sistemas sin API, los datos desordenados, las excepciones abundantes y los requisitos de trazabilidad elevan el trabajo. Intelixia Lab identifica esos factores como causas habituales de aumento del presupuesto, mientras que Ciberfobia separa también integración, nivel de personalización y mantenimiento en sus rangos publicados.
 
 ## Qué encarece una automatización con IA
 
@@ -152,7 +152,7 @@ OSIX Tech aparece en esta guía y lo decimos abiertamente: no publicamos rangos 
 
 ## Cómo se elaboraron estos rangos
 
-Los rangos combinan referencias públicas consultadas en septiembre de 2026 de proveedores españoles que publican precios por tipo de proyecto, entre ellos Ciberfobia, Javadex, Intelixia Lab y Upliora. No son una media estadística del mercado: cada proveedor define distinto alcance, nivel de soporte y coste operativo.
+Los rangos combinan referencias públicas consultadas en septiembre de 2026 de proveedores españoles que publican precios por tipo de proyecto, entre ellos Ciberfobia, Intelixia Lab y Upliora. No son una media estadística del mercado: cada proveedor define distinto alcance, nivel de soporte y coste operativo.
 
 OSIX Tech los contrasta con los elementos que aparecen en presupuestos de automatización para pymes: diseño del proceso, integraciones, pruebas, formación, consumo de servicios, mantenimiento y trabajo interno del cliente. Por eso la tabla muestra tanto la implantación como el coste recurrente a 24 meses.
 
@@ -163,7 +163,6 @@ Antes de pedir presupuesto, anota tres datos: cuántas horas consume hoy el proc
 ## Fuentes
 
 - [Ciberfobia: cuánto cuesta implementar automatización con IA](https://ciberfobia.com/faq/coste-implementar-automatizacion-ia)
-- [Javadex: cuánto cuesta implementar IA en una pyme española](https://www.javadex.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-2026)
 - [Intelixia Lab: precios por tipo de proyecto](https://intelixialab.es/guias/cuanto-cuesta-implantar-ia-pyme)
 - [Upliora: precios por tipo de proyecto y coste a 24 meses](https://www.upliora.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-por-tipo-proyecto-2026)
 - [España Digital: Programa Kit Consulting](https://espanadigital.gob.es/medida/programa-kit-consulting)

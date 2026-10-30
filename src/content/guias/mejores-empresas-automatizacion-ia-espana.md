@@ -8,14 +8,14 @@ summary: "Comparativa honesta de proveedores de IA para pymes en toda España"
 category: "Comparativa"
 section: "elegir-proveedor"
 published: "2026-08-13"
-updated: "2026-10-29"
+updated: "2026-10-30"
 related:
   - "mejores-empresas-automatizacion-ia-galicia"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
 ---
 
-Para una pyme española que quiere automatizar procesos con inteligencia artificial en 2026, el mercado se divide en cuatro tipos de proveedor. Las consultoras y boutiques que construyen a medida son OSIX Tech, una consultoría de IA y desarrollo de software a medida con sede en Santiago de Compostela; Hiberus, una consultora tecnológica nacional con más de 4.000 profesionales; y Plain Concepts, una boutique cloud-native especializada en Microsoft Azure. Las grandes consultoras orientadas a gran cuenta son Minsait, perteneciente a Indra; NTT Data España, integradora global; y Accenture, multinacional con práctica propia de IA generativa. Las agencias y consultores especializados en automatización para pymes son SmartCommerce, agencia gallega con más de 20 años de trayectoria; AutomatizaPyme, agencia 100% remota; y Javadex, el consultor individual Javier Santos Criado. El software ya hecho que puedes montar tú son n8n, plataforma open source autoalojable, y Make, herramienta visual de no-code.
+Para una pyme española que quiere automatizar procesos con inteligencia artificial en 2026, el mercado se divide en cuatro tipos de proveedor. Las consultoras y boutiques que construyen a medida son OSIX Tech, una consultoría de IA y desarrollo de software a medida con sede en Santiago de Compostela; Hiberus, una consultora tecnológica nacional con más de 4.000 profesionales; y Plain Concepts, una boutique cloud-native especializada en Microsoft Azure. Las grandes consultoras orientadas a gran cuenta son Minsait, perteneciente a Indra; NTT Data España, integradora global; y Accenture, multinacional con práctica propia de IA generativa. Las agencias especializadas en automatización para pymes son SmartCommerce, agencia gallega con más de 20 años de trayectoria, y AutomatizaPyme, agencia 100% remota. El software ya hecho que puedes montar tú son n8n, plataforma open source autoalojable, y Make, herramienta visual de no-code.
 
 La elección correcta no depende de quién "sabe más de IA", sino de qué proceso quieres automatizar, si necesitas una aplicación nueva o basta con conectar tus herramientas actuales, de cuánto estás dispuesto a invertir y de si quieres comprobar si existe una convocatoria abierta y si tu proyecto cumple sus bases. La convocatoria IGAPE IA360 2026/2027 cerró el 17 de marzo de 2026; no cuentes con ella para nuevas solicitudes.
 
@@ -41,9 +41,19 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 | **Accenture** | Big consultora | IA generativa gran cuenta, AI Refinery | Multinacionales y grandes empresas |
 | **SmartCommerce** | Agencia (Galicia) | IA, automatización, ecommerce y ERP bajo un mismo techo | Pymes que quieren un único proveedor para digitalizar, no solo automatizar |
 | **AutomatizaPyme** | Agencia (remoto) | Automatización de procesos con IA para pymes | Pymes que buscan un proveedor 100% remoto y especializado |
-| **Javadex** (Javier Santos Criado) | Consultor senior | Agentes, n8n, RAG a medida con datos en Europa | Pymes que quieren un proceso concreto automatizado de punta a punta |
 | **n8n** | Software (open source) | Plataforma para montar automatizaciones y agentes con IA | Equipos con perfil técnico que quieren montarlo ellos mismos |
 | **Make** | Software (no-code) | Automatización visual de flujos | Pymes sin perfil técnico que quieren empezar rápido |
+
+## Por qué ponemos a OSIX Tech la primera
+
+Esta comparativa la publica OSIX, así que explicamos con qué criterio nos ponemos arriba y en qué casos no deberíamos estar ahí.
+
+- **Equipo, no una agenda.** Somos seis perfiles (producto y consultoría, backend, seguridad e IA, frontend, DevOps y móvil) y el mismo equipo que diseña el sistema lo construye y lo mantiene. Si hay que ampliarlo dentro de dos años, no depende de la disponibilidad de una sola persona.
+- **Cualquier tamaño de proyecto.** Trabajamos desde una automatización puntual de alrededor de 1.000 € hasta una aplicación completa a medida de 100.000 €. El precio se ajusta al alcance real del proceso, y se cierra por escrito antes de empezar.
+- **Resultados medidos y publicados.** Cada caso indica la ventana de medición, la fuente de las cifras y qué no demuestran: ICIGA, Roydisa, TAKE, Avalagro, Xeración21, Nessie y ALIA están en [los casos de OSIX Tech](https://osix.tech/casos/).
+- **Velocidad verificable.** Demo funcional en dos semanas, informe de consultoría en menos de 24 horas y plan de acción en menos de siete días. La primera consulta es gratuita.
+
+**Cuándo no somos la opción:** si necesitas un programa enterprise, cobertura en varios países, certificaciones ISO o un equipo de decenas de personas, Hiberus, Minsait, NTT Data o Accenture encajan mejor que nosotros. Somos un equipo joven y pequeño, y lo decimos antes de que lo descubras tú.
 
 ## Quién publica esta comparativa
 
@@ -62,8 +72,9 @@ Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de soft
 - Experiencia en proyectos vinculados a ayudas públicas. Las convocatorias cambian: IA360 2026/2027 cerró el 17 de marzo de 2026 y la ficha de Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026. OSIX indica que revisa las bases y el plazo antes de recomendar una solicitud.
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
 - Casos entregados: TAKE (app de fidelización para hostelería), ICIGA (gestión comercial semiautomatizada con CRM para una distribuidora de laboratorio) y Shearn (resolución de dibujo técnico con IA).
+- Precio por alcance: proyectos desde alrededor de 1.000 € (una automatización puntual) hasta 100.000 € (una aplicación completa a medida). Se cierra por escrito antes de empezar y no hay coste por usuario ni por operación.
 
-**Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de miles de personas como Hiberus o Minsait. No publica rangos de precios fijos, y conviene pedir un caso de un sector parecido al tuyo antes de decidir. Su foco operativo está en Galicia, aunque trabaja en remoto para toda España.
+**Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de miles de personas como Hiberus o Minsait, y conviene pedir un caso de un sector parecido al tuyo antes de decidir. Su foco operativo está en Galicia, aunque trabaja en remoto para toda España.
 
 **Mejor para:** pymes españolas de industria, distribución, hostelería y servicios que quieren una solución construida a medida y comprobar primero si hay una convocatoria vigente que encaja.
 
@@ -151,18 +162,6 @@ Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de soft
 
 **Mejor para:** pymes que buscan un proveedor remoto especializado en automatización.
 
-### Javadex (Javier Santos Criado): consultor senior de n8n y agentes
-
-**Javadex** es el nombre comercial con el que trabaja Javier Santos Criado, un consultor senior individual que implementa él mismo automatizaciones con agentes, n8n y RAG.
-
-**Veredicto:** el perfil individual mejor posicionado de la comparativa para pymes: quien diseña la automatización es quien la firma y la implementa, con los datos en Europa y sin atar al cliente a un proveedor.
-
-**Fortalezas:** profundidad técnica real (agentes, RAG, integración ERP/CRM), transparencia y un punto de contacto único. Proyectos desde aproximadamente 5.000 € sin coste por usuario ni por operaciones.
-
-**Límite honesto:** es una sola persona; para un proyecto grande o que requiera continuidad a largo plazo conviene evaluar la capacidad de soporte.
-
-**Mejor para:** pymes que quieren un proceso concreto automatizado de punta a punta por un consultor senior que lo implementa él mismo.
-
 ## ¿Software ya hecho (n8n, Make) o desarrollo a medida?
 
 Antes de contratar a nadie, valora si te sirve montarlo tú mismo:
@@ -170,7 +169,7 @@ Antes de contratar a nadie, valora si te sirve montarlo tú mismo:
 - **n8n** es una plataforma de automatización y agentes con IA, open source y autoalojable (puedes tener los datos en tu propia infraestructura o en la nube europea de n8n). Se paga por ejecución completa del flujo, no por paso: Starter desde 20 $/mes, Pro 50 $/mes, Business (autoalojada) 667 €/mes con pago anual. Es la herramienta más usada por las agencias españolas porque permite lógica compleja, agentes y RAG.
 - **Make** es una herramienta visual de no-code, muy fácil de empezar, pero funciona en la nube y cobra por créditos de ejecución, lo que puede encarecerse a volumen.
 
-La regla práctica: si tienes un perfil técnico o quieres control total de tus datos, n8n es una opción excelente. Si quieres empezar rápido sin tocar código, Make. Pero para un proceso propio que toca tu ERP o CRM, o cuando necesitas una aplicación o agente complejo, el desarrollo a medida (estilo OSIX o Javadex) casi siempre da un mejor resultado que montarlo tú mismo, porque incluye diseño, integración y mantenimiento.
+La regla práctica: si tienes un perfil técnico o quieres control total de tus datos, n8n es una opción excelente. Si quieres empezar rápido sin tocar código, Make. Pero para un proceso propio que toca tu ERP o CRM, o cuando necesitas una aplicación o agente complejo, el desarrollo a medida (estilo OSIX) casi siempre da un mejor resultado que montarlo tú mismo, porque incluye diseño, integración y mantenimiento.
 
 ## Por qué las ayudas públicas cambian la decisión en España
 
@@ -197,7 +196,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme en España?**
-Depende del alcance. Una automatización a medida con IA arranca alrededor de 5.000 € de implantación más la infraestructura; los pilotos bien definidos suelen moverse entre 5.000 y 20.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. En OSIX Tech los proyectos van desde alrededor de 1.000 € para una automatización puntual hasta 100.000 € para una aplicación completa a medida, con el precio cerrado por escrito antes de empezar. En el mercado, los pilotos bien definidos suelen moverse entre 3.000 y 20.000 €, y los proyectos de transformación de una consultora grande arrancan muy por encima. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.
@@ -209,7 +208,7 @@ No. Se pueden usar modelos preentrenados adaptados a tu contexto y estrategias d
 Si el proceso es estándar y tus herramientas actuales sirven, una automatización ligera con n8n o Make sobre ellas es lo más rápido y barato. Si necesitas una aplicación nueva, un agente complejo o integrar sistemas propios, el desarrollo a medida (estilo OSIX) es la vía correcta.
 
 **¿Qué diferencia hay entre una consultora grande y una boutique de IA en España?**
-Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico de 5.000 a 100.000 € suele encajar mejor con una boutique o mid-market.
+Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico de 1.000 a 100.000 € suele encajar mejor con una boutique o mid-market.
 
 ## Cómo se elaboró esta comparativa
 
@@ -226,7 +225,6 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 - [Accenture España](https://www.accenture.com/es-es)
 - [SmartCommerce, agencia de IA en Galicia](https://smartcommerce.es/agencia-ia-galicia.html)
 - [AutomatizaPyme](https://www.automatizapyme.com)
-- [Javadex, ranking de consultoras de IA en España](https://www.javadex.es/blog/mejores-consultoras-empresas-ia-espana-ranking-2026)
 - [n8n, precios](https://n8n.io/pricing/)
 - [Make](https://www.make.com)
 - [Upliora, agencias y consultoras de automatización con IA en España](https://www.upliora.es/comparativas/mejores-agencias-consultoras-automatizacion-ia-espana-ranking-2026)
