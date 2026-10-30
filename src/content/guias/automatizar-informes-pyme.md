@@ -7,7 +7,7 @@ summary: "Seis informes por retorno, informes de datos vs documentales y cuándo
 category: "Informes"
 section: "automatizar-procesos"
 published: "2026-09-05"
-updated: "2026-10-29"
+updated: "2026-10-30"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -15,7 +15,9 @@ related:
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
 ---
 
-Para automatizar la generación de informes en tu empresa, la primera decisión no es la herramienta: es saber si tu informe es de datos o documental. Si los datos ya viven en un sistema o en una hoja estructurada (ERP, CRM, contabilidad), te basta una plantilla que se actualice sola o un cuadro de mando. Si viven en documentos que alguien tiene que copiar, leer o redactar cada vez (partes, albaranes, correos, tickets), necesitas un extractor o un desarrollo que lea por ti. La mayoría de las respuestas que encuentras al buscar este tema solo cubren la primera familia, los dashboards de Power BI o Data Studio, y se olvidan de que buena parte de los informes de una pyme son documentos que alguien monta a mano cada semana. En esta guía separamos las dos familias, ordenamos seis informes típicos por retorno para una pyme española y te decimos cuándo basta una plantilla, cuándo un extractor y cuándo merece la pena un desarrollo a medida.
+Para generar informes para clientes sin copiar datos a mano, conecta las fuentes a un único destino y programa la salida: un cuadro de mando en Looker Studio o Power BI, una hoja de Sheets o Excel con Power Query, o un flujo en Make o Zapier junto a una herramienta de informes como DashThis o Reporting Ninja. Eso basta cuando los datos ya viven en un sistema; deja de bastar cuando cada mes hay que leerlos de documentos.
+
+Esa es la frontera que ordena todo lo demás. Los informes de datos salen de sistemas y hojas ya estructuradas, y cualquiera de esas vías los automatiza enteros. Los informes documentales salen de partes, albaranes, correos o tickets que alguien lee y teclea, y ningún dashboard llega porque los datos no están en ninguna base: hace falta un extractor. En Roydisa, el flujo que montamos en OSIX Tech convierte la foto de un documento de proveedor en una fila de Excel en 27 segundos de mediana, con más de 30.000 ficheros tratados en seis meses. Esta guía ordena seis informes típicos de una pyme española por retorno y dice cuándo basta una plantilla, cuándo un extractor y cuándo merece la pena un desarrollo a medida.
 
 ## Primero: decide si tu informe es de datos o documental
 
@@ -122,10 +124,11 @@ Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsa
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. No citamos clientes ni casos de éxito. Última revisión: octubre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. La única cifra de cliente de esta guía, la del flujo de Roydisa en la apertura, procede del caso publicado con su fecha de corte y su alcance medido. Última revisión: octubre de 2026.
 
 - [Precios de Power BI (Microsoft, España)](https://www.microsoft.com/es-es/power-platform/products/power-bi/pricing)
 - [Planes y precios de Make](https://www.make.com/en/pricing)
 - [Planes y precios de Zapier](https://zapier.com//pricing)
-- [Data Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
+- [Looker Studio, antes Data Studio (Google, herramienta gratuita)](https://lookerstudio.google.com/)
 - [Cuánto cuesta automatizar procesos con IA en una pyme española (OSIX Tech)](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Caso de Roydisa: cada documento de proveedor a Excel en 27 segundos (OSIX Tech)](/casos/roydisa-ocr-documentos-proveedores/)
