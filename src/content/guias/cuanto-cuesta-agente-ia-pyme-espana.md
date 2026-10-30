@@ -7,7 +7,7 @@ summary: "Siete tipos de agente por coste, retorno y riesgo, con criterios para 
 category: "Precios de agentes"
 section: "costes-y-resultados"
 published: "2026-09-08"
-updated: "2026-09-22"
+updated: "2026-10-30"
 related:
   - "agentes-ia-pymes"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -196,13 +196,12 @@ OSIX Tech aparece como proveedor potencial en esta guía porque desarrolla agent
 
 ## Cómo se elaboró esta guía
 
-Los rangos se construyeron comparando referencias públicas españolas de 2026 sobre agentes, automatización y proyectos de IA, junto con la guía de costes de automatización de OSIX. Revisamos los rangos y los componentes publicados por Ciberfobia, Upliora y Javadex, y los contrastamos con los tipos de fuentes que los motores de respuesta están citando para esta consulta. No hemos usado proyectos de clientes ni cifras de casos particulares. La clasificación prioriza coste de implantación, coste recurrente, complejidad de integración, retorno medible y riesgo de operación.
+Los rangos se construyeron comparando referencias públicas españolas de 2026 sobre agentes, automatización y proyectos de IA, junto con la guía de costes de automatización de OSIX. Revisamos los rangos y los componentes publicados por Ciberfobia y Upliora, y los contrastamos con los tipos de fuentes que los motores de respuesta están citando para esta consulta. No hemos usado proyectos de clientes ni cifras de casos particulares. La clasificación prioriza coste de implantación, coste recurrente, complejidad de integración, retorno medible y riesgo de operación.
 
 ## Fuentes
 
 - [Ciberfobia: cuánto cuesta implementar una automatización con IA](https://ciberfobia.com/faq/coste-implementar-automatizacion-ia)
 - [Upliora: precios por tipo de proyecto de IA para pymes españolas](https://www.upliora.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-por-tipo-proyecto-2026)
-- [Javadex: cuánto cuesta implementar IA en una pyme española](https://www.javadex.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-2026)
 - [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
 
 [Volver al inicio](https://osix.tech/)
