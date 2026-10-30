@@ -7,7 +7,7 @@ summary: "Las 5 vías reales (API, webhook, no-code, base de datos, RAG) y cuán
 category: "Integración"
 section: "automatizar-procesos"
 published: "2026-09-03"
-updated: "2026-09-24"
+updated: "2026-10-26"
 related:
   - "como-usar-ia-laboratorios"
   - "donde-se-guardan-datos-ia-empresa"
@@ -97,6 +97,195 @@ Esta es la decisión que de verdad separa un proyecto que funciona de uno que se
 
 Regla práctica: **empieza no-code para validar la idea y, si el proceso importa de verdad, pasa a a medida cuando el conector se te quede corto.** Lo que casi nunca funciona es lo contrario: pagar un desarrollo grande para un proceso que no está ni definido ni probado.
 
+## ¿Cuándo conviene software propio en vez de Zapier o Make?
+
+El software propio conviene cuando el flujo deja de ser un flujo: cuando hay varias condiciones encadenadas, datos que viven en sistemas que no se hablan, volumen alto o en tiempo real, requisitos de auditoría, o cuando la cuota por operación crece más rápido de lo que costaría mantener el sistema. La decisión no se toma por tamaño de empresa ni por volumen suelto, se toma con una cuenta: el no-code cuesta la cuota mensual más las horas que dedicáis a mantener el flujo, y el desarrollo propio cuesta una inversión inicial más la infraestructura y el soporte mensual. El primer mes en que la suma acumulada del desarrollo propio cae por debajo de la del no-code es el punto de cruce, y si ese mes llega dentro del plazo que aceptáis, el desarrollo se justifica.
+
+### La cuenta, en tres líneas
+
+1. **Coste del no-code a N meses** = (cuota mensual × N) + (horas de mantenimiento al mes × coste de la hora × N).
+2. **Coste del desarrollo propio a N meses** = inversión inicial + (infraestructura y soporte al mes × N) + (horas de mantenimiento del sistema al mes × coste de la hora × N).
+3. **Punto de cruce** = el primer mes en que el total del desarrollo propio es menor que el del no-code.
+
+Dos detalles que cambian el resultado y casi nadie mete en la cuenta: la cuota del no-code **sube con el volumen**, porque estas plataformas cobran por operación ([Zapier](https://zapier.com/pricing) por tarea, [Make](https://www.make.com/en/pricing) por crédito), y el desarrollo propio **no tiene mantenimiento cero**, aunque su infraestructura sea más plana que una cuota por uso. Si comparas una cuota creciente con una inversión fija y te olvidas de las horas internas de los dos lados, el no-code siempre parece más barato.
+
+### Ejemplo con cifras inventadas
+
+Las cifras de este apartado son supuestos redondeados para que la cuenta se pueda seguir, no precios de mercado. Cámbialas por las tuyas antes de decidir nada.
+
+Supuestos: cuota de no-code de 150 €/mes con un crecimiento anual del 30% en operaciones, 6 horas al mes de mantenimiento del flujo a 35 €/hora, desarrollo de 12.000 €, infraestructura y soporte de 180 €/mes y 2 horas al mes de mantenimiento del sistema propio.
+
+Con esos supuestos, la cuenta queda así:
+
+- **Primer mes:** 360 € de no-code (150 € de cuota más 210 € de las 6 horas) frente a 250 € del sistema propio (180 € de infraestructura y soporte más 70 € de las 2 horas).
+- **A 12 meses:** 4.556 € de no-code frente a 15.000 € del desarrollo propio.
+- **A 24 meses:** 9.722 € frente a 18.000 €.
+- **Punto de cruce:** mes 52.
+
+Con esos números el no-code es más barato durante más de cuatro años y el punto de cruce llega en el mes 52. Para un flujo simple, el desarrollo propio no se paga, y la respuesta honesta es quedarse en no-code.
+
+### Cómo cambia cuando cambian el volumen y el mantenimiento
+
+Los mismos tres cálculos con cinco casos, todos con cifras inventadas:
+
+- **Flujo simple con poco volumen.** Cuota 50 €/mes, crecimiento del 20% anual, 3 horas al mes a 35 €/hora; desarrollo de 12.000 €, 150 €/mes y 1 hora al mes. A 24 meses: no-code 3.957 €, propio 16.440 €. No hay cruce en 60 meses.
+- **Flujo simple que crece.** Cuota 150 €/mes, 30% anual, 6 horas al mes a 35 €/hora; desarrollo de 12.000 €, 180 €/mes y 2 horas al mes. A 24 meses: no-code 9.722 €, propio 18.000 €. Cruce en el mes 52.
+- **Varios flujos con condiciones.** Cuota 400 €/mes, 25% anual, 12 horas al mes a 35 €/hora; desarrollo de 15.000 €, 250 €/mes y 3 horas al mes. A 24 meses: no-code 22.068 €, propio 23.520 €. Cruce en el mes 27.
+- **Volumen alto.** Cuota 900 €/mes, 40% anual, 30 horas al mes a 35 €/hora; desarrollo de 18.000 €, 400 €/mes y 4 horas al mes. A 24 meses: no-code 55.584 €, propio 30.960 €. Cruce en el mes 12.
+- **Flujo crítico con auditoría.** Cuota 300 €/mes, 20% anual, 20 horas al mes a 45 €/hora; desarrollo de 22.000 €, 300 €/mes y 5 horas al mes. A 24 meses: no-code 30.222 €, propio 34.600 €. Cruce en el mes 30.
+
+En el ejemplo anterior, bajar a la mitad la cuota, las horas de mantenimiento o el crecimiento anual aleja el cruce más allá de los 60 meses, y subir la inversión inicial un 50% también. Ninguna de las seis cifras decide sola: la fecha del cruce depende de todas a la vez, y por eso conviene hacer la cuenta con números propios antes de pedir presupuesto.
+
+### Haz la cuenta con tus cifras
+
+Apunta seis números de tu caso:
+
+1. La cuota mensual que pagas hoy a Zapier, Make o la plataforma que uses, con tu volumen actual.
+2. Cuánto crece al año el número de operaciones. Si no lo sabes, empieza por el 20%.
+3. Las horas al mes que alguien dedica a mantener el flujo: revisarlo, corregir errores, rehacer pasos.
+4. Lo que cuesta una hora de esa persona.
+5. Lo que te presupuestan por el desarrollo, con todo incluido.
+6. La infraestructura y el soporte mensual del desarrollo, más las horas al mes que dedicarías a mantenerlo.
+
+Aplica las tres líneas de arriba a 12 y a 24 meses y compara. Si prefieres no hacerlo a mano, la calculadora de abajo usa esos mismos números, calcula el punto de cruce y no envía nada a ningún servidor.
+
+<!-- calculadora:inicio -->
+<div class="calc" data-calc hidden>
+  <p class="calc-title">Calculadora de punto de cruce</p>
+  <p class="calc-note">Cifras de ejemplo, no precios de mercado. Cámbialas por las tuyas: la cuenta se hace en tu navegador y no se envía a ningún servidor.</p>
+  <div class="calc-fields">
+    <label class="calc-field">Cuota del no-code al mes (€)
+      <input type="number" min="0" step="10" value="150" inputmode="decimal" data-calc-field="fee" />
+    </label>
+    <label class="calc-field">Crecimiento anual del volumen (%)
+      <input type="number" min="0" step="5" value="30" inputmode="decimal" data-calc-field="growth" />
+    </label>
+    <label class="calc-field">Horas al mes con el flujo
+      <input type="number" min="0" step="1" value="6" inputmode="decimal" data-calc-field="hours" />
+    </label>
+    <label class="calc-field">Coste de una hora (€)
+      <input type="number" min="0" step="5" value="35" inputmode="decimal" data-calc-field="rate" />
+    </label>
+    <label class="calc-field">Horas al mes con el sistema propio
+      <input type="number" min="0" step="1" value="2" inputmode="decimal" data-calc-field="hoursC" />
+    </label>
+    <label class="calc-field">Inversión inicial (€)
+      <input type="number" min="0" step="500" value="12000" inputmode="decimal" data-calc-field="build" />
+    </label>
+    <label class="calc-field">Infraestructura y soporte (€/mes)
+      <input type="number" min="0" step="10" value="180" inputmode="decimal" data-calc-field="infra" />
+    </label>
+  </div>
+  <div class="calc-results" aria-live="polite">
+    <table class="calc-table">
+      <thead>
+        <tr><th scope="col">Coste acumulado</th><th scope="col">No-code</th><th scope="col">A medida</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">A 12 meses</th><td data-out="nc12"></td><td data-out="cm12"></td></tr>
+        <tr><th scope="row">A 24 meses</th><td data-out="nc24"></td><td data-out="cm24"></td></tr>
+        <tr><th scope="row">Punto de cruce</th><td colspan="2" data-out="cross"></td></tr>
+      </tbody>
+    </table>
+    <p class="calc-verdict" data-calc-verdict></p>
+  </div>
+  <p class="calc-when">El cálculo usa cuotas constantes en euros, aplica el crecimiento de forma mensual y no incluye impuestos ni licencias.</p>
+</div>
+<script>
+  (function () {
+    var root = document.querySelector('[data-calc]');
+    if (!root) return;
+    var num = function (name) {
+      var el = root.querySelector('[data-calc-field="' + name + '"]');
+      var v = el ? parseFloat(String(el.value).replace(',', '.')) : 0;
+      return isFinite(v) && v > 0 ? v : 0;
+    };
+    var money = function (v) {
+      return String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+    };
+    var out = {};
+    ['nc12', 'cm12', 'nc24', 'cm24', 'cross'].forEach(function (k) {
+      out[k] = root.querySelector('[data-out="' + k + '"]');
+    });
+    var verdict = root.querySelector('[data-calc-verdict]');
+    var read = function () {
+      return {
+        fee: num('fee'),
+        growth: num('growth') / 100,
+        hours: num('hours'),
+        rate: num('rate'),
+        hoursC: num('hoursC'),
+        build: num('build'),
+        infra: num('infra')
+      };
+    };
+    var cumNoCode = function (n, p) {
+      var g = Math.pow(1 + p.growth, 1 / 12) - 1;
+      var total = 0;
+      for (var m = 1; m <= n; m++) total += p.fee * Math.pow(1 + g, m - 1) + p.hours * p.rate;
+      return total;
+    };
+    var cumCustom = function (n, p) {
+      return p.build + n * (p.infra + p.hoursC * p.rate);
+    };
+    var crossover = function (p) {
+      for (var n = 1; n <= 60; n++) if (cumCustom(n, p) <= cumNoCode(n, p)) return n;
+      return null;
+    };
+    var render = function () {
+      var p = read();
+      var nc12 = cumNoCode(12, p);
+      var nc24 = cumNoCode(24, p);
+      var cm12 = cumCustom(12, p);
+      var cm24 = cumCustom(24, p);
+      out.nc12.textContent = money(nc12);
+      out.cm12.textContent = money(cm12);
+      out.nc24.textContent = money(nc24);
+      out.cm24.textContent = money(cm24);
+      var diff = nc24 - cm24;
+      var x = crossover(p);
+      if (p.fee + p.hours + p.build + p.infra + p.hoursC === 0) {
+        out.nc12.textContent = out.cm12.textContent = out.nc24.textContent = out.cm24.textContent = 'Sin datos';
+        out.cross.textContent = 'Sin datos';
+        verdict.textContent = 'Escribe tus cifras para ver la comparación.';
+        return;
+      }
+      out.cross.textContent = x === null ? 'Más de 60 meses' : 'Mes ' + x;
+      if (x === null) {
+        verdict.textContent = 'Con estas cifras, el no-code sale más barato en los próximos 60 meses.';
+      } else if (x <= 24) {
+        verdict.textContent =
+          'Con estas cifras, el desarrollo a medida adelanta al no-code en el mes ' +
+          x +
+          ' y a 24 meses cuesta ' +
+          money(diff) +
+          ' menos.';
+      } else {
+        verdict.textContent =
+          'Con estas cifras, a 24 meses el no-code sigue siendo más barato por ' +
+          money(-diff) +
+          '; el desarrollo a medida no adelanta hasta el mes ' +
+          x +
+          '.';
+      }
+    };
+    root.hidden = false;
+    root.addEventListener('input', render);
+    render();
+  })();
+</script>
+<!-- calculadora:fin -->
+
+### Qué no incluye esta cuenta
+
+- **El coste de equivocarse.** Un proceso crítico mal automatizado cuesta más que la cuota anual de la plataforma, y un desarrollo propio con un fallo silencioso también.
+- **El tiempo hasta tenerlo funcionando.** Un flujo no-code se monta en horas o días; un desarrollo propio, en semanas. En esos meses el no-code ya está trabajando.
+- **El coste de salir.** Cambiar de plataforma no-code obliga a rehacer los flujos; cambiar de proveedor de desarrollo cuesta menos si el código y los datos son tuyos. Pregunta de quién es el código antes de firmar.
+- **Lo que no se mide.** Trazabilidad, auditoría, permisos finos y control sobre dónde viven los datos son razones legítimas para elegir desarrollo propio aunque la cuenta salga peor.
+- **Impuestos, licencias y coste de oportunidad** de las horas internas, que aquí van a coste por hora y en la realidad compiten con el resto del trabajo.
+
+Si la cuenta sale a favor del no-code, quédate en no-code: es la respuesta más frecuente en una pyme y no tiene nada de malo. La conversación con un proveedor de desarrollo empieza cuando el cruce cae dentro del plazo que aceptas, o cuando alguna de las razones de arriba pesa más que la cuenta.
+
 ## La pregunta que decide el proyecto: ¿dónde viven tus datos?
 
 Antes de elegir vía, responde tres preguntas, porque condicionan todo lo demás:
@@ -147,6 +336,9 @@ No siempre. Para procesos simples entre aplicaciones ya conectadas, un conector 
 
 **¿Cuánto cuesta integrar IA con mi ERP o CRM?**
 Depende de la vía: un conector no-code se paga con una cuota mensual por uso, un desarrollo a medida sobre un sistema existente es un proyecto con coste inicial. Te remitimos a nuestra guía de [cuánto cuesta automatizar procesos con IA](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) con precios reales del mercado español.
+
+**¿Cuándo deja de compensar Zapier o Make frente a un desarrollo propio?**
+Cuando la cuota mensual más las horas de mantenimiento del flujo superan, dentro del plazo que aceptas, la inversión inicial más la infraestructura y el soporte del desarrollo. Se decide en meses, no por volumen suelto: en la cuenta de esta guía, un flujo simple con 150 €/mes de cuota y 6 horas de mantenimiento tarda 52 meses en amortizar un desarrollo de 12.000 €, y un flujo con 900 €/mes de cuota y 30 horas de mantenimiento lo amortiza en el mes 12.
 
 **¿Puedo integrar IA con un LIMS de laboratorio?**
 Sí, con las vías 1 a 5 según el sistema: si tu LIMS expone una API, la integración es directa; si es cerrado, se suele hacer por webhook o exportando/importando datos estructurados. La clave es que los resultados medidos no salgan de tu control si así lo exige tu acreditación o tu cliente. Para ordenar casos operativos y controles posibles, consulta la guía de [IA en laboratorios](https://osix.tech/guias/como-usar-ia-laboratorios/).

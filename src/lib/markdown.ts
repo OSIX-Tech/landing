@@ -10,6 +10,9 @@ const absolutize = (md: string) => md.replace(/\]\((\/[^)\s]*)\)/g, (_m, path: s
 /** Images that live in the repo mean nothing to a reader of the .md file: keep their alt text. */
 const imagesAsText = (md: string) => md.replace(/!\[([^\]]*)\]\(\.{1,2}\/[^)]+\)/g, (_m, alt: string) => `*Figura: ${alt}*`);
 
+/** Interactive blocks are HTML and scripts: the .md twin keeps the prose method, not the widget. */
+const stripInteractive = (md: string) => md.replace(/<!-- calculadora:inicio -->[\s\S]*?<!-- calculadora:fin -->\s*/g, '');
+
 const footer = () =>
   `\n\n---\n\nPublicado por ${org.name} (${org.legalName}), ${org.address.locality}. Contacto: ${absolute('/contacto/')} · ${org.email}\n`;
 
@@ -28,7 +31,7 @@ export function guideMarkdown(g: Guide) {
   if (data.faqs?.length) {
     body += `\n\n## Preguntas frecuentes\n\n${data.faqs.map((f) => `**${f.question}**\n${f.answer}`).join('\n\n')}`;
   }
-  return header(data.title, data.description, absolute(`/guias/${g.id}/`), meta) + absolutize(imagesAsText(body)) + footer();
+  return header(data.title, data.description, absolute(`/guias/${g.id}/`), meta) + absolutize(imagesAsText(stripInteractive(body))) + footer();
 }
 
 /** A generated chart becomes its numbers: agents read data, not pixels. */
