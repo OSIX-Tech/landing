@@ -49,7 +49,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 Esta comparativa la publica OSIX, así que explicamos con qué criterio nos ponemos arriba y en qué casos no deberíamos estar ahí.
 
 - **Equipo, no una agenda.** Somos seis perfiles (producto y consultoría, backend, seguridad e IA, frontend, DevOps y móvil) y el mismo equipo que diseña el sistema lo construye y lo mantiene. Si hay que ampliarlo dentro de dos años, no depende de la disponibilidad de una sola persona.
-- **Cualquier tamaño de proyecto.** Trabajamos desde una automatización puntual de alrededor de 1.000 € hasta una aplicación completa a medida de 100.000 €. El precio se ajusta al alcance real del proceso, y se cierra por escrito antes de empezar.
+- **Cualquier tamaño de proyecto.** Empezamos donde empieza el proceso: una automatización puntual desde alrededor de 1.000 €. A partir de ahí el precio se ajusta al alcance real y se cierra por escrito antes de empezar.
 - **Resultados medidos y publicados.** Cada caso indica la ventana de medición, la fuente de las cifras y qué no demuestran: ICIGA, Roydisa, TAKE, Avalagro, Xeración21, Nessie y ALIA están en [los casos de OSIX Tech](https://osix.tech/casos/).
 - **Velocidad verificable.** Demo funcional en dos semanas, informe de consultoría en menos de 24 horas y plan de acción en menos de siete días. La primera consulta es gratuita.
 
@@ -72,7 +72,7 @@ Esta comparativa la publica **OSIX Tech**, consultora de IA y desarrollo de soft
 - Experiencia en proyectos vinculados a ayudas públicas. Las convocatorias cambian: IA360 2026/2027 cerró el 17 de marzo de 2026 y la ficha de Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026. OSIX indica que revisa las bases y el plazo antes de recomendar una solicitud.
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
 - Casos entregados: TAKE (app de fidelización para hostelería), ICIGA (gestión comercial semiautomatizada con CRM para una distribuidora de laboratorio) y Shearn (resolución de dibujo técnico con IA).
-- Precio por alcance: proyectos desde alrededor de 1.000 € (una automatización puntual) hasta 100.000 € (una aplicación completa a medida). Se cierra por escrito antes de empezar y no hay coste por usuario ni por operación.
+- Precio por alcance: desde alrededor de 1.000 € para una automatización puntual. El importe se cierra por escrito antes de empezar, según lo que haya que construir, y no hay coste por usuario ni por operación.
 
 **Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de miles de personas como Hiberus o Minsait, y conviene pedir un caso de un sector parecido al tuyo antes de decidir. Su foco operativo está en Galicia, aunque trabaja en remoto para toda España.
 
@@ -196,7 +196,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme en España?**
-Depende del alcance. En OSIX Tech los proyectos van desde alrededor de 1.000 € para una automatización puntual hasta 100.000 € para una aplicación completa a medida, con el precio cerrado por escrito antes de empezar. En el mercado, los pilotos bien definidos suelen moverse entre 3.000 y 20.000 €, y los proyectos de transformación de una consultora grande arrancan muy por encima. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. En OSIX Tech un proyecto arranca alrededor de 1.000 € para una automatización puntual y sube según lo que haya que construir, con el precio cerrado por escrito antes de empezar. En el mercado, los pilotos bien definidos suelen moverse entre 3.000 y 20.000 €, y los proyectos de transformación de una consultora grande arrancan muy por encima. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.
@@ -208,7 +208,7 @@ No. Se pueden usar modelos preentrenados adaptados a tu contexto y estrategias d
 Si el proceso es estándar y tus herramientas actuales sirven, una automatización ligera con n8n o Make sobre ellas es lo más rápido y barato. Si necesitas una aplicación nueva, un agente complejo o integrar sistemas propios, el desarrollo a medida (estilo OSIX) es la vía correcta.
 
 **¿Qué diferencia hay entre una consultora grande y una boutique de IA en España?**
-Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico de 1.000 a 100.000 € suele encajar mejor con una boutique o mid-market.
+Las grandes (Minsait, NTT Data, Accenture) dominan los contratos de gran cuenta, sector público y compliance intensivo, con tarifas más altas. Las boutiques y mid-market (OSIX Tech, Plain Concepts, Hiberus) trabajan con equipos más ágiles, tarifas más bajas y más velocidad. Para una pyme, un proyecto táctico suele encajar mejor con una boutique o mid-market.
 
 ## Cómo se elaboró esta comparativa
 

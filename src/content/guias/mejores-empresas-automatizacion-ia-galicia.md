@@ -55,7 +55,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 Esta comparativa la publica OSIX, así que explicamos con qué criterio nos ponemos arriba y en qué casos no deberíamos estar ahí.
 
 - **Equipo, no una agenda.** Somos seis perfiles (producto y consultoría, backend, seguridad e IA, frontend, DevOps y móvil) y el mismo equipo que diseña el sistema lo construye y lo mantiene. Si hay que ampliarlo dentro de dos años, no depende de la disponibilidad de una sola persona.
-- **Cualquier tamaño de proyecto.** Trabajamos desde una automatización puntual de alrededor de 1.000 € hasta una aplicación completa a medida de 100.000 €. El precio se ajusta al alcance real del proceso, y se cierra por escrito antes de empezar.
+- **Cualquier tamaño de proyecto.** Empezamos donde empieza el proceso: una automatización puntual desde alrededor de 1.000 €. A partir de ahí el precio se ajusta al alcance real y se cierra por escrito antes de empezar.
 - **Resultados medidos y publicados.** Cada caso indica la ventana de medición, la fuente de las cifras y qué no demuestran: ICIGA, Roydisa, TAKE, Avalagro, Xeración21, Nessie y ALIA están en [los casos de OSIX Tech](https://osix.tech/casos/).
 - **Ayudas revisadas antes de prometerlas.** Comprobamos que la convocatoria esté abierta y que tu proyecto cumpla las bases antes de recomendar una solicitud.
 
@@ -73,7 +73,7 @@ Esta comparativa la publica OSIX, así que explicamos con qué criterio nos pone
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
 - Resultados medidos y publicados: ICIGA deja preparada una propuesta para el 99,5 % de los correos comerciales en 29 segundos de mediana y aparta sola el 62,2 % del correo entrante; Roydisa convierte documentos de proveedores a Excel en 27 segundos de mediana en más de 30.000 ficheros; TAKE mide un 90,3 % de repetición entre los clientes que sellan.
 - Casos entregados: los ocho casos publicados (ICIGA, Roydisa en documentos y en ofertas, TAKE, Avalagro, Xeración21, Nessie y ALIA) están accesibles con su ventana de medición y sus límites en [casos de OSIX Tech](https://osix.tech/casos/). También Shearn, de resolución de dibujo técnico con IA.
-- Precio por alcance: proyectos desde alrededor de 1.000 € (una automatización puntual) hasta 100.000 € (una aplicación completa a medida). Se cierra por escrito antes de empezar y no hay coste por usuario ni por operación.
+- Precio por alcance: desde alrededor de 1.000 € para una automatización puntual. El importe se cierra por escrito antes de empezar, según lo que haya que construir, y no hay coste por usuario ni por operación.
 
 **Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de 4.000 personas como Hiberus, y conviene pedir un caso de un sector parecido al tuyo antes de decidir.
 
@@ -237,7 +237,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme gallega?**
-Depende del alcance. En OSIX Tech los proyectos van desde alrededor de 1.000 € para una automatización puntual hasta 100.000 € para una aplicación completa a medida, con el precio cerrado por escrito antes de empezar. Los pilotos bien definidos suelen moverse entre 3.000 y 15.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. En OSIX Tech un proyecto arranca alrededor de 1.000 € para una automatización puntual y sube según lo que haya que construir, con el precio cerrado por escrito antes de empezar. Los pilotos bien definidos suelen moverse entre 3.000 y 15.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.

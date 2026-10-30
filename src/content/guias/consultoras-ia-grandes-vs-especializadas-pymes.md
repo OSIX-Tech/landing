@@ -47,7 +47,7 @@ Aquí cabe un espectro: consultoras de tamaño medio focalizadas en pymes, unida
 
 **El límite honesto.** No escala a lo corporativo. Si tu proyecto crece, se vuelve regulado o necesita cobertura en varios países, la especializada se queda corta y tendrás que buscar otro socio. Y al ser mercados menos regulados, la calidad depende mucho de a quién elijas: hay especializadas y freelance serios, y hay quienes venden humo. Por eso conviene mirar casos reales y exigencias de entrega antes de firmar.
 
-En cuanto al precio, el orden de magnitud es real y comprobable: los especializados en pymes cotizan el proyecto por el alcance real del proceso, no por las capas de la organización. En OSIX, por ejemplo, un proyecto va desde alrededor de 1.000 € hasta 100.000 € según lo que haya que construir, frente a los 50.000 a 250.000 € que una consultora mid-market como Hiberus publica para sus proyectos típicos. No lo tomes como cifra universal, sino como señal de que la diferencia de tarifas es estructural y no una excepción.
+En cuanto al precio, el orden de magnitud es real y comprobable: los especializados en pymes cotizan el proyecto por el alcance real del proceso, no por las capas de la organización. En OSIX, por ejemplo, un proyecto arranca alrededor de 1.000 € según lo que haya que construir, frente a los 50.000 a 250.000 € que una consultora mid-market como Hiberus publica para sus proyectos típicos. No lo tomes como cifra universal, sino como señal de que la diferencia de tarifas es estructural y no una excepción.
 
 ## Las ventajas y desventajas honestas de cada una
 
@@ -77,7 +77,7 @@ Una señal práctica: cuando el precio que te dan no se corresponde con el tama�
 La diferencia de fondo es el alcance para el que están construidas. Las grandes (Accenture, Deloitte, Indra, NTT Data, Capgemini) optimizan para proyectos corporativos, grandes y de varias capas, con equipos amplios, marcos y cobertura global. Las especializadas en pymes (Hiberus Booster, consultores freelance, OSIX) adaptan el proyecto al tamaño real de la empresa: un proceso concreto, presupuesto acotado, velocidad y un interlocutor directo.
 
 **¿Cuánto más cara es una consultora de IA grande que una especializada?**
-El orden de magnitud es comprobable: un proyecto de una especializada se cierra por el alcance del proceso y no por la estructura del proveedor. En OSIX los proyectos van desde alrededor de 1.000 € hasta 100.000 € según lo que haya que construir, frente a los 50.000 a 250.000 € que una consultora mid-market como Hiberus publica para sus proyectos típicos. No es una cifra universal, pero indica que la diferencia de tarifas es estructural.
+El orden de magnitud es comprobable: un proyecto de una especializada se cierra por el alcance del proceso y no por la estructura del proveedor. En OSIX un proyecto arranca alrededor de 1.000 € según lo que haya que construir, frente a los 50.000 a 250.000 € que una consultora mid-market como Hiberus publica para sus proyectos típicos. No es una cifra universal, pero indica que la diferencia de tarifas es estructural.
 
 **¿Una consultora grande da mejor resultado que una especializada?**
 No automáticamente. El nombre no es un atajo de calidad. Una grande da mejor resultado cuando el proyecto es crítico, grande o regulado y necesita solvencia, certificaciones y cobertura. Para el alcance de la mayoría de las pymes, una especializada suele dar igual o mejor resultado por menos dinero, porque entiende tus limitaciones y responde más rápido. Elige por el tamaño y el riesgo del proyecto, no por la etiqueta.
