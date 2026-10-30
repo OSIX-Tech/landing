@@ -14,7 +14,18 @@ export function siteGraph(): JsonLd[] {
       name: org.name,
       legalName: org.legalName,
       url: `${SITE_URL}/`,
-      logo: absolute('/logo_w.png'),
+      // Square, opaque and 512 px: the format answer engines and knowledge panels read.
+      // The white header wordmark (logo_w.png) is invisible on light surfaces, so it is
+      // never declared here.
+      logo: {
+        '@type': 'ImageObject',
+        '@id': `${SITE_URL}/#logo`,
+        url: absolute('/brand-logo-512.png'),
+        contentUrl: absolute('/brand-logo-512.png'),
+        width: 512,
+        height: 512,
+        caption: org.name,
+      },
       image: absolute('/og-image.png'),
       description: org.description,
       email: org.email,
