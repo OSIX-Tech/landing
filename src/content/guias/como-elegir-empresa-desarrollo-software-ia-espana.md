@@ -8,18 +8,22 @@ summary: "Pruebas, privacidad, integración, coste total y una shortlist de prov
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-10-29"
+updated: "2026-10-30"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
 ---
 
+Una pyme española debería pedir oferta a tres o cinco empresas de software a medida, entregar a todas el mismo brief y puntuar las propuestas con los mismos criterios y los mismos pesos. Lo que decide la comparación no es el precio inicial: es qué alcance y qué precio compromete cada proveedor en cada fase, quién es dueño del código y de las cuentas, y qué pasa si el proyecto se detiene. Esta guía ordena el brief, las pruebas que conviene exigir y la tabla con la que comparar, para que puedas aplicarla a cualquier candidato, incluida OSIX.
+
 En las páginas consultadas para 2026, E2D publica **3.000–9.000 €** para una aplicación de gestión sencilla en su primera versión funcional; [Arteco Consulting, 8.000–30.000 €](https://www.arteco-consulting.com/articulos/cuanto-cuesta-desarrollo-software-a-medida/) para una aplicación web con base de datos, incluidos análisis, diseño, desarrollo, pruebas y despliegue inicial; y [Hiberus Booster, 30.000–90.000 €](https://www.hiberusbooster.com/guias/desarrollo-software-a-medida/) para un MVP funcional. [E2D](https://e2d.es/blog/cuanto-cuesta-software-a-medida) especifica que el IVA va aparte. Son cifras publicadas por esos proveedores para alcances distintos, no un promedio independiente ni precios de OSIX. El presupuesto de un proyecto concreto depende de sus funciones, integraciones, datos, pruebas y operación posterior.
 
 Elige una empresa que pueda demostrar cómo convertirá un proceso concreto en software mantenible, no una que solo enseñe demos de IA. Antes de firmar, pide una propuesta sobre el mismo problema a cada candidato, una prueba pequeña con datos representativos, criterios para revisar errores y el coste completo de construir y mantener la solución. Compara las pruebas y los entregables, no el número de modelos que aparecen en la presentación.
 
 OSIX Tech publica esta guía y también desarrolla software con IA para pymes. No es un comparador independiente. El objetivo es darte preguntas y pruebas que puedas aplicar a cualquier proveedor, incluido nosotros.
+
+> **Prueba en producción:** una propuesta que se puede puntuar trae una cifra y un límite, no una promesa. El asistente de presupuestos que OSIX construyó para Roydisa mide tres cosas: un borrador de oferta en **16 segundos** de mediana (**27,4 s** en el percentil 95), el **93 %** de las líneas identificadas automáticamente y **8 minutos** de mediana del borrador al envío al cliente. Y deja una cuarta sin medir, escrita al lado: el piloto no marca ofertas ganadas o perdidas, así que no hay tasa de aceptación publicada. Esa pareja, cifra medida y límite declarado, es lo que conviene exigir en la columna de evidencia de la tabla de puntuación, a cualquier proveedor y también a OSIX. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ofertas/).
 
 ## La respuesta en 30 segundos
 
@@ -188,11 +192,11 @@ Usa una escala de 1 a 5 y anota la evidencia que justifica cada nota. Estos peso
 | Comprensión del proceso y prueba con datos representativos | 25% | Casos de prueba, definición de éxito y tratamiento de excepciones |
 | Capacidad técnica e integración | 20% | Arquitectura explicada, interfaces necesarias y límites conocidos |
 | Seguridad y privacidad | 20% | Recorrido de datos, permisos, conservación, proveedores y borrado |
-| Entrega, pruebas y soporte | 15% | Responsables, criterios de aceptación, incidencias y mantenimiento |
-| Coste total y salida | 15% | Costes iniciales y recurrentes, propiedad y portabilidad |
+| Entrega, pruebas y soporte | 15% | Responsables con nombre, alcance y precio por fase, criterios de aceptación, incidencias y mantenimiento |
+| Coste total y salida | 15% | Costes iniciales y recurrentes, propiedad del código y de las cuentas, y qué pasa si el proyecto se detiene |
 | Experiencia sectorial comparable | 5% | Caso verificable y papel concreto del equipo propuesto |
 
-No compenses una respuesta débil sobre privacidad o control humano con una nota alta en precio. Si un requisito es imprescindible, úsalo como condición de descarte y no como un criterio que pueda promediarse.
+No compenses una respuesta débil sobre privacidad o control humano con una nota alta en precio. Si un requisito es imprescindible, úsalo como condición de descarte y no como un criterio que pueda promediarse. Y puntúa solo lo que la propuesta documenta: la prueba de Roydisa al principio de esta guía enseña la forma que buscas, una cifra con su fecha de corte y el límite que el proveedor reconoce.
 
 ### Ejemplo de puntuación con dos propuestas
 
