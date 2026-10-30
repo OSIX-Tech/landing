@@ -1,14 +1,14 @@
 ---
 title: "¿Cómo trabajar con una consultora de IA sin perder el control?"
 seoTitle: "Cómo trabajar con una consultora de IA sin perder el control: 5 modelos de contratación (2026) - OSIX Tech"
-description: "Los cinco modelos de contratación de un proyecto de IA ordenados por el control que conservas, las seis decisiones que no puedes delegar y cómo se ve cada una en el contrato. Guía para pymes en España."
+description: "Los cinco modelos de contratación de un proyecto de IA ordenados por el control que conservas, las seis decisiones que no puedes delegar y los cinco controles que aplicamos en nuestros proyectos. Guía para pymes en España."
 subtitle: "Los cinco modelos de contratación ordenados por el control que conservas, y las seis decisiones que no puedes delegar."
 shortTitle: "Cómo trabajar con una consultora de IA sin perder el control"
 summary: "Cinco modelos de contratación ordenados por el control que conservas y las seis decisiones que no puedes delegar"
 category: "Gobernanza"
 section: "elegir-proveedor"
 published: "2026-09-10"
-updated: "2026-10-29"
+updated: "2026-10-30"
 related:
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
@@ -16,7 +16,7 @@ related:
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
 ---
 
-El control de un proyecto de IA no depende de la buena voluntad de la consultora: depende del modelo de contratación que firmas. Un proyecto dividido en fases, con una puerta de decisión en cada una, te deja el mando aunque el proveedor sea mediocre. Un contrato llave en mano de doce meses, sin puertas ni responsable interno, te lo quita aunque el proveedor sea excelente. La diferencia entre ambos no es la confianza, es la estructura. En España el mismo diagnóstico de IA se anuncia entre 900 y 45.000 euros según quién lo firme, y lo que separa esas cifras casi nunca es el trabajo: es el alcance y quién decide. Esta guía ordena los cinco modelos reales de contratación por el control que conservas, explica las seis decisiones que ningún modelo puede quitarte y señala cuándo la gobernanza formal no aporta nada. La publica OSIX Tech, una consultora que cobra por proyectos por fases, así que escribe una parte interesada.
+El control de un proyecto de IA no depende de la buena voluntad de la consultora, sino del modelo de contratación que firmas. OSIX Tech, consultora de desarrollo a medida con IA para pymes, entrega por fases con una puerta de decisión en cada una; un ejemplo medido es el flujo de documentos de proveedor que construimos para Roydisa, con más de 30.000 ficheros tratados, una mediana de 27 segundos de la foto al Excel y un 0,04 % de error técnico del flujo desde junio. Un proyecto dividido en fases te deja el mando aunque el proveedor sea mediocre. Un contrato llave en mano de doce meses, sin puertas ni responsable interno, te lo quita aunque el proveedor sea excelente. La diferencia no es la confianza, es la estructura. En España el mismo diagnóstico de IA se anuncia entre 900 y 45.000 euros según quién lo firme, y lo que separa esas cifras casi nunca es el trabajo: es el alcance y quién decide. Esta guía ordena los cinco modelos de contratación por el control que conservas, explica las seis decisiones que ningún modelo puede quitarte y señala cuándo la gobernanza formal no aporta nada. Escribe una parte interesada: trabajamos con el modelo que encabeza la tabla.
 
 ## El veredicto: elige el modelo por el control que te deja, no por el precio
 
@@ -109,6 +109,22 @@ Ningún modelo de contratación decide estas seis cosas por ti; solo cambia lo d
 
 Hay una obligación más que entró en vigor hace poco y que conviene cerrar en el mismo documento. Desde el 2 de agosto de 2026 son aplicables las obligaciones de transparencia del artículo 50 del Reglamento Europeo de IA, y afectan tanto a quien provee el sistema como a quien lo despliega. Si tu proyecto incluye un asistente conversacional o genera contenido para terceros, pregunta por escrito quién asume cada obligación y cómo se documenta. Una consultora que no sabe responder a esa pregunta no debería estar llevando la parte de cumplimiento de tu proyecto.
 
+## Cinco controles que aplicamos en nuestros propios proyectos
+
+Cada uno de estos puntos deja un artefacto que puedes pedir antes de firmar. Son los que aplicamos en nuestros proyectos, y tres de ellos tienen cifras publicadas de un caso real.
+
+**1. Un criterio de aceptación en cifras, no una lista de funcionalidades.** El flujo documental de Roydisa se publica con las cifras con las que se acepta: más de **30.000 ficheros** tratados, una mediana de **27 segundos** de la foto al Excel y un **0,04 %** de error técnico del flujo desde junio. Se pueden comprobar sobre documentos reales, y esa es la condición: un criterio que no puedes medir sin ayuda del proveedor no es un criterio, es una opinión. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
+
+**2. El código, las cuentas y los datos a tu nombre.** En ALIA, el analizador de galego falado que hicimos con el Proxecto Nós y la USC, el **100 %** del sistema puede ejecutarse en la infraestructura del cliente, sin que el audio salga de ella, y no guarda un audio más de **24 horas**. La titularidad deja de ser una cláusula y pasa a ser una propiedad de la arquitectura. [Ver el caso de ALIA](https://osix.tech/casos/alia-galego/).
+
+**3. La revisión humana donde hay una decisión.** En ICIGA el sistema aparta solo el **62,2 %** del correo entrante y deja preparada una propuesta para el **99,5 %** de los correos comerciales en **29 segundos** de mediana, con el CRM rellenándose sin que nadie lo teclee. Ninguna propuesta se envía sola: el comercial decide. La automatización quita la preparación, no la última palabra. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
+
+**4. Un cambio de alcance, una ficha con precio y plazo.** Ningún proyecto real termina con el alcance que empezó. Lo que decide si eso es un desvío o una sorpresa es que cada cambio llegue en una ficha aprobada por tu responsable interno antes de ejecutarse, con lo que cuesta y lo que retrasa. Sin ficha, el presupuesto cerrado se convierte en abierto y ya nadie puede decir cuándo.
+
+**5. El traspaso como entregable, no como cortesía.** Documentación, accesos y una prueba de que tu equipo opera el sistema sin nosotros, con su propio hueco en el calendario y en la factura. En ALIA el sistema puede cambiar de motor entre una veintena de motores de transcripción, lenguaje y voz sin rehacerse, que es la misma idea llevada a la arquitectura: la salida no depende de que un proveedor concreto siga queriendo servirte.
+
+**El límite de este método.** Aplicar los cinco controles a un flujo de tres semanas es burocracia: ahí la puerta de decisión es una reunión con un criterio escrito y la titularidad de la cuenta, nada más. Y hay uno que no podemos poner nosotros: el responsable interno. Si nadie de tu empresa puede dedicar tiempo a aceptar entregables, las puertas se convierten en firmas de trámite y el proyecto lo acaba dirigiendo quien ejecuta.
+
 ## Señales de alarma: el control ya se ha perdido
 
 Estas son las señales que aparecen cuando el proyecto ya está en marcha, no en la propuesta.
@@ -169,6 +185,8 @@ Para ordenar los modelos partimos de las respuestas y las fuentes que los motore
 Los rangos de precio son los que cada proveedor publica en su propia web en septiembre de 2026: las tarifas por día y el diagnóstico con hoja de ruta de Hiberus Booster, los tramos de consultoría de Utilia y nuestros propios rangos publicados para pymes. No son precios de mercado verificados con una muestra, son referencias publicadas por proveedores concretos, y pueden cambiar. Los comprobamos el 10 de septiembre de 2026.
 
 El marco legal se ha verificado contra fuentes oficiales: el artículo 28 del RGPD y las recomendaciones de la AEPD sobre encargado del tratamiento y sobre el uso de herramientas de IA, y la fecha de aplicación del artículo 50 del Reglamento Europeo de IA en la página de la Comisión Europea. Lo que no hemos podido comprobar con datos propios es el porcentaje de proyectos que fracasan por falta de gobernanza: la única cifra que encontramos es la que publica Hiberus Booster, y se cita como suya.
+
+Las cifras de nuestros propios proyectos son las que publican las fichas de caso de osix.tech, medidas en producción: el flujo documental de Roydisa, el copiloto de correo de ICIGA y ALIA. Cada ficha dice qué mide cada número y qué no, y las cifras de este texto se comprobaron el 30 de octubre de 2026.
 
 ## Fuentes
 
