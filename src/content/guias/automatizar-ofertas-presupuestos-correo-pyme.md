@@ -7,7 +7,7 @@ summary: "El flujo en seis pasos, las tres vías con precios reales y cuándo no
 category: "Ofertas"
 section: "automatizar-procesos"
 published: "2026-09-06"
-updated: "2026-10-29"
+updated: "2026-10-30"
 related:
   - "bandeja-compartida-crm-sin-copiar-correos"
   - "automatizar-facturas-documentos-pyme"
@@ -83,7 +83,7 @@ Si ya trabajas con un CRM o un ERP, la vía natural es que un extractor lea el c
 
 El desarrollo a medida tiene sentido cuando el proceso une varias piezas: solicitudes variadas que llegan por correo con adjuntos distintos, validación contra tarifas y márgenes que viven en tu ERP, ofertas en varios formatos o idiomas, y la necesidad de un registro de quién aprobó cada envío. Es el caso de una empresa que recibe peticiones de presupuesto con planos o pliegos, o de un servicio que cotiza con reglas propias y márgenes por cliente. En nuestra guía de precios del mercado español recogemos que una automatización comercial de este tipo se mueve en 2026 entre 5.000 y 12.000 € de implantación, más 250 a 500 € al mes de operación. Límite honesto: es la vía más cara y la más lenta de poner en marcha, y no hace falta si tu caso cabe en las dos primeras filas de la tabla.
 
-La tercera vía es la que OSIX Tech construye para pymes: generadores de ofertas y presupuestos que leen el correo del cliente, validan contra el software que ya usas y dejan la decisión final en la persona. En el piloto de Roydisa, el asistente consulta el histórico de presupuestos de Odoo, prepara un borrador en una mediana de 16 segundos e identifica automáticamente el 93 % de las referencias. Cada línea conserva la fórmula del precio, su fuente y las últimas ventas reales a ese cliente para que el comercial revise el borrador antes de enviarlo. El piloto no mide ofertas ganadas. [Ver el caso completo de Roydisa](/casos/roydisa-ofertas/). Y lo decimos sin rodeos: si tus ofertas son pocas, todas distintas y sin tarifas que consultar, un desarrollo a medida no es la respuesta; monta una plantilla mejor y dedica el presupuesto a otra cosa.
+La tercera vía es la que OSIX Tech construye para pymes: [generadores de ofertas y presupuestos](/servicios/automatizacion-ofertas-presupuestos/) que leen el correo del cliente, validan contra el software que ya usas y dejan la decisión final en la persona. En el piloto de Roydisa, el asistente consulta el histórico de presupuestos de Odoo, prepara un borrador en una mediana de 16 segundos e identifica automáticamente el 93 % de las referencias. Cada línea conserva la fórmula del precio, su fuente y las últimas ventas reales a ese cliente para que el comercial revise el borrador antes de enviarlo. El piloto no mide ofertas ganadas. [Ver el caso completo de Roydisa](/casos/roydisa-ofertas/). Y lo decimos sin rodeos: si tus ofertas son pocas, todas distintas y sin tarifas que consultar, un desarrollo a medida no es la respuesta; monta una plantilla mejor y dedica el presupuesto a otra cosa.
 
 ## Cinco señales de que todavía no toca automatizar tus ofertas
 

@@ -118,3 +118,5 @@ El piloto coge un solo tipo de documento, por ejemplo los albaranes de proveedor
 Es la objeción que aparece siempre, y la respuesta es el piloto: se prueba con tus albaranes reales, los de tus proveedores y sus fotos malas, no con un documento limpio de ejemplo. En Roydisa el flujo lleva más de 30.000 documentos procesados con esa misma mezcla.
 
 Cuéntanos cuántos documentos recibes al mes, de qué tipo y a qué sistema tienen que llegar, y te decimos si el flujo encaja con tu caso.
+
+Si el documento que se monta a mano es la oferta y no el albarán, el servicio es [automatización de ofertas y presupuestos industriales](/servicios/automatizacion-ofertas-presupuestos/).

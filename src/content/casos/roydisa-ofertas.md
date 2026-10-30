@@ -7,10 +7,11 @@ category: "Automatización comercial"
 services:
   - "desarrollo-a-medida"
   - "consultoria-transformacion"
+  - "automatizacion-ofertas-presupuestos"
 order: 2
 status: "Piloto real con el equipo comercial desde el 18 de junio de 2026."
 published: "2026-09-17"
-updated: "2026-10-06"
+updated: "2026-10-30"
 metrics:
   - value: "16 s"
     label: "por borrador de oferta"
@@ -97,5 +98,7 @@ Las cifras de este caso corresponden a diez años de presupuestos de Roydisa. Co
 ## ¿Tienes un proceso parecido?
 
 Podemos revisar el flujo actual, separar lo que conviene automatizar de lo que debe seguir bajo control humano y proponer una primera prueba medible.
+
+La preparación de ofertas es uno de los servicios que OSIX Tech tiene en producción: [automatización de ofertas y presupuestos industriales](/servicios/automatizacion-ofertas-presupuestos/).
 
 [Cuéntanos tu proceso](/contacto/)

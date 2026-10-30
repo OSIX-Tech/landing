@@ -105,6 +105,7 @@ const casos = defineCollection({
             'innovacion-subvencionada',
             'automatizacion-facturas-albaranes',
             'automatizacion-correo-crm',
+            'automatizacion-ofertas-presupuestos',
           ]),
         )
         .min(1),
