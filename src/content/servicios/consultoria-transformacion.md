@@ -1,14 +1,14 @@
 ---
-title: "Consultoría de Transformación Digital e IA"
+title: "Consultoría de IA e integración con ERP y CRM"
 shortTitle: "Consultoría"
 tagline: "Diagnosticamos en tu empresa y construimos el sistema. La consultoría no acaba en un informe."
 summary: "Consultoría de IA para pymes de Galicia y España. Entramos en la empresa, decidimos qué procesos merecen automatizarse, construimos el sistema y publicamos lo que rinde en producción. Si no merece la pena, te lo decimos antes de presupuestar."
-description: "OSIX Tech es una consultora de IA y desarrollo de software a medida en Santiago de Compostela. Diagnosticamos dentro de la empresa y el mismo equipo construye el sistema. Después se publica lo que rinde en producción, con su ventana de medición y sus límites."
-seoTitle: "Consultoría de IA en Galicia: transformación digital para pymes | OSIX Tech"
+description: "OSIX Tech es una consultora de IA y desarrollo de software a medida en Santiago de Compostela. Integramos la inteligencia artificial con el ERP y el CRM que la empresa ya utiliza, sin sustituirlos. Diagnosticamos dentro de la empresa y el mismo equipo construye el sistema. Después se publica lo que rinde en producción, con su ventana de medición y sus límites."
+seoTitle: "Integración de IA con tu ERP y CRM | Consultoría OSIX Tech"
 order: 2
 icon: "compass"
-serviceType: "Digital Transformation and AI Consulting"
-updated: "2026-10-26"
+serviceType: "Digital Transformation, AI and Systems Integration Consulting"
+updated: "2026-10-30"
 problem:
   title: "La IA está en el presupuesto y no en la operativa"
   body: "La dirección aprobó explorar inteligencia artificial, alguien probó ChatGPT y meses después ningún proceso ha cambiado. En una pyme el problema casi nunca es el modelo: es que nadie ha mirado cómo se trabaja de verdad, ni quién va a construir lo que salga del análisis."
@@ -43,6 +43,8 @@ faqs:
     answer: "El informe con las oportunidades llega en menos de 24 horas tras la visita, el plan priorizado en menos de una semana y la primera demo funcional del sistema en dos semanas. El plazo completo depende del alcance y de las integraciones."
   - question: "¿Hace falta tener datos o un departamento técnico?"
     answer: "No. La mayoría de los procesos que automatizamos viven en correo, Excel, PDF y en el ERP que ya existe. No hace falta un equipo técnico dentro: hace falta que alguien de la empresa conozca el proceso y pueda explicar cómo se hace hoy."
+  - question: "¿Podéis integrar IA en el ERP y el CRM que ya utilizamos?"
+    answer: "Podemos. OSIX Tech conecta la IA con el ERP y el CRM que la empresa ya tiene en marcha sin sustituirlos: en Roydisa lee los documentos que Odoo deja en las carpetas del cliente y en ICIGA consulta el catálogo y el ERP existentes y registra la operación en el CRM; si tu sistema no es uno de los que ya hemos integrado, revisamos antes qué admiten su API y sus exportaciones."
 guides:
   - "bandeja-compartida-crm-sin-copiar-correos"
   - "automatizar-albaranes-facturas-proveedores-erp"
@@ -71,6 +73,18 @@ Lo que cambia el resultado no es el modelo, es el orden. Primero se mira el proc
 4. **Primera demo funcional en dos semanas.** Si el proyecto sigue adelante, la primera entrega es una parte del flujo funcionando. No es una maqueta: es lo que va a usar tu equipo.
 5. **Sistema en producción por fases.** Integrado con el ERP, el CRM, el correo y las carpetas que ya usáis, sin cambiar de sistemas para meter los nuestros.
 6. **Medición publicada.** Cada caso en producción indica la ventana medida, la fuente de las cifras y lo que esas cifras no demuestran. Si el sistema no mejora lo que decía, se ve en esa medición.
+
+## Integrar IA en tu ERP y CRM
+
+OSIX Tech conecta la inteligencia artificial con el ERP y el CRM que tu empresa ya tiene en marcha, sin sustituirlos ni pedirte que cambies de sistema. El encargo empieza por el proceso y no por la herramienta: qué documento entra, quién lo teclea hoy y qué sistema tiene que recibir el dato al final.
+
+### Los flujos que ya funcionan en producción
+
+- **De Odoo al dato estructurado.** Los documentos de proveedor que Odoo deja en las carpetas de Google Drive de la empresa entran al sistema, que devuelve un Excel estructurado por línea de producto. En Roydisa trató más de 30.000 ficheros en seis meses, con una mediana de 27 segundos desde la foto hasta el Excel y el 88 % de los documentos resueltos en menos de un minuto. En producción desde el 12 de marzo de 2026.
+- **Del correo al CRM.** Los correos comerciales de cuatro buzones de Gmail entran al sistema, que clasifica la solicitud, consulta el catálogo y el ERP que la empresa ya usa y deja la operación registrada en el CRM sin que nadie la teclee. En ICIGA la mediana de correo a propuesta es de 29 segundos y el 100 % de los cambios de estado del pipeline se hizo solo. En producción desde el 9 de febrero de 2026.
+- **Del ERP a la propuesta de respuesta.** El sistema lee del catálogo y del ERP existentes para que la propuesta salga con las referencias y los datos reales del producto, sin duplicar el maestro en otra base de datos.
+
+Solo nombramos los sistemas que aparecen en un caso publicado: Odoo y Gmail. Que tu ERP o tu CRM no estén en esa lista no significa que no se puedan conectar, significa que todavía no lo hemos hecho, y lo primero es revisar qué admiten su API, sus exportaciones o sus carpetas. La integración se hace por la vía que el sistema permita, con acceso solo a lo que el flujo necesita.
 
 ## Lo que hemos medido en producción
 

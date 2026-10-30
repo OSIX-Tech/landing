@@ -7,6 +7,7 @@ summary: "Define qué sistema es dueño de cada dato, elige el flujo y prueba un
 category: "Integración de sistemas"
 section: "automatizar-procesos"
 published: "2026-10-10"
+updated: "2026-10-30"
 related:
   - "integrar-ia-software-pyme-espana"
   - "conectar-produccion-ventas-almacen-pyme-industrial"
@@ -119,6 +120,8 @@ Antes de construir algo, comprueba la configuración y las conexiones que ya ofr
 Un caso público de OSIX muestra un alcance concreto, no una receta universal: para ICIGA, cuatro buzones de Gmail alimentan un registro de transacciones enlazado a los hilos y el sistema consulta el catálogo y el ERP existentes. El caso describe ese flujo de correo a CRM; no demuestra que cualquier ERP o CRM se integre del mismo modo.
 
 [Caso de ICIGA: correo a CRM](https://osix.tech/casos/iciga-correo-crm/)
+
+Si lo que necesitas es que alguien conecte la IA al ERP y al CRM que ya tienes, los flujos que OSIX tiene en producción y los sistemas con los que están hechos están en [integración de IA con tu ERP y CRM](/servicios/consultoria-transformacion/#integrar-ia-en-tu-erp-y-crm).
 
 ## Prueba un flujo pequeño antes de sincronizar procesos críticos
 
