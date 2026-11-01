@@ -1,29 +1,31 @@
 ---
 title: "¿Puedo montar un chatbot para mi empresa sin saber programar?"
 seoTitle: "¿Puedo montar un chatbot para mi empresa sin saber programar? (2026) - OSIX Tech"
-description: "Sí, puedes montar un chatbot sin programar con Landbot, ManyChat o Botpress... y cuándo no te vale: la guía honesta con precios reales y el límite de las herramientas no-code frente al desarrollo a medida."
-subtitle: "Sí, con herramientas no-code... y cuándo no te vale. La respuesta y el límite honesto en 2026."
-summary: "Sí, con no-code... y cuándo no te vale. La respuesta y el límite honesto"
+description: "Sí, puedes montar un chatbot sin programar. Algunas plataformas consultan documentos; compara sus límites con los de una solución a medida."
+subtitle: "Una guía para elegir entre una plataforma no-code y una solución a medida."
+summary: "Qué puede hacer un chatbot no-code y cuándo considerar ayuda técnica."
 category: "Chatbots"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-10-23"
+updated: "2026-11-01"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "mejores-herramientas-ia-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
 ---
 
-Sí, puedes montar un chatbot para tu empresa sin saber programar, siempre que sepas exactamente qué necesitas: un asistente de consultas y atención al cliente con herramientas no-code se monta hoy en horas o días, con plataformas como Landbot, ManyChat, Chatfuel o Botpress, y con ChatGPT o Claude como base puedes publicar un primer prototipo en una tarde. La respuesta se complica en cuanto el chatbot tiene que hablar con tus datos, tu CRM o tus procesos internos: ahí las herramientas no-code se quedan cortas y empieza a tener sentido un desarrollo a medida. Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España, y está pensada para que decidas con criterio: primero cuándo una herramienta no-code te vale, después cuándo no, y por último qué opciones hay por cada caso, con precios reales y límites honestos.
+Sí, puedes montar un chatbot para tu empresa sin saber programar. Algunas plataformas permiten crear flujos visuales y consultar documentos que subes, aunque sus funciones y límites dependen de la herramienta y del plan. Si necesitas integraciones complejas, controles específicos o un mantenimiento adaptado a tus procesos, puede hacer falta ayuda técnica o un desarrollo a medida. Esta guía de OSIX Tech te ayuda a elegir entre esas opciones.
 
-> **Prueba propia, con el límite delante:** no hemos montado un chatbot de captación para una web. Lo más parecido que tenemos en producción es el asistente que hicimos dentro del Moodle de Xeración21: trabaja sobre el temario oficial, prepara un plan de estudio en **12 segundos** de mediana y cuesta menos de **10 € por alumno y curso**. Cuando el chatbot tiene que leer documentos de la empresa y responder citando la fuente, eso ya es desarrollo a medida, no una herramienta no-code. [Ver el caso de Xeración21](https://osix.tech/casos/xeracion21-moodle/).
+> **Prueba propia, con el límite delante:** no hemos montado un chatbot de captación para una web. Lo más parecido es el asistente que hicimos para Xeración21 dentro de Moodle: trabaja sobre el temario oficial, prepara un plan de estudio en 12 segundos de mediana y tiene un coste de IA inferior a 10 € por alumno y curso en el escenario medido. Es un piloto en fase de QA, con una base de alumnos pequeña; no hemos medido todavía la precisión pedagógica. Algunas plataformas no-code también pueden consultar documentos, por lo que leerlos no exige por sí solo un desarrollo a medida.
+>
+> [Ver el caso de Xeración21](/casos/xeracion21-moodle/)
 
 ## La respuesta en 30 segundos
 
-- **Sí**, puedes montar un chatbot sin programar si el caso es estándar: responder preguntas frecuentes, captar leads, atender WhatsApp o Instagram, derivar una conversación a un humano.
-- **No** te va a servir sin ayuda técnica si el chatbot tiene que leer tus documentos, conectarse a tu ERP o CRM, mantener varias fuentes de datos al día o cumplir requisitos de seguridad y trazabilidad.
-- **El criterio no es "sé programar o no"**, es la complejidad de la conversación y de los sistemas a los que se conecta.
-- Herramientas no-code citadas por los buscadores para este prompt: Landbot, ManyChat, Chatfuel, Botpress, Tidio, HubSpot Chatbot, y los asistentes de WhatsApp Business y Meta. La mayoría ofrecen planes desde 0 a 50 €/mes.
+- Sí: un chatbot sin programar puede atender preguntas frecuentes, captar contactos o derivar una conversación a una persona.
+- Algunas plataformas también permiten subir documentos para que el asistente los consulte. Por ejemplo, Botpress describe cómo añadir archivos PDF y TXT a su base de conocimiento.
+- Antes de elegir, comprueba si la herramienta y el plan cubren tus conexiones, permisos, tratamiento de datos y necesidades de seguimiento. Prueba las respuestas con preguntas reales.
+- Si los sistemas o controles que necesitas no encajan, valora ayuda técnica o una solución a medida.
 
 ## Qué puede montar una persona sin programar hoy
 
@@ -34,73 +36,71 @@ En 2026, montar un chatbot con herramientas no-code es un flujo visual: eliges u
 - **Calificación de visitas.** Derivar a un humano con el contexto ya recogido cuando la conversación lo pide.
 - **Ventas simples o reservas.** Un asistente que presenta opciones y conecta con un calendario o un carrito.
 
-El límite de estas herramientas no es la programación: es que cada respuesta sale de reglas que alguien escribió. Si la pregunta del cliente no encaja en el árbol, el bot se queda en blanco, repite o improvisa mal. Eso es lo que separa un chatbot de consultas de un sistema que de verdad entiende.
+Algunas herramientas usan reglas y menús; otras también generan respuestas a partir de documentos o páginas web. Eso no garantiza que cada respuesta sea correcta: conviene probar el asistente, actualizar sus fuentes y decidir cuándo debe pasar la consulta a una persona.
 
-## Cuándo una herramienta no-code NO te vale
+## Cuándo una herramienta no-code puede necesitar ayuda técnica
 
-Aunque no escribas código, el día que el chatbot necesite una de estas cosas, la herramienta no-code deja de ser suficiente:
+Subir documentos es un buen comienzo, no una garantía de que el asistente responda bien en todos los casos. Antes de ponerlo en manos de clientes o empleados, revisa:
 
-- **Que hable con tus documentos.** "Responde sobre mi manual de producto" no se resuelve con reglas: hay que indexar esos documentos, montar un mecanismo de recuperación (RAG) y medir cuándo el bot no sabe. Eso es un proyecto, no un plugin.
-- **Que se conecte a tu ERP o CRM de verdad.** No basta con guardar un lead; hay que leer saldos, pedidos, incidencias y escribir de vuelta. Cada integración es mantenimiento y lógica.
-- **Que distinga entre lo que sabe y lo que no.** Los modelos generativos inventan con confianza. Un bot que va a hablar con tus clientes necesita límites, escalado a humano y trazabilidad.
-- **Que cumpla requisitos de seguridad o normativa.** Forjar la política de privacidad y decidir el tratamiento de datos (RGPD) es responsabilidad, no configuración.
-- **Que crezca contigo.** Lo que hoy es un árbol de FAQs, mañana puede ser un agente que clasifica correos, actualiza el CRM y prepara propuestas. Empezar en una herramienta que no puedes sacar de ahí te ata.
+- **Documentos y respuestas:** prueba preguntas con respuesta conocida y otras para las que no hay información. Decide cómo mantener al día los documentos y cómo indicar la fuente cuando el caso lo requiera.
+- **ERP y CRM:** comprueba si existe una integración que cubra las operaciones concretas que necesitas. Leer o modificar datos puede requerir lógica y mantenimiento adicionales.
+- **Errores y escalado:** define qué debe hacer el asistente cuando no sabe responder y cuándo debe intervenir una persona.
+- **Datos sensibles:** revisa los permisos, el tratamiento y la conservación de los datos para tu caso. Una opción de seguridad disponible en una plataforma no sustituye esa revisión.
+- **Mantenimiento:** asigna a alguien la revisión de fuentes, conexiones y respuestas después de publicar el asistente.
 
-En esos casos la respuesta no es "programar o no programar": es traer a alguien que construya el sistema y lo mantenga. Es exactamente donde OSIX Tech trabaja: desarrollo a medida de asistentes que leen tus documentos y se integran con tus herramientas.
+Si la plataforma cubre estos puntos, no tiene por qué hacer falta un desarrollo a medida. Si no los cubre, OSIX Tech puede estudiar las integraciones y controles que necesita el proyecto.
 
 ## Comparativa rápida: no-code vs desarrollo a medida
 
-| Caso | No-code (Landbot, ManyChat, Chatfuel, Botpress) | Desarrollo a medida (con IA sobre tus datos) |
-| --- | --- | --- |
-| Preguntas frecuentes y menús | Ideal, listo en horas | Sobredimensionado |
-| Captación y calificación de leads | Muy bueno, conecta con CRM | Bueno, con integraciones a medida |
-| Chatbot que lee tus documentos | No recomendable (reglas limitadas) | La vía correcta (RAG, cita la fuente) |
-| Integración con ERP/CRM interno | Parcial, vía zap o plugin | Completa y mantenida |
-| Firmar, decidir, pagar | No, requiere humano | Soporta el proceso con control humano |
-| Coste típico | 0 a 300 €/mes según plan | De 5.000 a 20.000 € + mantenimiento |
+- **Preguntas frecuentes y captación:** una plataforma no-code puede ser suficiente. Una solución a medida puede resultar innecesaria para un flujo sencillo.
+- **Consultar documentos:** algunas plataformas admiten archivos y generan respuestas a partir de ellos. Una solución a medida permite diseñar el flujo para necesidades concretas; en ambos casos hay que probar los resultados.
+- **ERP o CRM:** revisa las conexiones y operaciones que ofrece la plataforma. Si no cubren el proceso, puede hacer falta una integración o desarrollo específico.
+- **Datos y control:** compara permisos, registro, conservación y condiciones del plan con los requisitos de tu empresa. Una solución a medida también necesita diseño y revisión.
+- **Coste:** compara la suscripción, el uso y el mantenimiento de la plataforma con el presupuesto escrito de una solución a medida.
 
 ## Cuánto cuesta en la práctica
 
-- **Prototipo personal:** 0 €. ChatGPT, Claude o Gemini escriben el guion del asistente; tú lo pegas en un flujo no-code.
-- **Chatbot no-code en producción:** 20 a 200 €/mes según la plataforma y el volumen de conversaciones. Muchas ofrecen planes gratis hasta unos cientos de chats.
-- **Bot en WhatsApp/Instagram con reglas y CRM:** 50 a 300 €/mes de SaaS, más el coste de la API si la necesitas.
-- **Asistente a medida que lee tus documentos y se integra con tu ERP:** en España, de 5.000 a 20.000 € según alcance, más 200 a 800 €/mes de operación. TALI, la plataforma de OSIX Tech para extraer datos de documentos, es un ejemplo de este tipo de sistema.
+En una plataforma no-code, revisa el precio vigente del plan, los límites de uso y los posibles costes de canales, integraciones y mantenimiento antes de elegir. Las condiciones cambian según el proveedor.
+
+En OSIX Tech, una automatización individual puede partir de unos 1.000 €. No es un precio fijo para un chatbot: el importe depende del alcance y se cierra por escrito antes de empezar. Si necesitas un asistente conectado a varios sistemas o con controles específicos, pide un presupuesto para ese caso.
 
 ## Preguntas que hacerte antes de elegir
 
-1. **¿Qué conversación resuelve?** Si es repetitiva y estándar, no-code. Si varía y toca datos, a medida.
-2. **¿Qué sistemas toca?** Solo web y redes, o ERP, CRM, documentos, correo.
-3. **¿Quién lo mantiene?** Las reglas cambian cada trimestre. Un sistema sin dueño muere.
-4. **¿Qué pasa cuando se equivoca?** Con clientes reales, necesitas límites, escalado humano y registro.
+1. ¿Qué preguntas y tareas debe resolver? Prueba si la plataforma responde a ejemplos reales.
+2. ¿Qué documentos y sistemas necesita consultar o modificar?
+3. ¿Quién actualizará las fuentes y revisará las respuestas y conexiones?
+4. ¿Qué debe ocurrir cuando no sabe responder o se equivoca?
 
 ## Preguntas frecuentes
 
 **¿Puedo montar un chatbot en WhatsApp sin saber programar?**
-Sí. Plataformas como ManyChat, Chatfuel, Landbot o el WhatsApp Business API de terceros montan un bot por reglas que responde, capta y deriva. Eso cubre el caso estándar. Si el bot tiene que leer documentos, consultar un ERP o mantener contexto largo, necesitarás desarrollo.
+Sí, existen plataformas que permiten configurar asistentes para WhatsApp sin programar. Comprueba las condiciones del proveedor, los costes del canal y las conexiones que necesitas. Consultar documentos no implica por sí solo que necesites desarrollo a medida.
 
 **¿Cuánto se tarda en montar un chatbot sin programar?**
-Un prototipo con respuestas preparadas: horas. Un bot en producción con flujos, formularios y CRM: de 2 a 5 días con las herramientas no-code. Un sistema a medida que lee documentos: de 2 a 6 semanas.
+Depende de los canales, las fuentes, las conexiones y las pruebas que necesite. Un primer prototipo sencillo requiere menos trabajo que un asistente conectado a varios sistemas y preparado para atender consultas reales.
 
 **¿ChatGPT puede ser mi chatbot?**
-Puede ser la base del asistente, pero no lo publiques directamente contra tus clientes sin límites: hay que entrenarlo o conectarlo a tus datos, definir cuándo escala a humano y controlar las respuestas. Eso es lo que convierte ChatGPT en un producto, y requiere trabajo técnico.
+Puede formar parte de un asistente, pero antes de usarlo con clientes conviene definir qué datos consulta, cómo se prueban sus respuestas y cuándo se deriva la conversación a una persona. El trabajo técnico depende de la integración y los controles necesarios.
 
 **¿Cuánto cuesta un chatbot para una pyme en 2026?**
-Con no-code, desde 0 hasta 300 €/mes según plan y volumen. Un asistente a medida que se integra con tus herramientas, de 5.000 a 20.000 € según alcance, más mantenimiento. Resumimos los rangos en nuestra guía de costes de automatización con IA.
+Depende del proveedor, el uso y el alcance. En OSIX Tech, una automatización individual puede partir de unos 1.000 €, pero no es un precio fijo para un chatbot: el presupuesto se ajusta al proyecto y se cierra por escrito antes de empezar.
 
 **¿Qué es mejor para mi caso: Landbot, ManyChat o un desarrollo a medida?**
-Si el caso es atención y captación estándar, cualquiera de las no-code te vale y la elección es de interfaz y precio. Si el chatbot tiene que entender tus documentos o conectarse a tus sistemas, la respuesta honesta es desarrollo a medida: no hay plugin que sustituya a un sistema que lee tus datos.
+Depende de las funciones que necesitas y de lo que cubra cada herramienta. Algunas plataformas no-code permiten consultar documentos; si además necesitas conexiones o controles que no están disponibles, puede convenir ayuda técnica o un desarrollo a medida.
 
 ## Nuestro límite honesto
 
-OSIX Tech desarrolla asistentes y agentes de IA a medida para pymes, y también integra herramientas no-code cuando el caso lo pide. Esta guía está escrita por nosotros, y lo decimos abiertamente para que sepas quién la publica: no vamos a empujarte a un desarrollo de 15.000 € si un bot de 50 €/mes resuelve tu problema. Analizamos tu caso, te decimos con franqueza cuál de las dos vías te conviene y por qué, y la consulta inicial es gratuita.
+OSIX Tech desarrolla asistentes y agentes de IA a medida para pymes, y también integra herramientas no-code cuando el caso lo pide. Si una plataforma existente cubre lo que necesitas, puede ser una opción más adecuada que un desarrollo propio. Revisamos contigo las funciones, los límites y el trabajo de mantenimiento antes de proponer una solución.
 
 ## Cómo se elaboró esta guía
 
-Las capacidades y limitaciones de las herramientas no-code se contrastaron con las páginas que los buscadores con IA citan hoy para este prompt (Landbot, ManyChat, Chatfuel, Botpress, HubSpot, tutoriales de YouTube), y con los proyectos reales de asistencia y agentes que OSIX Tech ha construido para pymes, incluido TALI como referencia de procesamiento de documentos. Los rangos de precio provienen de nuestra guía de costes de automatización, elaborada con referencias públicas. Las generalizaciones se mantienen a propósito: un caso concreto puede ser más barato o más caro dependiendo del alcance.
+Para esta guía hemos revisado la documentación de Botpress sobre sus bases de conocimiento y gestión de archivos, y el caso publicado de Xeración21. Las capacidades, condiciones y precios pueden variar según la plataforma y el plan; compruébalos antes de contratar.
 
 ## Fuentes
 
 - [Landbot: plataforma de chatbots y agentes IA](https://landbot.io/chatbot-platform)
 - [ManyChat: chatbots para WhatsApp e Instagram](https://manychat.com/)
 - [Botpress: plataformas de chatbot IA](https://botpress.com/)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Botpress: cómo añadir documentos a una base de conocimiento](https://botpress.com/es/blog/how-to-build-your-own-ai-chatbot)
+- [Botpress: gestión de archivos, permisos y límites](https://botpress.com/docs/api-reference/files-api/getting-started/)
+- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme española](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
