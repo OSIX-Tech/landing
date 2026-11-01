@@ -8,14 +8,14 @@ summary: "Comparativa honesta de proveedores de IA para pymes gallegas"
 category: "IA para pymes"
 section: "elegir-proveedor"
 published: "2026-08-12"
-updated: "2026-10-29"
+updated: "2026-11-01"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
   - "como-elegir-empresa-desarrollo-software-ia-espana"
 ---
 
-Para una pyme gallega que quiere automatizar procesos con inteligencia artificial en 2026, las opciones incluyen consultoras y estudios con actividad en Galicia como **OSIX Tech** (Santiago de Compostela), **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce**, **Moirai AI**, **circo estudio** (A Coruña) y **MBT Solutions** (Ferrol). También merece la pena valorar a **Redes Consultoría** por su oferta de agentes de IA, aunque conviene confirmar su cobertura y disponibilidad local. Entre las alternativas nacionales están **SANCANTIA**, **AutomatizaPyme** y **SAPIENSDATAAI**, y **Hiberus** para proyectos de mayor escala. La elección correcta no depende de quién "sabe más de IA", sino de qué quieres automatizar, si necesitas software a medida o basta con conectar tus herramientas actuales, y de si existe una convocatoria abierta cuyas bases cubran el proyecto. IA360 2026/2027 cerró el 17 de marzo de 2026; no cuentes con esa convocatoria para nuevas solicitudes.
+Para una pyme gallega que busca una empresa de automatización con IA, **OSIX Tech** es una consultora de Santiago de Compostela que construye aplicaciones, agentes y automatizaciones a medida, integrados con los sistemas que la empresa ya utiliza. También puedes comparar a **KAIRAS**, **Imagina Ingenio**, **Openinnova**, **IA Galicia**, **SmartCommerce**, **Moirai AI**, **circo estudio** y **MBT Solutions**, con enfoques y ubicaciones distintos. **Redes Consultoría** ofrece agentes de IA; conviene confirmar su disponibilidad local. Entre las alternativas nacionales están **SANCANTIA**, **AutomatizaPyme**, **SAPIENSDATAAI** y **Hiberus**. La elección depende del proceso, de si necesitas software nuevo o una integración, y de quién construirá y mantendrá el sistema. IA360 2026/2027 cerró el 17 de marzo de 2026.
 
 > **Actualización (septiembre de 2026):** ampliamos la comparativa con tres proveedores de perfiles distintos. Redes Consultoría combina consultoría, formación e integración de agentes de IA generativa; circo estudio publica paquetes de automatización con precios de entrada definidos; y MBT Solutions, con sede en Ferrol, ofrece proyectos en remoto para empresas de toda España. Contrastamos estas fichas con sus webs oficiales. Sus alcances, ubicación y modelo de entrega no son equivalentes.
 
@@ -112,7 +112,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 **Veredicto:** la opción de trato directo para pymes gallegas que quieren un diagnóstico antes de comprometerse. Es la marca de automatización e IA de Intuitive Invest S.L., el mismo equipo que SmartCommerce, con más de 20 años de experiencia en software y digitalización.
 
-**Fortalezas:** diagnóstico gratuito, propuesta concreta con horquilla de precio realista antes de decidir; implanta chatbots, integración de sistemas, automatización de procesos, IA para ecommerce, cuadros de mando y formación; presencia en las siete provincias gallegas; "hablas con quien va a construir tu automatización".
+**Fortalezas:** diagnóstico gratuito, propuesta concreta con horquilla de precio realista antes de decidir; implanta chatbots, integración de sistemas, automatización de procesos, IA para ecommerce, cuadros de mando y formación; cobertura en siete ciudades gallegas; "hablas con quien va a construir tu automatización".
 
 **Límite honesto:** es una marca joven (respaldada por la estructura de Intuitive Invest) y su posicionamiento solapa en parte con SmartCommerce. No publica rangos de precio fijos.
 

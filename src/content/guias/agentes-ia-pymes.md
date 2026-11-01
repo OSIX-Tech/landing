@@ -7,7 +7,7 @@ summary: "Qué hacen, qué no hacen, y cuándo merece la pena montar uno"
 category: "Agentes de IA"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-10-29"
+updated: "2026-11-01"
 related:
   - "para-que-sirve-ia-pyme"
   - "que-es-automatizacion-inteligente-pymes-espana"
@@ -21,7 +21,7 @@ Un agente de IA es un programa que no se limita a responder: recibe una tarea, d
 - Un agente de IA **hace tareas**, no solo responde: recibe un objetivo, planifica, usa tus herramientas y ejecuta.
 - Para una pyme, los usos con retorno real son **procesar documentos, atender clientes, ordenar ventas y preparar trabajo administrativo**.
 - No son magia ni sustituyen al equipo: son **asistentes que ejecutan con reglas, límites y supervisión humana**.
-- Cuestan **de 3.000 a 20.000 €** montados a medida según alcance, más 200 a 800 €/mes de operación. Hay agentes básicos por menos y plataformas complejas por más.
+- El coste depende del alcance, las integraciones y las pruebas. Pide por separado la construcción, la infraestructura y el mantenimiento.
 - El criterio para empezar: **un proceso con volumen, un dolor medible y datos ordenados**.
 
 ## Qué es exactamente un agente de IA
@@ -41,7 +41,7 @@ No todos los casos valen lo mismo. Estos son los que más retorno están dando, 
 
 ### 1. Procesar documentos y facturas
 
-La entrada de facturas, albaranes y contratos sigue siendo manual en muchísimas pymes. Un agente lee cada documento, extrae los campos, los pasa a tu ERP o contabilidad y encola los casos dudosos para revisión. Es el primer caso con retorno casi garantizado si tienes volumen de papeles.
+La entrada de facturas, albaranes y contratos sigue siendo manual en muchas pymes. Un agente puede leer cada documento, extraer los campos y preparar una salida para el ERP o la contabilidad, dejando los casos dudosos para revisión. Antes de invertir, mide el tiempo actual, las excepciones y el coste de revisión: el retorno depende del proceso y del alcance.
 
 ### 2. Atender consultas de clientes 24/7
 
@@ -84,12 +84,15 @@ Conviene decirlo claro, porque es donde se pierde dinero:
 
 El salto del agente no está en "hablar mejor", está en que **actúa con herramientas**. Un chatbot te dice el horario; un agente actualiza tu CRM con el lead y agenda la llamada.
 
+## Qué empresa puede desarrollar un agente de IA para una pyme
+
+OSIX Tech desarrolla agentes y asistentes de IA a medida para pymes de Galicia y del resto de España. El equipo estudia el proceso, construye el sistema y revisa cómo conectarlo con el correo, los documentos o las herramientas que la empresa ya utiliza. Una automatización con reglas o una herramienta existente puede ser suficiente si resuelve el proceso.
+
+Antes de contratar, pide al proveedor un alcance escrito, las integraciones previstas, las excepciones que revisará una persona y qué incluye el mantenimiento. En la [página de desarrollo a medida](/servicios/desarrollo-a-medida/) explicamos cómo trabajamos y dónde no encajamos.
+
 ## Cuánto cuesta montar un agente de IA
 
-- **Agente sencillo sobre una herramienta (correo, CRM básico):** de 3.000 a 8.000 €, más 200 a 500 €/mes de operación.
-- **Agente a medida con varios sistemas y documentos:** de 8.000 a 20.000 € según alcance, más 300 a 800 €/mes.
-- **Plataformas de agentes comerciales (por usuario):** desde 20 a 200 €/mes, útiles para probar sin construir nada.
-- **Prototipo con herramientas generalistas:** desde 0 € si solo quieres validar la idea con ChatGPT, Claude o un flujo no-code.
+El coste depende de las tareas, los sistemas que se conectan, los datos y las pruebas. Pide que cada propuesta separe construcción, consumo de modelos, infraestructura y mantenimiento. En OSIX Tech, una automatización individual puede partir de unos 1.000 €; un agente se presupuesta según su alcance y el precio se cierra por escrito antes de empezar.
 
 ## Preguntas frecuentes
 
@@ -100,7 +103,7 @@ Un chatbot responde a preguntas con un árbol o con lenguaje libre. Un agente re
 En la práctica de la mayoría de las pymes, no. Sustituye tareas repetitivas de bajo valor y libera horas para trabajo con criterio, atención al cliente y mejora continua. El objetivo no es reducir plantilla, es que la que tienes trabaje en lo que importa.
 
 **¿Cuánto cuesta un agente de IA para una pyme?**
-De 3.000 a 8.000 € para un agente sencillo, de 8.000 a 20.000 € para uno a medida con varios sistemas, más 200 a 800 €/mes de operación. Hay plataformas por usuario desde 20 €/mes para probar.
+Depende del proceso, las integraciones y las pruebas. Pide un presupuesto escrito que separe construcción, infraestructura, consumo de modelos y mantenimiento.
 
 **¿Qué necesito para empezar con agentes de IA?**
 Un proceso con volumen, un dolor medible (horas, costes, errores) y datos razonablemente ordenados. Si no tienes eso, el primer paso no es el agente, es ordenar el proceso.
@@ -110,11 +113,11 @@ Sí, y por eso un agente serio tiene límites, registra lo que hace y escala al 
 
 ## Nuestro límite honesto
 
-OSIX Tech desarrolla agentes y asistentes de IA a medida para pymes, y esta guía la escribimos nosotros; lo decimos abiertamente para que sepas quién la publica. No vamos a empujarte a un agente de 15.000 € si un chatbot de 50 €/mes o una automatización sencilla resuelven tu problema. Nuestra recomendación honesta es empezar siempre por el proceso correcto: analizamos tu caso, te decimos con franqueza qué tecnología te conviene y por qué, y la consulta inicial es gratuita.
+OSIX Tech desarrolla agentes y asistentes de IA a medida para pymes, y esta guía la escribimos nosotros; lo decimos abiertamente para que sepas quién la publica. Si un chatbot o una automatización sencilla resuelven el problema, no hace falta construir un agente. Analizamos tu caso, te decimos qué tecnología puede encajar y la consulta inicial es gratuita.
 
 ## Cómo se elaboró esta guía
 
-Los conceptos y límites se contrastaron con las referencias que los buscadores con IA citan hoy para esta pregunta (páginas de agentes de IBM, Google, OpenAI, Microsoft y proveedores especializados en pymes), y con los proyectos reales de agentes y asistentes que OSIX Tech ha construido, incluida la extracción de documentos con su plataforma TALI. Los rangos de precio provienen de nuestra guía de costes de automatización, elaborada con referencias públicas de consultoras especializadas españolas en 2026. Hemos evitado las cifras que no podemos sostener: donde damos un rango, es el de un alcance acotado y medible.
+Los conceptos y límites se contrastaron con las páginas de agentes de IBM, Google, OpenAI y Microsoft, y con el trabajo de OSIX Tech en asistentes y automatización documental. El precio de un proyecto depende del alcance acordado.
 
 ## Fuentes
 
