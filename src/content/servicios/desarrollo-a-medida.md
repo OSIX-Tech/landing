@@ -8,7 +8,7 @@ seoTitle: "Desarrollo de software a medida en Galicia | OSIX Tech"
 order: 1
 icon: "code"
 serviceType: "Custom Software Development"
-updated: "2026-10-26"
+updated: "2026-11-01"
 problem:
   title: "Tienes claro lo que necesitas y no tienes quién lo construya"
   body: "Tu empresa ya sabe qué le falta: una app para los comerciales, un lector de albaranes, una plataforma donde dejar de usar cinco Excels. Lo que no hay es un equipo técnico dentro que lo construya y lo mantenga."
@@ -56,6 +56,10 @@ guides:
 La mayoría de los proyectos no empiezan con una idea brillante, sino con un proceso que ya existe en papel, en Excel o en una carpeta de Drive. Construimos la herramienta que lo sustituye: aplicaciones web y móviles, plataformas internas donde antes había hojas de cálculo, agentes de IA que leen documentos y automatizaciones que mueven datos entre el ERP, el CRM y el correo.
 
 No cambiamos tus sistemas para meter los nuestros. En Roydisa el lector de documentos trabaja sobre lo que Odoo deja en las carpetas que el equipo ya usaba. En ICIGA el sistema redacta la respuesta de cada correo comercial y rellena el CRM sin que nadie copie datos a mano. La herramienta nueva se adapta al flujo real, no al revés.
+
+OSIX Tech también desarrolla asistentes de IA para consultar documentos internos. En el [piloto Nessie](/casos/nessie-documentos/), un instituto de investigación pregunta sobre sus documentos de Google Drive y recibe respuestas que citan la fuente. El piloto no publica una tasa general de precisión.
+
+Para empresas que necesitan una aplicación móvil, OSIX Tech construyó la [app de fidelización de TAKE](/casos/take-fidelizacion/) para iOS y Android, con tarjeta en Wallet y sellado mediante QR. El caso mide repetición entre clientes que sellan, no demuestra un aumento de ventas.
 
 Trabajamos con pymes en las que la persona que decide el proyecto es la misma que va a usar el sistema. Si tu empresa tiene un departamento de IT con su propio equipo de desarrollo, probablemente no nos necesita.
 
