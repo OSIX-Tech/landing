@@ -14,7 +14,7 @@ problem:
   body: "La dirección aprobó explorar inteligencia artificial, alguien probó ChatGPT y meses después ningún proceso ha cambiado. En una pyme el problema casi nunca es el modelo: es que nadie ha mirado cómo se trabaja de verdad, ni quién va a construir lo que salga del análisis."
 solution:
   title: "Diagnostica, construye y mide el mismo equipo"
-  body: "Seis personas en Santiago de Compostela. Quien visita tu empresa es quien decide la arquitectura y quien programa. Si el proceso no merece automatizarse, te lo decimos y el encargo termina ahí."
+  body: "Siete personas en Santiago de Compostela. Quien visita tu empresa es quien decide la arquitectura y quien programa. Si el proceso no merece automatizarse, te lo decimos y el encargo termina ahí."
 highlightsTitle: "Qué incluye un encargo de consultoría"
 highlights:
   - "Visita a la empresa y análisis del proceso real, no del organigrama"
@@ -36,7 +36,7 @@ faqs:
   - question: "¿Cuánto cuesta un proyecto de consultoría de IA?"
     answer: "Depende del alcance: cuántos procesos entran, con qué sistemas hay que integrarlos y cuántas pruebas requieren. No publicamos tarifas porque cada proyecto tiene un alcance distinto. Después del diagnóstico entregamos una propuesta escrita con las fases y el presupuesto. La consulta inicial es gratuita."
   - question: "¿En qué se diferencia OSIX de una gran consultora?"
-    answer: "En el tamaño y en quién hace el trabajo: somos seis personas y quien diagnostica es quien programa. Eso da ritmo y contacto directo con el equipo que construye, pero también pone límites. No hacemos proyectos de cientos de personas, no llevamos auditorías de compliance y no damos guardia 24/7. Para eso, una gran consultora es mejor opción."
+    answer: "En el tamaño y en quién hace el trabajo: somos siete personas y quien diagnostica es quien programa. Eso da ritmo y contacto directo con el equipo que construye, pero también pone límites. No hacemos proyectos de cientos de personas, no llevamos auditorías de compliance y no damos guardia 24/7. Para eso, una gran consultora es mejor opción."
   - question: "¿Trabajáis con empresas fuera de Galicia?"
     answer: "Sí. La sede está en Santiago de Compostela y la mayoría de clientes está en Galicia, pero el trabajo se hace en remoto con empresas de cualquier punto de España. Cuando el proyecto lo necesita, el equipo se desplaza."
   - question: "¿Cuánto tarda un encargo?"
@@ -96,7 +96,7 @@ Lo que estas cifras no demuestran también importa: el ahorro de horas administr
 
 ## Dónde no somos la opción
 
-- **Si necesitas una auditoría de compliance, certificaciones ISO o un socio para licitar con el sector público.** Somos seis personas y no hacemos ese trabajo.
+- **Si necesitas una auditoría de compliance, certificaciones ISO o un socio para licitar con el sector público.** Somos siete personas y no hacemos ese trabajo.
 - **Si el proyecto exige cientos de personas en paralelo o despliegue en varios países.** No es nuestro tamaño.
 - **Si necesitas guardia 24/7 con disponibilidad garantizada.** El soporte se acuerda por escrito con horario, cobertura y tiempos de respuesta, y no incluye disponibilidad permanente salvo que se pacte así.
 - **Si necesitas un ERP o un CRM enlatado con licencia.** No vendemos licencias. Integramos el que ya tienes o construimos la parte que falta.
@@ -118,4 +118,4 @@ Está desarrollado en la guía de [cómo trabajar con una consultora de IA sin p
 
 La oficina está en Santiago del Estero, 2-4, 1G, 15702 Santiago de Compostela. Cuando el proyecto está en Galicia, el primer diagnóstico se hace en la empresa. Con el resto de España se trabaja en remoto y el equipo se desplaza cuando el proyecto lo necesita.
 
-Somos seis personas. La ventaja de un equipo así no es la antigüedad: es el ritmo, que hables siempre con quien construye, y que la IA multiplique a seis personas en lugar de sumar capas de gestión. El equipo y cómo trabajamos están en [quiénes somos](/nosotros/). Si lo que necesitas es construir software, está en [desarrollo a medida](/servicios/desarrollo-a-medida/); y si el proyecto depende de una convocatoria de ayudas, en [innovación subvencionada](/servicios/innovacion-subvencionada/).
+Somos siete personas. La ventaja de un equipo así no es la antigüedad: es el ritmo, que hables siempre con quien construye, y que la IA multiplique a siete personas en lugar de sumar capas de gestión. El equipo y cómo trabajamos están en [quiénes somos](/nosotros/). Si lo que necesitas es construir software, está en [desarrollo a medida](/servicios/desarrollo-a-medida/); y si el proyecto depende de una convocatoria de ayudas, en [innovación subvencionada](/servicios/innovacion-subvencionada/).
