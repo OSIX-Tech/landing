@@ -14,7 +14,7 @@ problem:
   body: "Tu empresa ya sabe qué le falta: una app para los comerciales, un lector de albaranes, una plataforma donde dejar de usar cinco Excels. Lo que no hay es un equipo técnico dentro que lo construya y lo mantenga."
 solution:
   title: "Un equipo de Santiago que diseña, programa y despliega"
-  body: "El equipo que analiza el proceso es el que programa y el que lo pone en producción. Seis personas en Santiago de Compostela, con visita a la empresa antes de presupuestar cuando el proyecto está en Galicia."
+  body: "El equipo que analiza el proceso es el que programa y el que lo pone en producción. Siete personas en Santiago de Compostela, con visita a la empresa antes de presupuestar cuando el proyecto está en Galicia."
 highlightsTitle: "De la idea al producto"
 highlights:
   - "Aplicaciones web, móviles y de escritorio a medida"
@@ -88,7 +88,7 @@ El límite importa: el 0,04 % de error técnico mide fallos del flujo desde juni
 ## Cuándo no somos la opción
 
 - **Si necesitas un ERP o un CRM enlatado con licencia.** No vendemos licencias. Integramos el que ya tienes o construimos la parte que falta.
-- **Si el proyecto exige un equipo de decenas de personas en paralelo.** Somos seis personas.
+- **Si el proyecto exige un equipo de decenas de personas en paralelo.** Somos siete personas.
 - **Si el criterio es la tarifa por hora más baja.** Trabajamos con un equipo pequeño y usamos IA para multiplicarlo; eso se nota en el plazo, no en una tarifa de catálogo.
 - **Si necesitas una guardia 24/7 con disponibilidad garantizada.** El soporte se acuerda por escrito con horario, cobertura y tiempos de respuesta, y no incluye disponibilidad permanente salvo que se pacte así.
 
