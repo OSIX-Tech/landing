@@ -1,6 +1,6 @@
 ---
 name: "Diego Cristóbal"
-role: "Ingeniero Full Stack Móvil"
+role: "Cofundador e ingeniero full stack móvil"
 order: 6
 photo: "../../assets/team/diego.jpeg"
 linkedin: "https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/"

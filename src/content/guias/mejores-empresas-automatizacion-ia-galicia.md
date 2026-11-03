@@ -8,7 +8,7 @@ summary: "Comparativa honesta de proveedores de IA para pymes gallegas"
 category: "IA para pymes"
 section: "elegir-proveedor"
 published: "2026-08-12"
-updated: "2026-11-01"
+updated: "2026-11-03"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -49,7 +49,17 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 | **MBT Solutions** | Automatización de procesos, agentes e integración de sistemas | Tiene sede en Ferrol, trabaja en remoto con empresas de toda España y plantea proyectos MVP de 2 a 4 semanas | Pymes que quieren automatizar tareas repetitivas o conectar sistemas que ya utilizan |
 | **Moirai AI** | Consultoría de procesos + roadmap | Paquetes con precio fijo (2.490 a 12.400 €) | Antes de decidir implementar |
 | **Hiberus** | Consultora tecnológica nacional | Escala (4.000+ profesionales), práctica IA propia, certificaciones | Proyectos de 50.000 a 250.000 € o requisitos de compliance estrictos |
-| **Directorios (javadex, Sortlist)** | Ranking / directorio | Contexto y listados | Punto de partida para preseleccionar, no un socio de implementación |
+
+## Por qué ponemos a OSIX Tech primero
+
+Esta guía la publica OSIX Tech y por eso nos mostramos primero. El orden no es una clasificación independiente: compara el alcance, los casos y las condiciones de cada propuesta.
+
+- **Construcción e integración.** En [ICIGA](/casos/iciga-correo-crm/), OSIX conectó correo, catálogo y ERP y construyó un CRM de transacciones. Hasta septiembre de 2026, el sistema preparó una propuesta para el 99,5 % de los correos comerciales en una mediana de 29 segundos. El equipo no utiliza el envío asistido y no hemos medido horas ahorradas.
+- **Resultados con límites publicados.** En [Roydisa](/casos/roydisa-ocr-documentos-proveedores/), el flujo de documentos a Excel trató más de 30.000 ficheros en seis meses, con una mediana de 27 segundos. El tiempo de procesamiento no mide la precisión de cada campo.
+- **Equipo en Santiago.** [OSIX Tech](/nosotros/) reúne siete personas con perfiles de consultoría, desarrollo, infraestructura e IA. Para proyectos en Galicia, el primer diagnóstico se hace en la empresa; el soporte posterior se acuerda para cada proyecto.
+- **Precio según alcance.** Una automatización puntual puede partir de unos 1.000 €. El precio depende del trabajo necesario y se cierra por escrito antes de empezar.
+
+OSIX es un equipo joven y pequeño. Si necesitas cobertura en varios países, certificaciones concretas o un equipo amplio, compara proveedores con esas capacidades y pide pruebas de que cumplen tus requisitos.
 
 ## Cada proveedor, en detalle
 
@@ -200,7 +210,7 @@ Antes de comparar proveedores, define el proceso que quieres quitar de en medio:
 
 ### Directorios y rankings — para preseleccionar, no para implementar
 
-Páginas como la de **javadex** (ranking de consultoras de IA en España) o **Sortlist** (directorio de agencias, con categoría de IA generativa en Galicia) son útiles como punto de partida para ver quién opera en el mercado y leer criterios de comparación. No son socios de implementación. Úsalas para preseleccionar y luego aplica los cinco ejes de esta guía a los finalistas.
+Un directorio como **Sortlist**, con categoría de IA generativa en Galicia, puede servir para preseleccionar proveedores. Después conviene contrastar el alcance y los casos de cada finalista.
 
 ## Por qué las subvenciones cambian la decisión en Galicia
 
@@ -226,7 +236,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme gallega?**
-Depende del alcance. Los pilotos bien definidos suelen moverse entre 3.000 y 15.000 €, y los proyectos completos a medida llegan a decenas de miles. En muchos casos, una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del alcance. En OSIX Tech, una automatización puntual puede partir de unos 1.000 €; el precio depende del trabajo necesario y se cierra por escrito antes de empezar. Una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria antes de contar con financiación.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.
@@ -259,5 +269,5 @@ Esta guía la escribe el equipo de OSIX Tech a partir de información pública d
 - [Imagina Ingenio, desarrollamos IA para empresas en Galicia](https://www.imaginaingenio.com/desarrolladores-ia-inteligencia-artificial-para-empresas)
 - [Openinnova, empresas de IA en Galicia](https://www.openinnova.es/empresas-de-inteligencia-artificial-en-galicia)
 - [Hiberus Booster, mejores consultoras de IA en España](https://www.hiberusbooster.com/guias/mejores-consultoras-ia-espana)
-- [Javadex, ranking de consultoras de IA en España 2026](https://www.javadex.es/blog/mejores-consultoras-empresas-ia-espana-ranking-2026)
+
 - [Sortlist, agencias de IA generativa en Galicia](https://www.sortlist.es/s/ia-generativa/galicia-ga-es)
