@@ -1,6 +1,6 @@
 // schema.org JSON-LD. The Organization and WebSite nodes are emitted once per page by
 // BaseLayout; page builders reference them by @id instead of repeating them.
-import { org, ORG_ID, WEBSITE_ID, SITE_URL, absolute } from '../site';
+import { org, founders, ORG_ID, WEBSITE_ID, SITE_URL, absolute } from '../site';
 import type { Faq } from './content';
 import { plain } from './content';
 
@@ -46,6 +46,7 @@ export function siteGraph(): JsonLd[] {
       ],
       knowsAbout: org.knowsAbout,
       sameAs: org.sameAs,
+      founder: founders.map((f) => ({ '@id': `${absolute('/nosotros/')}#${f.id}` })),
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'sales',
@@ -63,6 +64,15 @@ export function siteGraph(): JsonLd[] {
       inLanguage: 'es',
       publisher: { '@id': ORG_ID },
     },
+    ...founders.map((f) => ({
+      '@type': 'Person',
+      '@id': `${absolute('/nosotros/')}#${f.id}`,
+      name: f.name,
+      jobTitle: f.jobTitle,
+      url: `${absolute('/nosotros/')}#${f.id}`,
+      worksFor: { '@id': ORG_ID },
+      sameAs: f.sameAs,
+    })),
   ];
 }
 

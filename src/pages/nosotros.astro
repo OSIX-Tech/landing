@@ -6,11 +6,12 @@ import Icon from '../components/Icon.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { getTeam } from '../lib/content';
 import { personId, webPage } from '../lib/schema';
-import { org, ORG_ID } from '../site';
+import { org, ORG_ID, founderIds } from '../site';
 
 const page = (await getEntry('paginas', 'nosotros'))!;
 const { Content } = await render(page);
 const team = await getTeam();
+const restOfTeam = team.filter((m) => !(founderIds as readonly string[]).includes(m.id));
 ---
 
 <DocLayout
@@ -21,7 +22,7 @@ const team = await getTeam();
   type="website"
   jsonLd={[
     webPage({ path: '/nosotros/', name: page.data.title, description: page.data.description, type: 'AboutPage', modified: page.data.updated }),
-    ...team.map((m) => ({
+    ...restOfTeam.map((m) => ({
       '@type': 'Person',
       '@id': personId(m.id),
       name: m.data.name,

@@ -1,6 +1,6 @@
 ---
 name: "Mateo Bodenlle"
-role: "CEO"
+role: "CEO y cofundador"
 order: 1
 photo: "../../assets/team/mateo.jpeg"
 linkedin: "https://www.linkedin.com/in/mateo-bodenlle-villarino/"

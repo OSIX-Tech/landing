@@ -42,5 +42,22 @@ export const org = {
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
+export const founders = [
+  {
+    id: 'mateo',
+    name: 'Mateo Bodenlle',
+    jobTitle: 'CEO y cofundador',
+    sameAs: ['https://www.linkedin.com/in/mateo-bodenlle-villarino/', 'https://github.com/mateobodenlle'],
+  },
+  {
+    id: 'diego',
+    name: 'Diego Cristóbal',
+    jobTitle: 'Cofundador e ingeniero full stack móvil',
+    sameAs: ['https://www.linkedin.com/in/diego-cristobal-andaluz-3a5580304/', 'https://github.com/2cristo7'],
+  },
+] as const;
+
+export const founderIds = founders.map((f) => f.id);
+
 /** Absolute URL for a site path. */
 export const absolute = (path: string) => new URL(path, SITE_URL).toString();
