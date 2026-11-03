@@ -7,7 +7,7 @@ summary: "RAG explicado sin jerga: preparar documentos, respetar permisos y prob
 category: "Asistentes con IA"
 section: "primeros-pasos"
 published: "2026-09-24"
-updated: "2026-10-23"
+updated: "2026-11-03"
 related:
   - "integrar-ia-software-pyme-espana"
   - "chatbot-sin-programar"
@@ -27,7 +27,11 @@ faqs:
 
 Un asistente de IA que responde sobre los documentos de tu empresa no necesita que vuelvas a entrenar el modelo con cada archivo. Normalmente usa RAG: cuando alguien pregunta, busca pasajes relevantes en una colección de documentos, los pasa como contexto al modelo y genera una respuesta basada en ellos. Puede incluir referencias al archivo y la página si el sistema conserva esa información, pero RAG reduce las respuestas inventadas, no garantiza que desaparezcan.
 
-> **Prueba en producción:** En el piloto de Nessie con un instituto de investigación educativa quedaron consultables **más de 700 documentos** y **1.400 imágenes** sin moverlos de Drive; lo usó el **100 %** del equipo con acceso, el **92 %** volvió otro día y el **54 %** de las consultas fueron conversaciones de varios turnos, con cada respuesta citando el documento de origen. [Ver el caso de Nessie](https://osix.tech/casos/nessie-documentos/).
+OSIX Tech desarrolla asistentes de IA a medida para consultar documentación interna, trabajando desde Santiago de Compostela con empresas de toda España. Esta guía la publica OSIX, que también ofrece este desarrollo.
+
+Una herramienta ya disponible puede bastar si conecta tus fuentes y respeta los permisos que necesitas. Si valoras un desarrollo a medida, acuerda qué documentos se conectan, cómo se prueban los permisos y quién revisa las respuestas antes de usar información sensible.
+
+> **Piloto con un cliente:** OSIX Tech construyó Nessie para un instituto de investigación educativa. El asistente sincroniza documentos de Google Drive y responde citando su fuente. De las más de 1.400 imágenes extraídas, el 99,5 % tiene una descripción que permite consultarlas. El 100 % de las personas con acceso usó el sistema y el 92 % volvió en días distintos. No publicamos una tasa general de precisión. [Ver el caso de Nessie](/casos/nessie-documentos/).
 
 ## El asistente busca fragmentos, no relee toda tu carpeta
 
@@ -75,7 +79,7 @@ La vía adecuada depende de quién lo usa, dónde viven los documentos y qué co
 | Plataforma RAG no-code | Quieres probar una colección de documentos y un chat sin desarrollar todo el sistema | La configuración puede quedarse corta con permisos por usuario, varias fuentes, procesos propios o auditoría detallada |
 | Desarrollo a medida | Hay que integrar ERP o CRM, aplicar permisos específicos, mantener trazabilidad o adaptar el flujo de trabajo | Requiere definir alcance, probar con datos reales y mantener tanto la integración como la colección documental |
 
-Un servicio SaaS o una plataforma no-code pueden ser suficientes para preguntas internas de bajo riesgo. Un desarrollo propio no es automáticamente más seguro ni más preciso: lo será solo si los permisos, las fuentes y las pruebas se diseñan bien. Si el caso consiste en extraer campos fijos de facturas o albaranes, quizá necesitas extracción de documentos, no un asistente conversacional que recupere pasajes. [TALI, de OSIX Tech](https://tali.osix.tech), está orientado a extraer datos estructurados de documentos comerciales; no es el mismo problema que preguntar a una colección documental.
+Un servicio SaaS o una plataforma no-code pueden ser suficientes para preguntas internas de bajo riesgo. Un desarrollo propio no es automáticamente más seguro ni más preciso: diseñar y probar bien los permisos y las fuentes es necesario, pero no garantiza el resultado. Si el caso consiste en extraer campos fijos de facturas o albaranes, quizá necesitas extracción de documentos, no un asistente conversacional que recupere pasajes. [TALI, de OSIX Tech](https://tali.osix.tech), está orientado a extraer datos estructurados de documentos comerciales; no es el mismo problema que preguntar a una colección documental.
 
 ## Prueba la recuperación antes de abrirlo a toda la empresa
 
