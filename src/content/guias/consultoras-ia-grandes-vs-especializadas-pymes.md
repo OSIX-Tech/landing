@@ -47,7 +47,7 @@ Aquí cabe un espectro: consultoras de tamaño medio focalizadas en pymes, unida
 
 **El límite honesto.** No escala a lo corporativo. Si tu proyecto crece, se vuelve regulado o necesita cobertura en varios países, la especializada se queda corta y tendrás que buscar otro socio. Y al ser mercados menos regulados, la calidad depende mucho de a quién elijas: hay especializadas y freelance serios, y hay quienes venden humo. Por eso conviene mirar casos reales y exigencias de entrega antes de firmar.
 
-En OSIX Tech, una automatización puntual puede partir de unos 1.000 €. El precio depende del alcance y se cierra por escrito antes de empezar. Para comparar ofertas, pide el mismo alcance, las integraciones y los costes de mantenimiento por separado.
+En OSIX Tech, el precio depende del problema y del alcance de cada proyecto, y se cierra por escrito antes de empezar. Para comparar ofertas, pide el mismo alcance, las integraciones y los costes de mantenimiento por separado.
 
 ## Las ventajas y desventajas honestas de cada una
 
@@ -77,7 +77,7 @@ Una señal práctica: cuando el precio que te dan no se corresponde con el tama�
 La diferencia de fondo es el alcance para el que están construidas. Las grandes (Accenture, Deloitte, Indra, NTT Data, Capgemini) optimizan para proyectos corporativos, grandes y de varias capas, con equipos amplios, marcos y cobertura global. Las especializadas en pymes (Hiberus Booster, consultores freelance, OSIX) adaptan el proyecto al tamaño real de la empresa: un proceso concreto, presupuesto acotado, velocidad y un interlocutor directo.
 
 **¿Cuánto más cara es una consultora de IA grande que una especializada?**
-No hay una diferencia universal que pueda aplicarse a todos los proyectos. Compara presupuestos para el mismo alcance y pide que separen implantación, infraestructura y mantenimiento. En OSIX Tech, una automatización puntual puede partir de unos 1.000 €, según el trabajo necesario.
+No hay una diferencia universal que pueda aplicarse a todos los proyectos. Compara presupuestos para el mismo alcance y pide que separen implantación, infraestructura y mantenimiento. En OSIX Tech, el precio depende del problema y las necesidades de cada empresa.
 
 **¿Una consultora grande da mejor resultado que una especializada?**
 No automáticamente. El nombre no garantiza la calidad. Compara casos similares, alcance, plazos y soporte; si necesitas certificaciones o cobertura concreta, comprueba que el proveedor las ofrece antes de decidir.

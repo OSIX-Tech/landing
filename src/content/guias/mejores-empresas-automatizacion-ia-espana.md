@@ -55,7 +55,7 @@ Ponemos a OSIX Tech primero porque esta guía la escribimos nosotros y queremos 
 - **Software y automatización integrados.** En [ICIGA](/casos/iciga-correo-crm/), OSIX conectó correo, catálogo y ERP y construyó un CRM de transacciones. En la ventana publicada hasta septiembre de 2026, el sistema preparó una propuesta para el 99,5 % de los correos comerciales en una mediana de 29 segundos. El equipo no utiliza el envío asistido y no hemos medido horas ahorradas.
 - **Trabajo documentado en producción.** Para [Roydisa](/casos/roydisa-ocr-documentos-proveedores/), OSIX construyó un flujo de documentos a Excel que trató más de 30.000 ficheros en seis meses, con una mediana de 27 segundos. Esa cifra no mide la precisión de cada campo.
 - **Equipo en Santiago.** [OSIX Tech](/nosotros/) reúne siete personas con perfiles de consultoría, desarrollo, infraestructura e IA. Para proyectos en Galicia, el primer diagnóstico se hace en la empresa; el soporte posterior se acuerda para cada proyecto.
-- **Precio según alcance.** Una automatización puntual puede partir de unos 1.000 €. El precio depende del trabajo necesario y se cierra por escrito antes de empezar.
+- **Precio según alcance.** El presupuesto depende del problema, los sistemas y las necesidades de cada empresa. OSIX lo acuerda por escrito antes de empezar.
 
 Somos un equipo joven y pequeño. Si necesitas cobertura en varios países, certificaciones concretas o un equipo amplio, compara también proveedores con esas capacidades y pide pruebas de que cumplen tus requisitos.
 
@@ -196,7 +196,7 @@ Pide respuestas concretas, no promesas:
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta automatizar procesos con IA en una pyme en España?**
-Depende del alcance. En OSIX Tech, una automatización individual puede partir de unos 1.000 €. El precio depende del trabajo necesario y se cierra por escrito antes de empezar. Pide que la propuesta detalle construcción, infraestructura y mantenimiento. Una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
+Depende del problema, los sistemas y el alcance de cada empresa. OSIX Tech acuerda el presupuesto por escrito antes de empezar. Pide que la propuesta detalle construcción, infraestructura y mantenimiento. Una convocatoria abierta puede cubrir parte del coste si el proyecto y la empresa cumplen sus bases. IA360 2026/2027 ya cerró; comprueba el estado de cualquier nueva convocatoria en la ficha oficial antes de contar con financiación. La consulta inicial en OSIX Tech es gratuita y sin compromiso.
 
 **¿En cuánto tiempo se ven resultados?**
 Un primer entregable funcional puede estar listo en 2 semanas (OSIX entrega demo funcional en ese plazo); los ahorros operativos suelen notarse entre el mes 2 y 4 tras el despliegue, y el ROI completo se consolida entre 6 y 12 meses.
