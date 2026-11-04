@@ -8,22 +8,22 @@ summary: "Cómo comparar presupuestos de software a medida sin confundir precio 
 category: "Coste total"
 section: "costes-y-resultados"
 published: "2026-10-29"
-updated: "2026-11-03"
+updated: "2026-11-04"
 related:
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
   - "informacion-preparar-aplicacion-negocio"
 ---
 
-Ninguna empresa de desarrollo de software puede demostrar que cobra menos por tu proyecto sin ver el mismo alcance que sus competidoras. Lo que sí se puede comparar es lo que cada proveedor publica, cómo descompone una oferta y cuánto suma a 24 meses. Esta guía reúne los rangos publicados por empresas españolas en 2026, explica las cuatro partidas que separan un presupuesto comparable de un número suelto y da un método para saber, con tus tres ofertas delante, cuál es la más barata de verdad. La publica OSIX Tech, que desarrolla software a medida para pymes: no somos un comparador neutral y por eso no ordenamos empresas por precio ni publicamos nuestras tarifas.
+Ninguna empresa de desarrollo de software puede demostrar que cobra menos por tu proyecto sin ver el mismo alcance que sus competidoras. Lo que sí se puede comparar es lo que cada proveedor publica, cómo descompone una oferta y cuánto suma a 24 meses. Esta guía reúne los rangos publicados por empresas españolas en 2026, explica las cuatro partidas que separan un presupuesto comparable de un número suelto y da un método para comparar tus ofertas. La publica OSIX Tech, que desarrolla software a medida para pymes: no somos un comparador neutral y por eso no ordenamos empresas por precio ni presentamos una tarifa universal.
 
 ## La respuesta en 30 segundos
 
 - No existe una tarifa única: el importe lo fijan el alcance, las integraciones, el estado de los datos, las pruebas y la operación posterior.
-- Para una primera versión, E2D estima **3.000 a 9.000 €** para una aplicación de gestión sencilla y Hiberus Booster estima **30.000 a 90.000 €** para un MVP funcional. Son estimaciones para alcances diferentes, no presupuestos comparables.
-- Compara siempre **construcción + integraciones + operación anual + salida**. Un presupuesto sin mantenimiento no es más barato, está incompleto.
-- Una oferta más baja sobre un alcance más pequeño o sin criterios de aceptación no es una oferta más barata.
-- Pide el **mismo brief a tres o cinco empresas** y compara el **coste a 24 meses** con los mismos supuestos.
+- Para una primera versión, E2D estima 3.000 a 9.000 € para una aplicación de gestión sencilla, con IVA aparte, y Hiberus Booster estima 30.000 a 90.000 € para un MVP funcional. Son estimaciones para alcances diferentes, no presupuestos comparables.
+- Compara construcción + integraciones + operación anual + salida. Una oferta sin mantenimiento no muestra por sí sola el coste completo de mantener el sistema.
+- Una oferta más baja sobre un alcance más pequeño o sin criterios de aceptación no es directamente comparable.
+- Pide el mismo brief a tres o cinco empresas y compara el coste a 24 meses con los mismos supuestos.
 
 ## Por qué dos pymes pagan cifras muy distintas por "lo mismo"
 
@@ -32,26 +32,26 @@ Cuando dos empresas comparan precios suelen estar comparando etiquetas, no traba
 - **Alcance y número de procesos.** Una herramienta para un flujo acotado y un sistema que conecta compras, almacén y facturación no son el mismo encargo, aunque ambos se llamen "software de gestión".
 - **Integraciones.** Cada sistema que hay que conectar añade trabajo de análisis, desarrollo y pruebas. E2D estima entre 15 y 40 horas para una API moderna y documentada, y advierte que un sistema antiguo o sin documentación puede necesitar más.
 - **Estado de los datos.** Migrar datos limpios y migrar datos duplicados en tres hojas de cálculo son proyectos distintos dentro del mismo proyecto.
-- **Excepciones y revisión humana.** Los casos raros son buena parte del trabajo real: el pedido urgente, el cliente con condiciones propias, la devolución parcial. Un sistema que solo cubre el caso feliz se cotiza bajo y se paga después.
+- **Excepciones y revisión humana.** Piensa en el pedido urgente, el cliente con condiciones propias o la devolución parcial. Si una oferta no cubre esos casos y luego los necesitas, pueden requerir trabajo adicional.
 - **Pruebas y criterios de aceptación.** Un proveedor que prueba con datos reales y otro que entrega y espera comentarios no están vendiendo el mismo entregable.
 - **Dónde vive el sistema.** Publicar en web, en una tienda de aplicaciones o en la infraestructura del cliente cambia configuración, permisos y coste de operación.
-- **Quién lo construye.** Un equipo que ya ha integrado tu ERP cotiza con menos incertidumbre que uno que lo descubre durante el proyecto, y esa diferencia se nota en el precio y en el plazo.
+- **Quién lo construye.** Un equipo que ya ha integrado tu ERP puede conocer mejor sus límites. Pide a cada proveedor que explique sus supuestos y cómo afectan al precio y al plazo.
 
 La consecuencia práctica: antes de pedir precios, define el alcance. Sin eso, cada proveedor presupuesta una idea distinta y ninguna cifra es comparable.
 
 ## Los rangos que publica el mercado español en 2026
 
-Estas son cifras publicadas por empresas y recopilaciones del sector, no una encuesta independiente ni una tarifa de OSIX. Sirven para situarte y para detectar una oferta fuera de rango en cualquiera de las dos direcciones.
+Estas son estimaciones publicadas por empresas, no una encuesta independiente ni tarifas de OSIX. Sirven para preparar preguntas, pero no permiten juzgar una oferta sin conocer su alcance.
 
 - **Automatización aislada o primera versión muy acotada.** E2D estima 1.500 a 4.000 € para una automatización aislada y 3.000 a 9.000 € para una aplicación de gestión sencilla en su primera versión funcional, con el IVA aparte.
-- **Aplicación web de gestión con base de datos.** Arteco Consulting publica 8.000 a 30.000 €, incluyendo análisis, diseño, desarrollo, pruebas y despliegue inicial. Una recopilación de agencias citada por TuWebLocal sitúa la aplicación web de gestión entre 15.000 y 40.000 €.
-- **Herramienta interna acotada.** La recopilación de rangos de mercado de bolmia.com la sitúa entre 10.000 y 25.000 €, y la de TuWebLocal entre 5.000 y 12.000 € para una herramienta o módulo interno.
-- **MVP funcional.** Hiberus Booster publica 30.000 a 90.000 € para un MVP funcional, un tramo muy por encima de las primeras versiones acotadas de otros proveedores.
-- **Plataforma con integraciones.** Hiberus Booster publica 90.000 a 250.000 € y la recopilación de bolmia.com 60.000 a 150.000 € para una plataforma compleja con ERP, CRM, área privada o pagos.
-- **ERP a medida.** Arteco publica 30.000 a 150.000 €; la recopilación de TuWebLocal, 40.000 a 200.000 € o más.
-- **Sistema empresarial de gran alcance.** Hiberus Booster publica 250.000 a 500.000 € o más, y la recopilación de bolmia.com lo sitúa por encima de 150.000 €.
+- **Aplicación web con base de datos y panel de administración.** Arteco Consulting estima 8.000 a 30.000 €, incluyendo análisis, diseño, desarrollo, pruebas y despliegue inicial.
+- **Herramienta interna sencilla.** AtomTech estima 5.000 a 12.000 € para ejemplos como un panel de gestión de datos o un formulario conectado.
+- **MVP funcional.** Hiberus Booster estima 30.000 a 90.000 € para una plataforma con la funcionalidad principal validable en el mercado. No es el mismo alcance que la aplicación sencilla de E2D.
+- **Plataforma de negocio.** Hiberus Booster estima 90.000 a 250.000 € para una aplicación con integraciones, panel de administración, roles y automatización.
+- **ERP o sistema de gestión empresarial.** Arteco estima 30.000 a 150.000 €, incluyendo análisis, diseño, desarrollo, pruebas y despliegue inicial.
+- **Sistema empresarial de gran alcance.** Hiberus Booster estima 250.000 a 500.000 € o más para una plataforma crítica multimódulo con IA, alta disponibilidad y requisitos de cumplimiento.
 
-Dos avisos para leer esa lista. Los tramos **se solapan**: una herramienta interna con reglas complicadas puede costar más que un software de gestión sencillo. Y cada fuente mide cosas distintas: unas publican precios de proyecto cerrado, otras rangos de mercado construidos a partir de guías de terceros. Ninguna sustituye una oferta sobre tu alcance.
+Los tramos se solapan y describen alcances distintos. Son estimaciones publicadas, no ofertas cerradas para tu proyecto. Comprueba qué incluye cada una, incluidos impuestos, integraciones y soporte, antes de comparar.
 
 ## Las cuatro partidas de una oferta comparable
 
@@ -59,7 +59,7 @@ Un presupuesto que se pueda comparar separa estas cuatro partidas e indica qué 
 
 1. **Construcción.** Análisis, diseño, desarrollo y pruebas hasta la primera versión acordada. Debe nombrar las pantallas o flujos que entran y, sobre todo, los que no.
 2. **Integraciones y datos.** Conexión con ERP, CRM, facturación, correo o el software del sector, más la migración de datos existentes. Pide que se especifique el alcance y qué ocurre si un sistema no admite la conexión prevista.
-3. **Operación y mantenimiento anual.** Alojamiento, licencias, consumo de modelos, copias, seguridad, correcciones y pequeños cambios. E2D publica 20 a 150 € al mes de hosting y servicios y 100 a 500 € al mes de mantenimiento; Arteco y Hiberus Booster mencionan un mantenimiento anual del 15 al 20 % del coste de desarrollo, y la recopilación de TuWebLocal lo sitúa entre el 15 y el 25 %.
+3. **Operación y mantenimiento anual.** Alojamiento, licencias, consumo de modelos, copias, seguridad, correcciones y pequeños cambios. E2D estima 20 a 150 € al mes de hosting y servicios y 100 a 500 € al mes de mantenimiento; Arteco y Hiberus Booster mencionan un mantenimiento anual del 15 al 20 % del coste de desarrollo. Son referencias de esas empresas, no una tarifa universal.
 4. **Salida.** Qué pasa si terminas la relación: propiedad del código, acceso a repositorios y cuentas, documentación, exportación de datos y coste de un traspaso.
 
 Si una propuesta mezcla las cuatro en una cifra y no explica los supuestos, no puedes saber si es más barata: solo sabes que el número es menor.
@@ -71,33 +71,33 @@ Este es el método que puedes aplicar hoy, sin herramientas especiales.
 1. **Fija una lista de alcance cerrada**, de una página, con los procesos que entran, los que quedan fuera y los criterios de aceptación de la primera versión.
 2. **Envía la misma lista a los tres candidatos** y pide que respondan en el mismo orden: construcción, integraciones, operación anual, salida.
 3. **Exige supuestos por escrito**: número de integraciones, volumen de documentos o pedidos al mes, usuarios, si incluye migración de datos y si incluye formación.
-4. **Convierte todo a 24 meses**: construcción + integraciones y datos + operación durante 24 meses + cambios no incluidos en el mantenimiento + salida. Evita contar dos veces lo que ya figure en otra partida. Es la cifra que compara.
-5. **Marca lo que no está incluido**. Un concepto ausente no es un regalo: es una factura futura o un trabajo que hará tu equipo.
+4. **Convierte todo a 24 meses**: construcción + integraciones y datos + operación durante 24 meses + cambios previstos no incluidos en el mantenimiento + salida estimada. Evita contar dos veces lo que ya figure en otra partida. Compara las estimaciones con los mismos supuestos y señala los costes aún desconocidos.
+5. **Marca lo que no está incluido**. Si lo necesitas, pregunta si supondrá una factura futura o trabajo de tu equipo.
 6. **Puntúa el resto con criterios comunes**, porque el precio no es la única diferencia entre dos propuestas. En la [guía para elegir empresa de desarrollo de software](/guias/como-elegir-empresa-desarrollo-software-ia-espana/) tienes una tabla de puntuación con pesos y un ejemplo resuelto.
 
 ## Cuándo la oferta más baja sale más cara
 
-Estos son los cinco casos que aparecen una y otra vez cuando una pyme compara presupuestos:
+Estos son cinco riesgos que conviene revisar al comparar presupuestos:
 
 - **Alcance incompleto.** La oferta barata puede cubrir el flujo principal y dejar fuera las excepciones, la migración o los informes. Si luego hacen falta, pueden generar ampliaciones facturadas aparte.
 - **Sin mantenimiento.** Un sistema que nadie mantiene puede acumular dependencias sin actualizar, integraciones que fallan o incidencias sin responsable. Pregunta cómo se resolverán y cuánto costarán.
-- **Plataforma cerrada.** Si el proveedor es el único que puede tocar el sistema porque la herramienta es suya, el precio de salida lo pone él. Pregunta por la propiedad del código y por cómo se exportan los datos antes de firmar.
-- **Equipo sin relevo.** Un proyecto sostenido por una sola persona sin documentación es barato mientras esa persona está. Pide quién más puede mantener el sistema y qué documentación se entrega.
+- **Plataforma cerrada.** Si solo el proveedor puede modificar la herramienta, puede haber dependencia y costes de salida. Pregunta por la propiedad del código y por cómo se exportan los datos antes de firmar.
+- **Equipo sin relevo.** Si una sola persona sostiene el proyecto sin documentación, su ausencia puede dificultar el mantenimiento. Pide quién más puede mantener el sistema y qué documentación se entrega.
 - **Precio gancho con cambios caros.** Una primera versión muy ajustada puede ser una buena decisión si el alcance es honesto. Deja de serlo cuando cada cambio posterior tiene una tarifa que no aparece en la propuesta.
 
-En el otro extremo también hay señales: un importe muy por encima del rango publicado para tu alcance necesita justificar qué trabajo adicional incluye.
+También conviene preguntar qué incluye una oferta más alta y si sus entregables y condiciones justifican la diferencia para tu proyecto.
 
 ## Qué hace que una empresa pueda cobrar menos sin recortar
 
-Cobrar menos no es sospechoso por sí solo. Estas son razones legítimas para un precio más bajo:
+Cobrar menos no es sospechoso por sí solo. Estos factores pueden influir en el precio, pero no demuestran que una oferta concreta sea más barata ni equivalente:
 
 - **Estructura pequeña.** Menos capas comerciales y de gestión, y el equipo que vende es el que construye.
-- **Trabajo reutilizable.** Componentes propios ya probados para autenticación, permisos, paneles o integraciones que reducen horas sin reducir calidad.
-- **Alcance cerrado y bien definido.** Cuanto menos incertidumbre, menos colchón necesita el proveedor en la oferta.
-- **Trabajo remoto y procesos propios.** Menos coste fijo y herramientas de entrega ya montadas.
-- **Uso de IA en el propio desarrollo.** Un equipo que usa asistentes de código con revisión y pruebas puede reducir horas de trabajo repetitivo. En OSIX es parte de cómo trabajamos: multiplica a un equipo pequeño, no sustituye la revisión.
+- **Trabajo reutilizable.** Componentes ya probados para autenticación, permisos, paneles o integraciones pueden reducir trabajo, pero hay que verificar que encajan y se prueban.
+- **Alcance cerrado y bien definido.** Explicar las funciones y exclusiones ayuda a estimar el trabajo y comparar propuestas.
+- **Trabajo remoto y procesos propios.** La organización del equipo y sus herramientas pueden influir en sus costes.
+- **Uso de IA en el propio desarrollo.** Los asistentes de código pueden ayudar en tareas repetitivas; su efecto depende del trabajo y requiere revisión y pruebas.
 
-Y estas son las que recortan de verdad, aunque el precio no lo diga: sin pruebas con datos reales, sin criterios de aceptación, sin documentación, sin soporte después de la entrega, con perfiles sin experiencia en el tipo de sistema o con una plataforma que no puedes llevarte.
+Antes de elegir, pregunta por las pruebas, los criterios de aceptación, la documentación, el soporte posterior y las condiciones para cambiar de proveedor.
 
 ## Cómo pedir las ofertas para que se puedan comparar
 
@@ -115,37 +115,36 @@ El [brief para encargar una aplicación de negocio](/guias/informacion-preparar-
 ## Preguntas frecuentes
 
 **¿Qué empresa de desarrollo de software a medida cobra menos en una pyme española?**
-Ninguna puede responderlo de forma honesta sin comparar el mismo alcance. Lo que puedes hacer es enviar el mismo brief a tres o cinco proveedores, pedir la oferta desglosada en construcción, integraciones, operación anual y salida, y comparar el coste a 24 meses con los mismos supuestos. El resultado suele ser distinto del que sugiere la primera cifra.
+Ninguna puede responderlo de forma honesta sin comparar el mismo alcance. Lo que puedes hacer es enviar el mismo brief a tres o cinco proveedores, pedir la oferta desglosada en construcción, integraciones, operación anual y salida, y comparar el coste a 24 meses con los mismos supuestos. El resultado puede ser distinto del que sugiere la primera cifra.
 
 **¿Cuánto cuesta una primera versión de software a medida para una pyme?**
-Depende del alcance. E2D estima 3.000 a 9.000 € para una aplicación de gestión sencilla y Hiberus Booster estima 30.000 a 90.000 € para un MVP funcional. E2D también estima 6.000 a 15.000 € para un portal de clientes y 12.000 a 30.000 € para una aplicación de varios módulos. Son referencias publicadas por esas empresas para alcances distintos, no presupuestos ni un promedio del mercado.
+Depende del alcance. E2D estima 3.000 a 9.000 € para una aplicación de gestión sencilla y Hiberus Booster estima 30.000 a 90.000 € para un MVP funcional. E2D también estima 6.000 a 15.000 € para un portal de clientes y 12.000 a 30.000 € para una aplicación de varios módulos, con IVA aparte. Son referencias publicadas por esas empresas para alcances distintos, no presupuestos ni un promedio del mercado.
 
 **¿Es más barato contratar a un freelance?**
 Puede ser una opción razonable para proyectos pequeños y bien acotados. Compara el alcance y el coste total, y pregunta qué ocurre si esa persona no está disponible, quién mantiene el sistema y qué documentación queda. Compara el coste a 24 meses y el plan de relevo, no solo la tarifa.
 
 **¿Un presupuesto muy bajo significa que el proveedor es peor?**
-No necesariamente. Un equipo pequeño, con componentes reutilizables y un alcance cerrado, puede cobrar menos y entregar bien. Lo que convierte una oferta baja en un problema es que falte el alcance, las pruebas, la documentación o el mantenimiento. Pide esas cuatro cosas por escrito antes de decidir por precio.
+No necesariamente. Un equipo pequeño, con componentes reutilizables y un alcance cerrado, puede cobrar menos y entregar bien. Pide por escrito el alcance, las pruebas y la documentación, y aclara quién se ocupará del mantenimiento y cuánto costará antes de decidir por precio.
 
 **¿Qué hago si dos ofertas se parecen mucho en precio?**
 Compara lo que no está en el importe: quién ejecuta el proyecto, qué pruebas propone, qué pasa con las excepciones, cómo se documenta y qué condiciones de salida ofrece. En la [guía de selección de proveedor](/guias/como-elegir-empresa-desarrollo-software-ia-espana/) hay una tabla de puntuación con pesos para ordenar esas diferencias.
 
 **¿Publica OSIX Tech sus precios?**
-OSIX Tech publica una referencia orientativa: una automatización individual puede partir de unos 1.000 €. No es el precio de cualquier proyecto de software. El coste varía según el alcance, las integraciones y las necesidades de cada cliente. Antes de empezar, acordamos el precio por escrito para el trabajo definido.
+En OSIX Tech no aplicamos un precio de partida fijo: el precio depende del problema de cada cliente, el alcance, las integraciones y las pruebas necesarias. Antes de empezar, acordamos por escrito el precio para el trabajo definido.
 
 ## Nuestro límite honesto
 
-OSIX Tech desarrolla software a medida para pymes, así que esta guía no es neutral: nos conviene que el criterio de comparación no sea el precio más bajo de la primera línea. Por eso no ordenamos empresas por precio y citamos la fuente de cada rango. Los rangos de mercado de esta página son cifras que publican otras empresas o recopilaciones del sector en 2026, para alcances que no son idénticos entre sí. No son una encuesta independiente ni precios de OSIX y no sustituyen una oferta sobre tu proyecto. Si un proveedor te da un precio cerrado sin haber visto tus datos ni tus excepciones, ese precio no compara nada.
+OSIX Tech desarrolla software a medida para pymes, así que esta guía no es neutral. Por eso no ordenamos empresas por precio y citamos la fuente de cada rango. Son estimaciones publicadas por otras empresas en 2026 para alcances distintos, no una encuesta independiente ni precios de OSIX, y no sustituyen una oferta sobre tu proyecto. Una herramienta estándar puede ser mejor opción si cubre el proceso y sus integraciones sin desarrollo adicional. Si una oferta cerrada no explica sus supuestos sobre datos y excepciones, pide que los detalle.
 
 ## Cómo se elaboró esta guía
 
-Leímos las páginas de precios publicadas por E2D, Arteco Consulting e Hiberus Booster y dos recopilaciones de rangos de mercado (bolmia.com y TuWebLocal) durante la última semana de octubre de 2026, y contrastamos sus tramos entre sí. Cuando dos fuentes discrepan, la guía muestra las dos cifras en lugar de elegir una. El método de comparación a 24 meses y la lista de partidas salen de cómo estructuramos nuestras propias propuestas y de las preguntas que aparecen en los presupuestos que nos envían las pymes. No incluye datos de clientes ni resultados de proyectos concretos.
+Consultamos las estimaciones publicadas por E2D, Arteco Consulting, Hiberus Booster y AtomTech el 4 de noviembre de 2026. Los importes se atribuyen a cada fuente y describen alcances distintos. La guía propone comparar las partidas a 24 meses con los mismos supuestos. No incluye datos de clientes ni resultados de proyectos concretos.
 
 ## Fuentes
 
 - [E2D: cuánto cuesta un software a medida](https://e2d.es/blog/cuanto-cuesta-software-a-medida)
 - [Arteco Consulting: cuánto cuesta el desarrollo de software a medida](https://www.arteco-consulting.com/articulos/cuanto-cuesta-desarrollo-software-a-medida/)
 - [Hiberus Booster: desarrollo de software a medida](https://www.hiberusbooster.com/guias/desarrollo-software-a-medida/)
-- [bolmia.com: cuánto cuesta un software a medida en España (rangos 2026)](https://bolmia.com/blog/cuanto-cuesta-software-a-medida)
-- [TuWebLocal: cuánto cuesta un software a medida](https://somostuweblocal.es/cuanto-cuesta-software-a-medida)
+- [AtomTech: cuánto cuesta un software a medida](https://www.atomtech.es/blog/cuanto-cuesta-software-a-medida-2026)
 - [OSIX Tech: cómo elegir una empresa de desarrollo de software con IA](/guias/como-elegir-empresa-desarrollo-software-ia-espana/)
 - [OSIX Tech: qué información preparar antes de encargar una aplicación](/guias/informacion-preparar-aplicacion-negocio/)
