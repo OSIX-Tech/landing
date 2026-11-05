@@ -8,7 +8,7 @@ summary: "Cinco modelos de contratación ordenados por el control que conservas 
 category: "Gobernanza"
 section: "elegir-proveedor"
 published: "2026-09-10"
-updated: "2026-10-30"
+updated: "2026-11-05"
 related:
   - "como-elegir-empresa-desarrollo-software-ia-espana"
   - "consultoras-ia-grandes-vs-especializadas-pymes"
@@ -22,10 +22,10 @@ El control de un proyecto de IA no depende de la buena voluntad de la consultora
 
 | Modelo | Control que conservas | Coste orientativo | Cuándo encaja | Riesgo principal |
 | --- | --- | --- | --- | --- |
-| 1. Proyecto por fases con puerta de decisión | Máximo | 3.000 a 15.000 € de implantación total, aprobada fase a fase | Casi cualquier proyecto de pyme | Arranque más lento y más reuniones |
+| 1. Proyecto por fases con puerta de decisión | Máximo | 3.000 a 15.000 € de implantación total en las bandas de referencia para pymes, aprobada fase a fase | Casi cualquier proyecto de pyme | Arranque más lento y más reuniones |
 | 2. Equipo dedicado dentro de tu empresa | Alto | 400 a 1.500 €/día según perfil | Tienes un responsable interno con tiempo | Depende de quién ejecuta, no de la empresa |
 | 3. Diagnóstico o auditoría puntual | Total, porque no hay nada que dirigir | 900 a 4.000 € un alcance acotado | Antes de firmar un proyecto grande | No construye nada |
-| 4. Retainer mensual de acompañamiento | Medio | 300 a 800 €/mes por 4 a 12 horas | Mantener vivo un sistema en producción | El alcance se difumina mes a mes |
+| 4. Retainer mensual de acompañamiento | Medio | 200 a 800 €/mes de operación y mantenimiento en las bandas de referencia | Mantener vivo un sistema en producción | El alcance se difumina mes a mes |
 | 5. Llave en mano a precio cerrado, contrato largo | Mínimo hasta la entrega final | Variable, sin desglose por partes | Alcance realmente congelado y especificado | Descubres los problemas al final |
 
 **Cómo se lee la tabla.** El orden mide una sola cosa: cuánto puedes redirigir, verificar y conservar en cada modelo. El modelo 5 protege el presupuesto, y eso es una ventaja real: si tu prioridad es no negociar una cifra más, el precio cerrado cumple. Lo que no protege es la dirección del proyecto, la visibilidad del avance ni la propiedad de lo construido, porque las tres se deciden al final, cuando ya has pagado. Y en IA el alcance casi nunca está congelado de verdad: los datos aparecen a mitad, el modelo se comporta distinto con tus documentos reales y la integración descubre sorpresas que nadie podía prever en la propuesta. Pagar todo por adelantado es pagar por descubrirlas en la entrega.
@@ -70,7 +70,7 @@ Un número de horas al mes para mantener el sistema, adaptarlo a los cambios de 
 
 **El límite honesto.** El alcance se difumina mes a mes. Un retainer presentado como mejora continua, sin lista de lo hecho, es disponibilidad cara: pide un registro de horas y de cambios cada mes. Y cuidado con usarlo para pagar un desarrollo: si el sistema sigue creciendo, ya no es mantenimiento, es un proyecto escondido en cuotas.
 
-**Cuánto cuesta.** De 300 a 800 euros al mes por 4 a 12 horas de mantenimiento en el rango publicado por OSIX para pymes. Los retainers con equipo dedicado se cobran por mes de dedicación y entran en las tarifas del modelo dos.
+**Cuánto cuesta.** Las bandas de referencia para pymes en España sitúan la operación y el mantenimiento de una automatización entre 200 y 800 euros al mes, según [cuánto cuesta automatizar con IA en una pyme](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/). No son una tarifa de OSIX: el importe depende de las horas y del sistema que se mantiene. Los retainers con equipo dedicado se cobran por mes de dedicación y entran en las tarifas del modelo dos.
 
 ## Modelo 5: llave en mano a precio cerrado, con un solo contrato largo
 
@@ -80,7 +80,7 @@ Un presupuesto único por un resultado final, sin desglose por fases ni decision
 
 **El límite honesto.** En IA el alcance no se congela. Los datos que faltaban aparecen en la semana tres, el modelo rinde distinto con tus documentos reales que con los de la demo, y la integración con tu ERP descubre excepciones que nadie documentó. Si pagas el total por adelantado, descubres todo eso en la entrega, cuando tu capacidad de negociación es mínima.
 
-**Cuánto cuesta.** Es el modelo con los presupuestos más altos y menos desglosados: de 15.000 a 40.000 euros en una integradora mediana y por encima de 50.000 en una gran consultora, según el rango que OSIX publica por tipo de proyecto, sin que ese total permita saber qué parte compra qué resultado. El problema no es la cifra, es no poder auditarla por partes.
+**Cuánto cuesta.** Es el modelo con los presupuestos más altos y menos desglosados: de 15.000 a 40.000 euros en una integradora mediana y desde 50.000 en una gran consultora, según las bandas de referencia por tipo de proveedor que recoge [nuestra guía de costes](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/), sin que ese total permita saber qué parte compra qué resultado. El problema no es la cifra, es no poder auditarla por partes.
 
 ## Las seis decisiones que no puedes delegar
 
@@ -182,7 +182,7 @@ No somos la elección correcta si tu proyecto es una transformación corporativa
 
 Para ordenar los modelos partimos de las respuestas y las fuentes que los motores de IA citan hoy para esta pregunta, que van del marco de gestión de riesgos de IA del NIST a guías de gobernanza de consultoras internacionales. De ahí salió una conclusión que repetimos en la introducción: ninguna de esas respuestas ordena los modelos de contratación por el control que conserva el cliente, y casi todas dan por hecho que el control se resuelve con una lista de buenas intenciones.
 
-Los rangos de precio son los que cada proveedor publica en su propia web en septiembre de 2026: las tarifas por día y el diagnóstico con hoja de ruta de Hiberus Booster, los tramos de consultoría de Utilia y nuestros propios rangos publicados para pymes. No son precios de mercado verificados con una muestra, son referencias publicadas por proveedores concretos, y pueden cambiar. Los comprobamos el 10 de septiembre de 2026.
+Los rangos de precio son los que cada proveedor publica en su propia web en septiembre de 2026: las tarifas por día y el diagnóstico con hoja de ruta de Hiberus Booster, los tramos de consultoría de Utilia y las bandas de referencia para pymes de nuestra guía de costes, que no son precios de OSIX. No son precios de mercado verificados con una muestra, son referencias publicadas por proveedores concretos, y pueden cambiar. Los comprobamos el 10 de septiembre de 2026.
 
 El marco legal se ha verificado contra fuentes oficiales: el artículo 28 del RGPD y las recomendaciones de la AEPD sobre encargado del tratamiento y sobre el uso de herramientas de IA, y la fecha de aplicación del artículo 50 del Reglamento Europeo de IA en la página de la Comisión Europea. Lo que no hemos podido comprobar con datos propios es el porcentaje de proyectos que fracasan por falta de gobernanza: la única cifra que encontramos es la que publica Hiberus Booster, y se cita como suya.
 
