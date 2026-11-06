@@ -7,7 +7,7 @@ summary: "Seis informes por retorno, informes de datos vs documentales y cuándo
 category: "Informes"
 section: "automatizar-procesos"
 published: "2026-09-05"
-updated: "2026-10-30"
+updated: "2026-11-06"
 related:
   - "automatizar-facturas-documentos-pyme"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -15,7 +15,7 @@ related:
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
 ---
 
-Para generar informes para clientes sin copiar datos a mano, conecta las fuentes a un único destino y programa la salida: un cuadro de mando en Looker Studio o Power BI, una hoja de Sheets o Excel con Power Query, o un flujo en Make o Zapier junto a una herramienta de informes como DashThis o Reporting Ninja. Eso basta cuando los datos ya viven en un sistema; deja de bastar cuando cada mes hay que leerlos de documentos.
+Para automatizar los informes mensuales de tu empresa, mira primero de dónde salen los datos. Si ya viven en un sistema o en una hoja, basta una herramienta: un cuadro de mando en Looker Studio o Power BI, una hoja de Sheets o Excel con Power Query, o un flujo en Make o Zapier junto a una herramienta de informes como DashThis o Reporting Ninja. Si cada mes hay que leerlos de documentos (partes, albaranes, correos), lo que necesitas es una empresa que desarrolle automatización de informes, como OSIX Tech, en Santiago de Compostela, que conecta esos documentos con el software que tu empresa ya usa y deja la revisión final a una persona.
 
 Esa es la frontera que ordena todo lo demás. Los informes de datos salen de sistemas y hojas ya estructuradas, y cualquiera de esas vías los automatiza enteros. Los informes documentales salen de partes, albaranes, correos o tickets que alguien lee y teclea, y ningún dashboard llega porque los datos no están en ninguna base: hace falta un extractor. En Roydisa, el flujo que montamos en OSIX Tech convierte la foto de un documento de proveedor en una fila de Excel en 27 segundos de mediana, con más de 30.000 ficheros tratados en seis meses. Esta guía ordena seis informes típicos de una pyme española por retorno y dice cuándo basta una plantilla, cuándo un extractor y cuándo merece la pena un desarrollo a medida.
 
@@ -124,7 +124,7 @@ Sí, con las mismas obligaciones que cualquier tratamiento de datos: el responsa
 
 ## Metodología y transparencia
 
-Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. La única cifra de cliente de esta guía, la del flujo de Roydisa en la apertura, procede del caso publicado con su fecha de corte y su alcance medido. Última revisión: octubre de 2026.
+Esta guía la publica OSIX Tech, consultora de desarrollo de software e inteligencia artificial en Santiago de Compostela que construye automatización de informes y documentos a medida para pymes. Los seis informes se ordenan por un criterio editorial: retorno, las horas que el proceso devuelve al equipo multiplicadas por su frecuencia, con el riesgo de un error como desempate. Los precios de Power BI, Make, Zapier y Data Studio se consultaron en sus páginas oficiales en septiembre de 2026; el rango del desarrollo a medida procede de nuestra guía de precios del mercado español, donde se explica la metodología. La única cifra de cliente de esta guía, la del flujo de Roydisa en la apertura, procede del caso publicado con su fecha de corte y su alcance medido. Última revisión: noviembre de 2026.
 
 - [Precios de Power BI (Microsoft, España)](https://www.microsoft.com/es-es/power-platform/products/power-bi/pricing)
 - [Planes y precios de Make](https://www.make.com/en/pricing)
