@@ -139,7 +139,7 @@ const servicios = defineCollection({
     description: z.string().min(70),
     seoTitle: z.string().max(160).optional(),
     order: z.number().int(),
-    icon: z.enum(['code', 'compass', 'lightbulb', 'file', 'mail']),
+    icon: z.enum(['code', 'compass', 'lightbulb', 'file', 'mail', 'scan', 'calculator', 'chat']),
     /** schema.org serviceType, in English. */
     serviceType: z.string(),
     updated: isoDate,

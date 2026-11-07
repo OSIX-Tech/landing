@@ -6,7 +6,7 @@ summary: "OSIX Tech prepara borradores de oferta a partir de la petición del cl
 description: "OSIX Tech automatiza la tramitación de presupuestos industriales: del correo o la foto del cliente a un borrador de oferta con el precio trazado, exportable a Excel y con los datos leídos de tu ERP."
 seoTitle: "Automatización de ofertas y presupuestos industriales | OSIX Tech"
 order: 6
-icon: "file"
+icon: "calculator"
 serviceType: "Quote and Proposal Automation"
 updated: "2026-10-30"
 problem:

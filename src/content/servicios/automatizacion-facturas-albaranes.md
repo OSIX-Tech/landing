@@ -6,7 +6,7 @@ summary: "Albaranes, facturas y confirmaciones de pedido leídos desde la carpet
 description: "OSIX Tech conecta la lectura automática de facturas y albaranes de proveedores con el programa de contabilidad o el ERP que ya usas, sin cambiar de software. Cada foto o PDF se lee, se comprueba y llega en el formato que tu sistema sabe importar."
 seoTitle: "Automatización de facturas y albaranes de proveedores con OCR | OSIX Tech"
 order: 4
-icon: "file"
+icon: "scan"
 serviceType: "Document Automation and OCR"
 updated: "2026-11-07"
 problem:
