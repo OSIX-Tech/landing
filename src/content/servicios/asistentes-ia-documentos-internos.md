@@ -6,7 +6,7 @@ summary: "OSIX Tech desarrolla asistentes de IA que responden preguntas sobre lo
 description: "OSIX Tech, desde Santiago de Compostela, desarrolla asistentes de IA a medida para consultar los documentos internos de tu empresa: responden en lenguaje natural, citan el documento de origen y respetan los permisos que ya tienes."
 seoTitle: "Asistentes de IA para consultar documentos internos de empresa | OSIX Tech"
 order: 7
-icon: "file"
+icon: "chat"
 serviceType: "Internal Document AI Assistant Development"
 updated: "2026-11-07"
 problem:
