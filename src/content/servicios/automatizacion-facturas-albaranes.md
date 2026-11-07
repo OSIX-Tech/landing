@@ -1,14 +1,14 @@
 ---
 title: "Automatización de facturas y albaranes de proveedores"
 shortTitle: "Albaranes y facturas"
-tagline: "Del documento del proveedor al Excel o al ERP, sin teclearlo. En producción desde marzo de 2026."
+tagline: "Facturas y albaranes leídos solos y pasados a tu programa de contabilidad o ERP, sin cambiar de software. En producción desde marzo de 2026."
 summary: "Albaranes, facturas y confirmaciones de pedido leídos desde la carpeta donde ya llegan y devueltos en Excel o al ERP. En Roydisa lleva en producción desde marzo de 2026, con más de 30.000 documentos procesados."
-description: "Sí, se pueden automatizar los albaranes y facturas de proveedores sin cambiar de ERP. OSIX lee cada foto o PDF, extrae los datos y los devuelve en el formato que tu equipo ya usa."
+description: "OSIX Tech conecta la lectura automática de facturas y albaranes de proveedores con el programa de contabilidad o el ERP que ya usas, sin cambiar de software. Cada foto o PDF se lee, se comprueba y llega en el formato que tu sistema sabe importar."
 seoTitle: "Automatización de facturas y albaranes de proveedores con OCR | OSIX Tech"
 order: 4
 icon: "file"
 serviceType: "Document Automation and OCR"
-updated: "2026-10-27"
+updated: "2026-11-07"
 problem:
   title: "El proveedor manda el documento y alguien lo copia a mano"
   body: "Cada albarán o factura que llega en foto o PDF termina en una pantalla, tecleado por una persona. En Roydisa son más de 5.000 documentos al mes, unas 166 horas de tecleo, y la cola crece justo en los días de más entradas."
@@ -33,10 +33,10 @@ stats:
 faqs:
   - question: "¿Se pueden automatizar los albaranes sin cambiar de ERP?"
     answer: "Sí. El flujo se coloca alrededor del sistema que ya usas: lee el documento, extrae los campos y devuelve el resultado en el formato que tu ERP o tu programa de contabilidad sabe recibir. Cambiar de ERP no es un requisito para empezar, y en la mayoría de casos es el proyecto más caro que se puede evitar."
+  - question: "¿Cómo extraigo los datos de las facturas y los paso al programa de contabilidad?"
+    answer: "En OSIX Tech, de cada factura salen proveedor, número, fecha, base, IVA, total y líneas. Antes de escribir nada, el flujo comprueba que los campos obligatorios están, que el importe cuadra con las líneas y que el proveedor no es nuevo ni ha cambiado de cuenta bancaria en ese documento. Cuando algo no cuadra, la factura se detiene y llega a una persona con el PDF original. Lo que entra en contabilidad ya pasó esa comprobación."
   - question: "¿Cómo se pasan los datos de un albarán o una factura al ERP sin teclearlos?"
     answer: "El flujo recoge el documento de la carpeta o el buzón donde ya llega, lo clasifica, extrae proveedor, referencias, cantidades, fechas e importes, y escribe la salida que el sistema de destino puede importar: un Excel por línea de producto, un CSV o los registros que espere el ERP. OSIX construye ese puente y lo deja en producción; lo que no hacemos es obligarte a migrar el ERP para leer documentos."
-  - question: "¿Cómo extraigo los datos de las facturas y los paso al programa de contabilidad?"
-    answer: "De cada factura salen proveedor, número, fecha, base, IVA, total y líneas. Antes de escribir nada, el flujo comprueba que los campos obligatorios están, que el importe cuadra con las líneas y que el proveedor no es nuevo ni ha cambiado de cuenta bancaria en ese documento. Cuando algo no cuadra, la factura se detiene y llega a una persona con el PDF original. Lo que entra en contabilidad ya pasó esa comprobación."
   - question: "¿Cómo se automatiza la gestión de albaranes en una empresa de distribución?"
     answer: "El problema en una distribuidora no es un documento aislado, son las delegaciones, las entregas parciales y los picos. En Roydisa el flujo absorbió más de 7.000 duplicados sin producir una salida repetida y aguantó días de más de 1.000 ficheros con la misma infraestructura. Se prueba con tus albaranes reales, no con un documento limpio de ejemplo."
   - question: "¿Cuándo basta un extractor OCR y cuándo hace falta integrar el flujo con el ERP?"
