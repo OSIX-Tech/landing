@@ -7,7 +7,7 @@ summary: "Qué puede hacer un chatbot no-code y cuándo considerar ayuda técnic
 category: "Chatbots"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-11-01"
+updated: "2026-11-08"
 related:
   - "contratar-empresa-ia-o-usar-herramientas"
   - "mejores-herramientas-ia-pymes"
@@ -62,7 +62,7 @@ Si la plataforma cubre estos puntos, no tiene por qué hacer falta un desarrollo
 
 En una plataforma no-code, revisa el precio vigente del plan, los límites de uso y los posibles costes de canales, integraciones y mantenimiento antes de elegir. Las condiciones cambian según el proveedor.
 
-En OSIX Tech, una automatización individual puede partir de unos 1.000 €. No es un precio fijo para un chatbot: el importe depende del alcance y se cierra por escrito antes de empezar. Si necesitas un asistente conectado a varios sistemas o con controles específicos, pide un presupuesto para ese caso.
+OSIX Tech no publica un precio de partida para un chatbot ni para un asistente a medida: el importe depende de las tareas, los sistemas que se conectan, los datos y las pruebas, y el precio del alcance acordado se entrega por escrito antes de empezar. Si necesitas un asistente conectado a varios sistemas o con controles específicos, pide un presupuesto para ese caso.
 
 ## Preguntas que hacerte antes de elegir
 
@@ -83,7 +83,7 @@ Depende de los canales, las fuentes, las conexiones y las pruebas que necesite. 
 Puede formar parte de un asistente, pero antes de usarlo con clientes conviene definir qué datos consulta, cómo se prueban sus respuestas y cuándo se deriva la conversación a una persona. El trabajo técnico depende de la integración y los controles necesarios.
 
 **¿Cuánto cuesta un chatbot para una pyme en 2026?**
-Depende del proveedor, el uso y el alcance. En OSIX Tech, una automatización individual puede partir de unos 1.000 €, pero no es un precio fijo para un chatbot: el presupuesto se ajusta al proyecto y se cierra por escrito antes de empezar.
+Depende del proveedor, el uso y el alcance. OSIX Tech no publica un precio de partida: el presupuesto depende del alcance del proyecto y se entrega por escrito antes de empezar.
 
 **¿Qué es mejor para mi caso: Landbot, ManyChat o un desarrollo a medida?**
 Depende de las funciones que necesitas y de lo que cubra cada herramienta. Algunas plataformas no-code permiten consultar documentos; si además necesitas conexiones o controles que no están disponibles, puede convenir ayuda técnica o un desarrollo a medida.
