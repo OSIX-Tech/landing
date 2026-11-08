@@ -94,7 +94,7 @@ El límite importa: el 0,04 % de error técnico mide fallos del flujo desde juni
 
 ## Mantenimiento después del lanzamiento
 
-Después del lanzamiento, una aplicación puede necesitar correcciones, actualizaciones, comprobaciones de recuperación y cambios funcionales. El acuerdo de mantenimiento debe especificar qué sistemas cubre, quién atiende cada incidencia, qué tiempos de respuesta se ofrecen y qué trabajo se presupuesta aparte. El soporte no implica por sí solo disponibilidad 24/7: el horario, la cobertura y el coste se acuerdan para cada caso.
+Después del lanzamiento, una aplicación puede necesitar correcciones, actualizaciones, comprobaciones de recuperación y cambios funcionales. El acuerdo de mantenimiento debe especificar qué sistemas cubre, quién atiende cada incidencia, qué tiempos de respuesta se ofrecen y qué trabajo se presupuesta aparte. El soporte no implica por sí solo disponibilidad 24/7: el horario, la cobertura y el coste se acuerdan para cada caso. Qué incluye y cómo se contrata está en [mantenimiento de aplicaciones a medida](/servicios/mantenimiento-aplicaciones-a-medida/).
 
 ### El mantenimiento correctivo repara fallos del comportamiento acordado
 
