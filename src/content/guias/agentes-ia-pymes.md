@@ -7,7 +7,7 @@ summary: "Qué hacen, qué no hacen, y cuándo merece la pena montar uno"
 category: "Agentes de IA"
 section: "primeros-pasos"
 published: "2026-08-29"
-updated: "2026-11-01"
+updated: "2026-11-08"
 related:
   - "para-que-sirve-ia-pyme"
   - "que-es-automatizacion-inteligente-pymes-espana"
@@ -92,7 +92,7 @@ Antes de contratar, pide al proveedor un alcance escrito, las integraciones prev
 
 ## Cuánto cuesta montar un agente de IA
 
-El coste depende de las tareas, los sistemas que se conectan, los datos y las pruebas. Pide que cada propuesta separe construcción, consumo de modelos, infraestructura y mantenimiento. En OSIX Tech, una automatización individual puede partir de unos 1.000 €; un agente se presupuesta según su alcance y el precio se cierra por escrito antes de empezar.
+El coste depende de las tareas, los sistemas que se conectan, los datos y las pruebas. Pide que cada propuesta separe construcción, consumo de modelos, infraestructura y mantenimiento. OSIX Tech no publica un precio de partida: cada agente se presupuesta según las tareas, los sistemas, los datos y las pruebas que necesita, y el precio del alcance acordado se entrega por escrito antes de empezar.
 
 ## Preguntas frecuentes
 
