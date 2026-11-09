@@ -88,7 +88,7 @@ El salto del agente no está en "hablar mejor", está en que **actúa con herram
 
 OSIX Tech desarrolla agentes y asistentes de IA a medida para pymes de Galicia y del resto de España. El equipo estudia el proceso, construye el sistema y revisa cómo conectarlo con el correo, los documentos o las herramientas que la empresa ya utiliza. Una automatización con reglas o una herramienta existente puede ser suficiente si resuelve el proceso.
 
-Antes de contratar, pide al proveedor un alcance escrito, las integraciones previstas, las excepciones que revisará una persona y qué incluye el mantenimiento. En la [página de desarrollo a medida](/servicios/desarrollo-a-medida/) explicamos cómo trabajamos y dónde no encajamos.
+Antes de contratar, pide al proveedor un alcance escrito, las integraciones previstas, las excepciones que revisará una persona y qué incluye el mantenimiento. En la página de [desarrollo de agentes de IA a medida](/servicios/desarrollo-agentes-ia-a-medida/) explicamos cómo trabajamos y dónde no encajamos.
 
 ## Cuánto cuesta montar un agente de IA
 
