@@ -8,7 +8,10 @@
         "http://localhost/casos/iciga-correo-crm/",
         "http://localhost/servicios/desarrollo-a-medida/"
       ],
-      "numberOfRuns": 3
+      "numberOfRuns": 3,
+      "settings": {
+        "blockedUrlPatterns": ["*googletagmanager.com*"]
+      }
     },
     "assert": {
       "assertions": {
