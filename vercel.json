@@ -457,6 +457,10 @@
       "dest": "https://fichaxe-wifi.vercel.app/demo-fichaxe-wifi/$1"
     },
     {
+      "src": "^/propuestas/(.*)$",
+      "dest": "https://osix-propuestas.vercel.app/propuestas/$1"
+    },
+    {
       "handle": "filesystem"
     },
     {
