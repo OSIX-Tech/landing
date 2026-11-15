@@ -2,6 +2,19 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "routes": [
     {
+      "src": "^/(.*)$",
+      "has": [
+        {
+          "type": "host",
+          "value": "action.osix.tech"
+        }
+      ],
+      "headers": {
+        "Location": "https://osix.tech/"
+      },
+      "status": 307
+    },
+    {
       "src": "^/es$",
       "headers": {
         "Location": "/"
