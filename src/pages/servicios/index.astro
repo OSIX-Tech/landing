@@ -9,7 +9,7 @@ import { absolute } from '../../site';
 const services = await getServices();
 const title = 'Servicios de IA y software a medida para pymes | OSIX Tech';
 const description =
-  'Desarrollo de software a medida con IA, automatización de ofertas y presupuestos, de facturas y albaranes de proveedores y de correo y CRM, asistentes de IA para documentos internos, mantenimiento de aplicaciones a medida, consultoría de transformación digital e innovación subvencionada para pymes de Galicia y España.';
+  'Desarrollo de software a medida con IA, automatización de ofertas y presupuestos, de facturas y albaranes de proveedores y de correo y CRM, asistentes de IA para documentos internos, automatización con IA para empresas de distribución, mantenimiento de aplicaciones a medida, consultoría de transformación digital e innovación subvencionada para pymes de Galicia y España.';
 ---
 
 <BaseLayout
@@ -36,7 +36,7 @@ const description =
 >
   <header class="shell head">
     <h1 class="rise">
-      <span class="w" style="--i:0">Ocho</span> <span class="w" style="--i:1">formas</span> <span class="w" style="--i:2">de</span>
+      <span class="w" style="--i:0">Once</span> <span class="w" style="--i:1">formas</span> <span class="w" style="--i:2">de</span>
       <span class="w" style="--i:3">trabajar</span> <span class="w" style="--i:4">con</span> <span class="w" style="--i:5">OSIX</span>
     </h1>
     <p class="lead fade-in">
@@ -51,7 +51,7 @@ const description =
     {
       services.map((s, i) => (
         <a class="svc reveal" href={`/servicios/${s.id}/`}>
-          <span class="num">0{i + 1}</span>
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
           <div class="svc-main">
             <h2>
               <Icon name={s.data.icon} size={22} /> {s.data.title}
