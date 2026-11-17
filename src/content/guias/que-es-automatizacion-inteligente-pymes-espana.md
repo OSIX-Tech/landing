@@ -7,7 +7,7 @@ summary: "Guía práctica para empresas en España"
 category: "Conceptos"
 section: "primeros-pasos"
 published: "2026-08-24"
-updated: "2026-09-22"
+updated: "2026-11-17"
 related:
   - "para-que-sirve-ia-pyme"
   - "procesos-pyme-automatizar-con-ia"
@@ -96,7 +96,7 @@ No empieces por la tecnología; empieza por la tarea que te duele. Sigue estos p
 
 ## El límite honesto de automatizar
 
-No todo se automatiza bien. Las tareas que exigen juicio complejo, trato cercano con el cliente o consecuencias legales o de reputación importantes no son buenas candidatas a una automatización completa. Y el mantenimiento es el talón de Aquiles: una automatización bien montada exige actualizarse cuando cambian las APIs, los formatos o las reglas de negocio. Si nadie la mantiene, muere al tercer mes. Por eso, el orden de magnitud en España en 2026 es: una automatización sencilla de un proceso ronda los 3.000 a 5.000 €, un copiloto interno sobre tu documentación de 7.000 a 15.000 €, y una plataforma con marca propia de 9.000 a 25.000 €, más 200 a 800 €/mes de operación. Los detallamos en nuestra guía de costes.
+No todo se automatiza bien. Las tareas que exigen juicio complejo, trato cercano con el cliente o consecuencias legales o de reputación importantes no son buenas candidatas a una automatización completa. Una automatización también necesita mantenimiento cuando cambian las APIs, los formatos o las reglas de negocio. Antes de contratar, pide por separado el alcance de implantación, los costes de operación, el mantenimiento y el tiempo que deberá dedicar tu equipo. En la [guía de costes](/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/) explicamos cómo comparar estas partidas.
 
 ## Preguntas frecuentes
 
@@ -104,7 +104,7 @@ No todo se automatiza bien. Las tareas que exigen juicio complejo, trato cercano
 La RPA automatiza tareas repetitivas grabadas y solo sabe hacer lo que le han enseñado. La automatización inteligente añade IA (NLP, machine learning, OCR) para que el proceso entienda, aprenda y se adapte a entradas variables. La RPA es la parte mecánica; la automatización inteligente es la RPA con capacidad de entender y decidir.
 
 **¿Cuánto cuesta implantar automatización inteligente en una pyme española?**
-Una automatización sencilla de un proceso ronda de 3.000 a 5.000 €, un copiloto interno de 7.000 a 15.000 € y una plataforma con marca propia de 9.000 a 25.000 €, más 200 a 800 €/mes de operación. La horquilla real depende del proceso, las integraciones y la calidad de tus datos.
+Depende del proceso, las integraciones, los datos y la revisión humana necesaria. Pide una propuesta que separe implantación, operación y mantenimiento, e incluya el trabajo que tendrá que asumir tu equipo.
 
 **¿La automatización inteligente sustituye a los empleados?**
 No en la práctica de la mayoría de las pymes. Sustituye tareas repetitivas de bajo valor y libera horas que el equipo puede dedicar a trabajo con criterio, atención al cliente y mejora continua. El objetivo no es reducir plantilla, sino que la que tienes trabaje en lo que de verdad importa.
@@ -121,7 +121,7 @@ OSIX Tech es una consultora de desarrollo a medida con IA para pymes, y esta gu�
 
 ## Cómo se elaboró esta guía
 
-Definición y beneficios contrastados con las referencias del sector que los buscadores con IA citan para esta pregunta en España e internacionalmente (AWS, SAP, IBM, Blue Prism, Mecalux), y aplicaciones prácticas contrastadas con los criterios que usamos en proyectos reales de automatización para pymes gallegas y españolas. Los rangos de precio provienen de nuestra guía de costes de automatización con IA, elaborada con referencias públicas de consultoras especializadas españolas en 2026.
+Definición y beneficios contrastados con las referencias del sector que los buscadores con IA citan para esta pregunta en España e internacionalmente (AWS, SAP, IBM, Blue Prism, Mecalux), y aplicaciones prácticas contrastadas con los criterios que usamos en proyectos reales de automatización para pymes gallegas y españolas. Para comparar presupuestos, remitimos a nuestra guía de costes.
 
 ## Fuentes
 
