@@ -21,8 +21,9 @@ const html = files.filter((f) => f.endsWith('.html'));
 const routeOf = (file) => '/' + path.relative(DIST, file).replace(/index\.html$/, '').replace(/\\/g, '/');
 
 // Redirect routes (the ones with a Location header), so links to retired URLs are reported as such.
+// Routes with a `has` condition (e.g. a subdomain) don't apply to links within osix.tech.
 const redirectRes = vercel.routes
-  .filter((r) => r.headers?.Location)
+  .filter((r) => r.headers?.Location && !r.has)
   .map((r) => ({ re: new RegExp(r.src), to: r.headers.Location }));
 
 function resolves(urlPath) {
