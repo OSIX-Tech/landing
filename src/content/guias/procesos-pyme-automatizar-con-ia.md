@@ -7,7 +7,7 @@ summary: "La lista honesta, con ejemplos por área"
 category: "Procesos"
 section: "primeros-pasos"
 published: "2026-08-26"
-updated: "2026-10-29"
+updated: "2026-11-19"
 related:
   - "para-que-sirve-ia-pyme"
   - "pymes-espanolas-que-mejoraron-con-ia"
@@ -16,7 +16,7 @@ related:
 
 Sí, casi todo lo repetitivo se puede automatizar, pero no todo merece la pena. Lo que separa una automatización que ahorra horas de una que compra una suscripción y no se usa es elegir bien el proceso. La respuesta corta para una pyme española: automatiza primero los procesos repetitivos, medibles y con un responsable claro, dejan para después los que tocan datos dispersos o decisiones que nadie se atreve a delegar. Esta guía ordena los procesos de una empresa pequeña que mejor responden a la IA, del que da retorno más rápido al que exige más, y cada uno lleva su límite honesto. La publica OSIX Tech, consultora de desarrollo de software e IA para pymes con base en Santiago de Compostela.
 
-> **Prueba en producción:** En Roydisa, el asistente de presupuestos prepara un borrador de oferta en **16 segundos** de mediana e identifica solo el **93 %** de las referencias del histórico; del borrador al envío al cliente pasan **8 minutos** de mediana. Es el proceso nº 4 de esta lista, el que menos se vende y el que casi nadie mide. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ofertas/).
+> **Prueba en producción:** En Roydisa, el flujo de documentos de proveedores trató **más de 30.000 ficheros** en seis meses, con una mediana de **27 segundos** de la foto al Excel. Es el proceso nº 1 de esta lista, el que más rápido se paga. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
 
 Una advertencia antes de la lista: los blogs de listados suelen presentar los casos de éxito como resultado garantizado, sin cifras auditadas y sin contar lo que no funcionó. Los datos nacionales que citamos vienen de estudios y fuentes públicas que ponemos al final; el único proyecto cliente que aparece es el de Roydisa, con sus cifras publicadas en la página del caso. El patrón que se repite en las pymes que de verdad automatizan bien no es la herramienta, es el proceso: eligen una tarea concreta y le ponen una métrica antes de comprar nada.
 

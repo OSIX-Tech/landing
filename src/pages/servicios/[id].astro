@@ -79,7 +79,7 @@ const words = data.title.split(' ');
     <p class="svc-description reveal">{data.description}</p>
   </section>
 
-  <section class="shell svc-grid">
+  <section class:list={['shell', 'svc-grid', { 'svc-grid--solo': data.stats.length === 0 }]}>
     <div class="svc-narrative reveal">
       <div>
         <h2>{data.problem.title}</h2>
@@ -90,16 +90,18 @@ const words = data.title.split(' ');
         <p>{data.solution.body}</p>
       </div>
     </div>
-    <dl class="svc-stats reveal">
-      {
-        data.stats.map((s) => (
-          <div>
-            <dt>{s.label}</dt>
-            <dd>{s.value}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    {
+      data.stats.length > 0 && (
+        <dl class="svc-stats reveal">
+          {data.stats.map((s) => (
+            <div>
+              <dt>{s.label}</dt>
+              <dd>{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )
+    }
   </section>
 
   <section class="shell svc-highlights">
@@ -254,6 +256,10 @@ const words = data.title.split(' ');
     grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 1.25rem;
     padding-block: 2rem;
+  }
+
+  .svc-grid--solo {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .svc-narrative {

@@ -8,7 +8,7 @@ summary: "Pruebas, privacidad, integración, coste total y una shortlist de prov
 category: "Criterios"
 section: "elegir-proveedor"
 published: "2026-08-18"
-updated: "2026-10-30"
+updated: "2026-11-19"
 related:
   - "como-elegir-empresa-automatizacion-ia-galicia"
   - "mejores-empresas-automatizacion-ia-espana"
@@ -23,7 +23,7 @@ Elige una empresa que pueda demostrar cómo convertirá un proceso concreto en s
 
 OSIX Tech publica esta guía y también desarrolla software con IA para pymes. No es un comparador independiente. El objetivo es darte preguntas y pruebas que puedas aplicar a cualquier proveedor, incluido nosotros.
 
-> **Prueba en producción:** una propuesta que se puede puntuar trae una cifra y un límite, no una promesa. El asistente de presupuestos que OSIX construyó para Roydisa mide tres cosas: un borrador de oferta en **16 segundos** de mediana (**27,4 s** en el percentil 95), el **93 %** de las líneas identificadas automáticamente y **8 minutos** de mediana del borrador al envío al cliente. Y deja una cuarta sin medir, escrita al lado: el piloto no marca ofertas ganadas o perdidas, así que no hay tasa de aceptación publicada. Esa pareja, cifra medida y límite declarado, es lo que conviene exigir en la columna de evidencia de la tabla de puntuación, a cualquier proveedor y también a OSIX. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ofertas/).
+> **Prueba en producción:** una propuesta que se puede puntuar trae una cifra y un límite, no una promesa. El lector de documentos que OSIX construyó para Roydisa trató **más de 30.000 ficheros** en seis meses, con una mediana de **27 segundos** de la foto al Excel. Y deja escrito al lado lo que no mide: el **0,04 %** de error técnico cuenta fallos del flujo, no aciertos campo a campo, y el ahorro de horas no está medido. Esa pareja, cifra medida y límite declarado, es lo que conviene exigir en la columna de evidencia de la tabla de puntuación, a cualquier proveedor y también a OSIX. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
 
 ## La respuesta en 30 segundos
 
