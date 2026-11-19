@@ -261,6 +261,13 @@
       "status": 308
     },
     {
+      "src": "^/casos/roydisa-ofertas(/|\\.md)?$",
+      "headers": {
+        "Location": "/casos/"
+      },
+      "status": 308
+    },
+    {
       "src": "^/casos/iciga/$",
       "headers": {
         "Location": "/casos/iciga-correo-crm/"

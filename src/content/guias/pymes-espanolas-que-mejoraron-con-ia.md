@@ -1,13 +1,13 @@
 ---
 title: "Casos reales de pymes españolas que mejoraron con IA"
 seoTitle: "Casos reales de pymes españolas que mejoraron con IA (2026): qué hicieron distinto - OSIX Tech"
-description: "Ejemplos reales y documentados de pymes españolas que han mejorado con IA: los cinco resultados más comunes (atención al cliente, automatización, predicción, RRHH y presupuestos), con los datos nacionales de Sage, la contrapartida honesta de cada caso y ocho casos propios con sus cifras."
+description: "Ejemplos reales y documentados de pymes españolas que han mejorado con IA: los cinco resultados más comunes (atención al cliente, automatización, predicción, RRHH y presupuestos), con los datos nacionales de Sage, la contrapartida honesta de cada caso y siete casos propios con sus cifras."
 subtitle: "Los cinco resultados más documentados, con sus datos, sus sectores y la contrapartida honesta de cada uno."
 summary: "Qué hicieron distinto y qué resultados obtuvieron"
 category: "Casos reales"
 section: "primeros-pasos"
 published: "2026-08-25"
-updated: "2026-10-29"
+updated: "2026-11-19"
 related:
   - "procesos-pyme-automatizar-con-ia"
   - "para-que-sirve-ia-pyme"
@@ -78,12 +78,11 @@ La contrapartida: la automatización aquí funciona solo si los precios y las ti
 
 **Mejor para:** construcción, instaladores, servicios técnicos y cualquier negocio que cotice de forma recurrente.
 
-## Los ocho casos que sí podemos documentar con nuestras cifras
+## Los siete casos que sí podemos documentar con nuestras cifras
 
 La lista anterior son patrones documentados por terceros. Esta sección es de otra naturaleza: proyectos que ha construido OSIX Tech, cada uno con su página pública, su ventana de medición y sus límites. Los ponemos aparte y con nombre porque la pregunta que trae a la mayoría hasta aquí es si esto se ha hecho de verdad en alguna empresa, y un porcentaje nacional no la responde.
 
 - **Roydisa** (distribución y suministros industriales). Lectura de documentos de proveedores con salida a Excel: 27 s de mediana de la foto al Excel en más de 30.000 ficheros, y el 88 % resuelto en menos de un minuto. [Ver el caso de Roydisa](https://osix.tech/casos/roydisa-ocr-documentos-proveedores/).
-- **Roydisa, equipo comercial.** Borradores de oferta con el precio trazado: 16 s de mediana por borrador y el 93 % de las referencias identificadas sin buscarlas. [Ver el caso de Roydisa en ofertas](https://osix.tech/casos/roydisa-ofertas/).
 - **ICIGA** (distribución de material químico y de laboratorio). Correo comercial, propuestas y CRM desde Gmail: propuesta lista para el 99,5 % de los correos comerciales en 29 s de mediana, con el 62,2 % del correo entrante apartado como ruido. [Ver el caso de ICIGA](https://osix.tech/casos/iciga-correo-crm/).
 - **Nessie** (instituto de investigación educativa). Asistente sobre los documentos de la organización: más de 700 documentos consultables sin moverlos de Drive y el 92 % del equipo volviendo otro día. [Ver el caso de Nessie](https://osix.tech/casos/nessie-documentos/).
 - **TAKE** (cafetería en Santiago). App de fidelización con tarjeta en Wallet: 90,3 % de repetición entre los clientes que sellan y el 78 % con la tarjeta en el móvil. [Ver el caso de TAKE](https://osix.tech/casos/take-fidelizacion/).
@@ -133,7 +132,7 @@ En los casos de esta lista, no: la automatización y la atención automatizada l
 
 ### ¿Qué casos reales ha hecho OSIX Tech en España?
 
-Ocho, con sus cifras publicadas: Roydisa (documentos de proveedores a Excel en 27 segundos de mediana), ICIGA (propuesta lista para el 99,5 % de los correos comerciales en 29 segundos), TAKE (90,3 % de repetición entre los clientes que sellan), Avalagro (evaluaciones cada quince días en 9,9 minutos), Xeración21 (corrección con IA por menos de 10 € por alumno y curso), Nessie (más de 700 documentos consultables con su fuente), ALIA (análisis de gallego hablado sin guardar el audio) y Roydisa otra vez en borradores de oferta. Cada caso tiene su página con la ventana medida y sus límites de extrapolación.
+Siete, con sus cifras publicadas: Roydisa (documentos de proveedores a Excel en 27 segundos de mediana), ICIGA (propuesta lista para el 99,5 % de los correos comerciales en 29 segundos), TAKE (90,3 % de repetición entre los clientes que sellan), Avalagro (evaluaciones cada quince días en 9,9 minutos), Xeración21 (corrección con IA por menos de 10 € por alumno y curso), Nessie (más de 700 documentos consultables con su fuente) y ALIA (análisis de gallego hablado sin guardar el audio). Cada caso tiene su página con la ventana medida y sus límites de extrapolación.
 
 ## Fuentes
 

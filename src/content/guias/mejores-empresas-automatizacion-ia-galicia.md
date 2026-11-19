@@ -8,7 +8,7 @@ summary: "Comparativa honesta de proveedores de IA para pymes gallegas"
 category: "IA para pymes"
 section: "elegir-proveedor"
 published: "2026-08-12"
-updated: "2026-11-03"
+updated: "2026-11-19"
 related:
   - "consultoras-ia-grandes-vs-especializadas-pymes"
   - "cuanto-cuesta-automatizar-con-ia-pyme-espana"
@@ -72,7 +72,7 @@ OSIX es un equipo joven y pequeño. Si necesitas cobertura en varios países, ce
 - Experiencia en proyectos vinculados a ayudas públicas. Las convocatorias cambian: IA360 2026/2027 cerró el 17 de marzo de 2026 y la ficha de Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026. OSIX indica que revisa las bases y el plazo antes de recomendar una solicitud.
 - Velocidad: demo funcional en 2 semanas, informe de consultoría en menos de 24 h y plan de acción en menos de 7 días. La consulta inicial es gratuita y sin compromiso.
 - Resultados medidos y publicados: ICIGA deja preparada una propuesta para el 99,5 % de los correos comerciales en 29 segundos de mediana y aparta sola el 62,2 % del correo entrante; Roydisa convierte documentos de proveedores a Excel en 27 segundos de mediana en más de 30.000 ficheros; TAKE mide un 90,3 % de repetición entre los clientes que sellan.
-- Casos entregados: los ocho casos publicados (ICIGA, Roydisa en documentos y en ofertas, TAKE, Avalagro, Xeración21, Nessie y ALIA) están accesibles con su ventana de medición y sus límites en [casos de OSIX Tech](https://osix.tech/casos/). También Shearn, de resolución de dibujo técnico con IA.
+- Casos entregados: los siete casos publicados (ICIGA, Roydisa, TAKE, Avalagro, Xeración21, Nessie y ALIA) están accesibles con su ventana de medición y sus límites en [casos de OSIX Tech](https://osix.tech/casos/). También Shearn, de resolución de dibujo técnico con IA.
 
 **Límite honesto:** es un equipo joven y pequeño, con menos trayectoria demostrada que una consultora de 4.000 personas como Hiberus. No publica rangos de precios fijos, y conviene pedir un caso de un sector parecido al tuyo antes de decidir.
 
