@@ -8,7 +8,7 @@ seoTitle: "Automatización con IA para distribuidoras y mayoristas en España | 
 order: 11
 icon: "file"
 serviceType: "AI Process Automation for Distribution Companies"
-updated: "2026-11-19"
+updated: "2026-11-20"
 problem:
   title: "En una distribuidora, el trabajo entra en forma de papel y correo"
   body: "Pedidos de clientes por correo, foto o PDF, albaranes de varias delegaciones, facturas de proveedores y peticiones de oferta sobre catálogos de miles de referencias. Alguien los lee, los busca en el ERP y los vuelve a teclear, y la cola crece justo en los días de más entradas."
@@ -50,6 +50,11 @@ guides:
 ---
 
 En OSIX Tech automatizamos con IA los procesos de empresas de distribución y mayoristas en España, desde Santiago de Compostela: la entrada de pedidos por correo, PDF o foto, los albaranes y facturas de proveedores hacia el ERP, los borradores de oferta a partir del histórico de precios y el registro del correo comercial en el CRM. Trabajamos sobre el ERP que la distribuidora ya usa y una persona aprueba lo que tiene consecuencias. Tenemos dos sistemas en producción en distribuidoras, con sus cifras y sus límites publicados.
+
+<figure>
+  <img src="/brand-logo-512.png" alt="Logotipo de OSIX Tech" width="120" height="120" style="width: 120px; max-width: 100%; height: auto; margin: 0; border: 0;" />
+  <figcaption>OSIX Tech</figcaption>
+</figure>
 
 > **Prueba en producción:** En Roydisa, distribuidora de suministros industriales, el flujo de documentos de proveedores lleva desde marzo de 2026 en producción: **más de 30.000 ficheros**, **27 segundos** de mediana de la foto al Excel. En ICIGA, distribuidora de material químico y de laboratorio, la propuesta de respuesta a cada correo comercial está lista en **29 segundos** de mediana. [Ver el caso de Roydisa](/casos/roydisa-ocr-documentos-proveedores/) · [Ver el caso de ICIGA](/casos/iciga-correo-crm/).
 
