@@ -17,7 +17,7 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
       <h2 id={id}>{title}</h2>
       {faqs.map((f, i) => (
         <details open={i === 0}>
-          <summary>{f.question.replace(/\*\*/g, '')}</summary>
+          <summary><span>{f.question.replace(/\*\*/g, '')}</span></summary>
           <div class="faq-answer" set:html={blockMd(f.answer)} />
         </details>
       ))}
@@ -58,6 +58,11 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
     color: var(--muted);
   }
 
+  summary > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
   summary::-webkit-details-marker {
     display: none;
   }
@@ -65,6 +70,7 @@ const { faqs, title = 'Preguntas frecuentes', id = 'preguntas-frecuentes' } = As
   summary::after {
     content: '+';
     flex-shrink: 0;
+    align-self: flex-start;
     font-size: 1.35rem;
     font-weight: 300;
     line-height: 1;
