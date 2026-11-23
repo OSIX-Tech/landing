@@ -465,6 +465,10 @@
       "dest": "https://malasa-informes.vercel.app/$1"
     },
     {
+      "src": "^/demos/osix-agent/(.*)$",
+      "dest": "https://osix-agent-demo-production.up.railway.app/$1"
+    },
+    {
       "src": "^/demos/(.*)$",
       "dest": "https://portfolio-osix.vercel.app/demos/$1"
     },
