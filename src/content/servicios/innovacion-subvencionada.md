@@ -29,7 +29,7 @@ faqs:
   - question: "¿Qué subvenciones gestionáis?"
     answer: "Estudiamos convocatorias de IGAPE y Red.es, incluidas IA360 y KTED, solo tras comprobar el estado, el plazo, la elegibilidad y las bases oficiales. IA360 2026/2027 está cerrada y Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026; no damos por abierta una convocatoria sucesora."
   - question: "¿Qué pasa si no me aprueban la subvención?"
-    answer: "La concesión depende de la convocatoria y de la decisión del organismo que la gestiona. Antes de empezar, revisamos contigo el alcance, los honorarios y las condiciones aplicables, también si la ayuda no se concede."
+    answer: "La concesión depende de la convocatoria y de la decisión del organismo que la gestiona. Antes de contratar, pregunta por el alcance, los honorarios y las condiciones aplicables, también si la ayuda no se concede."
   - question: "¿Preparáis vosotros toda la documentación?"
     answer: "Sí. Nos encargamos del diseño del proyecto, la memoria técnica, el presupuesto y toda la documentación necesaria para la convocatoria."
 guides:
