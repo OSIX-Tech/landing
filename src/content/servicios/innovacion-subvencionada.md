@@ -7,37 +7,29 @@ description: "Identificamos ayudas públicas y preparamos proyectos cuando exist
 order: 3
 icon: "lightbulb"
 serviceType: "Innovation and Grants Consulting"
-updated: "2026-09-28"
+updated: "2026-11-23"
 problem:
   title: "Hay ayudas, pero no sabes cuáles encajan"
   body: "Existen convocatorias públicas que podrían financiar tu próximo proyecto, pero encontrar las que encajan con tu empresa y diseñar un proyecto que cumpla los requisitos es un trabajo en sí mismo."
 solution:
   title: "Comprobamos la convocatoria y diseñamos el proyecto"
   body: "Analizamos tu empresa y revisamos las bases oficiales, el plazo y la elegibilidad antes de recomendar una solicitud. Si no hay una convocatoria abierta que encaje, te lo decimos con claridad."
-highlightsTitle: "Innova sin arriesgar tu caja"
+highlightsTitle: "Prepara tu proyecto con las bases en la mano"
 highlights:
   - "Comprobación de convocatorias, plazos y requisitos oficiales"
   - "Diseño del proyecto adaptado a las bases vigentes"
   - "Memoria técnica y documentación de solicitud"
   - "Solo recomendamos solicitar ayudas con plazo confirmado"
 stats:
-  - value: "0€"
-    label: "si no se aprueba"
-  - value: "< 7d"
-    label: "propuesta lista para envío"
   - value: "OK"
     label: "plazos y requisitos oficiales"
   - value: "0€"
     label: "consulta inicial"
-testimonial:
-  quote: "Nos consiguieron 120.000€ en subvenciones que ni sabíamos que existían."
-  author: "Gerente"
-  role: "Pyme alimentaria"
 faqs:
   - question: "¿Qué subvenciones gestionáis?"
     answer: "Estudiamos convocatorias de IGAPE y Red.es, incluidas IA360 y KTED, solo tras comprobar el estado, el plazo, la elegibilidad y las bases oficiales. IA360 2026/2027 está cerrada y Red.es sitúa el fin del proyecto inicial KTED en marzo de 2026; no damos por abierta una convocatoria sucesora."
   - question: "¿Qué pasa si no me aprueban la subvención?"
-    answer: "No pagas nada. Solo cobramos si la subvención es aprobada. Además, verificamos tu elegibilidad antes de empezar para maximizar las posibilidades."
+    answer: "La concesión depende de la convocatoria y de la decisión del organismo que la gestiona. Antes de contratar, pregunta por el alcance, los honorarios y las condiciones aplicables, también si la ayuda no se concede."
   - question: "¿Preparáis vosotros toda la documentación?"
     answer: "Sí. Nos encargamos del diseño del proyecto, la memoria técnica, el presupuesto y toda la documentación necesaria para la convocatoria."
 guides:

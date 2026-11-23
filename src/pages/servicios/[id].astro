@@ -190,7 +190,11 @@ const words = data.title.split(' ');
     </aside>
   </section>
 
-  <CtaBand />
+  {
+    service.id === 'innovacion-subvencionada'
+      ? <CtaBand text="Cuéntanos tu proyecto para revisar si hay una convocatoria que encaje. La consulta inicial es gratuita." />
+      : <CtaBand />
+  }
 </BaseLayout>
 
 <style>
