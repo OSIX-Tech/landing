@@ -1,7 +1,7 @@
 ---
 title: "Política de privacidad"
 description: "Cómo trata OSIX Tech Development SL los datos personales: responsable, finalidades, base legal, conservación, derechos y medidas de seguridad."
-updated: "2026-02-20"
+updated: "2026-11-24"
 ---
 
 OSIX Tech Development SL protege y garantiza el derecho fundamental a la protección de datos y se muestra especialmente comprometida con la salvaguarda de la privacidad de las personas. El tratamiento de datos se lleva a cabo de acuerdo con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales. Este tratamiento responde a los principios de licitud, lealtad, transparencia, limitación de la finalidad, minimización de los datos, exactitud, limitación del plazo de conservación, integridad, confidencialidad y responsabilidad proactiva.
@@ -97,6 +97,23 @@ Estas medidas se adaptan al estado de la técnica, costes, naturaleza, contexto 
 
 Las violaciones de seguridad se comunicarán a la autoridad de control y, de ser pertinente, a los afectados según artículo 34 del RGPD.  
 OSIX Tech dispone de un canal de comunicación de incidentes en el formulario de contacto de https://osix.tech o al correo dpd@osix.tech.
+
+---
+
+## 9. Cookies
+
+Este sitio solo usa cookies de analítica, y solo si las aceptas en el aviso que aparece en la primera visita. Si las rechazas o no respondes, no se instala ninguna.
+
+| Cookie | Proveedor | Finalidad | Duración |
+|---|---|---|---|
+| `_ga` | Google Analytics | Distinguir visitantes de forma anónima para contar visitas | 2 años |
+| `_ga_<ID>` | Google Analytics | Mantener el estado de la sesión | 2 años |
+
+Google Analytics lo presta Google Ireland Limited. Los datos pueden transferirse a Estados Unidos al amparo del Marco de Privacidad de Datos UE-EE. UU. Más información en la [política de privacidad de Google](https://policies.google.com/privacy).
+
+Además, el sitio mide visitas y rendimiento con Vercel Web Analytics y Speed Insights, que no usan cookies ni identifican a los visitantes. Tu elección sobre las cookies se guarda en el almacenamiento local del navegador (`osix-cookies`) durante 12 meses; es un dato técnico necesario para recordarla.
+
+Puedes cambiar de opinión cuando quieras con el enlace «Cookies» del pie de página, o borrar las cookies desde la configuración de tu navegador.
 
 ---
 

@@ -52,6 +52,7 @@ const year = new Date().getUTCFullYear();
       <ul>
         <li><a href="/privacidad/">Privacidad</a></li>
         <li><a href="/seguridad-informacion/">Seguridad de la información</a></li>
+        <li><button type="button" class="cookie-settings" data-cookie-settings>Cookies</button></li>
         <li><a href="/llms.txt">llms.txt</a></li>
       </ul>
     </div>
@@ -139,6 +140,7 @@ const year = new Date().getUTCFullYear();
   /* Same hover as everywhere: an underline drawn from the left, text-wide. */
   .cols a,
   .bottom a,
+  .bottom button,
   .contact a {
     color: var(--paper);
     text-decoration: none;
@@ -151,6 +153,7 @@ const year = new Date().getUTCFullYear();
 
   .cols a:hover,
   .bottom a:hover,
+  .bottom button:hover,
   .contact a:hover {
     background-size: 100% 1px;
   }
@@ -165,6 +168,13 @@ const year = new Date().getUTCFullYear();
     border-top: 1px solid var(--line-on-ink);
     color: var(--muted-on-ink);
     font-size: 0.8125rem;
+  }
+
+  .cookie-settings {
+    padding: 0;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
   }
 
   .bottom ul {
