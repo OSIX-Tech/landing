@@ -8,7 +8,7 @@ import { getServices } from '../lib/content';
 const services = await getServices();
 const title = 'Contacto: cuéntanos tu proyecto | OSIX Tech';
 const description =
-  'Habla con OSIX Tech sobre tu proyecto de IA, automatización o software a medida. Respondemos en menos de 24 horas; la consulta inicial es gratuita.';
+  'Habla con OSIX Tech sobre tu proyecto de IA, automatización o software a medida. La consulta inicial es gratuita.';
 // Values are what the EmailJS template and the team's inbox already expect.
 const serviceValue: Record<string, string> = {
   'desarrollo-a-medida': 'custom',
@@ -35,7 +35,7 @@ const products = ['APEC', 'Nessie', 'Moura', 'ACTA', 'IRIS', 'BOND'];
         <span class="w" style="--i:0">Cuéntanos</span> <span class="w" style="--i:1">tu</span> <span class="w" style="--i:2">proyecto</span>
       </h1>
       <p class="lead fade-in">
-        Rellena el formulario y te respondemos en menos de 24 horas. La consulta inicial es gratuita: analizamos tu caso y
+        Rellena el formulario y cuéntanos tu proyecto. La consulta inicial es gratuita: analizamos tu caso y
         te decimos con honestidad qué podemos hacer por ti, y qué no.
       </p>
       <ul class="channels fade-in" style="--d:0.45s">
@@ -135,7 +135,7 @@ const products = ['APEC', 'Nessie', 'Moura', 'ACTA', 'IRIS', 'BOND'];
         { publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY },
       );
       form.reset();
-      if (status) status.textContent = 'Mensaje enviado. Te respondemos en menos de 24 horas.';
+      if (status) status.textContent = 'Mensaje enviado. Gracias por contarnos tu proyecto.';
     } catch {
       if (status) status.textContent = 'No se pudo enviar el mensaje. Escríbenos a info@osix.tech.';
     } finally {
