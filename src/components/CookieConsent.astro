@@ -1,0 +1,214 @@
+---
+// Cookie notice for Google Analytics. GA4 only loads after the visitor accepts: until
+// then no Google script runs and no cookie is set. The choice is kept in localStorage for
+// 12 months; the footer's "Cookies" link ([data-cookie-settings]) reopens the notice.
+// The script is inline so reading pages still ship no bundled JavaScript.
+---
+
+<div id="cookie-consent" class="cookie" role="region" aria-label="Aviso de cookies" hidden>
+  <p>
+    Usamos cookies de Google Analytics para saber qué páginas se leen. Solo se activan si aceptas.
+    <a href="/privacidad/#9-cookies">Más información</a>
+  </p>
+  <div class="actions">
+    <button type="button" class="reject" data-consent="no">Rechazar</button>
+    <button type="button" class="accept" data-consent="yes">Aceptar</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var ID = 'G-RMEFVS4V09';
+    var KEY = 'osix-cookies';
+    var TTL = 365 * 864e5;
+    var box = document.getElementById('cookie-consent');
+    var loaded = false;
+
+    function read() {
+      try {
+        var v = JSON.parse(localStorage.getItem(KEY));
+        if (v && Date.now() - v.t < TTL) return v.ok === true;
+      } catch (e) {}
+      return null;
+    }
+
+    function save(ok) {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({ ok: ok, t: Date.now() }));
+      } catch (e) {}
+    }
+
+    function loadGA() {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+      document.head.appendChild(s);
+    }
+
+    // Off the critical path, as before: GA starts once the page has finished loading.
+    function loadGAWhenReady() {
+      if (document.readyState === 'complete') loadGA();
+      else window.addEventListener('load', loadGA, { once: true });
+    }
+
+    function clearGA() {
+      var host = location.hostname.replace(/^www\./, '');
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (!/^_ga/.test(name)) return;
+        ['', host, '.' + host].forEach(function (d) {
+          document.cookie = name + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+        });
+      });
+    }
+
+    function show() {
+      box.hidden = false;
+      requestAnimationFrame(function () {
+        box.classList.add('in');
+      });
+    }
+
+    function hide() {
+      box.classList.remove('in');
+      setTimeout(function () {
+        box.hidden = true;
+      }, 250);
+    }
+
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      var ok = b.getAttribute('data-consent') === 'yes';
+      save(ok);
+      hide();
+      if (ok) return loadGA();
+      window['ga-disable-' + ID] = true;
+      clearGA();
+      // GA already running in this page: reload so it stops.
+      if (loaded) location.reload();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('[data-cookie-settings]')) return;
+      e.preventDefault();
+      show();
+      box.querySelector('button').focus();
+    });
+
+    var choice = read();
+    if (choice === true) loadGAWhenReady();
+    else if (choice === null) show();
+    else clearGA(); // leftovers from an earlier "accept"
+
+  })();
+</script>
+
+<style>
+  .cookie {
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 45;
+    width: min(24rem, calc(100vw - 2.5rem));
+    padding: 1rem 1.125rem;
+    background: var(--black);
+    color: var(--paper);
+    border: 1px solid var(--line-on-ink);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
+  }
+
+  .cookie.in {
+    opacity: 1;
+  }
+
+  .cookie p {
+    color: var(--muted-on-ink);
+  }
+
+  .cookie a {
+    color: var(--paper);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+  }
+
+  /* Both choices are the same size and equally easy to reach (AEPD guidance). */
+  .actions button {
+    flex: 1;
+    min-height: 2.25rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--paper);
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background-color var(--t-fast) var(--ease),
+      color var(--t-fast) var(--ease);
+  }
+
+  .reject {
+    background: transparent;
+    color: var(--paper);
+  }
+
+  .reject:hover {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .accept {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .accept:hover {
+    background: transparent;
+    color: var(--paper);
+  }
+
+  .cookie :focus-visible {
+    outline-color: var(--paper);
+  }
+
+  /* Leave room for the WhatsApp button on the right. */
+  @media (max-width: 560px) {
+    .cookie {
+      left: 0.75rem;
+      bottom: 0.75rem;
+      width: auto;
+      right: 5.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cookie {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .cookie {
+      display: none;
+    }
+  }
+</style>

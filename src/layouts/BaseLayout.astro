@@ -5,6 +5,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { siteGraph, type JsonLd } from '../lib/schema';
 import { absolute } from '../site';
 import '../styles/global.css';
@@ -94,25 +95,7 @@ const speculation = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(graph)} />
     <script type="speculationrules" is:inline set:html={JSON.stringify(speculation)} />
 
-    <!-- GA4 loads after the page has finished loading, off the critical path. -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-RMEFVS4V09');
-      window.addEventListener(
-        'load',
-        function () {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-RMEFVS4V09';
-          document.head.appendChild(s);
-        },
-        { once: true },
-      );
-    </script>
+    <!-- GA4 loads only after the visitor accepts cookies: see CookieConsent. -->
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -121,6 +104,7 @@ const speculation = {
       <slot />
     </main>
     <Footer />
+    <CookieConsent />
     <!-- Smooth open/close for <details> (FAQ, sidebar groups, mobile index). Half a kilobyte,
          inline, no dependencies; reading pages still ship no bundled JavaScript. -->
     <script is:inline>
