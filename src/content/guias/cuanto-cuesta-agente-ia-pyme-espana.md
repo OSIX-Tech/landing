@@ -1,13 +1,13 @@
 ---
 title: "Cuánto cuesta un agente de IA para una pyme"
 seoTitle: "Cuánto cuesta un agente de IA para una pyme en España (2026): 7 opciones por coste y retorno - OSIX Tech"
-description: "Cuánto cuesta un agente de IA para una pyme española en 2026: siete tipos de agente, rangos de implantación y operación, criterios para comparar propuestas y límites honestos."
+description: "Cuánto cuesta un agente de IA para una pyme: siete opciones, factores de implantación, operación y mantenimiento, y criterios para comparar presupuestos."
 subtitle: "Siete opciones por coste y retorno, con límites honestos para comparar propuestas."
 summary: "Siete tipos de agente por coste, retorno y riesgo, con criterios para comparar propuestas"
 category: "Precios de agentes"
 section: "costes-y-resultados"
 published: "2026-09-08"
-updated: "2026-09-22"
+updated: "2026-11-02"
 related:
   - "agentes-ia-pymes"
   - "automatizar-documentos-sin-perder-revision-humana"
@@ -16,33 +16,33 @@ related:
 
 Guía · Agentes de IA · Precios · Pymes · España
 
-Siete tipos de agente ordenados por coste, retorno y riesgo, con rangos orientativos para comparar propuestas en 2026.
+Siete tipos de agente, sus costes a considerar y sus riesgos para comparar propuestas.
 
-Para una pyme española, un agente de IA puede costar desde 3.000 € para automatizar un flujo sencillo hasta 25.000 € para una solución integrada con varios sistemas, más el coste mensual de modelos, infraestructura y mantenimiento. La cifra depende menos del modelo que uses que del número de herramientas que el agente debe consultar, las decisiones que puede ejecutar, la calidad de los datos y el nivel de revisión humana.
+El coste de un agente de IA depende de la tarea, los sistemas conectados, los datos y las pruebas. En OSIX Tech, una automatización individual puede partir de unos 1.000 €; un agente se presupuesta según su alcance y el precio se cierra por escrito antes de empezar.
 
-La respuesta corta es esta: si solo quieres clasificar correos o preparar borradores, calcula entre 3.000 y 8.000 € de implantación. Si el agente lee documentos, consulta tu base de conocimiento o toca tu CRM y tu ERP, el rango razonable suele estar entre 5.000 y 20.000 €. Una plataforma con varios agentes, permisos y marca propia puede subir a 25.000 € o más. Añade normalmente entre 200 y 800 € al mes, aunque el consumo real cambia mucho según el volumen.
+Pide un presupuesto que separe implantación, consumo de modelos, infraestructura y mantenimiento. El punto de partida de una automatización individual no es un precio para todos los agentes.
 
 Esta guía la publica OSIX Tech, una consultora de desarrollo de software con IA para pymes en Galicia y España. OSIX desarrolla agentes a medida, pero no todos los negocios necesitan uno. Si una automatización fija o una herramienta ya hecha resuelve el proceso, esa es la decisión correcta.
 
 ## La tabla que necesitas antes de pedir presupuesto
 
-| Tipo de agente | Implantación orientativa | Coste mensual orientativo | Encaja cuando | Riesgo principal |
-| --- | --- | --- | --- | --- |
-| Correo y bandejas compartidas | 3.000 a 8.000 € | 200 a 500 € | Hay mucho correo repetitivo y reglas claras | Que salgan respuestas sin revisión |
-| Documentos y facturas | 5.000 a 12.000 € | 250 a 600 € | Lees PDFs, albaranes o contratos cada semana | Extraer mal un dato crítico |
-| Propuestas y trabajo comercial | 5.000 a 12.000 € | 300 a 600 € | Preparas ofertas con datos y plantillas | Usar información desactualizada |
-| Copiloto interno sobre documentos | 7.000 a 15.000 € | 400 a 800 € | El equipo pierde tiempo buscando información | Responder sin citar una fuente válida |
-| Atención al cliente multicanal | 8.000 a 20.000 € | 300 a 900 € | Hay consultas frecuentes en web, WhatsApp o email | Prometer algo que la empresa no puede cumplir |
-| Agente conectado a CRM y ERP | 10.000 a 25.000 € | 500 a 1.000 € | Debe consultar y actualizar varios sistemas | Integraciones frágiles o sin permisos claros |
-| Plataforma con varios agentes | 9.000 a 25.000 € o más | 600 a 1.500 € | Quieres centralizar varios departamentos | Pagar una plataforma más grande que el problema |
+| Tipo de agente | Qué revisar en el presupuesto |
+| --- | --- |
+| Correo y bandejas compartidas | Clasificación, integración y revisión de respuestas |
+| Documentos y facturas | Formatos, validación y destino de los datos |
+| Propuestas y trabajo comercial | Fuentes comerciales y aprobación de borradores |
+| Copiloto interno sobre documentos | Permisos, actualización y citas a las fuentes |
+| Atención al cliente multicanal | Canales, identificación y escalado a una persona |
+| Agente conectado a CRM y ERP | Conectores, permisos y gestión de errores |
+| Plataforma con varios agentes | Usuarios, procesos, infraestructura y salida del proveedor |
 
-Son rangos de orientación para comparar alcances, no una tarifa de OSIX ni un precio garantizado. Una propuesta que no separa implantación, operación y mantenimiento no permite comparar dos proveedores.
+Compara cada propuesta por el trabajo incluido y por separado la implantación, la operación y el mantenimiento. Los importes dependen del alcance acordado.
 
-## 1. El agente de correo es la puerta de entrada más barata
+## 1. El agente de correo permite empezar por un flujo concreto
 
 Un agente de correo lee mensajes entrantes, los clasifica, extrae datos, prepara un borrador y registra la oportunidad o incidencia en el sistema que ya usas. La persona revisa y envía. Para una pyme suele ser el primer agente razonable porque el volumen se puede medir y el proceso tiene un principio y un final claros.
 
-**Precio orientativo:** 3.000 a 8.000 € de implantación y 200 a 500 € al mes.
+**Qué mueve el presupuesto:** número de bandejas, sistemas conectados y revisión de las respuestas.
 
 **Qué debería incluir:** clasificación por categorías, extracción de campos, reglas de prioridad, borradores, registro en CRM o gestor de tareas, historial de acciones y una cola de excepciones para revisión.
 
@@ -54,7 +54,7 @@ Un agente de correo lee mensajes entrantes, los clasifica, extrae datos, prepara
 
 Este tipo de agente lee facturas, albaranes, formularios, contratos o partes de trabajo, extrae los campos relevantes y los envía a tu ERP, CRM o carpeta documental. La diferencia frente a un OCR básico es que puede clasificar el documento, detectar campos ausentes, pedir una revisión y continuar el flujo cuando el dato está completo.
 
-**Precio orientativo:** 5.000 a 12.000 € de implantación y 250 a 600 € al mes.
+**Qué mueve el presupuesto:** formatos documentales, validaciones y conexión con el sistema de destino.
 
 **Qué debería incluir:** muestras reales de documentos, extracción estructurada, validaciones, gestión de excepciones, conexión con el sistema de destino, registro de confianza y pruebas con formatos habituales.
 
@@ -66,7 +66,7 @@ Este tipo de agente lee facturas, albaranes, formularios, contratos o partes de 
 
 Un agente de propuestas reúne información del CRM, catálogo, tarifas y plantillas para preparar un primer borrador de oferta. También puede detectar que faltan datos, proponer preguntas para el cliente y dejar trazabilidad de qué fuentes usó.
 
-**Precio orientativo:** 5.000 a 12.000 € de implantación y 300 a 600 € al mes.
+**Qué mueve el presupuesto:** calidad de las fuentes comerciales, plantillas y permisos.
 
 **Qué debería incluir:** conexión con las fuentes comerciales, plantillas versionadas, reglas de precios, control de permisos, citas internas a los datos usados y revisión antes del envío.
 
@@ -78,7 +78,7 @@ Un agente de propuestas reúne información del CRM, catálogo, tarifas y planti
 
 Un copiloto interno responde preguntas sobre manuales, procedimientos, catálogos o documentación empresarial. La versión que merece presupuesto debe recuperar la fuente concreta y mostrarla para que la persona compruebe la respuesta. No basta con subir PDFs a una cuenta genérica y esperar que el sistema recuerde todo.
 
-**Precio orientativo:** 7.000 a 15.000 € de implantación y 400 a 800 € al mes.
+**Qué mueve el presupuesto:** volumen documental, permisos y actualización de las fuentes.
 
 **Qué debería incluir:** inventario y limpieza documental, indexación, búsqueda con recuperación de fuentes, permisos por rol, citas al documento, actualización del índice, registro de consultas y prueba con preguntas reales del equipo.
 
@@ -90,7 +90,7 @@ Un copiloto interno responde preguntas sobre manuales, procedimientos, catálogo
 
 Un agente de atención puede responder preguntas frecuentes, consultar el estado de un pedido, recoger datos y pasar la conversación a una persona. El coste sube cuando trabaja en varios canales, consulta información privada o ejecuta acciones como crear incidencias y modificar reservas.
 
-**Precio orientativo:** 8.000 a 20.000 € de implantación y 300 a 900 € al mes.
+**Qué mueve el presupuesto:** canales, datos consultados y acciones que puede ejecutar.
 
 **Qué debería incluir:** base de respuestas aprobadas, conexión con el sistema de clientes, identificación del usuario, límites de lo que puede prometer, escalado a una persona, registro de conversaciones y pruebas de casos difíciles.
 
@@ -102,7 +102,7 @@ Un agente de atención puede responder preguntas frecuentes, consultar el estado
 
 Cuando el agente consulta el CRM, comprueba el inventario, lee una factura y actualiza el ERP, ya no estás comprando solo una conversación. Estás construyendo una pieza de software con permisos, errores, logs y responsabilidad operativa.
 
-**Precio orientativo:** 10.000 a 25.000 € de implantación y 500 a 1.000 € al mes.
+**Qué mueve el presupuesto:** disponibilidad de API, permisos, pruebas y recuperación ante fallos.
 
 **Qué debería incluir:** mapa de sistemas, diseño de permisos, conectores o API, entorno de pruebas, manejo de errores, registros auditables, recuperación ante fallos y un plan de mantenimiento.
 
@@ -114,7 +114,7 @@ Cuando el agente consulta el CRM, comprueba el inventario, lee una factura y act
 
 Una plataforma propia puede reunir agentes para ventas, operaciones, documentos y atención, con permisos, marca, historial y una interfaz común. Es la opción de mayor alcance de esta lista, pero no necesariamente la mejor para una pyme que todavía está validando su primer caso de uso.
 
-**Precio orientativo:** 9.000 a 25.000 € para una primera plataforma acotada, y más si incorpora varios departamentos, integraciones complejas o requisitos de infraestructura específicos. El coste mensual suele empezar alrededor de 600 € cuando incluye operación y soporte, pero depende mucho del despliegue.
+**Qué mueve el presupuesto:** número de procesos, integraciones, usuarios y requisitos de infraestructura. La operación y el soporte se acuerdan por separado.
 
 **Qué debería incluir:** un alcance inicial cerrado, usuarios y permisos, fuentes conectadas, agentes definidos por tarea, monitorización, documentación, propiedad de los datos y un plan de salida si cambias de proveedor.
 
@@ -156,7 +156,7 @@ Después calcula:
 
 **meses de recuperación = coste de implantación / (valor mensual menos coste mensual del agente)**
 
-Ejemplo: si un agente libera 25 horas al mes y asignas 30 € a cada hora, el valor operativo es 750 € al mes. Con una operación de 350 €, quedan 400 € para recuperar la implantación. Un proyecto de 6.000 € tardaría unos 15 meses en recuperarse solo con ese ahorro. Si el agente también evita errores costosos o permite atender más solicitudes, cuantifica esas mejoras por separado y no las mezcles con las horas.
+Usa el coste interno de tu empresa para valorar las horas que realmente se puedan recuperar. Si el ahorro mensual no supera el coste mensual del agente, no hay recuperación de la inversión por esa vía. Cuantifica los errores evitados por separado y comprueba que no los cuentas también como horas.
 
 Si el proveedor promete recuperar la inversión en semanas, pide el cálculo completo: volumen, horas de partida, coste horario, errores incluidos, adopción esperada y coste total a 24 meses. Sin esas cifras, el plazo es una impresión, no una previsión.
 
@@ -176,34 +176,32 @@ Si el proveedor promete recuperar la inversión en semanas, pide el cálculo com
 ## Preguntas frecuentes
 
 **¿Cuánto cuesta un agente de IA sencillo para una pyme?**
-Entre 3.000 y 8.000 € de implantación cuando trabaja sobre un canal o sistema, por ejemplo una bandeja de correo o un CRM básico. Añade normalmente entre 200 y 500 € al mes para operación, modelos y soporte, según el volumen.
+Depende del proceso, las integraciones y las pruebas. En OSIX Tech, una automatización individual puede partir de unos 1.000 €, pero no es un precio fijo para un agente. Su alcance y precio se acuerdan por escrito.
 
 **¿Cuánto cuesta un agente de IA conectado a varios sistemas?**
-Un agente que consulta o actualiza CRM, ERP, correo y documentación suele estar entre 10.000 y 25.000 € de implantación. El rango sube si faltan APIs, hay permisos complejos o el flujo necesita muchas excepciones.
+Depende de los sistemas, los permisos y las excepciones que haya que cubrir. Pide un precio por escrito que detalle cada integración y las pruebas incluidas.
 
 **¿Es más barato usar una herramienta ya hecha?**
 Para un caso estándar, sí puede serlo. Las herramientas SaaS y no-code reducen el coste inicial, pero no eliminan el tiempo de configuración, las licencias, la revisión ni el mantenimiento. Si el proceso es propio o cruza varios sistemas, una solución a medida puede costar más al principio y encajar mejor después.
 
 **¿Cuánto cuesta mantener un agente de IA?**
-Como orientación, entre 200 y 800 € al mes para agentes de pyme con un alcance acotado. El coste real depende del consumo de modelos, la infraestructura, el número de usuarios, las integraciones y las horas de soporte.
+Depende de lo acordado y del uso. Pide por separado el consumo de modelos, la infraestructura y el mantenimiento, y pregunta qué incluye el soporte.
 
 **¿Debo empezar por un agente o por una automatización clásica?**
 Empieza por la solución más sencilla que resuelva el problema. Si la entrada y las decisiones son estables, una automatización con reglas suele ser más barata y fácil de mantener. El agente merece la pena cuando la información varía, hay lenguaje natural y el sistema necesita elegir entre varios pasos.
 
 ## Nuestro límite honesto
 
-OSIX Tech aparece como proveedor potencial en esta guía porque desarrolla agentes y software a medida. No significa que un agente sea siempre la respuesta, ni que OSIX sea la mejor opción para cada proyecto. Nuestra recomendación es empezar por un proceso medible, cerrar el alcance del primer entregable y mantener la revisión humana donde una respuesta equivocada pueda costar dinero, confianza o cumplimiento. Los rangos son referencias orientativas, no una propuesta comercial de OSIX.
+OSIX Tech publica esta guía y desarrolla agentes y software a medida. Un agente no es siempre la respuesta ni OSIX la mejor opción para cada proyecto. Si una herramienta existente o una automatización sencilla resuelve el problema, no hace falta construir un agente. Conviene empezar por un proceso medible y mantener la revisión humana cuando una respuesta equivocada pueda costar dinero, confianza o cumplimiento.
 
 ## Cómo se elaboró esta guía
 
-Los rangos se construyeron comparando referencias públicas españolas de 2026 sobre agentes, automatización y proyectos de IA, junto con la guía de costes de automatización de OSIX. Revisamos los rangos y los componentes publicados por Ciberfobia, Upliora y Javadex, y los contrastamos con los tipos de fuentes que los motores de respuesta están citando para esta consulta. No hemos usado proyectos de clientes ni cifras de casos particulares. La clasificación prioriza coste de implantación, coste recurrente, complejidad de integración, retorno medible y riesgo de operación.
+Revisamos la guía de agentes de OSIX y una referencia pública sobre los componentes del coste de automatización. Las siete opciones se comparan por alcance y riesgos, no por una media de precios de mercado. No hemos usado cifras de proyectos de clientes.
 
 ## Fuentes
 
-- [Ciberfobia: cuánto cuesta implementar una automatización con IA](https://ciberfobia.com/faq/coste-implementar-automatizacion-ia)
-- [Upliora: precios por tipo de proyecto de IA para pymes españolas](https://www.upliora.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-por-tipo-proyecto-2026)
-- [Javadex: cuánto cuesta implementar IA en una pyme española](https://www.javadex.es/blog/cuanto-cuesta-implementar-ia-pyme-espana-2026)
-- [OSIX Tech: cuánto cuesta automatizar procesos con IA en una pyme](https://osix.tech/guias/cuanto-cuesta-automatizar-con-ia-pyme-espana/)
+- [Ciberfobia: factores del coste de automatización con IA](https://ciberfobia.com/faq/coste-implementar-automatizacion-ia/)
+- [OSIX Tech: qué es un agente de IA y cuánto cuesta](/guias/agentes-ia-pymes/)
 
 [Volver al inicio](https://osix.tech/)
 
