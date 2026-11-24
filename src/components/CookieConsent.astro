@@ -7,7 +7,7 @@
 
 <div id="cookie-consent" class="cookie" role="region" aria-label="Aviso de cookies" hidden>
   <p>
-    Usamos cookies de Google Analytics para saber qué páginas se leen. Solo se activan si aceptas.
+    Usamos cookies de analítica (Google Analytics) solo si las aceptas.
     <a href="/privacidad/#9-cookies">Más información</a>
   </p>
   <div class="actions">
@@ -72,6 +72,8 @@
 
     function show() {
       box.hidden = false;
+      document.documentElement.style.setProperty('--cookie-h', box.offsetHeight + 'px');
+      document.documentElement.setAttribute('data-cookies', 'open');
       requestAnimationFrame(function () {
         box.classList.add('in');
       });
@@ -79,6 +81,7 @@
 
     function hide() {
       box.classList.remove('in');
+      document.documentElement.removeAttribute('data-cookies');
       setTimeout(function () {
         box.hidden = true;
       }, 250);
@@ -152,7 +155,7 @@
   /* Both choices are the same size and equally easy to reach (AEPD guidance). */
   .actions button {
     flex: 1;
-    min-height: 2.25rem;
+    min-height: 2.75rem;
     padding: 0.4rem 0.9rem;
     border: 1px solid var(--paper);
     font: inherit;
@@ -190,13 +193,24 @@
     outline-color: var(--paper);
   }
 
-  /* Leave room for the WhatsApp button on the right. */
+  /* Phones: a full-width strip flush with the bottom edge (thumb zone, two lines of text),
+     and the WhatsApp button rises above it while it is open. */
   @media (max-width: 560px) {
     .cookie {
-      left: 0.75rem;
-      bottom: 0.75rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
       width: auto;
-      right: 5.25rem;
+      padding: 0.875rem 1rem calc(0.875rem + env(safe-area-inset-bottom, 0px));
+      border-width: 1px 0 0;
+    }
+
+    .actions {
+      margin-top: 0.7rem;
+    }
+
+    :global(html[data-cookies='open'] .whatsapp) {
+      bottom: calc(var(--cookie-h, 0px) + 0.75rem);
     }
   }
 
